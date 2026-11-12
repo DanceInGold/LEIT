@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Beispieltexte frei formuliert für die fiktive A
 belege:
   - {titel: "Prüfungskatalog AP1, Unterpunkt 02.04: Technische und kaufmännische Texte auf Englisch – Themenzuordnung siehe content/ap1/katalog.yaml (englische-texte)"}
   - {titel: "Cambridge Dictionary (Englisch–Deutsch): actual, eventually, billion, quotation, lead time", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

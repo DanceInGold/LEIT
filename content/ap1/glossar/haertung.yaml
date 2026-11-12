@@ -1,0 +1,13 @@
+id: haertung
+begriff: Härtung
+kurz: Verkleinern der Angriffsfläche eines Systems durch Entfernen von Unnötigem und Absichern des Rests.
+erklaerung: 'Typische Maßnahmen: nicht benötigte Dienste deaktivieren, Updates einspielen, Standardpasswörter
+  ändern, Prinzip der minimalen Rechte, SSH statt Telnet, Root-Login sperren, Firewall mit Standardregel
+  „alles verbieten, was nicht erlaubt ist“, Protokollierung.'
+warum: Ein Dienst, der nicht läuft, kann nicht angegriffen werden.
+beispiel: Auf einem Archivserver nur SSH aus dem Admin-Netz und den Archivdienst erlauben.
+verwandt:
+- authentifizierung
+thema: haertung-firewall
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

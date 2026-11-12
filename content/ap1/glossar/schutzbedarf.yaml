@@ -1,0 +1,15 @@
+id: schutzbedarf
+begriff: Schutzbedarf
+kurz: 'Einstufung nach BSI-Grundschutz, wie schwer ein Schaden je Schutzziel wäre: normal, hoch oder sehr
+  hoch.'
+erklaerung: 'Normal: Schadensauswirkungen begrenzt und überschaubar; hoch: beträchtlich; sehr hoch: existentiell
+  bedrohlich, katastrophal (BSI-Standard 200-2). Begründet wird über sechs Schadensszenarien. Für IT-Systeme
+  gelten Maximumprinzip, Kumulations- und Verteilungseffekt.'
+warum: Sicherheit kostet; der Schutzbedarf zeigt, wo starke Maßnahmen nötig sind.
+beispiel: 'Kundenarchiv: Vertraulichkeit hoch, Integrität hoch, Verfügbarkeit normal.'
+verwandt:
+- schutzziele
+- isms
+thema: bsi-schutzbedarf
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

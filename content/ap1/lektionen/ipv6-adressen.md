@@ -12,7 +12,7 @@ belege:
   - {titel: "RFC 5952: A Recommendation for IPv6 Address Text Representation", url: "https://www.rfc-editor.org/rfc/rfc5952"}
   - {titel: "RFC 3849: IPv6 Address Prefix Reserved for Documentation (2001:db8::/32)", url: "https://www.rfc-editor.org/rfc/rfc3849"}
   - {titel: "RFC 4193: Unique Local IPv6 Unicast Addresses (fc00::/7)", url: "https://www.rfc-editor.org/rfc/rfc4193"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Dezimale SI-Präfixe nach SI-Broschüre (BIPM), 
 belege:
   - {titel: "IEC 80000-13:2008 Quantities and units – Part 13: Information science and technology (Präfixe Ki, Mi, Gi, Ti)"}
   - {titel: "BIPM: The International System of Units (SI), 9. Auflage 2019 – SI-Präfixe k = 10³, M = 10⁶, G = 10⁹, T = 10¹²", url: "https://www.bipm.org/en/publications/si-brochure"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

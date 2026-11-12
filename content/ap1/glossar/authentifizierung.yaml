@@ -1,0 +1,12 @@
+id: authentifizierung
+begriff: Authentifizierung
+kurz: Nachweis, dass jemand wirklich die Person ist, die er zu sein behauptet.
+erklaerung: 'Folgt auf die Identifikation (Benutzername) und geht der Autorisierung (Rechte) voraus. Faktoren:
+  Wissen, Besitz, Inhärenz. Zwei-Faktor-Authentifizierung kombiniert zwei verschiedene Faktoren. Aktuelle
+  Passwortregeln (NIST SP 800-63B Rev. 4): lang statt kompliziert, Wechsel nur bei Verdacht, Sperrliste.'
+beispiel: Passwort (Wissen) + Code aus der Authenticator-App (Besitz) = 2FA.
+verwandt:
+- haertung
+thema: authentifizierung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

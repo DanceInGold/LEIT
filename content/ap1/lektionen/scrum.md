@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.01: Projektphasen am Beispiel des Wasserfallmodells bzw. SCRUM definieren können (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020", url: "https://scrumguides.org/scrum-guide.html"}
   - {titel: "Scrum.org: Which Scrum events are time-boxed? (Sprint ≤ 1 Monat, Planning ≤ 8 h, Daily 15 min, Review ≤ 4 h, Retrospektive ≤ 3 h)", url: "https://www.scrum.org/resources/blog/which-scrum-events-are-time-boxed"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -1,0 +1,14 @@
+id: schutzziele
+begriff: Schutzziele
+kurz: 'Grundwerte der Informationssicherheit: Vertraulichkeit, Integrität und Verfügbarkeit (CIA).'
+erklaerung: 'Vertraulichkeit: nur Befugte lesen. Integrität: Daten sind korrekt und unverändert. Verfügbarkeit:
+  Daten und Systeme sind nutzbar, wenn sie gebraucht werden. Erweiterte Ziele sind u. a. Authentizität,
+  Verbindlichkeit und Zurechenbarkeit.'
+warum: Erst wenn klar ist, was geschützt werden soll, lässt sich die passende Maßnahme wählen.
+beispiel: Ransomware verletzt Verfügbarkeit (verschlüsselt) und oft auch Vertraulichkeit (Daten abgeflossen).
+verwandt:
+- schutzbedarf
+- tom
+thema: schutzziele
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

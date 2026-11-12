@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Subnetting nach RFC 950 und CIDR nach RFC 4632; 
 belege:
   - {titel: "RFC 950: Internet Standard Subnetting Procedure", url: "https://www.rfc-editor.org/rfc/rfc950"}
   - {titel: "RFC 4632: Classless Inter-domain Routing (CIDR)", url: "https://www.rfc-editor.org/rfc/rfc4632"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

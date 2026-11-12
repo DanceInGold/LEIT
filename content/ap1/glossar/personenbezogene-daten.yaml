@@ -1,0 +1,13 @@
+id: personenbezogene-daten
+begriff: Personenbezogene Daten
+kurz: Alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen
+  (Art. 4 Nr. 1 DSGVO).
+erklaerung: Dazu gehören Name, E-Mail-Adresse, Kundennummer, aber auch IP-Adressen und Login-Protokolle.
+  Besondere Kategorien nach Art. 9 (z. B. Gesundheit, Religion, biometrische Daten) sind besonders geschützt.
+  Pseudonymisierte Daten bleiben personenbezogen, anonymisierte nicht.
+beispiel: Ein Log-Eintrag mit Benutzername und IP-Adresse ist personenbezogen.
+verwandt:
+- tom
+thema: datenschutz
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

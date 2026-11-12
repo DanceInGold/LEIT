@@ -13,7 +13,7 @@ belege:
   - {titel: "RFC 5321 (SMTP), RFC 9051 (IMAP4rev2), RFC 8314 (Mail über TLS, Ports 465/993)", url: "https://www.rfc-editor.org/rfc/rfc8314"}
   - {titel: "RFC 4253: The Secure Shell (SSH) Transport Layer Protocol", url: "https://www.rfc-editor.org/rfc/rfc4253"}
   - {titel: "IANA: Service Name and Transport Protocol Port Number Registry", url: "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

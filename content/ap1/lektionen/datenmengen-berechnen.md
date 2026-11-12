@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Formeln für unkomprimierte Rastergrafik, PCM-Au
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.03: Übertragungsraten, -zeiten und Datenmengen berechnen, z. B. Größe einer Bilddatei (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "IEC 60908:1999 Audio recording – Compact disc digital audio system (44,1 kHz, 16 Bit, 2 Kanäle)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

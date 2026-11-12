@@ -11,7 +11,7 @@ belege:
   - {titel: "NIST FIPS 180-4: Secure Hash Standard (SHA-256: 256-Bit-Hashwert)", url: "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"}
   - {titel: "RFC 5280: Internet X.509 Public Key Infrastructure Certificate and CRL Profile", url: "https://www.rfc-editor.org/rfc/rfc5280"}
   - {titel: "OWASP Password Storage Cheat Sheet (Salt, langsame Hashverfahren wie Argon2id, bcrypt)", url: "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

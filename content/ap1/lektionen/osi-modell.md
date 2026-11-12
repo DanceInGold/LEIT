@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.02: Netzwerkprotokolle (z. B. Ethernet, IP, DNS) und OSI-Modell (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "ISO/IEC 7498-1:1994 Information technology – Open Systems Interconnection – Basic Reference Model"}
   - {titel: "RFC 1122: Requirements for Internet Hosts – Communication Layers (Link, Internet, Transport, Application)", url: "https://www.rfc-editor.org/rfc/rfc1122"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

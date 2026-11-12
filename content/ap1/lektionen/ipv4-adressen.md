@@ -11,7 +11,7 @@ belege:
   - {titel: "RFC 4632: Classless Inter-domain Routing (CIDR)", url: "https://www.rfc-editor.org/rfc/rfc4632"}
   - {titel: "RFC 1918: Address Allocation for Private Internets", url: "https://www.rfc-editor.org/rfc/rfc1918"}
   - {titel: "RFC 3927: Dynamic Configuration of IPv4 Link-Local Addresses (169.254.0.0/16)", url: "https://www.rfc-editor.org/rfc/rfc3927"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

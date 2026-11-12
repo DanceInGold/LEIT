@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.06: Klassen, Attribute, Objekte, Methoden, Sichtbarkeit (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "OMG Unified Modeling Language (UML) 2.5.1: VisibilityKind (public +, private −, protected #, package ~)", url: "https://www.omg.org/spec/UML/2.5.1"}
   - {titel: "PEP 8: Designing for Inheritance (führender Unterstrich für nicht-öffentliche Attribute)", url: "https://peps.python.org/pep-0008/#designing-for-inheritance"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

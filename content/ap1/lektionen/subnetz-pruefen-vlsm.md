@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Weiterleitungsentscheidung eines Hosts nach RFC 
 belege:
   - {titel: "RFC 1122: Requirements for Internet Hosts, Abschnitt 3.3.1 Routing Outbound Datagrams (lokal zustellen oder an das Gateway)", url: "https://www.rfc-editor.org/rfc/rfc1122"}
   - {titel: "RFC 4632: Classless Inter-domain Routing (CIDR) – Präfixe variabler Länge", url: "https://www.rfc-editor.org/rfc/rfc4632"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

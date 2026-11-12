@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.01: Projektphasen – Wasserfallmodell und Scrum; weitere Vorgehensmodelle entfallen (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Royce, W. W.: Managing the Development of Large Software Systems. Proceedings of IEEE WESCON, 1970"}
   - {titel: "Manifest für Agile Softwareentwicklung (2001)", url: "https://agilemanifesto.org/iso/de/manifesto.html"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

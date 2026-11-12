@@ -1,0 +1,15 @@
+id: tom
+begriff: TOM
+langform: Technische und organisatorische Maßnahmen
+kurz: Schutzmaßnahmen für Daten, die ein Verantwortlicher nach Art. 32 DSGVO angemessen zum Risiko treffen
+  muss.
+erklaerung: 'Technisch: Verschlüsselung, Firewall, Backup, Schließanlage. Organisatorisch: Berechtigungskonzept,
+  Passwort-Policy, Vier-Augen-Prinzip; dazu personelle Maßnahmen wie Schulungen. Verbreitete Gliederung:
+  Zutritts-, Zugangs-, Zugriffs-, Weitergabe-, Eingabe-, Auftrags-, Verfügbarkeitskontrolle und Trennungsgebot.'
+beispiel: Zutritt = Raum, Zugang = System, Zugriff = Daten.
+verwandt:
+- schutzziele
+- personenbezogene-daten
+thema: tom
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
