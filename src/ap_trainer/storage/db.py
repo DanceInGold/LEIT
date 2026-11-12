@@ -48,6 +48,10 @@ MIGRATIONS: list[str] = [
         ref TEXT
     );
     """,
+    # 2: Lernzeit sekundengenau, damit auch kurze Wiederholungen zählen (Statistik auf „Heute“)
+    """
+    ALTER TABLE study_log ADD COLUMN sekunden INTEGER NOT NULL DEFAULT 0;
+    """,
 ]
 
 EXPORT_TABLES = ("settings", "topic_progress", "lesson_read", "cards", "reviews", "study_log")
@@ -147,13 +151,22 @@ class Store:
         """IDs aller gelesenen Lektionen."""
         return {r[0] for r in self._conn.execute("SELECT lesson_id FROM lesson_read")}
 
-    def log_study(self, minuten: int, art: str, ref: str | None = None, day: dt.date | None = None) -> None:
-        """Protokolliert Lernzeit (Grundlage für FT-05 und LP-11)."""
+    def log_study(
+        self, minuten: int, art: str, ref: str | None = None, day: dt.date | None = None, sekunden: int = 0
+    ) -> None:
+        """Protokolliert Lernzeit (Grundlage für FT-05, LP-11 und die Statistik auf „Heute“)."""
         with self._tx() as conn:
             conn.execute(
-                "INSERT INTO study_log(day, minuten, art, ref) VALUES(?, ?, ?, ?)",
-                ((day or dt.date.today()).isoformat(), minuten, art, ref),
+                "INSERT INTO study_log(day, minuten, art, ref, sekunden) VALUES(?, ?, ?, ?, ?)",
+                ((day or dt.date.today()).isoformat(), minuten, art, ref, sekunden),
             )
+
+    def minutes_by_day(self) -> dict[dt.date, float]:
+        """Gelernte Minuten je Kalendertag (Lektionen und Wiederholungen zusammen)."""
+        rows = self._conn.execute(
+            "SELECT day, SUM(minuten) + SUM(sekunden) / 60.0 AS total FROM study_log GROUP BY day"
+        )
+        return {dt.date.fromisoformat(r["day"]): float(r["total"]) for r in rows}
 
     # --- Lernkarten --------------------------------------------------------------
     def card_ids(self) -> set[str]:
@@ -180,6 +193,10 @@ class Store:
             "SELECT card_id FROM cards WHERE due <= ? ORDER BY due LIMIT ?", (now.isoformat(), limit)
         )
         return [r[0] for r in rows]
+
+    def card_due_dates(self) -> list[dt.datetime]:
+        """Fälligkeitstermine aller Karten (für die Vorschau der nächsten Tage)."""
+        return [dt.datetime.fromisoformat(r[0]) for r in self._conn.execute("SELECT due FROM cards")]
 
     def count_due(self, now: dt.datetime) -> int:
         """Anzahl fälliger Karten."""

@@ -16,6 +16,16 @@ from ap_trainer.core import scheduler
 from ap_trainer.core.cards import Flashcard, card_index, cards_for_topics
 from ap_trainer.core.models import BudgetPeriod, LearningPlan, PlanSettings, ScheduleStatus, TopicProgress
 from ap_trainer.core.planner import build_plan, schedule_status
+from ap_trainer.core.stats import (
+    AreaProgress,
+    Kpis,
+    TimeSeries,
+    area_progress,
+    daily_minutes,
+    kpis,
+    review_forecast,
+    study_curve,
+)
 from ap_trainer.core.today import DailyRation, build_ration, minutes_for_day
 from ap_trainer.core.weighting import compute_weights
 from ap_trainer.storage.db import Store
@@ -131,9 +141,19 @@ class Trainer:
         ids = self.store.due_cards(moment, self.max_reviews)
         return [self._cards[i] for i in ids if i in self._cards]
 
-    def grade(self, card_id: str, grade: scheduler.Grade, now: dt.datetime | None = None) -> dt.datetime:
-        """Bewertet eine Karte und gibt den nächsten Fälligkeitstermin zurück."""
+    def grade(
+        self, card_id: str, grade: scheduler.Grade, now: dt.datetime | None = None, seconds: float = 0
+    ) -> dt.datetime:
+        """Bewertet eine Karte und gibt den nächsten Fälligkeitstermin zurück.
+
+        ``seconds`` ist die Zeit, die die Karte auf dem Bildschirm war (höchstens 3 Minuten
+        werden gezählt, damit eine offen gelassene Karte die Statistik nicht verfälscht).
+        """
         moment = now or dt.datetime.now(dt.UTC)
+        if seconds > 0:
+            self.store.log_study(
+                0, "wiederholung", card_id, day=moment.date(), sekunden=round(min(seconds, 180))
+            )
         stored = self.store.get_card(card_id)
         if stored is None:
             raise KeyError(card_id)
@@ -141,6 +161,43 @@ class Trainer:
         self.store.put_card(card_id, state.due, state.data)
         self.store.log_review(card_id, grade, moment)
         return state.due
+
+    # --- Überblick ---------------------------------------------------------------
+    def kpis(self, now: dt.datetime | None = None) -> Kpis:
+        """Kennzahlen für die Startseite."""
+        moment = now or dt.datetime.now(dt.UTC)
+        day = moment.date()
+        return kpis(
+            self.package.katalog,
+            self.settings(day),
+            self.store.progress(),
+            self.store.minutes_by_day(),
+            self.store.count_due(moment),
+            day,
+        )
+
+    def study_curve(self, today: dt.date | None = None) -> TimeSeries:
+        """Kumulierte Soll- und Ist-Lernzeit seit Lernbeginn."""
+        day = today or dt.date.today()
+        return study_curve(self.settings(day), self.store.minutes_by_day(), day)
+
+    def area_progress(self) -> list[AreaProgress]:
+        """Fortschritt je Prüfungsbereich."""
+        return area_progress(self.package.katalog, self.store.progress(), self.settings().kalibrierung)
+
+    def daily_target_minutes(self, today: dt.date | None = None) -> int:
+        """Geplante Minuten an einem Lerntag der laufenden Woche (Ziellinie im Diagramm)."""
+        day = today or dt.date.today()
+        settings = self.settings(day)
+        return round(settings.hours_per_week(day) / len(settings.lerntage) * 60)
+
+    def daily_minutes(self, today: dt.date | None = None) -> list[tuple[dt.date, float]]:
+        """Lernminuten der letzten 14 Tage."""
+        return daily_minutes(self.store.minutes_by_day(), today or dt.date.today())
+
+    def review_forecast(self, now: dt.datetime | None = None) -> list[tuple[dt.date, int]]:
+        """Fällige Karten der nächsten 7 Tage."""
+        return review_forecast(self.store.card_due_dates(), now or dt.datetime.now(dt.UTC))
 
     # --- Export ------------------------------------------------------------------
     def export(self) -> dict[str, Any]:

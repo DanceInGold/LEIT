@@ -23,7 +23,7 @@ jobs:
       - name: mypy (Typen)
         run: uv run mypy
       - name: Inhalte prüfen
-        run: uv run ap-tools check
+        run: uv run ap-tools check --streng
       - name: pytest
         run: uv run pytest
       - name: Manifest aktuell?

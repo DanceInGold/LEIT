@@ -1,6 +1,6 @@
 [project]
 name = "ap-trainer"
-version = "0.5.0"
+version = "0.6.0"
 description = "Lernbegleiter für die AP1 der IT-Berufe (Fachinformatik Systemintegration)"
 readme = "README.md"
 requires-python = ">=3.12,<3.14"

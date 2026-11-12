@@ -9,6 +9,14 @@ import re
 from collections import Counter
 
 from ap_trainer.content.loader import ContentError, ContentPackage
+from ap_trainer.content.structure import (
+    MAX_PARAGRAPH_WORDS,
+    MAX_STEP_WORDS,
+    long_paragraphs,
+    split_steps,
+    visible_text,
+    word_count,
+)
 
 # Glossar-Verweis in Lektionen: [Text](glossar:begriff-id)  (LI-04)
 GLOSSARY_LINK = re.compile(r"\]\(glossar:([a-z0-9-]+)\)")
@@ -96,3 +104,29 @@ def _check_terms(pkg: ContentPackage) -> list[ContentError]:
 def check_references(pkg: ContentPackage) -> list[ContentError]:
     """Alle Verweisfehler eines Pakets."""
     return _check_catalog(pkg) + _check_lessons(pkg) + _check_terms(pkg)
+
+
+def check_style(pkg: ContentPackage) -> list[ContentError]:
+    """Warnungen gegen Textüberladung: zu lange Absätze, zu volle Lernschritte.
+
+    Gezählt wird nur der sofort sichtbare Text; aufklappbare Vertiefungen sind ausgenommen.
+    """
+    warnings = []
+    for lesson in pkg.lektionen.values():
+        file = str(pkg.root / "lektionen" / f"{lesson.id}.md")
+        for step in split_steps(lesson.abschnitte):
+            shown = visible_text(step.text)
+            words = word_count(shown)
+            if words > MAX_STEP_WORDS:
+                warnings.append(
+                    ContentError(
+                        file, f"Schritt „{step.titel}“ hat {words} Wörter (höchstens {MAX_STEP_WORDS})"
+                    )
+                )
+            for count, start in long_paragraphs(shown):
+                warnings.append(
+                    ContentError(
+                        file, f"Absatz mit {count} Wörtern (höchstens {MAX_PARAGRAPH_WORDS}): „{start}…“"
+                    )
+                )
+    return warnings

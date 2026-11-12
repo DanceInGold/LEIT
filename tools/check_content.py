@@ -8,15 +8,24 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ap_trainer.content.checks import check_references
+from ap_trainer.content.checks import check_references, check_style
 from ap_trainer.content.loader import load_package
 
 
-def run_check(root: Path) -> int:
-    """Prüft das Paket unter ``root`` und gibt den Exit-Code zurück."""
+def run_check(root: Path, strict: bool = False) -> int:
+    """Prüft das Paket unter ``root`` und gibt den Exit-Code zurück.
+
+    Stilwarnungen (zu viel Text) brechen nur mit ``strict`` ab.
+    """
     package, errors = load_package(root)
+    warnings = []
     if package is not None:
         errors += check_references(package)
+        warnings = check_style(package)
+    for warning in warnings:
+        print(f"WARNUNG {warning}")
+    if strict:
+        errors += warnings
     for error in errors:
         print(f"FEHLER {error}")
     if errors:
@@ -25,6 +34,7 @@ def run_check(root: Path) -> int:
     assert package is not None
     print(
         f"Inhalte in Ordnung: {len(package.katalog.themen)} Themen, "
-        f"{len(package.lektionen)} Lektionen, {len(package.begriffe)} Begriffe."
+        f"{len(package.lektionen)} Lektionen, {len(package.begriffe)} Begriffe, "
+        f"{len(warnings)} Stilwarnungen."
     )
     return 0

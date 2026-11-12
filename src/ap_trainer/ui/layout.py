@@ -24,10 +24,27 @@ AMPEL_COLORS = {"im Plan": "positive", "knapp": "warning", "im Verzug": "negativ
 
 _CSS = """
 .glossar-link { text-decoration: underline dotted; cursor: help; }
-.lesson h3 { font-size: 1.15rem; font-weight: 600; margin-top: 0.5rem; }
-.nicegui-markdown table { border-collapse: collapse; margin: 0.5rem 0; }
-.nicegui-markdown th, .nicegui-markdown td { border: 1px solid #8884; padding: 0.25rem 0.5rem; }
+.lesson .nicegui-markdown { line-height: 1.65; font-size: 1.02rem; }
+.lesson .nicegui-markdown p { margin: 0.6rem 0; }
+.lesson .nicegui-markdown li { margin: 0.25rem 0; }
+.nicegui-markdown table { border-collapse: collapse; margin: 0.75rem 0; font-size: 0.95rem; }
+.nicegui-markdown th, .nicegui-markdown td { border: 1px solid #8884; padding: 0.3rem 0.6rem; }
+.nicegui-markdown th { background: #8881; }
+/* Zwischenfazit „Halten wir kurz fest“ als Merkkasten */
+.nicegui-markdown blockquote {
+  margin: 1rem 0; padding: 0.6rem 1rem; border-left: 4px solid #2a78d6;
+  background: #2a78d61a; border-radius: 0 8px 8px 0;
+}
+.body--dark .nicegui-markdown blockquote { border-left-color: #3987e5; background: #3987e526; }
+.nicegui-markdown blockquote p:first-child { margin-top: 0; }
+.kpi-value { font-size: 1.8rem; font-weight: 600; line-height: 1.1; }
 """
+
+# Farben der Diagramme nach der Referenzpalette: Ist = Blau, Soll = Grau, Abstufungen = Blau hell
+CHART_BLUE = "#2a78d6"
+CHART_BLUE_LIGHT = "#86b6ef"
+CHART_GREY = "#8a8984"
+CHART_TRACK = "#8a898433"
 
 
 @contextmanager

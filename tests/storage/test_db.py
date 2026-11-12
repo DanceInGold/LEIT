@@ -79,3 +79,25 @@ def test_import_rejects_foreign_or_malicious_files(store: Store) -> None:
     newer = store.export_json() | {"schema": 999}
     with pytest.raises(ValueError):
         store.import_json(newer)
+
+
+def test_old_schema_is_migrated(tmp_path: Path) -> None:
+    """NF-09: Ein Lernstand aus Version 1 bleibt nutzbar und bekommt die neue Spalte."""
+    import sqlite3
+
+    path = tmp_path / "alt.sqlite"
+    conn = sqlite3.connect(path)
+    conn.executescript(MIGRATIONS[0])
+    conn.execute("PRAGMA user_version = 1")
+    conn.execute("INSERT INTO study_log(day, minuten, art) VALUES('2026-11-16', 30, 'lektion')")
+    conn.commit()
+    conn.close()
+    store = Store(path)
+    assert store.schema_version == len(MIGRATIONS)
+    store.log_study(0, "wiederholung", day=dt.date(2026, 11, 16), sekunden=90)
+    assert store.minutes_by_day() == {dt.date(2026, 11, 16): 31.5}
+
+
+def test_card_due_dates(store: Store) -> None:
+    store.put_card("a", NOW, {})
+    assert store.card_due_dates() == [NOW]
