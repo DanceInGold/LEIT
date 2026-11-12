@@ -172,11 +172,9 @@ def register(trainer: Trainer) -> None:
                 )
                 if not done:
                     last = state.index == len(steps) - 1
-                    ui.button(
-                        "Abschließen" if last else "Weiter",
-                        icon_right="arrow_forward",
-                        on_click=lambda: go(state.index + 1),
-                    )
+                    # Pfeil rechts vom Text: Quasar-Eigenschaft, NiceGUI 2.x hat dafür keinen Parameter
+                    label = "Abschließen" if last else "Weiter"
+                    ui.button(label, on_click=lambda: go(state.index + 1)).props("icon-right=arrow_forward")
 
         def toggle(event: events.ValueChangeEventArguments) -> None:
             state.all_on_one_page = bool(event.value)
