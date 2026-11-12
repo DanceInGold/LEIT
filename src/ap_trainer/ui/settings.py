@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+from collections.abc import Callable
 from typing import Any
 
 from nicegui import events, ui
@@ -25,7 +26,25 @@ def _date_input(label: str, row: dict[str, Any], key: str) -> None:
     ui.input(label).props("type=date dense").bind_value(row, key).classes("w-44")
 
 
+def _row_actions(rows: list[dict[str, Any]], refresh: Callable[[], None]) -> tuple[Any, Any]:
+    """Liefert Hilfsfunktionen zum Hinzufügen und Entfernen von Zeilen mit Neuzeichnen."""
+
+    def add(row: dict[str, Any]) -> None:
+        rows.append(row)
+        refresh()
+
+    def remove(index: int) -> None:
+        rows.pop(index)
+        refresh()
+
+    return add, remove
+
+
 def _budget_editor(state: dict[str, Any]) -> None:
+    def set_hours(row: dict[str, Any], hours: int) -> None:
+        row["stunden"] = hours
+        rows.refresh()
+
     @ui.refreshable
     def rows() -> None:
         for index, row in enumerate(state["budget"]):
@@ -33,14 +52,13 @@ def _budget_editor(state: dict[str, Any]) -> None:
                 _date_input("ab", row, "ab")
                 ui.number("Stunden/Woche", min=1, max=80, step=1).bind_value(row, "stunden").classes("w-36")
                 for preset in PRESETS:
-                    ui.button(
-                        str(preset), on_click=lambda r=row, p=preset: r.update(stunden=p) or rows.refresh()
-                    ).props("outline dense")
+                    ui.button(str(preset), on_click=lambda r=row, p=preset: set_hours(r, p)).props(
+                        "outline dense"
+                    )
                 if len(state["budget"]) > 1:
-                    ui.button(
-                        icon="delete", on_click=lambda i=index: state["budget"].pop(i) and rows.refresh()
-                    ).props("flat dense")
+                    ui.button(icon="delete", on_click=lambda i=index: remove(i)).props("flat dense")
 
+    add, remove = _row_actions(state["budget"], rows.refresh)
     ui.label("Lernbudget").classes("text-lg font-medium")
     ui.label(
         "Für einen späteren Wechsel (z. B. auf 30 Stunden) eine weitere Zeile mit Startdatum anlegen."
@@ -49,9 +67,7 @@ def _budget_editor(state: dict[str, Any]) -> None:
     ui.button(
         "Budgetwechsel hinzufügen",
         icon="add",
-        on_click=lambda: (
-            state["budget"].append({"ab": dt.date.today().isoformat(), "stunden": 30}) or rows.refresh()
-        ),
+        on_click=lambda: add({"ab": dt.date.today().isoformat(), "stunden": 30}),
     ).props("flat")
 
 
@@ -63,19 +79,16 @@ def _holiday_editor(state: dict[str, Any]) -> None:
                 _date_input("von", row, "von")
                 _date_input("bis", row, "bis")
                 ui.input("Bezeichnung").props("dense").bind_value(row, "bezeichnung")
-                ui.button(
-                    icon="delete", on_click=lambda i=index: state["lernfrei"].pop(i) and rows.refresh()
-                ).props("flat dense")
+                ui.button(icon="delete", on_click=lambda i=index: remove(i)).props("flat dense")
 
+    add, remove = _row_actions(state["lernfrei"], rows.refresh)
     ui.label("Lernfreie Zeiten").classes("text-lg font-medium")
     rows()
     today = dt.date.today().isoformat()
     ui.button(
         "Lernfreie Zeit hinzufügen",
         icon="add",
-        on_click=lambda: (
-            state["lernfrei"].append({"von": today, "bis": today, "bezeichnung": ""}) or rows.refresh()
-        ),
+        on_click=lambda: add({"von": today, "bis": today, "bezeichnung": ""}),
     ).props("flat")
 
 

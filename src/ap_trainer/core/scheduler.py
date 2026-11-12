@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import datetime as dt
 from dataclasses import dataclass
-from typing import Any, Literal
+from typing import Any, Literal, cast
 
 from fsrs import Card, Rating, Scheduler
 
@@ -37,12 +37,12 @@ def new_card(now: dt.datetime | None = None) -> CardState:
     card = Card()
     if now is not None:
         card.due = now
-    return CardState(due=card.due, data=card.to_dict())
+    return CardState(due=card.due, data=dict(card.to_dict()))
 
 
 def review(state: CardState, grade: Grade, now: dt.datetime | None = None) -> CardState:
     """Bewertet eine Karte und liefert den neuen Zustand mit nächstem Fälligkeitstermin."""
-    card = Card.from_dict(state.data)
+    card = Card.from_dict(cast(Any, state.data))
     moment = now or dt.datetime.now(dt.UTC)
     updated, _log = _scheduler().review_card(card, _RATINGS[grade], review_datetime=moment)
-    return CardState(due=updated.due, data=updated.to_dict())
+    return CardState(due=updated.due, data=dict(updated.to_dict()))
