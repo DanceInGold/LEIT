@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Bedürfnis–Bedarf–Nachfrage und Marktformen 
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkte 02.02/02.03: Kundenbedarf ermitteln, situationsgerechte Kommunikation; Märkte und Bedarfe – Themenzuordnung siehe content/ap1/katalog.yaml"}
   - {titel: "Schulz von Thun, F.: Miteinander reden 1 – Störungen und Klärungen. Rowohlt, Reinbek 1981 (Kommunikationsquadrat)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Begriffe nach DIN 69901-5 (Lastenheft: Gesamthei
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.01: Lasten- und Pflichtenheft (Zweck, Urheber, Inhalt) – Themenzuordnung siehe content/ap1/katalog.yaml"}
   - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe (Lastenheft, Pflichtenheft)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 07.01: Vertragsbestandteile, z. B. Leistungsbeschreibung, Termine, Entgelte, Lasten- und Pflichtenheft, Konventionalstrafen; Vertragsstörungen (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "§ 434 Abs. 5 BGB: Einem Sachmangel steht es gleich, wenn der Verkäufer eine andere Sache als die vertraglich geschuldete Sache liefert", url: "https://lxgesetze.de/bgb/434"}
   - {titel: "IHK Pfalz: Mängelanspruch, Garantie, Gewährleistung (2 Jahre ab Ablieferung, Nacherfüllung, Rücktritt, Minderung, Schadensersatz, § 377 HGB)", url: "https://www.ihk.de/pfalz/recht/recht/maengelanspruch-garantie-gewaehrleistung-1274082"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -1,0 +1,13 @@
+id: skript
+begriff: Skript
+kurz: Textdatei mit Befehlen, die ein Interpreter zur Laufzeit Zeile für Zeile ausführt.
+erklaerung: 'Typische Skriptsprachen: Bash (Linux), PowerShell (Windows), Python. Ein Bash-Skript beginnt
+  mit dem Shebang #!/bin/bash, braucht das Ausführungsrecht (chmod +x) und liefert einen Exit-Code (0
+  = Erfolg), den cron, Monitoring oder Jenkins auswerten.'
+warum: Wiederkehrende Aufgaben laufen immer gleich, werden protokolliert und melden Fehler.
+beispiel: for KUNDE in nord sued west; do … done prüft drei Archivdateien.
+verwandt:
+- pseudocode
+thema: skriptsprachen
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

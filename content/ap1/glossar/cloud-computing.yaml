@@ -1,0 +1,12 @@
+id: cloud-computing
+begriff: Cloud Computing
+kurz: Bereitstellung von IT-Ressourcen über ein Netz nach Bedarf, abgerechnet nach Nutzung.
+erklaerung: 'Servicemodelle nach NIST SP 800-145: IaaS (Infrastruktur), PaaS (Plattform), SaaS (Software);
+  dazu verbreitet DaaS (Desktop). Bereitstellungsmodelle: Public, Private, Hybrid, Community. Je höher
+  das Modell, desto mehr übernimmt der Anbieter; für die Daten bleibt der Kunde verantwortlich.'
+beispiel: Online-Office = SaaS, gemietete VM = IaaS, Container-Plattform = PaaS.
+verwandt:
+- domaene
+thema: cloud-modelle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
