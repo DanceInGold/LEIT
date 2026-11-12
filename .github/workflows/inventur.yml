@@ -1,0 +1,48 @@
+# Automatische Inventur-Prüfung (Kap. 6, Anleitung Schritt 3):
+# Bei jeder Änderung in quellen/ auf main wird verglichen, was neu, geändert,
+# umbenannt oder gelöscht ist, und ein Issue für Claude angelegt.
+# Die Action schreibt nichts ins Repo und committet nichts.
+name: Inventur
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "quellen/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  inventur:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Inventur prüfen (schreibt nichts)
+        id: inv
+        run: |
+          uv sync
+          uv run ap-tools inventur --check --report "$RUNNER_TEMP/inventur.md" --github-output "$GITHUB_OUTPUT"
+      - name: Issue anlegen
+        if: steps.inv.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            cat "$RUNNER_TEMP/inventur.md"
+            echo
+            echo "---"
+            echo "Ausgelöst durch ${GITHUB_SHA::7}. Zum Verarbeiten in einer Claude-Sitzung schreiben: \"Bearbeite Issue #<Nummer>\"."
+          } > "$RUNNER_TEMP/body.md"
+          gh issue create \
+            --title "Inventur: ${{ steps.inv.outputs.summary }}" \
+            --body-file "$RUNNER_TEMP/body.md" \
+            --label inventur || \
+          gh issue create \
+            --title "Inventur: ${{ steps.inv.outputs.summary }}" \
+            --body-file "$RUNNER_TEMP/body.md"

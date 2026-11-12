@@ -1,0 +1,29 @@
+# Extrahierter Rohtext und Zwischenstände der Pipeline (Kap. 6)
+build/
+
+# Lernstand des Nutzers – bleibt lokal (NF-03, NF-04)
+*.sqlite
+*.sqlite3
+*.db
+lernstand*.json
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editoren
+.idea/
+.vscode/

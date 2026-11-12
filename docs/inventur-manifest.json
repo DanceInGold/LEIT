@@ -1,0 +1,363 @@
+{
+  "version": 1,
+  "generated": "2026-11-12T09:18:37Z",
+  "files": [
+    {
+      "path": "eigene/netzwerkgrundlagen.pdf",
+      "sha256": "75a6253600e294b4500b146a1d18586f259ad85e55db8e82a90020d0739a454c",
+      "size": 564824,
+      "format": "pdf",
+      "pages": 12
+    },
+    {
+      "path": "eigene/projektmanagement.pdf",
+      "sha256": "7c809d895ca01e26c6d1c568ec258055fcca4165bd106f93ee36b3b124ed47a7",
+      "size": 172324,
+      "format": "pdf",
+      "pages": 5
+    },
+    {
+      "path": "lernfelder/lf01-kursseite.pdf",
+      "sha256": "0f7c7eee6e68ea0f5b5db54e34872d6423d73e368c86ad719080467445565f4f",
+      "size": 194688,
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "path": "lernfelder/lf02-szenario-a.pdf",
+      "sha256": "4078f1652785978f5383b41432132126ff5448640c89ca4c3f0b4c9edcc45c8e",
+      "size": 92247,
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "path": "lernfelder/lf03-kursseite.pdf",
+      "sha256": "ec0e75a1bff320fcacc634c96e49372c6bf68d700e9c0a4ced8681d095b82a30",
+      "size": 2547144,
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "path": "lernfelder/lf03-szenario-1.html",
+      "sha256": "eded07f3a56e6ddce4c7c32b8c790117c4b1a1862f90c3e20187f1cc5cff97cc",
+      "size": 167621,
+      "format": "html",
+      "pages": null
+    },
+    {
+      "path": "lernfelder/lf04-kursseite.pdf",
+      "sha256": "dbc215ec1a21bafb754dd9445025009fb89f3b552f1ba06961de9c226c8587df",
+      "size": 2861042,
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "path": "lernfelder/lf04-szenario-c.pdf",
+      "sha256": "7d3646963370b70a70b3210854a999e541c33628b94c0ab8a1df8860ced0adb1",
+      "size": 650733,
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "path": "lernfelder/lf05-kursseite.pdf",
+      "sha256": "5e5757395787caffc1d893d6eafb41ad3805038bff2b8128976c0d3048b66294",
+      "size": 881074,
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "path": "lernfelder/lf05-szenario-b.pdf",
+      "sha256": "c04e4cf8dde096927f0f9d68f6a41b63fd50cf1910b37bf7ae762cf881c32ae4",
+      "size": 1052915,
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "path": "lernfelder/lf06-kursseite.pdf",
+      "sha256": "6bad4ca2bfcb6d34683e44f04d4c95964474e469ce8201c2b02222a19c19daf5",
+      "size": 828024,
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "path": "lernfelder/lf07-kursseite.pdf",
+      "sha256": "1aa79334a27cfd2b26f131480d136ca2ea7e7dce9eca8317179a994245c0b6e2",
+      "size": 308352,
+      "format": "pdf",
+      "pages": 5
+    },
+    {
+      "path": "lernfelder/lf07-szenario-a.pdf",
+      "sha256": "60994de4f674ff4f9ccba313c4b4ae178cabafa828efa6e77bdd518563139119",
+      "size": 70355,
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "path": "lernfelder/lf07-szenario-b.pdf",
+      "sha256": "de614b4b49487f412409cabc2a2eba43773d791210640d84e1005e33f99863d6",
+      "size": 69289,
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "path": "portfolios/lf01-portfolio-unternehmen.pdf",
+      "sha256": "a49f99f9cb21114498cbaea705c32f704d9435be7ce8bb143df3fcce93e9bf16",
+      "size": 1397625,
+      "format": "pdf",
+      "pages": 24
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1) 392aef51738180e9aa16d6ca4e244127.md",
+      "sha256": "80307ab019952c203be263c58366e1ef91af6783fce317c5e0a17462b10372d6",
+      "size": 24337,
+      "format": "md",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/Bildschirmfoto_2026-04-28_um_11.34.33.png",
+      "sha256": "058e001885b589a6fca1976ba4b3e3b9d99dd9e5a5b1f869fd790cfbdf7085f5",
+      "size": 200104,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/Bildschirmfoto_2026-04-28_um_12.29.40.png",
+      "sha256": "cad357a7d8ae836fc066c35cae425b9d49f05ee67557ab25350b79bfc34ddb02",
+      "size": 340315,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/FehlerProtokollTH3.xlsx",
+      "sha256": "50c92723e9cd2ddb4c8f7e4eaaea148464a80628d45b94311f6afce80ec0f20d",
+      "size": 11936,
+      "format": "xlsx",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/IPAM_IST-Zustand_(2).xlsx",
+      "sha256": "bcf72764693ffcd8ee3c113e0ef60c95b2a56b45ce16333a4b8ac195f9914228",
+      "size": 38223,
+      "format": "xlsx",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/IPAM_TH4-Zustand_(1).xlsx",
+      "sha256": "19081959af8c45852515f7c1e65a76ffca402a1661dd0c62e9982d719cc84bda",
+      "size": 39171,
+      "format": "xlsx",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/KOMMUNIKATIONTOOLSLF03.drawio.png",
+      "sha256": "4d5108eec061eba34a2a98308de4663802ab31c87b167b5d6a9b0a542c39e077",
+      "size": 66514,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/LeaseOrBuyTH4.xlsx",
+      "sha256": "836a03aed31652b71e460cdc1a110695b15579381301bfa23776a7b87722c1cf",
+      "size": 10835,
+      "format": "xlsx",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/NetzwerkDoku1.drawio.png",
+      "sha256": "967f13d1810f9dce7b75f0714d94cea148ff8211418e1aa6492adb912046d70f",
+      "size": 183586,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/Netzwerkdoku2.drawio.png",
+      "sha256": "4e6b2d8fe92f1547d3669e55baf2fe5c1960a8e675742d4a7c802c6cecd956b8",
+      "size": 230235,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/Netzwerkdoku3.drawio.png",
+      "sha256": "2b4b258cde57b7738ccd725d717aa2adc9b52e2348ba66fe81c6acc6001f5e85",
+      "size": 263573,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/PingTestLF03.xlsx",
+      "sha256": "3c026532b59a0952225a2262c542a587d6f82ea0c7dda5df371445acf0e5562f",
+      "size": 12870,
+      "format": "xlsx",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/Scrum_Prozess.jpg",
+      "sha256": "555664bdba51a2ce18bfa70eb559c48b75af90db1636e3b63af0dca60a708050",
+      "size": 49128,
+      "format": "jpg",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/Unbenanntes_Diagramm.drawio_(15).png",
+      "sha256": "3a97328c1fa06b32ed8ceac42f037c210493e558992f81e15c335e17888bab04",
+      "size": 60426,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/WORKSPACETOOLSLF03.drawio.png",
+      "sha256": "1d53a03101dd931009e7ea695a4a8ede6976dac205addd7db0c95c222757755a",
+      "size": 153346,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/image 1.png",
+      "sha256": "9a69bf799c253036462e43fdec1da7ad4d8c07db54fc31367928cd22a664a625",
+      "size": 13354,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/image 2.png",
+      "sha256": "2e6c2231f013480f94177b2eb74eabca9ac31a8d65e5d0f54d4486ce7f9a135e",
+      "size": 71586,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/image 3.png",
+      "sha256": "0883614efb8d6e1f189b5027a61db20b5adeaac7a7ffef8c86c6d7ad3468d9a9",
+      "size": 137753,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/image 4.png",
+      "sha256": "e0d1fed6ea5aedc5af0b4ebe97d68f64b9afad73c8d3c3fcf01d8e43c964e549",
+      "size": 54487,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/image 5.png",
+      "sha256": "b05c4a542f73d5247eb9538f762b52e4c3cfe382659562937bebb85a6b0d02ab",
+      "size": 96036,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/image 6.png",
+      "sha256": "14de3ae2eab28442fd420b3e59c67ad49630e2db4ba619020d59bf4e4cdd0722",
+      "size": 114461,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf03-notion/Lernfeld 03 - Clients in Netzwerke einbinden (1)/image.png",
+      "sha256": "2364e9a90fdaf2d80f56a186f6f86ff265ecd7f9f25505e01f227f528affa39d",
+      "size": 64560,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf04-portfolio-schutzbedarfsanalyse.pdf",
+      "sha256": "082ed129420896c6297c830150598f6db449156824b8d62eefe04a17219f6c73",
+      "size": 1651984,
+      "format": "pdf",
+      "pages": 15
+    },
+    {
+      "path": "portfolios/lf05-notion/Lernfeld 5 - HQ/387aef51738181eb9aa70042f7a3375b/Document Archive/Angepasstes ERD/UpdatedERD.drawio.png",
+      "sha256": "44660778baf371b9c2b931185dc45ab302d1fdbf4422974fd9de3057216727e0",
+      "size": 341825,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf05-notion/Privat und Geteilt/Lernfeld 05 - Software zur Verwaltung von Daten an 60baef5173818334ac6281879a8c73d1.md",
+      "sha256": "f21bb6a5304badfae9caadcba9184a8921d3315536e492f342c990c3d225fb6b",
+      "size": 11429,
+      "format": "md",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf05-notion/Privat und Geteilt/Lernfeld 05 - Software zur Verwaltung von Daten an/ERD.drawio.png",
+      "sha256": "fa039d23fecacc8a39a59346569ef86dd2e2afcac6e478876eeae004116ae560",
+      "size": 666970,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf05-notion/Privat und Geteilt/Lernfeld 05 - Software zur Verwaltung von Daten an/TeamOrgaAgileLF05.drawio.png",
+      "sha256": "faab3e7b33720697f70266257bb8982ba74d594556b1280ba0e3c37266c0384b",
+      "size": 28313,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf05-notion/Privat und Geteilt/Lernfeld 05 - Software zur Verwaltung von Daten an/UpdatedERDfixed.png",
+      "sha256": "60f4704c04be126a1e9554a02cc513a32782d5b17fdfa3a05ee62c01ba007a09",
+      "size": 656888,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf05-notion/Privat und Geteilt/Lernfeld 05 - Software zur Verwaltung von Daten an/image.png",
+      "sha256": "14de3ae2eab28442fd420b3e59c67ad49630e2db4ba619020d59bf4e4cdd0722",
+      "size": 114461,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf07-notion/Portfolio LF7 3e93b171a3cb8051abf0ec853fb38557.md",
+      "sha256": "ee580cadc732e3d875bc907b17f4d448204ab3372444d6f7a517ebc4ffb5007d",
+      "size": 14305,
+      "format": "md",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf07-notion/Portfolio LF7/TeamOrgaAgileLF07.drawio_(1).drawio.png",
+      "sha256": "f9b8b274388f7fc820b77210ea6b55a6c93c4b9a2281c4706421f295e11a8fa7",
+      "size": 26251,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf07-notion/Portfolio LF7/image.png",
+      "sha256": "034f914ea03f902ede574ce0989a316d045acca60a4c2999dac87e160cc5bbd6",
+      "size": 144085,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf07-notion/Portfolio LF7/mermaid-diagram-2026-09-24-071820.png",
+      "sha256": "01d3644bac51a9f51ea48fafc56b2e0c57224273b067a80ec14a35af724aa1a8",
+      "size": 615533,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "portfolios/lf07-notion/Portfolio LF7/mermaid-diagram-2026-09-28-095213_(1).png",
+      "sha256": "9b8b9148a1cc221334aec65a8f56bc6d7e982eaab3626b6f3bd4ee3572a5666b",
+      "size": 643474,
+      "format": "png",
+      "pages": null
+    },
+    {
+      "path": "pruefung/katalog-2025-aenderungen-it-berufe-podcast-190.pdf",
+      "sha256": "9aa99da358905785708d67a051160230c3593c85cc320693da976ec026cd153a",
+      "size": 2562710,
+      "format": "pdf",
+      "pages": 29
+    },
+    {
+      "path": "pruefung/vernetzte-systeme-it-infrastruktur-l3-2026.pdf",
+      "sha256": "134974ef8a52973f4e1a124bdc3e2b0c12ef51c8c27bb9e83bbc0e39107d67f3",
+      "size": 2549916,
+      "format": "pdf",
+      "pages": 17
+    }
+  ]
+}

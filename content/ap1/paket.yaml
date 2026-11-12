@@ -1,0 +1,23 @@
+# Selbstbeschreibung des Inhaltspakets (ER-01). Daten, kein Code (NF-12).
+id: ap1
+name: "AP1 – Einrichten eines IT-gestützten Arbeitsplatzes"
+pruefungsteil: "Gestreckte Abschlussprüfung Teil 1"
+berufe: [alle IT-Berufe]          # AP1 ist für alle IT-Berufe identisch (ER-06)
+katalogversion: "2025"            # Prüfungskatalog ab Frühjahr 2025 (U-Form)
+paketversion: "0.1.0"
+status: entwurf
+
+pruefungsbereiche:
+  - id: einrichten-arbeitsplatz
+    name: "Einrichten eines IT-gestützten Arbeitsplatzes"
+    rechtsgrundlage: "§ 9 FIAusbV"
+    dauer_minuten: 90
+    gewichtung_prozent: 20
+    aufgabenart: ungebunden        # offene Aufgaben: Freitext, Rechnen, Zuordnen
+    punkte: 100
+
+# Vorbelegung für die Terminauswahl (LP-01); im Tool frei änderbar.
+pruefungstermine:
+  - datum: 2027-02-24
+    bezeichnung: "Frühjahr 2027"
+    quelle: "Angabe des Nutzers (Anforderungsdokument Kap. 12)"
