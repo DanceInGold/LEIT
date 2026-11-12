@@ -10,7 +10,7 @@ import datetime as dt
 from dataclasses import dataclass
 
 from ap_trainer.content.models import Lektion
-from ap_trainer.core.models import LearningPlan, PlannedTopic
+from ap_trainer.core.models import LearningPlan, Phase, PlannedTopic
 
 
 @dataclass(frozen=True)
@@ -19,7 +19,7 @@ class DailyRation:
 
     datum: dt.date
     tage_bis_pruefung: int
-    phase: str
+    phase: Phase
     wiederholungen: int
     thema: PlannedTopic | None
     lektion: Lektion | None
