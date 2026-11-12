@@ -9,7 +9,9 @@ Wiederholung nach FSRS. Aufgaben und Rechentrainer folgen in Phase 2.
 
 ## Schnellstart
 
-Voraussetzung: [uv](https://docs.astral.sh/uv/) und Python 3.12+.
+Voraussetzung: [uv](https://docs.astral.sh/uv/). Das Projekt nutzt Python 3.13 (`.python-version`);
+uv lädt diese Version beim ersten `uv sync` selbst herunter, auch wenn auf dem Rechner eine neuere
+installiert ist. Python 3.14 und neuer gehen noch nicht, weil NiceGUI 2.x dort nicht startet.
 
 ```bash
 uv sync --all-groups              # Abhängigkeiten installieren
