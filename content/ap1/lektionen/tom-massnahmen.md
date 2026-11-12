@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025: Technisch-organisatorische Maßnahmen (TOM); Unterscheidung IT-Sicherheitsbeauftragter und Datenschutzbeauftragter; personelle Maßnahmen (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 32 Sicherheit der Verarbeitung, Art. 37–39 Datenschutzbeauftragter", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
   - {titel: "BDSG a. F. (bis 24.05.2018), Anlage zu § 9 Satz 1: Zutritts-, Zugangs-, Zugriffs-, Weitergabe-, Eingabe-, Auftrags-, Verfügbarkeitskontrolle, Trennungsgebot"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

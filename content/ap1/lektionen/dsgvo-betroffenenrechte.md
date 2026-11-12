@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Nach dem Wortlaut der DSGVO (Art. 4 Nr. 5, Art. 
 belege:
   - {titel: "Prüfungskatalog AP1 2025: Betroffenenrechte nach DSGVO genauer im Fokus, Anonymisierung und Pseudonymisierung (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 4 Nr. 5, Art. 12–21, 33, 34, 77, 83, ErwG 26", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

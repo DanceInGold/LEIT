@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025: Datenschutz nach DSGVO und BDSG (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 4, 5, 6, 7, 9, 37", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
   - {titel: "§ 38 BDSG: Datenschutzbeauftragte nichtöffentlicher Stellen (in der Regel mindestens 20 Personen)", url: "https://www.gesetze-im-internet.de/bdsg_2018/__38.html"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -11,7 +11,7 @@ belege:
   - {titel: "NIST SP 800-63B Revision 4: Digital Identity Guidelines – Authentication and Authenticator Management", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
   - {titel: "Enzoic: Zusammenfassung NIST SP 800-63B Rev. 4 (15 Zeichen ohne zweiten Faktor, keine Kompositionsregeln, kein regelmäßiger Wechsel, Sperrliste)", url: "https://www.enzoic.com/blog/nist-sp-800-63b-rev4/"}
   - {titel: "BSI IT-Grundschutz-Kompendium, Baustein ORP.4 Identitäts- und Berechtigungsmanagement"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

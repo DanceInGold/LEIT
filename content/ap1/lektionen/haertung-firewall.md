@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 06.04: Personal Firewall anpassen, z. B. Softwarezugriff auf Internet sperren; Härtung Betriebssystem (Schwachstellen schließen) (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "BSI IT-Grundschutz-Kompendium: SYS.1.1 Allgemeiner Server, SYS.2.1 Allgemeiner Client"}
   - {titel: "Red Hat Enterprise Linux 9: Configuring firewalls and packet filters (firewalld)", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_firewalls_and_packet_filters/index"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
