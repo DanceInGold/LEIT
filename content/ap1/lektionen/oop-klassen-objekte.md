@@ -46,7 +46,7 @@ Analogie: Die Klasse ist das Formular „Archivauftrag“, jedes ausgefüllte Fo
 
 ```python
 class Archivjob:
-    def __init__(self, name, quelle, groesse_gb):   # Konstruktor
+    def __init__(self, name, quelle, groesse_gb):  # Konstruktor
         self.name = name
         self.quelle = quelle
         self.groesse_gb = groesse_gb
@@ -70,9 +70,9 @@ job1 = Archivjob("Buchhaltung", "/data/buha", 50)
 job2 = Archivjob("Bauakten", "/data/bau", 120)
 
 job1.starten()
-print(job1.status)        # läuft
-print(job2.status)        # neu
-print(job1.dauer_s(1))    # 400.0
+print(job1.status)  # läuft
+print(job2.status)  # neu
+print(job1.dauer_s(1))  # 400.0
 ```
 
 `job1.starten()` ändert **nur** `job1`. `job2` bleibt unberührt – jedes Objekt hat seinen eigenen
