@@ -58,5 +58,5 @@ mypy_path = ["src", "."]
 packages = ["ap_trainer", "tools"]
 
 [[tool.mypy.overrides]]
-module = ["pdfplumber", "pypdf", "bs4", "openpyxl"]
+module = ["pdfplumber", "pypdf", "bs4", "openpyxl", "yaml", "fsrs", "nicegui", "nicegui.*"]
 ignore_missing_imports = true

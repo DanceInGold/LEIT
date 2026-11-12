@@ -26,6 +26,13 @@ Diese Datei fasst zusammen, wie in diesem Repo gearbeitet wird.
 - Bekannte Schwachstelle: Begriffe benachbarter Konzepte verschwimmen (Scrum-Events, ARP/NAT,
   TTL). Lektionen grenzen ähnliche Begriffe ausdrücklich voneinander ab.
 
+## Umgang mit dem eigenen Material
+
+Das Material in `quellen/` ist **nur Kontext**: welche Themen behandelt wurden, wie der Azubi
+arbeitet und schreibt, wo er Fehler macht. Lektionen werden **nicht** daraus aufbereitet,
+sondern vollständig neu geschrieben und gegen belastbare Quellen geprüft. Die Lehrgangsfolien
+`quellen/pruefung/vernetzte-systeme-it-infrastruktur-l3-2026.pdf` sind fremd und keine Stilvorlage.
+
 ## Betrieblicher Kontext für Beispiele
 
 Alltag des Azubis: Linux-Server (RHEL), Python, Jenkins, GitHub, Docker, Artifactory, OpenShift,
@@ -65,7 +72,8 @@ tests/       pytest, Spiegel von src/ und tools/
   welche Fehler gefunden, welche Inhalte neu) und Verweis auf Issue/Anforderungs-ID.
 - **Gemergt wird ausschließlich vom Azubi.** Claude merged nicht, pusht nicht auf `main`,
   kein Skript committet oder pusht selbstständig.
-- Inhalte gelten erst nach dem Merge als „geprüft“.
+- Inhalte gelten erst nach dem Merge als „geprüft“. Neue Inhalte tragen im PR `status: ungeprüft`;
+  der erste Commit des nächsten Branches setzt die gemergten Inhalte auf `geprüft`.
 
 ## Material einspielen (Kurzablauf, Details Kap. 6 der Anforderungen)
 
