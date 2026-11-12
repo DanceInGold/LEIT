@@ -11,7 +11,7 @@ belege:
   - {titel: "JEDEC JESD79-4: DDR4 SDRAM Standard"}
   - {titel: "Intel: Produktdatenblätter (Definition von Hyper-Threading und TDP)", url: "https://ark.intel.com"}
   - {titel: "Hennessy/Patterson: Computer Architecture – A Quantitative Approach (Speicherhierarchie, Leistungsgleichung)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

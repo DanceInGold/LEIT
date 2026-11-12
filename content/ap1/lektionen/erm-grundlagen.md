@@ -10,7 +10,7 @@ belege:
   - {titel: "Chen, P. P.: The Entity-Relationship Model – Toward a Unified View of Data, ACM TODS 1(1), 1976"}
   - {titel: "Kemper, A.; Eickler, A.: Datenbanksysteme – Eine Einführung (Kapitel ER-Modellierung und Übersetzung ins relationale Modell)"}
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.08: Grundlagen relationaler Datenbanken, einfache ER-Modelle; SQL entfällt (laut Änderungsliste IT-Berufe-Podcast #190)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
