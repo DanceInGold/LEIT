@@ -1,0 +1,18 @@
+id: digitale-signatur
+begriff: Digitale Signatur
+kurz: Mit dem privaten Schlüssel des Absenders erzeugter Wert, der Integrität und Herkunft eines Dokuments
+  beweist.
+erklaerung: Der Absender bildet den Hash des Dokuments und signiert ihn mit seinem privaten Schlüssel.
+  Der Empfänger prüft mit dem öffentlichen Schlüssel des Absenders und vergleicht mit dem selbst berechneten
+  Hash. Eine Signatur macht nichts geheim.
+warum: Nur der Besitzer des privaten Schlüssels kann eine Signatur erzeugen, die zum öffentlichen Schlüssel
+  passt.
+beispiel: Signierte Software-Pakete (RPM) werden vor der Installation mit dem öffentlichen GPG-Schlüssel
+  des Herstellers geprüft.
+verwandt:
+- hashfunktion
+- asymmetrische-verschluesselung
+- zertifikat
+thema: verschluesselung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

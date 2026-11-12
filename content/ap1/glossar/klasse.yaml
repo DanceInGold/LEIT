@@ -1,0 +1,14 @@
+id: klasse
+begriff: Klasse
+kurz: Bauplan in der objektorientierten Programmierung, der Attribute (Daten) und Methoden (Verhalten)
+  festlegt.
+erklaerung: 'Aus einer Klasse werden Objekte (Instanzen) erzeugt; jedes Objekt hat eigene Attributwerte.
+  Der Konstruktor setzt die Startwerte. Im UML-Klassendiagramm: Kasten mit Name, Attributen und Methoden
+  samt Datentypen und Sichtbarkeit.'
+warum: Daten und die Funktionen, die zu ihnen gehören, liegen an einer Stelle.
+beispiel: Klasse Archivjob, Objekt job1 mit name = Buchhaltung und groesseGb = 50.
+verwandt:
+- kapselung
+thema: oop-grundlagen
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

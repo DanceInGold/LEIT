@@ -1,0 +1,16 @@
+id: asymmetrische-verschluesselung
+begriff: Asymmetrische Verschlüsselung
+kurz: 'Verschlüsselung mit einem Schlüsselpaar: Der öffentliche Schlüssel verschlüsselt, nur der passende
+  private entschlüsselt.'
+erklaerung: 'Auch: Public-Key-Verfahren. Jeder Teilnehmer hat einen öffentlichen und einen privaten Schlüssel
+  (z. B. RSA, ECC). Für Vertraulichkeit verschlüsselt man mit dem öffentlichen Schlüssel des Empfängers.
+  Asymmetrische Verfahren sind deutlich langsamer als symmetrische; bei n Partnern gibt es 2n Schlüssel.'
+warum: Der öffentliche Schlüssel darf bekannt sein – ein geheimer Austausch vorab ist nicht nötig.
+beispiel: 'Analogie: offenes Vorhängeschloss verteilen, den Schlüssel dazu behalten.'
+verwandt:
+- symmetrische-verschluesselung
+- digitale-signatur
+- zertifikat
+thema: verschluesselung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

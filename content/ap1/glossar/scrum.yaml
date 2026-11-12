@@ -1,0 +1,15 @@
+id: scrum
+begriff: Scrum
+kurz: Agiles Rahmenwerk mit drei Verantwortlichkeiten, fünf Events und drei Artefakten, das in Sprints
+  von höchstens einem Monat arbeitet.
+erklaerung: 'Verantwortlichkeiten: Product Owner, Scrum Master, Developers. Events: Sprint, Sprint Planning,
+  Daily Scrum, Sprint Review, Sprint Retrospective. Artefakte: Product Backlog (Product Goal), Sprint
+  Backlog (Sprint Goal), Increment (Definition of Done) – nach dem Scrum Guide 2020.'
+warum: 'Empirie: regelmäßig überprüfen und anpassen, statt alles vorab zu planen.'
+beispiel: Review = Produkt mit Stakeholdern ansehen; Retrospektive = Zusammenarbeit im Team verbessern.
+verwandt:
+- sprint
+- wasserfallmodell
+thema: vorgehensmodelle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

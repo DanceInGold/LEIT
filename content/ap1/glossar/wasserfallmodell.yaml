@@ -1,0 +1,13 @@
+id: wasserfallmodell
+begriff: Wasserfallmodell
+kurz: Vorgehensmodell, bei dem Projektphasen streng nacheinander ablaufen und jede mit einem Ergebnis
+  endet.
+erklaerung: 'Typische Phasen: Anforderungsanalyse, Entwurf, Umsetzung, Test, Einführung und Betrieb. Rücksprünge
+  sind teuer und die Ausnahme. Geeignet bei klaren, stabilen Anforderungen und festem Preis; Fehler fallen
+  oft erst spät auf.'
+beispiel: Rollout von 50 identischen Arbeitsplätzen nach festem Plan.
+verwandt:
+- scrum
+thema: vorgehensmodelle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
