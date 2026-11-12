@@ -1,0 +1,14 @@
+id: datensicherung
+begriff: Datensicherung
+kurz: Kopie von Daten, aus der sich ein früherer Stand nach Verlust oder Beschädigung wiederherstellen
+  lässt.
+erklaerung: 'Auch: Backup. Arten: Vollsicherung, inkrementell (Änderungen seit letzter Sicherung), differenziell
+  (Änderungen seit letzter Vollsicherung). 3-2-1-Regel: drei Kopien, zwei Medien, eine außer Haus. Generationenprinzip:
+  Großvater-Vater-Sohn. Eine Spiegelung ersetzt kein Backup.'
+warum: Nur ein vom Original getrennter, älterer Stand schützt auch vor Löschen und Ransomware.
+beispiel: 'Restore am Freitag: inkrementell Voll + 5 Inkremente, differenziell Voll + 1 Differenz.'
+verwandt:
+- nas
+thema: verfuegbarkeit-backup
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

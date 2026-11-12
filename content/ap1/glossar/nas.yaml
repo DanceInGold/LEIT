@@ -1,0 +1,13 @@
+id: nas
+begriff: NAS
+langform: Network Attached Storage
+kurz: Speichergerät mit eigenem Betriebssystem, das Dateien über das Netzwerk bereitstellt.
+erklaerung: 'Clients greifen über Protokolle wie SMB oder NFS zu. NAS-Geräte bieten oft mehrere Platten
+  mit Ausfallschutz, Snapshots und Replikation. Gegenstück: DAS (direkt am Rechner angeschlossen). Ein
+  NAS ist ein gutes Sicherungsziel, darf aber nicht der einzige Ort einer Sicherung sein.'
+beispiel: Abteilungsfreigabe \\nas01\archiv per SMB.
+verwandt:
+- datensicherung
+thema: verfuegbarkeit-backup
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

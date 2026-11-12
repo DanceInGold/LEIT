@@ -6,6 +6,13 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 ## [Unreleased]
 
 ### Hinzugefügt
+- Elf Kapitel zu Sicherheit und Datenschutz: Schutzziele; Schutzbedarf feststellen und vererben;
+  DSGVO-Grundsätze; Betroffenenrechte und Datenpannen; TOM; ISMS und Risikomatrix;
+  Authentifizierung und Passwort-Policy; Härtung und Personal Firewall; Datensicherung;
+  Verfügbarkeit, NAS und USV (LI-01).
+- Neun Glossarbegriffe (GL-01).
+
+### Hinzugefügt
 - Elf Kapitel für die Planwochen 5–6: Verschlüsselungsverfahren; Hash, Signatur, Zertifikat;
   Datenmengen berechnen; Übertragungszeit; IPv6-Adressen; IPv6-Subnetze und SLAAC; Wasserfall und
   agil; Scrum; Klassen und Objekte; Kapselung; englische Fachtexte (LI-01).

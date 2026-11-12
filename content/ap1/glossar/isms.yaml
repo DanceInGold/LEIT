@@ -1,0 +1,18 @@
+id: isms
+begriff: ISMS
+langform: Informationssicherheitsmanagementsystem
+kurz: Gesamtheit aus Regeln, Rollen und Prozessen, mit der ein Unternehmen Informationssicherheit dauerhaft
+  steuert.
+erklaerung: 'Kern ist der PDCA-Zyklus (Plan, Do, Check, Act). Dazu gehören eine von der Leitung getragene
+  Sicherheitsleitlinie, Rollen wie der Informationssicherheitsbeauftragte, Risikobewertung (z. B. per
+  Matrix: Wahrscheinlichkeit × Schaden) und die Behandlung von Risiken: vermeiden, vermindern, übertragen,
+  akzeptieren.'
+warum: Bedrohungen und Systeme ändern sich; Sicherheit muss deshalb regelmäßig überprüft und verbessert
+  werden.
+beispiel: 'Risiko Ransomware: Wahrscheinlichkeit 3 × Schaden 4 = 12 → sehr hoch.'
+verwandt:
+- schutzbedarf
+- schutzziele
+thema: isms-risiko
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

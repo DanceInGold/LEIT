@@ -207,3 +207,23 @@ gerendert.
 | `oop-klassen-objekte` | Katalog 04.06, Vererbung entfallen; UML-Klassennotation; Python-Code ausgeführt (`läuft`, `neu`, `400.0`) | – |
 | `oop-kapselung` | UML-Sichtbarkeiten + − # ~; Python-Konvention `_` (PEP 8) und Name Mangling `__`; Setter-Prüfung ausgeführt | – |
 | `englische-texte` | Wortbedeutungen (actual, eventually, billion = 10⁹, quotation, lead time) | „warranty“ als freiwillige Garantie präzisiert (nicht gesetzliche Gewährleistung). |
+
+## Neue Lektionen und Glossar (Sicherheit und Datenschutz)
+
+Elf Kapitel und neun Glossarbegriffe, im PR mit `status: ungeprüft`. Rechnungen (Sicherungsmengen,
+Verfügbarkeit) per Skript nachgerechnet, alle Diagramme gerendert. Rechtliche Aussagen geben den
+Wortlaut der Normen wieder und sind keine Rechtsberatung.
+
+| Lektion | Geprüfte Kernaussagen | Hinweis |
+| --- | --- | --- |
+| `schutzziele` | Grundwerte V, I, V (BSI-Standard 200-2); erweiterte Ziele | – |
+| `schutzbedarf-feststellen` | Kategorien wörtlich nach BSI-Standard 200-2, Kap. 8.2.1; sechs Schadensszenarien | Abgrenzungstabelle in Euro/Stunden ist ein fiktives Beispiel; das BSI überlässt die Werte der Institution. |
+| `schutzbedarf-vererbung` | Maximumprinzip, Kumulations-, Verteilungseffekt (Kap. 8.2.2, sinngemäß); Basis-, Kern-, Standard-Absicherung (Kap. 3.3) | Verteilungseffekt ausdrücklich nur für Verfügbarkeit dargestellt. |
+| `dsgvo-grundsaetze` | Art. 4 Nr. 1, Art. 5 (sieben Grundsätze), Art. 6 Abs. 1 lit. a–f, Art. 7, Art. 9; DSB-Pflicht in der Regel ab 20 Personen (§ 38 BDSG) | – |
+| `dsgvo-betroffenenrechte` | Art. 12 Abs. 3 (1 Monat + 2 Monate), Art. 13–21, 77; Pseudonymisierung Art. 4 Nr. 5, Anonymisierung ErwG 26; Art. 33 (72 h), Art. 34; Art. 83 (20 Mio. € / 4 %) | – |
+| `tom-massnahmen` | Art. 32 DSGVO; acht Kontrollen nach Anlage zu § 9 BDSG a. F.; ISB vs. DSB | Die acht Kontrollen stammen aus dem alten BDSG und sind als Gliederungshilfe gekennzeichnet, nicht als geltendes Recht. |
+| `isms-risikomatrix` | PDCA (BSI 200-1), Risiko = Wahrscheinlichkeit × Schaden, Behandlungsoptionen (BSI 200-3); Matrixwerte konsistent (1–3 gering, 4–6 mittel, 8–9 hoch, 12–16 sehr hoch) | ISO 27001 bewusst nicht als Prüfungsstoff dargestellt (Katalog 2025 streicht ISO-Normen). |
+| `authentifizierung-passwoerter` | Faktoren, 2FA; NIST SP 800-63B Rev. 4 (August 2025): 15 Zeichen ohne zweiten Faktor, keine Kompositionspflicht, Wechsel nur bei Verdacht, Sperrliste | Rev.-4-Werte über eine Sekundärquelle (Enzoic) bestätigt; NIST-Originalseite verlinkt. |
+| `haertung-firewall` | Härtungsmaßnahmen (BSI SYS.1.1/SYS.2.1), Personal vs. Netzwerk-Firewall, firewalld-Befehle (RHEL 9) | – |
+| `datensicherung` | Sicherungsarten; Woche: 620 GB inkrementell vs. 920 GB differenziell, Restore 6 vs. 2 Sätze; 3-2-1; Großvater-Vater-Sohn (BSI CON.3) | RAID als gestrichenes Thema gekennzeichnet. |
+| `verfuegbarkeit-sichern` | 99 % = 87,6 h, 99,9 % = 8,76 h, 99,99 % = 52,6 min, 99,999 % = 5,3 min; Reihe 98,505 %, parallel 99,99 %; USV-Klassen VFD/VI/VFI (IEC 62040-3) | – |
