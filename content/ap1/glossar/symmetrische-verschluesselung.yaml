@@ -1,0 +1,13 @@
+id: symmetrische-verschluesselung
+begriff: Symmetrische Verschlüsselung
+kurz: Verschlüsselung, bei der Sender und Empfänger denselben geheimen Schlüssel verwenden.
+erklaerung: Standardverfahren ist AES (FIPS 197) mit 128, 192 oder 256 Bit. Symmetrische Verfahren sind
+  sehr schnell. Das Problem ist die sichere Übergabe des Schlüssels; bei n Partnern braucht man n × (n
+  − 1) ÷ 2 Schlüssel.
+beispiel: 10 Partner brauchen 45 verschiedene Schlüssel.
+verwandt:
+- asymmetrische-verschluesselung
+- hybride-verschluesselung
+thema: verschluesselung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

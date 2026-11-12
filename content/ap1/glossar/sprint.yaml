@@ -1,0 +1,12 @@
+id: sprint
+begriff: Sprint
+kurz: Fester Zeitabschnitt in Scrum von höchstens einem Monat, in dem ein nutzbares Increment entsteht.
+erklaerung: Alle anderen Scrum-Events finden innerhalb des Sprints statt; ein neuer Sprint beginnt direkt
+  nach dem vorigen. Während des Sprints wird das Sprint Goal nicht gefährdet; der Umfang kann mit dem
+  Product Owner nachverhandelt werden.
+beispiel: 'Zwei-Wochen-Sprint: Planning am Montag, täglich Daily, am Ende Review und Retrospektive.'
+verwandt:
+- scrum
+thema: vorgehensmodelle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

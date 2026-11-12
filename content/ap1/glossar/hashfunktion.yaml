@@ -1,0 +1,15 @@
+id: hashfunktion
+begriff: Hashfunktion
+kurz: Funktion, die aus beliebigen Daten einen Wert fester Länge berechnet, der sich nicht zurückrechnen
+  lässt.
+erklaerung: 'Auch: Hashwert. Kryptografische Hashfunktionen sind Einwegfunktionen mit Lawineneffekt und
+  Kollisionsresistenz. Empfohlen: SHA-256 oder stärker; MD5 und SHA-1 gelten als gebrochen. Einsatz: Integrität
+  von Downloads prüfen, digitale Signaturen, Passwortspeicherung (dann mit Salt und langsamem Verfahren
+  wie Argon2id).'
+beispiel: sha256sum rhel.iso liefert 64 Hex-Zeichen; weicht eines ab, wurde die Datei verändert.
+verwandt:
+- digitale-signatur
+- zertifikat
+thema: verschluesselung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

@@ -1,0 +1,15 @@
+id: zertifikat
+begriff: Zertifikat
+kurz: Von einer Zertifizierungsstelle signierte Bestätigung, dass ein öffentlicher Schlüssel zu einem
+  bestimmten Namen gehört.
+erklaerung: 'Auch: Digitales Zertifikat (X.509). Ein X.509-Zertifikat (RFC 5280) enthält u. a. Inhaber
+  (z. B. Domain), öffentlichen Schlüssel, Gültigkeitszeitraum und Aussteller. Browser prüfen die Kette
+  bis zu einer vertrauenswürdigen Stamm-CA. Abgelaufene oder unpassende Zertifikate lösen Warnungen aus.'
+warum: Ohne Zertifikat könnte ein Angreifer in der Mitte seinen eigenen öffentlichen Schlüssel unterschieben.
+beispiel: 'Analogie: Personalausweis für den Schlüssel, ausgestellt vom Bürgeramt (CA).'
+verwandt:
+- digitale-signatur
+- hybride-verschluesselung
+thema: verschluesselung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

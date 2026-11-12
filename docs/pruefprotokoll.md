@@ -187,3 +187,23 @@ Alle Diagramme wurden mit der Mermaid-Kommandozeile gerendert.
 | `ipv4-adressen` | 172.16.45.130/26 → Netz .128, Hosts .129–.190, Broadcast .191, 62 Hosts; private Bereiche (RFC 1918), Link-Local (RFC 3927) | „Keine Standardmaske“ gemäß Befund P-16; NAT nur am Übergang ins Internet gemäß P-12. |
 | `subnetze-bilden` | 192.168.10.0/24 → 4 × /26; 172.16.48.0/20 → 8 × /23 mit 510 Hosts; 172.16.48.255 ist bei /23 ein gültiger Host | – |
 | `subnetz-pruefen-vlsm` | 10.20.0.140/26 vs. .100 → verschiedene Netze, .180 → gleiches Netz; VLSM /25, /26, /27, /30 lückenlos; Weiterleitungsentscheidung nach RFC 1122, 3.3.1 | /31 nach RFC 3021 nur als Vertiefung erwähnt. |
+
+## Neue Lektionen und Glossar (Woche 5–6)
+
+Elf Kapitel und 13 Glossarbegriffe, im PR mit `status: ungeprüft`. Rechnungen per Skript, IPv6-Kürzungen
+und Subnetze mit `ipaddress`, Hashwerte mit `hashlib`; Python-Beispiele ausgeführt; alle Diagramme
+gerendert.
+
+| Lektion | Geprüfte Kernaussagen | Beim Gegenlesen korrigiert / Hinweis |
+| --- | --- | --- |
+| `verschluesselung-verfahren` | Katalog 06.04 (symmetrisch, asymmetrisch, hybrid); AES 128/192/256 (FIPS 197); n(n − 1)/2 = 45 bzw. 2n = 20 Schlüssel; TLS 1.3 mit Diffie-Hellman (RFC 8446) | **Nicht übernommen:** konkrete RSA-Mindestlängen. Die gefundene Sekundärquelle zur BSI TR-02102-1 widerspricht sich selbst (2000 vs. 3000 Bit); die Lektion verweist deshalb nur auf die TR. |
+| `hash-signatur-zertifikat` | SHA-256 = 256 Bit = 64 Hex-Zeichen (FIPS 180-4); Hashpräfixe `ae581b52…`/`03c4a63a…` berechnet; Signatur privat/Prüfung öffentlich; X.509-Inhalte (RFC 5280); Passwort-Hashing mit Salt (OWASP) | Erste Fassung enthielt Platzhalter-Hashwerte; durch echte, berechnete Werte ersetzt. |
+| `datenmengen-berechnen` | 36.000.000 B = 34,33 MiB; A4 @ 300 dpi = 2.480 × 3.508 px = 26.099.520 B; CD-Audio 10.584.000 B/min (IEC 60908); Full HD 10 s = 1.555.200.000 B | Zitat „gefühlt in jeder Prüfung“ als Kommentar des Autors gekennzeichnet, nicht als Katalogtext. |
+| `uebertragungszeit` | 50 GB @ 1 Gbit/s = 400 s, mit 80 % = 500 s; 2 TB in 4 h → 1,11 Gbit/s; 20 Fotos in 1 min @ 100 Mbit/s; 500 TB @ 1 Gbit/s ≈ 46 Tage | – |
+| `ipv6-adressen` | Kürzung `2001:db8::8:800:200c:417a` (Beispiel aus RFC 4291), `2001:db8::1:0:0:1` (RFC 5952: erste von gleich langen Folgen); Adressarten nach RFC 4291/4193; kein Broadcast | – |
+| `ipv6-subnetze-slaac` | /48 → 65.536 /64-Subnetze, /56 → 256; EUI-64 aus `3c:52:82:1a:7f:09` = `3e52:82ff:fe1a:7f09`; SLAAC (RFC 4862), NDP (RFC 4861) | Präfixgrößen /48 für Unternehmen, höchstens /56 für Privatkunden nach RIPE-690 (Zusammenfassung der Internet Society). |
+| `wasserfall-agil` | Katalog 01.01 „Projektphasen am Beispiel des Wasserfallmodells bzw. SCRUM“; weitere Vorgehensmodelle gestrichen; vier Werte des agilen Manifests | – |
+| `scrum` | Verantwortlichkeiten, 5 Events mit Timeboxen (Sprint ≤ 1 Monat, Planning ≤ 8 h, Daily 15 min, Review ≤ 4 h, Retro ≤ 3 h), 3 Artefakte mit Commitments, Team ≤ 10 Personen (Scrum Guide 2020) | Unbelegte Aussage, Prüfungen akzeptierten „Rollen“ und „Verantwortlichkeiten“, durch neutrale Formulierung ersetzt. |
+| `oop-klassen-objekte` | Katalog 04.06, Vererbung entfallen; UML-Klassennotation; Python-Code ausgeführt (`läuft`, `neu`, `400.0`) | – |
+| `oop-kapselung` | UML-Sichtbarkeiten + − # ~; Python-Konvention `_` (PEP 8) und Name Mangling `__`; Setter-Prüfung ausgeführt | – |
+| `englische-texte` | Wortbedeutungen (actual, eventually, billion = 10⁹, quotation, lead time) | „warranty“ als freiwillige Garantie präzisiert (nicht gesetzliche Gewährleistung). |

@@ -1,0 +1,15 @@
+id: ipv6
+begriff: IPv6
+langform: Internet Protocol Version 6
+kurz: Nachfolger von IPv4 mit 128-Bit-Adressen, geschrieben als acht Blöcke à vier Hex-Ziffern.
+erklaerung: 'Kürzung: führende Nullen je Block weglassen; eine Folge von Null-Blöcken einmal durch ::
+  ersetzen (die längste). Subnetze sind in der Regel /64. Adressarten: Global Unicast 2000::/3, Link-Local
+  fe80::/10, ULA fd00::/8, Loopback ::1, Multicast ff00::/8. Broadcast gibt es nicht.'
+warum: IPv4 bietet nur rund 4,3 Milliarden Adressen; IPv6 macht NAT als Notlösung überflüssig.
+beispiel: 2001:0db8:0000:0000:0008:0800:200c:417a = 2001:db8::8:800:200c:417a
+verwandt:
+- slaac
+- nat
+thema: ipv6
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

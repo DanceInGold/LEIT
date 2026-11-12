@@ -6,6 +6,12 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 ## [Unreleased]
 
 ### Hinzugefügt
+- Elf Kapitel für die Planwochen 5–6: Verschlüsselungsverfahren; Hash, Signatur, Zertifikat;
+  Datenmengen berechnen; Übertragungszeit; IPv6-Adressen; IPv6-Subnetze und SLAAC; Wasserfall und
+  agil; Scrum; Klassen und Objekte; Kapselung; englische Fachtexte (LI-01).
+- 13 Glossarbegriffe zu Kryptografie, IPv6, Vorgehensmodellen und OOP (GL-01).
+
+### Hinzugefügt
 - Neun Kapitel für die Planwochen 4–5: relationale Tabellen und Normalisierung (ERM Kapitel 2),
   OSI-Modell, Ethernet/ARP/IP/TCP, Anwendungsprotokolle, Zahlensysteme, Einheiten und Präfixe,
   IPv4-Adressen, Subnetze bilden, Subnetz prüfen und VLSM (LI-01).

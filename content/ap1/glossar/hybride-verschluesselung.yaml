@@ -1,0 +1,15 @@
+id: hybride-verschluesselung
+begriff: Hybride Verschlüsselung
+kurz: 'Kombination: Asymmetrisch wird ein symmetrischer Sitzungsschlüssel vereinbart, die Daten laufen
+  symmetrisch verschlüsselt.'
+erklaerung: Verbindet den sicheren Schlüsselaustausch asymmetrischer Verfahren mit der Geschwindigkeit
+  symmetrischer. Eingesetzt in TLS (HTTPS), SSH und VPNs. TLS 1.3 vereinbart den Sitzungsschlüssel per
+  Diffie-Hellman; das Zertifikat belegt die Echtheit des Servers.
+beispiel: 'HTTPS: Zertifikat prüfen, Sitzungsschlüssel vereinbaren, dann AES für alle Daten.'
+verwandt:
+- symmetrische-verschluesselung
+- asymmetrische-verschluesselung
+- zertifikat
+thema: verschluesselung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

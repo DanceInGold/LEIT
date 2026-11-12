@@ -1,0 +1,15 @@
+id: slaac
+begriff: SLAAC
+langform: Stateless Address Autoconfiguration
+kurz: Verfahren, mit dem sich ein IPv6-Gerät aus dem Router-Präfix und einer eigenen Interface-ID selbst
+  eine Adresse bildet.
+erklaerung: Der Router verkündet per Router Advertisement das /64-Präfix; der Host ergänzt eine zufällige
+  oder aus der MAC abgeleitete (EUI-64) Interface-ID und prüft per Duplicate Address Detection, ob sie
+  frei ist (RFC 4862). Ein DHCP-Server ist dafür nicht nötig.
+beispiel: Präfix 2001:db8:abcd:10::/64 + Interface-ID 3e52:82ff:fe1a:7f09.
+verwandt:
+- ipv6
+- dhcp
+thema: ipv6
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

@@ -1,0 +1,15 @@
+id: kapselung
+begriff: Kapselung
+kurz: 'Prinzip der OOP: Attribute werden verborgen und nur über definierte öffentliche Methoden gelesen
+  oder geändert.'
+erklaerung: 'Attribute sind private (UML: −), Methoden meist public (+); protected (#) erlaubt zusätzlich
+  abgeleiteten Klassen den Zugriff. Getter lesen, Setter prüfen und setzen Werte. Java erzwingt Sichtbarkeit,
+  Python nutzt den führenden Unterstrich als Konvention.'
+warum: Es gibt eine einzige Stelle, an der Regeln geprüft werden; das Innere der Klasse lässt sich ändern,
+  ohne die Nutzer anzupassen.
+beispiel: setGroesseGb(-50) wird abgelehnt, statt einen ungültigen Wert zu speichern.
+verwandt:
+- klasse
+thema: oop-grundlagen
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
