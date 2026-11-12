@@ -1,0 +1,12 @@
+id: vorkalkulation
+begriff: Vorkalkulation
+kurz: Kalkulation vor dem Auftrag mit geschätzten Planwerten; sie ergibt den Angebotspreis.
+erklaerung: 'Grundlage sind Schätzungen zu Material, Stunden und Zuschlägen sowie Erfahrungen aus früheren
+  Nachkalkulationen. Sie beantwortet: Zu welchem Preis bieten wir an?'
+beispiel: 40 geplante Stunden × 69,00 € = 2.760,00 € Festpreis.
+verwandt:
+- nachkalkulation
+- stundensatz
+thema: kalkulation
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

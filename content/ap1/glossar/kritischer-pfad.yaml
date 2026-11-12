@@ -1,0 +1,13 @@
+id: kritischer-pfad
+begriff: Kritischer Pfad
+kurz: Kette der Vorgänge ohne Gesamtpuffer; jede Verzögerung darauf verschiebt das Projektende.
+erklaerung: 'Auch: Kritischer Weg. Alle Vorgänge mit Gesamtpuffer 0 bilden den kritischen Pfad. Die Summe
+  ihrer Dauern ist die kürzestmögliche Projektdauer. Es kann mehrere kritische Pfade geben.'
+warum: Wer weiß, wo es keine Luft gibt, setzt Aufmerksamkeit und Ressourcen dort ein.
+beispiel: 'A → B → E → F → G → I: 2 + 5 + 1 + 2 + 4 + 1 = 15 Tage.'
+verwandt:
+- netzplan
+- gesamtpuffer
+thema: projektplanung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

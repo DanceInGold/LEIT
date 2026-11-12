@@ -1,0 +1,14 @@
+id: freier-puffer
+begriff: FP
+langform: Freier Puffer
+kurz: Zeit, um die sich ein Vorgang verschieben darf, ohne den frühesten Anfang eines Nachfolgers zu verschieben.
+erklaerung: FP = kleinster FAZ aller Nachfolger − eigener FEZ. Der freie Puffer ist nie größer als der
+  Gesamtpuffer.
+warum: Er schützt nur den direkten Nachfolger in frühester Lage, nicht die ganze restliche Kette.
+beispiel: 'Vorgang C: FAZ von D (4) − FEZ von C (4) = 0, obwohl C 3 Tage Gesamtpuffer hat.'
+verwandt:
+- gesamtpuffer
+- netzplan
+thema: projektplanung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

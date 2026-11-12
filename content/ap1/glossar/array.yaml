@@ -1,0 +1,15 @@
+id: array
+begriff: Array
+kurz: Datenstruktur, die mehrere Werte unter einem Namen speichert; jeder Wert wird über einen Index angesprochen.
+erklaerung: 'Auch: Feld. In den meisten Sprachen beginnt der Index bei 0: Ein Array mit n Werten hat die
+  Indizes 0 bis n − 1. In Pseudocode-Aufgaben kann auch ab 1 gezählt werden; die Aufgabe sagt, welche
+  Zählung gilt.'
+warum: Der Index ist der Abstand vom Anfang des Arrays im Speicher; das erste Element hat den Abstand
+  0.
+beispiel: groessen ← [120, 450, 80, 300]; groessen[1] ist 450.
+verwandt:
+- schleife
+- off-by-one
+thema: pseudocode
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

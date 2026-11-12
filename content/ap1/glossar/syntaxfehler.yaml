@@ -1,0 +1,12 @@
+id: syntaxfehler
+begriff: Syntaxfehler
+kurz: Verstoß gegen die Regeln einer Programmiersprache; das Programm lässt sich gar nicht erst starten.
+erklaerung: Compiler oder Interpreter melden Syntaxfehler sofort, meist mit Zeilennummer, z. B. fehlende
+  Klammern oder = statt == in einer Python-Bedingung. Sie sind leicht zu finden, weil das Werkzeug sie
+  anzeigt.
+beispiel: 'if x = 5: ist in Python ein SyntaxError.'
+verwandt:
+- logischer-fehler
+thema: schreibtischtest
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

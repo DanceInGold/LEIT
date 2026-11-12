@@ -1,0 +1,16 @@
+id: schreibtischtest
+begriff: Schreibtischtest
+kurz: Manuelles Durchrechnen eines Programms mit gegebenen Werten, wobei jede Variablenänderung in einer
+  Tabelle notiert wird.
+erklaerung: 'Für jede Variable gibt es eine Spalte, für jede Änderung eine neue Zeile. So lassen sich
+  Ausgabe und Zwischenwerte ermitteln und logische Fehler finden, ohne den Code auszuführen. Englisch:
+  desk check, trace table. Seit 2025 ausdrücklich im AP1-Katalog.'
+warum: Im Kopf verliert man nach wenigen Schleifendurchläufen den Überblick; die Tabelle macht jeden Schritt
+  sichtbar.
+beispiel: 'while belegt + zuwachs ≤ 1000: Zeilen 600/50 → 650/60 → … → 950/100, Ausgabe 5.'
+verwandt:
+- pseudocode
+- logischer-fehler
+thema: schreibtischtest
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

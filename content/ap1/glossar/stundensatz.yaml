@@ -1,0 +1,16 @@
+id: stundensatz
+begriff: Stundensatz
+kurz: 'Preis je Arbeitsstunde: Jahreskosten eines Mitarbeiters geteilt durch die abrechenbaren Stunden,
+  plus Gewinnzuschlag.'
+erklaerung: 'Auch: Verrechnungssatz. Selbstkosten je Stunde = Personal- und Gemeinkosten pro Jahr ÷ abrechenbare
+  Stunden. Abrechenbar sind nur Stunden beim Kunden, nicht Urlaub, Krankheit oder interne Zeit. Mit Gewinnzuschlag
+  ergibt sich der Verrechnungssatz für Angebote.'
+warum: Teilt man durch alle Arbeitsstunden, ist der Satz zu niedrig und jede Kundenstunde ein Verlust.
+beispiel: 90.000 € ÷ 1.500 h = 60,00 €/h; + 15 % = 69,00 €/h.
+verwandt:
+- vorkalkulation
+- nachkalkulation
+- selbstkosten
+thema: kalkulation
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

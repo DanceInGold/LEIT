@@ -1,0 +1,16 @@
+id: schleife
+begriff: Schleife
+kurz: Kontrollstruktur, die Anweisungen mehrfach ausführt, solange oder bis eine Bedingung erfüllt ist.
+erklaerung: 'Auch: Wiederholung. Es gibt drei Arten: kopfgesteuert (while, prüft vor dem Rumpf, läuft
+  eventuell gar nicht), fußgesteuert (repeat … until, prüft danach, läuft mindestens einmal) und die Zählschleife
+  (for, feste Anzahl Durchläufe).'
+warum: 'Abläufe enden unterschiedlich: nach fester Anzahl, sobald etwas eintritt, oder erst nach einem
+  ersten Versuch.'
+beispiel: for tag ← 1 to 7 do … end for läuft genau siebenmal.
+verwandt:
+- fussgesteuerte-schleife
+- kontrollstruktur
+- off-by-one
+thema: pseudocode
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

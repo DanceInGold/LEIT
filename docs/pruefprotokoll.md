@@ -150,3 +150,22 @@ Lektion genannten Belege; alle Rechenbeispiele wurden per Skript nachgerechnet.
 | `angebotsvergleich-quantitativ` | Bezugskalkulation A/B/C (7.978,18 / 8.065,50 / 7.758,60 €), Skonto als Jahreszins ≈ 36,7 % | Unsichere Buchquelle durch das Schema der Handelskalkulation ersetzt |
 | `nutzwertanalyse` | Nutzwerte 7,50 / 6,95 / 6,50, Gewichte = 100 %, Preispunkte 10,0 / 9,7 / 9,6 | – |
 | `erm-grundlagen` | Chen-Notation, (min,max), Übersetzung 1 : n / n : m / 1 : 1 | Unbelegte Aussage, das Prüfungs-Beiblatt enthalte die ERM-Notation, entfernt |
+
+## Neue Lektionen und Glossar (Woche 2–3)
+
+Neun Kapitel und 23 Glossarbegriffe, im PR mit `status: ungeprüft`. Alle Rechenbeispiele
+(Schreibtischtests, Netzplan, Gantt-Termine, Kalkulation, Stundensatz) wurden mit einem
+unabhängigen Skript nachgerechnet; der Python-Code der Lektion wurde ausgeführt. Alle Diagramme
+wurden mit der Mermaid-Kommandozeile gerendert und angesehen.
+
+| Lektion | Geprüfte Kernaussagen | Beim Gegenlesen korrigiert / nicht prüfbar |
+| --- | --- | --- |
+| `pseudocode-verzweigung` | Katalog 04.07 „Kontrollstrukturen … mittels Pseudocode“, Struktogramm/PAP entfallen; drei Grundstrukturen (Böhm/Jacopini 1966, DIN 66261); Auswertung der `else if`-Kette (12 → hot, 30 → warm, 400 → cold) | **Nicht prüfbar:** ob die Prüfung eine bestimmte Pseudocode-Schreibweise vorgibt – der vollständige Katalog mit Beiblatt fehlt (F-01). Die Lektion sagt deshalb nur, dass es keine Norm gibt und eine Vorgabe der Aufgabe gilt. |
+| `pseudocode-schleifen` | kopf-/fußgesteuert/Zählschleife, `until` = Abbruch-, `do … while` = Weiterlaufbedingung, De Morgan, Summe 950 / Maximum 450, Python `range(1, 5)` = 1–4, Python ohne fußgesteuerte Schleife | – |
+| `schreibtischtest-durchfuehren` | Katalog 04.07 „Schreibtischtest mit gegebenem Quellcode“; Trace: Ausgabe 5; `pruefziffer([4, 0, 1, 2, 3])` = 6 (ausgeführt); `/`, `//`, `%` nach Python-Doku | 41 Punkte stammen aus der Auswertung im Anforderungsdokument (Kap. 2), nicht aus dem Katalog. |
+| `fehler-im-code-finden` | Katalog 04.07 „Fehler in gegebenem Quellcode finden“; `if x = 5:` ist in Python ein SyntaxError; Durchschnitt 237,5; drei Fehler und Korrektur | – |
+| `projektstrukturplan` | Katalog 01.01 „Strukturplan, Netzplan, Gantt-Diagramm“ (Autor-Kommentar in der Quelle, S. 22); Begriffe nach DIN 69901-5; 100-%-Regel (PMI) | Normtext DIN 69901-5 liegt nicht im Repo; Begriffe sinngemäß, nicht wörtlich wiedergegeben. |
+| `netzplan` | FAZ/FEZ/SAZ/SEZ, Maximum vorwärts / Minimum rückwärts, GP = SAZ − FAZ, FP = min FAZ Nachfolger − FEZ (Uni Bremen eGS 07-2), Projektdauer 15, kritischer Pfad A-B-E-F-G-I, FP ≤ GP | Hinweis auf zwei Zählweisen (Zeitpunkte ab 0 vs. Tage mit − 1) ergänzt, weil Lehrbücher hier abweichen. |
+| `gantt-diagramm` | Termine ab Mo 11.01.2027 ohne Wochenenden, Ende Fr 29.01.2027; Meilenstein mit Dauer 0 | Buchangabe zu Gantt (Erscheinungsjahr unsicher) durch allgemeinen Beleg ersetzt; Meilensteine im Diagramm auf feste Daten gesetzt, weil Mermaid sie sonst auf den nächsten Werktag schiebt. |
+| `kalkulation-verkaufspreis` | Schema Bezugspreis → Listenverkaufspreis; Skonto/Rabatt im Hundert (Lexware); 4.000,00 → 7.555,56 € brutto, Probe 5.600,00 €; Fehler bei × 1,02 = 2,24 €; USt 19 % nach § 12 Abs. 1 UStG | – |
+| `kalkulation-vor-nach` | Stundensatz 90.000 € ÷ 1.500 h = 60,00 €, × 1,15 = 69,00 €; 1.680 / 1.500 h; Vorkalkulation 2.760,00 €, Nachkalkulation 3.120,00 €, Abweichung +30 %, nach Aufwand 3.588,00 € | Alle Kostenannahmen sind fiktiv und als Annahmen gekennzeichnet. |

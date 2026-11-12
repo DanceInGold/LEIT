@@ -1,0 +1,17 @@
+id: netzplan
+begriff: Netzplan
+kurz: Grafische Darstellung der Vorgänge eines Projekts und ihrer Abhängigkeiten, mit Berechnung von Terminen
+  und Puffern.
+erklaerung: 'Im Vorgangsknotennetz ist jeder Vorgang ein Kasten mit FAZ, FEZ, SAZ, SEZ, Gesamtpuffer und
+  freiem Puffer. Vorwärtsrechnung: FEZ = FAZ + Dauer, bei mehreren Vorgängern zählt das Maximum. Rückwärtsrechnung:
+  SAZ = SEZ − Dauer, bei mehreren Nachfolgern zählt das Minimum (DIN 69900).'
+warum: Ein Vorgang kann erst starten, wenn alle Vorgänger fertig sind – daher das Maximum vorwärts.
+beispiel: 'F hat die Vorgänger D (FEZ 5) und E (FEZ 8): FAZ von F = 8.'
+verwandt:
+- kritischer-pfad
+- gesamtpuffer
+- freier-puffer
+- gantt-diagramm
+thema: projektplanung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

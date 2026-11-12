@@ -1,0 +1,17 @@
+id: pseudocode
+begriff: Pseudocode
+kurz: Beschreibung eines Algorithmus in strukturierter Umgangssprache, unabhängig von einer Programmiersprache.
+erklaerung: Pseudocode nutzt die Kontrollstrukturen echter Programme (Sequenz, Verzweigung, Schleife),
+  aber keine feste Syntax. Eine Norm gibt es nicht; die Schreibweise muss eindeutig sein und durchgehend
+  gleich bleiben. Seit dem Prüfungskatalog 2025 werden Kontrollstrukturen in der AP1 nur noch mit Pseudocode
+  abgebildet.
+warum: 'Erst die Logik klären, dann die Sprache wählen: Pseudocode lesen Entwickler aller Sprachen und
+  auch Fachabteilungen.'
+beispiel: if frei ≥ groesse then output "Start" else output "Zu wenig Platz" end if
+verwandt:
+- kontrollstruktur
+- schleife
+- schreibtischtest
+thema: pseudocode
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

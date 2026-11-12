@@ -1,0 +1,16 @@
+id: listenverkaufspreis
+begriff: Listenverkaufspreis
+kurz: Verkaufspreis, der im Angebot steht – vor Abzug von Kundenrabatt und Kundenskonto.
+erklaerung: 'Vom Barverkaufspreis kommt man durch Herausrechnen „im Hundert“ zum Listenverkaufspreis:
+  erst Kundenskonto (÷ 0,98 bei 2 %), dann Kundenrabatt (÷ 0,90 bei 10 %). Netto zwischen Unternehmen,
+  brutto mit 19 % Umsatzsteuer.'
+warum: Der Kunde zieht Rabatt und Skonto vom höheren Preis ab; nach dem Abzug soll genau der Barverkaufspreis
+  übrig bleiben.
+beispiel: Barverkaufspreis 5.600,00 € ÷ 0,98 = 5.714,29 € ÷ 0,90 = 6.349,21 € netto.
+verwandt:
+- selbstkosten
+- rabatt
+- skonto
+thema: kalkulation
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
