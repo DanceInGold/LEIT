@@ -1,0 +1,13 @@
+id: barrierefreiheit
+begriff: Barrierefreiheit
+kurz: Gestaltung von Arbeitsplätzen, IT-Systemen und Websites so, dass alle Menschen sie ohne fremde Hilfe
+  nutzen können.
+erklaerung: Für Websites gelten die WCAG-Prinzipien wahrnehmbar, bedienbar, verständlich, robust. In Deutschland
+  verpflichtet das Barrierefreiheitsstärkungsgesetz seit 28.06.2025 viele Unternehmen, öffentliche Stellen
+  die BITV 2.0. Am Arbeitsplatz helfen z. B. größere Monitore, Spezialtastaturen, Screenreader.
+beispiel: Formularfeld mit <label>, damit der Screenreader „Kundennummer“ vorliest.
+verwandt:
+- softwareergonomie
+thema: barrierefreiheit
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

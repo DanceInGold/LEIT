@@ -1,0 +1,13 @@
+id: testprotokoll
+begriff: Testprotokoll
+kurz: Dokument, das Testfälle mit erwartetem und tatsächlichem Ergebnis, Status, Datum und Tester festhält.
+erklaerung: Grundlage sind die vereinbarten Anforderungen (Checkliste, Pflichtenheft). Fehlgeschlagene
+  Tests werden behoben, erneut getestet und dokumentiert. Das Protokoll dient als Qualitätsnachweis und
+  als Grundlage der Abnahme.
+warum: Ein vorher festgelegtes erwartetes Ergebnis macht den Test objektiv und wiederholbar.
+beispiel: 'Testfall „Drucken auf Abteilungsdrucker“: erwartet Testseite, Ergebnis Treiberfehler → ✘.'
+verwandt:
+- abnahme
+thema: qualitaet
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
