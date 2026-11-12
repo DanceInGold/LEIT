@@ -27,3 +27,4 @@ desktop.ini
 # Editoren
 .idea/
 .vscode/
+.DS_Store
