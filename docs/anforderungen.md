@@ -3,7 +3,7 @@ Quelle: Claude-Docs-Dokument „Anforderungsdokument: AP1-Lernbegleiter (FiSi)�
 (https://claude.ai/artifact/VS2sfZBYyzcw3F5hADq8Qk), Stand Version 0.2 vom 12.11.2026,
 exportiert am 12.11.2026. Die drei eingebetteten Grafiken sind als Text/Tabelle wiedergegeben.
 Inhaltliche Korrekturen werden nicht hier still eingearbeitet, sondern in docs/pruefprotokoll.md
-festgehalten (siehe dort P-01 zur Aussage über BPMN).
+festgehalten (P-01 zu BPMN ist seit 12.11.2026 hier und im Original korrigiert).
 -->
 
 # Anforderungsdokument: AP1-Lernbegleiter (FiSi)
@@ -73,7 +73,7 @@ Die IHK veröffentlicht keine offizielle Gewichtung; das Tool stützt sich desha
 
 Hardware kam in allen 11 Prüfungen vor, Netzwerktechnik, Softwareentwicklung und Wirtschaftlichkeit in je 10. Datenschutz bringt wenig Punkte, kommt aber in 7 von 11 Prüfungen vor und ist damit schnell verdiente Punkte. Die punktstärksten Einzelthemen sind Nutzwertanalyse (45), ERM (42), Schreibtischtest (41), Netzplan (35), Kosten berechnen (33), Dateigrößen berechnen (29) und IPv6 (28).
 
-**Korrektur für den Katalog 2025:** Nur 4 der 11 Prüfungen (ab Frühjahr 2025) folgen dem neuen Katalog. SQL, Struktogramm, Programmablaufplan und RAID sind entfallen, KI-Grundlagen und BPMN neu hinzugekommen ([Übersicht der Änderungen](https://ap1-trainer-pro.de/wissen/ap1-pruefung-2025-aenderungen/), [IT-Berufe-Podcast #190](https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/)). Das Tool rechnet deshalb so: Gewicht = Punkteanteil des Themas, Prüfungen ab 2025 zählen doppelt, entfallene Themen zählen null, neue Themen bekommen ein Mindestgewicht. Die Gewichte stehen in `katalog.yaml` und werden nach jeder neuen Prüfung aktualisiert; der Abgleich mit dem Prüfungskatalog im Repo erfolgt bei der Inventur.
+**Korrektur für den Katalog 2025:** Nur 4 der 11 Prüfungen (ab Frühjahr 2025) folgen dem neuen Katalog. SQL, Struktogramm, Programmablaufplan und RAID sind entfallen, KI-Grundlagen neu hinzugekommen; BPMN steht nicht im Katalog und wird als freiwilliges Zusatzthema mit kleinem Gewicht geführt (Entscheidung 12.11.2026, Prüfprotokoll P-01) ([Übersicht der Änderungen](https://ap1-trainer-pro.de/wissen/ap1-pruefung-2025-aenderungen/), [IT-Berufe-Podcast #190](https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/)). Das Tool rechnet deshalb so: Gewicht = Punkteanteil des Themas, Prüfungen ab 2025 zählen doppelt, entfallene Themen zählen null, neue Themen bekommen ein Mindestgewicht. Die Gewichte stehen in `katalog.yaml` und werden nach jeder neuen Prüfung aktualisiert; der Abgleich mit dem Prüfungskatalog im Repo erfolgt bei der Inventur.
 
 ## 3. Zielgruppe und Lernstil-Anpassung
 
@@ -246,7 +246,7 @@ Inhalte und Programm werden getrennt: Alle Lerninhalte liegen als Markdown- und 
 2. **Sichtung und Zuordnung (Claude):** Claude liest jedes Dokument vollständig, PDFs und PNGs zusätzlich als Bild, damit Tabellen, Diagramme und Skizzen nicht verloren gehen. Jedes Dokument wird den Themen des Prüfungskatalogs 2025 und den Lernfeldern zugeordnet; Lücken, Dopplungen und entfallene Themen werden markiert → `docs/inventur.md`.
 3. **Faktencheck (Claude):** Aussagen gegen Normen, Herstellerdokumentation und Fachliteratur prüfen; Fehler in `docs/pruefprotokoll.md` festhalten, nicht stillschweigend ändern.
 4. **Lernstil-Analyse (Claude):** Die eigenen Dokumente dienen als Stilvorlage (siehe LS-02).
-5. **Aufbereitung (Claude):** Themen mit eigenem Material werden daraus aufbereitet; Themen ohne eigenes Material erstellt Claude neu, im Stil der eigenen Dokumente. Alles im Raster aus LI-01, mit Quelle und Prüfstatus.
+5. **Aufbereitung (Claude):** Claude erstellt alle Themen neu, im Stil der eigenen Dokumente; das eigene Material dient nur als Kontext (welche Themen, wie der Azubi arbeitet) und als Stilvorlage (Entscheidung 12.11.2026). Alles im Raster aus LI-01, mit Quelle und Prüfstatus.
 6. **Review (du):** Claude arbeitet auf einem eigenen Branch und öffnet einen Pull Request; erst nach deiner Freigabe landet etwas auf `main` und bekommt den Status "geprüft". Kein Skript committet oder pusht selbstständig.
 
 ### Anleitung: Neues Material einspielen
@@ -456,7 +456,7 @@ Alle Fragen sind geklärt; die Umsetzung startet mit Phase 0 in einem neuen Chat
 | --- | --- |
 | Prüfungstermin | 24.02.2027; im Tool frei einstellbar für spätere Jahrgänge |
 | Formate im Repo | PDF, HTML, Markdown, PNG |
-| Material | Nur eigene Lerndokumente; fehlende Themen erstellt Claude neu im gleichen Stil |
+| Material | Eigene Lerndokumente dienen nur als Kontext und Stilvorlage; alle Lektionen erstellt Claude neu im gleichen Stil (präzisiert am 12.11.2026) |
 | Themengewichtung | Aus öffentlicher Auswertung der AP1-Prüfungen, korrigiert um den Katalog 2025 (Kap. 2) |
 | Lernbudget | Presets 15, 20 und 30 Std./Woche oder frei; Aufwandsschätzung je Thema und Zeitplan-Check (LP-01, LP-08 bis LP-11) |
 | Eigenes Budget | Start mit 15 Std./Woche, in einigen Wochen Wechsel auf ca. 30 Std./Woche; der Plan muss den Wechsel ohne Neustart übernehmen |

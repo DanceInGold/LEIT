@@ -1,0 +1,18 @@
+id: erm
+begriff: ERM
+langform: Entity-Relationship-Modell
+kurz: Grafisches Modell, das Entitätstypen, ihre Attribute und Beziehungen samt Kardinalitäten beschreibt.
+erklaerung: 'Das ERM ist ein konzeptioneller Datenentwurf unabhängig von Tabellen. In der Chen-Notation:
+  Rechteck = Entitätstyp, Raute = Beziehungstyp, Ellipse = Attribut, unterstrichen = Schlüsselattribut.
+  Erst im relationalen Modell entstehen Tabellen und Fremdschlüssel.'
+warum: Fachabteilung und IT können am ERM prüfen, ob die Daten richtig verstanden sind, bevor gebaut wird.
+beispiel: 'Kunde 1 : n Projekt, Projekt 1 : n Dokument, Dokument n : m Schlagwort.'
+verwandt:
+- entitaet
+- attribut
+- kardinalitaet
+- primaerschluessel
+- fremdschluessel
+thema: erm-relational
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

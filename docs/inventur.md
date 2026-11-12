@@ -94,7 +94,7 @@ Die Seiten enthalten Namen und E-Mail-Adressen von Lehrkräften (siehe Abschnitt
 | Datei | Art | Umfang | Bewertung und Nutzung |
 | --- | --- | --- | --- |
 | `pruefung/katalog-2025-aenderungen-it-berufe-podcast-190.pdf` | extern | 29 S. (Webseite mit 76 Kommentaren) | Gegenüberstellung alter/neuer AP1-Katalog von Stefan Macke. **Nur das Delta, nicht der vollständige Katalog** (der Autor betont das selbst mehrfach). Wichtige Zusatzinfos aus den Kommentaren: Katalogvorwort nennt SQL und RAID „ausschließlich in Teil 2“; Netzplan/Strukturplan/Gantt stehen in 01.01; EPK-Notation steht auf dem gemeinsamen Beiblatt, aber nicht im Katalog; BPMN ist im AP1-Katalog nicht genannt. Grundlage für `katalog.yaml` (Entwurf). |
-| `pruefung/vernetzte-systeme-it-infrastruktur-l3-2026.pdf` | **Herkunft unklar** (Google-Slides-Export, F-02) | 17 Folien | Kompakter Lehrgangsfoliensatz „Vernetzte Systeme & IT-Infrastruktur, 2. Lehrjahr“ mit 8 Lernzielen: Topologien, Netzwerkgeräte, IPv4/IPv6, OSI/TCP-IP, Verfügbarkeit (MTBF/MTTR), USV-Klassen, RAID/NAS/SAN, Hypervisor/Container, 3-2-1-Backup, Patch-Management, ITIL-Incident, Dokumentationsarten, Barrierefreiheit, RBAC/2FA/Härtung, zwei Übungsaufgaben. Fachlich weitgehend korrekt, aber der Titel „PRÜFUNGSRELEVANT … AP1“ stimmt für RAID, SAN und LTE/5G nicht mehr (P-40). |
+| `pruefung/vernetzte-systeme-it-infrastruktur-l3-2026.pdf` | fremd (Lehrgangsmaterial, F-02) | 17 Folien | Kompakter Lehrgangsfoliensatz „Vernetzte Systeme & IT-Infrastruktur, 2. Lehrjahr“ mit 8 Lernzielen: Topologien, Netzwerkgeräte, IPv4/IPv6, OSI/TCP-IP, Verfügbarkeit (MTBF/MTTR), USV-Klassen, RAID/NAS/SAN, Hypervisor/Container, 3-2-1-Backup, Patch-Management, ITIL-Incident, Dokumentationsarten, Barrierefreiheit, RBAC/2FA/Härtung, zwei Übungsaufgaben. Fachlich weitgehend korrekt, aber der Titel „PRÜFUNGSRELEVANT … AP1“ stimmt für RAID, SAN und LTE/5G nicht mehr (P-40). |
 
 ## 3. Abdeckung des Prüfungskatalogs
 
@@ -203,10 +203,10 @@ In `content/` wird nichts davon übernommen (CLAUDE.md, Abschnitt „Betrieblich
 
 | ID | Frage | Warum wichtig |
 | --- | --- | --- |
-| F-01 | Gibt es den **vollständigen Prüfungskatalog 2025** (U-Form, ca. 7 €) als PDF oder Scan? | Im Repo liegt nur das Delta. Ohne den Katalog bleiben unveränderte Unterpunkte in `katalog.yaml` unvollständig, Ziel 1 („jedes Katalogthema abgedeckt“) ist nicht prüfbar. Alternative: öffentliche Themenliste des IT-Berufe-Podcasts als Ersatzquelle. |
-| F-02 | Ist `vernetzte-systeme-it-infrastruktur-l3-2026.pdf` **selbst erstellt** oder Material einer Lehrkraft/eines Lehrgangs? | Entscheidet, ob die Folien als Stilvorlage zählen und unter `eigene/` gehören. |
-| F-03 | Soll die Aussage „BPMN neu im Katalog 2025“ im Anforderungsdokument korrigiert werden (P-01)? | Sonst bekäme BPMN ein Mindestgewicht ohne Beleg. |
-| F-04 | Gibt es eigene Notizen zu **LF2 und LF6** oder Unterlagen zu Hardware, Kalkulation, Nutzwertanalyse, Programmierung? | Genau dort liegen die größten Lücken; eigenes Material hätte Vorrang vor neu erstellten Lektionen. |
+| F-01 | ✔ Bestellt, wird nachgereicht und dann integriert. – Gibt es den **vollständigen Prüfungskatalog 2025** (U-Form, ca. 7 €) als PDF oder Scan? | Im Repo liegt nur das Delta. Ohne den Katalog bleiben unveränderte Unterpunkte in `katalog.yaml` unvollständig, Ziel 1 („jedes Katalogthema abgedeckt“) ist nicht prüfbar. Alternative: öffentliche Themenliste des IT-Berufe-Podcasts als Ersatzquelle. |
+| F-02 | ✔ Nicht selbst erstellt, keine Stilvorlage (E-11). – Ist `vernetzte-systeme-it-infrastruktur-l3-2026.pdf` **selbst erstellt** oder Material einer Lehrkraft/eines Lehrgangs? | Entscheidet, ob die Folien als Stilvorlage zählen und unter `eigene/` gehören. |
+| F-03 | ✔ BPMN als freiwilliges Zusatzthema, Anforderungsdokument korrigiert (E-10). – Soll die Aussage „BPMN neu im Katalog 2025“ im Anforderungsdokument korrigiert werden (P-01)? | Sonst bekäme BPMN ein Mindestgewicht ohne Beleg. |
+| F-04 | ✔ Eigenes Material ist nur Kontext; alle Lektionen werden neu geschrieben (E-09). – Gibt es eigene Notizen zu **LF2 und LF6** oder Unterlagen zu Hardware, Kalkulation, Nutzwertanalyse, Programmierung? | Genau dort liegen die größten Lücken; eigenes Material hätte Vorrang vor neu erstellten Lektionen. |
 
 ## Anhang A: Abdeckung je Thema
 

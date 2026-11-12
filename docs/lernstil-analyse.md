@@ -4,7 +4,7 @@ Stand: 12.11.2026 · Phase 0 · Grundlage: die beiden eigenen Lerndokumente und 
 Notion-Portfolios (LF03, LF05, LF07), die nach eigener Angabe ohne KI geschrieben sind.
 Nicht als Stilvorlage verwendet: das LF01-Portfolio (erkennbar KI-Passagen, P-54) und das
 LF04-Portfolio (Gruppentext mit vielen Floskeln, Anteil des Azubis unklar). Die Lehrgangsfolien
-„Vernetzte Systeme“ bleiben außen vor, bis ihre Herkunft geklärt ist (F-02).
+„Vernetzte Systeme“ sind fremdes Material und keine Stilvorlage (E-11).
 
 **Ergebnis:** Der Azubi lernt **top-down über ein durchgehendes Praxisbeispiel**: erst ein
 Gesamtdiagramm des Ablaufs, dann jeder Schritt mit „Warum?“, echten Zahlen und einem kurzen

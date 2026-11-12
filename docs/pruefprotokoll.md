@@ -16,8 +16,8 @@ aus Repo-Quellen nicht belegbar · Entscheidung = braucht eine Antwort des Azubi
 
 | ID | Stelle | Aussage | Befund und Korrektur | Beleg | Schwere | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| P-01 | Kap. 2, „Korrektur für den Katalog 2025“ | „KI-Grundlagen und BPMN neu hinzugekommen“ | BPMN steht weder in der Änderungstabelle noch wird es dort erwähnt; ein Leser weist in den Kommentaren darauf hin, dass BPMN „im AP1-Katalog mit keinem Wort erwähnt“ wird. Im gemeinsamen Beiblatt steht nur die **EPK**-Notation. Vorschlag: BPMN streichen, EPK als „Beiblatt-Notation, nicht im Katalog“ führen. Die Quelle ap1-trainer-pro.de war aus dieser Umgebung nicht abrufbar. | `quellen/pruefung/katalog-2025-aenderungen-it-berufe-podcast-190.pdf`, S. 4–12 (Tabelle), S. 22–23 (Kommentare zu EPK), S. 24 (Kommentar zu BPMN) | ungenau | Entscheidung (F-03) |
-| P-02 | Kap. 2, Tabelle Prüfungsrahmen | „Katalog aus dem Repo ist die maßgebliche Themenquelle“ | Im Repo liegt nur die Änderungsliste (Delta), nicht der Katalog. Der Autor schreibt selbst: „Das ist nur das Delta und nicht der komplette Katalog.“ | ebd., S. 22 | Hinweis | Entscheidung (F-01) |
+| P-01 | Kap. 2, „Korrektur für den Katalog 2025“ | „KI-Grundlagen und BPMN neu hinzugekommen“ | BPMN steht weder in der Änderungstabelle noch wird es dort erwähnt; ein Leser weist in den Kommentaren darauf hin, dass BPMN „im AP1-Katalog mit keinem Wort erwähnt“ wird. Im gemeinsamen Beiblatt steht nur die **EPK**-Notation. Vorschlag: BPMN streichen, EPK als „Beiblatt-Notation, nicht im Katalog“ führen. Die Quelle ap1-trainer-pro.de war aus dieser Umgebung nicht abrufbar. | `quellen/pruefung/katalog-2025-aenderungen-it-berufe-podcast-190.pdf`, S. 4–12 (Tabelle), S. 22–23 (Kommentare zu EPK), S. 24 (Kommentar zu BPMN) | ungenau | erledigt: BPMN als Zusatzthema, Text korrigiert (E-10) |
+| P-02 | Kap. 2, Tabelle Prüfungsrahmen | „Katalog aus dem Repo ist die maßgebliche Themenquelle“ | Im Repo liegt nur die Änderungsliste (Delta), nicht der Katalog. Der Autor schreibt selbst: „Das ist nur das Delta und nicht der komplette Katalog.“ | ebd., S. 22 | Hinweis | offen: Katalog bestellt (F-01) |
 | P-03 | Kap. 2, Themengewichtung | Punkte je Thema (Nutzwertanalyse 45, ERM 42 …), „Datenschutz in 7 von 11 Prüfungen“ | Stammt von der Website des IT-Berufe-Podcasts, nicht aus einer Datei im Repo. Plausibel, aber hier nicht nachprüfbar. | – | Hinweis | nicht prüfbar |
 
 ## Netzwerkgrundlagen (`quellen/eigene/netzwerkgrundlagen.pdf`)
@@ -135,3 +135,18 @@ Brownout.
 Keine fachlichen Aussagen, die zu prüfen wären (Aufgabenstellungen). Hinweis: LF05-Szenario B
 fordert SQL-JOINs und Subselects – für AP1 2025 entfallen, für die Datenbank-Lektion nur das
 ERM nutzen.
+
+## Neue Lektionen und Glossar (Phase 1)
+
+Alle Inhalte in `content/ap1/` sind neu geschrieben (E-09) und tragen bis zum Merge
+`status: ungeprüft`. Geprüft wurden jede Zahl, jede Formel und jede Datenrate gegen die in der
+Lektion genannten Belege; alle Rechenbeispiele wurden per Skript nachgerechnet.
+
+| Lektion | Geprüfte Kernaussagen | Beim Gegenlesen korrigiert |
+| --- | --- | --- |
+| `hardware-pc-aufbau` | Formfaktor-Maße, PCIe-Raten je Lane (3.0/4.0/5.0), SATA III 6 Gbit/s ≈ 600 MB/s, Rechnung PCIe 4.0 x4 = 7,88 GB/s | – |
+| `hardware-cpu-ram` | DDR-Prinzip (2 Übertragungen/Takt), DDR5-5600 = 2800 MHz Takt, Bandbreite 44,8 / 89,6 / 25,6 GB/s, SRAM vs. DRAM, SMT | Deep-Links ohne geprüfte Adresse durch Startseiten der Normungsgremien ersetzt |
+| `hardware-netzteil-anschluesse` | η-Rechnung 300 W → 333,3 W, Stromkosten 175,98 €, 80-PLUS-Stufen (115 V), HDMI/DP/USB-Raten, ppi 92/109, USB-Kopierzeiten | 50-Hz-Wechselspannung wechselt 100-mal (nicht 50-mal) pro Sekunde die Richtung |
+| `angebotsvergleich-quantitativ` | Bezugskalkulation A/B/C (7.978,18 / 8.065,50 / 7.758,60 €), Skonto als Jahreszins ≈ 36,7 % | Unsichere Buchquelle durch das Schema der Handelskalkulation ersetzt |
+| `nutzwertanalyse` | Nutzwerte 7,50 / 6,95 / 6,50, Gewichte = 100 %, Preispunkte 10,0 / 9,7 / 9,6 | – |
+| `erm-grundlagen` | Chen-Notation, (min,max), Übersetzung 1 : n / n : m / 1 : 1 | Unbelegte Aussage, das Prüfungs-Beiblatt enthalte die ERM-Notation, entfernt |

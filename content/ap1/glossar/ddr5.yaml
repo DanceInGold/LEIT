@@ -1,0 +1,16 @@
+id: ddr5
+begriff: DDR5
+langform: Double Data Rate 5
+kurz: Aktuelle Generation von Arbeitsspeicher mit zwei Datenübertragungen pro Takt.
+erklaerung: DDR-Speicher überträgt Daten an der steigenden und fallenden Taktflanke, also zweimal pro
+  Takt. Die Angabe DDR5-5600 bedeutet 5600 Millionen Übertragungen pro Sekunde (MT/s). DDR5-Module passen
+  wegen einer anderen Kerbe nicht in DDR4-Steckplätze.
+warum: Die doppelte Übertragung pro Takt steigert die Datenrate, ohne den Takt und damit Stromverbrauch
+  und Störanfälligkeit zu verdoppeln.
+beispiel: DDR5-5600 × 8 Byte = 44,8 GB/s Bandbreite pro Kanal.
+verwandt:
+- ram
+- dual-channel
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

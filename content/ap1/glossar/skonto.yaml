@@ -1,0 +1,14 @@
+id: skonto
+begriff: Skonto
+kurz: Preisnachlass für Zahlung innerhalb einer kurzen Frist, berechnet vom Zieleinkaufspreis.
+erklaerung: Skonto belohnt schnelles Bezahlen der Rechnung, z. B. „2 % Skonto bei Zahlung innerhalb von
+  10 Tagen, sonst netto in 30 Tagen“. Es wird nach dem Rabatt vom Zieleinkaufspreis abgezogen und ergibt
+  den Bareinkaufspreis.
+warum: 'Für den Lieferanten ist schnelles Geld wertvoll: weniger Kreditbedarf, weniger Ausfallrisiko.'
+beispiel: 2 % Skonto auf 8.091,00 € sind 161,82 €.
+verwandt:
+- rabatt
+- bezugspreis
+thema: angebotsvergleich
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

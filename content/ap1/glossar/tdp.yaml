@@ -1,0 +1,13 @@
+id: tdp
+begriff: TDP
+langform: Thermal Design Power
+kurz: Wärmeleistung in Watt, für die die Kühlung eines Prozessors ausgelegt sein muss.
+erklaerung: 'Die TDP gibt der Hersteller an, damit Kühler und Gehäuse passend ausgelegt werden. Sie ist
+  kein exakter Stromverbrauch: Im Turbo kann die CPU kurzzeitig mehr aufnehmen, im Leerlauf viel weniger.'
+beispiel: Eine CPU mit 65 W TDP braucht einen Kühler, der dauerhaft mindestens 65 W Wärme abführen kann.
+verwandt:
+- cpu
+- wirkungsgrad
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

@@ -1,0 +1,16 @@
+id: fremdschluessel
+begriff: Fremdschlüssel
+kurz: Spalte, die auf den Primärschlüssel einer anderen Tabelle verweist und so Tabellen verknüpft.
+erklaerung: 'Fremdschlüssel entstehen beim Übertragen des ERM in Tabellen: Bei 1 : n wandert der Primärschlüssel
+  der 1-Seite als Fremdschlüssel auf die n-Seite; bei n : m entsteht eine Zwischentabelle mit zwei Fremdschlüsseln.
+  Im ERM selbst gibt es keine Fremdschlüssel.'
+warum: So bleibt jede Zelle einwertig, und die Datenbank kann prüfen, dass jeder Verweis auf einen existierenden
+  Datensatz zeigt (referenzielle Integrität).
+beispiel: Die Tabelle Projekt enthält die Spalte KundenNr, die auf die Tabelle Kunde verweist.
+verwandt:
+- primaerschluessel
+- kardinalitaet
+- erm
+thema: erm-relational
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

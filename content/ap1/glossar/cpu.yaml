@@ -1,0 +1,18 @@
+id: cpu
+begriff: CPU
+langform: Central Processing Unit
+kurz: Hauptprozessor, der Befehle aus dem Arbeitsspeicher holt und ausführt.
+erklaerung: Die CPU führt die Befehle von Betriebssystem und Programmen aus. Ihre Leistung hängt von Takt,
+  Befehlen pro Takt (Architektur) und der Zahl genutzter Kerne ab. Moderne CPUs enthalten den Speichercontroller,
+  einen Teil der PCIe-Lanes und oft eine Grafikeinheit.
+warum: Ohne zentrale Recheneinheit gäbe es niemanden, der Programme ausführt – alle anderen Komponenten
+  liefern nur Daten zu oder nehmen Ergebnisse ab.
+beispiel: 8 Kerne / 16 Threads, 3,8–5,1 GHz, 32 MB L3-Cache, Sockel AM5.
+verwandt:
+- smt
+- cache
+- tdp
+- ram
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

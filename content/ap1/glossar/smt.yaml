@@ -1,0 +1,15 @@
+id: smt
+begriff: SMT
+langform: Simultaneous Multithreading
+kurz: Technik, bei der ein CPU-Kern zwei Befehlsströme (Threads) gleichzeitig bearbeitet.
+erklaerung: Ein Kern mit SMT teilt seine Rechenwerke auf zwei Threads auf. Wartet ein Thread auf Daten,
+  nutzt der andere die freien Rechenwerke. Bei Intel heißt die Technik Hyper-Threading.
+warum: Rechenwerke stehen oft still, weil Daten aus dem Speicher noch nicht da sind – SMT füllt diese
+  Lücken.
+beispiel: Eine CPU mit 8 Kernen und SMT meldet dem Betriebssystem 16 Threads, ist aber langsamer als eine
+  CPU mit 16 echten Kernen.
+verwandt:
+- cpu
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

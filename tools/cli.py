@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 
 from tools import inventory
+from tools.check_content import run_check
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -50,6 +51,10 @@ def _cmd_inventur(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_check(args: argparse.Namespace) -> int:
+    return run_check(Path(args.paket))
+
+
 def build_parser() -> argparse.ArgumentParser:
     """Baut den Parser mit allen Unterbefehlen."""
     parser = argparse.ArgumentParser(prog="ap-tools", description="Werkzeuge der Content-Pipeline.")
@@ -76,6 +81,14 @@ def build_parser() -> argparse.ArgumentParser:
     inv.add_argument("--report", help="Bericht zusätzlich als Markdown-Datei schreiben.")
     inv.add_argument("--github-output", help="Ergebnis für GitHub Actions ($GITHUB_OUTPUT).")
     inv.set_defaults(func=_cmd_inventur)
+
+    chk = sub.add_parser(
+        "check",
+        help="Inhaltspaket gegen Schema und Verweise prüfen.",
+        description="Prüft paket.yaml, katalog.yaml, alle Lektionen und Glossarbegriffe (NF-08).",
+    )
+    chk.add_argument("--paket", default=str(REPO_ROOT / "content" / "ap1"), help="Ordner des Inhaltspakets.")
+    chk.set_defaults(func=_cmd_check)
     return parser
 
 

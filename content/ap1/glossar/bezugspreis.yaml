@@ -1,0 +1,15 @@
+id: bezugspreis
+begriff: Bezugspreis
+kurz: 'Tatsächliche Kosten einer Beschaffung: Listenpreis minus Rabatt und Skonto plus Bezugskosten (auch
+  Einstandspreis).'
+erklaerung: 'Schema der Bezugskalkulation: Listeneinkaufspreis − Rabatt = Zieleinkaufspreis − Skonto =
+  Bareinkaufspreis + Bezugskosten = Bezugspreis. Beim quantitativen Angebotsvergleich werden die Bezugspreise
+  verglichen.'
+beispiel: 10 × 929 € − 15 % Rabatt − 3 % Skonto + 99 € Versand = 7.758,60 €.
+verwandt:
+- rabatt
+- skonto
+- nutzwertanalyse
+thema: angebotsvergleich
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

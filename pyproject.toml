@@ -1,6 +1,6 @@
 [project]
 name = "ap-trainer"
-version = "0.1.0"
+version = "0.5.0"
 description = "Lernbegleiter für die AP1 der IT-Berufe (Fachinformatik Systemintegration)"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -12,6 +12,9 @@ dependencies = [
     "pdfplumber>=0.11",
     "beautifulsoup4>=4.12",
     "openpyxl>=3.1",
+    # Programm (src/ap_trainer)
+    "nicegui>=2.10,<3",
+    "fsrs>=5,<7",
 ]
 
 [project.scripts]
@@ -58,5 +61,10 @@ mypy_path = ["src", "."]
 packages = ["ap_trainer", "tools"]
 
 [[tool.mypy.overrides]]
-module = ["pdfplumber", "pypdf", "bs4", "openpyxl"]
+module = ["pdfplumber", "pypdf", "bs4", "openpyxl", "yaml", "fsrs", "nicegui", "nicegui.*"]
 ignore_missing_imports = true
+
+# Ohne installiertes NiceGUI (schlanke Umgebungen) sind dessen Dekoratoren untypisiert.
+[[tool.mypy.overrides]]
+module = ["ap_trainer.ui.*", "ap_trainer.__main__"]
+disallow_untyped_decorators = false

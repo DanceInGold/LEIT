@@ -1,0 +1,15 @@
+id: nvme
+begriff: NVMe
+langform: Non-Volatile Memory Express
+kurz: Protokoll, mit dem SSDs direkt über PCIe angesprochen werden.
+erklaerung: NVMe wurde für Flash-Speicher entwickelt und nutzt PCIe-Lanes direkt. NVMe-SSDs stecken meist
+  in M.2-Steckplätzen, sind aber nicht mit der Bauform M.2 gleichzusetzen – ein M.2-Steckplatz kann auch
+  nur SATA führen.
+warum: Das ältere SATA-Protokoll stammt aus der Festplattenzeit und begrenzt auf rund 600 MB/s; NVMe nutzt
+  die viel höhere Rate von PCIe.
+beispiel: Eine NVMe-SSD an PCIe 4.0 x4 erreicht mehrere GB/s, eine SATA-SSD höchstens etwa 0,6 GB/s.
+verwandt:
+- pcie
+thema: speicher-hdd-ssd
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

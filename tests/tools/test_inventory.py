@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 from tools import cli, inventory
 
 
@@ -107,3 +109,10 @@ def test_cli_github_output(tmp_path: Path) -> None:
     text = out.read_text(encoding="utf-8")
     assert "changed=true" in text
     assert "summary=1 neu" in text
+
+
+def test_cli_check_reports_content_status(package_dir: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    assert cli.main(["check", "--paket", str(package_dir)]) == 0
+    assert "Inhalte in Ordnung" in capsys.readouterr().out
+    (package_dir / "glossar" / "bit.yaml").write_text("id: bit\n", encoding="utf-8")
+    assert cli.main(["check", "--paket", str(package_dir)]) == 1

@@ -1,0 +1,12 @@
+id: primaerschluessel
+begriff: Primärschlüssel
+kurz: Attribut oder Attributkombination, die jede Zeile einer Tabelle eindeutig identifiziert.
+erklaerung: 'Ein Primärschlüssel darf nicht leer sein und sich nicht wiederholen. Er kann aus mehreren
+  Spalten zusammengesetzt sein, etwa in Zwischentabellen für n : m-Beziehungen.'
+beispiel: ProjektNr in der Tabelle Projekt; (DokumentNr, SchlagwortNr) in der Tabelle Verschlagwortung.
+verwandt:
+- fremdschluessel
+- attribut
+thema: erm-relational
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

@@ -1,0 +1,11 @@
+id: formfaktor
+begriff: Formfaktor
+kurz: Norm für Größe, Befestigungspunkte und Anschlusslage von Mainboards, Gehäusen und Netzteilen.
+erklaerung: Gängige Mainboard-Formfaktoren sind ATX (305 × 244 mm), Micro-ATX (244 × 244 mm) und Mini-ITX
+  (170 × 170 mm). Gehäuse geben an, welche Formfaktoren hineinpassen.
+beispiel: Ein Mini-ITX-Board passt in fast jedes Gehäuse, hat aber nur einen PCIe-Steckplatz.
+verwandt:
+- mainboard
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

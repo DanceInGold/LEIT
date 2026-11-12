@@ -1,0 +1,13 @@
+id: wirkungsgrad
+begriff: Wirkungsgrad
+kurz: Verhältnis von abgegebener zu aufgenommener Leistung, z. B. eines Netzteils (Formelzeichen η).
+erklaerung: 'η = P_ab ÷ P_auf. Der Rest geht als Wärme verloren. Daraus folgt P_auf = P_ab ÷ η: Aus der
+  Steckdose wird immer mehr Leistung aufgenommen, als die Komponenten erhalten.'
+warum: Jede Energieumwandlung hat Verluste durch elektrische Widerstände; sie zeigen sich als Wärme.
+beispiel: '300 W Bedarf bei η = 90 %: 300 W ÷ 0,9 = 333,3 W aus der Steckdose, 33,3 W Verlust.'
+verwandt:
+- 80-plus
+- tdp
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

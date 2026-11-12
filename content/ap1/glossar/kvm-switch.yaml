@@ -1,0 +1,13 @@
+id: kvm-switch
+begriff: KVM-Switch
+langform: Keyboard, Video, Mouse Switch
+kurz: Umschalter, mit dem ein Satz aus Tastatur, Monitor und Maus mehrere Rechner bedient.
+erklaerung: Ein KVM-Switch schaltet Eingabe- und Bildsignale zwischen mehreren Rechnern um. Im Rechenzentrum
+  wird er oft mit einer KVM-Konsole (ausziehbarer Monitor mit Tastatur im Rack) kombiniert. IP-KVM überträgt
+  Bild und Eingaben über das Netzwerk, sodass Server aus der Ferne bedient werden können – auch im UEFI-Setup.
+beispiel: Acht Server in einem Rack teilen sich eine KVM-Konsole mit 1 Höheneinheit.
+verwandt:
+- usb-c
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

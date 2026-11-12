@@ -1,0 +1,12 @@
+id: entitaet
+begriff: Entität
+kurz: Einzelnes, eindeutig unterscheidbares Objekt der realen Welt, über das Daten gespeichert werden.
+erklaerung: Gleichartige Entitäten bilden einen Entitätstyp (z. B. alle Projekte). Im relationalen Modell
+  entspricht eine Entität einer Zeile, der Entitätstyp einer Tabelle.
+beispiel: Das Projekt „Turbinenhalle Nord“ ist eine Entität des Entitätstyps Projekt.
+verwandt:
+- erm
+- attribut
+thema: erm-relational
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
