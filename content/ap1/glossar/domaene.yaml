@@ -1,0 +1,14 @@
+id: domaene
+begriff: Domäne
+kurz: Zentral verwalteter Verbund von Benutzern, Gruppen und Computern, in Windows-Netzen über Active
+  Directory.
+erklaerung: 'Domänencontroller stellen Anmeldung (Single Sign-on), Konten und Gruppenrichtlinien bereit.
+  Für den Beitritt eines Clients muss sein DNS-Server auf den Domänencontroller zeigen; nötig sind ein
+  eindeutiger Computername, ein Konto mit Beitrittsrecht und ein Neustart. Gegenstück: Arbeitsgruppe (Peer-to-Peer).'
+warum: Eine Änderung wirkt sofort für alle Rechner – etwa das Sperren eines Kontos.
+beispiel: Linux-Server treten mit realm join archivtech.example bei.
+verwandt:
+- dns
+thema: client-server-domaene
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

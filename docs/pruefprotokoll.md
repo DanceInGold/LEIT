@@ -246,3 +246,23 @@ Rechtliche Aussagen geben den Wortlaut der Normen wieder und sind keine Rechtsbe
 | `kundenbedarf` | kundenbedarf, maerkte-bedarfe | Bedürfnis/Bedarf/Nachfrage; Fragetechniken; Kommunikationsquadrat (Schulz von Thun 1981) | „Märkte und Bedarfe“ hat im Katalog-Auszug keinen Unterpunkt; Inhalt deshalb auf Grundbegriffe beschränkt. |
 | `kommunikationssysteme` | kommunikationssysteme | Upload-Rechnung 8 × 2 Mbit/s = 16 Mbit/s > 10 Mbit/s | Bandbreite je Teilnehmer als Annahme gekennzeichnet; nicht geprüfte BSI-Deep-Link-Adresse entfernt. |
 | `praesentation` | praesentation | Aufbau, Medienwahl, Folienregeln, Medienkompetenz | Anteile und Schriftgrößen als Faustregeln gekennzeichnet. |
+
+## Neue Lektionen und Glossar (Systeme und Netz)
+
+Zwölf Kapitel für 13 Katalogthemen und vier Glossarbegriffe, im PR mit `status: ungeprüft`.
+Rechnungen per Skript, Beispielskript mit `bash -n` geprüft, Diagramme gerendert.
+
+| Lektion | Themen | Geprüfte Kernaussagen | Hinweis |
+| --- | --- | --- | --- |
+| `hdd-ssd` | speicher-hdd-ssd | 7.200 U/min → 8,33 ms je Umdrehung, 4,17 ms mittlere Rotationswartezeit; 600 TBW ÷ 100 GB/Tag ≈ 16,4 Jahre; Löschen von SSDs | Typische Werte (Datenrate, IOPS) als Größenordnungen gekennzeichnet; BSI-Deep-Link ohne geprüfte Adresse entfernt. |
+| `uefi-dateisysteme` | bios-uefi-dateisysteme | MBR: 2³² × 512 B = 2 TiB, 4 primäre Partitionen; FAT32 max. 4 GiB − 1 B; ext4 16 TiB je Datei bei 4-KiB-Blöcken | RHEL-Standarddateisystem XFS ergänzt. |
+| `installation-einrichtung` | installation-einrichtung | Ablauf, Partitionsschema, statisch vs. DHCP, nmcli; Ports SSH 22, RDP 3389, VNC 5900 | KI-Software nur knapp (Katalog nennt sie ohne Detail). |
+| `betriebssysteme` | betriebssysteme | rwx = 4/2/1, `chmod 750`; Freigabe- und NTFS-Rechte: restriktivere gilt | Nicht geprüfte Microsoft-Adresse entfernt, Beleg ohne Link. |
+| `client-server-domaene` | client-server-domaene | AD-Begriffe, Beitrittsschritte (DNS auf DC, Konto mit Beitrittsrecht, Neustart), `realm join` (RHEL 9) | – |
+| `netzwerk-standards` | netzwerk-standards | 100BASE-TX/Cat 5, 1000BASE-T/Cat 5e, 10GBASE-T/Cat 6A, 100 m; Wi-Fi 4–7 = 802.11n/ac/ax/be; 2 TB über 1 Gbit/s = 16.000 s | WLAN-Raten als theoretische Bruttowerte gekennzeichnet. |
+| `netzwerkkomponenten` | netzwerkkomponenten | Schichtzuordnung; PoE 15,4/30/bis 90 W (802.3af/at/bt) | – |
+| `cloud-modelle` | cloud-modelle | IaaS/PaaS/SaaS und vier Bereitstellungsmodelle nach NIST SP 800-145; DaaS, VDI | – |
+| `geraeteklassen` | geraeteklassen, auslastung-erweiterbarkeit | Auslastung 14,2/16 GB = 89 %, 410/512 GB = 80 % | 70–80 % als Faustregel gekennzeichnet. |
+| `konsolenbefehle` | konsolenbefehle | Befehlspaare Windows/Linux; 169.254.0.0/16 = Link-Local (RFC 3927) | – |
+| `skriptsprachen` | skriptsprachen | Beispielskript syntaktisch geprüft (`bash -n`); Shebang, Exit-Code, cron-Syntax | – |
+| `nachhaltigkeit-energie` | nachhaltigkeit-energie | 0,4 kW × 8.760 h = 3.504 kWh = 1.051,20 €; PC/Thin Client 42,24 €/7,92 €, 50 Plätze 1.716 €; PUE 1,5 | Strompreis als Annahme. |

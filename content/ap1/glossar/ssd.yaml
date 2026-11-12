@@ -1,0 +1,13 @@
+id: ssd
+begriff: SSD
+langform: Solid State Drive
+kurz: Datenspeicher aus Flash-Zellen ohne bewegliche Teile.
+erklaerung: Gegenüber der HDD (magnetische, drehende Scheiben) hat die SSD sehr kurze Zugriffszeiten,
+  viele IOPS, ist stoßfest und leise, kostet aber mehr pro TB. Anbindung über SATA oder NVMe (PCIe). Die
+  Lebensdauer wird als TBW angegeben. Überschreiben löscht SSDs nicht zuverlässig (Wear Leveling).
+beispiel: 600 TBW bei 100 GB pro Tag ≈ 16 Jahre.
+verwandt:
+- uefi
+thema: speicher-hdd-ssd
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
