@@ -1,0 +1,12 @@
+id: mac-adresse
+begriff: MAC-Adresse
+kurz: 48-Bit-Hardwareadresse einer Netzwerkkarte, mit der Frames im lokalen Netz zugestellt werden.
+erklaerung: Geschrieben als sechs Hex-Bytes, z. B. 3C:52:82:1A:7F:09. Die MAC gilt nur im lokalen Netz
+  (Schicht 2); an jedem Router werden Quell- und Ziel-MAC neu gesetzt, die IP-Adressen bleiben.
+beispiel: 'Analogie: MAC = Personalausweis der Netzwerkkarte, IP-Adresse = Postanschrift.'
+verwandt:
+- arp
+- osi-modell
+thema: osi-protokolle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

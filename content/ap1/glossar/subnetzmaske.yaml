@@ -1,0 +1,14 @@
+id: subnetzmaske
+begriff: Subnetzmaske
+kurz: 32-Bit-Wert, der festlegt, welcher Teil einer IPv4-Adresse das Netz und welcher den Host bezeichnet.
+erklaerung: Einsen markieren den Netzanteil, Nullen den Hostanteil; geschrieben als 255.255.255.192 oder
+  als Präfix /26. Netzadresse = Adresse UND Maske; nutzbare Hosts = 2^Hostbits − 2. Eine allgemeine Standardmaske
+  gibt es nicht.
+warum: Router müssen nur Netze kennen, nicht jeden einzelnen Rechner.
+beispiel: 172.16.45.130/26 → Netz 172.16.45.128, Broadcast .191, 62 Hosts.
+verwandt:
+- nat
+- dhcp
+thema: ipv4-subnetting
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

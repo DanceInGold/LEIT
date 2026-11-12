@@ -1,0 +1,12 @@
+id: port
+begriff: Port
+kurz: 16-Bit-Nummer auf Schicht 4, die angibt, an welches Programm auf einem Rechner Daten gehen.
+erklaerung: 'IP-Adresse plus Port (Socket) adressiert einen Dienst eindeutig, z. B. 10.0.2.20:443. Bekannte
+  Ports: 22 SSH, 53 DNS, 80 HTTP, 443 HTTPS. Die Zuordnung pflegt die IANA.'
+beispiel: 'Firewall-Freigabe: TCP 443 von Jenkins zum Artefakt-Repository.'
+verwandt:
+- tcp
+- osi-modell
+thema: osi-protokolle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

@@ -6,6 +6,13 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 ## [Unreleased]
 
 ### Hinzugefügt
+- Neun Kapitel für die Planwochen 4–5: relationale Tabellen und Normalisierung (ERM Kapitel 2),
+  OSI-Modell, Ethernet/ARP/IP/TCP, Anwendungsprotokolle, Zahlensysteme, Einheiten und Präfixe,
+  IPv4-Adressen, Subnetze bilden, Subnetz prüfen und VLSM (LI-01).
+- Zwölf Glossarbegriffe (Normalisierung, Redundanz, OSI-Modell, MAC-Adresse, ARP, TTL, Port, TCP,
+  DNS, DHCP, Subnetzmaske, NAT) (GL-01).
+
+### Hinzugefügt
 - Neun Kapitel für die Planwochen 2–3: Pseudocode (Bausteine und Verzweigungen; Schleifen, Felder
   und Funktionen), Schreibtischtest (Code von Hand durchrechnen; Fehler in Code finden),
   Projektplanung (Projektstrukturplan und Vorgangsliste; Netzplan; Gantt-Diagramm), Kalkulation

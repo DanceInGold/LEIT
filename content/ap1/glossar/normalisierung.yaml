@@ -1,0 +1,15 @@
+id: normalisierung
+begriff: Normalisierung
+kurz: Schrittweises Zerlegen von Tabellen, damit jede Information nur an einer Stelle steht und keine
+  Anomalien auftreten.
+erklaerung: '1. Normalform: nur atomare Werte. 2. Normalform: jedes Nicht-Schlüssel-Attribut hängt vom
+  ganzen Primärschlüssel ab. 3. Normalform: keine transitiven Abhängigkeiten zwischen Nicht-Schlüssel-Attributen.'
+warum: Ohne Redundanz gibt es beim Ändern nur eine Stelle, die stimmen muss.
+beispiel: Kundenname aus der Dokumentliste in eine eigene Tabelle Kunde auslagern.
+verwandt:
+- redundanz
+- primaerschluessel
+- fremdschluessel
+thema: erm-relational
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

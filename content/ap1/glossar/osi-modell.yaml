@@ -1,0 +1,15 @@
+id: osi-modell
+begriff: OSI-Modell
+kurz: Referenzmodell, das Netzwerkkommunikation in sieben Schichten mit je einer Aufgabe gliedert.
+erklaerung: 'Schichten von unten: 1 Bitübertragung, 2 Sicherung, 3 Vermittlung, 4 Transport, 5 Sitzung,
+  6 Darstellung, 7 Anwendung (ISO/IEC 7498-1). Beim Senden kapselt jede Schicht die Daten mit ihrem Header.
+  Das TCP/IP-Modell fasst die Schichten zu vier zusammen.'
+warum: Schichten machen Technik austauschbar und erleichtern die Fehlersuche von unten nach oben.
+beispiel: Switch = Schicht 2 (MAC), Router = Schicht 3 (IP), TCP = Schicht 4.
+verwandt:
+- mac-adresse
+- tcp
+- arp
+thema: osi-protokolle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

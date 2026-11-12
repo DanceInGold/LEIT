@@ -169,3 +169,21 @@ wurden mit der Mermaid-Kommandozeile gerendert und angesehen.
 | `gantt-diagramm` | Termine ab Mo 11.01.2027 ohne Wochenenden, Ende Fr 29.01.2027; Meilenstein mit Dauer 0 | Buchangabe zu Gantt (Erscheinungsjahr unsicher) durch allgemeinen Beleg ersetzt; Meilensteine im Diagramm auf feste Daten gesetzt, weil Mermaid sie sonst auf den nächsten Werktag schiebt. |
 | `kalkulation-verkaufspreis` | Schema Bezugspreis → Listenverkaufspreis; Skonto/Rabatt im Hundert (Lexware); 4.000,00 → 7.555,56 € brutto, Probe 5.600,00 €; Fehler bei × 1,02 = 2,24 €; USt 19 % nach § 12 Abs. 1 UStG | – |
 | `kalkulation-vor-nach` | Stundensatz 90.000 € ÷ 1.500 h = 60,00 €, × 1,15 = 69,00 €; 1.680 / 1.500 h; Vorkalkulation 2.760,00 €, Nachkalkulation 3.120,00 €, Abweichung +30 %, nach Aufwand 3.588,00 € | Alle Kostenannahmen sind fiktiv und als Annahmen gekennzeichnet. |
+
+## Neue Lektionen und Glossar (Woche 4–5)
+
+Neun Kapitel und zwölf Glossarbegriffe, im PR mit `status: ungeprüft`. Alle Adressrechnungen wurden
+mit Pythons `ipaddress`-Modul gegengeprüft, alle Umrechnungen mit `bin()`, `hex()` und `int()`.
+Alle Diagramme wurden mit der Mermaid-Kommandozeile gerendert.
+
+| Lektion | Geprüfte Kernaussagen | Beim Gegenlesen korrigiert / Hinweis |
+| --- | --- | --- |
+| `relationale-tabellen` | Relation/Tupel/Attribut; Änderungs-, Einfüge-, Löschanomalie; 1NF–3NF am Archivbeispiel; Ergebnis deckt sich mit den Tabellen aus `erm-grundlagen`; referentielle Integrität | **Hinweis:** Der Katalog nennt die Normalformen nicht ausdrücklich („Grundlagen relationaler Datenbanken“). Die Lektion stellt sie deshalb als Werkzeug dar, nicht als sicheren Prüfungsstoff. |
+| `osi-modell` | sieben Schichten nach ISO/IEC 7498-1, Dateneinheiten, Geräte je Schicht, Zuordnung zum TCP/IP-Modell nach RFC 1122 | TLS ausdrücklich als nicht eindeutig zuordenbar gekennzeichnet (in Lehrbüchern uneinheitlich: Schicht 4–6). |
+| `ethernet-arp-ip-tcp` | ARP-Anfrage Broadcast, Antwort Unicast, Cache (RFC 826); MAC-Wechsel je Router; TTL − 1 je Router (RFC 1812); Drei-Wege-Handschlag (RFC 9293); UDP (RFC 768) | Abgrenzung ARP/NAT/DNS und IP-TTL/DNS-TTL gezielt aufgenommen (Befunde P-10, P-12, P-14). |
+| `anwendungsprotokolle` | DNS-Ablauf, TTL als feste Gültigkeitsdauer (RFC 1034/1035); DORA, UDP 67/68 (RFC 2131); Mail-Ports 25/587/465, 143/993, 110/995 (RFC 8314); Ports nach IANA | – |
+| `zahlensysteme-umrechnen` | 172 = `10101100` = 0xAC (beide Verfahren), 0x1F4 = 500, 0x3F = 63, `chmod 750` = `111 101 000` | – |
+| `einheiten-praefixe` | SI-Präfixe (BIPM), binäre Präfixe (IEC 80000-13); 2 TB = 1,819 TiB; 100 Mbit/s = 12,5 MB/s; Abweichung Kilo 2,4 %, Tera ≈ 10 % | – |
+| `ipv4-adressen` | 172.16.45.130/26 → Netz .128, Hosts .129–.190, Broadcast .191, 62 Hosts; private Bereiche (RFC 1918), Link-Local (RFC 3927) | „Keine Standardmaske“ gemäß Befund P-16; NAT nur am Übergang ins Internet gemäß P-12. |
+| `subnetze-bilden` | 192.168.10.0/24 → 4 × /26; 172.16.48.0/20 → 8 × /23 mit 510 Hosts; 172.16.48.255 ist bei /23 ein gültiger Host | – |
+| `subnetz-pruefen-vlsm` | 10.20.0.140/26 vs. .100 → verschiedene Netze, .180 → gleiches Netz; VLSM /25, /26, /27, /30 lückenlos; Weiterleitungsentscheidung nach RFC 1122, 3.3.1 | /31 nach RFC 3021 nur als Vertiefung erwähnt. |
