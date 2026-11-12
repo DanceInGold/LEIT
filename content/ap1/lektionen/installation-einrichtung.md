@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Installationsablauf nach Herstellerdokumentation
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.01: Installation und Einrichtung, z. B. Betriebssysteme, BIOS, UEFI, Partitionierungen/Formatierungen, Netzwerkanbindungen, IP(v4/v6)-Konfiguration, Remote-Desktop, KI-Software (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Red Hat Enterprise Linux 9: Interactively installing RHEL from installation media", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/interactively_installing_rhel_from_installation_media/index"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.03: Betriebssysteme (Einsatzzweck, Filemanagement, Freigaben) – Themenzuordnung siehe content/ap1/katalog.yaml"}
   - {titel: "GNU coreutils: chmod – change file mode bits", url: "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html"}
   - {titel: "Microsoft-Dokumentation zu Freigabe- und NTFS-Berechtigungen (wirksam ist die restriktivere Kombination)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025: Konsolenbefehle für Dateien und Netzwerk-Troubleshooting (ipconfig, ip, ping, nslookup …) – Themenzuordnung siehe content/ap1/katalog.yaml (04.05)"}
   - {titel: "Microsoft Learn: Windows commands (ipconfig, ping, tracert, nslookup, netstat)", url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"}
   - {titel: "man7.org: ip(8), ss(8), ping(8), dig(1)", url: "https://man7.org/linux/man-pages/man8/ip.8.html"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

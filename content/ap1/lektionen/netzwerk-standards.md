@@ -11,7 +11,7 @@ belege:
   - {titel: "IEEE 802.3 Ethernet Working Group", url: "https://www.ieee802.org/3/"}
   - {titel: "IEEE 802.11 Wireless LAN Working Group", url: "https://www.ieee802.org/11/"}
   - {titel: "Wi-Fi Alliance: Wi-Fi 6, Wi-Fi 6E, Wi-Fi 7", url: "https://www.wi-fi.org/discover-wi-fi"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

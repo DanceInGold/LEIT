@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.02: Einbindung eines Clients in eine Domäne (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Microsoft Learn: Active Directory Domain Services Overview", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"}
   - {titel: "Red Hat Enterprise Linux 9: Integrating RHEL systems directly with Windows Active Directory (realm join)", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/integrating_rhel_systems_directly_with_windows_active_directory/index"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

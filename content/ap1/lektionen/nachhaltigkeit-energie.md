@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkte 03.01/07.02: Nutzungsdauer, Energieverbrauch, Recyclingfähigkeit (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Richtlinie 2012/19/EU über Elektro- und Elektronik-Altgeräte (WEEE)", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32012L0019"}
   - {titel: "Elektro- und Elektronikgerätegesetz (ElektroG)", url: "https://www.gesetze-im-internet.de/elektrog_2015/"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
