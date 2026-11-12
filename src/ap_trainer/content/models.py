@@ -132,6 +132,8 @@ class Lektion(_Strict):
     id: str
     titel: str
     themen: list[str] = Field(min_length=1)
+    # Position innerhalb eines Themas, wenn es mehrere Lektionen gibt (1 = zuerst lesen)
+    reihenfolge: int = Field(default=1, ge=1)
     voraussetzungen: list[str] = Field(default_factory=list)
     dauer_min: int = Field(gt=0, le=180)
     quelle: str

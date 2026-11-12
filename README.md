@@ -4,8 +4,8 @@ Lokales Lernprogramm zur Vorbereitung auf die Abschlussprüfung Teil 1 (AP1) der
 zugeschnitten auf Fachinformatik Systemintegration. Inhalte (Markdown/YAML) und Programm
 (Python) sind getrennt; weitere Prüfungsteile kommen als zusätzliche Inhaltspakete dazu.
 
-**Stand:** Phase 0 – Repo-Struktur, Inventur des Materials, Faktencheck, Lernstil-Analyse.
-Das Programm selbst folgt ab Phase 1.
+**Stand:** Phase 1 (v0.5) – Lernplan, Startseite „Heute“, Lektionen, Glossar, Lernkarten mit
+Wiederholung nach FSRS. Aufgaben und Rechentrainer folgen in Phase 2.
 
 ## Schnellstart
 
@@ -13,10 +13,20 @@ Voraussetzung: [uv](https://docs.astral.sh/uv/) und Python 3.12+.
 
 ```bash
 uv sync --all-groups              # Abhängigkeiten installieren
-uv run ap-trainer                 # Programm starten (Phase 0: Platzhalter)
+uv run ap-trainer                 # Lernbegleiter starten, öffnet http://127.0.0.1:8080
+uv run ap-trainer --lan           # zusätzlich im WLAN erreichbar (Smartphone), Adresse steht im Terminal
+uv run ap-tools check             # Inhalte gegen Schema und Verweise prüfen
 uv run ap-tools inventur --check  # zeigen, was sich in quellen/ geändert hat
 uv run pytest                     # Tests
 ```
+
+Beim ersten Start unter **Einstellungen** Prüfungstermin, Lernbeginn und Lernbudget festlegen. Ein
+späterer Wechsel (z. B. von 15 auf 30 Stunden pro Woche) wird als weitere Budgetzeile mit
+Startdatum eingetragen – der Plan rechnet sich sofort neu.
+
+**Lernstand:** liegt in `~/.ap-trainer/lernstand.sqlite` (außerhalb des Repos). Sichern durch
+Kopieren der Datei oder über *Einstellungen → Als JSON exportieren*. Andere Orte über die
+Umgebungsvariablen `AP_TRAINER_DATA` (Lernstand) und `AP_TRAINER_CONTENT` (Inhaltspaket).
 
 ## Neues Material einspielen
 

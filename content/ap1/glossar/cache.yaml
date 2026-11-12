@@ -1,0 +1,16 @@
+id: cache
+begriff: Cache
+kurz: Sehr schneller, kleiner Zwischenspeicher auf dem Prozessor für häufig benötigte Daten.
+erklaerung: 'Der CPU-Cache ist in Stufen gegliedert: L1 und L2 gehören meist zu einem Kern, L3 teilen
+  sich alle Kerne. Je näher am Kern, desto kleiner und schneller. Er besteht aus SRAM und ist deutlich
+  schneller als der Arbeitsspeicher (DRAM).'
+warum: Ein Zugriff auf den Arbeitsspeicher dauert Hunderte CPU-Takte; ohne Cache würde die CPU die meiste
+  Zeit warten.
+beispiel: Eine Schleife, die immer wieder dieselben Werte liest, findet sie nach dem ersten Durchlauf
+  im L1-Cache.
+verwandt:
+- cpu
+- ram
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

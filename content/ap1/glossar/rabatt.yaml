@@ -1,0 +1,11 @@
+id: rabatt
+begriff: Rabatt
+kurz: Preisnachlass, der schon bei Vertragsabschluss gewährt wird, z. B. Mengen- oder Treuerabatt.
+erklaerung: Der Rabatt wird vom Listeneinkaufspreis abgezogen und ergibt den Zieleinkaufspreis.
+beispiel: 10 % Rabatt auf 8.990,00 € sind 899,00 €.
+verwandt:
+- skonto
+- bezugspreis
+thema: angebotsvergleich
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

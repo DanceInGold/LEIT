@@ -1,0 +1,12 @@
+id: ko-kriterium
+begriff: K.-o.-Kriterium
+kurz: 'Muss-Kriterium: Erfüllt eine Alternative es nicht, scheidet sie unabhängig von ihrer Bewertung
+  aus.'
+erklaerung: K.-o.-Kriterien werden vor der eigentlichen Nutzwertanalyse geprüft. Sie fließen nicht mit
+  Gewichten in die Bewertung ein, sondern filtern vorher.
+beispiel: „USB-C mit Bildausgabe“, wenn die vorhandenen Dockingstationen sonst nicht funktionieren.
+verwandt:
+- nutzwertanalyse
+thema: angebotsvergleich
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

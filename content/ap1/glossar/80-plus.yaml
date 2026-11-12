@@ -1,0 +1,13 @@
+id: 80-plus
+begriff: 80 PLUS
+kurz: Zertifizierungsprogramm für PC-Netzteile mit Mindestwirkungsgraden bei 20, 50 und 100 % Last.
+erklaerung: 'Die Stufen Bronze, Silver, Gold, Platinum und Titanium verlangen steigende Wirkungsgrade.
+  Für 115-V-Netze gilt z. B. Gold: 87 / 90 / 87 % bei 20 / 50 / 100 % Last; für 230-V-Netze liegen die
+  Anforderungen etwas höher.'
+beispiel: Ein 80-PLUS-Gold-Netzteil bei halber Last wandelt mindestens 90 % der aufgenommenen Leistung
+  in nutzbare Leistung um (115-V-Programm).
+verwandt:
+- wirkungsgrad
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

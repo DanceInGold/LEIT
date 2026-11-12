@@ -1,0 +1,13 @@
+id: pcie
+begriff: PCIe
+langform: Peripheral Component Interconnect Express
+kurz: Serielle Schnittstelle, über die Grafikkarten, NVMe-SSDs und Erweiterungskarten angebunden werden.
+erklaerung: 'PCIe arbeitet mit Lanes (x1, x4, x8, x16). Jede Generation verdoppelt die Rate je Lane: PCIe
+  3.0 ca. 1 GB/s, 4.0 ca. 2 GB/s, 5.0 ca. 4 GB/s je Richtung.'
+beispiel: Eine NVMe-SSD an PCIe 4.0 x4 hat eine Obergrenze von rund 7,9 GB/s.
+verwandt:
+- mainboard
+- nvme
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

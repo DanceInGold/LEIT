@@ -1,0 +1,15 @@
+id: nutzwertanalyse
+begriff: Nutzwertanalyse
+kurz: Verfahren, das Alternativen über gewichtete Kriterien und Punkte zu einem vergleichbaren Nutzwert
+  verrechnet.
+erklaerung: 'Ablauf: K.-o.-Kriterien prüfen, Kriterien festlegen, gewichten (Summe 100 %), Punkte je Alternative
+  vergeben, Teilnutzen = Gewicht × Punkte, Nutzwert = Summe der Teilnutzen, Entscheidung begründen.'
+warum: Sie macht Entscheidungen mit vielen, auch nicht-monetären Kriterien nachvollziehbar – nicht objektiv,
+  aber transparent.
+beispiel: Preis 30 % × 7 Punkte = 2,10 Teilnutzen; Summe aller Teilnutzen von Angebot A = 7,50.
+verwandt:
+- ko-kriterium
+- bezugspreis
+thema: angebotsvergleich
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

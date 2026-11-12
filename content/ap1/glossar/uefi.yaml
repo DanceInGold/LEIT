@@ -1,0 +1,15 @@
+id: uefi
+begriff: UEFI
+langform: Unified Extensible Firmware Interface
+kurz: Firmware des Mainboards, die die Hardware initialisiert und das Betriebssystem startet; Nachfolger
+  des BIOS.
+erklaerung: UEFI liegt in einem Chip auf dem Mainboard. Es prüft und initialisiert die Hardware, bietet
+  ein Setup für Einstellungen (Bootreihenfolge, Virtualisierung, Secure Boot) und startet den Bootloader
+  von einem Datenträger mit GPT-Partitionierung.
+beispiel: Im UEFI-Setup wird die Virtualisierungsfunktion der CPU aktiviert, damit Hypervisor oder WSL
+  funktionieren.
+verwandt:
+- mainboard
+thema: bios-uefi-dateisysteme
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

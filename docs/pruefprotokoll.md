@@ -135,3 +135,18 @@ Brownout.
 Keine fachlichen Aussagen, die zu prüfen wären (Aufgabenstellungen). Hinweis: LF05-Szenario B
 fordert SQL-JOINs und Subselects – für AP1 2025 entfallen, für die Datenbank-Lektion nur das
 ERM nutzen.
+
+## Neue Lektionen und Glossar (Phase 1)
+
+Alle Inhalte in `content/ap1/` sind neu geschrieben (E-09) und tragen bis zum Merge
+`status: ungeprüft`. Geprüft wurden jede Zahl, jede Formel und jede Datenrate gegen die in der
+Lektion genannten Belege; alle Rechenbeispiele wurden per Skript nachgerechnet.
+
+| Lektion | Geprüfte Kernaussagen | Beim Gegenlesen korrigiert |
+| --- | --- | --- |
+| `hardware-pc-aufbau` | Formfaktor-Maße, PCIe-Raten je Lane (3.0/4.0/5.0), SATA III 6 Gbit/s ≈ 600 MB/s, Rechnung PCIe 4.0 x4 = 7,88 GB/s | – |
+| `hardware-cpu-ram` | DDR-Prinzip (2 Übertragungen/Takt), DDR5-5600 = 2800 MHz Takt, Bandbreite 44,8 / 89,6 / 25,6 GB/s, SRAM vs. DRAM, SMT | Deep-Links ohne geprüfte Adresse durch Startseiten der Normungsgremien ersetzt |
+| `hardware-netzteil-anschluesse` | η-Rechnung 300 W → 333,3 W, Stromkosten 175,98 €, 80-PLUS-Stufen (115 V), HDMI/DP/USB-Raten, ppi 92/109, USB-Kopierzeiten | 50-Hz-Wechselspannung wechselt 100-mal (nicht 50-mal) pro Sekunde die Richtung |
+| `angebotsvergleich-quantitativ` | Bezugskalkulation A/B/C (7.978,18 / 8.065,50 / 7.758,60 €), Skonto als Jahreszins ≈ 36,7 % | Unsichere Buchquelle durch das Schema der Handelskalkulation ersetzt |
+| `nutzwertanalyse` | Nutzwerte 7,50 / 6,95 / 6,50, Gewichte = 100 %, Preispunkte 10,0 / 9,7 / 9,6 | – |
+| `erm-grundlagen` | Chen-Notation, (min,max), Übersetzung 1 : n / n : m / 1 : 1 | Unbelegte Aussage, das Prüfungs-Beiblatt enthalte die ERM-Notation, entfernt |

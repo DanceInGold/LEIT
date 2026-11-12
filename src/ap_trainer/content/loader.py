@@ -41,9 +41,9 @@ class ContentPackage:
     begriffe: dict[str, Begriff] = field(default_factory=dict)
 
     def lessons_for_topic(self, topic_id: str) -> list[Lektion]:
-        """Alle Lektionen, die ein Thema behandeln, nach Titel sortiert."""
+        """Alle Lektionen eines Themas in Lesereihenfolge (``reihenfolge``, dann Titel)."""
         found = [lesson for lesson in self.lektionen.values() if topic_id in lesson.themen]
-        return sorted(found, key=lambda lesson: lesson.titel)
+        return sorted(found, key=lambda lesson: (lesson.reihenfolge, lesson.titel))
 
 
 class ContentLoadError(Exception):

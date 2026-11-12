@@ -49,3 +49,14 @@ def test_glossary_links_get_tooltip_and_escape() -> None:
     result = link_glossary(text, {"bit": 'Kleinste "Einheit"'}.get)
     assert '<a href="/glossar?begriff=bit" title="Kleinste &quot;Einheit&quot;"' in result
     assert 'href="/glossar?begriff=fehlt" title=""' in result
+
+
+def test_all_real_lessons_render() -> None:
+    """Jede Lektion im Repo lässt sich in Bausteine zerlegen (keine offenen <details>)."""
+    from ap_trainer.config import REPO_ROOT
+    from ap_trainer.content.loader import load_package_or_raise
+
+    package = load_package_or_raise(REPO_ROOT / "content" / "ap1")
+    for lesson in package.lektionen.values():
+        for text in lesson.abschnitte.values():
+            parse_blocks(text)

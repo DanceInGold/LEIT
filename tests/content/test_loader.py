@@ -103,3 +103,9 @@ def test_frontmatter_and_sections() -> None:
     assert split_sections(body) == {"Eins": "x", "Zwei": "y"}
     with pytest.raises(ValueError):
         split_frontmatter("kein frontmatter")
+
+
+def test_real_hardware_lessons_in_reading_order() -> None:
+    package = load_package_or_raise(REPO_ROOT / "content" / "ap1")
+    ids = [les.id for les in package.lessons_for_topic("hardware-komponenten")]
+    assert ids == ["hardware-pc-aufbau", "hardware-cpu-ram", "hardware-netzteil-anschluesse"]

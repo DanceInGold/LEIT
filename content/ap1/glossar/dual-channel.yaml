@@ -1,0 +1,12 @@
+id: dual-channel
+begriff: Dual-Channel
+kurz: Betrieb von zwei Speichermodulen in parallelen Kanälen, der die Bandbreite verdoppelt.
+erklaerung: Der Speichercontroller kann zwei Kanäle gleichzeitig ansprechen. Stecken zwei gleiche Module
+  in den dafür vorgesehenen Steckplätzen, verdoppelt sich die Bandbreite bei gleicher Gesamtkapazität.
+beispiel: 2 × 16 GB DDR5-5600 ergeben 89,6 GB/s, 1 × 32 GB nur 44,8 GB/s.
+verwandt:
+- ram
+- ddr5
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

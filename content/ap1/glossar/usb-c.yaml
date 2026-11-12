@@ -1,0 +1,14 @@
+id: usb-c
+begriff: USB-C
+kurz: Verdrehsichere Steckerform, über die je nach Ausstattung Daten, Strom und Bildsignale laufen.
+erklaerung: 'USB-C beschreibt nur Stecker und Buchse. Was darüber geht, hängt von der Ausstattung ab:
+  USB 2.0 bis USB4, Thunderbolt, Laden per USB Power Delivery, Bildausgabe per DisplayPort Alt Mode.'
+warum: Ein Stecker für alles war das Ziel; welche Funktionen eingebaut werden, entscheidet der Hersteller
+  nach Kosten.
+beispiel: Bleibt der Monitor am Dock schwarz, unterstützt die USB-C-Buchse des Notebooks vermutlich keine
+  Bildausgabe.
+verwandt:
+- kvm-switch
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

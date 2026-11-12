@@ -1,0 +1,15 @@
+id: chipsatz
+begriff: Chipsatz
+kurz: Baustein auf dem Mainboard, der langsamere Geräte wie USB, SATA und Netzwerk an die CPU anbindet.
+erklaerung: Der Chipsatz bündelt viele Anschlüsse und ist über eine eigene Verbindung mit der CPU verbunden.
+  Er bestimmt auch, welche CPUs ein Mainboard unterstützt und welche Funktionen (z. B. Übertakten, Zahl
+  der USB-Ports) verfügbar sind.
+warum: Die CPU hat nur begrenzt viele Anschlussleitungen; der Chipsatz spart sie für schnelle Geräte auf.
+beispiel: Maus, Tastatur, SATA-Festplatte und LAN-Anschluss hängen am Chipsatz, die Grafikkarte direkt
+  an der CPU.
+verwandt:
+- mainboard
+- cpu
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

@@ -1,0 +1,18 @@
+id: ram
+begriff: RAM
+langform: Random Access Memory
+kurz: Flüchtiger Arbeitsspeicher, der Programme und Daten während der Bearbeitung bereithält.
+erklaerung: Im Arbeitsspeicher liegen Betriebssystem, laufende Programme und geöffnete Daten. Er verliert
+  ohne Strom seinen Inhalt. Wichtige Kennzahlen sind Kapazität (GB), Typ (DDR4, DDR5), Datenrate (MT/s)
+  und die Zahl der Kanäle.
+warum: Datenträger wie SSDs sind zu langsam, um der CPU direkt Daten zu liefern; der RAM ist der schnelle
+  Arbeitstisch dazwischen.
+beispiel: Ein Büro-Arbeitsplatz mit 2 × 8 GB DDR5-5600 im Dual-Channel.
+verwandt:
+- ddr5
+- dual-channel
+- ecc
+- cache
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

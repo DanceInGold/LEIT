@@ -1,0 +1,14 @@
+id: ecc
+begriff: ECC
+langform: Error-Correcting Code
+kurz: Arbeitsspeicher, der einzelne Bitfehler erkennt und automatisch korrigiert.
+erklaerung: ECC-Speicher speichert zusätzliche Prüfbits. Damit werden Einzelbitfehler korrigiert und Doppelbitfehler
+  erkannt. CPU und Mainboard müssen ECC unterstützen.
+warum: Bei großen Speichermengen und Dauerbetrieb treten einzelne Bitfehler realistisch auf; unbemerkt
+  könnten sie Daten verfälschen.
+beispiel: Server, Build-Agenten und Speichersysteme werden mit ECC-RAM betrieben.
+verwandt:
+- ram
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

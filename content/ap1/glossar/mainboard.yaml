@@ -1,0 +1,15 @@
+id: mainboard
+begriff: Mainboard
+kurz: Hauptplatine, die alle Komponenten eines Computers verbindet und mit Strom versorgt.
+erklaerung: Auf dem Mainboard sitzen CPU-Sockel, RAM-Steckplätze, PCIe- und M.2-Steckplätze, der Chipsatz,
+  die Spannungswandler und der Firmware-Chip mit dem UEFI. Der Formfaktor (z. B. ATX) legt Größe und Lochbild
+  fest.
+beispiel: Ein Micro-ATX-Mainboard mit Sockel AM5, vier DDR5-Steckplätzen und zwei M.2-Plätzen.
+verwandt:
+- chipsatz
+- formfaktor
+- pcie
+- uefi
+thema: hardware-komponenten
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

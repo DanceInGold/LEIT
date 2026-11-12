@@ -1,0 +1,14 @@
+id: attribut
+begriff: Attribut
+kurz: Eigenschaft eines Entitätstyps oder einer Beziehung, z. B. Name oder Startdatum.
+erklaerung: Attribute werden in der Chen-Notation als Ellipsen dargestellt. Ein Schlüsselattribut identifiziert
+  jede Entität eindeutig und wird unterstrichen. Attribute, die nur zur Kombination zweier Entitäten gehören
+  (z. B. Rolle, Menge), hängen an der Beziehung.
+beispiel: Der Entitätstyp Dokument hat die Attribute DokumentNr (Schlüssel), Titel, Format und Größe.
+verwandt:
+- entitaet
+- erm
+- primaerschluessel
+thema: erm-relational
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

@@ -1,0 +1,13 @@
+id: kardinalitaet
+begriff: Kardinalität
+kurz: 'Angabe, wie viele Entitäten auf jeder Seite an einer Beziehung beteiligt sein können (1 : 1, 1
+  : n, n : m).'
+erklaerung: 'Die Kardinalität wird für jede Richtung einzeln bestimmt: Wie viele B kann ein A haben und
+  umgekehrt? Die (min,max)-Notation gibt zusätzlich die Mindestanzahl an, z. B. (0,n) oder (1,1).'
+beispiel: 'Ein Kunde erteilt mehrere Projekte, ein Projekt gehört zu genau einem Kunden: 1 : n.'
+verwandt:
+- erm
+- fremdschluessel
+thema: erm-relational
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
