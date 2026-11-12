@@ -8,7 +8,7 @@ dauer_min: 30
 quelle: "Neu erstellt (Claude). Grundformel Zeit = Datenmenge ÷ Datenrate; Nutzdatenrate mit Overhead als Annahme der Aufgabe; alle Beispiele per Skript nachgerechnet."
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.03: Übertragungsraten und Übertragungszeiten berechnen, z. B. Dauer eines Downloads bei vorgegebener Datenrate (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

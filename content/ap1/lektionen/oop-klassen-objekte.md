@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.06: Klassen, Attribute, Objekte, Methoden, Sichtbarkeit; Vererbung entfällt (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Abschnitt Classes", url: "https://www.omg.org/spec/UML/2.5.1"}
   - {titel: "Python-Tutorial: Classes", url: "https://docs.python.org/3/tutorial/classes.html"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.08: Grundlagen von relationalen Datenbanken kennen und anwenden können (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Codd, E. F.: A Relational Model of Data for Large Shared Data Banks. Communications of the ACM 13 (6), 1970, S. 377–387"}
   - {titel: "Codd, E. F.: Further Normalization of the Data Base Relational Model. In: Rustin (Hrsg.), Data Base Systems, Prentice-Hall 1972 (2. und 3. Normalform)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

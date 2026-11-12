@@ -12,7 +12,7 @@ belege:
   - {titel: "RFC 8017: PKCS #1 – RSA Cryptography Specifications", url: "https://www.rfc-editor.org/rfc/rfc8017"}
   - {titel: "RFC 8446: The Transport Layer Security (TLS) Protocol Version 1.3", url: "https://www.rfc-editor.org/rfc/rfc8446"}
   - {titel: "BSI TR-02102-1: Kryptographische Verfahren – Empfehlungen und Schlüssellängen", url: "https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

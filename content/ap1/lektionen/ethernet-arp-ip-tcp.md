@@ -12,7 +12,7 @@ belege:
   - {titel: "RFC 1812: Requirements for IP Version 4 Routers (TTL je Weiterleitung um mindestens 1 senken)", url: "https://www.rfc-editor.org/rfc/rfc1812"}
   - {titel: "RFC 9293: Transmission Control Protocol (TCP)", url: "https://www.rfc-editor.org/rfc/rfc9293"}
   - {titel: "RFC 768: User Datagram Protocol", url: "https://www.rfc-editor.org/rfc/rfc768"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

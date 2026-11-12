@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Stellenwertsysteme nach mathematischer Standardl
 belege:
   - {titel: "Prüfungskatalog AP1: Zahlensysteme (dual, hexadezimal), Einheiten und Präfixe – Themenzuordnung siehe content/ap1/katalog.yaml (zahlensysteme)"}
   - {titel: "Python-Dokumentation: Built-in Functions bin(), hex(), int(x, base)", url: "https://docs.python.org/3/library/functions.html#bin"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

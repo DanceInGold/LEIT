@@ -12,7 +12,7 @@ belege:
   - {titel: "RFC 4861: Neighbor Discovery for IP version 6", url: "https://www.rfc-editor.org/rfc/rfc4861"}
   - {titel: "RFC 4291, Anhang A: Modified EUI-64 Interface Identifiers", url: "https://www.rfc-editor.org/rfc/rfc4291"}
   - {titel: "RFC 8981: Temporary Address Extensions for Stateless Address Autoconfiguration", url: "https://www.rfc-editor.org/rfc/rfc8981"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
