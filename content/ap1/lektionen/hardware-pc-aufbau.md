@@ -10,15 +10,16 @@ belege:
   - {titel: "PCI-SIG: PCI Express Base Specification (Datenraten je Lane, Generation 3.0 bis 5.0)", url: "https://pcisig.com/specifications"}
   - {titel: "Intel ATX Specification 2.2 / microATX / Mini-ITX: Formfaktor-Maße"}
   - {titel: "SATA-IO: Serial ATA Revision 3.x (6 Gbit/s, 8b/10b-Kodierung)", url: "https://sata-io.org"}
-status: geprüft
+status: ungeprüft
 ---
 
 ## Worum geht es?
 
-Ein IT-Arbeitsplatz steht und fällt mit der Hardware – und genau dazu kommen in der AP1 die meisten
-Punkte (Hardware ist der punktstärkste Themencluster). Typische Aufgaben: „Wählen Sie für die
-Mitarbeiterin einen passenden PC aus und begründen Sie“, „Erläutern Sie, warum das Mainboard X
-nicht zur CPU Y passt“, „Berechnen Sie die Übertragungsrate“.
+Zu Hardware gibt es in der AP1 die meisten Punkte. Typische Aufgaben:
+
+- „Wählen Sie einen passenden PC aus und begründen Sie.“
+- „Erläutern Sie, warum Mainboard X nicht zu CPU Y passt.“
+- „Berechnen Sie die Übertragungsrate.“
 
 In dieser Lektion schauen wir uns erst den **ganzen PC als System** an – wer redet mit wem, über
 welche Leitung, wie schnell. Die einzelnen Bauteile (CPU, RAM, Netzteil, Anschlüsse) nehmen wir uns
@@ -69,11 +70,11 @@ Gehen wir Schritt für Schritt durch, was passiert, wenn Herr Becker eine 2-GB-C
    Monitor.
 5. Maus und Tastatur (USB) und das Netzwerk melden sich über den **Chipsatz**.
 
-**Halten wir kurz fest:**
-
-1. Die CPU ist das Zentrum, sie redet direkt mit RAM, Grafik und schneller SSD.
-2. Der Chipsatz ist der „Verteiler“ für alles Langsamere: USB, SATA, Netzwerk, Audio.
-3. Daten werden nie direkt von der SSD aus verarbeitet, sondern erst in den RAM geladen.
+> **Halten wir kurz fest:**
+>
+> 1. Die CPU ist das Zentrum, sie redet direkt mit RAM, Grafik und schneller SSD.
+> 2. Der Chipsatz ist der „Verteiler“ für alles Langsamere: USB, SATA, Netzwerk, Audio.
+> 3. Daten werden nie direkt von der SSD aus verarbeitet, sondern erst in den RAM geladen.
 
 ### Das Mainboard: die Platine, auf der alles steckt
 
@@ -114,7 +115,9 @@ Für Rechenaufgaben brauchst du die Datenraten. [PCI Express](glossar:pcie) arbe
 | PCIe 5.0, je Lane | ca. 4 GB/s |
 | SATA III | 6 Gbit/s, nutzbar ca. 600 MB/s |
 
-**Rechenbeispiel:** Die SSD in Herrn Beckers Workstation steckt in einem M.2-Platz mit
+### Rechenbeispiel: SSD-Anbindung
+
+Die SSD in Herrn Beckers Workstation steckt in einem M.2-Platz mit
 **PCIe 4.0 x4**.
 
 - Rate der Verbindung: 4 Lanes × ca. 2 GB/s = **ca. 8 GB/s** (genau: 4 × 1,969 GB/s = 7,88 GB/s)
@@ -124,11 +127,11 @@ Für Rechenaufgaben brauchst du die Datenraten. [PCI Express](glossar:pcie) arbe
 
 In der Praxis bremst meist die SSD selbst – aber die Schnittstelle setzt die Obergrenze.
 
-**Halten wir kurz fest:**
-
-1. PCIe wird in Lanes gezählt, jede Generation verdoppelt die Rate je Lane.
-2. Rate der Verbindung = Lanes × Rate je Lane.
-3. SATA ist bei rund 600 MB/s gedeckelt; NVMe über PCIe ist ein Vielfaches schneller.
+> **Halten wir kurz fest:**
+>
+> 1. PCIe wird in Lanes gezählt, jede Generation verdoppelt die Rate je Lane.
+> 2. Rate der Verbindung = Lanes × Rate je Lane.
+> 3. SATA ist bei rund 600 MB/s gedeckelt; NVMe über PCIe ist ein Vielfaches schneller.
 
 ## Warum ist es so?
 

@@ -5,6 +5,7 @@ Bedienung auch per Tastatur (NF-05): Leertaste oder Enter deckt auf, 1–4 bewer
 
 from __future__ import annotations
 
+import time
 from dataclasses import dataclass, field
 
 from nicegui import events, ui
@@ -25,6 +26,8 @@ class Session:
     index: int = 0
     revealed: bool = False
     graded: list[int] = field(default_factory=list)
+    # Zeitpunkt, seit dem die aktuelle Karte zu sehen ist (für die Lernzeit-Statistik)
+    shown_at: float = field(default_factory=time.monotonic)
 
     @property
     def current(self) -> Flashcard | None:
@@ -43,7 +46,8 @@ def register(trainer: Trainer) -> None:
             card = session.current
             if card is None or not session.revealed:
                 return
-            trainer.grade(card.card_id, value)
+            trainer.grade(card.card_id, value, seconds=time.monotonic() - session.shown_at)
+            session.shown_at = time.monotonic()
             session.graded.append(value)
             session.index, session.revealed = session.index + 1, False
             view.refresh()

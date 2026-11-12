@@ -4,7 +4,8 @@ Lokales Lernprogramm zur Vorbereitung auf die Abschlussprüfung Teil 1 (AP1) der
 zugeschnitten auf Fachinformatik Systemintegration. Inhalte (Markdown/YAML) und Programm
 (Python) sind getrennt; weitere Prüfungsteile kommen als zusätzliche Inhaltspakete dazu.
 
-**Stand:** Phase 1 (v0.5) – Lernplan, Startseite „Heute“, Lektionen, Glossar, Lernkarten mit
+**Stand:** Phase 1 (v0.6) – Lernplan, Startseite „Heute“ mit Kennzahlen und Diagrammen,
+Themen mit nummerierten Kapiteln, Lektionen Schritt für Schritt, Glossar, Lernkarten mit
 Wiederholung nach FSRS. Aufgaben und Rechentrainer folgen in Phase 2.
 
 ## Schnellstart
@@ -18,6 +19,7 @@ uv sync --all-groups              # Abhängigkeiten installieren
 uv run ap-trainer                 # Lernbegleiter starten, öffnet http://127.0.0.1:8080
 uv run ap-trainer --lan           # zusätzlich im WLAN erreichbar (Smartphone), Adresse steht im Terminal
 uv run ap-tools check             # Inhalte gegen Schema und Verweise prüfen
+uv run ap-tools check --streng    # zusätzlich Stilprüfung (Absatz- und Schrittlänge)
 uv run ap-tools inventur --check  # zeigen, was sich in quellen/ geändert hat
 uv run pytest                     # Tests
 ```

@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 02.01: quantitative und qualitative Angebotsbewertung (laut Änderungsliste IT-Berufe-Podcast #190)"}
   - {titel: "Bezugskalkulation der Handelskalkulation (Listeneinkaufspreis − Rabatt − Skonto + Bezugskosten): Standardschema der kaufmännischen Ausbildung, Rahmenlehrplan IT-Berufe LF 2"}
   - {titel: "Skonto als Jahreszins: 2 / 98 × 360 / 20 ≈ 36,7 % (eigene Rechnung)"}
-status: geprüft
+status: ungeprüft
 ---
 
 ## Worum geht es?
@@ -81,6 +81,8 @@ Zieleinkaufspreis berechnet, nicht vom Listenpreis.
 3. − 3 % Skonto: 7.896,50 € × 0,03 = 236,895 € ≈ 236,90 € → Bareinkaufspreis **7.659,60 €**
 4. + Bezugskosten 10 × 9,90 € = 99,00 € → Bezugspreis **7.758,60 €**
 
+### Ergebnis des Vergleichs
+
 | Ergebnis | Angebot A | Angebot B | Angebot C |
 | --- | --- | --- | --- |
 | Bezugspreis gesamt | 7.978,18 € | 8.065,50 € | **7.758,60 €** |
@@ -89,11 +91,11 @@ Zieleinkaufspreis berechnet, nicht vom Listenpreis.
 
 Das Angebot mit dem **höchsten** Listenpreis ist am Ende das **günstigste**.
 
-**Halten wir kurz fest:**
-
-1. Reihenfolge: Rabatt → Skonto → Bezugskosten.
-2. Jeder Prozentsatz wirkt auf das Zwischenergebnis davor.
-3. Verglichen wird der Bezugspreis, nicht der Listenpreis.
+> **Halten wir kurz fest:**
+>
+> 1. Reihenfolge: Rabatt → Skonto → Bezugskosten.
+> 2. Jeder Prozentsatz wirkt auf das Zwischenergebnis davor.
+> 3. Verglichen wird der Bezugspreis, nicht der Listenpreis.
 
 ## Warum ist es so?
 

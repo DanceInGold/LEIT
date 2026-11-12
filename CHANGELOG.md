@@ -5,6 +5,22 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+## [0.6.0] – Überblick und Kapitel
+
+### Hinzugefügt
+- Startseite mit Kennzahlen (Tage bis zur Prüfung, erledigter Stoff, Lernzeit der Woche,
+  fällige Karten) und vier Diagrammen: Lernzeit geplant/gelernt, Fortschritt je
+  Prüfungsbereich, Lernminuten der letzten 14 Tage, fällige Karten der nächsten 7 Tage (LP-10, E-19).
+- Themenseite mit nummerierten Kapiteln und Lesestand; Lektionen zeigen „Kapitel n von m“
+  und führen am Ende direkt zum nächsten Kapitel.
+- Stilprüfung gegen Textüberladung (`ap-tools check --streng`, in der CI aktiv, E-18).
+- Lernzeit der Lernkarten wird gemessen und fließt in die Statistik ein (Migration 2).
+- Ende-zu-Ende-Rauchtest, der jede Seite einmal abruft (CI).
+
+### Geändert
+- Lektionsansicht Schritt für Schritt statt als lange Seite; Umschalter „Alles auf einer Seite“.
+- Alle sechs Lektionen gekürzt und in kleinere Schritte gegliedert; Zwischenfazits als Hinweiskasten.
+
 ## [0.5.0] – Phase 1 (Lernstart)
 
 ### Hinzugefügt

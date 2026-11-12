@@ -52,7 +52,7 @@ def _cmd_inventur(args: argparse.Namespace) -> int:
 
 
 def _cmd_check(args: argparse.Namespace) -> int:
-    return run_check(Path(args.paket))
+    return run_check(Path(args.paket), strict=args.streng)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -88,6 +88,7 @@ def build_parser() -> argparse.ArgumentParser:
         description="Prüft paket.yaml, katalog.yaml, alle Lektionen und Glossarbegriffe (NF-08).",
     )
     chk.add_argument("--paket", default=str(REPO_ROOT / "content" / "ap1"), help="Ordner des Inhaltspakets.")
+    chk.add_argument("--streng", action="store_true", help="Stilwarnungen (zu viel Text) als Fehler werten.")
     chk.set_defaults(func=_cmd_check)
     return parser
 

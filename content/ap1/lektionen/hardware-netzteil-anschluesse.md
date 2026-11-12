@@ -11,15 +11,17 @@ belege:
   - {titel: "USB-IF: USB 2.0, USB 3.2, USB4 Spezifikationen und Namensschema", url: "https://www.usb.org"}
   - {titel: "VESA: DisplayPort 1.4 und 2.1", url: "https://vesa.org"}
   - {titel: "HDMI Licensing Administrator: HDMI 2.0 und 2.1", url: "https://www.hdmi.org"}
-status: geprüft
+status: ungeprüft
 ---
 
 ## Worum geht es?
 
-Ein PC allein ist noch kein Arbeitsplatz. Es fehlen Stromversorgung, Bildausgabe und alles, was
-Mensch und Maschine verbindet. In der AP1 kommen dazu typische Fragen wie: „Welche Leistung nimmt
-der PC aus der Steckdose auf?“, „Welcher Anschluss eignet sich für einen 4K-Monitor mit 60 Hz?“,
-„Warum lädt das Notebook am USB-C-Port, aber der Monitor bleibt schwarz?“
+Ein PC allein ist noch kein Arbeitsplatz: Es fehlen Strom, Bild und Anschlüsse. Typische
+Prüfungsfragen:
+
+- Welche Leistung nimmt der PC aus der Steckdose auf?
+- Welcher Anschluss schafft einen 4K-Monitor mit 60 Hz?
+- Warum lädt das Notebook am USB-C-Port, aber der Monitor bleibt schwarz?
 
 Weiter mit der ArchivTech GmbH: Frau Yilmaz bekommt zwei Monitore und eine Dockingstation am
 Notebook, Herr Becker eine Workstation mit Grafikkarte. Und im Serverraum wartet ein KVM-Switch.
@@ -41,9 +43,9 @@ flowchart LR
 
 ### Das Netzteil
 
-Das **Netzteil** wandelt die Wechselspannung aus der Steckdose (230 V) in die Gleichspannungen, die
-der PC braucht (vor allem 12 V, außerdem 5 V und 3,3 V). Dabei geht immer ein Teil als Wärme
-verloren. Wie viel, beschreibt der [Wirkungsgrad](glossar:wirkungsgrad):
+Das **Netzteil** macht aus 230 V Wechselspannung die Gleichspannungen des PCs (vor allem 12 V,
+dazu 5 V und 3,3 V). Ein Teil geht dabei als Wärme verloren – das beschreibt der
+[Wirkungsgrad](glossar:wirkungsgrad):
 
 **Wirkungsgrad η = abgegebene Leistung ÷ aufgenommene Leistung**
 
@@ -54,6 +56,8 @@ bekommen). Das Netzteil hat bei dieser Last einen Wirkungsgrad von 90 %.
 2. Verlust als Wärme: 333,3 W − 300 W = **33,3 W**
 3. Bei 8 Stunden Last an 220 Arbeitstagen: 0,3333 kW × 8 h × 220 = **586,6 kWh** im Jahr
 4. Bei 0,30 € pro kWh: 586,6 kWh × 0,30 €/kWh = **175,98 €** Stromkosten im Jahr
+
+### Effizienzklassen und Dimensionierung
 
 Die Effizienzklassen nach [80 PLUS](glossar:80-plus) geben Mindestwirkungsgrade bei 20 %, 50 % und
 100 % Last vor (Werte für 115-V-Netze; die Stufen für 230-V-Netze liegen jeweils etwas höher):
@@ -70,11 +74,11 @@ Die Effizienzklassen nach [80 PLUS](glossar:80-plus) geben Mindestwirkungsgrade 
 Wirkungsgrad haben Netzteile bei etwa der halben Nennlast – ein 1000-W-Netzteil für einen
 Office-PC mit 80 W Bedarf arbeitet im ineffizienten Bereich.
 
-**Halten wir kurz fest:**
-
-1. Aufgenommene Leistung = abgegebene Leistung ÷ Wirkungsgrad.
-2. Die Differenz ist Wärme – sie kostet Strom und muss weggekühlt werden.
-3. Netzteil nicht maßlos überdimensionieren; am effizientesten um die halbe Last.
+> **Halten wir kurz fest:**
+>
+> 1. Aufgenommene Leistung = abgegebene Leistung ÷ Wirkungsgrad.
+> 2. Die Differenz ist Wärme – sie kostet Strom und muss weggekühlt werden.
+> 3. Netzteil nicht maßlos überdimensionieren; am effizientesten um die halbe Last.
 
 ### Grafik: integriert oder eigene Karte?
 
@@ -124,10 +128,14 @@ Der 27-Zoll-WQHD-Monitor ist also größer **und** schärfer – gut für Herrn 
 | USB4 | 40 Gbit/s (Version 2.0: bis 80 Gbit/s) |
 | Thunderbolt 4 | 40 Gbit/s |
 
-**[USB-C](glossar:usb-c) ist nur die Steckerform.** Was über eine USB-C-Buchse geht, hängt davon ab, was dahinter
-eingebaut ist: nur USB 2.0, USB 3.2, USB4/Thunderbolt, Laden mit USB Power Delivery und/oder
-Bildausgabe (DisplayPort Alt Mode). Bei Frau Yilmaz' Notebook muss die Buchse **Bildausgabe**
-unterstützen, sonst bleiben die Monitore an der Dockingstation schwarz.
+**[USB-C](glossar:usb-c) ist nur die Steckerform.** Was die Buchse kann, hängt von der Technik dahinter ab:
+
+- Daten: USB 2.0, USB 3.2 oder USB4/Thunderbolt
+- Laden: USB Power Delivery
+- Bild: DisplayPort Alt Mode
+
+Frau Yilmaz' Notebook braucht eine Buchse **mit Bildausgabe** – sonst bleiben die Monitore am Dock
+schwarz.
 
 **Rechenbeispiel Übertragung:** Herr Becker kopiert ein Projektarchiv mit 50 GB auf eine externe SSD.
 
@@ -142,18 +150,20 @@ zeigt den Unterschied.
 Peripherie sind alle Geräte außerhalb des Rechners: **Eingabe** (Tastatur, Maus, Scanner, Webcam,
 Mikrofon), **Ausgabe** (Monitor, Drucker, Lautsprecher), **Ein- und Ausgabe** (Headset, Touchscreen).
 
-Ein [KVM-Switch](glossar:kvm-switch) (Keyboard, Video, Mouse) verbindet **eine** Tastatur, **einen**
-Monitor und **eine** Maus mit **mehreren** Rechnern; per Taste oder Tastenkombination wird
-umgeschaltet. Im Rechenzentrum sitzt er oft zusammen mit einer **KVM-Konsole** – einem ausziehbaren
-Fach im Rack mit Monitor, Tastatur und Touchpad (meist 1 Höheneinheit). **IP-KVM** überträgt Bild
-und Eingaben übers Netzwerk, sodass man einen Server aus der Ferne bedienen kann, sogar im
-UEFI-Setup, bevor ein Betriebssystem läuft.
+Ein [KVM-Switch](glossar:kvm-switch) (Keyboard, Video, Mouse) verbindet **einen** Satz Tastatur, Monitor
+und Maus mit **mehreren** Rechnern; per Taste wird umgeschaltet.
 
-**Halten wir kurz fest:**
+| Variante | Einsatz |
+| --- | --- |
+| KVM-Switch | mehrere Rechner am Arbeitsplatz oder im Rack |
+| KVM-Konsole | ausziehbarer Monitor mit Tastatur im Rack, meist 1 Höheneinheit |
+| IP-KVM | Bild und Eingaben übers Netzwerk – Fernwartung bis ins UEFI-Setup |
 
-1. Für Bildschirme: DisplayPort oder HDMI; die Version entscheidet über Auflösung und Hz.
-2. USB-C sagt nichts über Geschwindigkeit oder Bildausgabe – das Datenblatt der Buchse zählt.
-3. KVM = ein Satz Tastatur/Monitor/Maus für mehrere Rechner; IP-KVM auch aus der Ferne.
+> **Halten wir kurz fest:**
+>
+> 1. Für Bildschirme: DisplayPort oder HDMI; die Version entscheidet über Auflösung und Hz.
+> 2. USB-C sagt nichts über Geschwindigkeit oder Bildausgabe – das Datenblatt der Buchse zählt.
+> 3. KVM = ein Satz Tastatur/Monitor/Maus für mehrere Rechner; IP-KVM auch aus der Ferne.
 
 ## Warum ist es so?
 

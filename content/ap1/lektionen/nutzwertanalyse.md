@@ -10,15 +10,14 @@ belege:
   - {titel: "Zangemeister, C.: Nutzwertanalyse in der Systemtechnik, 1970/1976"}
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 02.01: quantitative und qualitative Angebotsbewertung (laut Änderungsliste IT-Berufe-Podcast #190)"}
   - {titel: "Auswertung AP1 Herbst 2021 bis Herbst 2026: Nutzwertanalyse ist mit 45 Punkten das punktstärkste Einzelthema (Anforderungsdokument Kap. 2)"}
-status: geprüft
+status: ungeprüft
 ---
 
 ## Worum geht es?
 
-Der günstigste Preis ist nicht automatisch das beste Angebot. Was ist mit Garantie, Lieferzeit,
-Akkulaufzeit, Gewicht? Die [Nutzwertanalyse](glossar:nutzwertanalyse) macht solche
-unterschiedlichen Kriterien **vergleichbar**: Jedes Kriterium bekommt ein Gewicht, jedes Angebot
-Punkte je Kriterium – am Ende steht eine einzige Zahl, der **Nutzwert**.
+Der günstigste Preis ist nicht automatisch das beste Angebot – was ist mit Garantie, Lieferzeit, Akku?
+Die [Nutzwertanalyse](glossar:nutzwertanalyse) macht solche Kriterien **vergleichbar**. Am Ende steht
+eine Zahl: der **Nutzwert**.
 
 Sie ist das **punktstärkste Einzelthema** der bisherigen AP1-Prüfungen. Es lohnt sich, sie im Schlaf
 zu können.
@@ -68,6 +67,8 @@ Schritte 2–4:
 | Lieferzeit | 10 % | 8 | 10 | 3 |
 | **Summe Gewichte** | **100 %** | | | |
 
+### Teilnutzen und Nutzwert berechnen
+
 Schritte 5–6 (Teilnutzen = Gewicht × Punkte, Gewicht als Dezimalzahl):
 
 | Kriterium | A | B | C |
@@ -81,20 +82,23 @@ Schritte 5–6 (Teilnutzen = Gewicht × Punkte, Gewicht als Dezimalzahl):
 | **Nutzwert** | **7,50** | **6,95** | **6,50** |
 | **Rang** | **1** | 2 | 3 |
 
-Schritt 7: **Angebot A** hat den höchsten Nutzwert. Begründung: Es ist nicht das billigste
-(das ist C), gleicht das aber durch deutlich besseren Service und kurze Lieferzeit aus – beides
-war dem Vertrieb wichtig (zusammen 30 % Gewicht). C ist günstig, fällt aber bei Service und
-Lieferzeit stark ab.
+### Entscheidung begründen
+
+**Angebot A** hat den höchsten Nutzwert und wird empfohlen:
+
+- A ist nicht das billigste (das ist C).
+- A gleicht das mit besserem Service und kurzer Lieferzeit aus – zusammen 30 % Gewicht.
+- C ist günstig, fällt aber bei Service und Lieferzeit stark ab.
 
 Rechnest du mit Gewichten in Prozentpunkten (30 statt 0,30), kommen 750, 695 und 650 heraus –
 die Rangfolge ist dieselbe.
 
-**Halten wir kurz fest:**
-
-1. Erst K.-o.-Kriterien, dann bewerten.
-2. Gewichte summieren sich auf 100 %.
-3. Teilnutzen = Gewicht × Punkte, Nutzwert = Summe der Teilnutzen.
-4. Mehr Punkte heißt immer „besser“ – auch beim Preis.
+> **Halten wir kurz fest:**
+>
+> 1. Erst K.-o.-Kriterien, dann bewerten.
+> 2. Gewichte summieren sich auf 100 %.
+> 3. Teilnutzen = Gewicht × Punkte, Nutzwert = Summe der Teilnutzen.
+> 4. Mehr Punkte heißt immer „besser“ – auch beim Preis.
 
 ### Preis in Punkte umrechnen
 
