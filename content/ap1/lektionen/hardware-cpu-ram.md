@@ -11,14 +11,13 @@ belege:
   - {titel: "JEDEC JESD79-4: DDR4 SDRAM Standard"}
   - {titel: "Intel: Produktdatenblätter (Definition von Hyper-Threading und TDP)", url: "https://ark.intel.com"}
   - {titel: "Hennessy/Patterson: Computer Architecture – A Quantitative Approach (Speicherhierarchie, Leistungsgleichung)"}
-status: geprüft
+status: ungeprüft
 ---
 
 ## Worum geht es?
 
-In Prüfungsaufgaben bekommst du oft ein Datenblatt oder zwei Angebote und sollst entscheiden:
-Reicht dieser Prozessor? Wie viel Arbeitsspeicher braucht der Arbeitsplatz? Was bedeuten
-„8 Kerne / 16 Threads, 3,8–5,1 GHz, 32 MB L3“ oder „2 × 16 GB DDR5-5600“?
+In Prüfungsaufgaben bekommst du oft ein Datenblatt und sollst entscheiden: Reicht die CPU? Wie viel
+RAM braucht der Arbeitsplatz? Was heißt „8 Kerne / 16 Threads, 3,8–5,1 GHz“ oder „2 × 16 GB DDR5-5600“?
 
 Diese Lektion zeigt, **was jede Kennzahl misst und warum sie für die Leistung zählt** – an den beiden
 Arbeitsplätzen der ArchivTech GmbH: Frau Yilmaz (Office, Videokonferenz) und Herr Becker (Python,
@@ -52,11 +51,11 @@ flowchart LR
 | Sockel | mechanischer und elektrischer Anschluss | muss zum Mainboard passen (siehe Lektion „Der PC von innen“) |
 | integrierte Grafik | Grafikeinheit in der CPU | reicht für Office, Video, mehrere Monitore |
 
-**Halten wir kurz fest:**
-
-1. Takt allein sagt wenig – zwei CPUs mit 4 GHz können sehr unterschiedlich schnell sein.
-2. Kerne helfen nur bei paralleler Arbeit.
-3. TDP ist eine Kühlungsangabe, keine Verbrauchsmessung.
+> **Halten wir kurz fest:**
+>
+> 1. Takt allein sagt wenig – zwei CPUs mit 4 GHz können sehr unterschiedlich schnell sein.
+> 2. Kerne helfen nur bei paralleler Arbeit.
+> 3. TDP ist eine Kühlungsangabe, keine Verbrauchsmessung.
 
 ### Der Arbeitsspeicher
 
@@ -87,11 +86,11 @@ Herr Beckers Workstation hat 2 × 16 GB DDR5-5600 im Dual-Channel:
 Steckt Herr Becker nur **ein** 32-GB-Modul statt zwei 16-GB-Modulen ein, hat er dieselbe
 Kapazität, aber nur die halbe Bandbreite.
 
-**Halten wir kurz fest:**
-
-1. Bandbreite = Datenrate (MT/s) × 8 Byte je Kanal.
-2. Zwei gleiche Module in den richtigen Steckplätzen verdoppeln die Bandbreite.
-3. Kapazität entscheidet, ob alles in den RAM passt – Bandbreite, wie schnell er liefert.
+> **Halten wir kurz fest:**
+>
+> 1. Bandbreite = Datenrate (MT/s) × 8 Byte je Kanal.
+> 2. Zwei gleiche Module in den richtigen Steckplätzen verdoppeln die Bandbreite.
+> 3. Kapazität entscheidet, ob alles in den RAM passt – Bandbreite, wie schnell er liefert.
 
 ### Wie viel RAM braucht welcher Arbeitsplatz?
 

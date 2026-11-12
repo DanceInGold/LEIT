@@ -10,15 +10,19 @@ belege:
   - {titel: "Chen, P. P.: The Entity-Relationship Model – Toward a Unified View of Data, ACM TODS 1(1), 1976"}
   - {titel: "Kemper, A.; Eickler, A.: Datenbanksysteme – Eine Einführung (Kapitel ER-Modellierung und Übersetzung ins relationale Modell)"}
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.08: Grundlagen relationaler Datenbanken, einfache ER-Modelle; SQL entfällt (laut Änderungsliste IT-Berufe-Podcast #190)"}
-status: geprüft
+status: ungeprüft
 ---
 
 ## Worum geht es?
 
-Bevor eine Datenbank gebaut wird, muss klar sein: **Welche Dinge** wollen wir speichern, **was** wissen
-wir über sie, und **wie hängen sie zusammen?** Genau das beschreibt das
-[Entity-Relationship-Modell](glossar:erm) (ERM) – ein Bauplan der Daten, unabhängig von Tabellen,
-SQL oder einem bestimmten Datenbanksystem.
+Bevor eine Datenbank entsteht, klären wir drei Fragen:
+
+- **Welche Dinge** speichern wir?
+- **Was** wissen wir über sie?
+- **Wie** hängen sie zusammen?
+
+Die Antwort ist das [Entity-Relationship-Modell](glossar:erm) (ERM): ein Bauplan der Daten, noch ohne
+Tabellen oder SQL.
 
 ERM war in den bisherigen Prüfungen das **zweitstärkste Einzelthema** (42 Punkte). Seit 2025 gehört
 SQL nicht mehr zur AP1 – das ERM und die Grundlagen relationaler Datenbanken aber schon.
@@ -72,17 +76,19 @@ Trick: **Für jede Richtung einzeln fragen** – „Wie viele B kann **ein** A h
 2. „Zu wie vielen Kunden gehört **ein** Projekt?“ → genau einem → **1** auf der Kundenseite.
 3. Ergebnis: Kunde 1 : n Projekt.
 
-Viele Lehrbücher und Aufgaben nutzen zusätzlich die **(min,max)-Notation**, die auch „kein“ erlaubt:
-Ein Kunde erteilt **(0,n)** Projekte (ein neuer Kunde hat noch keins), ein Projekt gehört zu **(1,1)**
-Kunde. Lies die Aufgabe genau, welche Notation verlangt ist, und bleib innerhalb eines Modells bei
-einer Schreibweise.
+Oft verlangt: die **(min,max)-Notation**. Sie erlaubt auch „keins“:
 
-**Halten wir kurz fest:**
+- Ein Kunde erteilt **(0,n)** Projekte – ein neuer Kunde hat noch keins.
+- Ein Projekt gehört zu **(1,1)** Kunde.
 
-1. Rechteck = Entitätstyp, Raute = Beziehung, Ellipse = Attribut, unterstrichen = Schlüssel.
-2. Kardinalität immer aus beiden Richtungen fragen.
-3. Ein Attribut, das nur durch das Zusammenspiel zweier Entitäten Sinn ergibt (Rolle, Menge), hängt
-   an der Beziehung.
+Nimm die Notation, die die Aufgabe verlangt, und bleib innerhalb eines Modells dabei.
+
+> **Halten wir kurz fest:**
+>
+> 1. Rechteck = Entitätstyp, Raute = Beziehung, Ellipse = Attribut, unterstrichen = Schlüssel.
+> 2. Kardinalität immer aus beiden Richtungen fragen.
+> 3. Ein Attribut, das nur durch das Zusammenspiel zweier Entitäten Sinn ergibt (Rolle, Menge), hängt
+>    an der Beziehung.
 
 ### Vom ERM zu Tabellen (relationales Modell)
 
@@ -105,18 +111,19 @@ Für unser Archiv ergibt das (Primärschlüssel unterstrichen, Fremdschlüssel m
 - Schlagwort (<u>SchlagwortNr</u>, Begriff)
 - Verschlagwortung (<u>↑DokumentNr, ↑SchlagwortNr</u>)
 
-**Halten wir kurz fest:**
-
-1. Im ERM gibt es **keine** Fremdschlüssel – die Linie zur Raute zeigt den Zusammenhang.
-2. 1 : n → Fremdschlüssel auf die n-Seite.
-3. n : m → Zwischentabelle mit zusammengesetztem Primärschlüssel.
+> **Halten wir kurz fest:**
+>
+> 1. Im ERM gibt es **keine** Fremdschlüssel – die Linie zur Raute zeigt den Zusammenhang.
+> 2. 1 : n → Fremdschlüssel auf die n-Seite.
+> 3. n : m → Zwischentabelle mit zusammengesetztem Primärschlüssel.
 
 ## Warum ist es so?
 
-Warum erst ein ERM und nicht gleich Tabellen? Weil man **erst verstehen muss, was die Welt ist,
-bevor man entscheidet, wie man sie speichert**. Das ERM ist die Sprache, in der IT und Fachabteilung
-gemeinsam prüfen können, ob das Modell stimmt – ein Vertriebsmitarbeiter versteht „Ein Projekt
-gehört zu genau einem Kunden“, aber keine Fremdschlüssel.
+Warum erst ein ERM und nicht gleich Tabellen? Weil man **erst verstehen muss, was gespeichert wird,
+bevor man entscheidet, wie**.
+
+Das ERM können auch Fachleute lesen: „Ein Projekt gehört zu genau einem Kunden“ versteht jeder im
+Vertrieb – Fremdschlüssel nicht.
 
 <details>
 <summary>Warum braucht n : m eine eigene Zwischentabelle?</summary>

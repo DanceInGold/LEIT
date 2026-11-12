@@ -26,6 +26,18 @@ Diese Datei fasst zusammen, wie in diesem Repo gearbeitet wird.
 - Bekannte Schwachstelle: Begriffe benachbarter Konzepte verschwimmen (Scrum-Events, ARP/NAT,
   TTL). Lektionen grenzen ähnliche Begriffe ausdrücklich voneinander ab.
 
+## Schreibregeln für Lektionen (gegen Textüberladung)
+
+- Die Oberfläche zeigt eine Lektion Schritt für Schritt: je Raster-Abschnitt ein Schritt,
+  Unterüberschriften (`###`) teilen einen Abschnitt in weitere Schritte.
+- Absätze höchstens **40 Wörter**, ein Schritt höchstens **220 sichtbare Wörter**. Was darüber
+  hinausgeht, wandert in eine Vertiefung (`<details><summary>Warum …?</summary>`), eine Tabelle
+  oder einen eigenen `###`-Schritt. `uv run ap-tools check --streng` prüft das, auch in der CI.
+- Lieber Liste, Tabelle oder Diagramm als Fließtext; Zwischenfazit als Hinweiskasten
+  `> **Halten wir kurz fest:** …`.
+- Ein Thema hat mehrere kurze Kapitel (Lektionen, `reihenfolge: 1, 2, …`) statt einer langen;
+  ein Kapitel dauert ca. 20–40 Minuten.
+
 ## Umgang mit dem eigenen Material
 
 Das Material in `quellen/` ist **nur Kontext**: welche Themen behandelt wurden, wie der Azubi
