@@ -1,0 +1,12 @@
+id: leasing
+begriff: Leasing
+kurz: Nutzung eines Wirtschaftsguts über eine feste Laufzeit gegen Raten; das Eigentum bleibt beim Leasinggeber.
+erklaerung: Im Vergleich zum Kauf schont Leasing die Liquidität und erleichtert regelmäßige Erneuerung,
+  ist über die Laufzeit aber meist teurer. Miete ist kürzer und flexibler kündbar, auf Dauer am teuersten.
+  Verglichen wird über dieselbe Laufzeit.
+beispiel: Notebook 1.000 €, Leasingrate 2,9 % pro Monat, 36 Monate = 1.044 €.
+verwandt:
+- amortisation
+thema: kauf-miete-leasing
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

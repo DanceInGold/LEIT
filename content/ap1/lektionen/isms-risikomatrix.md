@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 06.03: Informationssicherheitsmanagementsystem (ISMS) kennen und unterstützen; Risiko-Klassifikation, z. B. mit Matrix (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "BSI-Standard 200-1: Managementsysteme für Informationssicherheit (ISMS), PDCA-Zyklus"}
   - {titel: "BSI-Standard 200-3: Risikoanalyse auf der Basis von IT-Grundschutz (Eintrittshäufigkeit, Schadensauswirkung, Risikomatrix, Risikobehandlung)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

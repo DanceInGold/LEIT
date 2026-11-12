@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Sicherungsarten und Generationenprinzip nach BSI
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 06.04: Sicherung der Verfügbarkeit, z. B. NAS; RAID und SAN entfallen (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

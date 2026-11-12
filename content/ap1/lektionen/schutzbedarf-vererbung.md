@@ -8,7 +8,7 @@ dauer_min: 30
 quelle: "Neu erstellt (Claude). Maximumprinzip, Kumulationseffekt und Verteilungseffekt sinngemäß nach BSI-Standard 200-2, Kapitel 8.2.2; Vorgehensweisen nach Kapitel 3.3; Beispiele fiktiv."
 belege:
   - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 3.3 (Basis-, Kern-, Standard-Absicherung) und 8.2.2 (Schutzbedarf von Anwendungen und IT-Systemen)", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

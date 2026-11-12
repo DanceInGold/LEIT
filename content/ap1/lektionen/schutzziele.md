@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Schutzziele nach BSI IT-Grundschutz (Glossar) un
 belege:
   - {titel: "Prüfungskatalog AP1 2025: Schutzziele (Vertraulichkeit, Verfügbarkeit, Integrität) ausdrücklich genannt (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik (Grundwerte Vertraulichkeit, Integrität, Verfügbarkeit)", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
