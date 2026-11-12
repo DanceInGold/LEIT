@@ -11,7 +11,7 @@ belege:
   - {titel: "Böhm, C.; Jacopini, G.: Flow diagrams, Turing machines and languages with only two formation rules. Communications of the ACM 9 (5), 1966, S. 366–371"}
   - {titel: "DIN 66261:1985-11 Sinnbilder für Struktogramme nach Nassi-Shneiderman (Grundstrukturen Folge, Auswahl, Wiederholung)"}
   - {titel: "Python-Dokumentation: The if statement", url: "https://docs.python.org/3/reference/compound_stmts.html#the-if-statement"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

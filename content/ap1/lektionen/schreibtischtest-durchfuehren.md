@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.07: Schreibtischtest mit einem gegebenen Quellcode durchführen (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Wikipedia (en): Trace table – manuelles Testen eines Algorithmus mit einer Spalte je Variable", url: "https://en.wikipedia.org/wiki/Trace_table"}
   - {titel: "Python-Dokumentation: Binary arithmetic operations (/, //, %)", url: "https://docs.python.org/3/reference/expressions.html#binary-arithmetic-operations"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
