@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Vertragstypen nach BGB (§ 433 Kauf, § 535 Miet
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 07.04: Kauf, Miete, Leasing (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "BGB § 433 (Kaufvertrag), § 535 (Mietvertrag)", url: "https://www.gesetze-im-internet.de/bgb/"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

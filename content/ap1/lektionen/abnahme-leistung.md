@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Abnahme beim Werkvertrag nach § 640 BGB; Mänge
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkte 07.07 (Abnahmeprotokoll, zu übergebende Dokumentation, Schlecht-/Falsch-/Minderlieferung) und 07.08 (Bestätigung erbrachter Leistungen, Nachkalkulation, Folgeaufträge) – Themenzuordnung siehe content/ap1/katalog.yaml"}
   - {titel: "BGB § 640 Abnahme; § 434 Sachmangel; § 437 Rechte des Käufers bei Mängeln", url: "https://www.gesetze-im-internet.de/bgb/"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -8,7 +8,7 @@ dauer_min: 20
 quelle: "Neu erstellt (Claude). Aufbau und Gestaltungsregeln nach gängiger Literatur zur Präsentationstechnik; Beispiel fiktiv."
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 02.05: Präsentation und Medienkompetenz – Themenzuordnung siehe content/ap1/katalog.yaml"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

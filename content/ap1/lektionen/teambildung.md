@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.01: Phasen der Teambildung und -entwicklung kennen (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Tuckman, B. W.: Developmental sequence in small groups. Psychological Bulletin 63 (6), 1965, S. 384–399"}
   - {titel: "Tuckman, B. W.; Jensen, M. A. C.: Stages of small-group development revisited. Group & Organization Studies 2 (4), 1977, S. 419–427 (Phase Adjourning)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
