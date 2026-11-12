@@ -1,0 +1,13 @@
+id: handlungskostenzuschlag
+begriff: Handlungskostenzuschlag
+kurz: Prozentualer Aufschlag auf den Bezugspreis, der die Gemeinkosten eines Handelsbetriebs deckt.
+erklaerung: 'Handlungskosten wie Miete, Personal im Vertrieb oder Verwaltung lassen sich keiner einzelnen
+  Ware zuordnen. Man verteilt sie pauschal: Handlungskostenzuschlag = Handlungskosten ÷ Wareneinsatz ×
+  100. Bezugspreis + Handlungskosten = Selbstkosten.'
+beispiel: Bezugspreis 4.000,00 € + 25 % = 1.000,00 € Handlungskosten.
+verwandt:
+- selbstkosten
+- bezugspreis
+thema: kalkulation
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

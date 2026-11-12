@@ -1,0 +1,16 @@
+id: projektstrukturplan
+begriff: PSP
+langform: Projektstrukturplan
+kurz: Hierarchische Zerlegung eines Projekts in Teilaufgaben und Arbeitspakete, ohne zeitliche Reihenfolge.
+erklaerung: Der PSP stellt alle Aufgaben eines Projekts vollständig als Baum oder Liste dar (DIN 69901-5).
+  Er kann phasen-, objekt- oder funktionsorientiert gegliedert sein. Reihenfolge und Dauer stehen nicht
+  im PSP, sondern in Vorgangsliste, Netzplan und Gantt-Diagramm.
+warum: Kleine Pakete lassen sich schätzen und zuordnen; was nicht im PSP steht, wird nicht geplant (100-%-Regel).
+beispiel: 1 Archivserver in Betrieb nehmen → 1.2 Bereitstellung → 1.2.3 Image testen
+verwandt:
+- arbeitspaket
+- netzplan
+- gantt-diagramm
+thema: projektplanung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

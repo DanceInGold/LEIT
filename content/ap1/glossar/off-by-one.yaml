@@ -1,0 +1,13 @@
+id: off-by-one
+begriff: Off-by-one-Fehler
+kurz: Logischer Fehler, bei dem eine Schleife einmal zu oft oder einmal zu wenig läuft.
+erklaerung: 'Entsteht an Grenzen: Index ab 1 statt ab 0, Ende bei laenge statt laenge − 1, oder < statt
+  ≤. Gegenmittel: das erste und das letzte Element gezielt im Schreibtischtest prüfen.'
+beispiel: for i ← 0 to laenge(feld) greift auf einen Index zu, den es nicht gibt.
+verwandt:
+- logischer-fehler
+- array
+- schleife
+thema: schreibtischtest
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

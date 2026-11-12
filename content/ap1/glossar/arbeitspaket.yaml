@@ -1,0 +1,14 @@
+id: arbeitspaket
+begriff: Arbeitspaket
+kurz: 'Kleinste Einheit im Projektstrukturplan: abgeschlossene Aufgabe mit Ergebnis, Verantwortlichem
+  und schätzbarem Aufwand.'
+erklaerung: Ein Arbeitspaket wird mit Verb formuliert („Image testen“) und so geschnitten, dass eine Person
+  es verantworten und unabhängig abschließen kann. Im Ablaufplan wird daraus ein Vorgang mit Dauer und
+  Vorgängern.
+beispiel: '1.2.3 Image testen – Dauer 1 Tag, verantwortlich: Systemtechnik.'
+verwandt:
+- projektstrukturplan
+- meilenstein
+thema: projektplanung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

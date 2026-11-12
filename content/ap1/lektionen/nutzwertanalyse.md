@@ -10,7 +10,7 @@ belege:
   - {titel: "Zangemeister, C.: Nutzwertanalyse in der Systemtechnik, 1970/1976"}
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 02.01: quantitative und qualitative Angebotsbewertung (laut Änderungsliste IT-Berufe-Podcast #190)"}
   - {titel: "Auswertung AP1 Herbst 2021 bis Herbst 2026: Nutzwertanalyse ist mit 45 Punkten das punktstärkste Einzelthema (Anforderungsdokument Kap. 2)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

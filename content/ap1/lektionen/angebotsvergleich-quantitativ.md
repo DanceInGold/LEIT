@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 02.01: quantitative und qualitative Angebotsbewertung (laut Änderungsliste IT-Berufe-Podcast #190)"}
   - {titel: "Bezugskalkulation der Handelskalkulation (Listeneinkaufspreis − Rabatt − Skonto + Bezugskosten): Standardschema der kaufmännischen Ausbildung, Rahmenlehrplan IT-Berufe LF 2"}
   - {titel: "Skonto als Jahreszins: 2 / 98 × 360 / 20 ≈ 36,7 % (eigene Rechnung)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

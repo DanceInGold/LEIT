@@ -1,0 +1,14 @@
+id: nachkalkulation
+begriff: Nachkalkulation
+kurz: Kalkulation nach dem Auftrag mit den tatsächlichen Istwerten; sie zeigt Abweichungen zur Vorkalkulation.
+erklaerung: Im Soll-Ist-Vergleich werden geplante und tatsächliche Stunden und Kosten gegenübergestellt.
+  Die Abweichung in Prozent bezieht sich auf den Planwert. Ursachen fließen in künftige Vorkalkulationen
+  ein.
+warum: Ohne Nachkalkulation wiederholt man dieselben Fehlschätzungen.
+beispiel: 'Plan 40 h, Ist 52 h: +12 h = +30 %; Ergebnis beim Festpreis −360,00 € statt +360,00 €.'
+verwandt:
+- vorkalkulation
+- stundensatz
+thema: kalkulation
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

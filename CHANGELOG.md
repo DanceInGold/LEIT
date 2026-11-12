@@ -5,6 +5,13 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt
+- Neun Kapitel für die Planwochen 2–3: Pseudocode (Bausteine und Verzweigungen; Schleifen, Felder
+  und Funktionen), Schreibtischtest (Code von Hand durchrechnen; Fehler in Code finden),
+  Projektplanung (Projektstrukturplan und Vorgangsliste; Netzplan; Gantt-Diagramm), Kalkulation
+  (Verkaufspreis; Stundensatz, Vor- und Nachkalkulation) (LI-01).
+- 23 Glossarbegriffe zu diesen Themen (GL-01).
+
 ## [0.6.0] – Überblick und Kapitel
 
 ### Hinzugefügt

@@ -1,0 +1,14 @@
+id: gesamtpuffer
+begriff: GP
+langform: Gesamtpuffer
+kurz: Zeit, um die sich ein Vorgang verschieben darf, ohne das Projektende zu verschieben.
+erklaerung: GP = SAZ − FAZ = SEZ − FEZ. Vorgänge mit GP = 0 liegen auf dem kritischen Pfad. Der Gesamtpuffer
+  kann von mehreren Vorgängen einer Kette geteilt werden.
+beispiel: 'Vorgang C: SAZ 5 − FAZ 2 = 3 Tage Gesamtpuffer.'
+verwandt:
+- freier-puffer
+- kritischer-pfad
+- netzplan
+thema: projektplanung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

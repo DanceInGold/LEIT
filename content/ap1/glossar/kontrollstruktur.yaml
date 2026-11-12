@@ -1,0 +1,13 @@
+id: kontrollstruktur
+begriff: Kontrollstruktur
+kurz: 'Baustein, der die Reihenfolge der Anweisungen steuert: Sequenz, Verzweigung oder Wiederholung.'
+erklaerung: 'Nach dem Strukturtheorem von Böhm und Jacopini (1966) lässt sich jeder Algorithmus aus drei
+  Kontrollstrukturen bauen: Sequenz (nacheinander), Verzweigung (je nach Bedingung) und Wiederholung (Schleife).'
+warum: Mit nur drei Bausteinen bleibt Code verständlich; wilde Sprünge (goto) sind unnötig.
+beispiel: 'Sequenz: drei Zeilen nacheinander. Verzweigung: if … else. Wiederholung: while … end while.'
+verwandt:
+- pseudocode
+- schleife
+thema: pseudocode
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

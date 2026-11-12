@@ -11,7 +11,7 @@ belege:
   - {titel: "USB-IF: USB 2.0, USB 3.2, USB4 Spezifikationen und Namensschema", url: "https://www.usb.org"}
   - {titel: "VESA: DisplayPort 1.4 und 2.1", url: "https://vesa.org"}
   - {titel: "HDMI Licensing Administrator: HDMI 2.0 und 2.1", url: "https://www.hdmi.org"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

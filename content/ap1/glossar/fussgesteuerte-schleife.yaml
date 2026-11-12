@@ -1,0 +1,14 @@
+id: fussgesteuerte-schleife
+begriff: Fußgesteuerte Schleife
+kurz: Schleife, die ihre Bedingung erst nach dem Rumpf prüft und deshalb mindestens einmal durchläuft.
+erklaerung: 'In Pseudocode meist repeat … until Bedingung: Hinter until steht die Abbruchbedingung. Die
+  Variante do … while Bedingung nennt dagegen die Weiterlaufbedingung – also das Gegenteil. Python kennt
+  keine fußgesteuerte Schleife; dort schreibt man while True mit break.'
+warum: Manches lässt sich erst prüfen, nachdem es einmal passiert ist, etwa eine Benutzereingabe.
+beispiel: repeat input port until port ≥ 1 and port ≤ 65535
+verwandt:
+- schleife
+- pseudocode
+thema: pseudocode
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

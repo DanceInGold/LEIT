@@ -1,0 +1,15 @@
+id: logischer-fehler
+begriff: Logischer Fehler
+kurz: Fehler, bei dem das Programm normal läuft, aber ein falsches Ergebnis liefert.
+erklaerung: 'Auch: Semantischer Fehler. Typisch sind falsche Vergleichsoperatoren, falsche Startwerte,
+  vertauschte Anweisungen oder Schleifen, die einmal zu oft oder zu selten laufen. Kein Werkzeug meldet
+  sie; man findet sie mit Schreibtischtests und Tests mit Beispieldaten.'
+warum: Weil das Programm nicht abbricht, bleiben logische Fehler oft lange unbemerkt.
+beispiel: 'summe ← 0 steht in der Schleife statt davor: Am Ende steht nur der letzte Wert in summe.'
+verwandt:
+- syntaxfehler
+- off-by-one
+- schreibtischtest
+thema: schreibtischtest
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

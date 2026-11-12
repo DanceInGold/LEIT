@@ -1,0 +1,13 @@
+id: meilenstein
+begriff: Meilenstein
+kurz: Zeitpunkt mit besonderer Bedeutung im Projekt; er hat die Dauer 0.
+erklaerung: Ein Meilenstein markiert ein Zwischenergebnis, an dem geprüft wird, ob das Projekt im Plan
+  ist („Server betriebsbereit“). Im Gantt-Diagramm wird er als Raute dargestellt.
+warum: An Meilensteinen wird entschieden, ob es weitergeht; manchmal hängen Zahlungen daran.
+beispiel: Meilenstein „Server betriebsbereit“ nach der Installation, vor der Datenmigration.
+verwandt:
+- gantt-diagramm
+- arbeitspaket
+thema: projektplanung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

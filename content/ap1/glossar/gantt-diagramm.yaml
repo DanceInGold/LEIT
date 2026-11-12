@@ -1,0 +1,15 @@
+id: gantt-diagramm
+begriff: Gantt-Diagramm
+kurz: Balkendiagramm, das jeden Vorgang als Balken auf einer Zeitachse zeigt; die Länge entspricht der
+  Dauer.
+erklaerung: 'Auch: Balkenplan. Benannt nach Henry L. Gantt. Es zeigt Termine, Überschneidungen und Meilensteine
+  anschaulich und eignet sich, um den Fortschritt zu verfolgen. Puffer und kritischen Pfad berechnet man
+  dagegen im Netzplan.'
+warum: Längen erfasst man schneller als Zahlen – deshalb eignet es sich für Statusmeetings und Kunden.
+beispiel: Vorgang B (5 Tage) beginnt am Mi 13.01. und endet am Di 19.01. – das Wochenende zählt nicht.
+verwandt:
+- netzplan
+- meilenstein
+thema: projektplanung
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
