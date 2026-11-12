@@ -1,0 +1,13 @@
+id: abnahme
+begriff: Abnahme
+kurz: Erklärung des Auftraggebers, dass ein Werk im Wesentlichen vertragsgemäß erbracht wurde (§ 640 BGB).
+erklaerung: Mit der Abnahme wird die Vergütung fällig, die Verjährung der Mängelansprüche beginnt, und
+  die Beweislast für Mängel geht auf den Auftraggeber über. Das Abnahmeprotokoll hält geprüfte Leistungen,
+  Testergebnisse, Mängel mit Frist und Unterschriften fest.
+beispiel: 'Abgenommen mit Vorbehalt: Alarm-Mail geht an falsche Adresse, Behebung bis 05.02.'
+verwandt:
+- werkvertrag
+- lastenheft
+thema: abnahme-doku
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

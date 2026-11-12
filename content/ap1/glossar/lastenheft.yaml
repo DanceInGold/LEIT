@@ -1,0 +1,14 @@
+id: lastenheft
+begriff: Lastenheft
+kurz: 'Vom Auftraggeber erstellte Beschreibung aller Anforderungen an eine Lieferung oder Leistung: was
+  und wofür.'
+erklaerung: Nach DIN 69901-5 die vom Auftraggeber festgelegte Gesamtheit der Forderungen. Der Auftragnehmer
+  antwortet mit dem Pflichtenheft, das beschreibt, wie und womit die Anforderungen umgesetzt werden. Abgenommen
+  wird gegen das freigegebene Pflichtenheft.
+beispiel: 'Lastenheft: „40 TB zehn Jahre revisionssicher aufbewahren.“ Pflichtenheft: Appliance mit WORM-Speicher.'
+verwandt:
+- abnahme
+- werkvertrag
+thema: lasten-pflichtenheft
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

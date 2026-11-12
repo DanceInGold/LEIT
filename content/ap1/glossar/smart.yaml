@@ -1,0 +1,12 @@
+id: smart
+begriff: SMART
+kurz: 'Prinzip für überprüfbare Ziele: spezifisch, messbar, attraktiv (akzeptiert), realistisch, terminiert.'
+erklaerung: Geht auf Doran (1981) zurück; im Deutschen gibt es mehrere Lesarten für das A (attraktiv,
+  akzeptiert, angemessen). Ein SMART-Ziel enthält in der Regel eine Messgröße und einen Termin, sodass
+  am Ende eindeutig feststeht, ob es erreicht wurde.
+beispiel: Bis 31.01.2027 beträgt die Abrufzeit eines Archivdokuments höchstens 2 Sekunden.
+verwandt:
+- abnahme
+thema: smart-ziele
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

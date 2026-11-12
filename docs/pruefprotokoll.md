@@ -227,3 +227,22 @@ Wortlaut der Normen wieder und sind keine Rechtsberatung.
 | `haertung-firewall` | Härtungsmaßnahmen (BSI SYS.1.1/SYS.2.1), Personal vs. Netzwerk-Firewall, firewalld-Befehle (RHEL 9) | – |
 | `datensicherung` | Sicherungsarten; Woche: 620 GB inkrementell vs. 920 GB differenziell, Restore 6 vs. 2 Sätze; 3-2-1; Großvater-Vater-Sohn (BSI CON.3) | RAID als gestrichenes Thema gekennzeichnet. |
 | `verfuegbarkeit-sichern` | 99 % = 87,6 h, 99,9 % = 8,76 h, 99,99 % = 52,6 min, 99,999 % = 5,3 min; Reihe 98,505 %, parallel 99,99 %; USV-Klassen VFD/VI/VFI (IEC 62040-3) | – |
+
+## Neue Lektionen und Glossar (Projekt, Kunde, Verträge)
+
+Zehn Kapitel für zwölf Katalogthemen (drei Kapitel decken je zwei kleine Themen ab) und sechs
+Glossarbegriffe, im PR mit `status: ungeprüft`. Rechnungen per Skript, Diagramme gerendert.
+Rechtliche Aussagen geben den Wortlaut der Normen wieder und sind keine Rechtsberatung.
+
+| Lektion | Themen | Geprüfte Kernaussagen | Hinweis |
+| --- | --- | --- | --- |
+| `projekt-smart` | projekt-merkmale, smart-ziele | Projektbegriff DIN 69901-5 (Einmaligkeit der Bedingungen); SMART nach Doran 1981 | Unbelegte Aussage zur Prüfungspraxis beim „A“ entfernt. |
+| `teambildung` | teambildung | Tuckman 1965 (vier Phasen), Tuckman/Jensen 1977 (Adjourning) | – |
+| `wirtschaftlichkeit` | wirtschaftlichkeit | Amortisation 24.000 € ÷ 1.000 €/Monat = 24 Monate; Break-even NAS/Cloud bei 40 TB (2.400 € = 2.400 €) | Werte fiktiv. |
+| `kauf-miete-leasing` | kauf-miete-leasing | 1.000 € / 1.044 € / 1.440 € je Gerät über 36 Monate | Bilanz- und Steuerfragen ausdrücklich an die Buchhaltung verwiesen. |
+| `lasten-pflichtenheft` | lasten-pflichtenheft | Urheber und Inhalt nach DIN 69901-5 | – |
+| `vertraege` | vertraege | §§ 433, 535, 611, 631 BGB; § 434 Abs. 5 (Falschlieferung) wörtlich geprüft; 2 Jahre ab Ablieferung, Vorrang der Nacherfüllung, § 377 HGB (IHK Pfalz) | Zuweniglieferung: Einordnung seit der Reform 2022 als umstritten gekennzeichnet (in § 434 Abs. 5 n. F. nicht mehr ausdrücklich genannt). |
+| `abnahme-leistung` | abnahme-doku, leistungsbestaetigung | Wirkungen der Abnahme (§ 640 BGB): Fälligkeit, Verjährungsbeginn, Beweislast | – |
+| `kundenbedarf` | kundenbedarf, maerkte-bedarfe | Bedürfnis/Bedarf/Nachfrage; Fragetechniken; Kommunikationsquadrat (Schulz von Thun 1981) | „Märkte und Bedarfe“ hat im Katalog-Auszug keinen Unterpunkt; Inhalt deshalb auf Grundbegriffe beschränkt. |
+| `kommunikationssysteme` | kommunikationssysteme | Upload-Rechnung 8 × 2 Mbit/s = 16 Mbit/s > 10 Mbit/s | Bandbreite je Teilnehmer als Annahme gekennzeichnet; nicht geprüfte BSI-Deep-Link-Adresse entfernt. |
+| `praesentation` | praesentation | Aufbau, Medienwahl, Folienregeln, Medienkompetenz | Anteile und Schriftgrößen als Faustregeln gekennzeichnet. |

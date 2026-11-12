@@ -1,0 +1,12 @@
+id: amortisation
+begriff: Amortisation
+kurz: Zeitpunkt, ab dem die Rückflüsse einer Investition die Anschaffungskosten gedeckt haben.
+erklaerung: Statische Amortisationsdauer = Investition ÷ Rückfluss pro Jahr (oder Monat). Rückfluss =
+  Einsparungen oder Mehreinnahmen minus neue laufende Kosten. Ergänzend vergleicht die Kostenvergleichsrechnung
+  Alternativen; der Break-even ist die Menge, bei der beide gleich viel kosten.
+beispiel: 24.000 € Investition ÷ 1.000 € Rückfluss pro Monat = 24 Monate.
+verwandt:
+- leasing
+thema: wirtschaftlichkeit
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

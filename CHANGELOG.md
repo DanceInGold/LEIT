@@ -6,6 +6,13 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 ## [Unreleased]
 
 ### Hinzugefügt
+- Zehn Kapitel für zwölf Themen aus Projekt, Kunde und Verträgen: Projekt und SMART-Ziele,
+  Teambildung, Wirtschaftlichkeit, Kauf/Miete/Leasing, Lasten- und Pflichtenheft, Verträge,
+  Abnahme und Leistungsbestätigung, Kundenbedarf und Märkte, Kommunikationssysteme, Präsentation
+  (LI-01). Ein Kapitel kann jetzt mehrere kleine Themen abdecken.
+- Sechs Glossarbegriffe (GL-01).
+
+### Hinzugefügt
 - Elf Kapitel zu Sicherheit und Datenschutz: Schutzziele; Schutzbedarf feststellen und vererben;
   DSGVO-Grundsätze; Betroffenenrechte und Datenpannen; TOM; ISMS und Risikomatrix;
   Authentifizierung und Passwort-Policy; Härtung und Personal Firewall; Datensicherung;

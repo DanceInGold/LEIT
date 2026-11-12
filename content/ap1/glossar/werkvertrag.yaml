@@ -1,0 +1,14 @@
+id: werkvertrag
+begriff: Werkvertrag
+kurz: Vertrag, bei dem der Unternehmer einen bestimmten Erfolg schuldet (§ 631 BGB).
+erklaerung: 'Abgrenzung: Beim Dienstvertrag (§ 611 BGB) wird eine Tätigkeit geschuldet, kein Erfolg; beim
+  Kaufvertrag (§ 433) eine Sache. Der Werkvertrag endet mit der Abnahme (§ 640). Erst dann wird die Vergütung
+  fällig.'
+beispiel: Festpreis für „Archivserver betriebsbereit einrichten“ = Werkvertrag; „40 Stunden Admin-Unterstützung“
+  = Dienstvertrag.
+verwandt:
+- abnahme
+- lastenheft
+thema: vertraege
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft
