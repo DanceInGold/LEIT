@@ -6,6 +6,13 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 ## [Unreleased]
 
 ### Hinzugefügt
+- Elf Kapitel für die letzten 13 Themen: UML (Anwendungsfall/Klasse, Aktivität), EPK und BPMN
+  (Zusatz), Softwarearten und Stamm-/Bewegungsdaten, Support und Rollout, Suchoperatoren,
+  Urheberrecht und Lizenzen, Barrierefreiheit, Softwareergonomie, Qualität und Testprotokoll,
+  Rechtsformen (Zusatz) (LI-01). Damit hat jedes relevante Katalogthema mindestens ein Kapitel.
+- Fünf Glossarbegriffe (GL-01).
+
+### Hinzugefügt
 - Zwölf Kapitel zu Systemen und Netz: HDD/SSD, UEFI und Dateisysteme, Installation, Betriebssysteme,
   Client-Server und Domäne, Ethernet/LWL/WLAN, Netzwerkkomponenten, Cloud-Modelle, Geräteklassen und
   Auslastung, Konsolenbefehle, Skriptsprachen, nachhaltige IT (LI-01).

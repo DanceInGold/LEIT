@@ -1,0 +1,12 @@
+id: softwareergonomie
+begriff: Softwareergonomie
+kurz: Gestaltung von Software, die zu Aufgabe und Mensch passt und effizient, fehlerarm und zufriedenstellend
+  nutzbar ist.
+erklaerung: 'DIN EN ISO 9241-110:2020 nennt sieben Interaktionsprinzipien: Aufgabenangemessenheit, Selbstbeschreibungsfähigkeit,
+  Erwartungskonformität, Erlernbarkeit, Steuerbarkeit, Robustheit gegen Benutzungsfehler, Benutzerbindung.'
+beispiel: Fehlende Abbrechen-Schaltfläche verletzt die Steuerbarkeit.
+verwandt:
+- barrierefreiheit
+thema: masken-ergonomie
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

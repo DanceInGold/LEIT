@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025: Skriptsprachen, z. B. Shell-Skript – Themenzuordnung siehe content/ap1/katalog.yaml (04.06)"}
   - {titel: "GNU Bash Reference Manual", url: "https://www.gnu.org/software/bash/manual/bash.html"}
   - {titel: "Microsoft Learn: What is PowerShell?", url: "https://learn.microsoft.com/en-us/powershell/scripting/overview"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Funktionsweise nach Herstellerdokumentation und 
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.03: Datenspeicher (SSD/HDD); HDD und SSD werden namentlich aufgeführt, Vor- und Nachteile kennen (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "BSI, Cyber-Sicherheitsempfehlungen für Verbraucher: Daten endgültig löschen (bei SSDs reicht Überschreiben nicht zuverlässig)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

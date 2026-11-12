@@ -1,0 +1,15 @@
+id: uml
+begriff: UML
+langform: Unified Modeling Language
+kurz: Genormte grafische Sprache zur Modellierung von Software und Abläufen (OMG).
+erklaerung: 'Für die AP1 2025 relevant: Anwendungsfalldiagramm (Akteure, Anwendungsfälle, Systemgrenze,
+  include/extend), Klassendiagramm (Klassen, Attribute, Methoden, Sichtbarkeit, Beziehungen mit Multiplizitäten)
+  und Aktivitätsdiagramm (Start, Aktionen, Verzweigung, Gabelung/Vereinigung, Ende, Swimlanes).'
+warum: Genormte Symbole werden von Entwicklern, Admins und Fachbereich gleich verstanden.
+beispiel: 'Kunde "1" → "0..*" Projekt: Ein Kunde erteilt beliebig viele Projekte.'
+verwandt:
+- klasse
+- kapselung
+thema: uml
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

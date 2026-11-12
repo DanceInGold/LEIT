@@ -266,3 +266,22 @@ Rechnungen per Skript, Beispielskript mit `bash -n` geprüft, Diagramme gerender
 | `konsolenbefehle` | konsolenbefehle | Befehlspaare Windows/Linux; 169.254.0.0/16 = Link-Local (RFC 3927) | – |
 | `skriptsprachen` | skriptsprachen | Beispielskript syntaktisch geprüft (`bash -n`); Shebang, Exit-Code, cron-Syntax | – |
 | `nachhaltigkeit-energie` | nachhaltigkeit-energie | 0,4 kW × 8.760 h = 3.504 kWh = 1.051,20 €; PC/Thin Client 42,24 €/7,92 €, 50 Plätze 1.716 €; PUE 1,5 | Strompreis als Annahme. |
+
+## Neue Lektionen und Glossar (Software, Qualität, Recht)
+
+Elf Kapitel für 13 Katalogthemen und fünf Glossarbegriffe, im PR mit `status: ungeprüft`. Damit hat
+jedes relevante Katalogthema (63) mindestens ein Kapitel. Rechnungen per Skript, Diagramme gerendert.
+
+| Lektion | Themen | Geprüfte Kernaussagen | Hinweis |
+| --- | --- | --- | --- |
+| `uml-anwendungsfall-klasse` | uml | Use-Case-Elemente, include/extend, Multiplizitäten, Aggregation/Komposition (UML 2.5.1) | Mermaid zeichnet Use Cases nur annähernd; im Text auf die Papiernotation hingewiesen. |
+| `uml-aktivitaet` | uml | Start, Aktion, Verzweigung/Zusammenführung, Gabelung/Vereinigung, Swimlanes (UML 2.5.1, Kap. 15); Schleife deckt sich mit `pseudocode-schleifen` | Gabelung/Vereinigung im Diagramm als Kasten angedeutet, Balken im Text erklärt. |
+| `epk-bpmn` | epk, bpmn | EPK-Regeln (Ereignis–Funktion im Wechsel, kein XOR/ODER nach Ereignis); BPMN-Elemente (BPMN 2.0.2) | Als Zusatzthema gekennzeichnet (E-10). |
+| `software-daten` | software-arten, stamm-bewegungsdaten | Softwarearten laut Katalog 03.01; ERP/SCM/CRM-Langformen; Stamm- vs. Bewegungsdaten | – |
+| `support-ticket-rollout` | support-ki, rollout-ticketsystem | Support-Level 1st/2nd/3rd; Incident/Service Request/Problem (ITIL); Budget 62.070 € | ITIL als Anlehnung gekennzeichnet. |
+| `suchoperatoren` | suchoperatoren | Operatoren nach Google-Hilfe; boolesche Operatoren | Beispiel mit gestrichenen Themen (SAN/RAID) ersetzt. |
+| `urheberrecht-lizenzen` | urheberrecht-lizenzen | § 2, 7, 64, 69a–69d UrhG; GPL vs. MIT; 3.200 € vs. 2.640 € | – |
+| `barrierefreiheit` | barrierefreiheit | WCAG 2.2 (POUR); BFSG anzuwenden seit 28.06.2025; Hilfsmittel laut Katalog | Statistik aktualisiert: 7,8 Mio. schwerbehinderte Menschen (Destatis, Juli 2026) statt einer Schätzung. |
+| `masken-ergonomie` | masken-ergonomie | sieben Interaktionsprinzipien nach DIN EN ISO 9241-110:2020 (Erlernbarkeit, Benutzerbindung neu ggü. 2006) | – |
+| `qualitaet-testprotokoll` | qualitaet | Qualitätsbegriff ISO 9000 (Hintergrund); Testprotokoll; Erstlösungsquote 48/60 = 80 % | ISO 9000 nur als Hintergrund, da ISO-Normen im Katalog gestrichen. |
+| `rechtsformen-organisation` | rechtsformen-aufbauorganisation | GmbH 25.000 € (§ 5 GmbHG), UG ab 1 € (§ 5a), AG 50.000 € (§ 7 AktG); vier Organisationsformen | Als Zusatzthema gekennzeichnet. |

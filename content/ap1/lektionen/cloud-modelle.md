@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Service- und Bereitstellungsmodelle nach NIST SP
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01: Cloudlösungen, z. B. Software as a Service, Desktop as a Service; virtuelle Desktops (Cloud oder lokal) (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "NIST SP 800-145: The NIST Definition of Cloud Computing", url: "https://csrc.nist.gov/pubs/sp/800/145/final"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

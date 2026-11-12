@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Zuordnung zu OSI-Schichten nach ISO/IEC 7498-1 u
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01: Netzwerkkomponenten wie z. B. WLAN-Router, Switch, Gateway, Accesspoint (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "IEEE 802.3 Ethernet Working Group (802.3af/at/bt Power over Ethernet)", url: "https://www.ieee802.org/3/"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

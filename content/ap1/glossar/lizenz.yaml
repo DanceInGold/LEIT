@@ -1,0 +1,13 @@
+id: lizenz
+begriff: Lizenz
+kurz: Erlaubnis des Rechteinhabers, ein urheberrechtlich geschütztes Werk – etwa Software – in einem festgelegten
+  Umfang zu nutzen.
+erklaerung: 'Arten: proprietär, OEM, Volumenlizenz, Abonnement, Freeware, Shareware, Open Source (Copyleft
+  wie GPL oder freizügig wie MIT). Modelle: pro Gerät, pro Benutzer, gleichzeitige Nutzer, pro Prozessorkern.
+  Das Urheberrecht entsteht automatisch und gilt bis 70 Jahre nach dem Tod des Urhebers.'
+beispiel: 40 Named-User-Lizenzen à 80 € = 3.200 € gegenüber 12 Concurrent-Lizenzen à 220 € = 2.640 €.
+verwandt:
+- barrierefreiheit
+thema: urheberrecht-lizenzen
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

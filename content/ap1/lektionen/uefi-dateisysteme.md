@@ -11,7 +11,7 @@ belege:
   - {titel: "UEFI Forum: Unified Extensible Firmware Interface Specification (GPT, Secure Boot)", url: "https://uefi.org/specifications"}
   - {titel: "Microsoft Learn: Windows and GPT FAQ (MBR max. 2 TB bei 512-Byte-Sektoren, vier primäre Partitionen)", url: "https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-and-gpt-faq"}
   - {titel: "Linux Kernel Documentation: ext4 (maximale Datei- und Dateisystemgröße)", url: "https://docs.kernel.org/filesystems/ext4/index.html"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

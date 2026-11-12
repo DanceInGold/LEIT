@@ -8,7 +8,7 @@ dauer_min: 25
 quelle: "Neu erstellt (Claude). Geräteklassen nach Katalogwortlaut; Auslastungsrechnung mit fiktiven Messwerten nachgerechnet; Reserve als Faustregel gekennzeichnet."
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkte 04.02 (Geräteklassen, z. B. Desktops, Notebooks, All-in-One, Thin Clients, Tablets, Smartphones) und 03.04 (Auslastung, Erweiterbarkeit, Zukunftssicherheit) (laut Änderungsliste IT-Berufe-Podcast #190 bzw. katalog.yaml)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
