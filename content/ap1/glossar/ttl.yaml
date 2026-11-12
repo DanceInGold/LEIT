@@ -1,0 +1,14 @@
+id: ttl
+begriff: TTL
+langform: Time to Live
+kurz: Im IP-Paket ein Zähler, den jeder Router um 1 senkt; bei 0 wird das Paket verworfen.
+erklaerung: 'Die TTL verhindert, dass Pakete bei Routing-Fehlern endlos kreisen; traceroute nutzt sie.
+  Achtung: Im DNS bedeutet TTL etwas anderes – die Zeit in Sekunden, die ein Eintrag im Cache gültig bleibt.
+  In IPv6 heißt das Feld Hop Limit.'
+beispiel: Start mit TTL 64, nach drei Routern kommt das Paket mit TTL 61 an.
+verwandt:
+- dns
+- osi-modell
+thema: osi-protokolle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

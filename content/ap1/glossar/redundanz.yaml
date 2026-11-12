@@ -1,0 +1,12 @@
+id: redundanz
+begriff: Redundanz
+kurz: Mehrfache Speicherung derselben Information in einer Datenbank.
+erklaerung: 'Unkontrollierte Redundanz führt zu Anomalien: Änderungsanomalie (eine Kopie wird vergessen),
+  Einfügeanomalie (Daten lassen sich ohne andere Daten nicht speichern), Löschanomalie (beim Löschen geht
+  mehr verloren als gewollt). Bewusste Redundanz gibt es bei Backups und Spiegelungen.'
+beispiel: „Kunde Nord GmbH“ steht in jeder Dokumentzeile – eine Umbenennung muss überall nachgezogen werden.
+verwandt:
+- normalisierung
+thema: erm-relational
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

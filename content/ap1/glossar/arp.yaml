@@ -1,0 +1,16 @@
+id: arp
+begriff: ARP
+langform: Address Resolution Protocol
+kurz: Protokoll, das im lokalen Netz zu einer IPv4-Adresse die passende MAC-Adresse ermittelt.
+erklaerung: Die Anfrage geht als Broadcast an alle, nur der Gesuchte antwortet per Unicast. Beide speichern
+  das Paar IP–MAC zeitlich begrenzt im ARP-Cache. Liegt das Ziel in einem fremden Netz, wird die MAC des
+  Gateways erfragt (RFC 826).
+warum: Für den Ethernet-Frame braucht der Absender eine MAC, kennt aber nur die IP.
+beispiel: Wer hat 10.0.1.1? → 10.0.1.1 ist 00:1A:2B:3C:4D:5E.
+verwandt:
+- mac-adresse
+- dns
+- nat
+thema: osi-protokolle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

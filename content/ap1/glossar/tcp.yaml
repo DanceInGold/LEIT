@@ -1,0 +1,15 @@
+id: tcp
+begriff: TCP
+langform: Transmission Control Protocol
+kurz: Verbindungsorientiertes Transportprotokoll, das Daten zuverlässig und in richtiger Reihenfolge überträgt.
+erklaerung: 'Verbindungsaufbau per Drei-Wege-Handschlag (SYN, SYN-ACK, ACK), Bestätigung und Wiederholung
+  verlorener Segmente (RFC 9293). Gegenstück UDP: verbindungslos, schnell, ohne Garantie – etwa für DNS-Abfragen,
+  DHCP, Video und VoIP.'
+warum: Zuverlässigkeit kostet Zeit und Overhead; wo ein Verlust egal ist, ist UDP besser.
+beispiel: HTTPS, SSH und Mail laufen über TCP.
+verwandt:
+- port
+- osi-modell
+thema: osi-protokolle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

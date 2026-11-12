@@ -1,0 +1,14 @@
+id: dhcp
+begriff: DHCP
+langform: Dynamic Host Configuration Protocol
+kurz: Protokoll, das Clients automatisch IP-Adresse, Maske, Gateway und DNS-Server zuweist.
+erklaerung: 'Ablauf DORA: Discover (Broadcast), Offer, Request (Broadcast), Ack. Die Adresse ist für eine
+  Lease-Dauer geliehen und wird rechtzeitig verlängert. UDP, Server-Port 67, Client-Port 68 (RFC 2131).'
+warum: Manuelle Adressvergabe bei Hunderten Clients ist fehleranfällig; DHCP verhindert doppelte Adressen.
+beispiel: Antwortet kein DHCP-Server, vergibt sich ein Client eine Adresse aus 169.254.0.0/16.
+verwandt:
+- dns
+- subnetzmaske
+thema: osi-protokolle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

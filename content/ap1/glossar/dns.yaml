@@ -1,0 +1,15 @@
+id: dns
+begriff: DNS
+langform: Domain Name System
+kurz: Verteiltes Verzeichnis, das Namen in IP-Adressen übersetzt (und umgekehrt).
+erklaerung: 'Ein Resolver fragt sich von der Root-Zone über die Top-Level-Domain bis zum zuständigen Server
+  durch und speichert die Antwort für die Dauer der TTL. Einträge: A (IPv4), AAAA (IPv6), CNAME (Alias),
+  MX (Mailserver), PTR (Rückwärtsauflösung). Port 53.'
+beispiel: repo.archivtech.example → 10.0.2.20, TTL 3600 s.
+verwandt:
+- dhcp
+- arp
+- ttl
+thema: osi-protokolle
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

@@ -1,0 +1,16 @@
+id: nat
+begriff: NAT
+langform: Network Address Translation
+kurz: Übersetzung von IP-Adressen am Router, meist von privaten Adressen auf eine öffentliche beim Übergang
+  ins Internet.
+erklaerung: Bei der verbreiteten Form (PAT/NAPT) teilen sich viele interne Geräte eine öffentliche Adresse;
+  der Router unterscheidet sie über Portnummern. Zwischen internen Subnetzen wird normalerweise geroutet,
+  nicht übersetzt.
+warum: Private Adressen (RFC 1918) werden im Internet nicht geroutet; NAT spart öffentliche IPv4-Adressen.
+beispiel: PC 192.168.1.20:51000 erscheint im Internet als 203.0.113.5:40001.
+verwandt:
+- arp
+- subnetzmaske
+thema: ipv4-subnetting
+quelle: Neu erstellt (Claude); Belege siehe zugehörige Lektion.
+status: ungeprüft

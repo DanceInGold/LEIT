@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.02 und 07.08: Vor- und Nachkalkulation (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Lexware: Handelskalkulation einfach erklärt (Schema, Kundenskonto und Kundenrabatt vom verminderten Grundwert)", url: "https://www.lexware.de/wissen/buchhaltung-finanzen/handelskalkulation-einfach-erklaert/"}
   - {titel: "§ 12 Abs. 1 UStG: Regelsteuersatz 19 %", url: "https://www.gesetze-im-internet.de/ustg_1980/__12.html"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

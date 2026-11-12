@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.01: Projektplanung mithilfe von Strukturplan, Netzplan und Gantt-Diagramm (laut Kommentar des Autors zur Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "DIN 69901-5:2009-01 Projektmanagement – Projektmanagementsysteme – Teil 5: Begriffe"}
   - {titel: "Project Management Institute: Practice Standard for Work Breakdown Structures (100-%-Regel)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

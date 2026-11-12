@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.07: Abbildung der Kontrollstrukturen, z. B. Verzweigungen, Schleife, mittels Pseudocode (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "DIN 66261:1985-11 Sinnbilder für Struktogramme nach Nassi-Shneiderman (Wiederholung mit vorausgehender und nachfolgender Prüfung, Zählschleife)"}
   - {titel: "Python-Dokumentation: The while statement, The for statement, range()", url: "https://docs.python.org/3/reference/compound_stmts.html#the-while-statement"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

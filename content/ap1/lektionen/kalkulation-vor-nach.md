@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Stundensatzkalkulation und Vor-/Nachkalkulation 
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.02: Vor- und Nachkalkulation; 07.08: Nachkalkulation (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Kosten- und Leistungsrechnung: Vorkalkulation mit Plan-, Nachkalkulation mit Istwerten; Standardinhalt der kaufmännischen Ausbildung, Rahmenlehrplan IT-Berufe LF 2"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

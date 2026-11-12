@@ -10,7 +10,7 @@ belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.01: Projektplanung mithilfe von Strukturplan, Netzplan und Gantt-Diagramm (laut Kommentar des Autors zur Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "DIN 69901-5:2009-01 Projektmanagement – Projektmanagementsysteme – Teil 5: Begriffe (Meilenstein)"}
   - {titel: "Wikipedia (en): Gantt chart – Balkendiagramm nach Henry L. Gantt, entwickelt um 1910–1915", url: "https://en.wikipedia.org/wiki/Gantt_chart"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
