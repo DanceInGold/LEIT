@@ -1,0 +1,26 @@
+# ruff, mypy und die schnellen Tests vor jedem Commit (Kap. 8, Konventionen).
+repos:
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        entry: uv run ruff check --fix
+        language: system
+        types: [python]
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        types: [python]
+      - id: mypy
+        name: mypy
+        entry: uv run mypy
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: pytest
+        name: pytest
+        entry: uv run pytest -x
+        language: system
+        pass_filenames: false
+        types: [python]

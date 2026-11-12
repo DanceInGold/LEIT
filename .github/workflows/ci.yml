@@ -1,0 +1,33 @@
+# Tests, Stil- und Typprüfung bei jedem Push und Pull Request (NF-08, NF-11).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Abhängigkeiten installieren
+        run: uv sync --all-groups
+      - name: ruff (Stil)
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+      - name: mypy (Typen)
+        run: uv run mypy
+      - name: pytest
+        run: uv run pytest
+      - name: Manifest aktuell?
+        # Schlägt fehl, wenn quellen/ und docs/inventur-manifest.json auseinanderlaufen.
+        run: |
+          uv run ap-tools inventur --check --github-output "$RUNNER_TEMP/inv"
+          grep -q '^changed=false' "$RUNNER_TEMP/inv" || {
+            echo "::warning::quellen/ weicht vom Manifest ab – Inventur noch nicht verarbeitet."
+          }

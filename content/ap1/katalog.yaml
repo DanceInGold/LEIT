@@ -1,0 +1,128 @@
+# Themenbaum AP1 – ENTWURF aus Phase 0.
+#
+# Grundlage: Änderungstabelle des IT-Berufe-Podcasts #190 (quellen/pruefung/…-190.pdf),
+# die nur das DELTA zwischen Katalog 2020 und 2025 zeigt, plus die Cluster der
+# Prüfungsauswertung aus docs/anforderungen.md (Kap. 2).
+# Der vollständige Prüfungskatalog 2025 liegt NICHT im Repo (siehe docs/inventur.md,
+# offene Frage F-01). Unterpunkte, die sich 2025 nicht geändert haben, sind daher hier
+# nur so weit erfasst, wie sie aus dem Delta oder den Kommentaren hervorgehen.
+#
+# Felder:
+#   id            stabile Themen-ID (ER-07: über Paketversionen hinweg unverändert)
+#   katalog       Unterpunkt(e) im Prüfungskatalog 2025, soweit bekannt
+#   cluster       Cluster der Prüfungsauswertung (für die Gewichtung, LP-07)
+#   stand_2025    aktiv | neu (2025 ergänzt/präzisiert) | entfallen | ausserhalb (nicht im Katalog)
+#   voraussetzungen  Themen-IDs, die vorher sitzen sollten (LP-03)
+#   gewicht       folgt nach Abgleich mit dem vollständigen Katalog (Regel: Kap. 2); entfallen = 0
+#   aufwand_h     folgt (LP-08)
+
+version: "2025-entwurf-1"
+status: entwurf
+
+bereiche:
+  - id: b01
+    name: "Planen, Projekte, Wirtschaftlichkeit"
+  - id: b02
+    name: "Kundenberatung, Angebote, Kommunikation"
+  - id: b03
+    name: "Marktgängige IT-Systeme: Hardware, Software, Netzwerk"
+  - id: b04
+    name: "Einrichten und Installieren, Programmierung, Daten"
+  - id: b05
+    name: "Qualitätssicherung"
+  - id: b06
+    name: "IT-Sicherheit und Datenschutz"
+  - id: b07
+    name: "Leistungserbringung, Verträge, Abnahme"
+
+themen:
+  # --- b01 Planen, Projekte, Wirtschaftlichkeit ---------------------------------
+  - {id: projekt-merkmale, titel: "Merkmale eines Projekts", bereich: b01, katalog: ["01.01"], cluster: Projektmanagement, stand_2025: neu}
+  - {id: smart-ziele, titel: "SMART-Prinzip", bereich: b01, katalog: ["01.01"], cluster: Projektmanagement, stand_2025: neu}
+  - {id: vorgehensmodelle, titel: "Projektphasen: Wasserfallmodell und Scrum", bereich: b01, katalog: ["01.01"], cluster: Projektmanagement, stand_2025: neu}
+  - {id: teambildung, titel: "Phasen der Teambildung und -entwicklung", bereich: b01, katalog: ["01.01"], cluster: Projektmanagement, stand_2025: aktiv, hinweis: "Stand im Delta nicht eindeutig lesbar"}
+  - {id: projektplanung, titel: "Projektplanung: Strukturplan, Netzplan, Gantt-Diagramm", bereich: b01, katalog: ["01.01"], cluster: Projektmanagement, stand_2025: aktiv}
+  - {id: wirtschaftlichkeit, titel: "Machbarkeit und Wirtschaftlichkeit (z. B. Amortisation)", bereich: b01, katalog: ["01.02"], cluster: Wirtschaftlichkeit, stand_2025: neu, voraussetzungen: [kalkulation]}
+  - {id: kalkulation, titel: "Kosten berechnen, Vor- und Nachkalkulation", bereich: b01, katalog: ["01.02", "07.08"], cluster: Wirtschaftlichkeit, stand_2025: aktiv}
+  - {id: stamm-bewegungsdaten, titel: "Stammdaten und Bewegungsdaten", bereich: b01, katalog: ["01.02"], cluster: Wirtschaftlichkeit, stand_2025: neu}
+  - {id: support-ki, titel: "Support-Level (First/Second/Third) und KI-Unterstützung", bereich: b01, katalog: ["01.03"], cluster: Kundenbeziehungen, stand_2025: neu}
+
+  # --- b02 Kundenberatung ---------------------------------------------------------
+  - {id: angebotsvergleich, titel: "Quantitative und qualitative Angebotsbewertung (Nutzwertanalyse)", bereich: b02, katalog: ["02.01"], cluster: Angebotsvergleich, stand_2025: neu}
+  - {id: kundenbedarf, titel: "Kundenbedarf ermitteln, situationsgerechte Kommunikation", bereich: b02, katalog: ["02.02", "02.03"], cluster: "Kundenberatung/Präsentieren", stand_2025: aktiv}
+  - {id: englische-texte, titel: "Technische und kaufmännische Texte auf Englisch", bereich: b02, katalog: ["02.04"], cluster: "Kundenberatung/Präsentieren", stand_2025: aktiv}
+  - {id: suchoperatoren, titel: "Digitale Suchabfragen mit Suchoperatoren", bereich: b02, katalog: ["02.04"], cluster: "Kundenberatung/Präsentieren", stand_2025: aktiv}
+  - {id: praesentation, titel: "Präsentation und Medienkompetenz", bereich: b02, katalog: ["02.05"], cluster: "Kundenberatung/Präsentieren", stand_2025: aktiv}
+  - {id: maerkte-bedarfe, titel: "Märkte und Bedarfe", bereich: b02, katalog: [], cluster: "Märkte und Bedarfe", stand_2025: aktiv, hinweis: "Unterpunkt im Delta nicht genannt"}
+
+  # --- b03 IT-Systeme -------------------------------------------------------------
+  - {id: zahlensysteme, titel: "Zahlensysteme (dual, hexadezimal), Einheiten und Präfixe", bereich: b03, katalog: [], cluster: Netzwerktechnik, stand_2025: aktiv, hinweis: "Grundlage für Subnetting, IPv6, Datenmengen"}
+  - {id: hardware-komponenten, titel: "Hardwareprodukte: CPU, Mainboard, RAM, Netzteil, Grafikkarte, Peripherie, Sensoren", bereich: b03, katalog: ["03.01", "03.03"], cluster: Hardware, stand_2025: aktiv}
+  - {id: speicher-hdd-ssd, titel: "Datenspeicher HDD und SSD", bereich: b03, katalog: ["03.03"], cluster: Hardware, stand_2025: neu}
+  - {id: bios-uefi-dateisysteme, titel: "BIOS/UEFI-Einstellungen, Dateisysteme (FAT32, NTFS, APFS, ext4)", bereich: b03, katalog: ["03.03"], cluster: Hardware, stand_2025: aktiv}
+  - {id: software-arten, titel: "Standard-, Branchen- (ERP, SCM, CRM), System-, Entwicklungs- und KI-Software", bereich: b03, katalog: ["03.01"], cluster: Software, stand_2025: neu}
+  - {id: cloud-modelle, titel: "Cloudlösungen: SaaS, IaaS, PaaS, DaaS; virtuelle Desktops", bereich: b03, katalog: ["03.01"], cluster: Hardware, stand_2025: aktiv}
+  - {id: kommunikationssysteme, titel: "Kommunikationssysteme: Videokonferenz, Social Media", bereich: b03, katalog: ["03.02"], cluster: Multimedia, stand_2025: neu}
+  - {id: netzwerkkomponenten, titel: "Netzwerkkomponenten: Router, Switch, Accesspoint, Gateway", bereich: b03, katalog: ["03.01", "03.02"], cluster: Netzwerktechnik, stand_2025: aktiv}
+  - {id: osi-protokolle, titel: "OSI-Modell und Netzwerkprotokolle (Ethernet, IP, DNS, …)", bereich: b03, katalog: ["03.02"], cluster: Netzwerktechnik, stand_2025: aktiv}
+  - {id: ipv4-subnetting, titel: "IPv4-Adressierung und Subnetting", bereich: b03, katalog: ["03.02", "04.01"], cluster: Netzwerktechnik, stand_2025: neu, voraussetzungen: [zahlensysteme, osi-protokolle]}
+  - {id: ipv6, titel: "IPv6-Adressierung", bereich: b03, katalog: ["03.02", "04.01"], cluster: Netzwerktechnik, stand_2025: neu, voraussetzungen: [ipv4-subnetting]}
+  - {id: client-server-domaene, titel: "Client-Server-Systeme, Einbindung eines Clients in eine Domäne", bereich: b03, katalog: ["03.02"], cluster: Netzwerktechnik, stand_2025: neu, voraussetzungen: [osi-protokolle]}
+  - {id: netzwerk-standards, titel: "Ethernet- und WLAN-Standards, LWL", bereich: b03, katalog: ["03.03"], cluster: Netzwerktechnik, stand_2025: aktiv}
+  - {id: barrierefreiheit, titel: "Barrierefreiheit: Arbeitsplatz, IT-Systeme, Websites", bereich: b03, katalog: ["03.03", "04.02", "04.07"], cluster: Hardware, stand_2025: neu}
+  - {id: datenmengen-uebertragung, titel: "Übertragungsraten, -zeiten und Datenmengen berechnen (Bild, Video, Dokument)", bereich: b03, katalog: ["03.03"], cluster: Multimedia, stand_2025: neu, voraussetzungen: [zahlensysteme]}
+  - {id: auslastung-erweiterbarkeit, titel: "Auslastung, Erweiterbarkeit, Zukunftssicherheit", bereich: b03, katalog: ["03.04"], cluster: Hardware, stand_2025: aktiv}
+  - {id: nachhaltigkeit-energie, titel: "Ökologische Aspekte: Energieverbrauch, Stromkosten, Recycling", bereich: b03, katalog: ["03.01", "07.02"], cluster: Wirtschaftlichkeit, stand_2025: aktiv, hinweis: "Formeln P = U · I und W = P · t laut Kommentar nicht mehr ausdrücklich genannt"}
+
+  # --- b04 Einrichten, Programmierung, Daten --------------------------------------
+  - {id: lasten-pflichtenheft, titel: "Lasten- und Pflichtenheft (Zweck, Urheber, Inhalt)", bereich: b04, katalog: ["04.01"], cluster: Projektmanagement, stand_2025: aktiv}
+  - {id: installation-einrichtung, titel: "Installation: Betriebssystem, Partitionierung, IP-Konfiguration, Remote-Desktop", bereich: b04, katalog: ["04.01"], cluster: Hardware, stand_2025: aktiv, voraussetzungen: [ipv4-subnetting]}
+  - {id: geraeteklassen, titel: "Geräteklassen: Desktop, Notebook, All-in-One, Thin Client, Tablet, Smartphone", bereich: b04, katalog: ["04.02"], cluster: Hardware, stand_2025: aktiv}
+  - {id: betriebssysteme, titel: "Betriebssysteme: Einsatzzweck, Dateimanagement, Freigaben", bereich: b04, katalog: ["04.03"], cluster: Betriebssysteme, stand_2025: aktiv}
+  - {id: urheberrecht-lizenzen, titel: "Schutz der Urheber, Lizenzen", bereich: b04, katalog: ["04.04"], cluster: Verträge, stand_2025: aktiv}
+  - {id: konsolenbefehle, titel: "Konsolenbefehle: Dateien und Netzwerk-Troubleshooting (ipconfig, ip, ping, nslookup, …)", bereich: b04, katalog: ["04.05"], cluster: Betriebssysteme, stand_2025: neu}
+  - {id: oop-grundlagen, titel: "Klassen, Attribute, Objekte, Methoden, Sichtbarkeit", bereich: b04, katalog: ["04.06"], cluster: Softwareentwicklung, stand_2025: neu}
+  - {id: skriptsprachen, titel: "Skriptsprachen, z. B. Shell-Skript", bereich: b04, katalog: ["04.06"], cluster: Softwareentwicklung, stand_2025: aktiv}
+  - {id: pseudocode, titel: "Kontrollstrukturen in Pseudocode", bereich: b04, katalog: ["04.07"], cluster: Softwareentwicklung, stand_2025: neu}
+  - {id: uml, titel: "UML: Anwendungsfall-, Klassen-, Aktivitätsdiagramm", bereich: b04, katalog: ["04.07"], cluster: UML, stand_2025: neu}
+  - {id: masken-ergonomie, titel: "Bildschirmmasken: Softwareergonomie, Corporate Identity, Barrierefreiheit", bereich: b04, katalog: ["04.07"], cluster: Softwareentwicklung, stand_2025: aktiv}
+  - {id: schreibtischtest, titel: "Fehler in Quellcode finden, Schreibtischtest", bereich: b04, katalog: ["04.07"], cluster: Softwareentwicklung, stand_2025: neu, voraussetzungen: [pseudocode]}
+  - {id: erm-relational, titel: "Grundlagen relationaler Datenbanken, einfache ER-Modelle", bereich: b04, katalog: ["04.08"], cluster: Datenbanken, stand_2025: neu}
+
+  # --- b05 Qualität ---------------------------------------------------------------
+  - {id: qualitaet, titel: "Qualitätsmaßnahmen, Testprotokoll für das Einrichten eines Arbeitsplatzes", bereich: b05, katalog: ["05.01", "05.02"], cluster: Leistungserbringung, stand_2025: aktiv}
+
+  # --- b06 IT-Sicherheit und Datenschutz ------------------------------------------
+  - {id: schutzziele, titel: "Schutzziele Vertraulichkeit, Integrität, Verfügbarkeit", bereich: b06, katalog: ["06.01"], cluster: IT-Sicherheit, stand_2025: neu}
+  - {id: tom, titel: "Technisch-organisatorische Maßnahmen; IT-Sicherheits- vs. Datenschutzbeauftragter", bereich: b06, katalog: ["06.01"], cluster: IT-Sicherheit, stand_2025: neu}
+  - {id: verschluesselung, titel: "Symmetrische, asymmetrische, hybride Verschlüsselung; Hash, Zertifikat, Signatur", bereich: b06, katalog: ["06.01", "06.04"], cluster: IT-Sicherheit, stand_2025: neu}
+  - {id: authentifizierung, titel: "Authentifizierung (2FA), Passwort-Policy bewerten", bereich: b06, katalog: ["06.04"], cluster: IT-Sicherheit, stand_2025: neu}
+  - {id: haertung-firewall, titel: "Härtung von Betriebssystemen, Personal Firewall", bereich: b06, katalog: ["06.04"], cluster: IT-Sicherheit, stand_2025: neu}
+  - {id: verfuegbarkeit-backup, titel: "Sicherung der Verfügbarkeit (z. B. NAS, Datensicherung)", bereich: b06, katalog: ["06.04"], cluster: IT-Sicherheit, stand_2025: aktiv}
+  - {id: bsi-schutzbedarf, titel: "Schutzbedarfsanalyse nach BSI IT-Grundschutz, Schutzbedarfskategorien", bereich: b06, katalog: ["06.02", "06.03"], cluster: IT-Sicherheit, stand_2025: neu, voraussetzungen: [schutzziele]}
+  - {id: isms-risiko, titel: "ISMS kennen und unterstützen, Risiko-Matrix", bereich: b06, katalog: ["06.03"], cluster: IT-Sicherheit, stand_2025: neu}
+  - {id: datenschutz, titel: "DSGVO/BDSG-Grundzüge, Betroffenenrechte, Einwilligung, Anonymisierung/Pseudonymisierung", bereich: b06, katalog: ["06.01"], cluster: Datenschutz, stand_2025: neu}
+
+  # --- b07 Leistungserbringung ----------------------------------------------------
+  - {id: vertraege, titel: "Vertragsbestandteile, Vertragsstörungen", bereich: b07, katalog: ["07.01"], cluster: Verträge, stand_2025: aktiv}
+  - {id: kauf-miete-leasing, titel: "Kauf, Miete, Leasing", bereich: b07, katalog: ["07.04"], cluster: Wirtschaftlichkeit, stand_2025: aktiv, voraussetzungen: [kalkulation]}
+  - {id: rollout-ticketsystem, titel: "Rolloutprozesse, Ticketsystem, Budget", bereich: b07, katalog: ["07.04"], cluster: Leistungserbringung, stand_2025: aktiv}
+  - {id: abnahme-doku, titel: "Abnahmeprotokoll, zu übergebende Dokumentation, Schlecht-/Falsch-/Minderlieferung", bereich: b07, katalog: ["07.07"], cluster: Leistungserbringung, stand_2025: aktiv}
+  - {id: leistungsbestaetigung, titel: "Bestätigung erbrachter Leistungen, Nachkalkulation, Folgeaufträge", bereich: b07, katalog: ["07.08"], cluster: Leistungserbringung, stand_2025: aktiv}
+
+  # --- Ausserhalb des Katalogs, aber im Beiblatt bzw. nur AP2 ----------------------
+  - {id: epk, titel: "Ereignisgesteuerte Prozesskette (EPK)", bereich: b04, katalog: [], cluster: null, stand_2025: ausserhalb, hinweis: "Nicht im Katalog, Notation aber auf dem gemeinsamen Beiblatt"}
+  - {id: rechtsformen-aufbauorganisation, titel: "Rechtsformen, Aufbauorganisation", bereich: b01, katalog: [], cluster: null, stand_2025: ausserhalb, hinweis: "Laut Podcast #190 nur noch AP2"}
+
+  # --- 2025 entfallen (Gewicht 0, nicht als prüfungsrelevant darstellen) -----------
+  - {id: sql, titel: "SQL", bereich: b04, katalog: [], cluster: Datenbanken, stand_2025: entfallen, gewicht: 0}
+  - {id: nosql, titel: "Nicht-relationale Datenbanken", bereich: b04, katalog: [], cluster: Datenbanken, stand_2025: entfallen, gewicht: 0}
+  - {id: raid, titel: "RAID", bereich: b06, katalog: [], cluster: Hardware, stand_2025: entfallen, gewicht: 0}
+  - {id: san, titel: "SAN", bereich: b06, katalog: [], cluster: Hardware, stand_2025: entfallen, gewicht: 0}
+  - {id: lte-5g, titel: "Mobiler Datenfunk LTE/5G", bereich: b04, katalog: [], cluster: Netzwerktechnik, stand_2025: entfallen, gewicht: 0}
+  - {id: struktogramm-pap, titel: "Struktogramm und Programmablaufplan", bereich: b04, katalog: [], cluster: Softwareentwicklung, stand_2025: entfallen, gewicht: 0}
+  - {id: vererbung, titel: "Vererbung (OOP)", bereich: b04, katalog: [], cluster: Softwareentwicklung, stand_2025: entfallen, gewicht: 0}
+  - {id: softwarequalitaet, titel: "Softwarequalitätskriterien", bereich: b05, katalog: [], cluster: Softwareentwicklung, stand_2025: entfallen, gewicht: 0}
+  - {id: weitere-vorgehensmodelle, titel: "Vorgehensmodelle außer Wasserfall und Scrum (Kanban, XP, V-Modell …)", bereich: b01, katalog: [], cluster: Projektmanagement, stand_2025: entfallen, gewicht: 0}
+  - {id: swot, titel: "SWOT-Analyse", bereich: b02, katalog: [], cluster: "Kundenberatung/Präsentieren", stand_2025: entfallen, gewicht: 0}
+  - {id: iso-2700x, titel: "ISO-Normen 2700x", bereich: b06, katalog: [], cluster: IT-Sicherheit, stand_2025: entfallen, gewicht: 0}
