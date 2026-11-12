@@ -10,7 +10,7 @@ belege:
   - {titel: "PCI-SIG: PCI Express Base Specification (Datenraten je Lane, Generation 3.0 bis 5.0)", url: "https://pcisig.com/specifications"}
   - {titel: "Intel ATX Specification 2.2 / microATX / Mini-ITX: Formfaktor-Maße"}
   - {titel: "SATA-IO: Serial ATA Revision 3.x (6 Gbit/s, 8b/10b-Kodierung)", url: "https://sata-io.org"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
