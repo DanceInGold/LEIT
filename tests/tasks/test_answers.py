@@ -11,6 +11,7 @@ from ap_trainer.tasks.answers import (
     parse_dual,
     parse_hex,
     parse_ipv4,
+    parse_ipv6,
     same_answer,
 )
 
@@ -62,3 +63,22 @@ def test_text_and_validity() -> None:
     assert is_valid("hex", "FF")
     assert not is_valid("ipv4", "1.2.3")
     assert not is_valid("zahl", "keine")
+
+
+def test_powers_of_ten() -> None:
+    assert number_candidates("4 × 10^11") == [4e11]
+    assert number_candidates("4·10¹¹ Bit") == [4e11]
+    assert number_candidates("1,6e13") == [1.6e13]
+    assert number_candidates("100 Byte") == [100.0]
+    assert same_answer("zahl", "1,6 × 10¹³", "16000000000000")
+
+
+def test_ipv6() -> None:
+    assert parse_ipv6("2001:DB8::1") == ((0x20010DB8 << 96) | 1, None)
+    assert parse_ipv6("2001:db8:abcd:12::/64") == ((0x20010DB8ABCD0012 << 64), 64)
+    assert parse_ipv6("2001::1::1") is None
+    assert parse_ipv6("2001:db8::/129") is None
+    assert same_answer("ipv6", "2001:0db8:abcd:0012:0000:0000:0000:0000/64", "2001:db8:abcd:12::/64")
+    assert not same_answer("ipv6", "2001:db8:abcd:12::", "2001:db8:abcd:12::/64")
+    assert same_answer("ipv6", "fe80::1/64", "fe80::1")
+    assert is_valid("ipv6", "::1") and not is_valid("ipv6", "fe80:::1")

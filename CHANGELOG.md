@@ -5,6 +5,20 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt (Phase 2 · Rechengeneratoren)
+- Vier neue Generatoren mit je vier Stufen (AU-03), jeweils mit 1.000 Zufallsfällen gegen eine
+  unabhängige Nachrechnung getestet (NF-07):
+  - **IPv6:** kürzen nach RFC 5952, ausschreiben, /64-Subnetze aus /48 bis /60, SLAAC mit EUI-64.
+  - **Datenmengen:** Bildgröße, Übertragungszeit, Scan/Audio/Video, Nachtsicherung, Overhead, Fotos pro Minute.
+  - **Stromkosten:** kWh, Jahreskosten, PC vs. Thin Client, Netzteil-Wirkungsgrad, PUE.
+  - **Kostenvergleich:** Amortisation, Rückfluss, Break-even, NAS oder Cloud mit Abschreibung.
+- Antwortformat `ipv6`: jede gültige Schreibweise zählt, auf Wunsch mit Präfixlänge.
+- Zahlen dürfen mit Zehnerpotenz eingegeben werden („4 × 10^11“, „4·10¹¹“, „4e11“).
+- Rauchtest öffnet je Thema eine Aufgabe der Stufe 4.
+
+### Geändert
+- Aufgaben und Generatoren aus PR #12 sind `geprüft`.
+
 ### Hinzugefügt (Phase 2 · Üben)
 - Aufgaben-Engine mit sechs Aufgabentypen: Multiple Choice, Zuordnung, Lückentext, Reihenfolge,
   Rechenaufgabe mit Zwischenschritten, Freitext mit Selbstbewertung (AU-01, AU-05) und fünf Stufen (AU-02).

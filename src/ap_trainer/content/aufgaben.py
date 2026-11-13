@@ -33,7 +33,7 @@ URSACHE_NAMEN: dict[str, str] = {
 }
 
 # Wie eine Eingabe in einem Rechenschritt gelesen wird (siehe tasks/answers.py)
-Antwortformat = Literal["zahl", "dual", "hex", "ipv4", "text"]
+Antwortformat = Literal["zahl", "dual", "hex", "ipv4", "ipv6", "text"]
 
 # Operatoren offener Prüfungsfragen (Vorbereitung auf ZI-02)
 Operator = Literal["nennen", "beschreiben", "erläutern", "begründen", "vergleichen", "beurteilen"]

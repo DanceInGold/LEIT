@@ -304,3 +304,18 @@ richtig). Die Generatoren rechnen von Hand (Restwertmethode, Bitoperationen) und
 | `subnetz-vorgehen-ordnen` | ipv4-subnetting | Fünf-Schritte-Schema wie Lektion `subnetze-bilden` | – |
 | Generator `zahlensysteme` | zahlensysteme | Stellenwerte 2ⁿ und 16ⁿ; Viererblöcke von rechts; Fehlerbilder: Bitreihenfolge, Reste falsch herum gelesen, Blöcke von links, Stellenwerte 10ⁿ | – |
 | Generator `ipv4-subnetting` | ipv4-subnetting | Maske, Schrittweite 256 − Maskenwert, Netz/Broadcast, Hosts 2ʰ − 2, Subnetze 2ⁿ (RFC 950, RFC 4632); Adressen aus RFC-1918-Bereichen | Fehlerbilder: Hostmaske statt Netzmaske, nächste Netzadresse als Broadcast, „.255 ist immer Broadcast“, „− 2“ vergessen |
+
+## Rechengeneratoren (Phase 2)
+
+Vier Generatoren, im PR mit `status = "ungeprüft"`. Jede Variante rechnet der Generator exakt mit
+Brüchen; die Tests lesen die Werte aus dem Aufgabentext und rechnen unabhängig nach (Modul
+`ipaddress`, `Decimal` mit 50 Stellen), je 1.000 Zufallsfälle, lokal zusätzlich 2.800 weitere Seeds.
+Alle Lektionsbeispiele werden in den Tests nachgerechnet. Beim Prüfen keine Fehler in bestehenden
+Inhalten gefunden.
+
+| Generator | Thema | Geprüfte Kernaussagen | Hinweis |
+| --- | --- | --- | --- |
+| `ipv6` | ipv6 | Kürzen nach RFC 5952 Abschnitt 4 (führende Nullen, längste Null-Folge ab 2 Blöcken, bei Gleichstand die erste, Kleinbuchstaben); /64-Subnetze = 2^(64 − Präfix); EUI-64 nach RFC 4291 Anhang A (ff:fe einfügen, Universal/Local-Bit umdrehen); SLAAC nach RFC 4862 | Fehlerbilder: führende Nullen stehen gelassen, kürzere Null-Folge gekürzt, „::“ zweimal, Nullen am Blockende gestrichen, rechts aufgefüllt, „− 2“ wie bei IPv4, falsches Bit umgedreht |
+| `datenmengen` | datenmengen-uebertragung | Bild = Pixel × Farbtiefe ÷ 8; Scan: mm ÷ 25,4 × dpi; Audio = Abtastrate × Bittiefe × Kanäle × s ÷ 8; Video = Bild × fps × s; t = Bit ÷ bit/s; dezimale Präfixe (SI) | Beispiele der Lektionen (36 MB, 2.480 × 3.508 Pixel, 400 s) nachgerechnet |
+| `stromkosten` | nachhaltigkeit-energie | kWh = kW × h; 8.760 h pro Jahr; P_auf = P_ab ÷ η; PUE = Gesamtleistung ÷ IT-Leistung (ISO/IEC 30134-2) | Strompreise als Annahme in der Aufgabe genannt; Beispiele 1.051,20 € und 42,24 € nachgerechnet |
+| `kostenvergleich` | wirtschaftlichkeit | Amortisation = Investition ÷ Rückfluss; Rückfluss = Einsparung − laufende Kosten; Break-even durch Gleichsetzen; Abschreibung = Anschaffung ÷ Nutzungsdauer | Beispiele 24 Monate und 40 TB nachgerechnet |

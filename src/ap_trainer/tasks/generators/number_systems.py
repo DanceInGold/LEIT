@@ -215,7 +215,7 @@ class NumberSystems(Generator):
     id = "zahlensysteme"
     titel = "Zahlensysteme umrechnen"
     stufen = (1, 2, 3, 4)
-    status = "ungeprüft"
+    status = "geprüft"
     quelle = "Generator „zahlensysteme“; jede Variante gegen Pythons int()/format() getestet."
     belege = BELEGE
 

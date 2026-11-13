@@ -16,6 +16,7 @@ PLATZHALTER: dict[Antwortformat, str] = {
     "dual": "z. B. 1010 0110",
     "hex": "z. B. 3F",
     "ipv4": "z. B. 192.168.10.0",
+    "ipv6": "z. B. 2001:db8:abcd:12::/64",
     "text": "",
 }
 

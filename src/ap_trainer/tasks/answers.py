@@ -7,6 +7,7 @@ falsche Antworten durchzulassen.
 
 from __future__ import annotations
 
+import ipaddress
 import re
 
 from ap_trainer.content.aufgaben import Antwortformat
@@ -14,6 +15,9 @@ from ap_trainer.content.aufgaben import Antwortformat
 # Zahl am Anfang der Eingabe; Einheiten oder Wörter danach („62 Hosts“, „4,5 s“) werden ignoriert
 _NUMBER = re.compile(r"^[+-]?[\d.,]+")
 _THOUSANDS = re.compile(r"^\d{1,3}(\.\d{3})+$")
+# Zehnerpotenz hinter der Zahl: „4 × 10^11“, „4*10**11“, „4·10¹¹“, „4e11“
+_POWER = re.compile(r"(?:[x×*·]10(?:\^|\*\*)?|e)([+\-−]?[0-9⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+)[a-zäöüß/]*$", re.IGNORECASE)
+_SUPERSCRIPT = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-")
 _SPACES = re.compile(r"[\s  ]+")
 
 
@@ -30,6 +34,10 @@ def number_candidates(raw: str) -> list[float]:
     der Vergleich nimmt die passende. Ein Komma ist immer Dezimalzeichen, wenn kein Punkt dabei ist.
     """
     text = _SPACES.sub("", raw).replace("−", "-")
+    power = _POWER.search(text)
+    if power and _NUMBER.fullmatch(text[: power.start()]):
+        exponent = int(power.group(1).translate(_SUPERSCRIPT).replace("−", "-"))
+        return [value * 10.0**exponent for value in number_candidates(text[: power.start()])]
     match = _NUMBER.match(text)
     if not match:
         return []
@@ -81,12 +89,35 @@ def parse_ipv4(raw: str) -> int | None:
     return (octets[0] << 24) | (octets[1] << 16) | (octets[2] << 8) | octets[3]
 
 
+def parse_ipv6(raw: str) -> tuple[int, int | None] | None:
+    """IPv6-Adresse (beliebige gültige Schreibweise) als Zahl, dazu die Präfixlänge, falls angegeben."""
+    text = _SPACES.sub("", raw).casefold()
+    address, _, prefix = text.partition("/")
+    if prefix and not (prefix.isdigit() and int(prefix) <= 128):
+        return None
+    try:
+        value = int(ipaddress.IPv6Address(address))
+    except ValueError:
+        return None
+    return value, int(prefix) if prefix else None
+
+
+def _same_ipv6(given: str, expected: str) -> bool:
+    """Gleiche Adresse; steht in der Lösung ein Präfix, muss es auch in der Eingabe stimmen."""
+    left, right = parse_ipv6(given), parse_ipv6(expected)
+    if left is None or right is None:
+        return False
+    return left[0] == right[0] and (right[1] is None or left[1] == right[1])
+
+
 def is_valid(fmt: Antwortformat, raw: str) -> bool:
     """True, wenn ``raw`` im Format ``fmt`` lesbar ist (für die Inhaltsprüfung)."""
     if fmt == "zahl":
         return bool(number_candidates(raw))
     if fmt == "text":
         return bool(normalize_text(raw))
+    if fmt == "ipv6":
+        return parse_ipv6(raw) is not None
     return {"dual": parse_dual, "hex": parse_hex, "ipv4": parse_ipv4}[fmt](raw) is not None
 
 
@@ -100,10 +131,12 @@ def same_answer(fmt: Antwortformat, given: str, expected: str, tolerance: float 
         if not targets:
             return False
         target = targets[0]
-        allowed = max(abs(target) * tolerance, 1e-9)
+        allowed = max(abs(target) * max(tolerance, 1e-9), 1e-9)
         return any(abs(value - target) <= allowed for value in number_candidates(given))
     if fmt == "text":
         return normalize_text(given) == normalize_text(expected)
+    if fmt == "ipv6":
+        return _same_ipv6(given, expected)
     parser = {"dual": parse_dual, "hex": parse_hex, "ipv4": parse_ipv4}[fmt]
     value = parser(given)
     return value is not None and value == parser(expected)
