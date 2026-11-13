@@ -1,0 +1,199 @@
+# Aufgaben zum Thema „Kontrollstrukturen in Pseudocode“.
+# Passend zu den Lektionen pseudocode-verzweigung und pseudocode-schleifen.
+# Schreibweise wie im Kurs: ← Zuweisung, input/output, Felder ab Index 0, for-Grenze eingeschlossen.
+
+aufgaben:
+  - id: pseudo-strukturen-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Kontrollstrukturen"
+    frage: "Ordne jeder Kontrollstruktur ihre Beschreibung zu."
+    paare:
+      - {links: "Sequenz", rechts: "Anweisungen laufen nacheinander ab"}
+      - {links: "Verzweigung (if)", rechts: "Je nach Bedingung läuft höchstens ein Zweig"}
+      - {links: "Kopfgesteuerte Schleife (while)", rechts: "Prüft vor dem Rumpf, läuft eventuell gar nicht"}
+      - {links: "Fußgesteuerte Schleife (repeat … until)", rechts: "Prüft nach dem Rumpf, läuft mindestens einmal"}
+      - {links: "Zählschleife (for)", rechts: "Läuft eine vorher bekannte Anzahl von Durchläufen"}
+    ablenker: ["Gibt einen Wert zurück und beendet die Funktion"]
+    hinweise:
+      - "Die übrige Beschreibung gehört zu `return`."
+    loesungsweg: "Sequenz → nacheinander · if → ein Zweig · while → erst prüfen · repeat … until → erst ausführen · for → feste Anzahl. Übrig: return."
+    quelle: "Neu erstellt (Claude), passend zu den Lektionen pseudocode-verzweigung und pseudocode-schleifen."
+    belege:
+      - {titel: "Böhm, C.; Jacopini, G.: Flow diagrams, Turing machines and languages with only two formation rules, CACM 9(5), 1966"}
+      - {titel: "DIN 66261:1985-11 (Grundstrukturen Folge, Auswahl, Wiederholung)"}
+    status: ungeprüft
+
+  - id: pseudo-mindestens-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Wie oft läuft die Schleife mindestens?"
+    frage: "Fülle die Lücken aus."
+    text: "Ist die Bedingung von Anfang an falsch, läuft der Rumpf einer while-Schleife {{1}}-mal und der einer repeat-until-Schleife {{2}}-mal. Hinter until steht die {{3}}, also wann Schluss ist."
+    luecken:
+      - antworten: ["0", "null", "kein"]
+        falsch:
+          - {antwort: "1", warum: "while prüft vor dem Rumpf – bei falscher Bedingung läuft er gar nicht.", ursache: konzept}
+      - antworten: ["1", "ein", "einmal", "eins"]
+        falsch:
+          - {antwort: "0", warum: "repeat … until prüft erst nach dem Rumpf, er läuft also mindestens einmal.", ursache: konzept}
+      - antworten: ["Abbruchbedingung", "Endbedingung"]
+        falsch:
+          - {antwort: "Weiterlaufbedingung", warum: "Das steht hinter while bzw. do … while. Hinter until steht, wann die Schleife endet.", ursache: begriff}
+    hinweise:
+      - "Wo wird geprüft – vor oder nach dem Rumpf?"
+    loesungsweg: "while (kopfgesteuert): **0**-mal möglich. repeat … until (fußgesteuert): mindestens **1**-mal. Hinter until steht die **Abbruchbedingung**."
+    quelle: "Neu erstellt (Claude), passend zur Lektion pseudocode-schleifen."
+    belege:
+      - {titel: "DIN 66261:1985-11 (Wiederholung mit vorausgehender und nachfolgender Prüfung)"}
+    status: ungeprüft
+
+  - id: pseudo-speicherklasse
+    typ: rechnung
+    stufe: 2
+    titel: "Welche Speicherklasse?"
+    frage: |
+      ```text
+      input alterTage
+      if alterTage < 30 then
+          klasse ← "hot"
+      else if alterTage < 365 then
+          klasse ← "warm"
+      else
+          klasse ← "cold"
+      end if
+      output klasse
+      ```
+      Was gibt das Programm für die folgenden Eingaben aus?
+    schritte:
+      - frage: "Ausgabe bei alterTage = 29"
+        antwort: "hot"
+        format: text
+        erklaerung: "29 < 30 ist wahr → hot."
+      - frage: "Ausgabe bei alterTage = 30"
+        antwort: "warm"
+        format: text
+        erklaerung: "30 < 30 ist falsch, 30 < 365 ist wahr → warm."
+        falsch:
+          - {antwort: "hot", warum: "„< 30“ schließt die 30 aus – genau auf der Grenze ist die Bedingung falsch.", ursache: konzept}
+      - frage: "Ausgabe bei alterTage = 365"
+        antwort: "cold"
+        format: text
+        erklaerung: "365 < 365 ist falsch → else-Zweig → cold."
+        falsch:
+          - {antwort: "warm", warum: "365 ist nicht kleiner als 365; die Grenze gehört schon zu „cold“.", ursache: konzept}
+    hinweise:
+      - "Die erste wahre Bedingung gewinnt."
+      - "Achte genau auf die Grenzwerte: < schließt den Wert aus."
+    loesungsweg: "29 → **hot** · 30 → **warm** (30 < 30 ist falsch) · 365 → **cold** (365 < 365 ist falsch)."
+    quelle: "Neu erstellt (Claude), Beispiel der Lektion pseudocode-verzweigung; nachgerechnet."
+    belege:
+      - {titel: "Python-Dokumentation: The if statement", url: "https://docs.python.org/3/reference/compound_stmts.html#the-if-statement"}
+    status: ungeprüft
+
+  - id: pseudo-feld-zaehlen
+    typ: rechnung
+    stufe: 3
+    titel: "Feld durchlaufen"
+    frage: |
+      ```text
+      groessen ← [250, 90, 310, 200, 40]
+      anzahl ← 0
+      summe ← 0
+      for i ← 0 to laenge(groessen) - 1 do
+          summe ← summe + groessen[i]
+          if groessen[i] > 200 then
+              anzahl ← anzahl + 1
+          end if
+      end for
+      output anzahl, summe
+      ```
+      Welche Werte gibt das Programm aus?
+    schritte:
+      - frage: "Ausgabe anzahl"
+        antwort: "2"
+        erklaerung: "Größer als 200 sind nur 250 und 310; 200 > 200 ist falsch."
+        falsch:
+          - {antwort: "3", warum: "200 wurde mitgezählt – „> 200“ schließt die 200 aus.", ursache: konzept}
+      - frage: "Ausgabe summe"
+        antwort: "890"
+        erklaerung: "250 + 90 + 310 + 200 + 40 = 890 (summe zählt alle Werte, nicht nur die großen)."
+        falsch:
+          - {antwort: "560", warum: "Die Summe steht vor dem if – sie addiert alle Werte, nicht nur die über 200.", ursache: konzept}
+          - {antwort: "640", warum: "Index 0 fehlt: die Schleife beginnt bei 0, nicht bei 1.", ursache: rechenfehler}
+    hinweise:
+      - "Lege eine Tabelle an: i, groessen[i], summe, anzahl."
+      - "summe wird in jedem Durchlauf erhöht, anzahl nur im if."
+      - "Der Index läuft von 0 bis 4."
+    loesungsweg: |
+      | i | groessen[i] | summe | anzahl |
+      | ---: | ---: | ---: | ---: |
+      | 0 | 250 | 250 | 1 |
+      | 1 | 90 | 340 | 1 |
+      | 2 | 310 | 650 | 2 |
+      | 3 | 200 | 850 | 2 |
+      | 4 | 40 | 890 | 2 |
+
+      Ausgabe: **2** und **890**.
+    quelle: "Neu erstellt (Claude), passend zur Lektion pseudocode-schleifen; mit Python nachgerechnet."
+    belege:
+      - {titel: "Python-Dokumentation: The for statement", url: "https://docs.python.org/3/reference/compound_stmts.html#the-for-statement"}
+    status: ungeprüft
+
+  - id: pseudo-eins-bis-fuenf
+    typ: multiple_choice
+    stufe: 3
+    titel: "Welche Schleifen geben 1 bis 5 aus?"
+    frage: "Welche **zwei** Varianten geben genau die Zahlen 1, 2, 3, 4, 5 aus?"
+    optionen:
+      - {text: "`for i ← 1 to 5 do output i end for`", richtig: true, warum: "Im Pseudocode ist die Grenze eingeschlossen: 1 bis 5."}
+      - {text: "`i ← 0` · `repeat i ← i + 1; output i until i = 5`", richtig: true, warum: "Erst erhöhen, dann ausgeben, nach der 5 ist die Abbruchbedingung wahr."}
+      - {text: "Python: `for i in range(1, 5): print(i)`", warum: "range schließt die obere Grenze aus – das ergibt 1 bis 4.", ursache: konzept}
+      - {text: "`i ← 1` · `while i < 5 do output i; i ← i + 1 end while`", warum: "Bei i = 5 ist i < 5 falsch – die 5 wird nicht ausgegeben (Off-by-one).", ursache: rechenfehler}
+    hinweise:
+      - "Spiele jede Variante für die letzte Zahl durch."
+      - "Pseudocode-for schließt die Grenze ein, Python-range nicht."
+    loesungsweg: "Richtig: die for-Schleife 1 to 5 und die repeat-Schleife. range(1, 5) endet bei 4, while i < 5 ebenfalls."
+    quelle: "Neu erstellt (Claude), Abgrenzung der Lektion pseudocode-schleifen."
+    belege:
+      - {titel: "Python-Dokumentation: range()", url: "https://docs.python.org/3/library/stdtypes.html#range"}
+    status: ungeprüft
+
+  - id: pseudo-grosse-dateien
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Pseudocode selbst schreiben"
+    situation: "Ein Skript der ArchivTech GmbH bekommt ein Feld `groessen` mit Dateigrößen in MB (Index ab 0). Es soll melden, wie viele Dateien größer als 100 MB sind und wie viel Platz diese zusammen belegen. Ist das Feld leer, soll „keine Dateien“ ausgegeben werden."
+    frage: "Schreibe den Algorithmus in Pseudocode."
+    musterloesung: |
+      ```text
+      if laenge(groessen) = 0 then
+          output "keine Dateien"
+      else
+          anzahl ← 0
+          summe ← 0
+          for i ← 0 to laenge(groessen) - 1 do
+              if groessen[i] > 100 then
+                  anzahl ← anzahl + 1
+                  summe ← summe + groessen[i]
+              end if
+          end for
+          output anzahl, summe
+      end if
+      ```
+    bewertungspunkte:
+      - {punkt: "Sonderfall leeres Feld mit Ausgabe „keine Dateien“", kernbegriffe: ["laenge", "länge", "leer", "keine dateien"]}
+      - {punkt: "Startwerte vor der Schleife auf 0 gesetzt", kernbegriffe: ["← 0", "<- 0", ":= 0", "= 0"]}
+      - {punkt: "Schleife über alle Indizes 0 bis laenge − 1", kernbegriffe: ["for", "while"]}
+      - {punkt: "Verzweigung „> 100“ mit Zählen und Aufsummieren nur der großen Dateien", kernbegriffe: ["> 100", ">100"]}
+      - {punkt: "Ausgabe von Anzahl und Summe nach der Schleife", kernbegriffe: ["output", "ausgabe"]}
+    hinweise:
+      - "Zwei Variablen brauchst du: einen Zähler und eine Summe."
+      - "Startwerte gehören vor die Schleife, die Ausgabe dahinter."
+      - "Prüfe den Sonderfall zuerst."
+    loesungsweg: "Sonderfall prüfen → Zähler und Summe auf 0 → for über 0 … laenge − 1 → if > 100: zählen und addieren → nach der Schleife ausgeben. Andere Schreibweisen (deutsche Schlüsselwörter, while) sind genauso richtig."
+    quelle: "Neu erstellt (Claude), passend zu den Lektionen pseudocode-verzweigung und pseudocode-schleifen."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, 04.07: Kontrollstrukturen mittels Pseudocode (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft

@@ -1,0 +1,226 @@
+# Aufgaben zum Thema „Kosten berechnen, Vor- und Nachkalkulation“.
+# Passend zu den Lektionen kalkulation-verkaufspreis und kalkulation-vor-nach.
+
+aufgaben:
+  - id: kalk-schema-ordnen
+    typ: reihenfolge
+    stufe: 1
+    titel: "Schema der Verkaufskalkulation"
+    frage: "Bringe die Stufen der Verkaufskalkulation in die richtige Reihenfolge."
+    elemente:
+      - "Bezugspreis"
+      - "Selbstkosten"
+      - "Barverkaufspreis"
+      - "Zielverkaufspreis"
+      - "Listenverkaufspreis netto"
+      - "Listenverkaufspreis brutto"
+    hinweise:
+      - "Erst Kosten, dann Gewinn, dann die Nachlässe für den Kunden, zuletzt die Steuer."
+    loesungsweg: "Bezugspreis + Handlungskosten = Selbstkosten + Gewinn = Barverkaufspreis + Skonto = Zielverkaufspreis + Rabatt = Listenverkaufspreis netto + USt = brutto."
+    quelle: "Neu erstellt (Claude), Schema der Lektion kalkulation-verkaufspreis."
+    belege:
+      - {titel: "Lexware: Handelskalkulation einfach erklärt", url: "https://www.lexware.de/wissen/buchhaltung-finanzen/handelskalkulation-einfach-erklaert/"}
+    status: ungeprüft
+
+  - id: kalk-gewinn-basis
+    typ: multiple_choice
+    stufe: 1
+    titel: "Worauf bezieht sich der Gewinnzuschlag?"
+    frage: "Auf welchen Betrag wird der Gewinnzuschlag gerechnet?"
+    optionen:
+      - {text: "Auf die Selbstkosten", richtig: true, warum: "Gewinn gibt es erst, wenn alle Kosten gedeckt sind – also auf die Selbstkosten."}
+      - {text: "Auf den Bezugspreis", warum: "Dazwischen liegen noch die Handlungskosten; der Gewinn kommt auf die Selbstkosten.", ursache: konzept}
+      - {text: "Auf den Listenverkaufspreis", warum: "Der Listenpreis ist das Ergebnis, nicht die Basis.", ursache: konzept}
+      - {text: "Auf den Barverkaufspreis", warum: "Der Barverkaufspreis enthält den Gewinn bereits.", ursache: begriff}
+    hinweise:
+      - "Was muss gedeckt sein, bevor man von Gewinn sprechen kann?"
+    loesungsweg: "Selbstkosten + Gewinnzuschlag = Barverkaufspreis. Der Gewinn bezieht sich auf die **Selbstkosten**."
+    quelle: "Neu erstellt (Claude), passend zur Lektion kalkulation-verkaufspreis."
+    belege:
+      - {titel: "Lexware: Handelskalkulation einfach erklärt", url: "https://www.lexware.de/wissen/buchhaltung-finanzen/handelskalkulation-einfach-erklaert/"}
+    status: ungeprüft
+
+  - id: kalk-hundert-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Skonto aus dem Hundert"
+    frage: "Fülle die Lücken aus."
+    text: "Gewährt man 3 % Kundenskonto, bleiben dem Verkäufer nach dem Abzug {{1}} % des Zielverkaufspreises. Also gilt: Zielverkaufspreis = Barverkaufspreis ÷ {{2}}. Rechnet man stattdessen × 1,03, bleibt nach dem Skonto {{3}} als geplant übrig."
+    luecken:
+      - antworten: ["97"]
+        falsch:
+          - {antwort: "103", warum: "Skonto wird abgezogen: 100 % − 3 % = 97 %.", ursache: rechenfehler}
+      - antworten: ["0,97", "0.97"]
+        falsch:
+          - {antwort: "1,03", warum: "× 1,03 rechnet auf den Betrag; Skonto muss aus dem Hundert heraus (÷ 0,97).", ursache: konzept}
+      - antworten: ["weniger", "zu wenig"]
+        falsch:
+          - {antwort: "mehr", warum: "3 % vom höheren Preis sind mehr als 3 % vom Barverkaufspreis – es bleibt weniger übrig.", ursache: konzept}
+    hinweise:
+      - "Der Kunde zieht Skonto vom Zielverkaufspreis ab, also vom höheren Betrag."
+    loesungsweg: "Nach 3 % Skonto bleiben **97 %** → Zielverkaufspreis = Barverkaufspreis ÷ **0,97**. Mit × 1,03 bliebe **weniger** übrig, weil der Kunde 3 % vom höheren Preis abzieht."
+    quelle: "Neu erstellt (Claude), passend zur Lektion kalkulation-verkaufspreis."
+    belege:
+      - {titel: "Lexware: Handelskalkulation einfach erklärt (Kundenskonto vom verminderten Grundwert)", url: "https://www.lexware.de/wissen/buchhaltung-finanzen/handelskalkulation-einfach-erklaert/"}
+    status: ungeprüft
+
+  - id: kalk-switch-verkaufspreis
+    typ: rechnung
+    stufe: 3
+    titel: "Verkaufspreis für einen Switch"
+    frage: "Bezugspreis eines Switches: **1.200,00 €**. Handlungskostenzuschlag **20 %**, Gewinnzuschlag **10 %**, Kundenskonto **2 %**, Kundenrabatt **5 %**, Umsatzsteuer **19 %**. Runde jede Stufe auf Cent."
+    schritte:
+      - frage: "Selbstkosten"
+        antwort: "1440"
+        einheit: "€"
+        erklaerung: "1.200,00 € × 1,20 = 1.440,00 €."
+      - frage: "Barverkaufspreis"
+        antwort: "1584"
+        einheit: "€"
+        erklaerung: "1.440,00 € × 1,10 = 1.584,00 €."
+        falsch:
+          - {antwort: "1320", warum: "Gewinn auf den Bezugspreis gerechnet; er bezieht sich auf die Selbstkosten.", ursache: konzept}
+      - frage: "Zielverkaufspreis"
+        antwort: "1616,33"
+        einheit: "€"
+        toleranz: 0.0001
+        erklaerung: "Aus dem Hundert: 1.584,00 € ÷ 0,98 = 1.616,33 €."
+        falsch:
+          - {antwort: "1615,68", warum: "Skonto aufgeschlagen (× 1,02) statt herausgerechnet (÷ 0,98).", ursache: konzept}
+      - frage: "Listenverkaufspreis netto"
+        antwort: "1701,4"
+        einheit: "€"
+        toleranz: 0.0001
+        erklaerung: "1.616,33 € ÷ 0,95 = 1.701,40 €."
+        falsch:
+          - {antwort: "1696,46", warum: "Skonto und Rabatt aufgeschlagen statt aus dem Hundert gerechnet.", ursache: konzept}
+      - frage: "Listenverkaufspreis brutto"
+        antwort: "2024,67"
+        einheit: "€"
+        toleranz: 0.0001
+        erklaerung: "1.701,40 € × 1,19 = 2.024,67 €."
+    hinweise:
+      - "Handlungskosten und Gewinn **auf** den Betrag, Skonto und Rabatt **aus dem Hundert**."
+      - "Erst Skonto (÷ 0,98), dann Rabatt (÷ 0,95)."
+      - "Selbstkosten = 1.200,00 € × 1,20."
+    loesungsweg: |
+      | Stufe | Rechnung | Betrag |
+      | --- | --- | ---: |
+      | Selbstkosten | 1.200,00 × 1,20 | 1.440,00 € |
+      | Barverkaufspreis | × 1,10 | 1.584,00 € |
+      | Zielverkaufspreis | ÷ 0,98 | 1.616,33 € |
+      | Listenverkaufspreis netto | ÷ 0,95 | 1.701,40 € |
+      | brutto | × 1,19 | 2.024,67 € |
+
+      Probe: 1.701,40 − 5 % = 1.616,33 − 2 % = 1.584,00 € ✔
+    quelle: "Neu erstellt (Claude), Schema der Lektion kalkulation-verkaufspreis; mit Decimal nachgerechnet."
+    belege:
+      - {titel: "Lexware: Handelskalkulation einfach erklärt", url: "https://www.lexware.de/wissen/buchhaltung-finanzen/handelskalkulation-einfach-erklaert/"}
+      - {titel: "§ 12 Abs. 1 UStG: Regelsteuersatz 19 %", url: "https://www.gesetze-im-internet.de/ustg_1980/__12.html"}
+    status: ungeprüft
+
+  - id: kalk-stundensatz
+    typ: rechnung
+    stufe: 3
+    titel: "Stundensatz und Angebot"
+    frage: "Eine Administratorin kostet die ArchivTech im Jahr **84.000 €** (Personal- und Gemeinkosten). Abrechenbar sind **1.400 Stunden**. Gewinnzuschlag **20 %**. Ein Kunde fragt einen Auftrag mit **30 Stunden** an."
+    schritte:
+      - frage: "Selbstkosten je Stunde"
+        antwort: "60"
+        einheit: "€/h"
+        erklaerung: "84.000 € ÷ 1.400 h = 60,00 €/h."
+        falsch:
+          - {antwort: "40,38", warum: "Durch alle 2.080 Jahresstunden geteilt – nur abrechenbare Stunden gehören in den Nenner.", ursache: konzept}
+      - frage: "Verrechnungssatz netto"
+        antwort: "72"
+        einheit: "€/h"
+        erklaerung: "60,00 €/h × 1,20 = 72,00 €/h."
+      - frage: "Angebotspreis netto"
+        antwort: "2160"
+        einheit: "€"
+        erklaerung: "30 h × 72,00 €/h = 2.160,00 €."
+        falsch:
+          - {antwort: "1800", warum: "Mit den Selbstkosten statt mit dem Verrechnungssatz gerechnet – der Gewinn fehlt.", ursache: konzept}
+    hinweise:
+      - "Selbstkosten je Stunde = Jahreskosten ÷ abrechenbare Stunden."
+      - "Verrechnungssatz = Selbstkosten je Stunde × (1 + Gewinnzuschlag)."
+    loesungsweg: "84.000 ÷ 1.400 = **60,00 €/h** → × 1,20 = **72,00 €/h** → × 30 h = **2.160,00 €**."
+    quelle: "Neu erstellt (Claude), Rechenweg der Lektion kalkulation-vor-nach; nachgerechnet."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, 01.02 und 07.08: Vor- und Nachkalkulation (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: kalk-nachkalkulation
+    typ: rechnung
+    stufe: 4
+    titel: "Nachkalkulation eines Festpreisauftrags"
+    situation: "Der Auftrag aus der Vorkalkulation wurde zum **Festpreis von 2.160,00 €** vereinbart, geplant mit **30 Stunden** zu Selbstkosten von **60,00 €/h**. Die Zeiterfassung zeigt am Ende **38 Stunden**."
+    frage: "Führe die Nachkalkulation durch."
+    schritte:
+      - frage: "Geplantes Ergebnis (Gewinn) in €"
+        antwort: "360"
+        einheit: "€"
+        erklaerung: "2.160,00 € − 30 h × 60,00 € = 2.160,00 € − 1.800,00 € = 360,00 €."
+      - frage: "Tatsächliche Selbstkosten in €"
+        antwort: "2280"
+        einheit: "€"
+        erklaerung: "38 h × 60,00 €/h = 2.280,00 €."
+        falsch:
+          - {antwort: "2736", warum: "Mit dem Verrechnungssatz (72 €) gerechnet; die Nachkalkulation nutzt die Selbstkosten.", ursache: konzept}
+      - frage: "Tatsächliches Ergebnis in €"
+        antwort: "-120"
+        einheit: "€"
+        erklaerung: "2.160,00 € − 2.280,00 € = −120,00 € – aus 360 € Gewinn wurden 120 € Verlust."
+        falsch:
+          - {antwort: "120", warum: "Die Kosten sind höher als der Erlös – das Ergebnis ist negativ (Verlust).", ursache: rechenfehler}
+      - frage: "Abweichung der Stunden in Prozent"
+        antwort: "26,67"
+        einheit: "%"
+        toleranz: 0.005
+        erklaerung: "(38 − 30) ÷ 30 × 100 = 26,67 % – bezogen auf den **Planwert**."
+        falsch:
+          - {antwort: "21,05", warum: "Auf den Istwert bezogen (8 ÷ 38). Abweichungen bezieht man auf den Plan.", ursache: konzept}
+    hinweise:
+      - "Ergebnis = Erlös − Selbstkosten."
+      - "Beim Festpreis bleibt der Erlös gleich, auch wenn es länger dauert."
+      - "Abweichung in % = (Ist − Plan) ÷ Plan × 100."
+    loesungsweg: |
+      | Kennzahl | Plan | Ist |
+      | --- | ---: | ---: |
+      | Stunden | 30 | 38 |
+      | Selbstkosten | 1.800,00 € | 2.280,00 € |
+      | Erlös (Festpreis) | 2.160,00 € | 2.160,00 € |
+      | Ergebnis | +360,00 € | **−120,00 €** |
+
+      Abweichung: 8 ÷ 30 = **26,67 %**.
+    quelle: "Neu erstellt (Claude), Vorgehen der Lektion kalkulation-vor-nach; nachgerechnet."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, 07.08: Nachkalkulation (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: kalk-festpreis-risiko
+    typ: freitext
+    stufe: 4
+    operator: erläutern
+    titel: "Festpreis oder nach Aufwand?"
+    situation: "Nach dem Verlust beim letzten Festpreisauftrag (38 statt 30 Stunden, weil die Datenmenge beim Kunden größer war als angegeben) überlegt die Teamleitung, wie Angebote künftig aussehen sollen."
+    frage: "Erläutere, wer bei Festpreis und bei Abrechnung nach Aufwand das Risiko einer Fehlschätzung trägt, und nenne zwei Maßnahmen für die nächste Vorkalkulation."
+    musterloesung: |
+      Beim Festpreis trägt der Anbieter das Risiko: Dauert es länger, sinkt sein Gewinn oder er
+      macht Verlust. Nach Aufwand trägt der Kunde das Risiko, weil er jede Stunde bezahlt.
+      Maßnahmen: Erfahrungswerte aus der Nachkalkulation in die Schätzung übernehmen (z. B.
+      Migration großzügiger schätzen), Annahmen wie die Datenmenge im Angebot festschreiben und
+      Mehraufwand bei Abweichung gesondert abrechnen, einen Risikopuffer einplanen.
+    bewertungspunkte:
+      - {punkt: "Festpreis: Risiko beim Anbieter", kernbegriffe: ["festpreis"]}
+      - {punkt: "Nach Aufwand: Risiko beim Kunden", kernbegriffe: ["aufwand"]}
+      - {punkt: "Maßnahme: Erfahrungswerte der Nachkalkulation nutzen", kernbegriffe: ["nachkalkulation", "erfahrung", "ist-werte", "istwerte"]}
+      - {punkt: "Maßnahme: Annahmen festschreiben, Puffer oder Mehraufwand gesondert abrechnen", kernbegriffe: ["annahme", "puffer", "mehraufwand", "nachtrag", "change"]}
+    hinweise:
+      - "Wer zahlt, wenn es länger dauert?"
+      - "Wozu macht man eine Nachkalkulation überhaupt?"
+    loesungsweg: "Festpreis → Risiko beim Anbieter; nach Aufwand → beim Kunden. Maßnahmen: Erfahrungswerte nutzen, Annahmen festschreiben, Puffer oder Nachtrag bei Mehraufwand."
+    quelle: "Neu erstellt (Claude), passend zur Lektion kalkulation-vor-nach."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, 07.08: Nachkalkulation, Folgeaufträge (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft

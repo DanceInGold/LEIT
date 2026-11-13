@@ -5,6 +5,17 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt (Phase 2 · Aufgaben, Paket 1)
+- 63 feste Aufgaben für acht Themen der ersten Planwochen, je Thema alle Stufen 1–4 und mehrere
+  Aufgabentypen, mit Hinweisen und typischen Falschantworten (AU-01, AU-02, HI-01, HI-03):
+  Hardware (10), Angebotsvergleich und Nutzwertanalyse (8), ERM und relationale Tabellen (9),
+  Pseudocode (6), Schreibtischtest und Fehler im Code (6), Projektplanung (8), Kalkulation (7),
+  OSI-Modell und Protokolle (9).
+- Rauchtest öffnet drei weitere Aufgaben (Netzplan, Freitext Hardware, Port-Zuordnung).
+
+### Geändert
+- Generatoren aus PR #13 sind `geprüft`.
+
 ### Hinzugefügt (Phase 2 · Rechengeneratoren)
 - Vier neue Generatoren mit je vier Stufen (AU-03), jeweils mit 1.000 Zufallsfällen gegen eine
   unabhängige Nachrechnung getestet (NF-07):

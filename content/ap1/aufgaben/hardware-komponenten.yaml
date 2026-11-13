@@ -1,0 +1,285 @@
+# Aufgaben zum Thema „Hardwareprodukte: CPU, Mainboard, RAM, Netzteil, Grafikkarte, Peripherie“.
+# Passend zu den Lektionen hardware-pc-aufbau, hardware-cpu-ram, hardware-netzteil-anschluesse.
+
+aufgaben:
+  - id: hw-m2-bauform
+    typ: multiple_choice
+    stufe: 1
+    titel: "Was ist M.2?"
+    frage: "Ein Datenblatt nennt „SSD 1 TB, M.2“. Was sagt **M.2** aus?"
+    optionen:
+      - {text: "Die Bauform des Steckplatzes bzw. der Karte", richtig: true, warum: "M.2 legt Maße und Stecker fest – nicht, wie schnell die SSD ist."}
+      - {text: "Das Protokoll, mit dem die SSD über PCIe angesprochen wird", warum: "Das ist NVMe. Ein M.2-Platz kann NVMe oder nur SATA führen.", ursache: begriff}
+      - {text: "Eine Geschwindigkeitsklasse von etwa 2 GB/s", warum: "M.2 ist keine Geschwindigkeitsangabe; die Rate hängt von SATA oder PCIe-Generation und Lanes ab.", ursache: konzept}
+      - {text: "Die zweite Generation von SATA", warum: "SATA-Generationen heißen SATA I/II/III; M.2 ist eine Bauform.", ursache: begriff}
+    hinweise:
+      - "Unterscheide Bauform, Schnittstelle und Protokoll."
+      - "Ein M.2-Platz kann SATA oder PCIe führen."
+    loesungsweg: "M.2 = **Bauform** (Maße, Stecker). Die Geschwindigkeit bestimmt die Anbindung dahinter: SATA (max. ca. 600 MB/s) oder NVMe über PCIe (ein Vielfaches)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion hardware-pc-aufbau."
+    belege:
+      - {titel: "PCI-SIG: PCI Express M.2 Specification (Bauform)", url: "https://pcisig.com/specifications"}
+      - {titel: "NVM Express: NVMe Base Specification", url: "https://nvmexpress.org/specifications/"}
+    status: ungeprüft
+
+  - id: hw-begriffe-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Begriffe rund ums Mainboard"
+    frage: "Ordne jedem Begriff die passende Beschreibung zu."
+    paare:
+      - {links: "Chipsatz", rechts: "Verteiler für USB, SATA, Netzwerk und weitere Lanes"}
+      - {links: "Formfaktor", rechts: "Maße und Lochbild des Mainboards"}
+      - {links: "NVMe", rechts: "Protokoll für SSDs über PCIe"}
+      - {links: "CPU-Sockel", rechts: "Steckplatz, der mechanisch und elektrisch zur CPU passen muss"}
+      - {links: "UEFI", rechts: "Firmware, die den Rechner startet und konfiguriert"}
+    ablenker: ["Grafikspeicher auf der Grafikkarte", "Schneller Zwischenspeicher auf dem CPU-Chip"]
+    hinweise:
+      - "Zwei Beschreibungen passen zu keinem Begriff."
+      - "Der Chipsatz ist nicht der Prozessor."
+    loesungsweg: |
+      - Chipsatz → Verteiler für langsamere Geräte
+      - Formfaktor → Maße und Lochbild (ATX, Micro-ATX, Mini-ITX)
+      - NVMe → Protokoll für SSDs über PCIe
+      - CPU-Sockel → muss genau zur CPU passen
+      - UEFI → Firmware (Nachfolger des BIOS)
+      Übrig bleiben VRAM (Grafikspeicher) und Cache.
+    quelle: "Neu erstellt (Claude), passend zur Lektion hardware-pc-aufbau."
+    belege:
+      - {titel: "Lektion „Der PC von innen“ (Mainboard-Bauteile)"}
+      - {titel: "UEFI Forum: UEFI Specification", url: "https://uefi.org/specifications"}
+    status: ungeprüft
+
+  - id: hw-ddr-takt-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "DDR5-5600 richtig lesen"
+    frage: "Fülle die Lücken aus."
+    text: "Ein Modul DDR5-5600 schafft {{1}} Millionen Übertragungen pro Sekunde je Datenleitung. Weil bei DDR pro Takt {{2}} Übertragungen stattfinden, läuft es mit {{3}} MHz Takt."
+    luecken:
+      - antworten: ["5600", "5.600"]
+        falsch:
+          - {antwort: "2800", warum: "2800 ist der Takt in MHz. Die Zahl im Namen sind die Übertragungen pro Sekunde (MT/s).", ursache: begriff}
+      - antworten: ["2", "zwei"]
+      - antworten: ["2800", "2.800"]
+        falsch:
+          - {antwort: "5600", warum: "5600 sind MT/s. Double Data Rate heißt zwei Übertragungen pro Takt, also halber Takt.", ursache: begriff}
+          - {antwort: "11200", warum: "Der Takt ist kleiner als die Übertragungsrate, nicht größer: 5600 ÷ 2.", ursache: rechenfehler}
+    hinweise:
+      - "DDR steht für Double Data Rate."
+      - "Die Zahl im Namen sind MT/s, nicht MHz."
+    loesungsweg: "DDR5-5600 = **5600** MT/s. Double Data Rate = **2** Übertragungen pro Takt → Takt **2800** MHz. Für die Bandbreite rechnet man mit den MT/s."
+    quelle: "Neu erstellt (Claude), passend zur Lektion hardware-cpu-ram."
+    belege:
+      - {titel: "JEDEC JESD79-5: DDR5 SDRAM Standard", url: "https://www.jedec.org"}
+    status: ungeprüft
+
+  - id: hw-datenfluss-ordnen
+    typ: reihenfolge
+    stufe: 2
+    titel: "Datenfluss beim Öffnen einer Datei"
+    frage: "Herr Becker öffnet eine große CAD-Datei, die auf der NVMe-SSD liegt. Bringe die Schritte in die richtige Reihenfolge."
+    elemente:
+      - "Das Betriebssystem gibt der CPU den Auftrag, die Datei zu lesen"
+      - "Die SSD überträgt die Daten über PCIe-Lanes in den Arbeitsspeicher"
+      - "Die CPU verarbeitet die Daten aus dem Arbeitsspeicher"
+      - "Die Grafikkarte berechnet daraus das Bild"
+      - "Der Monitor zeigt die Zeichnung an"
+    hinweise:
+      - "Daten werden nie direkt von der SSD aus verarbeitet."
+      - "Erst laden, dann rechnen, dann darstellen."
+    loesungsweg: "Auftrag → SSD lädt in den RAM → CPU verarbeitet aus dem RAM → Grafikkarte rechnet das Bild → Monitor. Merke: Alles, was bearbeitet wird, liegt vorher im Arbeitsspeicher."
+    quelle: "Neu erstellt (Claude), Ablauf aus der Lektion hardware-pc-aufbau."
+    belege:
+      - {titel: "Hennessy/Patterson: Computer Architecture – A Quantitative Approach (Speicherhierarchie)"}
+    status: ungeprüft
+
+  - id: hw-usb-c-dock
+    typ: multiple_choice
+    stufe: 3
+    titel: "Monitore am Dock bleiben schwarz"
+    situation: "Frau Yilmaz schließt ihre Dockingstation mit zwei Monitoren per USB-C an ein Notebook an. Das Notebook lädt, Maus und Tastatur am Dock funktionieren – die Monitore bleiben schwarz. Laut Datenblatt kann die Buchse „USB 3.2 Gen 2, Power Delivery“."
+    frage: "Welche **zwei** Aussagen treffen zu?"
+    optionen:
+      - {text: "Die Buchse gibt kein Bildsignal aus, weil der DisplayPort Alt Mode fehlt.", richtig: true, warum: "Daten und Laden funktionieren, Bild nicht – genau das passt zu einer Buchse ohne Alt Mode."}
+      - {text: "Nötig ist eine Buchse mit DisplayPort Alt Mode oder USB4/Thunderbolt.", richtig: true, warum: "Diese Varianten übertragen auch das Bildsignal über USB-C."}
+      - {text: "USB-C schafft grundsätzlich nur 5 Gbit/s, das reicht nicht für zwei Monitore.", warum: "USB-C ist nur die Steckerform; die Geschwindigkeit hängt vom Standard dahinter ab.", ursache: begriff}
+      - {text: "Die Monitore brauchen HDMI 2.1, sonst bleibt das Bild schwarz.", warum: "Das Problem liegt an der Notebook-Buchse, nicht an der HDMI-Version der Monitore.", ursache: konzept}
+    hinweise:
+      - "Was funktioniert, was nicht? Daten und Laden ja, Bild nein."
+      - "USB-C ist nur ein Stecker – was er kann, steht im Datenblatt der Buchse."
+    loesungsweg: "USB-C ist eine Steckerform. Diese Buchse kann Daten (USB 3.2 Gen 2) und Laden (PD), aber **kein Bild**. Für die Monitore braucht es eine Buchse mit **DisplayPort Alt Mode** oder **USB4/Thunderbolt**."
+    quelle: "Neu erstellt (Claude), passend zur Lektion hardware-netzteil-anschluesse."
+    belege:
+      - {titel: "USB-IF: USB Type-C Specification (Alternate Modes)", url: "https://www.usb.org"}
+      - {titel: "VESA: DisplayPort Alt Mode on USB Type-C", url: "https://vesa.org"}
+    status: ungeprüft
+
+  - id: hw-ram-bandbreite
+    typ: rechnung
+    stufe: 3
+    titel: "Bandbreite des Arbeitsspeichers"
+    frage: "Ein Arbeitsplatz-PC hat **2 × 8 GB DDR5-4800** im Dual-Channel. Ein Modul überträgt 8 Byte (64 Bit) pro Übertragung. Berechne die Bandbreite."
+    schritte:
+      - frage: "Bandbreite eines Kanals in GB/s"
+        antwort: "38,4"
+        einheit: "GB/s"
+        erklaerung: "4800 × 10⁶ Übertragungen/s × 8 Byte = 38.400 × 10⁶ Byte/s = 38,4 GB/s."
+        falsch:
+          - {antwort: "19,2", warum: "Mit dem Takt (2400 MHz) gerechnet. Die Zahl im Namen sind schon die Übertragungen pro Sekunde.", ursache: begriff}
+          - {antwort: "307,2", warum: "Mit 64 statt 8 multipliziert – 64 Bit sind 8 Byte.", ursache: rechenfehler}
+      - frage: "Bandbreite im Dual-Channel in GB/s"
+        antwort: "76,8"
+        einheit: "GB/s"
+        erklaerung: "Zwei Kanäle arbeiten parallel: 2 × 38,4 GB/s = 76,8 GB/s."
+      - frage: "Bandbreite mit nur einem 16-GB-Modul in GB/s"
+        antwort: "38,4"
+        einheit: "GB/s"
+        erklaerung: "Ein Modul = ein Kanal: gleiche Kapazität, aber nur die halbe Bandbreite."
+        falsch:
+          - {antwort: "76,8", warum: "Die Kapazität ist gleich, aber ein einzelnes Modul nutzt nur einen Kanal.", ursache: konzept}
+    hinweise:
+      - "Bandbreite = Übertragungen pro Sekunde × Byte pro Übertragung."
+      - "DDR5-4800 = 4800 MT/s; Dual-Channel verdoppelt."
+      - "Erster Schritt: 4800 × 10⁶ × 8 Byte."
+    loesungsweg: |
+      1. Ein Kanal: 4800 × 10⁶ × 8 Byte = **38,4 GB/s**
+      2. Dual-Channel: 2 × 38,4 = **76,8 GB/s**
+      3. Ein 16-GB-Modul: gleiche Kapazität, nur ein Kanal → **38,4 GB/s**
+    quelle: "Neu erstellt (Claude), Rechenweg der Lektion hardware-cpu-ram; nachgerechnet."
+    belege:
+      - {titel: "JEDEC JESD79-5: DDR5 SDRAM Standard (64-Bit-Modulbreite)", url: "https://www.jedec.org"}
+    status: ungeprüft
+
+  - id: hw-ssd-anbindung
+    typ: rechnung
+    stufe: 3
+    titel: "NVMe oder SATA?"
+    frage: "Eine 12-GB-Projektdatei soll von der SSD gelesen werden. Rechne mit den gerundeten Werten der Lektion: PCIe 3.0 ca. **1 GB/s je Lane**, SATA III nutzbar ca. **600 MB/s**. Wie lange dauert das Lesen theoretisch?"
+    schritte:
+      - frage: "Datenrate PCIe 3.0 x4 in GB/s"
+        antwort: "4"
+        einheit: "GB/s"
+        erklaerung: "4 Lanes × 1 GB/s = 4 GB/s."
+        falsch:
+          - {antwort: "1", warum: "Das ist eine Lane. Bei x4 werden vier Lanes gebündelt.", ursache: konzept}
+      - frage: "Lesezeit über PCIe 3.0 x4 in s"
+        antwort: "3"
+        einheit: "s"
+        erklaerung: "12 GB ÷ 4 GB/s = 3 s."
+      - frage: "Lesezeit über SATA III in s"
+        antwort: "20"
+        einheit: "s"
+        erklaerung: "12 GB ÷ 0,6 GB/s = 20 s."
+        falsch:
+          - {antwort: "2", warum: "SATA III hat 6 **Gbit**/s, nicht 6 GB/s – nutzbar sind ca. 600 MB/s.", ursache: begriff}
+          - {antwort: "0,02", warum: "MB und GB gemischt: 600 MB/s = 0,6 GB/s.", ursache: rechenfehler}
+    hinweise:
+      - "Rate der Verbindung = Lanes × Rate je Lane."
+      - "Zeit = Datenmenge ÷ Datenrate, beides in GB bzw. GB/s."
+      - "600 MB/s = 0,6 GB/s."
+    loesungsweg: |
+      1. PCIe 3.0 x4: 4 × 1 GB/s = **4 GB/s**
+      2. 12 GB ÷ 4 GB/s = **3 s**
+      3. SATA III: 12 GB ÷ 0,6 GB/s = **20 s** – rund siebenmal so lang.
+    quelle: "Neu erstellt (Claude), gerundete Raten aus der Lektion hardware-pc-aufbau; nachgerechnet."
+    belege:
+      - {titel: "PCI-SIG: PCI Express Base Specification 3.0 (8 GT/s, 128b/130b ≈ 0,985 GB/s je Lane)", url: "https://pcisig.com/specifications"}
+      - {titel: "SATA-IO: Serial ATA Revision 3.x (6 Gbit/s, 8b/10b)", url: "https://sata-io.org"}
+    status: ungeprüft
+
+  - id: hw-netzteil-wirkungsgrad
+    typ: rechnung
+    stufe: 3
+    titel: "Was kommt aus der Steckdose?"
+    frage: "Die Komponenten eines PCs brauchen unter Last **250 W**. Das Netzteil hat bei dieser Last einen Wirkungsgrad von **90 %**."
+    schritte:
+      - frage: "Aufgenommene Leistung in W"
+        antwort: "277,78"
+        einheit: "W"
+        toleranz: 0.005
+        erklaerung: "P_auf = P_ab ÷ η = 250 W ÷ 0,9 = 277,78 W."
+        falsch:
+          - {antwort: "225", warum: "Wirkungsgrad falsch herum: aus der Steckdose kommt mehr, als im PC ankommt – also teilen.", ursache: konzept}
+      - frage: "Verlust als Wärme in W"
+        antwort: "27,78"
+        einheit: "W"
+        toleranz: 0.01
+        erklaerung: "277,78 W − 250 W = 27,78 W."
+        falsch:
+          - {antwort: "25", warum: "10 % von 250 W ist nicht der Verlust – der Verlust ist 10 % der **aufgenommenen** Leistung.", ursache: konzept}
+    hinweise:
+      - "Wirkungsgrad η = abgegebene Leistung ÷ aufgenommene Leistung."
+      - "Umstellen: P_auf = P_ab ÷ η."
+    loesungsweg: |
+      1. P_auf = 250 W ÷ 0,90 = **277,78 W**
+      2. Verlust = 277,78 W − 250 W = **27,78 W** (Wärme)
+    quelle: "Neu erstellt (Claude), Formel der Lektion hardware-netzteil-anschluesse; nachgerechnet."
+    belege:
+      - {titel: "80 PLUS Programm (CLEAResult): Effizienzstufen für Netzteile", url: "https://www.clearesult.com/80plus/"}
+    status: ungeprüft
+
+  - id: hw-pixeldichte
+    typ: rechnung
+    stufe: 3
+    titel: "Pixeldichte eines 4K-Monitors"
+    frage: "Wie hoch ist die Pixeldichte eines **27-Zoll-Monitors mit 3840 × 2160 Pixeln**? Formel: ppi = √(Breite² + Höhe²) ÷ Diagonale."
+    schritte:
+      - frage: "Diagonale in Pixel"
+        antwort: "4405,81"
+        einheit: "Pixel"
+        toleranz: 0.005
+        erklaerung: "√(3840² + 2160²) = √(14.745.600 + 4.665.600) = √19.411.200 ≈ 4405,81."
+        falsch:
+          - {antwort: "6000", warum: "Breite und Höhe einfach addiert – die Diagonale berechnet man mit dem Satz des Pythagoras.", ursache: konzept}
+      - frage: "Pixeldichte in ppi"
+        antwort: "163,18"
+        einheit: "ppi"
+        toleranz: 0.005
+        erklaerung: "4405,81 ÷ 27 ≈ 163 ppi – deutlich schärfer als 27 Zoll WQHD (109 ppi)."
+        falsch:
+          - {antwort: "142,22", warum: "Nur die Breite durch die Diagonale geteilt; es zählt die Diagonale in Pixeln.", ursache: konzept}
+    hinweise:
+      - "Erst die Diagonale in Pixeln, dann durch die Diagonale in Zoll."
+      - "Pythagoras: √(Breite² + Höhe²)."
+    loesungsweg: |
+      1. √(3840² + 2160²) ≈ **4405,81 Pixel**
+      2. 4405,81 ÷ 27 ≈ **163 ppi**
+    quelle: "Neu erstellt (Claude), Formel der Lektion hardware-netzteil-anschluesse; nachgerechnet."
+    belege:
+      - {titel: "Lektion „Netzteil, Grafik, Monitor und Anschlüsse“ (Pixeldichte)"}
+    status: ungeprüft
+
+  - id: hw-bestellung-pruefen
+    typ: freitext
+    stufe: 4
+    operator: erläutern
+    titel: "Passt die Bestellung zusammen?"
+    situation: |
+      Für die Workstation von Herrn Becker liegt schon ein Mainboard mit **Sockel AM5** und
+      **DDR5-Steckplätzen** (Dual-Channel) bereit. Ein Kollege hat dazu bestellt:
+
+      - eine CPU für **Sockel AM4**
+      - **1 × 32 GB DDR4-3200**
+    frage: "Erläutere, warum die Bestellung so nicht funktioniert, und nenne, was bei der Neubestellung zu prüfen ist."
+    musterloesung: |
+      Die CPU passt nicht, weil der Sockel (AM4) nicht zum Mainboard (AM5) passt – mechanisch und
+      elektrisch. Bei einer passenden CPU muss zusätzlich der Chipsatz bzw. die UEFI-Firmware sie
+      unterstützen. Das DDR4-Modul passt nicht in DDR5-Steckplätze (andere Kerbe, andere Spannung).
+      Außerdem besser zwei Module (2 × 16 GB DDR5) bestellen: gleiche Kapazität, aber Dual-Channel
+      und damit doppelte Bandbreite.
+    bewertungspunkte:
+      - {punkt: "CPU-Sockel passt nicht zum Mainboard (AM4 ≠ AM5)", kernbegriffe: ["sockel", "am4", "am5"]}
+      - {punkt: "Chipsatz/Firmware muss die CPU unterstützen", kernbegriffe: ["chipsatz", "uefi", "bios", "firmware"]}
+      - {punkt: "DDR4 passt nicht in DDR5-Steckplätze", kernbegriffe: ["ddr4", "ddr5", "kerbe"]}
+      - {punkt: "Zwei Module für Dual-Channel statt eines (doppelte Bandbreite)", kernbegriffe: ["dual", "zwei module", "2 × 16", "2x16", "bandbreite"]}
+    hinweise:
+      - "Prüfe CPU und Arbeitsspeicher getrennt gegen das Mainboard."
+      - "Bei der CPU zählen Sockel und Chipsatz, beim RAM Generation und Anzahl der Module."
+      - "„Erläutern“ heißt: nicht nur nennen, sondern begründen."
+    loesungsweg: "Vier Punkte: Sockel passt nicht; Chipsatz/UEFI muss die CPU kennen; DDR4 ≠ DDR5; zwei Module für Dual-Channel. Operator „erläutern“: zu jedem Punkt den Grund nennen."
+    quelle: "Neu erstellt (Claude), passend zu den Lektionen hardware-pc-aufbau und hardware-cpu-ram."
+    belege:
+      - {titel: "JEDEC JESD79-5: DDR5 SDRAM Standard (eigene Modulkerbe, 1,1 V)", url: "https://www.jedec.org"}
+      - {titel: "AMD: Sockel AM5 – ausschließlich DDR5-Unterstützung", url: "https://www.amd.com"}
+    status: ungeprüft
