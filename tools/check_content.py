@@ -10,6 +10,7 @@ from pathlib import Path
 
 from ap_trainer.content.checks import check_references, check_style
 from ap_trainer.content.loader import load_package
+from ap_trainer.tasks.validate import check_tasks
 
 
 def run_check(root: Path, strict: bool = False) -> int:
@@ -21,6 +22,7 @@ def run_check(root: Path, strict: bool = False) -> int:
     warnings = []
     if package is not None:
         errors += check_references(package)
+        errors += check_tasks(package)
         warnings = check_style(package)
     for warning in warnings:
         print(f"WARNUNG {warning}")
@@ -35,6 +37,7 @@ def run_check(root: Path, strict: bool = False) -> int:
     print(
         f"Inhalte in Ordnung: {len(package.katalog.themen)} Themen, "
         f"{len(package.lektionen)} Lektionen, {len(package.begriffe)} Begriffe, "
+        f"{len(package.aufgaben)} Aufgaben, {sum(map(len, package.generatoren.values()))} Generatoren, "
         f"{len(warnings)} Stilwarnungen."
     )
     return 0

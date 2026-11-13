@@ -1,0 +1,44 @@
+# Aufgaben zum Thema „IPv4-Adressierung und Subnetting“.
+generatoren: [ipv4-subnetting]
+
+aufgaben:
+  - id: subnetz-gueltiger-host
+    typ: multiple_choice
+    stufe: 2
+    titel: "Gültiger Host im /26"
+    frage: "Welche Adresse kann ein Rechner im Netz **192.168.10.64/26** bekommen?"
+    optionen:
+      - {text: "192.168.10.100", richtig: true, warum: "Das Netz reicht von .64 bis .127; .100 liegt dazwischen und ist weder Netz- noch Broadcastadresse."}
+      - {text: "192.168.10.64", warum: "Das ist die Netzadresse (alle Hostbits 0) – sie bezeichnet das Netz selbst.", ursache: begriff}
+      - {text: "192.168.10.127", warum: "Das ist die Broadcastadresse (alle Hostbits 1).", ursache: begriff}
+      - {text: "192.168.10.130", warum: "Bei Schrittweite 64 beginnt bei .128 schon das nächste Subnetz.", ursache: rechenfehler}
+    hinweise:
+      - "Bestimme zuerst, von wo bis wo das Subnetz reicht."
+      - "Schrittweite = 256 − 192 = 64."
+      - "Das Subnetz beginnt bei .64; das nächste beginnt bei .128."
+    loesungsweg: "/26 → Maske 255.255.255.192, Schrittweite 64. Netz .64, Broadcast .127, Hosts .65–.126 → nur **.100** passt."
+    quelle: "Neu erstellt (Claude), Beispiel 1 der Lektion subnetze-bilden; mit ipaddress nachgerechnet."
+    belege:
+      - {titel: "RFC 950: Internet Standard Subnetting Procedure", url: "https://www.rfc-editor.org/rfc/rfc950"}
+      - {titel: "RFC 4632: Classless Inter-domain Routing (CIDR)", url: "https://www.rfc-editor.org/rfc/rfc4632"}
+    status: ungeprüft
+
+  - id: subnetz-vorgehen-ordnen
+    typ: reihenfolge
+    stufe: 2
+    titel: "Vorgehen beim Subnetting"
+    frage: "Ein Netz soll in gleich große Subnetze geteilt werden. Bringe die Schritte in die richtige Reihenfolge."
+    elemente:
+      - "Benötigte Bits bestimmen (2ⁿ ≥ Subnetze bzw. 2ʰ − 2 ≥ Hosts)"
+      - "Neues Präfix festlegen"
+      - "Maske und Schrittweite berechnen"
+      - "Netzadressen auflisten"
+      - "Host-Bereiche und Broadcast bestimmen"
+    hinweise:
+      - "Ohne neues Präfix kennst du die Maske nicht."
+      - "Die Schrittweite brauchst du, um die Netze aufzulisten."
+    loesungsweg: "Bits → Präfix → Maske und Schrittweite → Netze → Host-Bereiche und Broadcast (Fünf-Schritte-Schema der Lektion subnetze-bilden)."
+    quelle: "Neu erstellt (Claude), Vorgehen der Lektion subnetze-bilden."
+    belege:
+      - {titel: "RFC 950: Internet Standard Subnetting Procedure", url: "https://www.rfc-editor.org/rfc/rfc950"}
+    status: ungeprüft

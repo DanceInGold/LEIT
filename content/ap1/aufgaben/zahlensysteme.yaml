@@ -1,0 +1,121 @@
+# Aufgaben zum Thema „Zahlensysteme (dual, hexadezimal), Einheiten und Präfixe“.
+# Rechenvarianten liefert der Generator; feste Aufgaben decken die übrigen Aufgabentypen ab.
+generatoren: [zahlensysteme]
+
+aufgaben:
+  - id: zahlen-hexziffer-bits
+    typ: multiple_choice
+    stufe: 1
+    titel: "Bits pro Hex-Ziffer"
+    frage: "Wie viele Bit stellt **eine** Hexadezimalziffer dar?"
+    optionen:
+      - {text: "4 Bit", richtig: true, warum: "16 Werte (0–F) = 2⁴, also genau 4 Bit – ein Nibble."}
+      - {text: "8 Bit", warum: "8 Bit sind ein Byte; dafür braucht man zwei Hex-Ziffern.", ursache: begriff}
+      - {text: "16 Bit", warum: "Die 16 steckt in der Basis (Werte 0–F), nicht in der Bitzahl.", ursache: konzept}
+      - {text: "2 Bit", warum: "Mit 2 Bit lassen sich nur 4 Werte darstellen, nicht 16.", ursache: rechenfehler}
+    hinweise:
+      - "Wie viele verschiedene Werte hat eine Hex-Ziffer?"
+      - "Mit n Bit lassen sich 2ⁿ Werte darstellen."
+    loesungsweg: "Eine Hex-Ziffer hat 16 Werte (0–9, A–F). 2⁴ = 16 → **4 Bit** (ein Nibble)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion zahlensysteme-umrechnen."
+    belege:
+      - {titel: "Lektion „Zahlensysteme umrechnen“ (Stellenwertsysteme)"}
+    status: ungeprüft
+
+  - id: zahlen-praefixe-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Präfixe und Faktoren"
+    frage: "Ordne jedem Präfix seinen Faktor zu."
+    paare:
+      - {links: "k (Kilo)", rechts: "10³ = 1.000"}
+      - {links: "Ki (Kibi)", rechts: "2¹⁰ = 1.024"}
+      - {links: "M (Mega)", rechts: "10⁶ = 1.000.000"}
+      - {links: "Mi (Mebi)", rechts: "2²⁰ = 1.048.576"}
+    ablenker: ["2⁸ = 256"]
+    hinweise:
+      - "Präfixe mit „i“ (Ki, Mi, Gi) sind binär, die anderen dezimal."
+      - "Binäre Präfixe sind Potenzen von 2, dezimale Potenzen von 10."
+    loesungsweg: |
+      - Dezimal (SI): k = 10³, M = 10⁶, G = 10⁹.
+      - Binär (IEC 80000-13): Ki = 2¹⁰ = 1.024, Mi = 2²⁰ = 1.048.576.
+      - 2⁸ = 256 ist kein Präfix, sondern die Zahl der Werte eines Bytes.
+    quelle: "Neu erstellt (Claude), passend zur Lektion einheiten-praefixe."
+    belege:
+      - {titel: "IEC 80000-13:2008 (binäre Präfixe Ki, Mi, Gi, Ti)"}
+      - {titel: "BIPM: SI-Broschüre, 9. Auflage 2019 (SI-Präfixe)", url: "https://www.bipm.org/en/publications/si-brochure"}
+    status: ungeprüft
+
+  - id: zahlen-nibble-byte-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Nibble, Byte, Hex"
+    frage: "Fülle die Lücken aus."
+    text: "Eine Hex-Ziffer steht für {{1}} Bit. Ein Byte schreibt man deshalb mit {{2}} Hex-Ziffern, und sein größter Wert ist dezimal {{3}}."
+    luecken:
+      - antworten: ["4", "vier"]
+        falsch:
+          - {antwort: "8", warum: "8 Bit sind ein ganzes Byte; eine Hex-Ziffer deckt nur die Hälfte ab.", ursache: begriff}
+      - antworten: ["2", "zwei"]
+        falsch:
+          - {antwort: "4", warum: "Vier Hex-Ziffern sind 16 Bit, also zwei Byte.", ursache: rechenfehler}
+      - antworten: ["255"]
+        falsch:
+          - {antwort: "256", warum: "Ein Byte hat 256 Werte, aber gezählt wird ab 0 – der größte ist 255.", ursache: konzept}
+    hinweise:
+      - "Ein Byte hat 8 Bit."
+      - "16 = 2⁴; FF ist der größte Wert mit zwei Hex-Ziffern."
+    loesungsweg: "Eine Hex-Ziffer = **4** Bit, ein Byte = 8 Bit = **2** Hex-Ziffern. FF = 15 × 16 + 15 = **255** (256 Werte von 0 bis 255)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion zahlensysteme-umrechnen."
+    belege:
+      - {titel: "Lektion „Zahlensysteme umrechnen“ (Stellenwertsysteme)"}
+    status: ungeprüft
+
+  - id: zahlen-groessen-ordnen
+    typ: reihenfolge
+    stufe: 2
+    titel: "Datenmengen ordnen"
+    frage: "Bringe die Datenmengen in eine aufsteigende Reihenfolge (kleinste zuerst)."
+    elemente:
+      - "1 KiB"
+      - "1 MB"
+      - "1 MiB"
+      - "1 GB"
+      - "1 GiB"
+    hinweise:
+      - "Rechne alles in Byte um."
+      - "KiB = 2¹⁰, MB = 10⁶, MiB = 2²⁰, GB = 10⁹, GiB = 2³⁰ Byte."
+      - "1 MB = 1.000.000 Byte ist kleiner als 1 MiB = 1.048.576 Byte."
+    loesungsweg: |
+      In Byte: 1 KiB = 1.024 · 1 MB = 1.000.000 · 1 MiB = 1.048.576 · 1 GB = 1.000.000.000 ·
+      1 GiB = 1.073.741.824. Der binäre Wert ist bei gleichem Vorsatz immer etwas größer.
+    quelle: "Neu erstellt (Claude); Werte nachgerechnet."
+    belege:
+      - {titel: "IEC 80000-13:2008 (binäre Präfixe Ki, Mi, Gi, Ti)"}
+      - {titel: "BIPM: SI-Broschüre, 9. Auflage 2019 (SI-Präfixe)", url: "https://www.bipm.org/en/publications/si-brochure"}
+    status: ungeprüft
+
+  - id: zahlen-warum-hex
+    typ: freitext
+    stufe: 3
+    operator: erläutern
+    titel: "Warum Hexadezimal?"
+    situation: "Ein neuer Kollege bei der ArchivTech GmbH wundert sich, warum MAC-Adressen und IPv6-Adressen in Hexadezimal geschrieben werden und nicht dezimal."
+    frage: "Erläutere ihm in zwei bis drei Sätzen, warum man in der IT so oft Hexadezimalzahlen verwendet."
+    musterloesung: |
+      Eine Hex-Ziffer steht für genau 4 Bit, ein Byte also für zwei Ziffern. Dadurch sind Hexzahlen
+      viel kürzer als Dualzahlen und lassen sich trotzdem ohne Rechnen Ziffer für Ziffer in Bits
+      zurückübersetzen – bei Dezimalzahlen geht das nicht. Beispiele: MAC-Adressen, IPv6-Adressen, Farbcodes.
+    bewertungspunkte:
+      - {punkt: "Eine Hex-Ziffer entspricht genau 4 Bit (ein Byte = 2 Ziffern)", kernbegriffe: ["4 bit", "vier bit", "nibble", "2 ziffern", "zwei ziffern"]}
+      - {punkt: "Kürzer und übersichtlicher als die Dualzahl", kernbegriffe: ["kürzer", "kompakt", "übersichtlich", "weniger stellen"]}
+      - {punkt: "Umrechnung in Bits geht direkt, Ziffer für Ziffer (bei dezimal nicht)", kernbegriffe: ["direkt", "ziffer für ziffer", "ohne rechnen", "einfach umrechnen", "umrechnen"]}
+    hinweise:
+      - "Denk an den Zusammenhang zwischen 16 und 2."
+      - "Vergleiche die Länge von 11111111, 255 und FF."
+    loesungsweg: "Kernpunkte: 1 Hex-Ziffer = 4 Bit; kürzer als dual; ziffernweise in Bits übersetzbar (dezimal nicht). Operator „erläutern“: Zusammenhang mit Begründung, nicht nur aufzählen."
+    quelle: "Neu erstellt (Claude), passend zur Lektion zahlensysteme-umrechnen."
+    belege:
+      - {titel: "Lektion „Zahlensysteme umrechnen“ (Stellenwertsysteme)"}
+      - {titel: "RFC 4291: IP Version 6 Addressing Architecture (Textdarstellung in Hex)", url: "https://www.rfc-editor.org/rfc/rfc4291"}
+    status: ungeprüft
