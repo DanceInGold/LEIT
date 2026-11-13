@@ -184,7 +184,7 @@ class Ipv4Subnetting(Generator):
     id = "ipv4-subnetting"
     titel = "IPv4-Subnetting"
     stufen = (1, 2, 3, 4)
-    status = "ungeprüft"
+    status = "geprüft"
     quelle = "Generator „ipv4-subnetting“; jede Variante gegen Pythons Modul ipaddress getestet."
     belege = BELEGE
 

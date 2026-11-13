@@ -20,7 +20,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion zahlensysteme-umrechnen."
     belege:
       - {titel: "Lektion „Zahlensysteme umrechnen“ (Stellenwertsysteme)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: zahlen-praefixe-zuordnen
     typ: zuordnung
@@ -44,7 +44,7 @@ aufgaben:
     belege:
       - {titel: "IEC 80000-13:2008 (binäre Präfixe Ki, Mi, Gi, Ti)"}
       - {titel: "BIPM: SI-Broschüre, 9. Auflage 2019 (SI-Präfixe)", url: "https://www.bipm.org/en/publications/si-brochure"}
-    status: ungeprüft
+    status: geprüft
 
   - id: zahlen-nibble-byte-luecke
     typ: lueckentext
@@ -69,7 +69,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion zahlensysteme-umrechnen."
     belege:
       - {titel: "Lektion „Zahlensysteme umrechnen“ (Stellenwertsysteme)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: zahlen-groessen-ordnen
     typ: reihenfolge
@@ -93,7 +93,7 @@ aufgaben:
     belege:
       - {titel: "IEC 80000-13:2008 (binäre Präfixe Ki, Mi, Gi, Ti)"}
       - {titel: "BIPM: SI-Broschüre, 9. Auflage 2019 (SI-Präfixe)", url: "https://www.bipm.org/en/publications/si-brochure"}
-    status: ungeprüft
+    status: geprüft
 
   - id: zahlen-warum-hex
     typ: freitext
@@ -118,4 +118,4 @@ aufgaben:
     belege:
       - {titel: "Lektion „Zahlensysteme umrechnen“ (Stellenwertsysteme)"}
       - {titel: "RFC 4291: IP Version 6 Addressing Architecture (Textdarstellung in Hex)", url: "https://www.rfc-editor.org/rfc/rfc4291"}
-    status: ungeprüft
+    status: geprüft

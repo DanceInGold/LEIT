@@ -21,7 +21,7 @@ aufgaben:
     belege:
       - {titel: "RFC 950: Internet Standard Subnetting Procedure", url: "https://www.rfc-editor.org/rfc/rfc950"}
       - {titel: "RFC 4632: Classless Inter-domain Routing (CIDR)", url: "https://www.rfc-editor.org/rfc/rfc4632"}
-    status: ungeprüft
+    status: geprüft
 
   - id: subnetz-vorgehen-ordnen
     typ: reihenfolge
@@ -41,4 +41,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vorgehen der Lektion subnetze-bilden."
     belege:
       - {titel: "RFC 950: Internet Standard Subnetting Procedure", url: "https://www.rfc-editor.org/rfc/rfc950"}
-    status: ungeprüft
+    status: geprüft
