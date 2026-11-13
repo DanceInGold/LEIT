@@ -102,6 +102,7 @@ def test_find_task_rebuilds_generated_tasks(trainer: Trainer) -> None:
     assert task is not None
     assert trainer.find_task(task.id, "zahlen") == task
     assert trainer.find_task("zahlen-nibble", "zahlen") is not None
+    assert trainer.find_task("zahlen-nibble", "hardware") is None
     assert trainer.find_task("gen:ipv4-subnetting:1:5", "zahlen") is None
     assert trainer.find_task("quatsch", "zahlen") is None
     assert trainer.next_task("hardware") is None

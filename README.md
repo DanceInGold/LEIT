@@ -4,9 +4,10 @@ Lokales Lernprogramm zur Vorbereitung auf die Abschlussprüfung Teil 1 (AP1) der
 zugeschnitten auf Fachinformatik Systemintegration. Inhalte (Markdown/YAML) und Programm
 (Python) sind getrennt; weitere Prüfungsteile kommen als zusätzliche Inhaltspakete dazu.
 
-**Stand:** Phase 1 (v0.6) – Lernplan, Startseite „Heute“ mit Kennzahlen und Diagrammen,
+**Stand:** Phase 2 läuft – Lernplan, Startseite „Heute“ mit Kennzahlen und Diagrammen,
 Themen mit nummerierten Kapiteln, Lektionen Schritt für Schritt, Glossar, Lernkarten mit
-Wiederholung nach FSRS. Aufgaben und Rechentrainer folgen in Phase 2.
+Wiederholung nach FSRS und neu die Seite **Üben**: Aufgaben in sechs Formen, Rechentrainer für
+Zahlensysteme und Subnetting mit Prüfung jedes Zwischenschritts, gestufte Hilfen.
 
 ## Schnellstart
 
@@ -52,3 +53,4 @@ Umgebungsvariablen `AP_TRAINER_DATA` (Lernstand) und `AP_TRAINER_CONTENT` (Inhal
 | `docs/entscheidungen.md` | Entscheidungen aus der Umsetzung |
 | `CLAUDE.md` | Arbeitsregeln für Claude in diesem Repo |
 | `content/ap1/katalog.yaml` | Themenbaum AP1 (Entwurf) |
+| `content/ap1/aufgaben/` | Aufgaben je Thema und die zugehörigen Rechengeneratoren |

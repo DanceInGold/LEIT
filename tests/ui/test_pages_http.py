@@ -28,6 +28,17 @@ PAGES = [
     "/thema/ipv4-subnetting",  # Thema ohne Kapitel
     "/lektion/hardware-pc-aufbau",
     "/lernkarten",
+    "/ueben",
+    "/ueben/zahlensysteme",
+    "/ueben/ipv4-subnetting",
+    # Jede feste Aufgabe einmal öffnen, damit jeder Aufgabentyp gezeichnet wird
+    "/ueben/zahlensysteme?aufgabe=zahlen-hexziffer-bits",
+    "/ueben/zahlensysteme?aufgabe=zahlen-praefixe-zuordnen",
+    "/ueben/zahlensysteme?aufgabe=zahlen-nibble-byte-luecke",
+    "/ueben/zahlensysteme?aufgabe=zahlen-groessen-ordnen",
+    "/ueben/zahlensysteme?aufgabe=zahlen-warum-hex",
+    "/ueben/ipv4-subnetting?aufgabe=gen:ipv4-subnetting:4:7",
+    "/ueben/unbekannt",
     "/glossar",
     "/plan",
     "/einstellungen",
@@ -51,6 +62,10 @@ def _seed(data_file: Path) -> None:
     trainer = Trainer(load_package_or_raise(REPO_CONTENT), store)
     trainer.mark_lesson_read(trainer.package.lektionen["hardware-pc-aufbau"], 35)
     store.log_study(20, "wiederholung", "test", dt.date.today() - dt.timedelta(days=1))
+    # Ein falsch gelöster Versuch, damit die Übungsübersicht Zahlen zeigt
+    task = trainer.find_task("gen:zahlensysteme:2:1", "zahlensysteme")
+    assert task is not None
+    trainer.submit(task, ["0"], seconds=30)
     store.close()
 
 

@@ -1,7 +1,7 @@
 """Die Tagesration für die Startseite „Heute“ (LP-05, WH-02).
 
 Reihenfolge: zuerst fällige Wiederholungen (mit Tagesobergrenze), dann die nächste
-Lektion aus dem Plan, dann ein Übungsblock (Aufgaben folgen in Phase 2).
+Lektion aus dem Plan, dann ein Übungsblock zum aktuellen Thema.
 """
 
 from __future__ import annotations

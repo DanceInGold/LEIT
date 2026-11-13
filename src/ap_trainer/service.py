@@ -251,7 +251,8 @@ class Trainer:
     def find_task(self, task_id: str, topic_id: str) -> Aufgabe | None:
         """Eine bestimmte Aufgabe: fest aus dem Paket oder per Generator-ID nachgebaut."""
         if task_id in self.package.aufgaben:
-            return self.package.aufgaben[task_id]
+            fixed = self.package.aufgaben[task_id]
+            return fixed if fixed.thema == topic_id else None
         parsed = parse_task_id(task_id)
         pool = self.pools.get(topic_id)
         if parsed is None or pool is None or parsed[0] not in pool.generatoren:

@@ -12,6 +12,7 @@ from typing import Any
 
 from nicegui import ui
 
+from ap_trainer.content.aufgaben import STUFEN_NAMEN
 from ap_trainer.core.models import PHASE_NAMES
 from ap_trainer.core.today import DailyRation
 from ap_trainer.service import Trainer
@@ -58,7 +59,19 @@ def _todo_item(icon: str, title: str, detail: str, action: tuple[str, str] | Non
             ui.button(label, on_click=lambda: ui.navigate.to(target)).props("unelevated")
 
 
-def _todo_card(ration: DailyRation) -> None:
+def _practice_item(trainer: Trainer, ration: DailyRation) -> None:
+    """Übungsblock: Aufgaben zum aktuellen Thema, sonst zur Übersicht (LP-05)."""
+    topic_id = ration.thema.topic_id if ration.thema else None
+    pool = trainer.pools.get(topic_id) if topic_id else None
+    if topic_id and pool is not None and not pool.is_empty():
+        level = trainer.level(topic_id).stufe
+        detail = f"{ration.thema.titel if ration.thema else ''} · Stufe {level} · {STUFEN_NAMEN[level]}"
+        _todo_item("edit_note", "Üben", detail, ("Üben", f"/ueben/{topic_id}"))
+        return
+    _todo_item("edit_note", "Üben", "Aufgaben zu allen Themen mit Übungen", ("Übersicht", "/ueben"))
+
+
+def _todo_card(ration: DailyRation, trainer: Trainer) -> None:
     with ui.card().classes("w-full"):
         ui.label(f"Heute dran · {ration.minuten_budget} Minuten").classes("text-lg font-medium")
         reviews = ration.wiederholungen
@@ -82,7 +95,7 @@ def _todo_card(ration: DailyRation) -> None:
             target = f"/thema/{ration.thema.topic_id}"
             _todo_item("hourglass_top", ration.thema.titel, "Kapitel sind in Arbeit", ("Thema", target))
         ui.separator()
-        _todo_item("edit_note", "Üben", "Aufgaben und Rechentrainer folgen in Phase 2", None)
+        _practice_item(trainer, ration)
 
 
 def _chart_card(title: str, options: dict[str, Any], height: str = "h-64") -> None:
@@ -118,5 +131,5 @@ def register(trainer: Trainer) -> None:
             _setup_hint(trainer)
             ration = trainer.ration()
             _kpi_row(trainer, ration)
-            _todo_card(ration)
+            _todo_card(ration, trainer)
             _charts(trainer)
