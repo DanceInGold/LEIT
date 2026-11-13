@@ -6,8 +6,9 @@ zugeschnitten auf Fachinformatik Systemintegration. Inhalte (Markdown/YAML) und 
 
 **Stand:** Phase 2 läuft – Lernplan, Startseite „Heute“ mit Kennzahlen und Diagrammen,
 Themen mit nummerierten Kapiteln, Lektionen Schritt für Schritt, Glossar, Lernkarten mit
-Wiederholung nach FSRS und neu die Seite **Üben**: Aufgaben in sechs Formen, Rechentrainer für
-Zahlensysteme und Subnetting mit Prüfung jedes Zwischenschritts, gestufte Hilfen.
+Wiederholung nach FSRS und neu die Seite **Üben**: Aufgaben in sechs Formen, gestufte Hilfen und
+Rechentrainer mit Prüfung jedes Zwischenschritts für Zahlensysteme, IPv4-Subnetting, IPv6,
+Datenmengen und Übertragungszeit, Stromkosten sowie Amortisation und Kostenvergleich.
 
 ## Schnellstart
 
