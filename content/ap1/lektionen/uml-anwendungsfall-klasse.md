@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Notation nach OMG UML 2.5.1 (Use Cases, Classes,
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.07: UML (Use Case bzw. Anwendungsfalldiagramm, Klassendiagramm, Aktivitätsdiagramm) (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 11 (Classes, Associations) und 18 (Use Cases)", url: "https://www.omg.org/spec/UML/2.5.1"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

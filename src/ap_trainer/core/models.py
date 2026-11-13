@@ -160,3 +160,22 @@ class ScheduleStatus(_Model):
     soll_anteil: float
     ist_anteil: float
     prognose: str
+
+
+class Attempt(_Model):
+    """Ein gespeicherter Lösungsversuch einer Aufgabe (Grundlage für AU-06, HI-02, FT-01, FT-04)."""
+
+    aufgabe_id: str
+    thema: str
+    stufe: int = Field(ge=1, le=5)
+    typ: str
+    richtig: bool
+    anteil: float = Field(ge=0, le=1)
+    # 0 = ohne Hilfe, 1–3 = so viele Hinweise, 4 = Lösungsweg vor dem Prüfen geöffnet (HI-02)
+    hilfen: int = Field(default=0, ge=0, le=4)
+    ursache: str | None = None
+    fehlerschritt: int | None = None
+    # Eingabe als JSON-Text, damit eine falsche Antwort im Fehlerprotokoll wieder sichtbar ist
+    antwort: str = ""
+    sekunden: int = Field(default=0, ge=0)
+    am: dt.datetime

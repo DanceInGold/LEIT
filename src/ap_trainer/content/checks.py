@@ -101,9 +101,26 @@ def _check_terms(pkg: ContentPackage) -> list[ContentError]:
     return errors
 
 
+def _check_tasks(pkg: ContentPackage) -> list[ContentError]:
+    """Aufgabendateien: Thema existiert und ist prüfungsrelevant, jede Aufgabe hat Belege."""
+    errors = []
+    topics = pkg.katalog.by_id()
+    for topic_id in sorted({t.thema for t in pkg.aufgaben.values()} | set(pkg.generatoren)):
+        file = str(pkg.root / "aufgaben" / f"{topic_id}.yaml")
+        if topic_id not in topics:
+            errors.append(ContentError(file, f"unbekanntes Thema '{topic_id}' (Dateiname)"))
+        elif not topics[topic_id].is_relevant:
+            errors.append(ContentError(file, f"Thema '{topic_id}' ist 2025 entfallen – keine Aufgaben"))
+    for task in pkg.aufgaben.values():
+        if not task.belege:
+            file = str(pkg.root / "aufgaben" / f"{task.thema}.yaml")
+            errors.append(ContentError(file, f"{task.id}: belege fehlen (Faktencheck)"))
+    return errors
+
+
 def check_references(pkg: ContentPackage) -> list[ContentError]:
     """Alle Verweisfehler eines Pakets."""
-    return _check_catalog(pkg) + _check_lessons(pkg) + _check_terms(pkg)
+    return _check_catalog(pkg) + _check_lessons(pkg) + _check_terms(pkg) + _check_tasks(pkg)
 
 
 def check_style(pkg: ContentPackage) -> list[ContentError]:

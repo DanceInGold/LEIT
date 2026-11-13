@@ -14,6 +14,7 @@ from typing import Any
 import yaml
 from pydantic import BaseModel, ValidationError
 
+from ap_trainer.content.aufgaben import Aufgabe, AufgabenDatei
 from ap_trainer.content.models import Begriff, Katalog, Lektion, Paket
 
 _HEADING = re.compile(r"^## (.+?)\s*$", re.MULTILINE)
@@ -32,13 +33,21 @@ class ContentError:
 
 @dataclass
 class ContentPackage:
-    """Ein geladenes Inhaltspaket mit allen Lektionen und Begriffen."""
+    """Ein geladenes Inhaltspaket mit Lektionen, Begriffen und Aufgaben."""
 
     root: Path
     paket: Paket
     katalog: Katalog
     lektionen: dict[str, Lektion] = field(default_factory=dict)
     begriffe: dict[str, Begriff] = field(default_factory=dict)
+    aufgaben: dict[str, Aufgabe] = field(default_factory=dict)
+    # Thema → IDs der Aufgabengeneratoren, die dazu Varianten erzeugen (AU-03)
+    generatoren: dict[str, list[str]] = field(default_factory=dict)
+
+    def tasks_for_topic(self, topic_id: str) -> list[Aufgabe]:
+        """Alle festen Aufgaben eines Themas, nach Stufe und ID sortiert."""
+        found = [task for task in self.aufgaben.values() if task.thema == topic_id]
+        return sorted(found, key=lambda task: (task.stufe, task.id))
 
     def lessons_for_topic(self, topic_id: str) -> list[Lektion]:
         """Alle Lektionen eines Themas in Lesereihenfolge (``reihenfolge``, dann Titel)."""
@@ -130,6 +139,35 @@ def _load_terms(root: Path, errors: list[ContentError]) -> dict[str, Begriff]:
     return terms
 
 
+def _load_task_file(path: Path, errors: list[ContentError]) -> AufgabenDatei | None:
+    """Liest ``aufgaben/<thema>.yaml``; das Thema ergibt sich aus dem Dateinamen."""
+    data = _read_yaml(path, errors)
+    if not isinstance(data, dict):
+        if data is not None:
+            errors.append(ContentError(str(path), "Datei ist kein YAML-Wörterbuch"))
+        return None
+    for index, item in enumerate(data.get("aufgaben") or []):
+        if isinstance(item, dict) and item.setdefault("thema", path.stem) != path.stem:
+            errors.append(ContentError(str(path), f"aufgaben.{index}: thema passt nicht zum Dateinamen"))
+    return _validate(AufgabenDatei, data, path, errors)
+
+
+def _load_tasks(root: Path, errors: list[ContentError]) -> tuple[dict[str, Aufgabe], dict[str, list[str]]]:
+    tasks: dict[str, Aufgabe] = {}
+    generators: dict[str, list[str]] = {}
+    for path in sorted((root / "aufgaben").glob("*.yaml")):
+        content = _load_task_file(path, errors)
+        if content is None:
+            continue
+        if content.generatoren:
+            generators[path.stem] = list(content.generatoren)
+        for task in content.aufgaben:
+            if task.id in tasks:
+                errors.append(ContentError(str(path), f"Aufgaben-ID '{task.id}' ist doppelt"))
+            tasks[task.id] = task
+    return tasks, generators
+
+
 def load_package(root: Path) -> tuple[ContentPackage | None, list[ContentError]]:
     """Lädt ein Paket und liefert es zusammen mit allen gefundenen Fehlern."""
     errors: list[ContentError] = []
@@ -141,9 +179,10 @@ def load_package(root: Path) -> tuple[ContentPackage | None, list[ContentError]]
         if lesson:
             lessons[lesson.id] = lesson
     terms = _load_terms(root, errors)
+    tasks, generators = _load_tasks(root, errors)
     if paket is None or katalog is None:
         return None, errors
-    package = ContentPackage(root, paket, katalog, lessons, terms)
+    package = ContentPackage(root, paket, katalog, lessons, terms, tasks, generators)
     return package, errors
 
 

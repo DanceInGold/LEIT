@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Operatoren nach Google-Suchhilfe; boolesche Oper
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 02.04: Digitale Suchabfragen unter Verwendung von Suchoperatoren (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "Google-Suche Hilfe: Websuche verfeinern", url: "https://support.google.com/websearch/answer/2466433"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

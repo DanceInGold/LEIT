@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Interaktionsprinzipien nach DIN EN ISO 9241-110:
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.07: Entwurf der Bildschirmausgabemasken (Softwareergonomie, Corporate Identity, Barrierefreiheit) (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "DIN EN ISO 9241-110:2020 Ergonomie der Mensch-System-Interaktion – Teil 110: Interaktionsprinzipien"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

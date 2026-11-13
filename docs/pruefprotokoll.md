@@ -285,3 +285,22 @@ jedes relevante Katalogthema (63) mindestens ein Kapitel. Rechnungen per Skript,
 | `masken-ergonomie` | masken-ergonomie | sieben Interaktionsprinzipien nach DIN EN ISO 9241-110:2020 (Erlernbarkeit, Benutzerbindung neu ggü. 2006) | – |
 | `qualitaet-testprotokoll` | qualitaet | Qualitätsbegriff ISO 9000 (Hintergrund); Testprotokoll; Erstlösungsquote 48/60 = 80 % | ISO 9000 nur als Hintergrund, da ISO-Normen im Katalog gestrichen. |
 | `rechtsformen-organisation` | rechtsformen-aufbauorganisation | GmbH 25.000 € (§ 5 GmbHG), UG ab 1 € (§ 5a), AG 50.000 € (§ 7 AktG); vier Organisationsformen | Als Zusatzthema gekennzeichnet. |
+
+## Aufgaben und Generatoren (Phase 2, Aufgaben-Engine)
+
+Sieben feste Aufgaben und zwei Generatoren, im PR mit `status: ungeprüft`. Jede Musterlösung
+prüft `ap-tools check` automatisch (wird sie als richtig bewertet, zählt keine Falschantwort als
+richtig). Die Generatoren rechnen von Hand (Restwertmethode, Bitoperationen) und werden in
+1.000 Zufallsfällen gegen Pythons `int()`/`format()` bzw. das Modul `ipaddress` getestet.
+
+| Aufgabe / Generator | Thema | Geprüfte Kernaussagen | Hinweis |
+| --- | --- | --- | --- |
+| `zahlen-hexziffer-bits` | zahlensysteme | 16 Werte = 2⁴ → 4 Bit je Hex-Ziffer (Nibble) | – |
+| `zahlen-praefixe-zuordnen` | zahlensysteme | k = 10³, M = 10⁶ (SI); Ki = 2¹⁰ = 1.024, Mi = 2²⁰ = 1.048.576 (IEC 80000-13) | – |
+| `zahlen-nibble-byte-luecke` | zahlensysteme | 1 Byte = 2 Hex-Ziffern; FF = 255, 256 Werte | – |
+| `zahlen-groessen-ordnen` | zahlensysteme | KiB 1.024 < MB 10⁶ < MiB 1.048.576 < GB 10⁹ < GiB 1.073.741.824 Byte | per Skript nachgerechnet |
+| `zahlen-warum-hex` | zahlensysteme | Hex ↔ 4 Bit; IPv6 in Hex notiert (RFC 4291, Abschnitt 2.2) | Operator „erläutern“ |
+| `subnetz-gueltiger-host` | ipv4-subnetting | 192.168.10.64/26: Maske .192, Broadcast .127, Hosts .65–.126; .130 außerhalb | mit `ipaddress` nachgerechnet |
+| `subnetz-vorgehen-ordnen` | ipv4-subnetting | Fünf-Schritte-Schema wie Lektion `subnetze-bilden` | – |
+| Generator `zahlensysteme` | zahlensysteme | Stellenwerte 2ⁿ und 16ⁿ; Viererblöcke von rechts; Fehlerbilder: Bitreihenfolge, Reste falsch herum gelesen, Blöcke von links, Stellenwerte 10ⁿ | – |
+| Generator `ipv4-subnetting` | ipv4-subnetting | Maske, Schrittweite 256 − Maskenwert, Netz/Broadcast, Hosts 2ʰ − 2, Subnetze 2ⁿ (RFC 950, RFC 4632); Adressen aus RFC-1918-Bereichen | Fehlerbilder: Hostmaske statt Netzmaske, nächste Netzadresse als Broadcast, „.255 ist immer Broadcast“, „− 2“ vergessen |

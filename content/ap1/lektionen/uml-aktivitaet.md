@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Notation nach OMG UML 2.5.1, Kapitel 15 (Activit
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.07: UML-Aktivitätsdiagramm neu aufgenommen, auch für Abläufe und Algorithmen (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 15 Activities (Initial, Final, Decision, Merge, Fork, Join, Partitions)", url: "https://www.omg.org/spec/UML/2.5.1"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

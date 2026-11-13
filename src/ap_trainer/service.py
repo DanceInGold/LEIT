@@ -8,13 +8,25 @@ ohne Browser testbar.
 from __future__ import annotations
 
 import datetime as dt
+import json
+import random
+from dataclasses import dataclass
 from typing import Any
 
+from ap_trainer.content.aufgaben import Aufgabe
 from ap_trainer.content.loader import ContentPackage
-from ap_trainer.content.models import Lektion
+from ap_trainer.content.models import Lektion, Thema
 from ap_trainer.core import scheduler
 from ap_trainer.core.cards import Flashcard, card_index, cards_for_topics
-from ap_trainer.core.models import BudgetPeriod, LearningPlan, PlanSettings, ScheduleStatus, TopicProgress
+from ap_trainer.core.levels import LevelState, replay
+from ap_trainer.core.models import (
+    Attempt,
+    BudgetPeriod,
+    LearningPlan,
+    PlanSettings,
+    ScheduleStatus,
+    TopicProgress,
+)
 from ap_trainer.core.planner import build_plan, schedule_status
 from ap_trainer.core.stats import (
     AreaProgress,
@@ -29,8 +41,43 @@ from ap_trainer.core.stats import (
 from ap_trainer.core.today import DailyRation, build_ration, minutes_for_day
 from ap_trainer.core.weighting import compute_weights
 from ap_trainer.storage.db import Store
+from ap_trainer.tasks.check import Antwort, Ergebnis, FreitextAntwort, evaluate
+from ap_trainer.tasks.generators import make, parse_task_id
+from ap_trainer.tasks.hints import help_level
+from ap_trainer.tasks.selection import TopicPool, pick_task
 
 DEFAULT_MAX_REVIEWS = 60
+# Höchstens so viele Sekunden einer Aufgabe zählen als Lernzeit (offen gelassene Aufgaben)
+MAX_TASK_SECONDS = 15 * 60
+
+
+@dataclass(frozen=True)
+class PracticeTopic:
+    """Ein Thema mit Aufgaben: aktuelle Stufe und bisherige Trefferquote."""
+
+    thema: Thema
+    stufe: int
+    stufen: list[int]
+    versuche: int
+    richtig: int
+
+
+@dataclass(frozen=True)
+class Submission:
+    """Ergebnis einer abgegebenen Aufgabe mit Stufe vorher und nachher (AU-06)."""
+
+    ergebnis: Ergebnis
+    stufe_vorher: int
+    stufe_nachher: int
+
+
+def _answer_json(answer: Antwort) -> str:
+    """Antwort als JSON-Text für das Fehlerprotokoll."""
+    if isinstance(answer, FreitextAntwort):
+        return json.dumps({"text": answer.text, "erfuellt": list(answer.erfuellt)}, ensure_ascii=False)
+    if isinstance(answer, frozenset):
+        return json.dumps(sorted(answer))
+    return json.dumps(list(answer), ensure_ascii=False)
 
 
 class Trainer:
@@ -41,6 +88,12 @@ class Trainer:
         self.store = store
         self.weights = compute_weights(package.katalog)
         self._cards = card_index(package.begriffe)
+        self.pools = {
+            topic.id: TopicPool(
+                topic.id, package.tasks_for_topic(topic.id), package.generatoren.get(topic.id, [])
+            )
+            for topic in package.katalog.themen
+        }
 
     # --- Einstellungen -----------------------------------------------------------
     def default_settings(self, today: dt.date) -> PlanSettings:
@@ -161,6 +214,87 @@ class Trainer:
         self.store.put_card(card_id, state.due, state.data)
         self.store.log_review(card_id, grade, moment)
         return state.due
+
+    # --- Üben (AU-01 bis AU-06, HI-01 bis HI-03) -----------------------------------
+    def practice_topics(self) -> list[PracticeTopic]:
+        """Alle prüfungsrelevanten Themen mit Aufgaben, in Katalogreihenfolge."""
+        result = []
+        for topic in self.package.katalog.themen:
+            pool = self.pools[topic.id]
+            if pool.is_empty() or not topic.is_relevant:
+                continue
+            attempts = self.store.attempts(topic.id)
+            result.append(
+                PracticeTopic(
+                    thema=topic,
+                    stufe=self.level(topic.id).stufe,
+                    stufen=pool.levels(),
+                    versuche=len(attempts),
+                    richtig=sum(a.richtig for a in attempts),
+                )
+            )
+        return result
+
+    def level(self, topic_id: str) -> LevelState:
+        """Aktuelle Stufe eines Themas, aus allen Versuchen nachgespielt (AU-06)."""
+        attempts = self.store.attempts(topic_id)
+        return replay(((a.richtig, a.hilfen) for a in attempts), self.pools[topic_id].levels())
+
+    def next_task(self, topic_id: str, rng: random.Random | None = None) -> Aufgabe | None:
+        """Nächste Aufgabe für ein Thema auf seiner aktuellen Stufe."""
+        pool = self.pools.get(topic_id)
+        if pool is None or pool.is_empty():
+            return None
+        recent = [a.aufgabe_id for a in self.store.attempts(topic_id)]
+        return pick_task(pool, self.level(topic_id).stufe, recent, rng or random.Random())
+
+    def find_task(self, task_id: str, topic_id: str) -> Aufgabe | None:
+        """Eine bestimmte Aufgabe: fest aus dem Paket oder per Generator-ID nachgebaut."""
+        if task_id in self.package.aufgaben:
+            fixed = self.package.aufgaben[task_id]
+            return fixed if fixed.thema == topic_id else None
+        parsed = parse_task_id(task_id)
+        pool = self.pools.get(topic_id)
+        if parsed is None or pool is None or parsed[0] not in pool.generatoren:
+            return None
+        generator_id, stufe, seed = parsed
+        return make(generator_id, stufe, seed, topic_id)
+
+    def submit(
+        self,
+        task: Aufgabe,
+        answer: Antwort,
+        hints_opened: int = 0,
+        seconds: float = 0,
+        now: dt.datetime | None = None,
+    ) -> Submission:
+        """Bewertet eine Antwort, speichert den Versuch und die Lernzeit, liefert die neue Stufe."""
+        moment = now or dt.datetime.now(dt.UTC)
+        before = self.level(task.thema).stufe
+        result = evaluate(task, answer)
+        counted = round(min(max(seconds, 0), MAX_TASK_SECONDS))
+        self.store.log_attempt(
+            Attempt(
+                aufgabe_id=task.id,
+                thema=task.thema,
+                stufe=task.stufe,
+                typ=task.typ,
+                richtig=result.richtig,
+                anteil=round(result.anteil, 4),
+                hilfen=help_level(task, hints_opened),
+                ursache=result.ursache,
+                fehlerschritt=result.fehlerschritt,
+                antwort=_answer_json(answer),
+                sekunden=counted,
+                am=moment,
+            )
+        )
+        if counted:
+            self.store.log_study(0, "uebung", task.id, day=moment.date(), sekunden=counted)
+        progress = self.store.progress().get(task.thema, TopicProgress(topic_id=task.thema))
+        if progress.zustand == "offen":
+            self.store.set_progress(progress.model_copy(update={"zustand": "laufend"}))
+        return Submission(result, before, self.level(task.thema).stufe)
 
     # --- Überblick ---------------------------------------------------------------
     def kpis(self, now: dt.datetime | None = None) -> Kpis:

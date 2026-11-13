@@ -67,3 +67,42 @@ def test_finishing_topic_moves_plan_forward(trainer: Trainer) -> None:
     assert second is not None and second.topic_id != first.topic_id
     trainer.set_topic_done(first.topic_id, done=False)
     assert trainer.store.progress()[first.topic_id].zustand == "laufend"
+
+
+def test_practice_flow_levels_and_attempts(trainer: Trainer) -> None:
+    """Üben: Aufgabe ziehen, abgeben, Versuch speichern, Stufe steigt nach drei sicheren Lösungen."""
+    import random
+
+    from ap_trainer.tasks.validate import model_answer
+
+    topics = trainer.practice_topics()
+    assert [p.thema.id for p in topics] == ["zahlen"]
+    assert topics[0].stufe == 1 and topics[0].stufen == [1, 2, 3, 4]
+    rng = random.Random(7)
+    for _ in range(3):
+        task = trainer.next_task("zahlen", rng)
+        assert task is not None and task.stufe == 1
+        submission = trainer.submit(task, model_answer(task), seconds=30, now=NOW)
+        assert submission.ergebnis.richtig
+    assert submission.stufe_vorher == 1 and submission.stufe_nachher == 2
+    task = trainer.next_task("zahlen", rng)
+    assert task is not None and task.stufe == 2
+    # Mit Lösungsweg gelöst zählt nicht als sicher, ist aber auch kein Fehler
+    assert trainer.submit(task, model_answer(task), hints_opened=9, now=NOW).stufe_nachher == 2
+    attempts = trainer.store.attempts("zahlen")
+    assert len(attempts) == 4 and attempts[-1].hilfen == 4
+    assert trainer.store.progress()["zahlen"].zustand == "laufend"
+    assert trainer.store.minutes_by_day()[NOW.date()] == 1.5
+
+
+def test_find_task_rebuilds_generated_tasks(trainer: Trainer) -> None:
+    import random
+
+    task = trainer.next_task("zahlen", random.Random(2))
+    assert task is not None
+    assert trainer.find_task(task.id, "zahlen") == task
+    assert trainer.find_task("zahlen-nibble", "zahlen") is not None
+    assert trainer.find_task("zahlen-nibble", "hardware") is None
+    assert trainer.find_task("gen:ipv4-subnetting:1:5", "zahlen") is None
+    assert trainer.find_task("quatsch", "zahlen") is None
+    assert trainer.next_task("hardware") is None

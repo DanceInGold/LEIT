@@ -125,10 +125,31 @@ status: ungeprüft
 """
 
 
+AUFGABEN = """
+generatoren: [zahlensysteme]
+aufgaben:
+  - id: zahlen-nibble
+    typ: multiple_choice
+    stufe: 1
+    titel: Nibble
+    frage: Wie viele Bit hat eine Hex-Ziffer?
+    optionen:
+      - {text: "4", richtig: true}
+      - {text: "8", warum: "Das ist ein Byte.", ursache: begriff}
+    hinweise: ["Wie viele Werte hat eine Hex-Ziffer?"]
+    loesungsweg: 16 = 2^4, also 4 Bit.
+    quelle: neu erstellt
+    belege: [{titel: Testbeleg}]
+    status: ungeprüft
+"""
+
+
 def write_package(root: Path) -> Path:
     """Schreibt ein gültiges Mini-Paket nach ``root`` und gibt den Pfad zurück."""
     (root / "lektionen").mkdir(parents=True)
     (root / "glossar").mkdir()
+    (root / "aufgaben").mkdir()
+    (root / "aufgaben" / "zahlen.yaml").write_text(AUFGABEN, encoding="utf-8")
     (root / "paket.yaml").write_text(PAKET, encoding="utf-8")
     (root / "katalog.yaml").write_text(KATALOG, encoding="utf-8")
     (root / "lektionen" / "zahlen-1.md").write_text(LEKTION, encoding="utf-8")

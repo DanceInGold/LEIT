@@ -12,6 +12,7 @@ import sys
 from ap_trainer import __version__
 from ap_trainer.config import load_config
 from ap_trainer.content.loader import ContentLoadError, load_package_or_raise
+from ap_trainer.tasks.validate import check_tasks
 
 
 def _lan_address() -> str:
@@ -43,6 +44,9 @@ def main(argv: list[str] | None = None) -> int:
     config = load_config()
     try:
         package = load_package_or_raise(config.content_dir)
+        task_errors = check_tasks(package)
+        if task_errors:
+            raise ContentLoadError(task_errors)
     except ContentLoadError as exc:
         print("Die Inhalte enthalten Fehler und können nicht geladen werden:", file=sys.stderr)
         for error in exc.errors:

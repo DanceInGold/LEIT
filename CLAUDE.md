@@ -57,7 +57,7 @@ echten Namen von Mitschüler:innen oder Lehrkräften in `content/`.
 ```
 quellen/     Rohmaterial, unverändert (eigene/, portfolios/, lernfelder/, pruefung/)
 docs/        Anforderungen, Inventur, Manifest, Prüfprotokoll, Lernstil, Entscheidungen
-content/ap1/ paket.yaml, katalog.yaml, lektionen/, glossar/, aufgaben/, simulationen/
+content/ap1/ paket.yaml, katalog.yaml, lektionen/, glossar/, aufgaben/<thema>.yaml, simulationen/
 src/ap_trainer/  Programm: content/ → core/ → tasks/ → storage/ → ui/
 tools/       Pipeline-Werkzeuge (uv run ap-tools <befehl>)
 tests/       pytest, Spiegel von src/ und tools/
@@ -68,8 +68,12 @@ tests/       pytest, Spiegel von src/ und tools/
 - Bezeichner Englisch; Kommentare, Docstrings, Inhalte, Commit-Nachrichten Deutsch.
 - `core/` importiert nie aus `ui/` oder `storage/`; Daten als Pydantic-Modelle hinein und heraus.
 - Jede Datei eine Aufgabe, Kopf-Docstring in 1–2 Sätzen, Funktionen i. d. R. unter 40 Zeilen.
-- Neuer Aufgabengenerator = neue Datei in `tasks/generators/` + Testdatei mit Hypothesis-Tests
-  gegen eine unabhängige Referenzrechnung (NF-07); er registriert sich selbst.
+- Neuer Aufgabengenerator = neue Datei in `tasks/generators/` + Testdatei mit Zufallstests
+  (`tests/tasks/random_cases.py`: Hypothesis in der CI, sonst 1.000 feste Seeds) gegen eine
+  unabhängige Referenzrechnung (NF-07); er registriert sich selbst. Welchem Thema er dient, steht
+  im Paket unter `aufgaben/<thema>.yaml` → `generatoren`.
+- Aufgaben: eine Datei je Thema, jede Aufgabe mit `belege`, `status`, Lösungsweg und möglichst
+  Hinweisen (Richtung, Ansatz, erster Schritt) und typischen Falschantworten mit Erklärung (HI-03).
 - Jedes Werkzeug in `tools/` ist ein Unterbefehl von `ap-tools` mit `--help`.
 - Vor jedem Commit: `uv run ruff check . && uv run ruff format --check . && uv run mypy && uv run pytest`.
 - Python ausführlich kommentieren; der Azubi reviewt keinen Code – Qualität sichern Tests,
@@ -85,7 +89,8 @@ tests/       pytest, Spiegel von src/ und tools/
 - **Gemergt wird ausschließlich vom Azubi.** Claude merged nicht, pusht nicht auf `main`,
   kein Skript committet oder pusht selbstständig.
 - Inhalte gelten erst nach dem Merge als „geprüft“. Neue Inhalte tragen im PR `status: ungeprüft`;
-  der erste Commit des nächsten Branches setzt die gemergten Inhalte auf `geprüft`.
+  der erste Commit des nächsten Branches setzt die gemergten Inhalte auf `geprüft` – auch Aufgaben
+  und das Klassenattribut `status` neuer Generatoren (E-23).
 
 ## Material einspielen (Kurzablauf, Details Kap. 6 der Anforderungen)
 

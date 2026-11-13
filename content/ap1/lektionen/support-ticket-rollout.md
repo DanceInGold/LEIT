@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Support-Level und Begriffe (Incident, Service Re
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkte 01.03 (Support- und Serviceanfragen, First-, Second- und Thirdlevel-Support; KI-Unterstützung) und 07.04 (Rolloutprozesse, Ticketsystem, Budget) (laut Änderungsliste IT-Berufe-Podcast #190 bzw. katalog.yaml)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
   - {titel: "AXELOS: ITIL 4 – Service-Management-Praktiken (Incident Management, Service Request Management, Problem Management)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

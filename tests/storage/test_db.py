@@ -101,3 +101,34 @@ def test_old_schema_is_migrated(tmp_path: Path) -> None:
 def test_card_due_dates(store: Store) -> None:
     store.put_card("a", NOW, {})
     assert store.card_due_dates() == [NOW]
+
+
+def test_attempts_roundtrip_and_export(store: Store, tmp_path: Path) -> None:
+    from ap_trainer.core.models import Attempt
+
+    at = dt.datetime(2026, 11, 16, 8, 0, tzinfo=dt.UTC)
+    store.log_attempt(
+        Attempt(
+            aufgabe_id="a",
+            thema="x",
+            stufe=2,
+            typ="rechnung",
+            richtig=False,
+            anteil=0.5,
+            hilfen=1,
+            ursache="rechenfehler",
+            fehlerschritt=1,
+            antwort='["1"]',
+            sekunden=40,
+            am=at,
+        )
+    )
+    store.log_attempt(
+        Attempt(aufgabe_id="b", thema="y", stufe=1, typ="freitext", richtig=True, anteil=1, am=at)
+    )
+    assert [a.aufgabe_id for a in store.attempts()] == ["a", "b"]
+    first = store.attempts("x")[0]
+    assert first.ursache == "rechenfehler" and first.fehlerschritt == 1 and not first.richtig
+    other = Store(tmp_path / "anderes.sqlite")
+    other.import_json(store.export_json())
+    assert other.attempts() == store.attempts()

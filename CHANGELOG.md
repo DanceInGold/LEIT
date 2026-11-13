@@ -5,6 +5,20 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt (Phase 2 · Üben)
+- Aufgaben-Engine mit sechs Aufgabentypen: Multiple Choice, Zuordnung, Lückentext, Reihenfolge,
+  Rechenaufgabe mit Zwischenschritten, Freitext mit Selbstbewertung (AU-01, AU-05) und fünf Stufen (AU-02).
+- Rechenaufgaben prüfen jeden Zwischenschritt und nennen den ersten falschen (AU-04); typische
+  Falschantworten haben eine eigene Erklärung, jeder Fehler eine Ursache für das Fehlerprotokoll
+  (HI-03, Vorbereitung FT-04). Zahlen dürfen deutsch oder englisch geschrieben werden, mit Einheit.
+- Gestufte Hilfen: Richtung, Ansatz, erster Schritt, Lösungsweg; die genutzte Hilfe wird gespeichert (HI-01, HI-02).
+- Aufgabengeneratoren „zahlensysteme“ und „ipv4-subnetting“ mit je vier Stufen, jeweils mit
+  1.000 Zufallsfällen gegen eine unabhängige Referenz getestet (AU-03, NF-07).
+- Stufensteuerung: drei sicher gelöste Aufgaben in Folge → Stufe höher, zwei Fehler → tiefer (AU-06).
+- Seite „Üben“ mit Themenübersicht und Übungsansicht; „Heute“ zeigt den Übungsblock zum aktuellen Thema (LP-05).
+- Lösungsversuche im Lernstand (Migration 3), im JSON-Export enthalten (NF-03).
+- Aufgabendateien `content/ap1/aufgaben/<thema>.yaml` mit Prüfung in `ap-tools check`; erste sieben Aufgaben.
+
 ### Hinzugefügt
 - Elf Kapitel für die letzten 13 Themen: UML (Anwendungsfall/Klasse, Aktivität), EPK und BPMN
   (Zusatz), Softwarearten und Stamm-/Bewegungsdaten, Support und Rollout, Suchoperatoren,

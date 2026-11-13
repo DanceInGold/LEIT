@@ -15,7 +15,7 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
-from ap_trainer.core.models import PlanSettings, TopicProgress
+from ap_trainer.core.models import Attempt, PlanSettings, TopicProgress
 
 # Jede Migration hebt das Schema um genau eine Version an. Nie ändern, nur anhängen.
 MIGRATIONS: list[str] = [
@@ -52,9 +52,28 @@ MIGRATIONS: list[str] = [
     """
     ALTER TABLE study_log ADD COLUMN sekunden INTEGER NOT NULL DEFAULT 0;
     """,
+    # 3: Lösungsversuche von Aufgaben (AU-06, HI-02, FT-01, FT-04)
+    """
+    CREATE TABLE attempts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        aufgabe_id TEXT NOT NULL,
+        thema TEXT NOT NULL,
+        stufe INTEGER NOT NULL,
+        typ TEXT NOT NULL,
+        richtig INTEGER NOT NULL,
+        anteil REAL NOT NULL,
+        hilfen INTEGER NOT NULL DEFAULT 0,
+        ursache TEXT,
+        fehlerschritt INTEGER,
+        antwort TEXT NOT NULL DEFAULT '',
+        sekunden INTEGER NOT NULL DEFAULT 0,
+        am TEXT NOT NULL
+    );
+    CREATE INDEX attempts_thema ON attempts(thema, id);
+    """,
 ]
 
-EXPORT_TABLES = ("settings", "topic_progress", "lesson_read", "cards", "reviews", "study_log")
+EXPORT_TABLES = ("settings", "topic_progress", "lesson_read", "cards", "reviews", "study_log", "attempts")
 
 
 def _now() -> str:
@@ -211,6 +230,26 @@ class Store:
                 "INSERT INTO reviews(card_id, grade, reviewed_at) VALUES(?, ?, ?)",
                 (card_id, grade, at.isoformat()),
             )
+
+    # --- Aufgaben ----------------------------------------------------------------
+    def log_attempt(self, attempt: Attempt) -> None:
+        """Speichert einen Lösungsversuch."""
+        row = attempt.model_dump(mode="json")
+        row["richtig"] = int(attempt.richtig)
+        cols = ", ".join(row)
+        marks = ", ".join("?" for _ in row)
+        with self._tx() as conn:
+            conn.execute(f"INSERT INTO attempts ({cols}) VALUES ({marks})", tuple(row.values()))
+
+    def attempts(self, thema: str | None = None) -> list[Attempt]:
+        """Alle Versuche in zeitlicher Reihenfolge, auf Wunsch nur für ein Thema."""
+        query = "SELECT * FROM attempts"
+        params: tuple[str, ...] = ()
+        if thema is not None:
+            query += " WHERE thema = ?"
+            params = (thema,)
+        rows = self._conn.execute(query + " ORDER BY id", params).fetchall()
+        return [Attempt.model_validate({k: v for k, v in dict(r).items() if k != "id"}) for r in rows]
 
     # --- Export / Import ---------------------------------------------------------
     def export_json(self) -> dict[str, Any]:
