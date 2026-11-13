@@ -67,7 +67,7 @@ class DataVolume(Generator):
     id = "datenmengen"
     titel = "Datenmengen und Übertragungszeit"
     stufen = (1, 2, 3, 4)
-    status = "ungeprüft"
+    status = "geprüft"
     quelle = "Generator „datenmengen“; jede Variante mit exakter Bruchrechnung unabhängig nachgerechnet."
     belege = BELEGE
 

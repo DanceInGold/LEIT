@@ -91,7 +91,7 @@ class PowerCost(Generator):
     id = "stromkosten"
     titel = "Stromverbrauch und Stromkosten"
     stufen = (1, 2, 3, 4)
-    status = "ungeprüft"
+    status = "geprüft"
     quelle = "Generator „stromkosten“; jede Variante mit exakter Bruchrechnung unabhängig nachgerechnet."
     belege = BELEGE
 

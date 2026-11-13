@@ -176,7 +176,7 @@ class Ipv6(Generator):
     id = "ipv6"
     titel = "IPv6-Adressen"
     stufen = (1, 2, 3, 4)
-    status = "ungeprüft"
+    status = "geprüft"
     quelle = "Generator „ipv6“; jede Variante gegen Pythons Modul ipaddress getestet."
     belege = BELEGE
 
