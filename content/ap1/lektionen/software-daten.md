@@ -8,7 +8,7 @@ dauer_min: 30
 quelle: "Neu erstellt (Claude). Einteilung von Software und Unternehmensanwendungen nach gängiger Wirtschaftsinformatik-Literatur; Stamm- und Bewegungsdaten nach betriebswirtschaftlicher Standardliteratur; Beispiele fiktiv."
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkte 03.01 (Standard-, Branchensoftware, z. B. ERP, SCM, CRM; Systemsoftware; Entwicklungssysteme; KI-Software) und 01.02 (Stamm- und Bewegungsdaten) (laut Änderungsliste IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

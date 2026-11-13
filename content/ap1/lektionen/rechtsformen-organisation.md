@@ -10,7 +10,7 @@ belege:
   - {titel: "GmbHG § 5 (Stammkapital mindestens 25.000 €), § 5a (Unternehmergesellschaft)", url: "https://www.gesetze-im-internet.de/gmbhg/"}
   - {titel: "AktG § 7 (Grundkapital mindestens 50.000 €)", url: "https://www.gesetze-im-internet.de/aktg/"}
   - {titel: "katalog.yaml: rechtsformen-aufbauorganisation als Zusatzthema (stand_2025: ausserhalb)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

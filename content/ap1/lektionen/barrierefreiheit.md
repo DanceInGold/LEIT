@@ -11,7 +11,7 @@ belege:
   - {titel: "W3C: Web Content Accessibility Guidelines (WCAG) 2.2", url: "https://www.w3.org/TR/WCAG22/"}
   - {titel: "Barrierefreiheitsstärkungsgesetz (BFSG)", url: "https://www.gesetze-im-internet.de/bfsg/"}
   - {titel: "Destatis, Pressemitteilung Juli 2026: 7,8 Millionen schwerbehinderte Menschen leben in Deutschland", url: "https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/07/PD26_246_227.html"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

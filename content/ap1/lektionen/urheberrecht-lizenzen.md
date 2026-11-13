@@ -11,7 +11,7 @@ belege:
   - {titel: "Urheberrechtsgesetz (UrhG), insbesondere § 64 (70 Jahre nach dem Tod) und §§ 69a ff. (Computerprogramme)", url: "https://www.gesetze-im-internet.de/urhg/"}
   - {titel: "Open Source Initiative: Licenses", url: "https://opensource.org/licenses"}
   - {titel: "GNU General Public License v3", url: "https://www.gnu.org/licenses/gpl-3.0.html"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

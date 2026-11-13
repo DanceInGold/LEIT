@@ -9,7 +9,7 @@ quelle: "Neu erstellt (Claude). Qualitätsbegriff nach DIN EN ISO 9000:2015 (Hin
 belege:
   - {titel: "Prüfungskatalog AP1 2025, Unterpunkte 05.01/05.02: Qualitätsmaßnahmen, Testprotokoll für das Einrichten eines Arbeitsplatzes – Themenzuordnung siehe content/ap1/katalog.yaml"}
   - {titel: "DIN EN ISO 9000:2015 Qualitätsmanagementsysteme – Grundlagen und Begriffe (Qualität: Grad, in dem ein Satz inhärenter Merkmale Anforderungen erfüllt)"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?

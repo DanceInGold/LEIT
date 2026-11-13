@@ -10,7 +10,7 @@ belege:
   - {titel: "Keller, G.; Nüttgens, M.; Scheer, A.-W.: Semantische Prozeßmodellierung auf der Grundlage „Ereignisgesteuerter Prozeßketten (EPK)“. Veröffentlichungen des Instituts für Wirtschaftsinformatik, Heft 89, Saarbrücken 1992"}
   - {titel: "OMG Business Process Model and Notation (BPMN) 2.0.2", url: "https://www.omg.org/spec/BPMN/2.0.2"}
   - {titel: "docs/entscheidungen.md E-10: BPMN und EPK als Zusatz, nicht im Katalog 2025 genannt"}
-status: ungeprüft
+status: geprüft
 ---
 
 ## Worum geht es?
