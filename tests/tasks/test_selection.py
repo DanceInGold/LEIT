@@ -76,8 +76,23 @@ def test_everything_seen_never_repeats_last_task() -> None:
     assert pick_task(single, 1, ["a"], rng).id == "a"  # type: ignore[union-attr]
 
 
-def test_no_immediate_repeat_in_real_package() -> None:
-    """Für jedes Thema des Pakets: 30 Mal „Nächste Aufgabe“ auf jeder Stufe ohne direkte Wiederholung."""
+def test_small_topic_rotates_instead_of_ping_pong() -> None:
+    """Fehler aus dem Test von PR #20: SMART pendelte zwischen Stufe-1-Aufgabe und den anderen."""
+    pool = TopicPool("t", [_task("a", 1), _task("b", 2), _task("c", 3), _task("d", 4)])
+    rng = random.Random(1)
+    recent: list[str] = []
+    for _ in range(12):
+        task = pick_task(pool, 1, recent, rng)
+        assert task is not None
+        recent.append(task.id)
+    assert recent == ["a", "b", "c", "d"] * 3
+
+
+def test_no_recent_repeat_in_real_package() -> None:
+    """Für jedes Thema des Pakets: keine der letzten drei (bzw. n − 1) Aufgaben kommt sofort wieder.
+
+    Die Stufe springt dabei zufällig, wie beim echten Üben mit Auf- und Abstieg.
+    """
     from pathlib import Path
 
     from ap_trainer.content.loader import load_package_or_raise
@@ -89,12 +104,16 @@ def test_no_immediate_repeat_in_real_package() -> None:
     ]
     rng = random.Random(6)
     for pool in pools:
-        if len(pool.aufgaben) < 2 and not pool.generatoren:
+        if len(pool.aufgaben) < 2 or pool.generatoren:
             continue
-        for stufe in pool.levels():
-            recent: list[str] = []
-            for _ in range(30):
-                task = pick_task(pool, stufe, recent, rng)
-                assert task is not None
-                assert not recent or task.id != recent[-1], (pool.thema, stufe, task.id)
-                recent.append(task.id)
+        block = min(3, len(pool.aufgaben) - 1)
+        recent: list[str] = []
+        for _ in range(40):
+            task = pick_task(pool, rng.choice(pool.levels()), recent, rng)
+            assert task is not None
+            distinct: list[str] = []
+            for task_id in reversed(recent):
+                if task_id not in distinct:
+                    distinct.append(task_id)
+            assert task.id not in distinct[:block], (pool.thema, task.id, recent[-4:])
+            recent.append(task.id)
