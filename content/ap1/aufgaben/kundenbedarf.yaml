@@ -1,0 +1,104 @@
+# Aufgaben zum Thema „Kundenbedarf ermitteln, situationsgerechte Kommunikation“.
+# Passend zur Lektion kundenbedarf.
+
+aufgaben:
+  - id: kunde-fragearten-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Welche Frageart ist das?"
+    frage: "Ordne jeder Frage aus einem Kundengespräch die Frageart zu."
+    paare:
+      - {links: "„Wie arbeiten Ihre Mitarbeitenden heute mit den Dokumenten?“", rechts: "offene Frage"}
+      - {links: "„Brauchen Sie einen Zugriff von unterwegs?“", rechts: "geschlossene Frage"}
+      - {links: "„Bevorzugen Sie eigene Hardware oder eine Cloudlösung?“", rechts: "Alternativfrage"}
+      - {links: "„Habe ich richtig verstanden, dass 40 Personen gleichzeitig zugreifen?“", rechts: "Kontrollfrage"}
+    ablenker: ["Suggestivfrage"]
+    hinweise:
+      - "Offene Fragen beginnen meist mit einem W-Wort und lassen sich nicht mit Ja oder Nein beantworten."
+    loesungsweg: "W-Frage → **offen** · Ja/Nein → **geschlossen** · A oder B → **Alternativfrage** · „Habe ich richtig verstanden …“ → **Kontrollfrage**."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion kundenbedarf."
+    belege:
+      - {titel: "Lektion „Kundenbedarf ermitteln“ (Fragetechniken)"}
+    status: ungeprüft
+
+  - id: kunde-vier-seiten
+    typ: zuordnung
+    stufe: 2
+    titel: "Vier Seiten einer Nachricht"
+    frage: "Eine Kundin sagt am Telefon: **„Der Drucker druckt schon wieder nicht.“** Ordne jeder Seite der Nachricht die passende Deutung zu."
+    paare:
+      - {links: "Sachinhalt", rechts: "Der Drucker funktioniert nicht."}
+      - {links: "Selbstoffenbarung", rechts: "Ich bin genervt."}
+      - {links: "Beziehung", rechts: "Ihr bekommt das nicht dauerhaft in den Griff."}
+      - {links: "Appell", rechts: "Repariert ihn bitte sofort!"}
+    hinweise:
+      - "Sache – was ist los? Selbstoffenbarung – wie geht es mir? Beziehung – was halte ich von dir? Appell – was sollst du tun?"
+    loesungsweg: "Sachinhalt = Fakt · Selbstoffenbarung = eigenes Gefühl · Beziehung = was sie vom Support hält („schon wieder“) · Appell = Aufforderung."
+    quelle: "Neu erstellt (Claude), Modell der Lektion kundenbedarf."
+    belege:
+      - {titel: "Schulz von Thun, F.: Miteinander reden 1 – Störungen und Klärungen. Rowohlt, Reinbek 1981"}
+    status: ungeprüft
+
+  - id: kunde-zuhoeren-ordnen
+    typ: reihenfolge
+    stufe: 2
+    titel: "Aktives Zuhören"
+    frage: "Bringe die Schritte des aktiven Zuhörens in eine sinnvolle Reihenfolge."
+    elemente:
+      - "Aufmerksam zuhören, nicht unterbrechen"
+      - "Gehörtes mit eigenen Worten wiederholen (paraphrasieren)"
+      - "Unklares gezielt nachfragen"
+      - "Am Ende die Anforderungen zusammenfassen und bestätigen lassen"
+    hinweise:
+      - "Erst verstehen, dann absichern."
+    loesungsweg: "Zuhören → paraphrasieren → nachfragen → zusammenfassen und bestätigen lassen."
+    quelle: "Neu erstellt (Claude), Ablauf der Lektion kundenbedarf."
+    belege:
+      - {titel: "Lektion „Kundenbedarf ermitteln“ (Aktives Zuhören)"}
+    status: ungeprüft
+
+  - id: kunde-reaktion
+    typ: multiple_choice
+    stufe: 3
+    titel: "Situationsgerecht reagieren"
+    situation: "Ein verärgerter Kunde ruft an: „Das Archiv ist schon wieder langsam. Das kann doch nicht so schwer sein!“"
+    frage: "Welche Antwort ist am besten geeignet?"
+    optionen:
+      - {text: "„Ich verstehe, dass das stört. Seit wann tritt die Verzögerung auf, und betrifft sie alle Dokumente?“", richtig: true, warum: "Erkennt den Ärger an und kehrt mit offenen Fragen auf die Sachebene zurück."}
+      - {text: "„Bei uns ist alles in Ordnung, das muss an Ihrem Netzwerk liegen.“", warum: "Weist ohne Prüfung die Schuld zu und verschärft die Beziehungsebene.", ursache: konzept}
+      - {text: "„Bitte bleiben Sie sachlich, sonst kann ich Ihnen nicht helfen.“", warum: "Reagiert auf der Beziehungsebene und belehrt – das eskaliert eher.", ursache: konzept}
+      - {text: "„Ist es langsam?“", warum: "Eine geschlossene Frage, deren Antwort schon bekannt ist; sie bringt keine neuen Informationen.", ursache: konzept}
+    hinweise:
+      - "Den Ärger anerkennen, dann auf der Sachebene weiterarbeiten."
+      - "Welche Frage liefert Informationen zur Fehlersuche?"
+    loesungsweg: "Anerkennen + offene Sachfragen. Schuldzuweisung, Belehrung oder eine nutzlose geschlossene Frage helfen nicht."
+    quelle: "Neu erstellt (Claude), Beispiel der Lektion kundenbedarf."
+    belege:
+      - {titel: "Schulz von Thun, F.: Miteinander reden 1 – Störungen und Klärungen. Rowohlt, Reinbek 1981"}
+    status: ungeprüft
+
+  - id: kunde-fragen-formulieren
+    typ: freitext
+    stufe: 4
+    operator: nennen
+    titel: "Fragen für das Erstgespräch"
+    situation: "Ein Steuerbüro mit 15 Mitarbeitenden möchte „etwas für die Datensicherung“. Du bereitest das Erstgespräch vor."
+    frage: "Formuliere je eine offene, eine geschlossene, eine Alternativ- und eine Kontrollfrage, die dir helfen, den Bedarf zu ermitteln."
+    musterloesung: |
+      - **offen:** „Welche Daten sind für Ihren Arbeitsalltag besonders wichtig, und wo liegen sie heute?“
+      - **geschlossen:** „Gibt es derzeit schon eine regelmäßige Sicherung?“
+      - **Alternativfrage:** „Soll die Sicherung lieber im Büro oder in einem externen Rechenzentrum liegen?“
+      - **Kontrollfrage:** „Habe ich richtig verstanden, dass ein Ausfall von höchstens einem Arbeitstag tolerierbar ist?“
+    bewertungspunkte:
+      - {punkt: "Offene Frage (W-Frage, nicht mit Ja/Nein beantwortbar)", kernbegriffe: ["welche", "wie", "was", "wo", "warum", "wann"]}
+      - {punkt: "Geschlossene Frage (Ja/Nein oder ein Fakt)", kernbegriffe: ["gibt es", "haben sie", "ist", "müssen", "sollen", "brauchen"]}
+      - {punkt: "Alternativfrage (A oder B)", kernbegriffe: [" oder "]}
+      - {punkt: "Kontrollfrage (Verständnis sichern)", kernbegriffe: ["richtig verstanden", "verstehe ich", "zusammengefasst"]}
+    hinweise:
+      - "Erst offen fragen, dann mit geschlossenen Fragen konkretisieren."
+      - "Jede Frage muss zum Thema Datensicherung passen."
+    loesungsweg: "Vier Fragen, je eine pro Frageart und passend zur Situation (welche Daten, vorhandene Sicherung, Ort der Sicherung, tolerierbarer Ausfall)."
+    quelle: "Neu erstellt (Claude), Fragetechniken der Lektion kundenbedarf."
+    belege:
+      - {titel: "Lektion „Kundenbedarf ermitteln“ (Fragetechniken)"}
+    status: ungeprüft

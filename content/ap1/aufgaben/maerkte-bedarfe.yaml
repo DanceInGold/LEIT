@@ -1,0 +1,83 @@
+# Aufgaben zum Thema „Märkte und Bedarfe“.
+# Passend zur Lektion kundenbedarf (Abschnitt „Vom Bedürfnis zur Nachfrage“).
+
+aufgaben:
+  - id: markt-stufen-ordnen
+    typ: reihenfolge
+    stufe: 1
+    titel: "Vom Bedürfnis zur Nachfrage"
+    frage: "Bringe die Begriffe in die richtige Reihenfolge."
+    elemente:
+      - "Bedürfnis"
+      - "Bedarf"
+      - "Nachfrage"
+    hinweise:
+      - "Erst der Mangel, dann das Geld dafür, dann der Gang zum Markt."
+    loesungsweg: "**Bedürfnis** (Mangel) → **Bedarf** (mit Kaufkraft) → **Nachfrage** (am Markt)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion kundenbedarf."
+    belege:
+      - {titel: "Lektion „Kundenbedarf ermitteln“ (Bedürfnis, Bedarf, Nachfrage)"}
+    status: ungeprüft
+
+  - id: markt-begriffe-zuordnen
+    typ: zuordnung
+    stufe: 2
+    titel: "Bedürfnis, Bedarf oder Nachfrage?"
+    frage: "Ordne jede Situation dem passenden Begriff zu."
+    paare:
+      - {links: "„Unsere Dokumente gehen ständig verloren.“", rechts: "Bedürfnis"}
+      - {links: "Die Geschäftsführung gibt 25.000 € für eine Archivlösung frei.", rechts: "Bedarf"}
+      - {links: "Die Firma schickt Anfragen an drei Anbieter.", rechts: "Nachfrage"}
+    ablenker: ["Angebot"]
+    hinweise:
+      - "Bedarf braucht Kaufkraft; Nachfrage tritt am Markt auf."
+    loesungsweg: "Mangel → **Bedürfnis** · Budget → **Bedarf** · Anfragen an Anbieter → **Nachfrage**. Das Angebot kommt vom Anbieter."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion kundenbedarf."
+    belege:
+      - {titel: "Lektion „Kundenbedarf ermitteln“ (Bedürfnis, Bedarf, Nachfrage)"}
+    status: ungeprüft
+
+  - id: markt-preis
+    typ: multiple_choice
+    stufe: 3
+    titel: "Wie entsteht der Preis?"
+    frage: "Welche **zwei** Aussagen stimmen?"
+    optionen:
+      - {text: "Viele Anbieter mit vergleichbaren Produkten drücken den Preis.", richtig: true, warum: "Bei starkem Wettbewerb weichen Kunden leicht auf andere Anbieter aus."}
+      - {text: "Ein spezialisiertes Produkt mit wenigen Anbietern erlaubt höhere Preise.", richtig: true, warum: "Kunden haben kaum Ausweichmöglichkeiten."}
+      - {text: "Ein Bedürfnis allein reicht, damit Nachfrage am Markt entsteht.", warum: "Ohne Kaufkraft (Bedarf) entsteht keine Nachfrage.", ursache: begriff}
+      - {text: "Auf dem Markt treffen nur Anbieter aufeinander.", warum: "Auf dem Markt treffen Angebot und Nachfrage aufeinander.", ursache: konzept}
+    hinweise:
+      - "Auf dem Markt treffen Angebot und Nachfrage aufeinander."
+    loesungsweg: "Viel Wettbewerb → niedrigere Preise; wenige Anbieter → höhere Preise. Nachfrage braucht Kaufkraft."
+    quelle: "Neu erstellt (Claude), passend zur Lektion kundenbedarf."
+    belege:
+      - {titel: "Lektion „Kundenbedarf ermitteln“ (Markt)"}
+    status: ungeprüft
+
+  - id: markt-anfrage-einordnen
+    typ: freitext
+    stufe: 4
+    operator: erläutern
+    titel: "Vom Ärger zur Anfrage"
+    situation: "Eine Arztpraxis klagt seit Monaten über langsame Rechner. Erst als das Quartalsbudget 8.000 € für neue Hardware vorsieht, bittet sie die ArchivTech und einen Mitbewerber um ein Angebot. Notebooks dieser Klasse bieten sehr viele Händler an."
+    frage: "Erläutere an der Situation die Begriffe Bedürfnis, Bedarf und Nachfrage, und was die vielen Anbieter für den Preis bedeuten."
+    musterloesung: |
+      Bedürfnis: Die Praxis empfindet einen Mangel – die Rechner sind zu langsam. Bedarf entsteht erst,
+      als mit dem Budget von 8.000 € Kaufkraft dazukommt. Nachfrage ist es, sobald die Praxis am Markt
+      auftritt und zwei Anbieter um ein Angebot bittet. Weil sehr viele Händler vergleichbare
+      Notebooks anbieten, ist der Wettbewerb groß – das drückt den Preis, die ArchivTech muss mit
+      Preis oder Service überzeugen.
+    bewertungspunkte:
+      - {punkt: "Bedürfnis = empfundener Mangel (langsame Rechner)", kernbegriffe: ["bedürfnis", "mangel"]}
+      - {punkt: "Bedarf = Bedürfnis mit Kaufkraft (Budget 8.000 €)", kernbegriffe: ["kaufkraft", "budget", "8.000", "8000"]}
+      - {punkt: "Nachfrage = am Markt auftretender Bedarf (Anfragen)", kernbegriffe: ["nachfrage", "anfrage", "markt"]}
+      - {punkt: "Viele Anbieter → Wettbewerb drückt den Preis", kernbegriffe: ["wettbewerb", "konkurrenz", "preis"]}
+    hinweise:
+      - "Ordne jedem Begriff einen Moment der Geschichte zu."
+      - "„Erläutern“ heißt: Begriff plus Bezug zur Situation."
+    loesungsweg: "Langsame Rechner = Bedürfnis; Budget = Bedarf; Anfragen = Nachfrage; viele Anbieter = Preisdruck."
+    quelle: "Neu erstellt (Claude), passend zur Lektion kundenbedarf."
+    belege:
+      - {titel: "Lektion „Kundenbedarf ermitteln“ (Bedürfnis, Bedarf, Nachfrage, Markt)"}
+    status: ungeprüft

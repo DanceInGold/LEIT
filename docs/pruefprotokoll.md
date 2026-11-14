@@ -340,3 +340,20 @@ keine typische Falschantwort als richtig gilt.
 
 Alle Korrekturen betrafen neue, noch nicht gemergte Aufgaben; in bestehenden Lektionen wurden
 keine Fehler gefunden.
+
+## Aufgaben Paket 2 (Sicherheit, Datenschutz, Vorgehensmodelle, OOP, Englisch, Kundenbedarf)
+
+57 feste Aufgaben für neun Themen, im PR mit `status: ungeprüft`. Rechenwerte per Skript
+nachgerechnet, OOP-Code in Python ausgeführt; `ap-tools check` prüft Musterlösungen und Fehlerbilder.
+
+| Datei | Aufgaben | Geprüfte Kernaussagen | Beim Prüfen korrigiert |
+| --- | ---: | --- | --- |
+| `verschluesselung.yaml` | 9 | Schlüsselanzahl n(n − 1)/2 bzw. 2n (25 Standorte: 300 / 50 / 25 geheim); SHA-256 = 256 Bit = 64 Hex-Zeichen (FIPS 180-4); Signatur privat/öffentlich (RFC 8017); Passwörter mit Salt und langsamem Verfahren (OWASP); Zertifikatsprüfung Name und Gültigkeit (RFC 5280, RFC 9525) | Verweis auf eine BSI-Anforderungsnummer entfernt, die sich nicht sicher belegen ließ; jetzt nur Baustein ORP.4 |
+| `schutzziele.yaml` | 5 | Grundwerte V, I, V (BSI 200-2); Zuordnung von Vorfällen und Maßnahmen; Ransomware mit Datenabfluss | – |
+| `bsi-schutzbedarf.yaml` | 7 | Kategorien normal/hoch/sehr hoch; sechs Schadensszenarien; Maximumprinzip, Kumulations-, Verteilungseffekt (BSI 200-2, Kap. 8.2) | – |
+| `datenschutz.yaml` | 7 | Personenbezug inkl. IP-Adresse (Art. 4 Nr. 1, EuGH C-582/14); Art. 5, 6, 15–21, 33, 83 Abs. 5; 72 h ab Bekanntwerden (Fr 16:00 → Mo 16:00); Bußgeld 4 % vs. 20 Mio. € (höherer Betrag) | **Aufbewahrungsfrist für Rechnungen:** im Entwurf „zehn Jahre“, seit 01.01.2025 gelten für Buchungsbelege **acht Jahre** (§ 147 Abs. 3 AO, Viertes Bürokratieentlastungsgesetz) – korrigiert. Bestehende Lektionen nennen „zehn Jahre“ nur als Kundenanforderung, nicht als Gesetzesfrist; kein Handlungsbedarf |
+| `vorgehensmodelle.yaml` | 8 | Scrum Guide 2020: drei Verantwortlichkeiten, fünf Events, Artefakte mit Commitments; Timeboxen 8 h / 15 min / 4 h / 3 h; Wasserfall nach Royce 1970 | – |
+| `oop-grundlagen.yaml` | 6 | UML-Sichtbarkeit + − # (UML 2.5.1); Objektzustand (a.status = neu, a.groesse_gb = 40, Dauer 60 s / 160 s, in Python ausgeführt); Kapselung mit Setter-Prüfung | – |
+| `englische-texte.yaml` | 6 | Fachwörter und falsche Freunde (Cambridge Dictionary); englisches Angebot 5.000,00 → 4.750,00 → 4.655,00 → 4.700,00 € | – |
+| `kundenbedarf.yaml` | 5 | Fragearten, aktives Zuhören, Vier-Seiten-Modell (Schulz von Thun 1981) | – |
+| `maerkte-bedarfe.yaml` | 4 | Bedürfnis → Bedarf → Nachfrage; Wettbewerb und Preis | – |
