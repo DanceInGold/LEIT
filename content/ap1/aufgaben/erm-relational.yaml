@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion erm-grundlagen."
     belege:
       - {titel: "Chen, P. P.: The Entity-Relationship Model – Toward a Unified View of Data, ACM TODS 1(1), 1976"}
-    status: ungeprüft
+    status: geprüft
 
   - id: erm-begriffe-tabellen
     typ: zuordnung
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abgrenzungstabelle der Lektion erm-grundlagen."
     belege:
       - {titel: "Kemper, A.; Eickler, A.: Datenbanksysteme – Eine Einführung (Übersetzung ins relationale Modell)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: erm-kardinalitaet-rack
     typ: multiple_choice
@@ -56,7 +56,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vorgehen der Lektion erm-grundlagen."
     belege:
       - {titel: "Chen, P. P.: The Entity-Relationship Model, ACM TODS 1(1), 1976"}
-    status: ungeprüft
+    status: geprüft
 
   - id: erm-anomalien-zuordnen
     typ: zuordnung
@@ -74,7 +74,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion relationale-tabellen."
     belege:
       - {titel: "Codd, E. F.: Further Normalization of the Data Base Relational Model, 1972"}
-    status: ungeprüft
+    status: geprüft
 
   - id: erm-normalformen-luecke
     typ: lueckentext
@@ -96,7 +96,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion relationale-tabellen."
     belege:
       - {titel: "Codd, E. F.: Further Normalization of the Data Base Relational Model, 1972 (2. und 3. Normalform)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: erm-nm-umsetzen
     typ: multiple_choice
@@ -115,7 +115,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Beispiel „Mitarbeit“ der Lektion erm-grundlagen."
     belege:
       - {titel: "Kemper, A.; Eickler, A.: Datenbanksysteme – Eine Einführung (Übersetzung ins relationale Modell)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: erm-import-reihenfolge
     typ: reihenfolge
@@ -144,7 +144,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Praxisbezug der Lektion erm-grundlagen."
     belege:
       - {titel: "Codd, E. F.: A Relational Model of Data for Large Shared Data Banks, CACM 13(6), 1970"}
-    status: ungeprüft
+    status: geprüft
 
   - id: erm-ticket-normalform
     typ: multiple_choice
@@ -168,7 +168,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion relationale-tabellen."
     belege:
       - {titel: "Codd, E. F.: Further Normalization of the Data Base Relational Model, 1972"}
-    status: ungeprüft
+    status: geprüft
 
   - id: erm-lizenzliste-normalisieren
     typ: freitext
@@ -208,4 +208,4 @@ aufgaben:
     belege:
       - {titel: "Codd, E. F.: Further Normalization of the Data Base Relational Model, 1972"}
       - {titel: "Kemper, A.; Eickler, A.: Datenbanksysteme – Eine Einführung"}
-    status: ungeprüft
+    status: geprüft

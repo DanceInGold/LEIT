@@ -22,7 +22,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion osi-modell."
     belege:
       - {titel: "ISO/IEC 7498-1:1994 Open Systems Interconnection – Basic Reference Model"}
-    status: ungeprüft
+    status: geprüft
 
   - id: osi-dateneinheiten
     typ: zuordnung
@@ -44,7 +44,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabellen der Lektion osi-modell."
     belege:
       - {titel: "ISO/IEC 7498-1:1994 Open Systems Interconnection – Basic Reference Model"}
-    status: ungeprüft
+    status: geprüft
 
   - id: osi-ports-zuordnen
     typ: zuordnung
@@ -65,7 +65,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Merktabelle der Lektion anwendungsprotokolle."
     belege:
       - {titel: "IANA: Service Name and Transport Protocol Port Number Registry", url: "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"}
-    status: ungeprüft
+    status: geprüft
 
   - id: osi-arp-luecke
     typ: lueckentext
@@ -91,7 +91,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion ethernet-arp-ip-tcp."
     belege:
       - {titel: "RFC 826: An Ethernet Address Resolution Protocol", url: "https://www.rfc-editor.org/rfc/rfc826"}
-    status: ungeprüft
+    status: geprüft
 
   - id: osi-dhcp-dora
     typ: reihenfolge
@@ -109,7 +109,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion anwendungsprotokolle."
     belege:
       - {titel: "RFC 2131: Dynamic Host Configuration Protocol", url: "https://www.rfc-editor.org/rfc/rfc2131"}
-    status: ungeprüft
+    status: geprüft
 
   - id: osi-tcp-udp
     typ: zuordnung
@@ -130,7 +130,7 @@ aufgaben:
     belege:
       - {titel: "RFC 9293: Transmission Control Protocol; RFC 768: User Datagram Protocol", url: "https://www.rfc-editor.org/rfc/rfc9293"}
       - {titel: "RFC 1035: Domain Names – Implementation and Specification (UDP und TCP Port 53)", url: "https://www.rfc-editor.org/rfc/rfc1035"}
-    status: ungeprüft
+    status: geprüft
 
   - id: osi-ttl-router
     typ: multiple_choice
@@ -150,7 +150,7 @@ aufgaben:
     belege:
       - {titel: "RFC 791: Internet Protocol (Time to Live)", url: "https://www.rfc-editor.org/rfc/rfc791"}
       - {titel: "RFC 1812: Requirements for IP Version 4 Routers", url: "https://www.rfc-editor.org/rfc/rfc1812"}
-    status: ungeprüft
+    status: geprüft
 
   - id: osi-dns-ttl
     typ: rechnung
@@ -179,7 +179,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion anwendungsprotokolle."
     belege:
       - {titel: "RFC 1034: Domain Names – Concepts and Facilities (TTL, Caching)", url: "https://www.rfc-editor.org/rfc/rfc1034"}
-    status: ungeprüft
+    status: geprüft
 
   - id: osi-webseite-ablauf
     typ: freitext
@@ -209,4 +209,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), verbindet die Lektionen ethernet-arp-ip-tcp und anwendungsprotokolle."
     belege:
       - {titel: "RFC 2131 (DHCP), RFC 1034 (DNS), RFC 826 (ARP), RFC 9293 (TCP), RFC 8446 (TLS 1.3)", url: "https://www.rfc-editor.org/rfc/rfc8446"}
-    status: ungeprüft
+    status: geprüft

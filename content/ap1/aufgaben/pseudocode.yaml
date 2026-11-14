@@ -22,7 +22,7 @@ aufgaben:
     belege:
       - {titel: "Böhm, C.; Jacopini, G.: Flow diagrams, Turing machines and languages with only two formation rules, CACM 9(5), 1966"}
       - {titel: "DIN 66261:1985-11 (Grundstrukturen Folge, Auswahl, Wiederholung)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: pseudo-mindestens-luecke
     typ: lueckentext
@@ -46,7 +46,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion pseudocode-schleifen."
     belege:
       - {titel: "DIN 66261:1985-11 (Wiederholung mit vorausgehender und nachfolgender Prüfung)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: pseudo-speicherklasse
     typ: rechnung
@@ -89,7 +89,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Beispiel der Lektion pseudocode-verzweigung; nachgerechnet."
     belege:
       - {titel: "Python-Dokumentation: The if statement", url: "https://docs.python.org/3/reference/compound_stmts.html#the-if-statement"}
-    status: ungeprüft
+    status: geprüft
 
   - id: pseudo-feld-zaehlen
     typ: rechnung
@@ -138,7 +138,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion pseudocode-schleifen; mit Python nachgerechnet."
     belege:
       - {titel: "Python-Dokumentation: The for statement", url: "https://docs.python.org/3/reference/compound_stmts.html#the-for-statement"}
-    status: ungeprüft
+    status: geprüft
 
   - id: pseudo-eins-bis-fuenf
     typ: multiple_choice
@@ -157,7 +157,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abgrenzung der Lektion pseudocode-schleifen."
     belege:
       - {titel: "Python-Dokumentation: range()", url: "https://docs.python.org/3/library/stdtypes.html#range"}
-    status: ungeprüft
+    status: geprüft
 
   - id: pseudo-grosse-dateien
     typ: freitext
@@ -196,4 +196,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zu den Lektionen pseudocode-verzweigung und pseudocode-schleifen."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, 04.07: Kontrollstrukturen mittels Pseudocode (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft

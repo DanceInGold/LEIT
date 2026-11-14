@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion projektstrukturplan."
     belege:
       - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe (Projektstrukturplan, Arbeitspaket)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: plan-netzplan-abkuerzungen
     typ: zuordnung
@@ -39,7 +39,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion netzplan."
     belege:
       - {titel: "DIN 69900:2009-01 Projektmanagement – Netzplantechnik; Beschreibungen und Begriffe"}
-    status: ungeprüft
+    status: geprüft
 
   - id: plan-netzplan-luecke
     typ: lueckentext
@@ -62,7 +62,7 @@ aufgaben:
     belege:
       - {titel: "DIN 69900:2009-01 Netzplantechnik"}
       - {titel: "Universität Bremen, eGS 07-2: Terminplanung mit Netzplänen II", url: "https://oncourse.uni-bremen.de/pluginfile.php/4643/mod_label/intro/eGS_07-2_Terminplanung%20-%20Terminplanung%20mit%20Netzpl%C3%A4nen%20II.pdf"}
-    status: ungeprüft
+    status: geprüft
 
   - id: plan-vorgehen-ordnen
     typ: reihenfolge
@@ -81,7 +81,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Ablauf der Lektionen projektstrukturplan und netzplan."
     belege:
       - {titel: "DIN 69901-5:2009-01 und DIN 69900:2009-01"}
-    status: ungeprüft
+    status: geprüft
 
   - id: plan-netzplan-rechnen
     typ: rechnung
@@ -141,7 +141,7 @@ aufgaben:
     belege:
       - {titel: "DIN 69900:2009-01 Netzplantechnik"}
       - {titel: "Universität Bremen, eGS 07-2: Terminplanung mit Netzplänen II (GP = SAZ − FAZ, freier Puffer)", url: "https://oncourse.uni-bremen.de/pluginfile.php/4643/mod_label/intro/eGS_07-2_Terminplanung%20-%20Terminplanung%20mit%20Netzpl%C3%A4nen%20II.pdf"}
-    status: ungeprüft
+    status: geprüft
 
   - id: plan-gantt-aussagen
     typ: multiple_choice
@@ -160,7 +160,7 @@ aufgaben:
     belege:
       - {titel: "DIN 69901-5:2009-01 (Meilenstein)"}
       - {titel: "Wikipedia (en): Gantt chart", url: "https://en.wikipedia.org/wiki/Gantt_chart"}
-    status: ungeprüft
+    status: geprüft
 
   - id: plan-verzoegerung
     typ: rechnung
@@ -214,7 +214,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Netzplan der Lektion netzplan; alle drei Fälle mit Python neu durchgerechnet."
     belege:
       - {titel: "DIN 69900:2009-01 Netzplantechnik"}
-    status: ungeprüft
+    status: geprüft
 
   - id: plan-arbeitspakete
     typ: freitext
@@ -244,4 +244,4 @@ aufgaben:
     belege:
       - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
       - {titel: "Project Management Institute: Practice Standard for Work Breakdown Structures"}
-    status: ungeprüft
+    status: geprüft

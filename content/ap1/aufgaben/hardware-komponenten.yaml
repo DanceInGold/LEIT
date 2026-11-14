@@ -20,7 +20,7 @@ aufgaben:
     belege:
       - {titel: "PCI-SIG: PCI Express M.2 Specification (Bauform)", url: "https://pcisig.com/specifications"}
       - {titel: "NVM Express: NVMe Base Specification", url: "https://nvmexpress.org/specifications/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hw-begriffe-zuordnen
     typ: zuordnung
@@ -48,7 +48,7 @@ aufgaben:
     belege:
       - {titel: "Lektion „Der PC von innen“ (Mainboard-Bauteile)"}
       - {titel: "UEFI Forum: UEFI Specification", url: "https://uefi.org/specifications"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hw-ddr-takt-luecke
     typ: lueckentext
@@ -72,7 +72,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion hardware-cpu-ram."
     belege:
       - {titel: "JEDEC JESD79-5: DDR5 SDRAM Standard", url: "https://www.jedec.org"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hw-datenfluss-ordnen
     typ: reihenfolge
@@ -92,7 +92,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Ablauf aus der Lektion hardware-pc-aufbau."
     belege:
       - {titel: "Hennessy/Patterson: Computer Architecture – A Quantitative Approach (Speicherhierarchie)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hw-usb-c-dock
     typ: multiple_choice
@@ -113,7 +113,7 @@ aufgaben:
     belege:
       - {titel: "USB-IF: USB Type-C Specification (Alternate Modes)", url: "https://www.usb.org"}
       - {titel: "VESA: DisplayPort Alt Mode on USB Type-C", url: "https://vesa.org"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hw-ram-bandbreite
     typ: rechnung
@@ -149,7 +149,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Rechenweg der Lektion hardware-cpu-ram; nachgerechnet."
     belege:
       - {titel: "JEDEC JESD79-5: DDR5 SDRAM Standard (64-Bit-Modulbreite)", url: "https://www.jedec.org"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hw-ssd-anbindung
     typ: rechnung
@@ -186,7 +186,7 @@ aufgaben:
     belege:
       - {titel: "PCI-SIG: PCI Express Base Specification 3.0 (8 GT/s, 128b/130b ≈ 0,985 GB/s je Lane)", url: "https://pcisig.com/specifications"}
       - {titel: "SATA-IO: Serial ATA Revision 3.x (6 Gbit/s, 8b/10b)", url: "https://sata-io.org"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hw-netzteil-wirkungsgrad
     typ: rechnung
@@ -217,7 +217,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Formel der Lektion hardware-netzteil-anschluesse; nachgerechnet."
     belege:
       - {titel: "80 PLUS Programm (CLEAResult): Effizienzstufen für Netzteile", url: "https://www.clearesult.com/80plus/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hw-pixeldichte
     typ: rechnung
@@ -248,7 +248,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Formel der Lektion hardware-netzteil-anschluesse; nachgerechnet."
     belege:
       - {titel: "Lektion „Netzteil, Grafik, Monitor und Anschlüsse“ (Pixeldichte)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hw-bestellung-pruefen
     typ: freitext
@@ -282,4 +282,4 @@ aufgaben:
     belege:
       - {titel: "JEDEC JESD79-5: DDR5 SDRAM Standard (eigene Modulkerbe, 1,1 V)", url: "https://www.jedec.org"}
       - {titel: "AMD: Sockel AM5 – ausschließlich DDR5-Unterstützung", url: "https://www.amd.com"}
-    status: ungeprüft
+    status: geprüft
