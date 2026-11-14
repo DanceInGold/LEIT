@@ -5,7 +5,7 @@
 titel: "Simulation 3: Server und Netz für eine Spedition"
 dauer_minuten: 90
 quelle: "Neu erstellt (Claude), Aufbau nach U-Form-Prüfungstrainer AP1; Themen nach Prüfungskatalog 2025."
-status: ungeprüft
+status: geprüft
 belege:
   - {titel: "U-Form: Prüfungstrainer Teil 1 der Abschlussprüfung IT-Berufe (100 Punkte, 90 Minuten, vier Aufgaben zu 20–30 Punkten)", url: "https://shopstage.u-form.de/media/dd/9f/63/1687157302/750.pdf"}
 
