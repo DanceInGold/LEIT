@@ -1,0 +1,106 @@
+# Aufgaben zum Thema „Qualitätsmaßnahmen, Testprotokoll für das Einrichten eines Arbeitsplatzes“.
+# Passend zur Lektion qualitaet-testprotokoll.
+
+aufgaben:
+  - id: quali-massnahmen
+    typ: zuordnung
+    stufe: 1
+    titel: "Vorbeugen, prüfen, verbessern"
+    frage: "Ordne jede Qualitätsmaßnahme ihrer Art zu."
+    paare:
+      - {links: "Checkliste für jeden neuen Arbeitsplatz", rechts: "vorbeugend"}
+      - {links: "Standard-Image für alle Notebooks", rechts: "vorbeugend"}
+      - {links: "Test nach Testprotokoll vor der Übergabe", rechts: "prüfend"}
+      - {links: "Fehler des Rollouts auswerten und die Checkliste anpassen", rechts: "verbessernd"}
+    hinweise:
+      - "Vorher – während – danach."
+    loesungsweg: "Checkliste, Image = **vorbeugend** · Test = **prüfend** · Auswertung und Anpassung = **verbessernd** (PDCA)."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion qualitaet-testprotokoll."
+    belege:
+      - {titel: "DIN EN ISO 9000:2015 Qualitätsmanagementsysteme – Grundlagen und Begriffe"}
+    status: ungeprüft
+
+  - id: quali-testfall
+    typ: multiple_choice
+    stufe: 2
+    titel: "Ein guter Testfall"
+    frage: "Welcher Eintrag im Testprotokoll ist vollständig?"
+    optionen:
+      - {text: "„Drucken auf Abteilungsdrucker – erwartet: Testseite kommt – Ergebnis: Testseite kommt – ✔“", richtig: true, warum: "Testfall, erwartetes Ergebnis, tatsächliches Ergebnis und Status – alles da."}
+      - {text: "„Drucker getestet – ok“", warum: "Ohne erwartetes Ergebnis ist nicht nachvollziehbar, was geprüft wurde.", ursache: konzept}
+      - {text: "„Drucken – ✘“", warum: "Es fehlen Erwartung und das tatsächliche Ergebnis; niemand weiß, was schiefging.", ursache: konzept}
+      - {text: "„Alles funktioniert“", warum: "Kein einzelner Testfall, nichts überprüfbar.", ursache: konzept}
+    hinweise:
+      - "Was muss dastehen, damit jemand anderes den Test wiederholen und bewerten kann?"
+    loesungsweg: "Ein Testfall braucht **Beschreibung, erwartetes Ergebnis, tatsächliches Ergebnis, Status**."
+    quelle: "Neu erstellt (Claude), Tabelle „Testfälle für einen Arbeitsplatz“ der Lektion qualitaet-testprotokoll."
+    belege:
+      - {titel: "Lektion „Qualität und Testprotokoll“"}
+    status: ungeprüft
+
+  - id: quali-quote-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Erstlösungsquote auswerten"
+    situation: "Beim Rollout von **75 Arbeitsplätzen** bestanden **63** alle Tests beim ersten Mal. Bei den übrigen traten insgesamt Fehler auf, davon **9** wegen eines fehlenden VPN-Profils."
+    frage: "Werte die Qualität des Rollouts aus."
+    schritte:
+      - frage: "Erstlösungsquote in %"
+        antwort: "84"
+        einheit: "%"
+        erklaerung: "63 ÷ 75 × 100 = 84 %."
+        falsch:
+          - {antwort: "16", warum: "Das ist der Anteil, der **nicht** beim ersten Mal bestand.", ursache: konzept}
+      - frage: "Anzahl Arbeitsplätze mit mindestens einem Fehler"
+        antwort: "12"
+        einheit: "Arbeitsplätze"
+        erklaerung: "75 − 63 = 12."
+      - frage: "Anteil der VPN-Fehler an diesen Arbeitsplätzen in %"
+        antwort: "75"
+        einheit: "%"
+        erklaerung: "9 ÷ 12 × 100 = 75 % – die Hauptursache. Lösung: VPN-Profil ins Standard-Image aufnehmen."
+        falsch:
+          - {antwort: "12", warum: "Durch alle 75 Arbeitsplätze geteilt (9 ÷ 75). Gefragt ist der Anteil an den fehlerhaften.", ursache: rechenfehler}
+    hinweise:
+      - "Quote = bestanden ÷ gesamt × 100."
+      - "Die Hauptursache bezieht sich auf die fehlerhaften Arbeitsplätze."
+    loesungsweg: |
+      1. 63 ÷ 75 = **84 %** beim ersten Mal fehlerfrei
+      2. 75 − 63 = **12** fehlerhafte Arbeitsplätze
+      3. 9 ÷ 12 = **75 %** davon wegen VPN → VPN-Profil ins Image (Ursache beheben, PDCA)
+    quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion qualitaet-testprotokoll mit anderen Zahlen; nachgerechnet."
+    belege:
+      - {titel: "Lektion „Qualität und Testprotokoll“ (Erstlösungsquote)"}
+    status: ungeprüft
+
+  - id: quali-protokoll-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Ein Testprotokoll entwerfen"
+    situation: "Du richtest für eine neue Mitarbeiterin im Vertrieb ein Notebook ein: Domänenanmeldung, VPN, Office, CRM-Software, Festplattenverschlüsselung."
+    frage: "Beschreibe den Aufbau eines Testprotokolls und nenne mindestens vier passende Testfälle mit erwartetem Ergebnis."
+    musterloesung: |
+      **Kopfdaten:** Gerät, Seriennummer, Benutzerin, Datum, Tester, Grundlage (Checkliste).
+
+      | Nr. | Testfall | erwartet | Ergebnis | Status |
+      | ---: | --- | --- | --- | --- |
+      | 1 | Anmeldung mit Domänenkonto | Desktop erscheint, Laufwerke verbunden | | |
+      | 2 | VPN außerhalb des Firmennetzes | Verbindung steht, Intranet erreichbar | | |
+      | 3 | Office und CRM starten | starten ohne Fehler, Anmeldung im CRM klappt | | |
+      | 4 | Festplattenverschlüsselung | aktiv | | |
+      | 5 | Updates | keine ausstehenden Updates | | |
+
+      Bei ✘ Fehler beheben, erneut testen, dokumentieren. Am Ende unterschreiben Tester und Nutzerin.
+    bewertungspunkte:
+      - {punkt: "Kopfdaten (Gerät, Nutzerin, Datum, Tester)", kernbegriffe: ["seriennummer", "datum", "tester", "gerät"]}
+      - {punkt: "Testfälle mit erwartetem Ergebnis", kernbegriffe: ["erwartet"]}
+      - {punkt: "passende Testfälle (Anmeldung, VPN, CRM, Verschlüsselung)", kernbegriffe: ["vpn", "crm", "verschlüssel", "anmeld"]}
+      - {punkt: "Nachtest bei Fehlern und Unterschrift", kernbegriffe: ["erneut", "nachtest", "unterschr"]}
+    hinweise:
+      - "Kopfdaten, dann je Testfall: was, erwartet, Ergebnis, Status."
+    loesungsweg: "Kopfdaten; Testfälle mit erwartetem und tatsächlichem Ergebnis und Status (Anmeldung, VPN, Office/CRM, Verschlüsselung, Updates); Nachtest und Unterschrift."
+    quelle: "Neu erstellt (Claude), Testprotokoll der Lektion qualitaet-testprotokoll."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkte 05.01/05.02: Testprotokoll für das Einrichten eines Arbeitsplatzes (laut katalog.yaml)"}
+    status: ungeprüft

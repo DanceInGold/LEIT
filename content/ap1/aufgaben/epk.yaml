@@ -1,0 +1,109 @@
+# Aufgaben zum Thema „Ereignisgesteuerte Prozesskette (EPK)“.
+# Passend zur Lektion epk-bpmn. In den Diagrammen steht ein Sechseck für ein Ereignis,
+# ein abgerundetes Rechteck für eine Funktion und ein Kreis für einen Konnektor.
+
+aufgaben:
+  - id: epk-elemente
+    typ: zuordnung
+    stufe: 1
+    titel: "Bausteine der EPK"
+    frage: "Ordne jedem Element seine Bedeutung zu."
+    paare:
+      - {links: "Ereignis (Sechseck)", rechts: "Zustand, z. B. „Antrag ist eingegangen“"}
+      - {links: "Funktion (abgerundetes Rechteck)", rechts: "Tätigkeit, z. B. „Antrag prüfen“"}
+      - {links: "XOR-Konnektor", rechts: "genau einer der Wege"}
+      - {links: "UND-Konnektor (∧)", rechts: "alle Wege"}
+      - {links: "ODER-Konnektor (∨)", rechts: "mindestens einer der Wege"}
+    hinweise:
+      - "Ereignisse beschreiben Zustände, Funktionen beschreiben Tätigkeiten."
+    loesungsweg: "Ereignis = Zustand · Funktion = Tätigkeit · XOR = genau einer · UND = alle · ODER = mindestens einer."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion epk-bpmn."
+    belege:
+      - {titel: "Keller, Nüttgens, Scheer (1992): Semantische Prozeßmodellierung auf der Grundlage „Ereignisgesteuerter Prozeßketten (EPK)“"}
+    status: ungeprüft
+
+  - id: epk-ereignis-funktion
+    typ: zuordnung
+    stufe: 2
+    titel: "Ereignis oder Funktion?"
+    frage: "Ordne jede Beschriftung zu."
+    paare:
+      - {links: "Ticket ist eingegangen", rechts: "Ereignis"}
+      - {links: "Ticket kategorisieren", rechts: "Funktion"}
+      - {links: "Lösung ist gefunden", rechts: "Ereignis"}
+      - {links: "Kunden benachrichtigen", rechts: "Funktion"}
+    hinweise:
+      - "Ereignisse stehen im Partizip („ist eingegangen“), Funktionen als Tätigkeit („prüfen“)."
+    loesungsweg: "Zustände („… ist eingegangen“, „… ist gefunden“) = **Ereignisse** · Tätigkeiten („kategorisieren“, „benachrichtigen“) = **Funktionen**."
+    quelle: "Neu erstellt (Claude), passend zur Lektion epk-bpmn."
+    belege:
+      - {titel: "Keller, Nüttgens, Scheer (1992)"}
+    status: ungeprüft
+
+  - id: epk-fehler
+    typ: multiple_choice
+    stufe: 3
+    titel: "Fehler in der EPK"
+    situation: |
+      Eine Kollegin hat den Ablauf für eingehende Rechnungen als EPK gezeichnet:
+
+      ```mermaid
+      flowchart TD
+        E1{{"Rechnung ist eingegangen"}} --> X1(("XOR"))
+        X1 --> E2{{"Rechnung ist korrekt"}}
+        X1 --> E3{{"Rechnung ist fehlerhaft"}}
+        E2 --> F1(["Rechnung bezahlen"])
+        E3 --> F2(["Rechnung reklamieren"])
+        F1 --> X2(("XOR"))
+        F2 --> X2
+        X2 --> E4{{"Rechnung ist bearbeitet"}}
+      ```
+    frage: "Was ist nach den EPK-Regeln falsch?"
+    optionen:
+      - {text: "Nach dem Ereignis „Rechnung ist eingegangen“ folgt direkt ein XOR-Split – es fehlt die Funktion „Rechnung prüfen“, die entscheidet.", richtig: true, warum: "Ein Ereignis kann nichts entscheiden; nach einem Ereignis ist kein XOR- oder ODER-Split erlaubt."}
+      - {text: "Die EPK darf nicht mit einem Ereignis beginnen.", warum: "Im Gegenteil: Start und Ende sind immer Ereignisse.", ursache: konzept}
+      - {text: "Nach dem Zusammenführen müsste eine UND-Verknüpfung stehen.", warum: "Es wurde genau einer der Wege genommen, also wird mit XOR zusammengeführt.", ursache: konzept}
+      - {text: "Die EPK muss mit einer Funktion enden.", warum: "Das Ende ist immer ein Ereignis.", ursache: konzept}
+    hinweise:
+      - "Wer entscheidet in einer EPK, welcher Weg genommen wird?"
+    loesungsweg: "Nach einem **Ereignis** darf kein XOR/ODER-Split folgen. Richtig: Ereignis → Funktion „Rechnung prüfen“ → XOR → Ereignisse „korrekt“ / „fehlerhaft“."
+    quelle: "Neu erstellt (Claude), Regeln der Lektion epk-bpmn."
+    belege:
+      - {titel: "Keller, Nüttgens, Scheer (1992)"}
+    status: ungeprüft
+
+  - id: epk-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Eine EPK entwerfen"
+    situation: "Bei der ArchivTech läuft ein Urlaubsantrag so: Ein Antrag geht ein. Die Teamleitung prüft ihn. Ist er genehmigt, wird der Urlaub im Kalender eingetragen; ist er abgelehnt, wird der Mitarbeiter informiert. Danach ist der Antrag bearbeitet."
+    frage: "Beschreibe eine EPK für diesen Ablauf: Nenne die Ereignisse, Funktionen und Konnektoren in der richtigen Reihenfolge."
+    musterloesung: |
+      ```mermaid
+      flowchart TD
+        E1{{"Urlaubsantrag ist eingegangen"}} --> F1(["Antrag prüfen"])
+        F1 --> X1(("XOR"))
+        X1 --> E2{{"Antrag ist genehmigt"}}
+        X1 --> E3{{"Antrag ist abgelehnt"}}
+        E2 --> F2(["Urlaub im Kalender eintragen"])
+        E3 --> F3(["Mitarbeiter informieren"])
+        F2 --> X2(("XOR"))
+        F3 --> X2
+        X2 --> E4{{"Antrag ist bearbeitet"}}
+      ```
+
+      - Start- und Endereignis: „Urlaubsantrag ist eingegangen“, „Antrag ist bearbeitet“
+      - Die **Funktion** „Antrag prüfen“ entscheidet, danach **XOR**-Split in zwei Ereignisse
+      - Ereignis und Funktion wechseln sich ab; Zusammenführung mit **XOR**
+    bewertungspunkte:
+      - {punkt: "Start und Ende sind Ereignisse", kernbegriffe: ["eingegangen", "bearbeitet"]}
+      - {punkt: "Funktion „prüfen“ vor dem XOR-Split", kernbegriffe: ["prüfen"]}
+      - {punkt: "XOR mit zwei Ereignissen (genehmigt/abgelehnt) und Zusammenführung", kernbegriffe: ["xor"]}
+    hinweise:
+      - "Beginne mit einem Ereignis. Wer entscheidet über genehmigt oder abgelehnt?"
+    loesungsweg: "Ereignis „eingegangen“ → Funktion „prüfen“ → XOR → „genehmigt“/„abgelehnt“ → eintragen/informieren → XOR → Ereignis „bearbeitet“."
+    quelle: "Neu erstellt (Claude), nach dem Löschantrag-Beispiel der Lektion epk-bpmn."
+    belege:
+      - {titel: "Keller, Nüttgens, Scheer (1992)"}
+    status: ungeprüft

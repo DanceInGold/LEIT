@@ -1,0 +1,77 @@
+# Aufgaben zum Thema „Rechtsformen, Aufbauorganisation“ (Zusatzthema außerhalb des Katalogs 2025).
+# Passend zur Lektion rechtsformen-organisation.
+
+aufgaben:
+  - id: rechtsform-kapital
+    typ: zuordnung
+    stufe: 1
+    titel: "Mindestkapital"
+    frage: "Ordne jeder Rechtsform ihr Mindestkapital zu."
+    paare:
+      - {links: "GmbH", rechts: "25.000 €"}
+      - {links: "AG", rechts: "50.000 €"}
+      - {links: "UG (haftungsbeschränkt)", rechts: "ab 1 €"}
+      - {links: "OHG", rechts: "kein Mindestkapital"}
+    hinweise:
+      - "Kapitalgesellschaften brauchen Kapital, Personengesellschaften nicht."
+    loesungsweg: "GmbH **25.000 €** · AG **50.000 €** · UG **ab 1 €** · OHG **keins**."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion rechtsformen-organisation."
+    belege:
+      - {titel: "GmbHG §§ 5, 5a", url: "https://www.gesetze-im-internet.de/gmbhg/"}
+      - {titel: "AktG § 7", url: "https://www.gesetze-im-internet.de/aktg/"}
+    status: ungeprüft
+
+  - id: rechtsform-haftung
+    typ: multiple_choice
+    stufe: 2
+    titel: "Wer haftet?"
+    frage: "Welche Aussagen zur Haftung treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "In einer OHG haften alle Gesellschafter unbeschränkt, auch mit ihrem Privatvermögen.", richtig: true, warum: "Personengesellschaft – persönliche Haftung."}
+      - {text: "In der KG haftet der Kommanditist nur mit seiner Einlage.", richtig: true, warum: "Der Komplementär haftet unbeschränkt, der Kommanditist beschränkt."}
+      - {text: "Bei der GmbH haften die Gesellschafter grundsätzlich mit ihrem Privatvermögen.", warum: "Bei der GmbH haftet das Gesellschaftsvermögen.", ursache: konzept}
+      - {text: "Ein Einzelunternehmer haftet nur mit dem Firmenvermögen.", warum: "Er haftet unbeschränkt, auch privat.", ursache: konzept}
+    hinweise:
+      - "Personengesellschaft oder Kapitalgesellschaft?"
+    loesungsweg: "Personengesellschaften: mindestens einer haftet persönlich (OHG alle, KG der Komplementär). Kapitalgesellschaften: Gesellschaftsvermögen."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion rechtsformen-organisation."
+    belege:
+      - {titel: "HGB § 126 (persönliche Haftung der OHG-Gesellschafter, seit MoPeG 01.01.2024; vorher § 128), §§ 161, 171 (KG)", url: "https://www.gesetze-im-internet.de/hgb/__126.html"}
+    status: ungeprüft
+
+  - id: aufbau-formen
+    typ: zuordnung
+    stufe: 2
+    titel: "Formen der Aufbauorganisation"
+    frage: "Ordne jeder Beschreibung die Organisationsform zu."
+    paare:
+      - {links: "Jede Stelle hat genau einen Vorgesetzten.", rechts: "Einlinienorganisation"}
+      - {links: "Eine Stelle bekommt Anweisungen von mehreren fachlichen Vorgesetzten.", rechts: "Mehrlinienorganisation"}
+      - {links: "Einlinie plus beratende Stellen ohne Weisungsrecht", rechts: "Stablinienorganisation"}
+      - {links: "Mitarbeitende sind der Fachabteilung und zugleich einem Projekt unterstellt.", rechts: "Matrixorganisation"}
+    hinweise:
+      - "Ein Chef – mehrere Chefs – Berater – zwei Dimensionen."
+    loesungsweg: "Ein Vorgesetzter = **Einlinie** · mehrere fachliche = **Mehrlinie** · Berater ohne Weisung = **Stablinie** · Fach × Projekt = **Matrix**."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion rechtsformen-organisation."
+    belege:
+      - {titel: "Lektion „Rechtsformen und Aufbauorganisation“"}
+    status: ungeprüft
+
+  - id: aufbau-stab
+    typ: multiple_choice
+    stufe: 3
+    titel: "Darf der Stab anweisen?"
+    situation: "Der Datenschutzbeauftragte der ArchivTech ist als Stabsstelle der Geschäftsführung zugeordnet. Er stellt fest, dass der IT-Betrieb Protokolle zu lange speichert, und will die Abteilung anweisen, sie sofort zu löschen."
+    frage: "Wie ist die Lage?"
+    optionen:
+      - {text: "Als Stabsstelle berät er nur; er empfiehlt der Geschäftsführung, die dann die Abteilung anweist.", richtig: true, warum: "Stabsstellen haben kein Weisungsrecht gegenüber der Linie."}
+      - {text: "Er kann die Abteilung direkt anweisen, weil er beim Geschäftsführer angesiedelt ist.", warum: "Die Nähe zur Leitung gibt keine Weisungsbefugnis.", ursache: konzept}
+      - {text: "Er darf den Mitarbeitenden des IT-Betriebs kündigen.", warum: "Dafür hat ein Stab keine Befugnis.", ursache: konzept}
+      - {text: "Stabsstellen dürfen keine Mängel melden.", warum: "Beraten und auf Mängel hinweisen ist gerade ihre Aufgabe.", ursache: konzept}
+    hinweise:
+      - "Was unterscheidet eine Stabsstelle von einer Linienstelle?"
+    loesungsweg: "Stab = **Beratung ohne Weisungsrecht**. Er informiert die Geschäftsführung, die Linie weist an."
+    quelle: "Neu erstellt (Claude), Beispiel „Stablinie bei der ArchivTech“ der Lektion rechtsformen-organisation."
+    belege:
+      - {titel: "Lektion „Rechtsformen und Aufbauorganisation“"}
+    status: ungeprüft

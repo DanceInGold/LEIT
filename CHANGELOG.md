@@ -5,6 +5,19 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt (Phase 2 · Aufgaben, Paket 5)
+- 74 feste Aufgaben für die letzten 18 Themen; damit hat jedes prüfungsrelevante Thema Übungsaufgaben
+  (AU-01, AU-02, HI-01, HI-03): Projektmerkmale (4), SMART (4), Teambildung (4), Geräteklassen (4),
+  Auslastung/Erweiterbarkeit (4), Support-Level und KI (5), Rollout und Ticketsystem (4), EPK (4),
+  BPMN (3), Konsolenbefehle (5), Software-Arten (4), Stamm-/Bewegungsdaten (4), Urheberrecht und
+  Lizenzen (5), Abnahme und Dokumentation (4), Leistungsbestätigung (3), Qualität und Testprotokoll (4),
+  Rechtsformen und Aufbauorganisation (4), Betriebssysteme (5).
+- Rauchtest öffnet drei weitere Aufgaben (EPK-Fehler mit Diagramm, chmod, Lizenzmodelle).
+
+### Geändert
+- Aufgaben aus PR #18 sind `geprüft`.
+
+
 ### Hinzugefügt (Phase 2 · Aufgaben, Paket 4)
 - 78 feste Aufgaben für 13 weitere Themen, je Thema Stufen 1–4 (AU-01, AU-02, HI-01, HI-03):
   Lasten-/Pflichtenheft (6), Skriptsprachen (6), Client-Server und Domäne (6), Netzwerkstandards (7),

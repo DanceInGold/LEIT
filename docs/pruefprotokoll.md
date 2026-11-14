@@ -408,3 +408,33 @@ per Skript nachgerechnet, das Bash-Skript und die fehlerhafte Zuweisung in Bash 
 
 Alle Korrekturen betrafen neue, noch nicht gemergte Aufgaben; in bestehenden Lektionen wurden
 keine Fehler gefunden.
+
+## Aufgaben Paket 5 (restliche Themen des Lernplans)
+
+74 feste Aufgaben für 18 Themen (Planpositionen 45–63), im PR mit `status: ungeprüft`. Damit hat jedes
+Thema mit Gewicht > 0 Übungsaufgaben. Rechenwerte per Skript nachgerechnet, Mermaid-Diagramme geprüft;
+`ap-tools check` prüft Musterlösungen und Fehlerbilder.
+
+| Datei | Aufgaben | Geprüfte Kernaussagen | Beim Prüfen korrigiert |
+| --- | ---: | --- | --- |
+| `projekt-merkmale.yaml` | 4 | Projektmerkmale nach DIN 69901-5; Projekt vs. Linie; Ziel vs. Maßnahme | – |
+| `smart-ziele.yaml` | 4 | SMART nach Doran (1981) und deutschen Lesarten | – |
+| `teambildung.yaml` | 4 | Forming, Storming, Norming, Performing (Tuckman 1965), Adjourning (Tuckman & Jensen 1977) | – |
+| `geraeteklassen.yaml` | 4 | Stärken/Schwächen der Geräteklassen; Thin Client braucht zentrale Infrastruktur; Onboard-RAM verlötet | – |
+| `auslastung-erweiterbarkeit.yaml` | 4 | 30 ÷ 32 = 93,75 %, 600 ÷ 1.000 = 60 %; 15,6 ÷ 16 = 97,5 %; Faustregel 70–80 % | – |
+| `support-ki.yaml` | 5 | 1st/2nd/3rd Level; Incident/Service Request/Problem (ITIL 4); funktionale vs. hierarchische Eskalation | – |
+| `rollout-ticketsystem.yaml` | 4 | 40 × 1.150 € = 46.000 €; 40 × 0,75 h × 72 € = 2.160 €; + 576 € Pilot = 48.736 € | – |
+| `epk.yaml` | 4 | Ereignis/Funktion im Wechsel, Start und Ende als Ereignis, kein XOR/ODER-Split nach einem Ereignis (Keller, Nüttgens, Scheer 1992) | – |
+| `bpmn.yaml` | 3 | Start/Ende, X- und +-Gateway, Pool/Lane, Nachrichtenfluss nur zwischen Pools (BPMN 2.0.2) | – |
+| `konsolenbefehle.yaml` | 5 | Windows/Linux-Gegenstücke; 169.254.0.0/16 = Link-Local ohne DHCP (RFC 3927); Fehlersuche von unten nach oben | – |
+| `software-arten.yaml` | 4 | System-/Standard-/Branchen-/Individualsoftware; ERP, SCM, CRM | – |
+| `stamm-bewegungsdaten.yaml` | 4 | Stammdaten langlebig, Bewegungsdaten je Vorgang mit Verweis; Redundanz und Anomalien (Codd 1970) | – |
+| `urheberrecht-lizenzen.yaml` | 5 | Schutz automatisch, 70 Jahre post mortem (§ 64 UrhG), Software §§ 69a ff., Sicherungskopie § 69d; 55 × 95 € = 5.225 €, 18 × 260 € = 4.680 €; GPL vs. MIT | – |
+| `abnahme-doku.yaml` | 4 | Abnahme: Vergütung fällig (§ 641), Verjährung ab Abnahme (§ 634a), keine Verweigerung wegen unwesentlicher Mängel (§ 640 Abs. 1 S. 2) | – |
+| `leistungsbestaetigung.yaml` | 3 | Nachkalkulation 24 h vs. 30 h × 75 € = 1.800 € / 2.250 €, Abweichung 25 % bezogen auf den Plan | – |
+| `qualitaet.yaml` | 4 | Qualität nach ISO 9000:2015; 63 ÷ 75 = 84 %, 9 ÷ 12 = 75 % | – |
+| `rechtsformen-aufbauorganisation.yaml` | 4 | GmbH 25.000 € (§ 5 GmbHG), UG ab 1 € (§ 5a), AG 50.000 € (§ 7 AktG); Haftung OHG/KG; Stab ohne Weisungsrecht | Beleg zur OHG-Haftung im Entwurf mit § 128 HGB angegeben – seit dem MoPeG (01.01.2024) ist es **§ 126 HGB**; korrigiert. Die Lektion nennt keinen Paragrafen, kein Handlungsbedarf |
+| `betriebssysteme.yaml` | 5 | rw-r----- = 640, 754 = rwxr-xr--; Ordner braucht x zum Betreten; Freigabe- und NTFS-Rechte: die restriktivere gilt | – |
+
+Alle Korrekturen betrafen neue, noch nicht gemergte Aufgaben; in bestehenden Lektionen wurden
+keine Fehler gefunden.

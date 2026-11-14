@@ -1,0 +1,106 @@
+# Aufgaben zum Thema „Support-Level (First/Second/Third) und KI-Unterstützung“.
+# Passend zur Lektion support-ticket-rollout.
+
+aufgaben:
+  - id: support-level-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Welches Support-Level?"
+    frage: "Ordne jede Anfrage dem Level zu, das sie typischerweise löst."
+    paare:
+      - {links: "Passwort zurücksetzen", rechts: "1st Level"}
+      - {links: "Drucker in der Abteilung neu verbinden nach Anleitung", rechts: "1st Level"}
+      - {links: "Archivserver erreicht den Speicher nicht mehr", rechts: "2nd Level"}
+      - {links: "Firmwarefehler der Speicher-Appliance beheben", rechts: "3rd Level"}
+    hinweise:
+      - "Standardfall – Fachanalyse – Hersteller oder Entwicklung."
+    loesungsweg: "Standardlösungen = **1st Level** · tiefere Analyse = **2nd Level** · Fehler im Produkt = **3rd Level** (Hersteller)."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion support-ticket-rollout."
+    belege:
+      - {titel: "AXELOS: ITIL 4 – Service Desk, Incident Management"}
+    status: ungeprüft
+
+  - id: support-begriffe
+    typ: zuordnung
+    stufe: 2
+    titel: "Incident, Service Request, Problem"
+    frage: "Ordne jeden Fall der passenden Kategorie zu."
+    paare:
+      - {links: "Der Download aus dem Kundenportal bricht bei 80 % ab.", rechts: "Incident"}
+      - {links: "Eine neue Mitarbeiterin braucht Zugang zum Archiv.", rechts: "Service Request"}
+      - {links: "Ein fehlerhafter Treiber ist die Ursache für 15 Abbruch-Meldungen dieser Woche.", rechts: "Problem"}
+    ablenker: ["Change"]
+    hinweise:
+      - "Störung – Wunsch – Ursache."
+    loesungsweg: "Störung = **Incident** · neuer Wunsch = **Service Request** · Ursache hinter mehreren Incidents = **Problem**."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion support-ticket-rollout."
+    belege:
+      - {titel: "AXELOS: ITIL 4 – Incident, Service Request, Problem Management"}
+    status: ungeprüft
+
+  - id: support-eskalation
+    typ: multiple_choice
+    stufe: 3
+    titel: "Funktional oder hierarchisch?"
+    situation: "Ein Ticket mit Priorität „hoch“ ist seit 3 Stunden offen. Laut SLA muss es in 4 Stunden gelöst sein. Der 2nd-Level-Techniker kommt nicht weiter und informiert seine Teamleiterin, die einen Spezialisten des Herstellers hinzuziehen lässt."
+    frage: "Welche Aussagen treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "Das Hinzuziehen des Herstellers ist eine funktionale Eskalation.", richtig: true, warum: "Weitergabe an mehr Fachwissen (3rd Level)."}
+      - {text: "Das Informieren der Teamleiterin wegen der drohenden SLA-Frist ist eine hierarchische Eskalation.", richtig: true, warum: "Weitergabe an eine höhere Führungsebene."}
+      - {text: "Das Hinzuziehen des Herstellers ist eine hierarchische Eskalation.", warum: "Der Hersteller ist keine Führungsebene, sondern hat mehr Fachwissen – funktional.", ursache: begriff}
+      - {text: "Eine Eskalation ist erst nach Ablauf der SLA-Frist erlaubt.", warum: "Sinnvoll ist es, **vor** dem Fristablauf zu eskalieren.", ursache: konzept}
+    hinweise:
+      - "Mehr Fachwissen oder höhere Führungsebene?"
+    loesungsweg: "Fachwissen holen = **funktional** (an 3rd Level) · Führung informieren = **hierarchisch**. Rechtzeitig vor Ablauf der SLA-Frist."
+    quelle: "Neu erstellt (Claude), Abschnitt zur Eskalation der Lektion support-ticket-rollout."
+    belege:
+      - {titel: "AXELOS: ITIL 4 – Incident Management (Eskalation)"}
+    status: ungeprüft
+
+  - id: support-ki-grenzen
+    typ: multiple_choice
+    stufe: 2
+    titel: "KI im Service Desk"
+    frage: "Wofür eignet sich KI im Support, und wo liegen Grenzen? Welche Aussagen treffen zu? (**drei** richtige)"
+    optionen:
+      - {text: "Sie kann eingehende Tickets vorsortieren und Kategorie und Priorität vorschlagen.", richtig: true, warum: "Das entlastet den 1st Level."}
+      - {text: "Ein Chatbot kann Standardfragen rund um die Uhr beantworten.", richtig: true, warum: "Typischer Einsatz im 1st Level."}
+      - {text: "Ihre Antworten müssen geprüft werden; der Mensch entscheidet.", richtig: true, warum: "KI kann überzeugend falsche Antworten geben."}
+      - {text: "Kundendaten dürfen ohne Prüfung in jeden öffentlichen KI-Dienst kopiert werden.", warum: "Datenschutz und Vertraulichkeit: keine vertraulichen Daten in fremde Dienste ohne Freigabe.", ursache: konzept}
+      - {text: "Mit KI ist kein 2nd und 3rd Level mehr nötig.", warum: "Schwierige Fälle brauchen weiter Fachleute und Hersteller.", ursache: konzept}
+    hinweise:
+      - "Wobei hilft KI bei Masse und Standard – und was bleibt Menschensache?"
+    loesungsweg: "KI: **Vorsortieren**, **Chatbot für Standardfragen**, Wissensdatenbank durchsuchen. Grenzen: **Antworten prüfen**, keine vertraulichen Daten, Mensch entscheidet."
+    quelle: "Neu erstellt (Claude), Abschnitt „KI-Unterstützung im Support“ der Lektion support-ticket-rollout."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.03: Support- und Serviceanfragen; KI-Unterstützung (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: support-ticket-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Ein gutes Ticket schreiben"
+    situation: "Eine Kundin ruft beim Service Desk der ArchivTech an: „Seit heute Morgen kann ich keine Dokumente mehr aus dem Portal herunterladen. Bei jedem Versuch kommt eine Fehlermeldung. Meine Kollegen haben das gleiche Problem. Wir brauchen die Unterlagen für eine Prüfung morgen.“"
+    frage: "Beschreibe, welche Angaben du im Ticket erfasst und wie du die Priorität einstufst."
+    musterloesung: |
+      | Feld | Inhalt |
+      | --- | --- |
+      | Melder, Kontakt | Name, Firma, Telefon der Kundin |
+      | Kategorie | Incident (Störung) |
+      | Beschreibung | Download aus dem Portal schlägt seit heute Morgen fehl, genauer Wortlaut der Fehlermeldung, Uhrzeit, Browser |
+      | betroffene Nutzer | mehrere Mitarbeitende des Kunden |
+      | Priorität | **hoch**: Auswirkung groß (mehrere Nutzer), Dringlichkeit hoch (Prüfung morgen) |
+      | Status, Verlauf | neu; alle Schritte dokumentieren |
+    bewertungspunkte:
+      - {punkt: "Kontaktdaten und genaue Fehlerbeschreibung (Meldung, Zeitpunkt)", kernbegriffe: ["fehlermeldung", "zeitpunkt", "uhrzeit", "kontakt"]}
+      - {punkt: "Kategorie Incident", kernbegriffe: ["incident", "störung"]}
+      - {punkt: "Priorität aus Auswirkung und Dringlichkeit begründet", kernbegriffe: ["auswirkung", "dringlich", "priorität"]}
+    hinweise:
+      - "Was braucht der 2nd Level, um ohne Rückfrage weiterzuarbeiten?"
+      - "Priorität = Auswirkung × Dringlichkeit."
+    loesungsweg: "Melder, Kategorie Incident, genaue Beschreibung mit Fehlermeldung und Zeitpunkt, Zahl der Betroffenen; Priorität hoch (viele Betroffene, Frist morgen)."
+    quelle: "Neu erstellt (Claude), Tabelle „Was steht in einem Ticket?“ der Lektion support-ticket-rollout."
+    belege:
+      - {titel: "AXELOS: ITIL 4 – Incident Management (Priorität aus Auswirkung und Dringlichkeit)"}
+    status: ungeprüft

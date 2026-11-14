@@ -1,0 +1,125 @@
+# Aufgaben zum Thema „Schutz der Urheber, Lizenzen“.
+# Passend zur Lektion urheberrecht-lizenzen.
+
+aufgaben:
+  - id: lizenz-arten
+    typ: zuordnung
+    stufe: 1
+    titel: "Lizenzarten"
+    frage: "Ordne jeder Lizenzart ihre Bedeutung zu."
+    paare:
+      - {links: "OEM", rechts: "an ein Gerät gebunden, mit der Hardware verkauft"}
+      - {links: "Freeware", rechts: "kostenlos, aber Quellcode nicht offen"}
+      - {links: "Shareware", rechts: "zum Testen kostenlos, danach Kauf"}
+      - {links: "Open Source", rechts: "Quellcode offen, Nutzung und Änderung unter Bedingungen erlaubt"}
+      - {links: "Abonnement", rechts: "Nutzung, solange gezahlt wird"}
+    hinweise:
+      - "Freeware und Open Source sind nicht dasselbe."
+    loesungsweg: "OEM = an Gerät gebunden · Freeware = kostenlos, geschlossen · Shareware = erst testen · Open Source = offen mit Bedingungen · Abo = solange gezahlt."
+    quelle: "Neu erstellt (Claude), Tabelle „Lizenzarten“ der Lektion urheberrecht-lizenzen."
+    belege:
+      - {titel: "Open Source Initiative: Licenses", url: "https://opensource.org/licenses"}
+    status: ungeprüft
+
+  - id: urheber-grundlagen
+    typ: multiple_choice
+    stufe: 2
+    titel: "Grundlagen des Urheberrechts"
+    frage: "Welche Aussagen treffen nach deutschem Recht zu? (**drei** richtige)"
+    optionen:
+      - {text: "Der Schutz entsteht automatisch mit der Schöpfung, ohne Anmeldung.", richtig: true, warum: "Anders als bei Patenten oder Marken."}
+      - {text: "Computerprogramme sind urheberrechtlich geschützt.", richtig: true, warum: "§ 2 und §§ 69a ff. UrhG."}
+      - {text: "Der Schutz endet 70 Jahre nach dem Tod des Urhebers.", richtig: true, warum: "§ 64 UrhG."}
+      - {text: "Man muss sein Werk beim Patentamt anmelden, damit es geschützt ist.", warum: "Urheberrecht entsteht ohne Anmeldung.", ursache: konzept}
+      - {text: "Von gekaufter Software darf man beliebig viele Privatkopien für Freunde machen.", warum: "Für Software ist im Wesentlichen nur eine Sicherungskopie erlaubt (§ 69d UrhG).", ursache: konzept}
+    hinweise:
+      - "Wie entsteht der Schutz, wie lange gilt er, gilt er auch für Software?"
+    loesungsweg: "Schutz **automatisch**, auch für **Software**, bis **70 Jahre nach dem Tod**. Bei Software nur Sicherungskopie, keine Privatkopien."
+    quelle: "Neu erstellt (Claude), Tabelle „Grundlagen“ der Lektion urheberrecht-lizenzen."
+    belege:
+      - {titel: "Urheberrechtsgesetz (UrhG) §§ 2, 64, 69a, 69d", url: "https://www.gesetze-im-internet.de/urhg/"}
+    status: ungeprüft
+
+  - id: lizenz-modelle-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Named User oder Concurrent?"
+    situation: "Bei der ArchivTech sollen **55 Mitarbeitende** Zugang zu einer Dokumentensoftware bekommen. Messungen zeigen: Höchstens **18** arbeiten gleichzeitig damit. Angebot: Named User **95 €** je Person oder Concurrent User **260 €** je gleichzeitigem Nutzer (jeweils pro Jahr)."
+    frage: "Welches Lizenzmodell ist günstiger?"
+    schritte:
+      - frage: "Kosten Named User pro Jahr in €"
+        antwort: "5225"
+        einheit: "€"
+        erklaerung: "55 × 95 € = 5.225 €."
+        falsch:
+          - {antwort: "1710", warum: "Bei Named User zählt jede berechtigte Person (55), nicht die gleichzeitigen Nutzer.", ursache: konzept}
+      - frage: "Kosten Concurrent User pro Jahr in €"
+        antwort: "4680"
+        einheit: "€"
+        erklaerung: "18 × 260 € = 4.680 €."
+        falsch:
+          - {antwort: "14300", warum: "Bei Concurrent zählen nur die gleichzeitigen Nutzer (18), nicht alle 55.", ursache: konzept}
+      - frage: "Ersparnis des günstigeren Modells in €"
+        antwort: "545"
+        einheit: "€"
+        erklaerung: "5.225 € − 4.680 € = 545 € zugunsten von Concurrent."
+    hinweise:
+      - "Named User zählt Personen, Concurrent zählt gleichzeitige Nutzer."
+      - "55 × 95 € = ?"
+    loesungsweg: |
+      | Modell | Rechnung | Kosten |
+      | --- | --- | ---: |
+      | Named User | 55 × 95 € | 5.225 € |
+      | Concurrent | 18 × 260 € | **4.680 €** |
+
+      **Concurrent** ist 545 € günstiger – solange nicht mehr als 18 gleichzeitig arbeiten.
+    quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion urheberrecht-lizenzen mit anderen Zahlen; nachgerechnet."
+    belege:
+      - {titel: "Lektion „Urheberrecht und Lizenzen“ (Lizenzmodelle)"}
+    status: ungeprüft
+
+  - id: lizenz-copyleft
+    typ: multiple_choice
+    stufe: 3
+    titel: "GPL oder MIT?"
+    situation: "Die ArchivTech möchte eine Open-Source-Bibliothek verändern und in ihr Archivportal einbauen, das sie Kunden als Software ausliefert – ohne den eigenen Quellcode offenzulegen."
+    frage: "Welche Aussage trifft zu?"
+    optionen:
+      - {text: "Mit einer MIT-lizenzierten Bibliothek ist das möglich, solange Lizenz- und Urhebervermerk erhalten bleiben; bei der GPL müsste das abgeleitete Werk bei Weitergabe unter der GPL mit Quellcode verfügbar sein.", richtig: true, warum: "MIT ist freizügig (permissive), die GPL ist Copyleft."}
+      - {text: "Bei Open Source gibt es keine Pflichten – beide Lizenzen erlauben das ohne Bedingungen.", warum: "Open Source heißt nicht „ohne Regeln“; auch MIT verlangt den Lizenzvermerk.", ursache: konzept}
+      - {text: "Die GPL erlaubt das Einbauen in geschlossene Software, MIT verbietet es.", warum: "Genau umgekehrt: GPL = Copyleft, MIT = freizügig.", ursache: begriff}
+      - {text: "Open-Source-Bibliotheken dürfen grundsätzlich nicht verändert werden.", warum: "Verändern ist bei Open Source gerade erlaubt – unter den Lizenzbedingungen.", ursache: konzept}
+    hinweise:
+      - "Copyleft: Was gilt für Änderungen bei der Weitergabe?"
+    loesungsweg: "**MIT** (freizügig): Einbau in geschlossene Software mit Lizenzvermerk erlaubt. **GPL** (Copyleft): Weitergabe nur unter GPL mit Quellcode."
+    quelle: "Neu erstellt (Claude), Tabelle „Copyleft oder freizügig?“ der Lektion urheberrecht-lizenzen."
+    belege:
+      - {titel: "GNU General Public License v3", url: "https://www.gnu.org/licenses/gpl-3.0.html"}
+      - {titel: "Open Source Initiative: The MIT License", url: "https://opensource.org/license/mit"}
+    status: ungeprüft
+
+  - id: lizenz-freitext
+    typ: freitext
+    stufe: 4
+    operator: beurteilen
+    titel: "Software vom Privatrechner"
+    situation: "Ein Kollege installiert auf drei Firmen-PCs ein Grafikprogramm, das er privat als Einzelplatzlizenz gekauft hat. „Ich habe ja dafür bezahlt.“"
+    frage: "Beurteile das Vorgehen und beschreibe, wie es richtig wäre."
+    musterloesung: |
+      **Beurteilung:** unzulässig.
+      - Die Einzelplatzlizenz erlaubt die Nutzung auf **einem** Gerät bzw. für eine Person – nicht auf drei Firmen-PCs.
+      - Private Lizenzen sind oft **nicht für gewerbliche Nutzung** freigegeben.
+      - Software ist urheberrechtlich geschützt (§§ 69a ff. UrhG); unerlaubte Vervielfältigung kann zu Abmahnung, Schadensersatz und Problemen bei einem Lizenz-Audit führen – haften kann auch das Unternehmen.
+
+      **Richtig:** Bedarf über die IT melden, passende **Firmenlizenzen** (z. B. Volumen- oder Abo-Lizenz) beschaffen, im **Lizenzmanagement** erfassen; ggf. eine freie Alternative mit geeigneter Lizenz prüfen.
+    bewertungspunkte:
+      - {punkt: "Lizenzumfang überschritten (Einzelplatz, privat)", kernbegriffe: ["einzelplatz", "ein gerät", "privat", "gewerblich"]}
+      - {punkt: "rechtliche Folgen (Urheberrecht, Schadensersatz, Haftung)", kernbegriffe: ["urheberrecht", "schadensersatz", "haft", "abmahn"]}
+      - {punkt: "richtiges Vorgehen: Firmenlizenzen über die IT, Lizenzmanagement", kernbegriffe: ["firmenlizenz", "volumen", "lizenzmanagement", "beschaff"]}
+    hinweise:
+      - "Was erlaubt eine Einzelplatzlizenz – und gilt sie auch für die Firma?"
+    loesungsweg: "Unzulässig: Einzelplatz- und Privatlizenz überschritten, Urheberrechtsverstoß, Haftung. Richtig: Firmenlizenzen über die IT beschaffen und verwalten."
+    quelle: "Neu erstellt (Claude), passend zur Lektion urheberrecht-lizenzen."
+    belege:
+      - {titel: "Urheberrechtsgesetz (UrhG) §§ 69a, 69c, 69d", url: "https://www.gesetze-im-internet.de/urhg/"}
+    status: ungeprüft

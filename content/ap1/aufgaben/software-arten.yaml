@@ -1,0 +1,87 @@
+# Aufgaben zum Thema „Standard-, Branchen- (ERP, SCM, CRM), System-, Entwicklungs- und KI-Software“.
+# Passend zur Lektion software-daten.
+
+aufgaben:
+  - id: software-arten-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Welche Softwareart?"
+    frage: "Ordne jedes Beispiel der passenden Softwareart zu."
+    paare:
+      - {links: "Betriebssystem und Treiber", rechts: "Systemsoftware"}
+      - {links: "Office-Paket", rechts: "Standardsoftware"}
+      - {links: "Praxissoftware für Arztpraxen", rechts: "Branchensoftware"}
+      - {links: "das eigens entwickelte Archivportal der ArchivTech", rechts: "Individualsoftware"}
+      - {links: "Compiler, Debugger, IDE", rechts: "Entwicklungssystem"}
+    hinweise:
+      - "Für alle gleich – für eine Branche – für genau ein Unternehmen?"
+    loesungsweg: "Betriebssystem = System · Office = Standard · Praxissoftware = Branche · Archivportal = Individual · Compiler/IDE = Entwicklungssystem."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion software-daten."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01 (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: software-erp-scm-crm
+    typ: lueckentext
+    stufe: 2
+    titel: "ERP, SCM, CRM"
+    frage: "Setze die passende Abkürzung ein: ERP, SCM oder CRM."
+    text: "Ein {{1}}-System verwaltet Kontakte, Angebote und Verkaufschancen. Ein {{2}}-System plant die Lieferkette vom Lieferanten bis zum Kunden. Ein {{3}}-System steuert die Ressourcen des ganzen Unternehmens von Einkauf bis Personal."
+    luecken:
+      - antworten: ["CRM"]
+        falsch:
+          - {antwort: "ERP", warum: "ERP umfasst das ganze Unternehmen; für Kundenbeziehungen steht CRM.", ursache: begriff}
+      - antworten: ["SCM"]
+        falsch:
+          - {antwort: "CRM", warum: "CRM betrifft Kunden; die Lieferkette ist SCM (Supply Chain Management).", ursache: begriff}
+      - antworten: ["ERP"]
+    hinweise:
+      - "Customer – Supply Chain – Enterprise."
+    loesungsweg: "Kunden = **CRM** (Customer Relationship Management) · Lieferkette = **SCM** (Supply Chain Management) · ganzes Unternehmen = **ERP** (Enterprise Resource Planning)."
+    quelle: "Neu erstellt (Claude), Tabelle „Unternehmensanwendungen“ der Lektion software-daten."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01: ERP, SCM, CRM (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: software-standard-individual
+    typ: multiple_choice
+    stufe: 3
+    titel: "Standard- oder Individualsoftware?"
+    situation: "Ein mittelständischer Kunde der ArchivTech sucht eine Software für seine Buchhaltung. Seine Abläufe sind üblich, das Budget ist begrenzt, und er möchte schnell starten."
+    frage: "Was empfiehlst du, und warum?"
+    optionen:
+      - {text: "Standardsoftware, ggf. mit Customizing – sofort verfügbar, erprobt, günstiger und wird vom Hersteller weiterentwickelt", richtig: true, warum: "Bei üblichen Abläufen, kleinem Budget und Zeitdruck spricht alles für Standardsoftware."}
+      - {text: "Individualsoftware, weil sie immer billiger ist", warum: "Individualsoftware kostet Entwicklung und Wartung – meist teurer.", ursache: konzept}
+      - {text: "Systemsoftware, weil Buchhaltung zum Betriebssystem gehört", warum: "Buchhaltung ist Anwendungssoftware, kein Teil des Betriebssystems.", ursache: begriff}
+      - {text: "Ein Entwicklungssystem, damit der Kunde selbst programmiert", warum: "Der Kunde will buchen, nicht programmieren.", ursache: konzept}
+    hinweise:
+      - "Übliche Abläufe, kleines Budget, schneller Start – was passt?"
+    loesungsweg: "**Standardsoftware** (evtl. angepasst): schnell, erprobt, günstiger, gepflegt. Individualsoftware lohnt sich bei besonderen Abläufen."
+    quelle: "Neu erstellt (Claude), Vertiefung „Warum Standardsoftware?“ der Lektion software-daten."
+    belege:
+      - {titel: "Lektion „Software-Arten, Stamm- und Bewegungsdaten“"}
+    status: ungeprüft
+
+  - id: software-ki-freitext
+    typ: freitext
+    stufe: 4
+    operator: vergleichen
+    titel: "KI-Software im Unternehmen"
+    situation: "Die Entwicklungsabteilung der ArchivTech überlegt, einen Code-Assistenten (KI-Software) einzuführen. Alternativ bleibt es bei der bisherigen IDE ohne KI."
+    frage: "Vergleiche beide Varianten anhand von je zwei Vor- und Nachteilen."
+    musterloesung: |
+      | | IDE mit KI-Assistent | IDE ohne KI |
+      | --- | --- | --- |
+      | Vorteile | schnelleres Schreiben von Standardcode und Tests; Erklärungen und Vorschläge direkt im Editor | kein Abfluss von Quellcode an Dritte; keine zusätzlichen Lizenzkosten |
+      | Nachteile | Vorschläge können falsch oder unsicher sein und müssen geprüft werden; Datenschutz, Lizenzkosten, Unternehmensrichtlinie nötig | langsamer bei Routinearbeit; kein Vorschlag bei unbekannten Bibliotheken |
+    bewertungspunkte:
+      - {punkt: "Vorteil KI: Zeitersparnis/Vorschläge", kernbegriffe: ["schnell", "zeit", "vorschl"]}
+      - {punkt: "Nachteil KI: Fehler prüfen oder Datenschutz/Quellcode an Dritte", kernbegriffe: ["prüf", "fehler", "datenschutz", "quellcode"]}
+      - {punkt: "Vor-/Nachteile der Variante ohne KI", kernbegriffe: ["ohne", "kosten", "langsam"]}
+    hinweise:
+      - "Denk an Zeit, Qualität, Datenschutz und Kosten."
+    loesungsweg: "KI: schneller, Vorschläge – aber prüfen, Datenschutz, Kosten. Ohne KI: keine Datenabflüsse und Kosten – aber langsamer bei Routine."
+    quelle: "Neu erstellt (Claude), passend zur Lektion software-daten."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01: KI-Software (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft

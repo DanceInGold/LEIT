@@ -1,0 +1,116 @@
+# Aufgaben zum Thema „Konsolenbefehle: Dateien und Netzwerk-Troubleshooting“.
+# Passend zur Lektion konsolenbefehle.
+
+aufgaben:
+  - id: konsole-windows-linux
+    typ: zuordnung
+    stufe: 1
+    titel: "Windows-Befehl und Linux-Gegenstück"
+    frage: "Ordne jedem Windows-Befehl das Linux-Gegenstück zu."
+    paare:
+      - {links: "`ipconfig /all`", rechts: "`ip addr`"}
+      - {links: "`tracert`", rechts: "`traceroute`"}
+      - {links: "`netstat -an`", rechts: "`ss -tulpn`"}
+      - {links: "`dir`", rechts: "`ls -l`"}
+      - {links: "`findstr`", rechts: "`grep`"}
+    hinweise:
+      - "Unter Linux heißt die IP-Konfiguration nicht ipconfig."
+    loesungsweg: "ipconfig ↔ ip addr · tracert ↔ traceroute · netstat ↔ ss · dir ↔ ls · findstr ↔ grep."
+    quelle: "Neu erstellt (Claude), Tabellen der Lektion konsolenbefehle."
+    belege:
+      - {titel: "Microsoft Learn: Windows commands", url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"}
+      - {titel: "man7.org: ip(8)", url: "https://man7.org/linux/man-pages/man8/ip.8.html"}
+    status: ungeprüft
+
+  - id: konsole-zweck
+    typ: zuordnung
+    stufe: 1
+    titel: "Welcher Befehl wofür?"
+    frage: "Ordne jedem Zweck den passenden Befehl zu."
+    paare:
+      - {links: "Ist ein Rechner erreichbar, wie lange dauert die Antwort?", rechts: "`ping`"}
+      - {links: "Über welche Router läuft die Verbindung?", rechts: "`tracert` / `traceroute`"}
+      - {links: "Welche IP-Adresse gehört zu einem Namen?", rechts: "`nslookup` / `dig`"}
+      - {links: "Welche MAC-Adresse gehört zu einer IP im lokalen Netz?", rechts: "`arp -a` / `ip neigh`"}
+    hinweise:
+      - "Erreichbarkeit – Weg – Namen – lokale Zuordnung."
+    loesungsweg: "ping = Erreichbarkeit · tracert/traceroute = Weg · nslookup/dig = DNS · arp -a/ip neigh = IP-zu-MAC."
+    quelle: "Neu erstellt (Claude), Tabelle „Nicht verwechseln“ der Lektion konsolenbefehle."
+    belege:
+      - {titel: "Microsoft Learn: Windows commands", url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"}
+    status: ungeprüft
+
+  - id: konsole-169
+    typ: multiple_choice
+    stufe: 2
+    titel: "Eine ipconfig-Ausgabe deuten"
+    situation: |
+      ```text
+      C:\> ipconfig
+         IPv4-Adresse  . . . . . . . . : 169.254.112.5
+         Subnetzmaske  . . . . . . . . : 255.255.0.0
+         Standardgateway . . . . . . . :
+      ```
+    frage: "Was sagt diese Ausgabe?"
+    optionen:
+      - {text: "Der Rechner hat keine Antwort vom DHCP-Server bekommen und sich selbst eine Link-Local-Adresse gegeben.", richtig: true, warum: "169.254.x.x ist der Bereich für selbst vergebene Adressen (APIPA/Link-Local)."}
+      - {text: "Alles in Ordnung – der Rechner hat eine gültige Adresse aus dem Firmennetz.", warum: "169.254.x.x und ein fehlendes Gateway zeigen, dass DHCP nicht geantwortet hat.", ursache: konzept}
+      - {text: "Der DNS-Server ist falsch eingetragen.", warum: "DNS kommt erst später; hier fehlt schon die Adresse vom DHCP-Server.", ursache: konzept}
+      - {text: "Das Gateway blockiert den Internetzugang.", warum: "Ein Gateway ist gar nicht eingetragen.", ursache: konzept}
+    hinweise:
+      - "Was bedeutet eine Adresse aus 169.254.0.0/16?"
+    loesungsweg: "**169.254.x.x** = selbst vergeben, **kein DHCP**. Kabel, WLAN, VLAN und DHCP-Server prüfen."
+    quelle: "Neu erstellt (Claude), Rechenbeispiel „eine Ausgabe lesen“ der Lektion konsolenbefehle."
+    belege:
+      - {titel: "RFC 3927: Dynamic Configuration of IPv4 Link-Local Addresses (169.254.0.0/16)", url: "https://www.rfc-editor.org/rfc/rfc3927"}
+    status: ungeprüft
+
+  - id: konsole-fehlersuche-ordnen
+    typ: reihenfolge
+    stufe: 2
+    titel: "Fehlersuche Schritt für Schritt"
+    frage: "Ein Notebook kommt nicht ins Internet. Bringe die Prüfschritte in eine sinnvolle Reihenfolge."
+    elemente:
+      - "eigene IP-Konfiguration prüfen (ipconfig / ip addr)"
+      - "Gateway anpingen"
+      - "externe IP-Adresse anpingen"
+      - "Namen auflösen (nslookup)"
+      - "den Dienst selbst prüfen (Port, Anwendung)"
+    hinweise:
+      - "Von unten nach oben: erst das eigene Gerät, dann das lokale Netz, dann draußen, dann Namen."
+    loesungsweg: "Eigene IP → Gateway → externe IP → DNS → Dienst. Jeder erfolgreiche Schritt schließt eine Gruppe von Ursachen aus."
+    quelle: "Neu erstellt (Claude), Ablaufdiagramm der Lektion konsolenbefehle."
+    belege:
+      - {titel: "Microsoft Learn: Windows commands", url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"}
+    status: ungeprüft
+
+  - id: konsole-dns-freitext
+    typ: freitext
+    stufe: 4
+    operator: erläutern
+    titel: "Ping per IP geht, per Name nicht"
+    situation: |
+      Ein Kollege meldet: „Das Repository ist kaputt!“ Du testest an seinem Rechner:
+
+      ```text
+      C:\> ping 10.0.2.40
+      Antwort von 10.0.2.40: Bytes=32 Zeit=1ms TTL=64
+      C:\> ping repo.archivtech.example
+      Ping-Anforderung konnte Host "repo.archivtech.example" nicht finden.
+      ```
+    frage: "Erläutere, wo das Problem liegt und wie du weiter vorgehst."
+    musterloesung: |
+      - Der Server ist per **IP erreichbar** → Netzwerk, Gateway und Server laufen.
+      - Der **Name** wird nicht aufgelöst → **DNS-Problem**, nicht das Repository.
+      - Weiter: `ipconfig /all` – welcher DNS-Server ist eingetragen? `nslookup repo.archivtech.example` gegen den Firmen-DNS testen; ggf. DNS-Cache mit `ipconfig /flushdns` leeren; prüfen, ob der DNS-Eintrag auf dem Server existiert.
+    bewertungspunkte:
+      - {punkt: "Netzwerk/Server funktioniert, weil Ping per IP klappt", kernbegriffe: ["erreichbar", "10.0.2.40", "netzwerk"]}
+      - {punkt: "DNS als Ursache erkannt", kernbegriffe: ["dns", "namensauflösung"]}
+      - {punkt: "passende nächste Schritte (ipconfig /all, nslookup, flushdns)", kernbegriffe: ["nslookup", "ipconfig", "flushdns"]}
+    hinweise:
+      - "Was unterscheidet die beiden Ping-Befehle?"
+    loesungsweg: "Per IP ok → Netz läuft; per Name nicht → DNS. DNS-Server mit ipconfig /all prüfen, mit nslookup testen, Cache leeren."
+    quelle: "Neu erstellt (Claude), Prüfungsfalle „Ping per Name scheitert, per IP geht“ der Lektion konsolenbefehle."
+    belege:
+      - {titel: "Microsoft Learn: nslookup, ipconfig", url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"}
+    status: ungeprüft

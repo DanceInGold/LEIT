@@ -1,0 +1,87 @@
+# Aufgaben zum Thema „SMART-Prinzip“.
+# Passend zur Lektion projekt-smart.
+
+aufgaben:
+  - id: smart-buchstaben
+    typ: zuordnung
+    stufe: 1
+    titel: "Was bedeutet SMART?"
+    frage: "Ordne jedem Buchstaben seine Bedeutung zu."
+    paare:
+      - {links: "S", rechts: "spezifisch"}
+      - {links: "M", rechts: "messbar"}
+      - {links: "A", rechts: "attraktiv / akzeptiert"}
+      - {links: "R", rechts: "realistisch"}
+      - {links: "T", rechts: "terminiert"}
+    hinweise:
+      - "Ein SMART-Ziel enthält meist eine Zahl und ein Datum."
+    loesungsweg: "**S**pezifisch · **M**essbar · **A**ttraktiv/akzeptiert · **R**ealistisch · **T**erminiert."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion projekt-smart."
+    belege:
+      - {titel: "Doran, G. T.: There's a S.M.A.R.T. way to write management's goals and objectives. Management Review 70 (11), 1981"}
+    status: ungeprüft
+
+  - id: smart-erkennen
+    typ: multiple_choice
+    stufe: 2
+    titel: "Welches Ziel ist SMART?"
+    frage: "Welches Ziel erfüllt alle SMART-Kriterien?"
+    optionen:
+      - {text: "„Bis zum 31.03.2027 werden 95 % aller Störungstickets innerhalb von 4 Stunden beantwortet (heute 70 %).“", richtig: true, warum: "Spezifisch (Störungstickets), messbar (95 %, 4 h), terminiert (31.03.2027); realistisch und attraktiv lassen sich begründen."}
+      - {text: "„Der Support soll schneller werden.“", warum: "Weder messbar noch terminiert, und unklar, was „schneller“ heißt.", ursache: konzept}
+      - {text: "„Bis Ende März sollen die Kunden zufriedener sein.“", warum: "Terminiert, aber nicht messbar – woran erkennt man „zufriedener“?", ursache: konzept}
+      - {text: "„Alle Tickets werden ab morgen innerhalb von 1 Minute gelöst.“", warum: "Messbar und terminiert, aber nicht realistisch.", ursache: konzept}
+    hinweise:
+      - "Prüfe jede Antwort auf Zahl, Datum und Machbarkeit."
+    loesungsweg: "Nur das erste Ziel ist **spezifisch, messbar, terminiert** und **realistisch**. Die anderen fehlt eine Zahl, ein Datum oder die Machbarkeit."
+    quelle: "Neu erstellt (Claude), passend zur Lektion projekt-smart."
+    belege:
+      - {titel: "Doran, G. T. (1981), Management Review 70 (11)"}
+    status: ungeprüft
+
+  - id: smart-fehlendes
+    typ: zuordnung
+    stufe: 3
+    titel: "Welches Kriterium fehlt?"
+    frage: "Ordne jedem Ziel das SMART-Kriterium zu, das am deutlichsten **fehlt**."
+    paare:
+      - {links: "„Die Abrufzeit soll auf höchstens 2 Sekunden sinken.“", rechts: "terminiert"}
+      - {links: "„Bis 30.06. soll das Archiv besser werden.“", rechts: "messbar"}
+      - {links: "„Bis Freitag migriert ein Azubi allein 500 TB auf neue Systeme.“", rechts: "realistisch"}
+      - {links: "„Bis 30.06. soll irgendetwas an der IT um 20 % verbessert werden.“", rechts: "spezifisch"}
+    hinweise:
+      - "Frag bei jedem Ziel: Fehlt ein Datum, eine Zahl, die Machbarkeit oder der genaue Gegenstand?"
+    loesungsweg: "Ohne Datum → **terminiert** fehlt · „besser“ ohne Zahl → **messbar** · 500 TB allein bis Freitag → **realistisch** · „irgendetwas“ → **spezifisch**."
+    quelle: "Neu erstellt (Claude), Rechenbeispiel der Lektion projekt-smart."
+    belege:
+      - {titel: "Doran, G. T. (1981), Management Review 70 (11)"}
+    status: ungeprüft
+
+  - id: smart-umformulieren-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Ein Ziel SMART machen"
+    situation: "Die Teamleitung schreibt in den Projektauftrag: „Die nächtliche Datensicherung soll zuverlässiger werden.“ Heute schlagen etwa 6 von 30 Sicherungen im Monat fehl."
+    frage: "Prüfe das Ziel an jedem SMART-Kriterium und formuliere es SMART um."
+    musterloesung: |
+      | Kriterium | Prüfung | Verbesserung |
+      | --- | --- | --- |
+      | spezifisch | „zuverlässiger“ ist vage | Anteil erfolgreicher nächtlicher Sicherungen |
+      | messbar | keine Zahl | mindestens 29 von 30 im Monat erfolgreich (heute 24) |
+      | attraktiv | Ausfälle gefährden Daten – Team und Leitung wollen das | ja |
+      | realistisch | mit Ursachenanalyse und Monitoring machbar | ja |
+      | terminiert | fehlt | ab März 2027 |
+
+      **SMART:** „Ab März 2027 sind mindestens 29 von 30 nächtlichen Sicherungen pro Monat erfolgreich (heute 24).“
+    bewertungspunkte:
+      - {punkt: "Kriterien einzeln geprüft", kernbegriffe: ["spezifisch", "messbar", "terminiert"]}
+      - {punkt: "Zahl als Messgröße ergänzt", kernbegriffe: ["29", "%", "von 30"]}
+      - {punkt: "Termin ergänzt", kernbegriffe: ["bis", "ab", "2027"]}
+    hinweise:
+      - "Was heißt „zuverlässiger“ in Zahlen? Heute sind es 24 von 30."
+    loesungsweg: "Jedes Kriterium prüfen; Zahl (z. B. 29 von 30 erfolgreich) und Datum ergänzen."
+    quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion projekt-smart."
+    belege:
+      - {titel: "Doran, G. T. (1981), Management Review 70 (11)"}
+    status: ungeprüft

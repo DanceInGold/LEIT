@@ -1,0 +1,118 @@
+# Aufgaben zum Thema „Betriebssysteme: Einsatzzweck, Dateimanagement, Freigaben“.
+# Passend zur Lektion betriebssysteme.
+
+aufgaben:
+  - id: bs-einsatz
+    typ: zuordnung
+    stufe: 1
+    titel: "Welches System wofür?"
+    frage: "Ordne jedem Einsatz ein typisches Betriebssystem zu."
+    paare:
+      - {links: "Archivserver im Rechenzentrum, ohne Oberfläche, per SSH verwaltet", rechts: "Linux (z. B. RHEL)"}
+      - {links: "Diensthandy mit zentraler Verwaltung (MDM)", rechts: "Android oder iOS"}
+      - {links: "Firmware eines Netzwerkdruckers", rechts: "eingebettetes System"}
+      - {links: "Büroarbeitsplatz mit Office und Peripherie", rechts: "Windows oder macOS"}
+    hinweise:
+      - "Server – mobil – eingebettet – Client."
+    loesungsweg: "Server = Linux/Windows Server · mobil = Android/iOS · Drucker = eingebettet · Büro = Windows/macOS (oder Linux)."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion betriebssysteme."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.03: Betriebssysteme (laut katalog.yaml)"}
+    status: ungeprüft
+
+  - id: bs-chmod-rechnen
+    typ: rechnung
+    stufe: 2
+    titel: "Linux-Rechte in Zahlen"
+    situation: |
+      ```text
+      -rw-r----- 1 archiv backup 2048 Jan 29 06:30 bestand.csv
+      ```
+    frage: "Bestimme die Rechte als Oktalzahl (r = 4, w = 2, x = 1)."
+    schritte:
+      - frage: "Wert für den Besitzer (rw-)"
+        antwort: "6"
+        erklaerung: "4 + 2 + 0 = 6."
+        falsch:
+          - {antwort: "7", warum: "x fehlt beim Besitzer: rw- = 4 + 2 = 6.", ursache: rechenfehler}
+      - frage: "Wert für die Gruppe (r--)"
+        antwort: "4"
+        erklaerung: "4 + 0 + 0 = 4."
+      - frage: "Wert für andere (---)"
+        antwort: "0"
+        erklaerung: "keine Rechte = 0."
+      - frage: "chmod-Befehl für diese Rechte (nur die Zahl)"
+        antwort: "640"
+        format: text
+        erklaerung: "Besitzer 6, Gruppe 4, andere 0 → `chmod 640 bestand.csv`."
+        falsch:
+          - {antwort: "460", warum: "Reihenfolge ist Besitzer – Gruppe – andere.", ursache: konzept}
+    hinweise:
+      - "Drei Dreiergruppen: Besitzer, Gruppe, andere. Das erste Zeichen ist der Dateityp."
+      - "r = 4, w = 2, x = 1 – addieren."
+    loesungsweg: "rw- = **6**, r-- = **4**, --- = **0** → `chmod 640`."
+    quelle: "Neu erstellt (Claude), Beispiel „Dateirechte unter Linux“ der Lektion betriebssysteme."
+    belege:
+      - {titel: "GNU coreutils: chmod invocation", url: "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html"}
+    status: ungeprüft
+
+  - id: bs-chmod-lesen
+    typ: multiple_choice
+    stufe: 2
+    titel: "Was bedeutet chmod 754?"
+    frage: "Welche Rechte setzt `chmod 754 sicherung.sh`?"
+    optionen:
+      - {text: "Besitzer rwx, Gruppe r-x, andere r--", richtig: true, warum: "7 = 4+2+1, 5 = 4+1, 4 = 4."}
+      - {text: "Besitzer rwx, Gruppe rw-, andere r--", warum: "rw- wäre 6, nicht 5. 5 = 4 + 1 = r-x.", ursache: rechenfehler}
+      - {text: "Besitzer r--, Gruppe r-x, andere rwx", warum: "Die erste Ziffer gehört dem Besitzer, die letzte den anderen.", ursache: konzept}
+      - {text: "alle dürfen alles", warum: "Das wäre 777.", ursache: konzept}
+    hinweise:
+      - "Jede Ziffer zerlegen: Welche Summe aus 4, 2, 1 ergibt sie?"
+    loesungsweg: "7 = rwx (Besitzer) · 5 = r-x (Gruppe) · 4 = r-- (andere)."
+    quelle: "Neu erstellt (Claude), Prüfungsfalle „Oktalwert falsch addiert“ der Lektion betriebssysteme."
+    belege:
+      - {titel: "GNU coreutils: chmod invocation", url: "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html"}
+    status: ungeprüft
+
+  - id: bs-freigabe-ntfs
+    typ: zuordnung
+    stufe: 3
+    titel: "Freigabe- und NTFS-Rechte"
+    frage: "Welche Berechtigung gilt beim Zugriff **über das Netz**? Ordne jede Kombination dem Ergebnis zu."
+    paare:
+      - {links: "Freigabe: Vollzugriff · NTFS: Lesen", rechts: "Lesen"}
+      - {links: "Freigabe: Lesen · NTFS: Ändern", rechts: "Lesen"}
+      - {links: "Freigabe: Ändern · NTFS: Ändern", rechts: "Ändern"}
+      - {links: "Freigabe: Ändern · NTFS: Vollzugriff", rechts: "Ändern"}
+    ablenker: ["Vollzugriff"]
+    hinweise:
+      - "Über das Netz gelten beide Ebenen – welche gewinnt?"
+    loesungsweg: "Die **restriktivere** der beiden Berechtigungen gilt. Lokal zählt nur NTFS."
+    quelle: "Neu erstellt (Claude), Tabelle „Freigaben im Netz“ der Lektion betriebssysteme."
+    belege:
+      - {titel: "Microsoft-Dokumentation zu Freigabe- und NTFS-Berechtigungen (wirksam ist die restriktivere Kombination)"}
+    status: ungeprüft
+
+  - id: bs-rechte-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Rechte für einen Archivordner"
+    situation: "Auf einem Linux-Server liegt der Ordner `/data/vertrieb`. Die Gruppe `vertrieb` soll darin Dateien lesen und anlegen können, der Besitzer `archivadmin` alles dürfen, alle anderen gar nichts. Der Ordner soll außerdem per SMB für die Windows-Clients freigegeben werden."
+    frage: "Beschreibe, wie du Besitzer, Gruppe und Rechte setzt, und was bei der SMB-Freigabe zu beachten ist."
+    musterloesung: |
+      1. Besitzer und Gruppe setzen: `chown archivadmin:vertrieb /data/vertrieb`
+      2. Rechte setzen: `chmod 770 /data/vertrieb`
+         - Besitzer rwx (7), Gruppe rwx (7) – bei Ordnern braucht man **w** zum Anlegen und **x** zum Betreten –, andere --- (0).
+      3. **SMB-Freigabe** (Samba) nur für die Gruppe `vertrieb` einrichten. Es gelten Freigabe- **und** Dateirechte; wirksam ist die **restriktivere** Kombination.
+    bewertungspunkte:
+      - {punkt: "chown für Besitzer und Gruppe", kernbegriffe: ["chown"]}
+      - {punkt: "chmod mit passendem Wert (770) und Begründung, x zum Betreten", kernbegriffe: ["770", "chmod"]}
+      - {punkt: "Freigabe- und Dateirechte: die restriktivere gilt", kernbegriffe: ["restriktiv", "strenger", "beide"]}
+    hinweise:
+      - "Was braucht man bei einem Ordner, um Dateien anzulegen – und um ihn überhaupt zu betreten?"
+    loesungsweg: "`chown archivadmin:vertrieb`, `chmod 770` (Ordner braucht w und x), Freigabe nur für die Gruppe; die restriktivere Berechtigung gilt."
+    quelle: "Neu erstellt (Claude), passend zur Lektion betriebssysteme."
+    belege:
+      - {titel: "GNU coreutils: chmod invocation", url: "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html"}
+    status: ungeprüft

@@ -1,0 +1,86 @@
+# Aufgaben zum Thema „Abnahmeprotokoll, zu übergebende Dokumentation, Schlecht-/Falsch-/Minderlieferung“.
+# Passend zur Lektion abnahme-leistung.
+
+aufgaben:
+  - id: abnahme-lieferarten
+    typ: zuordnung
+    stufe: 1
+    titel: "Schlecht-, Falsch- oder Minderlieferung?"
+    frage: "Ordne jeden Fall zu."
+    paare:
+      - {links: "Ein geliefertes Netzteil ist defekt.", rechts: "Schlechtlieferung"}
+      - {links: "Statt 32-GB-Modulen kommen 16-GB-Module.", rechts: "Falschlieferung"}
+      - {links: "Bestellt waren 10 Notebooks, geliefert werden 8.", rechts: "Minderlieferung"}
+    hinweise:
+      - "Kaputt – etwas anderes – zu wenig."
+    loesungsweg: "Mangel an der Sache = **Schlecht**lieferung · andere Sache = **Falsch**lieferung · zu wenig = **Minder**lieferung. Zuerst wird Nacherfüllung verlangt."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion abnahme-leistung."
+    belege:
+      - {titel: "BGB §§ 434, 437", url: "https://www.gesetze-im-internet.de/bgb/"}
+    status: ungeprüft
+
+  - id: abnahme-folgen
+    typ: multiple_choice
+    stufe: 2
+    titel: "Was bewirkt die Abnahme?"
+    frage: "Welche Folgen hat die Abnahme beim Werkvertrag? (**drei** richtige)"
+    optionen:
+      - {text: "Die Vergütung wird fällig.", richtig: true, warum: "§ 641 BGB: Die Vergütung ist bei der Abnahme zu entrichten."}
+      - {text: "Die Verjährungsfrist für Mängelansprüche beginnt.", richtig: true, warum: "Die Frist läuft ab der Abnahme."}
+      - {text: "Bei Streit muss nun der Kunde einen Mangel beweisen.", richtig: true, warum: "Vor der Abnahme muss der Auftragnehmer die Mangelfreiheit beweisen, danach der Kunde den Mangel."}
+      - {text: "Der Kunde verliert jedes Recht auf Nachbesserung.", warum: "Mängelrechte bestehen weiter; vorbehaltene Mängel werden nachgebessert.", ursache: konzept}
+      - {text: "Die Abnahme ist dasselbe wie die Lieferung.", warum: "Abnahme ist die Billigung des Werks, nicht nur die Übergabe.", ursache: begriff}
+    hinweise:
+      - "Denk an Geld, Fristen und Beweislast."
+    loesungsweg: "Nach der Abnahme: **Vergütung fällig**, **Verjährungsfrist beginnt**, **Beweislast** wechselt zum Kunden."
+    quelle: "Neu erstellt (Claude), Abschnitt „Was die Abnahme bewirkt“ der Lektion abnahme-leistung."
+    belege:
+      - {titel: "BGB §§ 640, 641, 634a", url: "https://www.gesetze-im-internet.de/bgb/"}
+    status: ungeprüft
+
+  - id: abnahme-vorbehalt
+    typ: multiple_choice
+    stufe: 3
+    titel: "Kleiner Mangel bei der Abnahme"
+    situation: "Bei der Abnahme des neuen Archivservers sind alle Tests gegen das Pflichtenheft bestanden. Nur die Alarm-Mail des Monitorings geht an eine falsche Adresse. Der Kunde will die Abnahme deshalb komplett verweigern."
+    frage: "Wie ist das zu bewerten?"
+    optionen:
+      - {text: "Wegen eines unwesentlichen Mangels darf die Abnahme nicht verweigert werden; er wird im Protokoll mit Frist vorbehalten und nachgebessert.", richtig: true, warum: "§ 640 Abs. 1 BGB: Wegen unwesentlicher Mängel kann die Abnahme nicht verweigert werden."}
+      - {text: "Der Kunde darf die Abnahme verweigern, solange auch nur ein Fehler besteht.", warum: "Nur wesentliche Mängel berechtigen zur Verweigerung.", ursache: konzept}
+      - {text: "Der Mangel wird nicht notiert, damit das Protokoll sauber aussieht.", warum: "Mängel gehören mit Frist ins Protokoll – sonst ist später unklar, was vereinbart war.", ursache: konzept}
+      - {text: "Die ArchivTech muss den Vertrag rückabwickeln.", warum: "Unverhältnismäßig: Der Mangel lässt sich schnell beheben.", ursache: konzept}
+    hinweise:
+      - "Ist eine falsche Mailadresse ein wesentlicher Mangel?"
+    loesungsweg: "Unwesentlicher Mangel → **Abnahme mit Vorbehalt**: Mangel und Frist ins Protokoll, nachbessern."
+    quelle: "Neu erstellt (Claude), Beispielprotokoll der Lektion abnahme-leistung."
+    belege:
+      - {titel: "BGB § 640 Abs. 1 Satz 2", url: "https://www.gesetze-im-internet.de/bgb/__640.html"}
+    status: ungeprüft
+
+  - id: abnahme-doku-freitext
+    typ: freitext
+    stufe: 4
+    operator: nennen
+    titel: "Was gehört zur Übergabe?"
+    situation: "Die ArchivTech übergibt einem Kunden den neu eingerichteten Archivserver. Der Kunde betreibt ihn künftig mit eigener IT."
+    frage: "Nenne mindestens vier Dokumente bzw. Inhalte, die übergeben werden sollten, und ihren Zweck."
+    musterloesung: |
+      | Dokument | Zweck |
+      | --- | --- |
+      | Betriebsdokumentation (Konfiguration, IP-Adressen, Zugänge – sicher übergeben) | Betrieb und Fehlersuche durch die Kunden-IT |
+      | Benutzerdokumentation | Anwender können das System bedienen |
+      | Test- und Abnahmeprotokoll | Nachweis, was vereinbart und geprüft wurde |
+      | Lizenz- und Garantienachweise, Seriennummern | Support, Garantiefälle, Lizenz-Audits |
+      | Notfall- und Wiederherstellungsanleitung | schnelles Handeln bei Ausfall |
+    bewertungspunkte:
+      - {punkt: "Betriebsdokumentation", kernbegriffe: ["betrieb", "konfiguration"]}
+      - {punkt: "Benutzerdokumentation", kernbegriffe: ["benutzer", "anwender", "anleitung"]}
+      - {punkt: "Test-/Abnahmeprotokoll", kernbegriffe: ["protokoll"]}
+      - {punkt: "Lizenzen/Garantie oder Notfallanleitung", kernbegriffe: ["lizenz", "garantie", "notfall", "wiederherstell"]}
+    hinweise:
+      - "Wer arbeitet künftig mit dem System, und was braucht diese Person im Alltag und im Notfall?"
+    loesungsweg: "Betriebs- und Benutzerdokumentation, Test-/Abnahmeprotokoll, Lizenz- und Garantienachweise, Notfallanleitung."
+    quelle: "Neu erstellt (Claude), Liste „Zu übergebende Dokumentation“ der Lektion abnahme-leistung."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 07.07: zu übergebende Dokumentation (laut katalog.yaml)"}
+    status: ungeprüft

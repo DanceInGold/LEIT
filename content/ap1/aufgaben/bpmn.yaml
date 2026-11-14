@@ -1,0 +1,57 @@
+# Aufgaben zum Thema „Geschäftsprozesse mit BPMN modellieren“ (Zusatzthema, E-10).
+# Passend zur Lektion epk-bpmn.
+
+aufgaben:
+  - id: bpmn-elemente
+    typ: zuordnung
+    stufe: 1
+    titel: "Bausteine in BPMN"
+    frage: "Ordne jedem Element seine Bedeutung zu."
+    paare:
+      - {links: "dünner Kreis", rechts: "Startereignis"}
+      - {links: "dicker Kreis", rechts: "Endereignis"}
+      - {links: "Raute mit X", rechts: "exklusives Gateway: genau ein Weg"}
+      - {links: "Raute mit +", rechts: "paralleles Gateway: alle Wege gleichzeitig"}
+      - {links: "gestrichelter Pfeil", rechts: "Nachrichtenfluss zwischen Pools"}
+    hinweise:
+      - "X = entweder – oder, + = und."
+    loesungsweg: "dünner Kreis = Start · dicker Kreis = Ende · X-Raute = exklusiv · +-Raute = parallel · gestrichelt = Nachricht zwischen Pools."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion epk-bpmn."
+    belege:
+      - {titel: "OMG Business Process Model and Notation (BPMN) 2.0.2", url: "https://www.omg.org/spec/BPMN/2.0.2"}
+    status: ungeprüft
+
+  - id: bpmn-pool-lane
+    typ: multiple_choice
+    stufe: 2
+    titel: "Pools, Lanes und Flüsse"
+    frage: "Welche Aussagen zu BPMN treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "Ein Pool steht für einen Prozessbeteiligten, z. B. den Kunden oder die ArchivTech.", richtig: true, warum: "Lanes unterteilen einen Pool in Rollen."}
+      - {text: "Zwischen zwei Pools gibt es nur Nachrichtenflüsse, keine Sequenzflüsse.", richtig: true, warum: "Sequenzflüsse verbinden Schritte innerhalb eines Pools."}
+      - {text: "Lanes stehen für verschiedene Unternehmen, Pools für Rollen.", warum: "Umgekehrt: Pool = Beteiligter, Lane = Rolle innerhalb des Pools.", ursache: begriff}
+      - {text: "Ein exklusives Gateway startet alle ausgehenden Wege gleichzeitig.", warum: "Das tut das parallele Gateway (+); das exklusive (X) wählt genau einen.", ursache: begriff}
+    hinweise:
+      - "Pool = Schwimmbecken, Lane = Bahn darin."
+    loesungsweg: "**Pool** = Beteiligter, **Lane** = Rolle darin. Zwischen Pools nur **Nachrichtenflüsse**."
+    quelle: "Neu erstellt (Claude), Tabelle und Prüfungsfalle der Lektion epk-bpmn."
+    belege:
+      - {titel: "OMG Business Process Model and Notation (BPMN) 2.0.2", url: "https://www.omg.org/spec/BPMN/2.0.2"}
+    status: ungeprüft
+
+  - id: bpmn-epk-vergleich
+    typ: zuordnung
+    stufe: 3
+    titel: "EPK, BPMN oder Aktivitätsdiagramm?"
+    frage: "Ordne jede Aussage der passenden Notation zu."
+    paare:
+      - {links: "Ereignis und Funktion wechseln sich ab; Ereignisse als Sechseck", rechts: "EPK"}
+      - {links: "genau definiert, kann in Workflow-Systemen direkt ausgeführt werden", rechts: "BPMN"}
+      - {links: "kommt aus der Softwareentwicklung; für den Katalog 2025 maßgeblich", rechts: "UML-Aktivitätsdiagramm"}
+    hinweise:
+      - "Welche Notation ist Teil der UML?"
+    loesungsweg: "Sechseck und Wechsel Ereignis/Funktion = **EPK** · ausführbar in Workflow-Systemen = **BPMN** · aus der Softwareentwicklung, prüfungsrelevant = **Aktivitätsdiagramm**."
+    quelle: "Neu erstellt (Claude), Vertiefung der Lektion epk-bpmn."
+    belege:
+      - {titel: "docs/entscheidungen.md E-10: BPMN und EPK als Zusatz"}
+    status: ungeprüft

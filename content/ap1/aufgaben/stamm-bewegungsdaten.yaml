@@ -1,0 +1,80 @@
+# Aufgaben zum Thema „Stammdaten und Bewegungsdaten“.
+# Passend zur Lektion software-daten.
+
+aufgaben:
+  - id: daten-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Stamm- oder Bewegungsdaten?"
+    frage: "Ordne jeden Datensatz zu."
+    paare:
+      - {links: "Kunde mit Name und Adresse", rechts: "Stammdaten"}
+      - {links: "Artikel mit Artikelnummer und Bezeichnung", rechts: "Stammdaten"}
+      - {links: "Bestellung vom 12.11.", rechts: "Bewegungsdaten"}
+      - {links: "Monatsrechnung November", rechts: "Bewegungsdaten"}
+      - {links: "Lagerabgang von 20 Festplatten", rechts: "Bewegungsdaten"}
+    hinweise:
+      - "Ändert sich der Datensatz selten – oder entsteht er bei jedem Vorgang neu?"
+    loesungsweg: "**Stammdaten:** Kunde, Artikel (langlebig). **Bewegungsdaten:** Bestellung, Rechnung, Lagerabgang (je Vorgang)."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion software-daten."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.02: Stamm- und Bewegungsdaten (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: daten-eigenschaften
+    typ: multiple_choice
+    stufe: 2
+    titel: "Eigenschaften"
+    frage: "Welche Aussagen treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "Bewegungsdaten verweisen auf Stammdaten, z. B. enthält eine Rechnung die Kundennummer.", richtig: true, warum: "So steht die Adresse nur einmal im System."}
+      - {text: "Stammdaten ändern sich selten und bleiben lange gültig.", richtig: true, warum: "Etwa Kundenadresse oder Artikelbezeichnung."}
+      - {text: "Eine Rechnung ist ein Stammdatum, weil sie aufbewahrt wird.", warum: "Aufbewahren ändert nichts: Sie entsteht bei einem Vorgang – Bewegungsdaten.", ursache: begriff}
+      - {text: "In jeder Rechnung sollte die vollständige Kundenadresse als eigene Kopie gepflegt werden.", warum: "Das erzeugt Redundanz; man verweist auf den Kundenstammsatz.", ursache: konzept}
+    hinweise:
+      - "Denk an die Normalisierung von Datenbanken."
+    loesungsweg: "Stammdaten **langlebig**; Bewegungsdaten entstehen je Vorgang und **verweisen** auf Stammdaten – keine Redundanz."
+    quelle: "Neu erstellt (Claude), passend zur Lektion software-daten."
+    belege:
+      - {titel: "Lektion „Software-Arten, Stamm- und Bewegungsdaten“"}
+    status: ungeprüft
+
+  - id: daten-archiv
+    typ: zuordnung
+    stufe: 3
+    titel: "Daten im Archivsystem"
+    frage: "Ordne jeden Datensatz aus dem Archivsystem der ArchivTech zu."
+    paare:
+      - {links: "Speicherklasse „cold“ mit Preis pro TB", rechts: "Stammdaten"}
+      - {links: "Vertrag des Kunden Nord GmbH mit Laufzeit", rechts: "Stammdaten"}
+      - {links: "Upload von 2.000 Dokumenten am 12.11.", rechts: "Bewegungsdaten"}
+      - {links: "Supportticket „Download bricht ab“", rechts: "Bewegungsdaten"}
+    hinweise:
+      - "Ein Tarif ist festgelegt – ein Upload passiert einmal."
+    loesungsweg: "Tarif und Vertrag = **Stammdaten** · Upload und Ticket = **Bewegungsdaten**."
+    quelle: "Neu erstellt (Claude), Beispiel „im Archiv“ der Lektion software-daten."
+    belege:
+      - {titel: "Lektion „Software-Arten, Stamm- und Bewegungsdaten“"}
+    status: ungeprüft
+
+  - id: daten-freitext
+    typ: freitext
+    stufe: 4
+    operator: erläutern
+    titel: "Warum trennt man Stamm- und Bewegungsdaten?"
+    situation: "Ein Kollege speichert in seiner Tabelle für Supporteinsätze bei jedem Einsatz Kundenname, Adresse und Ansprechpartner erneut ab. Ein Kunde ist umgezogen – jetzt stehen in 140 Zeilen verschiedene Adressen."
+    frage: "Erläutere das Problem und wie eine Trennung von Stamm- und Bewegungsdaten hilft."
+    musterloesung: |
+      - **Problem:** Die Kundendaten (Stammdaten) sind in jedem Einsatz (Bewegungsdaten) **redundant** gespeichert. Bei einer Änderung müssen alle Kopien angepasst werden – sonst entstehen **Widersprüche** (Änderungsanomalie).
+      - **Lösung:** Kunden als **Stammdaten** einmal pflegen (Kundennummer, Name, Adresse). Jeder Einsatz speichert nur die **Kundennummer** als Verweis. Der Umzug wird an einer Stelle geändert und gilt sofort überall.
+    bewertungspunkte:
+      - {punkt: "Redundanz/Widersprüche als Problem erkannt", kernbegriffe: ["redundan", "widerspr", "anomalie", "mehrfach"]}
+      - {punkt: "Kunden als Stammdaten einmal pflegen", kernbegriffe: ["stammdaten", "einmal"]}
+      - {punkt: "Einsätze verweisen per Kundennummer", kernbegriffe: ["kundennummer", "verweis", "schlüssel"]}
+    hinweise:
+      - "Was passiert bei einer Adressänderung, wenn die Adresse 140-mal gespeichert ist?"
+    loesungsweg: "Redundanz führt zu Widersprüchen. Kunden einmal als Stammdaten pflegen, Einsätze verweisen per Kundennummer."
+    quelle: "Neu erstellt (Claude), Abschnitt „Warum ist es so?“ der Lektion software-daten."
+    belege:
+      - {titel: "Codd, E. F. (1970): A Relational Model of Data for Large Shared Data Banks (Redundanz und Anomalien)"}
+    status: ungeprüft

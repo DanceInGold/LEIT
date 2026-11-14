@@ -1,0 +1,85 @@
+# Aufgaben zum Thema „Phasen der Teambildung und -entwicklung“.
+# Passend zur Lektion teambildung.
+
+aufgaben:
+  - id: team-phasen-ordnen
+    typ: reihenfolge
+    stufe: 1
+    titel: "Die Phasen nach Tuckman"
+    frage: "Bringe die Phasen der Teambildung in die richtige Reihenfolge."
+    elemente:
+      - "Forming"
+      - "Storming"
+      - "Norming"
+      - "Performing"
+      - "Adjourning"
+    hinweise:
+      - "Erst kennenlernen, dann streiten, dann Regeln, dann Leistung, dann Abschied."
+    loesungsweg: "**Forming → Storming → Norming → Performing → Adjourning.**"
+    quelle: "Neu erstellt (Claude), Diagramm der Lektion teambildung."
+    belege:
+      - {titel: "Tuckman, B. W. (1965), Psychological Bulletin 63 (6); Tuckman & Jensen (1977), Group & Organization Studies 2 (4)"}
+    status: ungeprüft
+
+  - id: team-phase-erkennen
+    typ: zuordnung
+    stufe: 2
+    titel: "In welcher Phase ist das Team?"
+    frage: "Ordne jede Beobachtung im Migrationsprojekt der passenden Phase zu."
+    paare:
+      - {links: "Beim Kick-off stellen sich alle höflich vor; niemand weiß genau, wer was macht.", rechts: "Forming"}
+      - {links: "Zwei Techniker streiten, ob das Image selbst gebaut oder vom Hersteller übernommen wird.", rechts: "Storming"}
+      - {links: "Das Team vereinbart ein tägliches Kurztreffen und dokumentiert im Wiki.", rechts: "Norming"}
+      - {links: "Alle arbeiten selbstständig und springen ein, wenn jemand Hilfe braucht.", rechts: "Performing"}
+      - {links: "Beim Abschlusstreffen werden Erfahrungen gesammelt, das Team löst sich auf.", rechts: "Adjourning"}
+    hinweise:
+      - "Unsicherheit – Konflikt – Regeln – Leistung – Abschluss."
+    loesungsweg: "Höflich und unsicher = Forming · Streit = Storming · Regeln = Norming · selbstständig = Performing · Abschluss = Adjourning."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion teambildung."
+    belege:
+      - {titel: "Tuckman, B. W. (1965); Tuckman & Jensen (1977)"}
+    status: ungeprüft
+
+  - id: team-storming
+    typ: multiple_choice
+    stufe: 3
+    titel: "Streit im Team"
+    situation: "Zwei Wochen nach dem Kick-off gibt es im Projektteam heftige Diskussionen über das Vorgehen. Ein Teammitglied fragt die Projektleiterin: „Ist das Projekt jetzt gescheitert?“"
+    frage: "Welche Antwort passt am besten?"
+    optionen:
+      - {text: "„Nein, das ist die Storming-Phase. Ich spreche die Konflikte offen an und moderiere, damit wir uns auf Regeln einigen.“", richtig: true, warum: "Konflikte sind normal; die Leitung moderiert und führt zum Norming."}
+      - {text: "„Ja, ein gutes Team streitet nie. Wir müssen das Team neu zusammenstellen.“", warum: "Storming ist eine normale Phase, kein Scheitern.", ursache: konzept}
+      - {text: "„Ich halte mich raus, das regelt sich in der Performing-Phase von selbst.“", warum: "Performing kommt erst nach dem Norming; im Storming sollte die Leitung moderieren.", ursache: konzept}
+      - {text: "„Wir überspringen den Streit und gehen direkt zur Adjourning-Phase.“", warum: "Adjourning ist die Auflösung am Projektende.", ursache: begriff}
+    hinweise:
+      - "Ist Streit in dieser Phase ungewöhnlich? Was tut die Leitung im Storming?"
+    loesungsweg: "Konflikte gehören zum **Storming**. Die Projektleitung spricht sie offen an und moderiert – so kommt das Team ins **Norming**."
+    quelle: "Neu erstellt (Claude), Prüfungsfalle „Storming als Fehler“ der Lektion teambildung."
+    belege:
+      - {titel: "Tuckman, B. W. (1965), Psychological Bulletin 63 (6)"}
+    status: ungeprüft
+
+  - id: team-fuehrung-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Führung je Phase"
+    situation: "Du wirst Teilprojektleiter für den Rollout neuer Notebooks mit drei Kolleginnen und Kollegen, die bisher nicht zusammengearbeitet haben."
+    frage: "Beschreibe für Forming, Storming und Norming jeweils, was im Team typischerweise passiert und was du als Leitung tust."
+    musterloesung: |
+      | Phase | im Team | als Leitung |
+      | --- | --- | --- |
+      | Forming | vorsichtig, Rollen unklar | Kick-off: Ziele, Rollen und Erwartungen klären |
+      | Storming | Konflikte über Vorgehen und Zuständigkeiten | Konflikte offen ansprechen, moderieren, gemeinsame Lösung suchen |
+      | Norming | Regeln entstehen, Vertrauen wächst | Regeln festhalten (z. B. Kurztreffen, Doku), Team stärken |
+    bewertungspunkte:
+      - {punkt: "Forming: Unsicherheit – Ziele und Rollen klären", kernbegriffe: ["rolle", "ziel", "kick-off"]}
+      - {punkt: "Storming: Konflikte – moderieren", kernbegriffe: ["konflikt", "moderier"]}
+      - {punkt: "Norming: Regeln – festhalten, stärken", kernbegriffe: ["regel"]}
+    hinweise:
+      - "Am Anfang viel steuern, später weniger."
+    loesungsweg: "Forming: Ziele/Rollen klären · Storming: Konflikte moderieren · Norming: Regeln festhalten."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion teambildung."
+    belege:
+      - {titel: "Tuckman, B. W. (1965); Tuckman & Jensen (1977)"}
+    status: ungeprüft
