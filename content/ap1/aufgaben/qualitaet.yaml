@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion qualitaet-testprotokoll."
     belege:
       - {titel: "DIN EN ISO 9000:2015 Qualitätsmanagementsysteme – Grundlagen und Begriffe"}
-    status: ungeprüft
+    status: geprüft
 
   - id: quali-testfall
     typ: multiple_choice
@@ -36,7 +36,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Testfälle für einen Arbeitsplatz“ der Lektion qualitaet-testprotokoll."
     belege:
       - {titel: "Lektion „Qualität und Testprotokoll“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: quali-quote-rechnen
     typ: rechnung
@@ -71,7 +71,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion qualitaet-testprotokoll mit anderen Zahlen; nachgerechnet."
     belege:
       - {titel: "Lektion „Qualität und Testprotokoll“ (Erstlösungsquote)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: quali-protokoll-freitext
     typ: freitext
@@ -103,4 +103,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Testprotokoll der Lektion qualitaet-testprotokoll."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkte 05.01/05.02: Testprotokoll für das Einrichten eines Arbeitsplatzes (laut katalog.yaml)"}
-    status: ungeprüft
+    status: geprüft

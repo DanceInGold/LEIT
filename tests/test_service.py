@@ -106,3 +106,24 @@ def test_find_task_rebuilds_generated_tasks(trainer: Trainer) -> None:
     assert trainer.find_task("gen:ipv4-subnetting:1:5", "zahlen") is None
     assert trainer.find_task("quatsch", "zahlen") is None
     assert trainer.next_task("hardware") is None
+
+
+def test_mastery_and_mistake_log_from_attempts(trainer: Trainer) -> None:
+    """Fortschritt: Beherrschungsgrad je Thema (FT-01) und Fehlerprotokoll (FT-04)."""
+    from ap_trainer.content.aufgaben import Rechnung
+    from ap_trainer.tasks.validate import model_answer
+
+    assert trainer.masteries(NOW)["zahlen"].grad is None
+    assert trainer.mastery("hardware", NOW).grad is None  # Thema ohne Aufgaben
+    task = trainer.find_task("gen:zahlensysteme:2:1", "zahlen")
+    assert isinstance(task, Rechnung)
+    trainer.submit(task, ["-1"] * len(task.schritte), now=NOW)
+    groups = trainer.mistakes()
+    assert len(groups) == 1 and groups[0].eintraege[0].aufgabe_id == task.id
+    assert trainer.task_title(task.id, "zahlen") == task.titel
+    assert trainer.task_title("gibt-es-nicht", "zahlen") == "gibt-es-nicht"
+    trainer.submit(task, model_answer(task), now=NOW)
+    assert trainer.mistakes(include_fixed=False) == []
+    value = trainer.masteries(NOW)["zahlen"]
+    assert value.grad is not None and 0 < value.grad < 100
+    assert trainer.mastery("zahlen", NOW) == value

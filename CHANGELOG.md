@@ -5,6 +5,21 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt (Phase 2 · Fortschritt)
+- **Beherrschungsgrad je Thema** (FT-01, 0–100 %) aus Trefferquote der letzten zehn Versuche (nach
+  Stufe gewichtet, Hilfen mindern), höchster sicher gelöster Stufe und Abstand zum letzten Erfolg (E-34).
+- **Fortschrittsseite mit Themenkarte** (FT-02): je Prüfungsbereich eine Kachel pro Thema in
+  Ampelfarben (sicher ab 80 %, unsicher ab 50 %, Lücke, noch nicht geübt) mit Symbol, schwächste
+  Themen zuerst; Klick führt zum Üben. Dazu der nach Prüfungsgewicht gemittelte Gesamtgrad.
+- **Fehlerprotokoll** (FT-04): alle falsch gelösten Aufgaben nach Ursache (Rechenfehler, Begriff
+  verwechselt, Konzept nicht verstanden, nicht erkannt), je Aufgabe ein Eintrag mit „Nochmal“-Knopf;
+  später richtig gelöste Aufgaben gelten als behoben (E-35).
+- Beherrschungsgrad auch auf der Übungsübersicht und der Themenseite; Themenseite verlinkt zum Üben.
+
+### Geändert
+- Aufgaben aus PR #19 sind `geprüft`.
+
+
 ### Hinzugefügt (Phase 2 · Aufgaben, Paket 5)
 - 74 feste Aufgaben für die letzten 18 Themen; damit hat jedes prüfungsrelevante Thema Übungsaufgaben
   (AU-01, AU-02, HI-01, HI-03): Projektmerkmale (4), SMART (4), Teambildung (4), Geräteklassen (4),

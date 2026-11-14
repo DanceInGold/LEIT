@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „Leistungsbestätigung, Nachkalkulation, Folgeaufträge“ der Lektion abnahme-leistung."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 07.08 (laut katalog.yaml)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: leistung-nachkalk-rechnen
     typ: rechnung
@@ -58,7 +58,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Nachkalkulation der Lektionen abnahme-leistung und kalkulation; nachgerechnet."
     belege:
       - {titel: "Lektion „Kalkulation“ (Nachkalkulation, Abweichung bezogen auf den Plan)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: leistung-folgeauftrag-freitext
     typ: freitext
@@ -83,4 +83,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion abnahme-leistung."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 07.08: Folgeaufträge (laut katalog.yaml)"}
-    status: ungeprüft
+    status: geprüft

@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion support-ticket-rollout."
     belege:
       - {titel: "AXELOS: ITIL 4 – Service Desk, Incident Management"}
-    status: ungeprüft
+    status: geprüft
 
   - id: support-begriffe
     typ: zuordnung
@@ -36,7 +36,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion support-ticket-rollout."
     belege:
       - {titel: "AXELOS: ITIL 4 – Incident, Service Request, Problem Management"}
-    status: ungeprüft
+    status: geprüft
 
   - id: support-eskalation
     typ: multiple_choice
@@ -55,7 +55,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt zur Eskalation der Lektion support-ticket-rollout."
     belege:
       - {titel: "AXELOS: ITIL 4 – Incident Management (Eskalation)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: support-ki-grenzen
     typ: multiple_choice
@@ -74,7 +74,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „KI-Unterstützung im Support“ der Lektion support-ticket-rollout."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.03: Support- und Serviceanfragen; KI-Unterstützung (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: support-ticket-freitext
     typ: freitext
@@ -103,4 +103,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Was steht in einem Ticket?“ der Lektion support-ticket-rollout."
     belege:
       - {titel: "AXELOS: ITIL 4 – Incident Management (Priorität aus Auswirkung und Dringlichkeit)"}
-    status: ungeprüft
+    status: geprüft

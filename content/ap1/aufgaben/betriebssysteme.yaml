@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion betriebssysteme."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.03: Betriebssysteme (laut katalog.yaml)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bs-chmod-rechnen
     typ: rechnung
@@ -54,7 +54,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Beispiel „Dateirechte unter Linux“ der Lektion betriebssysteme."
     belege:
       - {titel: "GNU coreutils: chmod invocation", url: "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bs-chmod-lesen
     typ: multiple_choice
@@ -72,7 +72,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Prüfungsfalle „Oktalwert falsch addiert“ der Lektion betriebssysteme."
     belege:
       - {titel: "GNU coreutils: chmod invocation", url: "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bs-freigabe-ntfs
     typ: zuordnung
@@ -91,7 +91,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Freigaben im Netz“ der Lektion betriebssysteme."
     belege:
       - {titel: "Microsoft-Dokumentation zu Freigabe- und NTFS-Berechtigungen (wirksam ist die restriktivere Kombination)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bs-rechte-freitext
     typ: freitext
@@ -115,4 +115,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion betriebssysteme."
     belege:
       - {titel: "GNU coreutils: chmod invocation", url: "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html"}
-    status: ungeprüft
+    status: geprüft

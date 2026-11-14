@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion geraeteklassen."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.02: Geräteklassen (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: geraet-thin-client
     typ: multiple_choice
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung „Warum ein Thin Client?“ der Lektion geraeteklassen."
     belege:
       - {titel: "Lektion „Geräteklassen“ (Thin Client vs. Fat Client)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: geraet-notebook-erweiterbar
     typ: multiple_choice
@@ -56,7 +56,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Prüfungsfalle „Notebook als erweiterbar“ der Lektion geraeteklassen."
     belege:
       - {titel: "Lektion „Geräteklassen“ (Erweiterbarkeit prüfen)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: geraet-wahl-freitext
     typ: freitext
@@ -79,4 +79,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion geraeteklassen."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.02: Geräteklassen (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft

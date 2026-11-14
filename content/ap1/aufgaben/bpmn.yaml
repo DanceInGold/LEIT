@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion epk-bpmn."
     belege:
       - {titel: "OMG Business Process Model and Notation (BPMN) 2.0.2", url: "https://www.omg.org/spec/BPMN/2.0.2"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bpmn-pool-lane
     typ: multiple_choice
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle und Prüfungsfalle der Lektion epk-bpmn."
     belege:
       - {titel: "OMG Business Process Model and Notation (BPMN) 2.0.2", url: "https://www.omg.org/spec/BPMN/2.0.2"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bpmn-epk-vergleich
     typ: zuordnung
@@ -54,4 +54,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung der Lektion epk-bpmn."
     belege:
       - {titel: "docs/entscheidungen.md E-10: BPMN und EPK als Zusatz"}
-    status: ungeprüft
+    status: geprüft

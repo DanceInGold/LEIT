@@ -19,7 +19,7 @@ aufgaben:
     belege:
       - {titel: "GmbHG §§ 5, 5a", url: "https://www.gesetze-im-internet.de/gmbhg/"}
       - {titel: "AktG § 7", url: "https://www.gesetze-im-internet.de/aktg/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: rechtsform-haftung
     typ: multiple_choice
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion rechtsformen-organisation."
     belege:
       - {titel: "HGB § 126 (persönliche Haftung der OHG-Gesellschafter, seit MoPeG 01.01.2024; vorher § 128), §§ 161, 171 (KG)", url: "https://www.gesetze-im-internet.de/hgb/__126.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: aufbau-formen
     typ: zuordnung
@@ -55,7 +55,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion rechtsformen-organisation."
     belege:
       - {titel: "Lektion „Rechtsformen und Aufbauorganisation“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: aufbau-stab
     typ: multiple_choice
@@ -74,4 +74,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Beispiel „Stablinie bei der ArchivTech“ der Lektion rechtsformen-organisation."
     belege:
       - {titel: "Lektion „Rechtsformen und Aufbauorganisation“"}
-    status: ungeprüft
+    status: geprüft

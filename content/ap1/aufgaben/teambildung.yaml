@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Diagramm der Lektion teambildung."
     belege:
       - {titel: "Tuckman, B. W. (1965), Psychological Bulletin 63 (6); Tuckman & Jensen (1977), Group & Organization Studies 2 (4)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: team-phase-erkennen
     typ: zuordnung
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion teambildung."
     belege:
       - {titel: "Tuckman, B. W. (1965); Tuckman & Jensen (1977)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: team-storming
     typ: multiple_choice
@@ -57,7 +57,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Prüfungsfalle „Storming als Fehler“ der Lektion teambildung."
     belege:
       - {titel: "Tuckman, B. W. (1965), Psychological Bulletin 63 (6)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: team-fuehrung-freitext
     typ: freitext
@@ -82,4 +82,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion teambildung."
     belege:
       - {titel: "Tuckman, B. W. (1965); Tuckman & Jensen (1977)"}
-    status: ungeprüft
+    status: geprüft

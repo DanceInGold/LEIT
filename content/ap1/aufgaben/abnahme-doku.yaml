@@ -17,7 +17,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion abnahme-leistung."
     belege:
       - {titel: "BGB §§ 434, 437", url: "https://www.gesetze-im-internet.de/bgb/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: abnahme-folgen
     typ: multiple_choice
@@ -36,7 +36,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „Was die Abnahme bewirkt“ der Lektion abnahme-leistung."
     belege:
       - {titel: "BGB §§ 640, 641, 634a", url: "https://www.gesetze-im-internet.de/bgb/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: abnahme-vorbehalt
     typ: multiple_choice
@@ -55,7 +55,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Beispielprotokoll der Lektion abnahme-leistung."
     belege:
       - {titel: "BGB § 640 Abs. 1 Satz 2", url: "https://www.gesetze-im-internet.de/bgb/__640.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: abnahme-doku-freitext
     typ: freitext
@@ -83,4 +83,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Liste „Zu übergebende Dokumentation“ der Lektion abnahme-leistung."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 07.07: zu übergebende Dokumentation (laut katalog.yaml)"}
-    status: ungeprüft
+    status: geprüft
