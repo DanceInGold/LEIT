@@ -56,8 +56,11 @@ def _cmd_check(args: argparse.Namespace) -> int:
 
 
 def _cmd_screenshots(args: argparse.Namespace) -> int:
-    from tools.screenshots import run_screenshots
+    from tools.screenshots import log_previews, run_screenshots
 
+    if args.vorschau_ins_log:
+        log_previews(Path(args.ausgabe))
+        return 0
     return run_screenshots(Path(args.ausgabe), args.port)
 
 
@@ -107,6 +110,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     shot.add_argument("--ausgabe", default=str(REPO_ROOT / "build" / "screenshots"), help="Zielordner.")
     shot.add_argument("--port", type=int, help="Port für den Lernbegleiter (Vorgabe: frei wählen).")
+    shot.add_argument(
+        "--vorschau-ins-log",
+        action="store_true",
+        help="Vorhandene Fotos als verkleinerte JPEGs (Base64) ausgeben, statt neue zu machen.",
+    )
     shot.set_defaults(func=_cmd_screenshots)
     return parser
 

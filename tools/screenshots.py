@@ -151,6 +151,35 @@ def _shoot(base: str, out: Path, data_file: Path) -> list[Path]:
     return files
 
 
+def log_previews(out: Path, width: int = 900, max_height: int = 2400) -> int:
+    """Gibt verkleinerte JPEG-Vorschauen als Base64 aus (für Prüfungen ohne Artefakt-Zugriff).
+
+    Jede Datei steht zwischen ``=====VORSCHAU <name>=====`` und ``=====ENDE=====``; so lassen sich
+    die Bilder aus dem Log eines Workflow-Laufs wieder zusammensetzen.
+    """
+    import base64
+    import io
+
+    from PIL import Image
+
+    count = 0
+    for path in sorted(out.glob("*.png")):
+        with Image.open(path) as image:
+            rgb = image.convert("RGB")
+            scale = width / rgb.width
+            rgb = rgb.resize((width, round(rgb.height * scale)))
+            rgb = rgb.crop((0, 0, width, min(rgb.height, max_height)))
+            buffer = io.BytesIO()
+            rgb.save(buffer, "JPEG", quality=70)
+        data = base64.b64encode(buffer.getvalue()).decode()
+        print(f"=====VORSCHAU {path.stem}=====")
+        for start in range(0, len(data), 4000):
+            print(data[start : start + 4000])
+        print("=====ENDE=====")
+        count += 1
+    return count
+
+
 def run_screenshots(out: Path, port: int | None = None) -> int:
     """Startet den Lernbegleiter mit Beispiel-Lernstand und fotografiert die Seiten nach ``out``."""
     try:

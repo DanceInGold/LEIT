@@ -19,5 +19,5 @@ def test_seed_fills_settings_attempts_study_time_and_a_simulation(tmp_path: Path
 
 def test_light_and_mobile_pages_are_part_of_the_page_list() -> None:
     names = {name for name, _path in PAGES}
-    assert LIGHT_PAGES <= names and MOBILE_PAGES <= names
+    assert names.issuperset(LIGHT_PAGES | MOBILE_PAGES)
     assert len(names) == len(PAGES)

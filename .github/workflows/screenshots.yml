@@ -24,6 +24,9 @@ jobs:
         run: uv run --with playwright playwright install --with-deps chromium
       - name: Bildschirmfotos
         run: uv run --with playwright ap-tools screenshots --ausgabe build/screenshots
+      - name: Vorschau ins Log
+        # Verkleinerte Kopien als Base64 – für Prüfungen, die das Artefakt nicht laden können
+        run: uv run --with pillow ap-tools screenshots --ausgabe build/screenshots --vorschau-ins-log
       - uses: actions/upload-artifact@v4
         with:
           name: screenshots
