@@ -52,6 +52,9 @@ class ExerciseState:
     started: float = field(default_factory=time.monotonic)
     submission: Submission | None = None
     order: list[int] = field(default_factory=list)
+    # Erst nach dem ersten Verschieben gilt die Reihenfolge als Antwort; die zufällige
+    # Startreihenfolge brächte sonst ohne Zutun Teilpunkte (z. B. in der Simulation)
+    order_moved: bool = False
     # Freitext: Musterlösung erst nach dem Schreiben zeigen, dann selbst bewerten (AU-05)
     freitext: str | None = None
     solved: int = 0
@@ -91,6 +94,7 @@ def _inputs_order(task: Reihenfolge, state: ExerciseState) -> AnswerGetter:
         target = position + delta
         if 0 <= target < len(state.order):
             state.order[position], state.order[target] = state.order[target], state.order[position]
+            state.order_moved = True
             items.refresh()
 
     @ui.refreshable
@@ -108,7 +112,8 @@ def _inputs_order(task: Reihenfolge, state: ExerciseState) -> AnswerGetter:
 
     ui.label("Mit den Pfeilen sortieren – oben steht der erste Schritt.").classes("text-sm opacity-70")
     items()
-    return lambda: list(state.order)
+    # Unberührt = leere Antwort: in der Übung ein Hinweis, in der Simulation 0 Punkte
+    return lambda: list(state.order) if state.order_moved else []
 
 
 def _inputs_calculation(task: Rechnung, submit: Callable[[], None]) -> AnswerGetter:
@@ -260,7 +265,10 @@ def run_tasks(trainer: Trainer, state: ExerciseState, runner: Runner) -> None:
             return
         answer = getter[0]()
         if is_blank(task, answer):
-            ui.notify("Erst eine Antwort eingeben – oder eine Hilfe öffnen.", type="warning")
+            text = "Erst eine Antwort eingeben – oder eine Hilfe öffnen."
+            if isinstance(task, Reihenfolge):
+                text = "Erst mit den Pfeilen sortieren – die Startreihenfolge ist zufällig."
+            ui.notify(text, type="warning")
             return
         if isinstance(task, Freitext) and state.freitext is None:
             assert isinstance(answer, FreitextAntwort)
@@ -279,6 +287,7 @@ def run_tasks(trainer: Trainer, state: ExerciseState, runner: Runner) -> None:
     def next_task() -> None:
         state.task = runner.advance()
         state.opened, state.submission, state.order, state.freitext = 0, None, [], None
+        state.order_moved = False
         state.started = time.monotonic()
         body.refresh()
 

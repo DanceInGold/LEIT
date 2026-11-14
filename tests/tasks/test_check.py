@@ -8,7 +8,7 @@ import pytest
 from pydantic import ValidationError
 
 from ap_trainer.content.aufgaben import AUFGABE, Freitext, Lueckentext, MultipleChoice
-from ap_trainer.tasks.check import FreitextAntwort, evaluate, missing_terms
+from ap_trainer.tasks.check import FreitextAntwort, blank_answer, evaluate, missing_terms
 from ap_trainer.tasks.hints import LOESUNGSWEG_GEOEFFNET, help_level, help_steps
 
 BASE: dict[str, Any] = {
@@ -98,6 +98,9 @@ def test_order() -> None:
     assert evaluate(item, [0, 1, 2, 3]).richtig
     swapped = evaluate(item, [0, 2, 1, 3])
     assert not swapped.richtig and swapped.anteil == 0.5
+    # Unberührte Reihenfolge (leere Antwort, z. B. in der Simulation) bringt keine Teilpunkte
+    untouched = evaluate(item, blank_answer(item))
+    assert not untouched.richtig and untouched.anteil == 0
 
 
 def test_calculation_reports_first_wrong_step() -> None:

@@ -35,6 +35,8 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 - Dunkelmodus: Die Leiste mit Timer und „Abgeben“-Knopf in der Simulation war weiß und der Timer
   darin unsichtbar; ebenso der Willkommenshinweis auf „Heute“. Beide nutzen jetzt eigene Farbklassen
   für Hell und Dunkel; ein Test verhindert Tailwind-`dark:`-Klassen in der Oberfläche.
+- Reihenfolge-Aufgaben: Eine unberührte (zufällige) Startreihenfolge zählt nicht mehr als Antwort. In
+  der Simulation gibt sie 0 statt zufälliger Teilpunkte, beim Üben erscheint der Hinweis, erst zu sortieren.
 
 
 ## [1.0.0] – 2026-11-14 – Phase 2 (Üben)
