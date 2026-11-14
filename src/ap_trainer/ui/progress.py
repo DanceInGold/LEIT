@@ -162,11 +162,22 @@ def register(trainer: Trainer) -> None:
             _summary(trainer, values)
             _legend()
             open_mistakes = sum(g.offen for g in trainer.mistakes())
-            ui.button(
-                f"Fehlerprotokoll ({open_mistakes} offen)",
-                icon="report",
-                on_click=lambda: ui.navigate.to("/fehler"),
-            ).props("outline")
+            with ui.row().classes("gap-2 flex-wrap items-center"):
+                ui.button(
+                    f"Fehlerprotokoll ({open_mistakes} offen)",
+                    icon="report",
+                    on_click=lambda: ui.navigate.to("/fehler"),
+                ).props("outline")
+                ui.button("Mischtest", icon="shuffle", on_click=lambda: ui.navigate.to("/mischtest")).props(
+                    "outline"
+                )
+                history = trainer.mixed_test_history()
+                if history:
+                    last = history[-1]
+                    ui.label(
+                        f"Letzter Mischtest {dt.date.fromisoformat(last['datum']):%d.%m.}: "
+                        f"{last['richtig']}/{last['gesamt']} richtig"
+                    ).classes("text-sm opacity-70")
             _topic_map(trainer, values)
 
     @ui.page("/fehler")

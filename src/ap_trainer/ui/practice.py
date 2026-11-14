@@ -1,4 +1,4 @@
-"""Lernkarten-Sitzung mit Wiederholung nach FSRS (GL-02, WH-01, WH-02).
+"""Lernkarten-Sitzung mit Wiederholung nach FSRS (GL-02, WH-01, WH-02), auch für Fehlerkarten (ZI-05).
 
 Bedienung auch per Tastatur (NF-05): Leertaste oder Enter deckt auf, 1–4 bewertet.
 """
@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import time
 from dataclasses import dataclass, field
+from urllib.parse import quote
 
 from nicegui import events, ui
 
@@ -14,6 +15,7 @@ from ap_trainer.core.cards import Flashcard
 from ap_trainer.core.scheduler import GRADE_LABELS, Grade
 from ap_trainer.service import Trainer
 from ap_trainer.ui.layout import frame
+from ap_trainer.ui.rich import markdown
 
 GRADE_COLORS = {1: "negative", 2: "warning", 3: "positive", 4: "info"}
 
@@ -33,6 +35,21 @@ class Session:
     def current(self) -> Flashcard | None:
         """Aktuelle Karte oder ``None``, wenn die Sitzung fertig ist."""
         return self.cards[self.index] if self.index < len(self.cards) else None
+
+
+def _mistake_card(card: Flashcard, revealed: bool) -> None:
+    """Fehlerkarte (ZI-05): Aufgabe vorne, Lösungsweg hinten, beides mit Tabellen und Diagrammen."""
+    with ui.card().classes("w-full gap-2"):
+        with ui.row().classes("items-center gap-1 text-sm opacity-70"):
+            ui.icon("report")
+            ui.label("Fehlerkarte – diese Aufgabe hattest du falsch. Überleg dir den Lösungsweg.")
+        markdown(card.vorne)
+        if revealed:
+            ui.separator()
+            ui.label("Lösungsweg").classes("text-xs uppercase tracking-wide opacity-70")
+            markdown(card.hinten)
+            target = f"/ueben/{card.thema}?aufgabe={quote(card.aufgabe_id, safe='')}"
+            ui.link("Aufgabe noch einmal selbst lösen →", target, new_tab=True)
 
 
 def register(trainer: Trainer) -> None:
@@ -79,11 +96,14 @@ def register(trainer: Trainer) -> None:
                 return
             ui.linear_progress(value=session.index / len(session.cards), show_value=False)
             ui.label(f"Karte {session.index + 1} von {len(session.cards)}").classes("text-sm opacity-70")
-            with ui.card().classes("w-full min-h-[10rem] items-center justify-center text-center"):
-                ui.label(card.vorne).classes("text-xl font-medium")
-                if session.revealed:
-                    ui.separator()
-                    ui.label(card.hinten).classes("text-lg")
+            if card.art == "fehler":
+                _mistake_card(card, session.revealed)
+            else:
+                with ui.card().classes("w-full min-h-[10rem] items-center justify-center text-center"):
+                    ui.label(card.vorne).classes("text-xl font-medium")
+                    if session.revealed:
+                        ui.separator()
+                        ui.label(card.hinten).classes("text-lg")
             if not session.revealed:
                 ui.button("Aufdecken (Leertaste)", on_click=reveal).classes("w-full")
                 return
