@@ -23,7 +23,7 @@ from ap_trainer.ui.layout import AMPEL_COLORS, frame
 def _setup_hint(trainer: Trainer) -> None:
     if trainer.is_configured():
         return
-    with ui.card().classes("w-full bg-amber-100 dark:bg-amber-900"):
+    with ui.card().classes("w-full hinweis-karte"):
         ui.label("Willkommen! Lege zuerst Prüfungstermin und Lernbudget fest.").classes("font-medium")
         ui.button("Zu den Einstellungen", on_click=lambda: ui.navigate.to("/einstellungen"))
 

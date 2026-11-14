@@ -31,6 +31,12 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
   `simulation_runs` (Migration 4), im JSON-Export enthalten.
 
 
+### Behoben
+- Dunkelmodus: Die Leiste mit Timer und „Abgeben“-Knopf in der Simulation war weiß und der Timer
+  darin unsichtbar; ebenso der Willkommenshinweis auf „Heute“. Beide nutzen jetzt eigene Farbklassen
+  für Hell und Dunkel; ein Test verhindert Tailwind-`dark:`-Klassen in der Oberfläche.
+
+
 ## [1.0.0] – 2026-11-14 – Phase 2 (Üben)
 
 Version 1.0 bringt das Üben: 341 feste Aufgaben und 7 Rechentrainer für alle 63 prüfungsrelevanten

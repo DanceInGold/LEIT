@@ -130,7 +130,7 @@ def _submit(trainer: Trainer, exam: ExamState) -> None:
 
 def _exam(trainer: Trainer, sim: Simulation) -> None:
     exam = ExamState(sim=sim)
-    with ui.row().classes("items-center gap-3 w-full sticky top-14 z-10 bg-white dark:bg-[#121212] py-2"):
+    with ui.row().classes("items-center gap-3 w-full sticky top-14 z-10 seiten-hintergrund py-2"):
         clock = ui.label().classes("text-xl font-mono font-semibold")
         ui.space()
         confirm = ui.dialog()
