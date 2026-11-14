@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion praesentation."
     belege:
       - {titel: "Lektion „Präsentation und Medienkompetenz“ (Aufbau Einleitung – Hauptteil – Schluss)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: praes-zeit-rechnen
     typ: rechnung
@@ -51,7 +51,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Anteile aus der Tabelle der Lektion praesentation."
     belege:
       - {titel: "Lektion „Präsentation und Medienkompetenz“ (Einleitung ca. 10–15 %, Hauptteil ca. 70–80 %)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: praes-folienregeln
     typ: multiple_choice
@@ -70,7 +70,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Liste „Folien, die nicht überladen“ der Lektion praesentation."
     belege:
       - {titel: "Lektion „Präsentation und Medienkompetenz“ (Folienregeln)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: praes-medien-zuordnen
     typ: zuordnung
@@ -88,7 +88,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Medientabelle der Lektion praesentation."
     belege:
       - {titel: "Lektion „Präsentation und Medienkompetenz“ (Medienwahl)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: praes-bildrechte
     typ: multiple_choice
@@ -107,7 +107,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „Medienkompetenz“ der Lektion praesentation."
     belege:
       - {titel: "Urheberrechtsgesetz (UrhG) §§ 2, 15, 31", url: "https://www.gesetze-im-internet.de/urhg/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: praes-planen-freitext
     typ: freitext
@@ -137,4 +137,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion praesentation."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 02.05: Präsentation und Medienkompetenz"}
-    status: ungeprüft
+    status: geprüft

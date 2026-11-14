@@ -22,7 +22,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion datensicherung."
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vb-restore-reihenfolge
     typ: reihenfolge
@@ -43,7 +43,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion datensicherung."
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vb-woche-rechnen
     typ: rechnung
@@ -98,7 +98,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion datensicherung mit anderen Zahlen; nachgerechnet."
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vb-321-regel
     typ: multiple_choice
@@ -119,7 +119,7 @@ aufgaben:
     belege:
       - {titel: "Lektion „Datensicherung“ (3-2-1-Regel als verbreitete Praxisregel)"}
       - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vb-generationen-luecke
     typ: lueckentext
@@ -141,7 +141,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion datensicherung."
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept (Generationenprinzip)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vb-spiegelung-ransomware
     typ: multiple_choice
@@ -161,7 +161,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung „Warum ist eine Spiegelung kein Backup?“ der Lektion datensicherung."
     belege:
       - {titel: "BSI: Ransomware – Bedrohungslage, Prävention & Reaktion", url: "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Analysen-und-Prognosen/Ransomware-Angriffe/ransomware-angriffe_node.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vb-nas-das
     typ: zuordnung
@@ -179,7 +179,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion verfuegbarkeit-sichern."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 06.04: Sicherung der Verfügbarkeit, z. B. NAS (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vb-usv-klassen
     typ: zuordnung
@@ -198,7 +198,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion verfuegbarkeit-sichern."
     belege:
       - {titel: "IEC 62040-3: Unterbrechungsfreie Stromversorgungssysteme – Verfahren zum Festlegen der Leistungs- und Prüfungsanforderungen (Klassen VFD, VI, VFI)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vb-reihe-parallel-rechnen
     typ: rechnung
@@ -239,7 +239,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Formeln der Lektion verfuegbarkeit-sichern; nachgerechnet."
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept und Hochverfügbarkeit"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vb-konzept-freitext
     typ: freitext
@@ -268,4 +268,4 @@ aufgaben:
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
       - {titel: "IEC 62040-3 (USV-Klassen VFD, VI, VFI)"}
-    status: ungeprüft
+    status: geprüft
