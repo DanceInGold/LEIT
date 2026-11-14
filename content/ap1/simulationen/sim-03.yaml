@@ -1,0 +1,527 @@
+# Prüfungssimulation 3 – vollständiger AP1-Satz (PS-01): vier Aufgaben, 100 Punkte, 90 Minuten.
+# Schwerpunkte: Beschaffung und Verträge, Server und Betriebssystem, IPv4-Netz, Software-Entwurf.
+# Rechenwerte mit Decimal bzw. dem Modul ipaddress nachgerechnet (Prüfprotokoll).
+
+titel: "Simulation 3: Server und Netz für eine Spedition"
+dauer_minuten: 90
+quelle: "Neu erstellt (Claude), Aufbau nach U-Form-Prüfungstrainer AP1; Themen nach Prüfungskatalog 2025."
+status: ungeprüft
+belege:
+  - {titel: "U-Form: Prüfungstrainer Teil 1 der Abschlussprüfung IT-Berufe (100 Punkte, 90 Minuten, vier Aufgaben zu 20–30 Punkten)", url: "https://shopstage.u-form.de/media/dd/9f/63/1687157302/750.pdf"}
+
+ausgangssituation: |
+  Du bist Auszubildende bzw. Auszubildender bei der **ArchivTech GmbH**, einem IT-Dienstleister für
+  digitale Archivierung und IT-Betreuung.
+
+  Die **Elbweg Spedition KG** transportiert Waren für Händler in Norddeutschland. Sie hat 60
+  Mitarbeitende, davon 35 im Büro und im Lager. Lieferscheine und Frachtpapiere sollen künftig digital
+  archiviert werden. Dafür braucht die Spedition einen neuen Server, ein neu aufgeteiltes Netzwerk und
+  eine kleine Anwendung zur Sendungsverwaltung. Die ArchivTech berät bei der Beschaffung, richtet Server
+  und Netz ein und entwirft die Software.
+
+aufgaben:
+  # ------------------------------------------------------------------------------------------
+  - nr: 1
+    titel: "Den Server beschaffen"
+    teilaufgaben:
+      - nr: a
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: kauf-miete-leasing
+          titel: "Kaufen, leasen oder mieten?"
+          frage: "Der Server kostet beim Kauf **7.200 €**. Ein Leasinggeber bietet einen Vertrag über **36 Monate** mit einem monatlichen Leasingfaktor von **2,9 %** des Kaufpreises an. Ein Rechenzentrum würde einen vergleichbaren Server für **260 € pro Monat** vermieten. Vergleiche die Kosten über 36 Monate."
+          schritte:
+            - frage: "Monatliche Leasingrate in €"
+              antwort: "208,8"
+              einheit: "€"
+              erklaerung: "7.200 € × 0,029 = 208,80 €."
+            - frage: "Leasingkosten über 36 Monate in €"
+              antwort: "7516,8"
+              einheit: "€"
+              erklaerung: "208,80 € × 36 = 7.516,80 €."
+              falsch:
+                - {antwort: "208,8", warum: "Das ist nur eine Monatsrate. Gesamtkosten = Rate × 36.", ursache: konzept}
+            - frage: "Mietkosten über 36 Monate in €"
+              antwort: "9360"
+              einheit: "€"
+              erklaerung: "260 € × 36 = 9.360 €."
+            - frage: "Mehrkosten des Leasings gegenüber dem Kauf in €"
+              antwort: "316,8"
+              einheit: "€"
+              erklaerung: "7.516,80 € − 7.200 € = 316,80 €."
+          loesungsweg: |
+            | Variante | Rechnung | Kosten (36 Monate) |
+            | --- | --- | ---: |
+            | Kauf | einmalig | **7.200,00 €** |
+            | Leasing | 7.200 € × 0,029 × 36 | 7.516,80 € |
+            | Miete | 260 € × 36 | 9.360,00 € |
+
+            Leasing kostet **316,80 €** mehr als der Kauf, schont aber die Liquidität. Miete lohnt sich nur bei kurzem Bedarf.
+
+      - nr: b
+        punkte: 10
+        aufgabe:
+          typ: rechnung
+          thema: angebotsvergleich
+          titel: "Zwei Angebote vergleichen"
+          frage: |
+            Für zwei identische Server liegen zwei Angebote vor:
+
+            | | Angebot A | Angebot B |
+            | --- | ---: | ---: |
+            | Listenpreis je Server | 4.850,00 € | 4.590,00 € |
+            | Rabatt | 10 % | 5 % |
+            | Skonto bei Zahlung in 10 Tagen | 2 % | – |
+            | Versandkosten | frei Haus | 120,00 € |
+
+            Die Spedition zahlt immer innerhalb der Skontofrist. Berechne die Bezugspreise für **beide Server zusammen**.
+          schritte:
+            - frage: "Zieleinkaufspreis Angebot A in €"
+              antwort: "8730"
+              einheit: "€"
+              erklaerung: "2 × 4.850 € = 9.700 €; − 10 % Rabatt (970 €) = 8.730 €."
+              falsch:
+                - {antwort: "4365", warum: "Nur ein Server gerechnet – gefragt ist der Preis für beide.", ursache: rechenfehler}
+            - frage: "Bezugspreis Angebot A in €"
+              antwort: "8555,4"
+              einheit: "€"
+              erklaerung: "8.730 € − 2 % Skonto (174,60 €) = 8.555,40 €; Versand frei."
+              falsch:
+                - {antwort: "8536", warum: "Rabatt und Skonto zu 12 % addiert. Skonto wird erst vom Zieleinkaufspreis abgezogen.", ursache: konzept}
+            - frage: "Bezugspreis Angebot B in €"
+              antwort: "8841"
+              einheit: "€"
+              erklaerung: "2 × 4.590 € = 9.180 €; − 5 % = 8.721 €; kein Skonto; + 120 € Versand = 8.841 €."
+              falsch:
+                - {antwort: "8721", warum: "Die Versandkosten fehlen – sie gehören in den Bezugspreis.", ursache: konzept}
+            - frage: "Preisvorteil des günstigeren Angebots in €"
+              antwort: "285,6"
+              einheit: "€"
+              erklaerung: "8.841 € − 8.555,40 € = 285,60 €; Angebot A ist günstiger."
+          loesungsweg: |
+            | Stufe | Angebot A | Angebot B |
+            | --- | ---: | ---: |
+            | Listeneinkaufspreis (2 Server) | 9.700,00 € | 9.180,00 € |
+            | − Rabatt | 970,00 € | 459,00 € |
+            | = Zieleinkaufspreis | 8.730,00 € | 8.721,00 € |
+            | − Skonto | 174,60 € | – |
+            | = Bareinkaufspreis | 8.555,40 € | 8.721,00 € |
+            | + Bezugskosten | – | 120,00 € |
+            | = **Bezugspreis** | **8.555,40 €** | **8.841,00 €** |
+
+            Angebot A ist **285,60 €** günstiger – obwohl sein Listenpreis höher ist.
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: vertraege
+          titel: "Welche Vertragsart?"
+          frage: "Rund um den Server schließt die Spedition mehrere Verträge. Ordne jeder Leistung die Vertragsart nach BGB zu."
+          paare:
+            - {links: "Der Server wird gekauft und geliefert.", rechts: "Kaufvertrag"}
+            - {links: "Die ArchivTech schuldet einen fertig eingerichteten, lauffähigen Server.", rechts: "Werkvertrag"}
+            - {links: "Ein Techniker berät nach Stunden, ohne einen bestimmten Erfolg zu schulden.", rechts: "Dienstvertrag"}
+            - {links: "Ein Rack-Platz im Rechenzentrum wird monatlich zur Nutzung überlassen.", rechts: "Mietvertrag"}
+          ablenker: ["Arbeitsvertrag"]
+          loesungsweg: "Sache übereignen = **Kauf** (§ 433) · Erfolg = **Werk** (§ 631) · Tätigkeit = **Dienst** (§ 611) · Gebrauch auf Zeit = **Miete** (§ 535)."
+          belege:
+            - {titel: "BGB §§ 433, 535, 611, 631", url: "https://www.gesetze-im-internet.de/bgb/"}
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: vertraege
+          titel: "Gewährleistung oder Garantie?"
+          frage: "Der Server wird mit „3 Jahren Herstellergarantie“ angeboten. Welche **zwei** Aussagen zu Gewährleistung und Garantie treffen zu?"
+          optionen:
+            - {text: "Die Gewährleistung ist gesetzlich geregelt: Der Verkäufer haftet für Mängel, die bei der Übergabe vorhanden waren.", richtig: true, warum: "§§ 434, 437 BGB; Verjährung bei neuen Sachen in der Regel 2 Jahre (§ 438)."}
+            - {text: "Eine Garantie ist eine freiwillige Zusatzleistung, oft vom Hersteller.", richtig: true, warum: "§ 443 BGB: Inhalt bestimmt der Garantiegeber."}
+            - {text: "Bei einem Mangel darf die Spedition sofort vom Vertrag zurücktreten.", warum: "Zuerst ist Nacherfüllung zu verlangen; erst wenn sie scheitert, Rücktritt oder Minderung.", ursache: konzept}
+            - {text: "Gewährleistung und Garantie sind zwei Namen für dasselbe Recht.", warum: "Gewährleistung ist gesetzlich und richtet sich gegen den Verkäufer; die Garantie ist freiwillig.", ursache: begriff}
+          loesungsweg: "**Gewährleistung** = gesetzlich, gegen den Verkäufer, Mangel bei Übergabe, zuerst Nacherfüllung. **Garantie** = freiwillig, zusätzlich."
+          belege:
+            - {titel: "BGB §§ 434, 437, 438, 439, 443", url: "https://www.gesetze-im-internet.de/bgb/"}
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 2
+    titel: "Den Server einrichten"
+    teilaufgaben:
+      - nr: a
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: auslastung-erweiterbarkeit
+          titel: "Wo ist der Engpass?"
+          frage: "Auf dem alten Server der Spedition misst du in einer typischen Woche: **112 GB** von **128 GB** RAM belegt, CPU-Auslastung **35 %**, **2,4 TB** von **8 TB** Speicher belegt."
+          schritte:
+            - frage: "RAM-Auslastung in %"
+              antwort: "87,5"
+              einheit: "%"
+              erklaerung: "112 ÷ 128 = 0,875 = 87,5 %."
+              falsch:
+                - {antwort: "114,29", warum: "Umgekehrt geteilt. Auslastung = belegt ÷ vorhanden.", ursache: rechenfehler}
+            - frage: "Speicherauslastung in %"
+              antwort: "30"
+              einheit: "%"
+              erklaerung: "2,4 ÷ 8 = 0,3 = 30 %."
+            - frage: "Welche Ressource ist der Engpass? (RAM/CPU/Speicher)"
+              antwort: "RAM"
+              format: text
+              erklaerung: "Nur der RAM liegt über der Faustregel von 70–80 %."
+              falsch:
+                - {antwort: "CPU", warum: "Die CPU ist nur zu 35 % ausgelastet.", ursache: konzept}
+          loesungsweg: "RAM 112 ÷ 128 = **87,5 %**, CPU 35 %, Speicher 2,4 ÷ 8 = **30 %** → Engpass ist der **RAM** (über 70–80 %). Der neue Server braucht mehr RAM oder freie Steckplätze zum Aufrüsten."
+
+      - nr: b
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: zahlensysteme
+          titel: "Zahlen umrechnen"
+          frage: "Bei der Einrichtung begegnen dir Zahlen in verschiedenen Systemen. Das Archiv-VLAN hat die ID **172**; in einer MAC-Adresse steht das Byte **3E** (hexadezimal)."
+          schritte:
+            - frage: "172 als Dualzahl (8 Bit)"
+              antwort: "10101100"
+              format: dual
+              erklaerung: "172 = 128 + 32 + 8 + 4 → 1010 1100."
+            - frage: "172 als Hexadezimalzahl"
+              antwort: "AC"
+              format: hex
+              erklaerung: "1010 = A, 1100 = C → AC (10 × 16 + 12 = 172)."
+              falsch:
+                - {antwort: "CA", warum: "Nibbles vertauscht: Das höherwertige Nibble 1010 = A steht vorne.", ursache: rechenfehler}
+            - frage: "3E (hex) als Dezimalzahl"
+              antwort: "62"
+              erklaerung: "3 × 16 + 14 = 62."
+              falsch:
+                - {antwort: "314", warum: "Ziffern nebeneinander geschrieben (3 und 14). Stellenwert beachten: 3 × 16 + 14.", ursache: konzept}
+          loesungsweg: |
+            - 172 = 128 + 32 + 8 + 4 = **1010 1100**₂
+            - je 4 Bit eine Hex-Ziffer: 1010 = A, 1100 = C → **AC**₁₆
+            - 3E₁₆ = 3 × 16 + 14 = **62**
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: bios-uefi-dateisysteme
+          titel: "Partitionstabelle und Firmware"
+          frage: "Der neue Server bekommt einen **16-TB-Datenträger** für das Archiv. Welche **zwei** Aussagen treffen zu?"
+          optionen:
+            - {text: "Der Datenträger braucht eine GPT-Partitionstabelle, weil MBR bei 512-Byte-Sektoren nur etwa 2 TiB adressieren kann.", richtig: true, warum: "MBR adressiert 2³² Sektoren × 512 Byte = 2 TiB."}
+            - {text: "Secure Boot ist eine UEFI-Funktion und lässt nur signierte Bootloader starten.", richtig: true, warum: "Secure Boot prüft die Signatur des Bootloaders."}
+            - {text: "FAT32 eignet sich für die Archivpartition, weil es jedes Betriebssystem lesen kann.", warum: "FAT32 begrenzt jede Datei auf 4 GiB − 1 Byte – für ein Archiv ungeeignet.", ursache: konzept}
+            - {text: "NTFS und ext4 sind Partitionstabellen.", warum: "Das sind Dateisysteme. GPT und MBR sind Partitionstabellen.", ursache: begriff}
+          loesungsweg: "Über 2 TiB → **GPT**; **Secure Boot** = nur signierte Bootloader. FAT32 hat die 4-GiB-Grenze; NTFS/ext4 sind Dateisysteme."
+          belege:
+            - {titel: "UEFI Specification 2.10 (GPT Disk Layout; Secure Boot and Driver Signing)", url: "https://uefi.org/specifications"}
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: rechnung
+          thema: betriebssysteme
+          titel: "Linux-Rechte setzen"
+          frage: "Auf dem Linux-Server liegt das Verzeichnis `/data/archiv`. Der Besitzer darf alles, die Gruppe `lager` darf lesen und hineinwechseln, alle anderen dürfen nichts. Die Datei `index.db` darin soll der Besitzer lesen und schreiben, die Gruppe nur lesen, andere nichts."
+          schritte:
+            - frage: "Oktalwert für das Verzeichnis (rwxr-x---)"
+              antwort: "750"
+              erklaerung: "rwx = 4 + 2 + 1 = 7, r-x = 4 + 1 = 5, --- = 0."
+              falsch:
+                - {antwort: "740", warum: "Ohne x kann die Gruppe nicht in das Verzeichnis wechseln.", ursache: konzept}
+            - frage: "Oktalwert für die Datei (rw-r-----)"
+              antwort: "640"
+              erklaerung: "rw- = 6, r-- = 4, --- = 0."
+          loesungsweg: "`chmod 750 /data/archiv` und `chmod 640 /data/archiv/index.db` (r = 4, w = 2, x = 1)."
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: cloud-modelle
+          titel: "Cloud statt eigenem Server?"
+          frage: "Die Geschäftsführung fragt, ob Teile auch aus der Cloud kommen könnten. Ordne jedem Angebot das Servicemodell zu."
+          paare:
+            - {links: "Virtuelle Maschine, Betriebssystem richtet die ArchivTech selbst ein", rechts: "IaaS"}
+            - {links: "Plattform, auf der die Sendungs-App nur als Container läuft", rechts: "PaaS"}
+            - {links: "Fertiges Lohnabrechnungsprogramm im Browser", rechts: "SaaS"}
+            - {links: "Kompletter Windows-Arbeitsplatz aus dem Rechenzentrum", rechts: "DaaS"}
+          ablenker: ["On-Premises"]
+          loesungsweg: "Betriebssystem selbst = **IaaS** · nur Code/Container = **PaaS** · fertige Software = **SaaS** · ganzer Desktop = **DaaS**. On-Premises ist der eigene Betrieb."
+          belege:
+            - {titel: "NIST SP 800-145: The NIST Definition of Cloud Computing", url: "https://csrc.nist.gov/pubs/sp/800/145/final"}
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 3
+    titel: "Das Netzwerk aufteilen"
+    teilaufgaben:
+      - nr: a
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: ipv4-subnetting
+          titel: "Subnetze bilden"
+          frage: "Die Spedition nutzt das Netz **10.20.0.0/22**. Es soll in **8 gleich große Subnetze** (Büro, Lager, Server, Drucker, WLAN, Gäste, Telefonie, Reserve) aufgeteilt werden."
+          schritte:
+            - frage: "Neue Präfixlänge"
+              antwort: "25"
+              erklaerung: "8 Subnetze = 2³ → 3 Bit mehr: /22 + 3 = /25."
+              falsch:
+                - {antwort: "30", warum: "8 Subnetze brauchen 3 zusätzliche Bit (2³ = 8), nicht 8.", ursache: konzept}
+            - frage: "Subnetzmaske"
+              antwort: "255.255.255.128"
+              format: ipv4
+              erklaerung: "/25 = 24 Einsen + 1 → letztes Oktett 1000 0000 = 128."
+            - frage: "Nutzbare Hostadressen je Subnetz"
+              antwort: "126"
+              erklaerung: "32 − 25 = 7 Hostbits → 2⁷ − 2 = 126."
+              falsch:
+                - {antwort: "128", warum: "Netz- und Broadcastadresse abziehen: 128 − 2.", ursache: rechenfehler}
+            - frage: "Netzadresse des 5. Subnetzes"
+              antwort: "10.20.2.0"
+              format: ipv4
+              erklaerung: "Schrittweite 128: 10.20.0.0, .0.128, .1.0, .1.128, **.2.0**."
+              falsch:
+                - {antwort: "10.20.0.128", warum: "Das ist das 2. Subnetz. Nach 10.20.0.128 geht es im dritten Oktett weiter.", ursache: rechenfehler}
+            - frage: "Broadcastadresse des 5. Subnetzes"
+              antwort: "10.20.2.127"
+              format: ipv4
+              erklaerung: "Eine Adresse vor dem 6. Subnetz (10.20.2.128)."
+          loesungsweg: |
+            | Nr. | Netzadresse | Broadcast |
+            | ---: | --- | --- |
+            | 1 | 10.20.0.0 | 10.20.0.127 |
+            | 2 | 10.20.0.128 | 10.20.0.255 |
+            | 3 | 10.20.1.0 | 10.20.1.127 |
+            | 4 | 10.20.1.128 | 10.20.1.255 |
+            | **5** | **10.20.2.0** | **10.20.2.127** |
+            | … | … | … |
+            | 8 | 10.20.3.128 | 10.20.3.255 |
+
+            /22 + 3 Bit = **/25**, Maske **255.255.255.128**, **126** Hosts je Subnetz.
+
+      - nr: b
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: datenmengen-uebertragung
+          titel: "Übertragungszeit"
+          frage: "Die vorhandenen Scans (**900 GB**) sollen über eine Leitung mit **500 Mbit/s** auf den neuen Server kopiert werden. Rechne mit 1 GB = 10⁹ Byte und ohne Overhead."
+          schritte:
+            - frage: "Datenmenge in Gbit"
+              antwort: "7200"
+              einheit: "Gbit"
+              erklaerung: "900 GB × 8 = 7.200 Gbit."
+            - frage: "Übertragungszeit in Sekunden"
+              antwort: "14400"
+              einheit: "s"
+              erklaerung: "7.200 Gbit = 7.200.000 Mbit; ÷ 500 Mbit/s = 14.400 s."
+              falsch:
+                - {antwort: "1800", warum: "Byte nicht in Bit umgerechnet (× 8 fehlt).", ursache: rechenfehler}
+            - frage: "Übertragungszeit in Stunden"
+              antwort: "4"
+              einheit: "h"
+              erklaerung: "14.400 s ÷ 3.600 = 4 h."
+          loesungsweg: "900 · 10⁹ Byte × 8 = 7,2 · 10¹² Bit; ÷ 5 · 10⁸ bit/s = **14.400 s = 4 h**."
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: client-server-domaene
+          titel: "Domäne statt Arbeitsgruppe"
+          frage: "Bisher sind die 35 Büro- und Lagerrechner in einer Arbeitsgruppe. Welche **zwei** Vorteile bringt eine Windows-Domäne?"
+          optionen:
+            - {text: "Benutzerkonten werden zentral verwaltet – ein gesperrtes Konto ist auf allen Rechnern gesperrt.", richtig: true, warum: "Konten liegen zentral auf dem Domänencontroller."}
+            - {text: "Einstellungen lassen sich per Gruppenrichtlinie auf alle Rechner verteilen.", richtig: true, warum: "Gruppenrichtlinien sind ein Kernvorteil der Domäne."}
+            - {text: "Eine Domäne funktioniert ohne DNS.", warum: "Clients finden den Domänencontroller über DNS (SRV-Einträge).", ursache: konzept}
+            - {text: "In einer Domäne verwaltet jeder Rechner seine Konten selbst.", warum: "Das beschreibt die Arbeitsgruppe (Peer-to-Peer).", ursache: begriff}
+          loesungsweg: "Domäne: **zentrale Konten** und **Gruppenrichtlinien**, Anmeldung an jedem PC. DNS ist dafür unverzichtbar."
+          belege:
+            - {titel: "Microsoft Learn: Active Directory Domain Services Overview", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"}
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: lueckentext
+          thema: netzwerk-standards
+          titel: "Netzwerkstandards"
+          frage: "Ergänze die Lücken für die Planung der Verkabelung und des WLANs."
+          text: "Zwischen Serverraum und Lagerbüro liegen 90 m. Für 10GBASE-T steht die 10 für 10 {{1}}. Auf dieser Länge brauchst du mindestens ein Kabel der Kategorie {{2}}. Die neuen Accesspoints unterstützen Wi-Fi 6, also den Standard IEEE 802.11{{3}}."
+          luecken:
+            - antworten: ["Gbit/s", "Gbit", "Gigabit", "Gigabit pro Sekunde", "Gbps"]
+              falsch:
+                - {antwort: "Mbit/s", warum: "10 Mbit/s wäre 10BASE-T. Bei 10GBASE-T steht das G für Gigabit.", ursache: begriff}
+            - antworten: ["Cat 6A", "Cat6A", "6A", "Kat. 6A", "Cat 6a", "Kategorie 6A"]
+              falsch:
+                - {antwort: "Cat 6", warum: "Cat 6 schafft 10GBASE-T nur bis etwa 55 m.", ursache: konzept}
+            - antworten: ["ax"]
+              falsch:
+                - {antwort: "ac", warum: "802.11ac ist Wi-Fi 5.", ursache: begriff}
+          loesungsweg: "10GBASE-T = 10 **Gbit/s** über Twisted Pair; 90 m → **Cat 6A**; Wi-Fi 6 = 802.11**ax**."
+          belege:
+            - {titel: "IEEE 802.3an-2006 (10GBASE-T)", url: "https://www.ieee802.org/3/"}
+            - {titel: "Wi-Fi Alliance: Wi-Fi 6 (802.11ax)", url: "https://www.wi-fi.org/discover-wi-fi"}
+
+      - nr: e
+        punkte: 3
+        aufgabe:
+          typ: multiple_choice
+          thema: konsolenbefehle
+          titel: "Eine ipconfig-Ausgabe deuten"
+          frage: "Ein Lagerrechner kommt nicht ins Netz. `ipconfig` zeigt die IPv4-Adresse **169.254.37.12** mit der Maske 255.255.0.0. Welche **zwei** Aussagen treffen zu?"
+          optionen:
+            - {text: "Der Rechner hat keine Antwort von einem DHCP-Server bekommen.", richtig: true, warum: "Ohne DHCP-Antwort vergibt Windows eine APIPA-Adresse."}
+            - {text: "Die Adresse hat sich der Rechner selbst gegeben (APIPA, Link-Local).", richtig: true, warum: "169.254.0.0/16 ist der Link-Local-Bereich (RFC 3927)."}
+            - {text: "Die DNS-Einstellung ist falsch – sonst stimmt alles.", warum: "Mit einer Link-Local-Adresse fehlt schon die IP-Konfiguration; DNS kommt erst danach.", ursache: konzept}
+            - {text: "Der Rechner hat eine gültige öffentliche IP-Adresse.", warum: "169.254.x.x ist nicht routbar und nur im lokalen Segment gültig.", ursache: begriff}
+          loesungsweg: "**169.254.x.x** = selbst vergeben, **kein DHCP**. Kabel, VLAN und DHCP-Server prüfen."
+          belege:
+            - {titel: "RFC 3927: Dynamic Configuration of IPv4 Link-Local Addresses", url: "https://www.rfc-editor.org/rfc/rfc3927"}
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 4
+    titel: "Die Sendungsverwaltung entwerfen"
+    teilaufgaben:
+      - nr: a
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: schreibtischtest
+          titel: "Schreibtischtest"
+          frage: |
+            Ein Programmteil prüft die Gewichte (in kg) der Sendungen einer Tour. Führe einen Schreibtischtest durch.
+
+            ```text
+            gewichte ← [12, 35, 8, 50, 30]
+            summe ← 0
+            schwer ← 0
+            FÜR i ← 0 BIS 4
+                WENN gewichte[i] > 30 DANN
+                    schwer ← schwer + 1
+                SONST
+                    summe ← summe + gewichte[i]
+                ENDE WENN
+            ENDE FÜR
+            AUSGABE schwer, summe
+            ```
+          schritte:
+            - frage: "Wert von summe nach dem Durchlauf mit i = 2"
+              antwort: "20"
+              erklaerung: "i = 0: 12 ≤ 30 → summe 12. i = 1: 35 > 30 → schwer 1. i = 2: 8 → summe 20."
+              falsch:
+                - {antwort: "55", warum: "Auch die schwere Sendung (35) addiert. Sie zählt nur in schwer.", ursache: konzept}
+            - frage: "Ausgabe von schwer"
+              antwort: "2"
+              erklaerung: "Nur 35 und 50 sind größer als 30."
+              falsch:
+                - {antwort: "3", warum: "30 > 30 ist falsch – die letzte Sendung landet im SONST-Zweig.", ursache: konzept}
+            - frage: "Ausgabe von summe"
+              antwort: "50"
+              erklaerung: "12 + 8 + 30 = 50."
+              falsch:
+                - {antwort: "135", warum: "Alle Gewichte addiert. Schwere Sendungen werden nicht summiert.", ursache: konzept}
+                - {antwort: "20", warum: "Der letzte Durchlauf (i = 4, Gewicht 30) fehlt – BIS 4 schließt die 4 ein.", ursache: rechenfehler}
+          loesungsweg: |
+            | i | gewichte[i] | > 30? | schwer | summe |
+            | ---: | ---: | --- | ---: | ---: |
+            | 0 | 12 | nein | 0 | 12 |
+            | 1 | 35 | ja | 1 | 12 |
+            | 2 | 8 | nein | 1 | 20 |
+            | 3 | 50 | ja | 2 | 20 |
+            | 4 | 30 | nein | **2** | **50** |
+
+      - nr: b
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: oop-grundlagen
+          titel: "Begriffe der Objektorientierung"
+          frage: "Die Sendungsverwaltung wird objektorientiert programmiert. Ordne jedem Codebestandteil den Fachbegriff zu."
+          paare:
+            - {links: "Sendung (Bauplan für alle Sendungen)", rechts: "Klasse"}
+            - {links: "die konkrete Sendung mit der Nummer 4711", rechts: "Objekt"}
+            - {links: "gewichtKg", rechts: "Attribut"}
+            - {links: "berechnePorto()", rechts: "Methode"}
+            - {links: "Sendung(nummer, gewichtKg) – setzt die Startwerte", rechts: "Konstruktor"}
+          ablenker: ["Primärschlüssel"]
+          loesungsweg: "Bauplan = **Klasse** · Exemplar = **Objekt** · Daten = **Attribut** · Verhalten = **Methode** · Startwerte = **Konstruktor**."
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: uml
+          titel: "Ein Klassendiagramm lesen"
+          frage: |
+            Du hast dieses Klassendiagramm entworfen:
+
+            ```mermaid
+            classDiagram
+              class Tour {
+                -tourNr: int
+                -datum: Date
+                +planen() void
+              }
+              class Sendung {
+                -sendungsNr: int
+                -gewichtKg: double
+                +berechnePorto() double
+              }
+              Tour "0..1" o-- "1..*" Sendung : enthält
+            ```
+
+            Welche **zwei** Aussagen treffen zu?
+          optionen:
+            - {text: "Jede Tour enthält mindestens eine Sendung.", richtig: true, warum: "1..* an der Sendung: mindestens eine je Tour."}
+            - {text: "Das Attribut gewichtKg ist privat und von außen nur über Methoden der Klasse änderbar.", richtig: true, warum: "Das Minus steht für private."}
+            - {text: "Jede Sendung muss genau einer Tour zugeordnet sein.", warum: "0..1 an der Tour: Eine Sendung kann auch (noch) keiner Tour zugeordnet sein.", ursache: konzept}
+            - {text: "Die leere Raute bedeutet, dass eine Sendung ohne Tour nicht existieren kann.", warum: "Die leere Raute ist eine Aggregation – das Teil kann allein existieren. Das wäre die Komposition (volle Raute).", ursache: begriff}
+          loesungsweg: "Tour → Sendung `1..*`: mindestens eine. Sendung → Tour `0..1`: keine oder eine. `-` = private. Leere Raute = **Aggregation**."
+          belege:
+            - {titel: "OMG Unified Modeling Language 2.5.1 (Klassen, Multiplizitäten, Aggregation)", url: "https://www.omg.org/spec/UML/2.5.1"}
+
+      - nr: d
+        punkte: 5
+        aufgabe:
+          typ: freitext
+          thema: pseudocode
+          titel: "Porto in Pseudocode"
+          operator: beschreiben
+          frage: "Das Porto einer Sendung richtet sich nach dem Gewicht: **bis 5 kg 6 €**, **über 5 kg bis 30 kg 12 €**, **über 30 kg 25 €**. Beschreibe die Funktion `porto(gewichtKg)` in **Pseudocode**."
+          musterloesung: |
+            ```text
+            FUNKTION porto(gewichtKg)
+                WENN gewichtKg <= 5 DANN
+                    RÜCKGABE 6
+                SONST WENN gewichtKg <= 30 DANN
+                    RÜCKGABE 12
+                SONST
+                    RÜCKGABE 25
+                ENDE WENN
+            ENDE FUNKTION
+            ```
+            Andere Schreibweisen (englische Schlüsselwörter, Ausgabe statt Rückgabe) sind genauso richtig, solange die Grenzen stimmen.
+          bewertungspunkte:
+            - {punkt: "Funktion mit Parameter gewichtKg", kernbegriffe: ["funktion", "function", "def "], punkte: 1}
+            - {punkt: "Verzweigung mit den richtigen Grenzen (≤ 5, ≤ 30, sonst)", kernbegriffe: ["wenn", "if"], punkte: 2}
+            - {punkt: "alle drei Fälle abgedeckt (sonst-Zweig für über 30 kg)", kernbegriffe: ["sonst", "else"], punkte: 1}
+            - {punkt: "Ergebnis wird zurückgegeben oder ausgegeben", kernbegriffe: ["rückgabe", "return", "ausgabe"], punkte: 1}
+          loesungsweg: "Verzweigung in drei Fälle: ≤ 5 → 6 €, ≤ 30 → 12 €, sonst 25 €; Ergebnis zurückgeben."
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: stamm-bewegungsdaten
+          titel: "Stamm- oder Bewegungsdaten?"
+          frage: "Ordne jede Information der Sendungsverwaltung richtig zu."
+          paare:
+            - {links: "Kunde mit Anschrift", rechts: "Stammdaten"}
+            - {links: "Fahrzeug mit Kennzeichen und Nutzlast", rechts: "Stammdaten"}
+            - {links: "Sendung vom 03.02. an Kunde 1007", rechts: "Bewegungsdaten"}
+            - {links: "Zustellbestätigung mit Uhrzeit", rechts: "Bewegungsdaten"}
+          loesungsweg: "Langlebig = **Stammdaten** (Kunde, Fahrzeug) · je Vorgang = **Bewegungsdaten** (Sendung, Zustellung) – sie verweisen auf die Stammdaten."

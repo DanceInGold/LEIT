@@ -479,3 +479,74 @@ Simulationen kaum überschneiden (nur `hardware-komponenten` kommt in beiden vor
 | 4c DSGVO | Auskunft Art. 15, Berichtigung Art. 16, Löschung Art. 17, Datenübertragbarkeit Art. 20, Widerspruch Art. 21 | – |
 | 4d ERM | 1:n → Fremdschlüssel auf der n-Seite (Auftrag); n:m → Zwischentabelle; zusammen 4 Tabellen | – |
 | 4e 2FA | zwei verschiedene Faktoren aus Wissen, Besitz, Inhärenz (NIST SP 800-63B Rev. 4) | – |
+
+## Prüfungssimulationen 3–6
+
+Vier weitere Sätze im PR mit `status: ungeprüft`, Aufbau wie Simulation 1 und 2. Zusammen decken die
+sechs Simulationen alle 60 Katalogthemen ab (E-41, Test `test_simulations_cover_every_catalog_topic`);
+ein Test spielt jede Simulation mit den Musterlösungen durch (100 Punkte). Rechenwerte mit `Decimal`,
+Subnetze mit dem Python-Modul `ipaddress`, Diagramme mit der Mermaid-CLI geprüft.
+
+**Beim Prüfen im eigenen Entwurf korrigiert**
+
+| Simulation | Entwurf | Korrektur | Grund |
+| --- | --- | --- | --- |
+| 3, 1d | MC zur Haftung in der KG (Thema Rechtsformen) | ersetzt durch Gewährleistung/Garantie (Thema Verträge) | Rechtsformen sind laut Katalog-Änderungsliste nur noch AP2 (`stand_2025: ausserhalb`) |
+| 5, 2f | Zuordnung BPMN-Symbole | ersetzt durch Ticket-Lebenslauf (Thema Rollout/Ticketsystem) | BPMN ist ein freiwilliges Zusatzthema außerhalb des Katalogs (E-10) |
+| 4, 2d | Kernbegriff „tom“ | „technisch“ | „tom“ steht als Teilwort in „automatisch“, „Atom“ und hätte nie gefehlt |
+| 4, 4d | Primärschlüssel per HTML `<u>` unterstrichen | im Text benannt | Aufgabentexte sind Markdown; HTML-Auszeichnung wird vermieden |
+
+**Simulation 3 „Server und Netz für eine Spedition“** (17 Teilaufgaben, 26/24/25/25)
+
+| Teil | Geprüfte Kernaussagen |
+| --- | --- |
+| 1a Leasing | 7.200 € × 0,029 = 208,80 €; × 36 = 7.516,80 €; Miete 260 € × 36 = 9.360 €; Mehrkosten 316,80 € |
+| 1b Angebotsvergleich | A: 9.700 € − 10 % = 8.730 €, − 2 % = 8.555,40 €; B: 9.180 € − 5 % = 8.721 € + 120 € = 8.841 €; Differenz 285,60 €; Fehlerbild 12 % zusammen = 8.536 € |
+| 1c, 1d | Kauf § 433, Miete § 535, Dienst § 611, Werk § 631 BGB; Gewährleistung §§ 434, 437, 438, Garantie § 443 BGB |
+| 2a–2d | RAM 112 ÷ 128 = 87,5 %, Speicher 2,4 ÷ 8 = 30 %; 172 = 1010 1100₂ = AC₁₆, 3E₁₆ = 62; MBR 2³² × 512 Byte = 2 TiB; rwxr-x--- = 750, rw-r----- = 640 |
+| 3a Subnetting | 10.20.0.0/22 in 8 Netze → /25, 255.255.255.128, 126 Hosts, 5. Netz 10.20.2.0 – 10.20.2.127 (`ipaddress`) |
+| 3b Übertragung | 900 · 10⁹ × 8 = 7,2 · 10¹² bit ÷ 5 · 10⁸ bit/s = 14.400 s = 4 h |
+| 3c–3e | Domäne: zentrale Konten, Gruppenrichtlinien, DNS nötig; 10GBASE-T über 90 m → Cat 6A, Wi-Fi 6 = 802.11ax; 169.254.0.0/16 = Link-Local (RFC 3927) |
+| 4a Schreibtischtest | 12 → (35) → 20 → (50) → 50; schwer = 2, weil 30 > 30 falsch ist |
+| 4b–4e | OOP-Begriffe; Multiplizitäten 0..1 und 1..*, leere Raute = Aggregation (UML 2.5.1); Porto-Grenzen ≤ 5 / ≤ 30 / sonst; Stamm- und Bewegungsdaten |
+
+**Simulation 4 „Patientenportal für eine Physiotherapie“** (19 Teilaufgaben, 25/25/24/26)
+
+| Teil | Geprüfte Kernaussagen |
+| --- | --- |
+| 1b Netzplan | kritischer Pfad A–B–E–F–G = 13; GP C = 4 − 2 = 2, GP D = 7 − 2 = 5; C + 3 Tage → 14 |
+| 1c, 1e | 42 ÷ 48 = 87,5 %, 3 ÷ 6 = 50 %; Ist 46 × 70 € = 3.220 €, (3.220 − 2.800) ÷ 2.800 = 15 % |
+| 1d Abnahme | Vergütung fällig § 641, Verjährung ab Abnahme § 634a Abs. 2, Vorbehalt bekannter Mängel § 640 Abs. 3 BGB |
+| 2a–2e | Zutritt/Zugang/Zugriff/Weitergabe/Verfügbarkeit; Risiko 3 × 4 = 12, 2 × 3 = 6; Härtung (BSI SYS.1.3); Art. 9, 28, 32 DSGVO; Kategorien normal/hoch/sehr hoch, Maximumprinzip (BSI 200-2, 8.2) |
+| 3a–3e | Tablet/Thin Client; WCAG-Prinzipien; ISO 9241-110:2020; 8 × 3,5 = 28 Mbit/s, + 15 = 43 > 40, (40 − 15) ÷ 3,5 = 7,14 → 7; Softwarearten |
+| 4a Kalkulation | 600 × 1,2 = 720; × 1,1 = 792; ÷ 0,98 = 808,16; ÷ 0,9 = 897,96 €; Fehlerbilder 792 × 1,02 = 807,84 und 808,16 × 1,1 = 888,98 |
+| 4b, 4c | Named 30 × 120 = 3.600 €, Concurrent 12 × 280 = 3.360 €; Schutz automatisch (§§ 2, 69a UrhG), MIT freizügig, OEM gerätegebunden |
+| 4d ERM | zwei 1:n → 3 Tabellen, 2 Fremdschlüssel; TerminNr → PatientNr → PatientName transitiv → 3NF verletzt |
+
+**Simulation 5 „Kundenservice für eine Kaffeerösterei“** (20 Teilaufgaben, 24/26/25/25)
+
+| Teil | Geprüfte Kernaussagen |
+| --- | --- |
+| 1b englisches Angebot | 12 × 240 = 2.880 €; − 10 % = 2.592 €; − 2 % = 2.540,16 €; + 350 € = 2.890,16 € netto; Fehlerbilder 2.883,16 € (Skonto auch auf Einrichtung) und 3.439,29 € (mit USt) |
+| 1a, 1c–1e | Bedürfnis/Bedarf/Nachfrage/Angebot; invoice, lead time, falsche Freunde eventually/billion; 15 min × 0,10/0,75 = 1,5/11,25 min |
+| 2a–2f | Incident/Service Request/Problem (ITIL 4); funktionale und hierarchische Eskalation; `site:`, `filetype:`, `-`; EPK-Regeln; Ticketstatus |
+| 3a Bash | Ausgabe OK/FEHLT/OK, Exit-Code 1 (Bash-Handbuch 3.7.5) |
+| 3b cron | `30 2 * * 0` = sonntags 2:30 Uhr (crontab(5)) |
+| 3c Schreibtischtest | 120 → 90 → 60 → 30 + 20 = 50 → 20; tage = 4 |
+| 3d SSD | 600.000 GB ÷ 250 GB/Tag = 2.400 Tage ÷ 365 = 6,58 Jahre |
+| 4a–4e | /48 → /64 = 2¹⁶ = 65.536; 2001:0db8:0000:0042:0000:0000:0000:0010 → 2001:db8:0:42::10 (`ipaddress`, RFC 5952); PoE 6 × 30 + 10 × 15,4 = 334 W, Reserve 36 W; Schutzziele; 25 × 32 = 800 €, − 100 € = 700 €, 4.800 ÷ 700 = 6,86 Monate; Gateway und DNS |
+
+**Simulation 6 „Neue Filiale für ein Reisebüro“** (19 Teilaufgaben, 26/24/25/25)
+
+| Teil | Geprüfte Kernaussagen |
+| --- | --- |
+| 1b Angebotsvergleich | A: 17.980 € − 12 % = 15.822,40 €, − 3 % = 15.347,73 €; B: 16.580 € − 5 % = 15.751 €, − 2 % = 15.435,98 € + 49 € = 15.484,98 €; Differenz 137,25 €; Fehlerbild 15 % zusammen = 15.283 € |
+| 1a, 1c–1e | Fragearten; Scrum-Events (Scrum Guide 2020); Rollout-Phasen; 20 × 0,75 × 72 = 1.080 €, 6 × 72 = 432 €, Summe 16.859,73 € |
+| 2a Netzteil | 320 ÷ 0,92 = 347,83 W, Verlust 27,83 W; Nennleistung = Abgabe, 320 × 1,2 = 384 W |
+| 2b Nachhaltigkeit | Blauer Engel (DE-UZ 78), TCO Certified; CE ist eine Konformitätskennzeichnung, kein Umweltzeichen |
+| 2c Sicherung | inkrementell 500 + 5 × 20 = 600 GB, differenziell 500 + 20 + 40 + 60 + 80 + 100 = 800 GB; Wiederherstellung 6 bzw. 2 Sicherungen |
+| 2d Übertragung | 2 TiB = 2 × 2⁴⁰ = 2.199.023.255.552 Byte × 8 ÷ 10⁹ = 17.592,19 s = 4,89 h; Fehlerbild mit 2 · 10¹² Byte = 4,44 h |
+| 3a Subnetting | 50 Hosts → 2⁶ − 2 = 62 → /26; 14 Hosts → 2⁴ − 2 = 14 → /28; B = 192.168.40.64/28, erste Adresse .65, Broadcast .79 (`ipaddress`) |
+| 3b–3e | fe80::/10, fd00::/8, ::1, ff00::/8, kein Broadcast (RFC 4291, 4193); AES/RSA/SHA-256/TLS; Länge und Sperrliste statt Zwangswechsel (NIST SP 800-63B Rev. 4); Art. 4 und 5 DSGVO |
+| 4a–4d | n:m → Zwischentabelle Buchung mit Personenanzahl und 2 Fremdschlüsseln; verschachtelte Schleife 1 → 4 → 10; Kapselung; Anwendungsfalldiagramm (UML 2.5.1) |
+

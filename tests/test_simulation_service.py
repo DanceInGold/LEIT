@@ -69,6 +69,16 @@ def test_every_simulation_gives_full_points_for_model_answers(trainer: Trainer) 
     assert trainer.sim_goal() == sim_ids
 
 
+def test_simulations_cover_every_catalog_topic(package) -> None:  # type: ignore[no-untyped-def]
+    # Jedes Thema des Prüfungskatalogs 2025 kommt in mindestens einer Simulation vor (E-41)
+    used = {task.thema for sim in package.simulationen.values() for task in sim.tasks()}
+    in_catalog = {t.id for t in package.katalog.themen if t.stand_2025 in ("aktiv", "neu")}
+    assert in_catalog - used == set()
+    # Themen außerhalb des Katalogs nur, wenn ihre Notation auf dem Beiblatt steht (EPK)
+    outside = {t.id for t in package.katalog.themen if t.stand_2025 == "ausserhalb"}
+    assert used & outside <= {"epk"}
+
+
 def test_empty_run_feeds_weak_topics_mistakes_and_cards(trainer: Trainer) -> None:
     sim = trainer.package.simulationen["sim-01"]
     run = trainer.submit_simulation("sim-01", {}, START, END)

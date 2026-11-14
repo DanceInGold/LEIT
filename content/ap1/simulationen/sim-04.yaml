@@ -1,0 +1,474 @@
+# Prüfungssimulation 4 – vollständiger AP1-Satz (PS-01): vier Aufgaben, 100 Punkte, 90 Minuten.
+# Schwerpunkte: Projektabwicklung und Qualität, IT-Sicherheit und Datenschutz bei Gesundheitsdaten,
+# Arbeitsplätze und Software-Ergonomie, Kalkulation, Lizenzen und Datenbank. Werte mit Decimal geprüft.
+
+titel: "Simulation 4: Patientenportal für eine Physiotherapie"
+dauer_minuten: 90
+quelle: "Neu erstellt (Claude), Aufbau nach U-Form-Prüfungstrainer AP1; Themen nach Prüfungskatalog 2025."
+status: ungeprüft
+belege:
+  - {titel: "U-Form: Prüfungstrainer Teil 1 der Abschlussprüfung IT-Berufe (100 Punkte, 90 Minuten, vier Aufgaben zu 20–30 Punkten)", url: "https://shopstage.u-form.de/media/dd/9f/63/1687157302/750.pdf"}
+
+ausgangssituation: |
+  Du bist Auszubildende bzw. Auszubildender bei der **ArchivTech GmbH**, einem IT-Dienstleister für
+  digitale Archivierung und IT-Betreuung.
+
+  Die **Physio Lindenhof GmbH** betreibt drei Physiotherapie-Praxen mit zusammen 30 Mitarbeitenden.
+  Patientinnen und Patienten sollen künftig online Termine buchen, Befunde hochladen und an
+  Video-Sprechstunden teilnehmen. Die ArchivTech führt das Projekt „Patientenportal“ durch, sichert die
+  Gesundheitsdaten ab, stattet die Therapeutinnen und Therapeuten mit neuen Geräten aus und entwirft die
+  Datenbank für die Terminverwaltung.
+
+aufgaben:
+  # ------------------------------------------------------------------------------------------
+  - nr: 1
+    titel: "Das Projekt durchführen"
+    teilaufgaben:
+      - nr: a
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: projekt-merkmale
+          titel: "Ist das ein Projekt?"
+          frage: "Die Geschäftsführung fragt, warum die Einführung des Portals als Projekt organisiert wird. Welche **zwei** Merkmale eines Projekts treffen zu?"
+          optionen:
+            - {text: "Das Vorhaben ist in dieser Form einmalig.", richtig: true, warum: "Einmaligkeit ist das Kernmerkmal (DIN 69901-5)."}
+            - {text: "Es hat einen festen Endtermin und ein begrenztes Budget.", richtig: true, warum: "Befristet und mit begrenzten Ressourcen."}
+            - {text: "Es wiederholt sich jeden Monat auf die gleiche Weise.", warum: "Das ist Tagesgeschäft, kein Projekt.", ursache: begriff}
+            - {text: "Es hat bewusst kein festgelegtes Ziel, damit das Team flexibel bleibt.", warum: "Ein Projekt braucht ein klares Ziel.", ursache: konzept}
+          loesungsweg: "Projekt = **einmalig**, **befristet**, begrenzte Ressourcen, klares Ziel, eigene Organisation."
+          belege:
+            - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe (Projekt)"}
+
+      - nr: b
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: projektplanung
+          titel: "Netzplan und Verzögerung"
+          frage: |
+            Für das Portal hast du diese Vorgangsliste erstellt (Dauer in Arbeitstagen):
+
+            | Vorgang | Beschreibung | Dauer | Vorgänger |
+            | --- | --- | ---: | --- |
+            | A | Anforderungen aufnehmen | 2 | – |
+            | B | Portal einrichten | 6 | A |
+            | C | Schnittstelle zur Praxissoftware | 4 | A |
+            | D | Schulungsunterlagen erstellen | 3 | A |
+            | E | Gesamttest | 2 | B, C |
+            | F | Schulung | 2 | D, E |
+            | G | Freigabe und Go-live | 1 | F |
+
+            Berechne die Werte mit einem Netzplan (Projektstart = Zeitpunkt 0).
+          schritte:
+            - frage: "Projektdauer in Tagen"
+              antwort: "13"
+              einheit: "Tage"
+              erklaerung: "Kritischer Pfad A → B → E → F → G: 2 + 6 + 2 + 2 + 1 = 13."
+              falsch:
+                - {antwort: "20", warum: "Alle Dauern addiert. B, C und D laufen parallel.", ursache: konzept}
+            - frage: "Gesamtpuffer von C in Tagen"
+              antwort: "2"
+              einheit: "Tage"
+              erklaerung: "FAZ C = 2, SAZ C = SAZ E − 4 = 8 − 4 = 4 → GP = 4 − 2 = 2."
+            - frage: "Gesamtpuffer von D in Tagen"
+              antwort: "5"
+              einheit: "Tage"
+              erklaerung: "FAZ D = 2, SAZ D = SAZ F − 3 = 10 − 3 = 7 → GP = 7 − 2 = 5."
+              falsch:
+                - {antwort: "0", warum: "D liegt nicht auf dem kritischen Weg – F wartet ohnehin auf E.", ursache: konzept}
+            - frage: "Neue Projektdauer, wenn C 3 Tage länger dauert"
+              antwort: "14"
+              einheit: "Tage"
+              erklaerung: "C hat nur 2 Tage Puffer: 3 − 2 = 1 Tag Verzug → 13 + 1 = 14."
+              falsch:
+                - {antwort: "16", warum: "Die volle Verzögerung addiert. Der Gesamtpuffer von 2 Tagen fängt einen Teil ab.", ursache: konzept}
+          loesungsweg: |
+            | Vorgang | FAZ | FEZ | SAZ | SEZ | GP |
+            | --- | ---: | ---: | ---: | ---: | ---: |
+            | A | 0 | 2 | 0 | 2 | 0 |
+            | B | 2 | 8 | 2 | 8 | 0 |
+            | C | 2 | 6 | 4 | 8 | **2** |
+            | D | 2 | 5 | 7 | 10 | **5** |
+            | E | 8 | 10 | 8 | 10 | 0 |
+            | F | 10 | 12 | 10 | 12 | 0 |
+            | G | 12 | **13** | 12 | 13 | 0 |
+
+            C + 3 Tage: 3 − GP 2 = 1 Tag → Projektende **14**.
+
+      - nr: c
+        punkte: 5
+        aufgabe:
+          typ: rechnung
+          thema: qualitaet
+          titel: "Testergebnisse auswerten"
+          frage: "Für den Gesamttest hast du **48 Testfälle** durchgeführt. **42** waren erfolgreich. Von den fehlgeschlagenen betreffen **3** die Schnittstelle zur Praxissoftware."
+          schritte:
+            - frage: "Anteil erfolgreicher Testfälle in %"
+              antwort: "87,5"
+              einheit: "%"
+              erklaerung: "42 ÷ 48 = 0,875 = 87,5 %."
+            - frage: "Anzahl fehlgeschlagener Testfälle"
+              antwort: "6"
+              erklaerung: "48 − 42 = 6."
+            - frage: "Anteil der Schnittstellenfehler an den fehlgeschlagenen Testfällen in %"
+              antwort: "50"
+              einheit: "%"
+              erklaerung: "3 ÷ 6 = 50 %."
+              falsch:
+                - {antwort: "6,25", warum: "Durch alle 48 Testfälle geteilt. Gefragt ist der Anteil an den fehlgeschlagenen.", ursache: konzept}
+          loesungsweg: "42 ÷ 48 = **87,5 %** erfolgreich; 6 fehlgeschlagen, davon 3 ÷ 6 = **50 %** an der Schnittstelle → dort zuerst die Ursache beheben und nachtesten (PDCA)."
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: abnahme-doku
+          titel: "Was bewirkt die Abnahme?"
+          frage: "Die Physio Lindenhof nimmt das fertige Portal ab (Werkvertrag). Welche **zwei** Folgen hat die Abnahme?"
+          optionen:
+            - {text: "Die Vergütung wird fällig.", richtig: true, warum: "§ 641 BGB: Die Vergütung ist bei der Abnahme zu entrichten."}
+            - {text: "Die Verjährungsfrist für Mängelansprüche beginnt.", richtig: true, warum: "§ 634a Abs. 2 BGB: Die Verjährung beginnt mit der Abnahme."}
+            - {text: "Der Kunde verliert alle Mängelansprüche.", warum: "Nur für bekannte Mängel, die er sich bei der Abnahme nicht vorbehält (§ 640 Abs. 3).", ursache: konzept}
+            - {text: "Die Abnahme ist nur mit notarieller Beurkundung wirksam.", warum: "Es gibt keine Formvorschrift; ein Protokoll ist aber dringend zu empfehlen.", ursache: konzept}
+          loesungsweg: "Abnahme → **Vergütung fällig**, **Verjährung beginnt**, Beweislast wechselt zum Kunden. Bekannte Mängel mit Vorbehalt ins Protokoll."
+          belege:
+            - {titel: "BGB §§ 634a, 640, 641", url: "https://www.gesetze-im-internet.de/bgb/"}
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: rechnung
+          thema: leistungsbestaetigung
+          titel: "Nachkalkulation"
+          frage: "Die ArchivTech hatte für die Einrichtung **40 Stunden** zu je **70 €** geplant. Laut Leistungsbestätigung wurden **46 Stunden** gearbeitet."
+          schritte:
+            - frage: "Ist-Kosten in €"
+              antwort: "3220"
+              einheit: "€"
+              erklaerung: "46 h × 70 € = 3.220 €."
+            - frage: "Abweichung vom Plan in %"
+              antwort: "15"
+              einheit: "%"
+              erklaerung: "Plan 2.800 €; (3.220 − 2.800) ÷ 2.800 = 0,15 = 15 %."
+              falsch:
+                - {antwort: "13,04", warum: "Durch die Ist-Kosten geteilt. Die Abweichung bezieht sich auf den Plan.", ursache: rechenfehler}
+          loesungsweg: "Plan 40 × 70 € = 2.800 €; Ist 46 × 70 € = **3.220 €**; Abweichung 420 ÷ 2.800 = **15 %** → Kalkulation für ähnliche Aufträge anpassen."
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 2
+    titel: "Gesundheitsdaten schützen"
+    teilaufgaben:
+      - nr: a
+        punkte: 5
+        aufgabe:
+          typ: zuordnung
+          thema: tom
+          titel: "Technische und organisatorische Maßnahmen"
+          frage: "Ordne jede geplante Maßnahme der passenden Kontrolle zu."
+          paare:
+            - {links: "Chipkartenleser an der Tür zum Serverraum", rechts: "Zutrittskontrolle"}
+            - {links: "Anmeldung am Portal mit Passwort und zweitem Faktor", rechts: "Zugangskontrolle"}
+            - {links: "Therapeuten sehen nur die Akten ihrer eigenen Patienten", rechts: "Zugriffskontrolle"}
+            - {links: "Befunde werden nur per TLS übertragen", rechts: "Weitergabekontrolle"}
+            - {links: "USV und tägliche Datensicherung", rechts: "Verfügbarkeitskontrolle"}
+          ablenker: ["Trennungskontrolle"]
+          loesungsweg: "Raum = **Zutritt** · System = **Zugang** · Daten = **Zugriff** · Übertragung = **Weitergabe** · USV/Backup = **Verfügbarkeit**."
+          belege:
+            - {titel: "DSGVO Art. 32 Sicherheit der Verarbeitung", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+
+      - nr: b
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: isms-risiko
+          titel: "Risiken bewerten"
+          frage: |
+            Du bewertest drei Risiken mit einer Matrix (Eintrittswahrscheinlichkeit und Schadenshöhe jeweils 1 = gering bis 4 = sehr hoch):
+
+            | Risiko | Beschreibung | Wahrscheinlichkeit | Schaden |
+            | --- | --- | ---: | ---: |
+            | A | Ransomware verschlüsselt den Portalserver | 3 | 4 |
+            | B | Diebstahl eines Tablets bei einem Hausbesuch | 2 | 3 |
+            | C | Kurzer Stromausfall in einer Praxis | 2 | 2 |
+          schritte:
+            - frage: "Risikowert von A"
+              antwort: "12"
+              erklaerung: "Risiko = Wahrscheinlichkeit × Schaden = 3 × 4 = 12."
+              falsch:
+                - {antwort: "7", warum: "Addiert statt multipliziert.", ursache: rechenfehler}
+            - frage: "Risikowert von B"
+              antwort: "6"
+              erklaerung: "2 × 3 = 6."
+            - frage: "Welches Risiko behandelst du zuerst? (A/B/C)"
+              antwort: "A"
+              format: text
+              erklaerung: "A hat mit 12 den höchsten Risikowert."
+          loesungsweg: "A: 3 × 4 = **12** · B: 2 × 3 = **6** · C: 2 × 2 = 4 → zuerst **A** behandeln (vermindern: Updates, Offline-Backup, Segmentierung)."
+          belege:
+            - {titel: "BSI-Standard 200-3: Risikoanalyse auf der Basis von IT-Grundschutz (Risikomatrix)"}
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: haertung-firewall
+          titel: "Den Portalserver härten"
+          frage: "Welche **zwei** Maßnahmen härten den Linux-Server, auf dem das Portal läuft?"
+          optionen:
+            - {text: "nicht benötigte Dienste wie FTP und den Druckdienst entfernen", richtig: true, warum: "Weniger Dienste = kleinere Angriffsfläche."}
+            - {text: "SSH-Anmeldung nur mit Schlüssel erlauben und die direkte Root-Anmeldung abschalten", richtig: true, warum: "Erschwert Passwortangriffe und erzwingt persönliche Konten."}
+            - {text: "alle Ports in der Firewall öffnen, damit Updates sicher ankommen", warum: "Umgekehrt: alles sperren, nur Nötiges erlauben.", ursache: konzept}
+            - {text: "ein gemeinsames Administratorkonto für alle Techniker anlegen", warum: "Persönliche Konten sind nötig, damit Änderungen nachvollziehbar bleiben.", ursache: konzept}
+          loesungsweg: "Härtung = **Unnötiges entfernen**, **Zugänge beschränken** (SSH mit Schlüssel, kein Root), aktualisieren, persönliche Konten."
+          belege:
+            - {titel: "BSI IT-Grundschutz-Kompendium, Baustein SYS.1.3 Server unter Linux und Unix", url: "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/IT-Grundschutz/IT-Grundschutz-Kompendium/it-grundschutz-kompendium_node.html"}
+
+      - nr: d
+        punkte: 6
+        aufgabe:
+          typ: freitext
+          thema: datenschutz
+          titel: "Gesundheitsdaten nach DSGVO"
+          operator: erläutern
+          frage: "Das Portal wird bei einem externen Rechenzentrum betrieben. **Erläutere**, warum Gesundheitsdaten nach DSGVO besonders geschützt sind, und nenne zwei Pflichten, die sich daraus für die Physio Lindenhof ergeben."
+          musterloesung: |
+            - Gesundheitsdaten gehören zu den **besonderen Kategorien personenbezogener Daten** (Art. 9 DSGVO). Ihre Verarbeitung ist grundsätzlich verboten, außer eine Ausnahme greift – hier die Gesundheitsversorgung bzw. der Behandlungsvertrag.
+            - Weil das Rechenzentrum die Daten im Auftrag verarbeitet, braucht die Praxis einen **Auftragsverarbeitungsvertrag** (Art. 28).
+            - Sie muss angemessene **technische und organisatorische Maßnahmen** treffen (Art. 32), z. B. Verschlüsselung und ein Berechtigungskonzept.
+          bewertungspunkte:
+            - {punkt: "besondere Kategorie personenbezogener Daten (Art. 9)", kernbegriffe: ["besondere", "art. 9", "artikel 9"], punkte: 2}
+            - {punkt: "Auftragsverarbeitungsvertrag mit dem Rechenzentrum (Art. 28)", kernbegriffe: ["auftragsverarbeit", "av-vertrag", "avv"], punkte: 2}
+            - {punkt: "technische und organisatorische Maßnahmen, z. B. Verschlüsselung (Art. 32)", kernbegriffe: ["technisch", "maßnahmen", "verschlüssel"], punkte: 2}
+          loesungsweg: "Art. 9: besondere Kategorie → Verarbeitung nur mit Ausnahme. Pflichten: AV-Vertrag (Art. 28), TOM (Art. 32)."
+          belege:
+            - {titel: "DSGVO Art. 9, 28, 32", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: bsi-schutzbedarf
+          titel: "Schutzbedarf feststellen"
+          frage: "Du stellst nach BSI-Standard 200-2 den Schutzbedarf für das Portal fest. Welche **zwei** Aussagen treffen zu?"
+          optionen:
+            - {text: "Für die Patientenakten ist der Schutzbedarf bei der Vertraulichkeit mindestens „hoch“.", richtig: true, warum: "Ein Bekanntwerden von Gesundheitsdaten kann Betroffene erheblich schädigen."}
+            - {text: "Der Server erbt den höchsten Schutzbedarf der Anwendungen, die auf ihm laufen (Maximumprinzip).", richtig: true, warum: "Das Maximumprinzip ist der Normalfall der Vererbung."}
+            - {text: "Der Schutzbedarf richtet sich nach dem Anschaffungspreis der Hardware.", warum: "Maßgeblich sind die möglichen Schäden für die Organisation und die Betroffenen.", ursache: konzept}
+            - {text: "Die Kategorien heißen „niedrig“, „mittel“ und „hoch“.", warum: "Die BSI-Kategorien heißen „normal“, „hoch“ und „sehr hoch“.", ursache: begriff}
+          loesungsweg: "Kategorien **normal – hoch – sehr hoch**; Gesundheitsdaten: Vertraulichkeit mindestens **hoch**; Server erben nach dem **Maximumprinzip**."
+          belege:
+            - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.1 und 8.2.2 (Schutzbedarfskategorien, Maximumprinzip)", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 3
+    titel: "Arbeitsplätze und Portal gestalten"
+    teilaufgaben:
+      - nr: a
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: geraeteklassen
+          titel: "Passende Geräte"
+          frage: "Die Therapeutinnen dokumentieren direkt an der Behandlungsliege und bei Hausbesuchen; am Empfang werden Termine vergeben. Ein Terminalserver ist vorhanden. Welche **zwei** Empfehlungen passen?"
+          optionen:
+            - {text: "Tablets für Behandlungsräume und Hausbesuche – mobil und per Touch bedienbar", richtig: true, warum: "Dokumentation im Stehen und unterwegs."}
+            - {text: "Thin Clients am Empfang, weil die Anwendungen auf dem Terminalserver laufen", richtig: true, warum: "Sparsam, zentral verwaltet, schnell getauscht."}
+            - {text: "Desktop-PCs für die Hausbesuche", warum: "Nicht mobil.", ursache: konzept}
+            - {text: "Notebooks mit verlötetem RAM, weil man sie später leicht aufrüsten kann", warum: "Verlöteter RAM lässt sich gerade nicht aufrüsten.", ursache: konzept}
+          loesungsweg: "Mobil mit Touch → **Tablet** · zentral mit Terminalserver → **Thin Client**."
+
+      - nr: b
+        punkte: 5
+        aufgabe:
+          typ: zuordnung
+          thema: barrierefreiheit
+          titel: "Barrierefreies Portal"
+          frage: "Das Portal soll barrierefrei sein. Ordne jede Maßnahme dem WCAG-Prinzip zu, das sie erfüllt."
+          paare:
+            - {links: "Fotos und Grafiken bekommen einen Alternativtext.", rechts: "wahrnehmbar"}
+            - {links: "Die Terminbuchung funktioniert vollständig per Tastatur.", rechts: "bedienbar"}
+            - {links: "Fehlermeldungen sagen in einfachen Worten, was zu tun ist.", rechts: "verständlich"}
+            - {links: "Sauberes HTML mit Labels, damit Screenreader die Felder erkennen.", rechts: "robust"}
+          ablenker: ["skalierbar"]
+          loesungsweg: "Alternativtext = **wahrnehmbar** · Tastatur = **bedienbar** · klare Meldungen = **verständlich** · sauberes HTML für Hilfstechnik = **robust**."
+          belege:
+            - {titel: "W3C: Web Content Accessibility Guidelines (WCAG) 2.2", url: "https://www.w3.org/TR/WCAG22/"}
+
+      - nr: c
+        punkte: 5
+        aufgabe:
+          typ: zuordnung
+          thema: masken-ergonomie
+          titel: "Die Buchungsmaske prüfen"
+          frage: "Beim Test der Terminbuchung fallen Mängel auf. Ordne jedem Mangel das verletzte Interaktionsprinzip nach DIN EN ISO 9241-110:2020 zu."
+          paare:
+            - {links: "Ein Feld heißt nur „Beh.-Art“.", rechts: "Selbstbeschreibungsfähigkeit"}
+            - {links: "Eine begonnene Buchung lässt sich nicht abbrechen.", rechts: "Steuerbarkeit"}
+            - {links: "Nach einem Tippfehler sind alle Eingaben gelöscht.", rechts: "Robustheit gegen Benutzungsfehler"}
+            - {links: "„Speichern“ steht oben links statt wie überall unten rechts.", rechts: "Erwartungskonformität"}
+            - {links: "Die Faxnummer ist ein Pflichtfeld, obwohl sie nie gebraucht wird.", rechts: "Aufgabenangemessenheit"}
+          loesungsweg: "Unklare Beschriftung = **Selbstbeschreibung** · kein Abbrechen = **Steuerbarkeit** · Eingaben weg = **Robustheit** · ungewohnte Position = **Erwartungskonformität** · überflüssiges Feld = **Aufgabenangemessenheit**."
+          belege:
+            - {titel: "DIN EN ISO 9241-110:2020 Ergonomie der Mensch-System-Interaktion – Interaktionsprinzipien"}
+
+      - nr: d
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: kommunikationssysteme
+          titel: "Reicht der Upload für Video-Sprechstunden?"
+          frage: "Eine Praxis hat einen Internetanschluss mit **40 Mbit/s Upload**. Eine Video-Sprechstunde braucht **3,5 Mbit/s Upload**. Tagsüber läuft zusätzlich eine Cloud-Sicherung, die dauerhaft **15 Mbit/s Upload** belegt. Geplant sind bis zu **8 Sprechstunden gleichzeitig**."
+          schritte:
+            - frage: "Upload-Bedarf für 8 Sprechstunden in Mbit/s"
+              antwort: "28"
+              einheit: "Mbit/s"
+              erklaerung: "8 × 3,5 Mbit/s = 28 Mbit/s."
+            - frage: "Gesamter Upload-Bedarf mit Sicherung in Mbit/s"
+              antwort: "43"
+              einheit: "Mbit/s"
+              erklaerung: "28 + 15 = 43 Mbit/s > 40 Mbit/s – der Anschluss reicht nicht."
+            - frage: "Wie viele Sprechstunden passen höchstens gleichzeitig neben die Sicherung?"
+              antwort: "7"
+              erklaerung: "(40 − 15) ÷ 3,5 = 7,14 → abrunden auf 7."
+              falsch:
+                - {antwort: "11", warum: "Die Sicherung nicht abgezogen (40 ÷ 3,5 = 11,4).", ursache: konzept}
+                - {antwort: "8", warum: "Aufgerundet – die achte Sprechstunde passt nicht mehr vollständig hinein.", ursache: rechenfehler}
+          loesungsweg: "8 × 3,5 = **28 Mbit/s**; + 15 = **43 Mbit/s** > 40 → reicht nicht. (40 − 15) ÷ 3,5 = 7,14 → höchstens **7**. Lösung: Sicherung nachts laufen lassen oder mehr Upload buchen."
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: software-arten
+          titel: "Welche Softwareart?"
+          frage: "Ordne die Software der Physio Lindenhof der passenden Softwareart zu."
+          paare:
+            - {links: "Windows 11 auf den Rechnern am Empfang", rechts: "Systemsoftware"}
+            - {links: "Textverarbeitung und Tabellenkalkulation", rechts: "Standardsoftware"}
+            - {links: "Praxisverwaltung speziell für Physiotherapie", rechts: "Branchensoftware"}
+            - {links: "Portal-Erweiterung, die nur für die Physio Lindenhof programmiert wird", rechts: "Individualsoftware"}
+          ablenker: ["Entwicklungssoftware"]
+          loesungsweg: "Betriebssystem = **System** · Office = **Standard** · für eine Branche = **Branche** · Einzelanfertigung = **Individual**."
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 4
+    titel: "Kosten, Lizenzen und Datenbank"
+    teilaufgaben:
+      - nr: a
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: kalkulation
+          titel: "Verkaufspreis kalkulieren"
+          frage: "Die ArchivTech verkauft der Physio Lindenhof ein Tablet-Paket. Der **Bezugspreis** beträgt **600 €**. Die ArchivTech rechnet mit **20 % Handlungskosten** und **10 % Gewinn**. Der Kundin werden **2 % Skonto** und **10 % Rabatt** eingeräumt. Runde auf Cent."
+          schritte:
+            - frage: "Selbstkosten in €"
+              antwort: "720"
+              einheit: "€"
+              erklaerung: "600 € × 1,20 = 720 €."
+            - frage: "Barverkaufspreis in €"
+              antwort: "792"
+              einheit: "€"
+              erklaerung: "720 € × 1,10 = 792 €."
+            - frage: "Zielverkaufspreis in €"
+              antwort: "808,16"
+              einheit: "€"
+              toleranz: 0.0001
+              erklaerung: "Skonto im Hundert: 792 € ÷ 0,98 = 808,16 €."
+              falsch:
+                - {antwort: "807,84", warum: "Skonto vom Hundert aufgeschlagen (× 1,02). Weil die Kundin 2 % vom höheren Preis abzieht, wird durch 0,98 geteilt.", ursache: konzept}
+            - frage: "Listenverkaufspreis (netto) in €"
+              antwort: "897,96"
+              einheit: "€"
+              toleranz: 0.0001
+              erklaerung: "Rabatt im Hundert: 808,16 € ÷ 0,90 = 897,96 €."
+              falsch:
+                - {antwort: "888,98", warum: "Rabatt vom Hundert aufgeschlagen (× 1,10). Richtig ist ÷ 0,90.", ursache: konzept}
+          loesungsweg: |
+            | Stufe | Rechnung | Betrag |
+            | --- | --- | ---: |
+            | Bezugspreis | | 600,00 € |
+            | Selbstkosten | × 1,20 | 720,00 € |
+            | Barverkaufspreis | × 1,10 | 792,00 € |
+            | Zielverkaufspreis | ÷ 0,98 | 808,16 € |
+            | Listenverkaufspreis netto | ÷ 0,90 | **897,96 €** |
+
+      - nr: b
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: urheberrecht-lizenzen
+          titel: "Named User oder Concurrent User?"
+          frage: "Die Praxisverwaltung nutzen **30 Mitarbeitende**, aber höchstens **12 gleichzeitig**. Eine Named-User-Lizenz kostet **120 € pro Jahr**, eine Concurrent-User-Lizenz **280 € pro Jahr**."
+          schritte:
+            - frage: "Jährliche Kosten mit Named-User-Lizenzen in €"
+              antwort: "3600"
+              einheit: "€"
+              erklaerung: "30 × 120 € = 3.600 €."
+            - frage: "Jährliche Kosten mit Concurrent-User-Lizenzen in €"
+              antwort: "3360"
+              einheit: "€"
+              erklaerung: "12 × 280 € = 3.360 €."
+              falsch:
+                - {antwort: "8400", warum: "Für alle 30 Mitarbeitenden gerechnet. Concurrent-Lizenzen braucht man nur für die gleichzeitigen Nutzer.", ursache: konzept}
+            - frage: "Ersparnis pro Jahr mit dem günstigeren Modell in €"
+              antwort: "240"
+              einheit: "€"
+              erklaerung: "3.600 € − 3.360 € = 240 € mit Concurrent User."
+          loesungsweg: "Named 30 × 120 € = 3.600 € · Concurrent 12 × 280 € = **3.360 €** → Concurrent spart **240 €**, solange nie mehr als 12 gleichzeitig arbeiten."
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: urheberrecht-lizenzen
+          titel: "Urheberrecht und Lizenzen"
+          frage: "Für die Portal-Erweiterung will die ArchivTech fremde Bibliotheken nutzen. Welche **zwei** Aussagen treffen zu?"
+          optionen:
+            - {text: "Software ist urheberrechtlich geschützt, ohne dass man sie anmelden muss.", richtig: true, warum: "Der Schutz entsteht automatisch mit der Schöpfung (§§ 2, 69a UrhG)."}
+            - {text: "Eine Bibliothek unter MIT-Lizenz darf mit Lizenzvermerk in geschlossene Software eingebaut werden.", richtig: true, warum: "Die MIT-Lizenz ist freizügig."}
+            - {text: "Open Source bedeutet, dass man die Software ohne jede Bedingung nutzen darf.", warum: "Open-Source-Lizenzen haben Bedingungen, z. B. Lizenzvermerk oder Copyleft (GPL).", ursache: konzept}
+            - {text: "Eine OEM-Lizenz darf beliebig auf einen neuen Rechner übertragen werden.", warum: "OEM-Lizenzen sind an das Gerät gebunden, mit dem sie geliefert wurden.", ursache: begriff}
+          loesungsweg: "Schutz **automatisch**; **MIT** freizügig mit Vermerk, GPL mit Copyleft; OEM an das Gerät gebunden."
+          belege:
+            - {titel: "UrhG §§ 2, 69a (Computerprogramme)", url: "https://www.gesetze-im-internet.de/urhg/"}
+            - {titel: "Open Source Initiative: The MIT License", url: "https://opensource.org/license/mit"}
+
+      - nr: d
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: erm-relational
+          titel: "Datenbank für Termine"
+          frage: |
+            Für die Terminverwaltung hast du dieses ER-Modell entworfen: Ein Patient hat beliebig viele Termine, ein Therapeut ebenso; jeder Termin gehört zu genau einem Patienten und genau einem Therapeuten.
+
+            ```mermaid
+            erDiagram
+              PATIENT ||--o{ TERMIN : bucht
+              THERAPEUT ||--o{ TERMIN : betreut
+            ```
+
+            Eine Kollegin schlägt stattdessen eine einzige Tabelle vor: **Termin**(TerminNr, Datum, Uhrzeit, PatientNr, PatientName, TherapeutNr) mit dem Primärschlüssel TerminNr.
+          schritte:
+            - frage: "Anzahl der Tabellen im relationalen Modell nach deinem ER-Modell"
+              antwort: "3"
+              erklaerung: "Patient, Therapeut, Termin. Zwei 1:n-Beziehungen brauchen keine Zwischentabelle."
+              falsch:
+                - {antwort: "5", warum: "Für jede 1:n-Beziehung eine Zwischentabelle angelegt. Die braucht man nur bei n:m.", ursache: konzept}
+            - frage: "Anzahl der Fremdschlüssel in der Tabelle Termin"
+              antwort: "2"
+              erklaerung: "PatientNr und TherapeutNr – je einer für jede 1:n-Beziehung auf der n-Seite."
+            - frage: "Welche Normalform verletzt der Vorschlag der Kollegin? (1, 2 oder 3)"
+              antwort: "3"
+              erklaerung: "TerminNr → PatientNr → PatientName: transitive Abhängigkeit, also 3NF verletzt."
+              falsch:
+                - {antwort: "2", warum: "Bei einem einspaltigen Primärschlüssel ist die 2NF automatisch erfüllt.", ursache: konzept}
+                - {antwort: "1", warum: "Alle Werte sind atomar; die 1NF ist erfüllt.", ursache: konzept}
+          loesungsweg: |
+            - **Patient**(PatientNr, Name, …)
+            - **Therapeut**(TherapeutNr, Name, …)
+            - **Termin**(TerminNr, Datum, Uhrzeit, ↑PatientNr, ↑TherapeutNr)
+
+            3 Tabellen, 2 Fremdschlüssel in Termin. Der Vorschlag speichert PatientName bei jedem Termin: TerminNr → PatientNr → PatientName ist transitiv → **3NF** verletzt (Änderungsanomalie).
