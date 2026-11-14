@@ -5,6 +5,21 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt (Phase 2 · Aufgaben, Paket 3)
+- 62 feste Aufgaben für neun weitere Themen, je Thema Stufen 1–4 (AU-01, AU-02, HI-01, HI-03):
+  Verfügbarkeit und Datensicherung (10), HDD/SSD (6), BIOS/UEFI und Dateisysteme (6),
+  Installation (7), UML (9), Cloud-Modelle (6), Netzwerkkomponenten (6), Kommunikationssysteme (6),
+  Präsentation (6).
+- Neuer Generator **Verfügbarkeit** (AU-03) mit vier Stufen: Ausfallzeit pro Jahr, Reihenschaltung,
+  redundante Server, SLA-Prüfung mit Serverpaar und Switch; 1.000 Zufallsfälle gegen eine
+  unabhängige Nachrechnung (NF-07).
+- Die Übungsseite zeigt Mermaid-Diagramme und aufklappbare Vertiefungen in Situation, Frage,
+  Lösungsweg und Musterlösung – wie die Lektionsansicht (UML-Aufgaben).
+- Rauchtest öffnet vier weitere Aufgaben (Verfügbarkeit Stufe 4, PoE-Budget, UML-Schleife, UML-Freitext).
+
+### Geändert
+- Aufgaben aus PR #15 sind `geprüft`.
+
 ### Hinzugefügt (Phase 2 · Aufgaben, Paket 2)
 - 57 feste Aufgaben für neun weitere Themen, je Thema Stufen 1–4 (AU-01, AU-02, HI-01, HI-03):
   Verschlüsselung (9), Schutzziele (5), BSI-Schutzbedarf (7), Datenschutz (7), Vorgehensmodelle (8),

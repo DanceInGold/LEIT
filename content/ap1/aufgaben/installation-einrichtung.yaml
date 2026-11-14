@@ -1,0 +1,144 @@
+# Aufgaben zum Thema „Installation: Betriebssystem, Partitionierung, IP-Konfiguration, Remote-Desktop“.
+# Passend zur Lektion installation-einrichtung.
+
+aufgaben:
+  - id: inst-ablauf
+    typ: reihenfolge
+    stufe: 1
+    titel: "Ablauf einer Installation"
+    frage: "Bringe die Schritte einer Serverinstallation in die richtige Reihenfolge."
+    elemente:
+      - "Anforderungen und Lizenz klären"
+      - "Bootmedium vorbereiten und davon starten"
+      - "Partitionieren und formatieren"
+      - "Betriebssystem installieren"
+      - "Treiber und Updates einspielen"
+      - "Netzwerk und IP-Adresse konfigurieren"
+      - "Testen und dokumentieren"
+    hinweise:
+      - "Ohne Partition gibt es kein Ziel für die Installation."
+      - "Dokumentiert wird am Ende, wenn alles läuft."
+    loesungsweg: "Vorbereiten → Bootmedium → Partitionieren → Installieren → Treiber/Updates → Netzwerk → Testen und dokumentieren (Ablauf der Lektion)."
+    quelle: "Neu erstellt (Claude), Ablaufdiagramm der Lektion installation-einrichtung."
+    belege:
+      - {titel: "Red Hat Enterprise Linux 9: Interactively installing RHEL from installation media", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/interactively_installing_rhel_from_installation_media/index"}
+    status: ungeprüft
+
+  - id: inst-ports
+    typ: zuordnung
+    stufe: 1
+    titel: "Fernzugriff und Ports"
+    frage: "Ordne jedem Fernzugriffsverfahren seinen Standardport zu."
+    paare:
+      - {links: "SSH", rechts: "22"}
+      - {links: "RDP (Remotedesktop)", rechts: "3389"}
+      - {links: "VNC", rechts: "5900"}
+    ablenker: ["443", "23"]
+    hinweise:
+      - "443 ist HTTPS, 23 das unverschlüsselte Telnet."
+    loesungsweg: "SSH = **22** · RDP = **3389** · VNC = **5900**."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion installation-einrichtung."
+    belege:
+      - {titel: "IANA Service Name and Transport Protocol Port Number Registry", url: "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"}
+    status: ungeprüft
+
+  - id: inst-statisch-dhcp
+    typ: multiple_choice
+    stufe: 2
+    titel: "Statisch oder DHCP?"
+    frage: "Welche Geräte bekommen üblicherweise eine **feste** Adresse (statisch oder per DHCP-Reservierung)? (**drei** richtige)"
+    optionen:
+      - {text: "Fileserver", richtig: true, warum: "Clients und Dienste müssen ihn immer unter derselben Adresse finden."}
+      - {text: "Netzwerkdrucker", richtig: true, warum: "Die Druckwarteschlangen zeigen auf eine feste Adresse."}
+      - {text: "Switch mit Verwaltungsoberfläche", richtig: true, warum: "Netzwerkgeräte werden über eine bekannte Adresse verwaltet."}
+      - {text: "Notebook einer Mitarbeiterin", warum: "Clients bekommen ihre Adresse per DHCP – das spart Aufwand und verhindert Doppelvergabe.", ursache: konzept}
+      - {text: "Smartphone im Gäste-WLAN", warum: "Gastgeräte wechseln ständig; DHCP ist hier die einzige sinnvolle Lösung.", ursache: konzept}
+    hinweise:
+      - "Wen müssen andere zuverlässig unter einer Adresse finden?"
+    loesungsweg: "**Server, Drucker, Netzwerkgeräte** fest (statisch oder Reservierung), **Clients** per DHCP."
+    quelle: "Neu erstellt (Claude), Tabelle „statisch oder DHCP“ der Lektion installation-einrichtung."
+    belege:
+      - {titel: "RFC 2131: Dynamic Host Configuration Protocol", url: "https://www.rfc-editor.org/rfc/rfc2131"}
+    status: ungeprüft
+
+  - id: inst-gateway-dns
+    typ: zuordnung
+    stufe: 3
+    titel: "Was fehlt in der IP-Konfiguration?"
+    situation: "Ein neu installierter Server der ArchivTech GmbH soll die Adresse 10.0.2.20/24 bekommen. Gateway: 10.0.2.1, DNS-Server: 10.0.2.53. Drei Techniker haben die statische Konfiguration jeweils unvollständig eingetragen und testen mit `ping`."
+    frage: "Ordne jedem Fehlerbild die wahrscheinliche Ursache zu."
+    paare:
+      - {links: "Lokale Adressen erreichbar, andere Netze nicht", rechts: "Gateway fehlt"}
+      - {links: "IP-Adressen im Internet erreichbar, Namen nicht", rechts: "DNS-Server fehlt"}
+      - {links: "Nicht einmal 10.0.2.53 antwortet; die Schnittstelle hat keine IPv4-Adresse", rechts: "IP-Adresse mit Präfix fehlt"}
+    ablenker: ["MAC-Adresse fehlt"]
+    hinweise:
+      - "Ohne Gateway kein anderes Netz, ohne DNS keine Namen."
+      - "Die MAC-Adresse ist fest in der Netzwerkkarte – die trägt man nicht ein."
+    loesungsweg: "Statisch einzutragen sind **IP-Adresse mit Präfix**, **Gateway** und **DNS-Server**. Fehlt das Gateway, bleibt man im eigenen Netz; fehlt DNS, gehen nur IP-Adressen."
+    quelle: "Neu erstellt (Claude), passend zur Lektion installation-einrichtung (Prüfungsfalle „Gateway oder DNS fehlt“)."
+    belege:
+      - {titel: "Red Hat Enterprise Linux 9: Configuring and managing networking", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_networking/index"}
+    status: ungeprüft
+
+  - id: inst-partitionen
+    typ: zuordnung
+    stufe: 2
+    titel: "Partitionen eines Archivservers"
+    frage: "Ordne jeder Partition ihren Zweck zu (GPT, UEFI, RHEL)."
+    paare:
+      - {links: "EFI-Systempartition (FAT32)", rechts: "enthält den Bootloader, Dateisystem von UEFI vorgegeben"}
+      - {links: "/boot", rechts: "enthält den Kernel"}
+      - {links: "/ (Root)", rechts: "Betriebssystem und Programme"}
+      - {links: "swap", rechts: "Auslagerung, wenn der Arbeitsspeicher knapp wird"}
+      - {links: "/data (zweite Platte)", rechts: "Archivdaten, getrennt vom System"}
+    hinweise:
+      - "Die EFI-Systempartition muss FAT sein – das schreibt die UEFI-Spezifikation vor."
+    loesungsweg: "EFI = Bootloader · /boot = Kernel · / = System · swap = Auslagerung · /data = Daten getrennt vom System, damit eine Neuinstallation die Daten nicht berührt."
+    quelle: "Neu erstellt (Claude), Partitionsbeispiel der Lektion installation-einrichtung."
+    belege:
+      - {titel: "UEFI Forum: Unified Extensible Firmware Interface Specification (EFI-Systempartition mit FAT)", url: "https://uefi.org/specifications"}
+    status: ungeprüft
+
+  - id: inst-ki-software
+    typ: multiple_choice
+    stufe: 2
+    titel: "KI-Assistent einführen"
+    situation: "Die Entwicklungsabteilung der ArchivTech möchte einen KI-Codeassistenten in der Entwicklungsumgebung nutzen. Du sollst die Einrichtung vorbereiten."
+    frage: "Was musst du vor der Einrichtung klären? (**drei** richtige)"
+    optionen:
+      - {text: "Welche Daten (z. B. Quellcode, Kundendaten) an den Anbieter übertragen werden", richtig: true, warum: "Datenschutz und Geschäftsgeheimnisse: Was verlässt das Unternehmen?"}
+      - {text: "Lizenz und Kosten für alle Nutzer", richtig: true, warum: "Ohne passende Lizenz ist der Einsatz nicht erlaubt."}
+      - {text: "ob eine Unternehmensrichtlinie zu KI-Werkzeugen den Einsatz erlaubt", richtig: true, warum: "Viele Firmen regeln, welche KI-Dienste mit welchen Daten genutzt werden dürfen."}
+      - {text: "welche Bildschirmauflösung die Entwickler eingestellt haben", warum: "Die Auflösung ist für die Einführung eines KI-Dienstes unerheblich.", ursache: konzept}
+    hinweise:
+      - "Denk an Daten, Recht und Regeln im Unternehmen."
+    loesungsweg: "Vor der Einrichtung von KI-Software: **Datenschutz** (welche Daten gehen raus?), **Lizenz**, **Unternehmensrichtlinie**."
+    quelle: "Neu erstellt (Claude), Abschnitt „KI-Software“ der Lektion installation-einrichtung."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.01: Installation und Einrichtung, u. a. KI-Software (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: inst-fernzugriff-freitext
+    typ: freitext
+    stufe: 4
+    operator: beurteilen
+    titel: "RDP direkt ins Internet?"
+    situation: "Ein Kunde der ArchivTech möchte von zu Hause per Remotedesktop auf seinen Windows-Server im Büro zugreifen. Sein Vorschlag: „Wir leiten am Router einfach Port 3389 auf den Server weiter.“"
+    frage: "Beurteile den Vorschlag und schlage eine bessere Lösung vor."
+    musterloesung: |
+      **Beurteilung:** Nicht empfehlenswert. Ein offener RDP-Port wird aus dem Internet ständig gescannt und mit Passwortangriffen und Exploits angegriffen; ein Einbruch bedeutet direkten Zugriff auf den Server.
+
+      **Bessere Lösung:** Zugriff über ein **VPN** (oder einen abgesicherten Sprungserver/RD-Gateway). RDP ist dann nur im internen Netz bzw. durch den Tunnel erreichbar. Zusätzlich starke Anmeldung mit **Zwei-Faktor-Authentifizierung**, aktuelle Updates und Protokollierung.
+    bewertungspunkte:
+      - {punkt: "Risiko erkannt: offener RDP-Port wird aus dem Internet angegriffen", kernbegriffe: ["angriff", "internet", "risiko", "unsicher"]}
+      - {punkt: "Alternative: VPN oder Sprungserver/Gateway", kernbegriffe: ["vpn"]}
+      - {punkt: "zusätzliche Absicherung, z. B. 2FA, Updates", kernbegriffe: ["faktor", "2fa", "update"]}
+    hinweise:
+      - "Wer kann einen offenen Port im Internet alles erreichen?"
+      - "Wie kommt man verschlüsselt ins interne Netz, ohne den Server direkt freizugeben?"
+    loesungsweg: "Port 3389 direkt freigeben ist ein großes Risiko. Besser: **VPN** oder Sprungserver, dazu **2FA** und Updates."
+    quelle: "Neu erstellt (Claude), passend zur Lektion installation-einrichtung (Prüfungsfalle „RDP ins Internet freigegeben“)."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium, Baustein OPS.1.2.5 Fernwartung"}
+    status: ungeprüft

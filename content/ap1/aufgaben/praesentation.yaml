@@ -1,0 +1,140 @@
+# Aufgaben zum Thema „Präsentation und Medienkompetenz“.
+# Passend zur Lektion praesentation.
+
+aufgaben:
+  - id: praes-aufbau-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Einleitung, Hauptteil, Schluss"
+    frage: "Ordne jeden Inhalt dem passenden Teil der Präsentation zu."
+    paare:
+      - {links: "Thema, Ziel und Ablauf vorstellen", rechts: "Einleitung"}
+      - {links: "Ausgangslage, Lösung und Kostenvergleich zeigen", rechts: "Hauptteil"}
+      - {links: "Ergebnis zusammenfassen und Fragen beantworten", rechts: "Schluss"}
+      - {links: "Aufmerksamkeit wecken, z. B. mit einer überraschenden Zahl", rechts: "Einleitung"}
+    hinweise:
+      - "Der Hauptteil ist der größte Teil – dort steckt der Inhalt."
+    loesungsweg: "**Einleitung:** Thema, Ziel, Ablauf, Aufmerksamkeit · **Hauptteil:** Lage, Lösung, Vergleich · **Schluss:** Zusammenfassung, Empfehlung, Fragen."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion praesentation."
+    belege:
+      - {titel: "Lektion „Präsentation und Medienkompetenz“ (Aufbau Einleitung – Hauptteil – Schluss)"}
+    status: ungeprüft
+
+  - id: praes-zeit-rechnen
+    typ: rechnung
+    stufe: 2
+    titel: "Zeitplan für 20 Minuten"
+    situation: "Du stellst der Geschäftsleitung in **20 Minuten** die neue Archivlösung vor. Du planst **10 %** für die Einleitung und **75 %** für den Hauptteil, den Rest für den Schluss."
+    frage: "Wie viele Minuten hast du für jeden Teil?"
+    schritte:
+      - frage: "Einleitung in Minuten"
+        antwort: "2"
+        einheit: "min"
+        erklaerung: "20 min × 0,10 = 2 min."
+        falsch:
+          - {antwort: "10", warum: "Die 10 sind Prozent, nicht Minuten: 10 % von 20 min = 2 min.", ursache: rechenfehler}
+      - frage: "Hauptteil in Minuten"
+        antwort: "15"
+        einheit: "min"
+        erklaerung: "20 min × 0,75 = 15 min."
+      - frage: "Schluss in Minuten"
+        antwort: "3"
+        einheit: "min"
+        erklaerung: "100 % − 10 % − 75 % = 15 % → 20 min × 0,15 = 3 min."
+        falsch:
+          - {antwort: "5", warum: "Nur den Hauptteil abgezogen (20 − 15). Auch die Einleitung braucht Zeit: 20 − 2 − 15 = 3 min.", ursache: rechenfehler}
+    hinweise:
+      - "Prozent als Dezimalzahl mal Gesamtzeit."
+      - "Der Schluss bekommt, was übrig bleibt: 100 % − 10 % − 75 %."
+      - "20 × 0,10 = ?"
+    loesungsweg: "Einleitung 20 × 0,10 = **2 min** · Hauptteil 20 × 0,75 = **15 min** · Schluss 20 × 0,15 = **3 min**."
+    quelle: "Neu erstellt (Claude), Anteile aus der Tabelle der Lektion praesentation."
+    belege:
+      - {titel: "Lektion „Präsentation und Medienkompetenz“ (Einleitung ca. 10–15 %, Hauptteil ca. 70–80 %)"}
+    status: ungeprüft
+
+  - id: praes-folienregeln
+    typ: multiple_choice
+    stufe: 2
+    titel: "Gute Folien"
+    frage: "Welche Regeln machen Folien besser? (**drei** richtige)"
+    optionen:
+      - {text: "Die Kernaussage steht als Überschrift, z. B. „Abrufzeit sinkt auf 1,6 s“", richtig: true, warum: "Wer nur die Überschriften liest, versteht trotzdem die Geschichte."}
+      - {text: "Schrift mindestens 18–24 pt mit gutem Kontrast", richtig: true, warum: "Auch die letzte Reihe muss lesen können."}
+      - {text: "Ein Diagramm statt einer Zahlentabelle, wenn es um einen Vergleich geht", richtig: true, warum: "Unterschiede sieht man im Diagramm auf einen Blick."}
+      - {text: "Den ganzen Vortragstext auf die Folie schreiben und vorlesen", warum: "Zuhörer können nicht gleichzeitig lesen und zuhören; volle Folien lenken ab.", ursache: konzept}
+      - {text: "Auf jeder Folie ein anderes Design, damit es abwechslungsreich bleibt", warum: "Ein einheitliches Design (Corporate Design) wirkt professionell und lenkt nicht ab.", ursache: konzept}
+    hinweise:
+      - "Eine Folie soll eine Aussage stützen – nicht den Vortrag ersetzen."
+    loesungsweg: "Kernaussage als Überschrift, große Schrift, Diagramm statt Tabelle. Kein Fließtext, einheitliches Design."
+    quelle: "Neu erstellt (Claude), Liste „Folien, die nicht überladen“ der Lektion praesentation."
+    belege:
+      - {titel: "Lektion „Präsentation und Medienkompetenz“ (Folienregeln)"}
+    status: ungeprüft
+
+  - id: praes-medien-zuordnen
+    typ: zuordnung
+    stufe: 2
+    titel: "Welches Medium wofür?"
+    frage: "Ordne jedem Medium seine typische Stärke zu."
+    paare:
+      - {links: "Beamer mit Folien", rechts: "Diagramme und Bilder für viele gut sichtbar"}
+      - {links: "Whiteboard oder Flipchart", rechts: "spontan und gemeinsam etwas entwickeln"}
+      - {links: "Live-Vorführung", rechts: "überzeugt durch ein echtes Ergebnis"}
+      - {links: "Handout", rechts: "zum Mitnehmen und Nachlesen"}
+    hinweise:
+      - "Frag dich: Wann setze ich das Medium ein – vor, während oder nach dem Vortrag?"
+    loesungsweg: "Folien = sichtbar für viele · Whiteboard = spontan · Live-Vorführung = echtes Ergebnis · Handout = Nachlesen (erst am Ende verteilen)."
+    quelle: "Neu erstellt (Claude), Medientabelle der Lektion praesentation."
+    belege:
+      - {titel: "Lektion „Präsentation und Medienkompetenz“ (Medienwahl)"}
+    status: ungeprüft
+
+  - id: praes-bildrechte
+    typ: multiple_choice
+    stufe: 2
+    titel: "Ein Bild aus der Suchmaschine"
+    situation: "Für deine Präsentation findest du über die Bildersuche ein gutes Foto eines Serverraums."
+    frage: "Wie gehst du richtig vor? (**zwei** richtige)"
+    optionen:
+      - {text: "Lizenz prüfen und das Bild nur verwenden, wenn sie es erlaubt – mit Quellenangabe", richtig: true, warum: "Bilder sind urheberrechtlich geschützt; die Lizenz regelt die Nutzung."}
+      - {text: "Selbst ein Diagramm zeichnen oder ein eigenes Foto machen", richtig: true, warum: "Eigene Werke darfst du ohne Lizenzfragen verwenden."}
+      - {text: "Das Bild verwenden – was im Internet steht, darf jeder nutzen", warum: "Öffentlich sichtbar heißt nicht frei nutzbar. Das Urheberrecht gilt auch online.", ursache: konzept}
+      - {text: "Das Bild verwenden, wenn die Präsentation nur intern gezeigt wird", warum: "Auch intern braucht man ein Nutzungsrecht.", ursache: konzept}
+    hinweise:
+      - "Wem gehört das Foto?"
+    loesungsweg: "**Lizenz prüfen** und Quelle angeben – oder **eigenes Bild/Diagramm** verwenden. Sichtbar im Netz heißt nicht frei."
+    quelle: "Neu erstellt (Claude), Abschnitt „Medienkompetenz“ der Lektion praesentation."
+    belege:
+      - {titel: "Urheberrechtsgesetz (UrhG) §§ 2, 15, 31", url: "https://www.gesetze-im-internet.de/urhg/"}
+    status: ungeprüft
+
+  - id: praes-planen-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Präsentation für die Geschäftsleitung"
+    situation: "Du sollst der Geschäftsleitung der ArchivTech GmbH in 15 Minuten vorschlagen, das alte Archiv-NAS durch einen neuen Server zu ersetzen. Die Geschäftsleitung ist nicht technisch versiert und entscheidet über das Budget."
+    frage: "Beschreibe den Aufbau deiner Präsentation und begründe, welche Medien du einsetzt."
+    musterloesung: |
+      **Aufbau**
+
+      | Teil | Inhalt |
+      | --- | --- |
+      | Einleitung (ca. 2 min) | Begrüßung, Ziel: Entscheidung über den neuen Server; Aufhänger: „Ein Abruf dauert heute 8 Sekunden.“ |
+      | Hauptteil (ca. 11 min) | Ausgangslage, Lösung, Kosten und Amortisation, Risiken ohne Austausch – ohne Fachjargon |
+      | Schluss (ca. 2 min) | Zusammenfassung, klare Empfehlung, Fragen |
+
+      **Medien:** Folien mit Kernaussagen als Überschrift und einem Diagramm für den Kostenvergleich (für alle sichtbar); ein Handout mit den Zahlen **am Ende**, damit es nicht ablenkt.
+    bewertungspunkte:
+      - {punkt: "Aufbau Einleitung – Hauptteil – Schluss mit passenden Inhalten", kernbegriffe: ["einleitung", "hauptteil", "schluss"]}
+      - {punkt: "Zielgruppe berücksichtigt: verständlich, Kosten/Nutzen im Mittelpunkt", kernbegriffe: ["kosten", "verständlich", "fachbegriff", "zielgruppe"]}
+      - {punkt: "Medienwahl begründet, z. B. Folien mit Diagramm, Handout am Ende", kernbegriffe: ["folie", "beamer", "handout", "diagramm"]}
+    hinweise:
+      - "Was will die Geschäftsleitung am Ende wissen?"
+      - "Zu jedem Medium eine Begründung."
+    loesungsweg: "Einleitung mit Ziel, Hauptteil mit Lage, Lösung, Kosten; Schluss mit Empfehlung. Folien mit Diagramm, Handout am Ende; Fachbegriffe vermeiden."
+    quelle: "Neu erstellt (Claude), passend zur Lektion praesentation."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 02.05: Präsentation und Medienkompetenz"}
+    status: ungeprüft

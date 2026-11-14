@@ -1,0 +1,176 @@
+# Aufgaben zum Thema „Datenspeicher HDD und SSD“.
+# Passend zur Lektion hdd-ssd.
+
+aufgaben:
+  - id: hdd-ssd-eigenschaften
+    typ: zuordnung
+    stufe: 1
+    titel: "HDD oder SSD?"
+    frage: "Ordne jede Eigenschaft der passenden Speicherart zu."
+    paare:
+      - {links: "magnetisch beschichtete, drehende Scheiben", rechts: "HDD"}
+      - {links: "Schreib-Lese-Kopf muss zur Spur fahren", rechts: "HDD"}
+      - {links: "günstiger pro Terabyte", rechts: "HDD"}
+      - {links: "NAND-Flash-Zellen ohne bewegliche Teile", rechts: "SSD"}
+      - {links: "Zugriffszeit unter 0,1 ms", rechts: "SSD"}
+      - {links: "Haltbarkeit über TBW angegeben", rechts: "SSD"}
+    hinweise:
+      - "Mechanik → langsamer Zugriff, aber billig. Elektronik → schnell, aber teurer je TB."
+    loesungsweg: "**HDD:** Scheiben, Kopf, günstig pro TB. **SSD:** Flash, keine Mechanik, Zugriff unter 0,1 ms, begrenzte Schreibmenge (TBW)."
+    quelle: "Neu erstellt (Claude), Tabellen der Lektion hdd-ssd."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.03: Datenspeicher (SSD/HDD) (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: hdd-begriffe-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Kenngrößen auseinanderhalten"
+    frage: "Setze die passenden Begriffe ein: IOPS, Datenrate, TBW, NVMe, M.2."
+    text: "Wie viele Zugriffe ein Speicher pro Sekunde schafft, gibt die Kennzahl {{1}} an. Wie viele Megabyte er am Stück pro Sekunde liest, ist die {{2}}. Wie viel man auf eine SSD insgesamt schreiben darf, steht als {{3}} im Datenblatt. {{4}} ist ein Formfaktor (Steckplatz), {{5}} ein Protokoll für SSDs über PCIe."
+    luecken:
+      - antworten: ["IOPS"]
+        falsch:
+          - {antwort: "Datenrate", warum: "Die Datenrate misst die Menge pro Sekunde, nicht die Anzahl der Zugriffe.", ursache: begriff}
+      - antworten: ["Datenrate"]
+        falsch:
+          - {antwort: "IOPS", warum: "IOPS zählt Zugriffe; die Menge am Stück ist die Datenrate.", ursache: begriff}
+      - antworten: ["TBW"]
+      - antworten: ["M.2", "M2"]
+        falsch:
+          - {antwort: "NVMe", warum: "NVMe ist das Protokoll. Der Steckplatz heißt M.2 – und dort gibt es auch SATA-SSDs.", ursache: begriff}
+      - antworten: ["NVMe"]
+        falsch:
+          - {antwort: "M.2", warum: "M.2 ist nur die Bauform. Das Protokoll über PCIe heißt NVMe.", ursache: begriff}
+    hinweise:
+      - "Anzahl oder Menge? Bauform oder Protokoll?"
+    loesungsweg: "IOPS = Zugriffe pro Sekunde · Datenrate = MB/s am Stück · TBW = garantierte Schreibmenge · M.2 = Formfaktor · NVMe = Protokoll über PCIe."
+    quelle: "Neu erstellt (Claude), Abschnitt „Nicht verwechseln“ der Lektion hdd-ssd."
+    belege:
+      - {titel: "NVM Express: NVMe Base Specification 2.x (NVMe als Protokoll über PCIe)"}
+    status: ungeprüft
+
+  - id: hdd-latenz-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Wartezeit einer Notebook-HDD"
+    situation: "Ein älteres Notebook im Lager der ArchivTech GmbH hat eine HDD mit **5.400 Umdrehungen pro Minute**."
+    frage: "Berechne die mittlere Rotationswartezeit (die Zeit, bis der gesuchte Sektor unter dem Kopf liegt)."
+    schritte:
+      - frage: "Umdrehungen pro Sekunde"
+        antwort: "90"
+        einheit: "1/s"
+        erklaerung: "5.400 ÷ 60 = 90 Umdrehungen pro Sekunde."
+        falsch:
+          - {antwort: "324000", warum: "Mit 60 multipliziert statt geteilt – eine Minute hat 60 Sekunden.", ursache: rechenfehler}
+      - frage: "Zeit für eine Umdrehung in ms"
+        antwort: "11,11"
+        einheit: "ms"
+        toleranz: 0.005
+        erklaerung: "1 ÷ 90 s = 0,01111 s = 11,11 ms."
+      - frage: "mittlere Rotationswartezeit in ms"
+        antwort: "5,56"
+        einheit: "ms"
+        toleranz: 0.005
+        erklaerung: "Im Mittel eine halbe Umdrehung: 11,11 ms ÷ 2 = 5,56 ms."
+        falsch:
+          - {antwort: "11,11", warum: "Das ist eine ganze Umdrehung. Im Mittel liegt der Sektor eine **halbe** Umdrehung entfernt.", ursache: konzept}
+    hinweise:
+      - "Erst pro Sekunde, dann eine Umdrehung, dann die Hälfte."
+      - "Umdrehungszeit = 1 ÷ (Umdrehungen pro Sekunde)."
+      - "5.400 ÷ 60 = ?"
+    loesungsweg: |
+      1. 5.400 ÷ 60 = **90** Umdrehungen pro Sekunde
+      2. 1 ÷ 90 s = **11,11 ms** pro Umdrehung
+      3. halbe Umdrehung: **5,56 ms** – dazu kommt noch die Zeit, bis der Kopf die Spur erreicht. Eine SSD braucht unter 0,1 ms.
+    quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion hdd-ssd mit anderen Zahlen; nachgerechnet."
+    belege:
+      - {titel: "Lektion „HDD und SSD“ (mittlere Rotationswartezeit = halbe Umdrehungszeit)"}
+    status: ungeprüft
+
+  - id: ssd-tbw-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Hält die SSD im Build-Server?"
+    situation: "Der Jenkins-Build-Server der ArchivTech GmbH schreibt jeden Tag rund **400 GB** auf seine SSD (Build-Artefakte, Container-Images). Die SSD hat laut Datenblatt **1.200 TBW** und **5 Jahre** Garantie. Hersteller rechnen TBW dezimal: 1 TB = 1.000 GB."
+    frage: "Wie lange reicht die garantierte Schreibmenge, und was endet zuerst – TBW oder Garantiezeit?"
+    schritte:
+      - frage: "garantierte Schreibmenge in GB"
+        antwort: "1200000"
+        einheit: "GB"
+        erklaerung: "1.200 TB × 1.000 = 1.200.000 GB."
+        falsch:
+          - {antwort: "1228800", warum: "Mit 1.024 umgerechnet. TBW-Angaben sind dezimal (1 TB = 1.000 GB).", ursache: begriff}
+      - frage: "Tage, bis die TBW erreicht sind"
+        antwort: "3000"
+        einheit: "Tage"
+        erklaerung: "1.200.000 GB ÷ 400 GB/Tag = 3.000 Tage."
+        falsch:
+          - {antwort: "3", warum: "TB durch GB geteilt – erst in dieselbe Einheit umrechnen.", ursache: rechenfehler}
+      - frage: "Jahre, bis die TBW erreicht sind"
+        antwort: "8,22"
+        einheit: "Jahre"
+        erklaerung: "3.000 ÷ 365 = 8,22 Jahre."
+      - frage: "Was endet zuerst? (TBW/Garantie)"
+        antwort: "Garantie"
+        format: text
+        erklaerung: "Nach 5 Jahren endet die Garantie; die TBW wären erst nach gut 8 Jahren erreicht."
+        falsch:
+          - {antwort: "TBW", warum: "8,22 Jahre bis zur TBW-Grenze sind länger als 5 Jahre Garantie.", ursache: rechenfehler}
+    hinweise:
+      - "Alles in GB umrechnen, dann durch die tägliche Schreibmenge teilen."
+      - "1.200 TBW = 1.200.000 GB."
+      - "1.200.000 ÷ 400 = ?"
+    loesungsweg: |
+      1. 1.200 TB = **1.200.000 GB**
+      2. 1.200.000 GB ÷ 400 GB/Tag = **3.000 Tage**
+      3. 3.000 ÷ 365 = **8,22 Jahre**
+      4. Die **Garantie** (5 Jahre) endet zuerst – die SSD ist für diese Last ausreichend.
+    quelle: "Neu erstellt (Claude), nach dem TBW-Beispiel der Lektion hdd-ssd mit anderen Zahlen; nachgerechnet."
+    belege:
+      - {titel: "Lektion „HDD und SSD“ (TBW = Terabytes Written, garantierte Schreibmenge)"}
+    status: ungeprüft
+
+  - id: ssd-sicher-loeschen
+    typ: multiple_choice
+    stufe: 2
+    titel: "SSD sicher löschen"
+    situation: "Alte Notebook-SSDs mit Kundendaten sollen ausgemustert werden."
+    frage: "Welche Verfahren entfernen die Daten zuverlässig? (**drei** richtige)"
+    optionen:
+      - {text: "Secure Erase über die Löschfunktion des Herstellers", richtig: true, warum: "Der Controller löscht dabei alle Zellen, auch die unsichtbaren Reserven."}
+      - {text: "durchgehende Verschlüsselung und Vernichtung des Schlüssels", richtig: true, warum: "Ohne Schlüssel sind die Daten nur noch unlesbarer Zufall."}
+      - {text: "physische Zerstörung des Datenträgers", richtig: true, warum: "Zerstörte Speicherchips lassen sich nicht mehr auslesen."}
+      - {text: "alle Dateien einmal mit Nullen überschreiben", warum: "Wear Leveling schreibt die Nullen oft in andere Zellen – die alten Daten bleiben erhalten.", ursache: konzept}
+      - {text: "Schnellformatierung", warum: "Sie legt nur ein neues, leeres Dateisystem an; die Daten bleiben auf den Zellen.", ursache: konzept}
+    hinweise:
+      - "Der SSD-Controller entscheidet, in welche Zellen geschrieben wird."
+    loesungsweg: "Sicher: **Secure Erase**, **Kryptolöschung** (Schlüssel vernichten), **physische Zerstörung**. Überschreiben und Formatieren reichen bei SSDs nicht."
+    quelle: "Neu erstellt (Claude), Vertiefung der Lektion hdd-ssd."
+    belege:
+      - {titel: "BSI, Cyber-Sicherheitsempfehlungen für Verbraucher: Daten endgültig löschen (bei SSDs reicht Überschreiben nicht zuverlässig)"}
+    status: ungeprüft
+
+  - id: hdd-ssd-empfehlung
+    typ: freitext
+    stufe: 4
+    operator: begründen
+    titel: "Speicher für den neuen Archivserver"
+    situation: "Die ArchivTech GmbH plant einen Archivserver: Das Betriebssystem und eine Datenbank mit vielen kleinen Zugriffen laufen darauf, außerdem sollen **300 TB** selten gelesene Archivdaten gespeichert werden. Das Budget ist begrenzt."
+    frage: "Empfiehl für die beiden Bereiche jeweils HDD oder SSD und begründe deine Wahl."
+    musterloesung: |
+      | Bereich | Empfehlung | Begründung |
+      | --- | --- | --- |
+      | Betriebssystem und Datenbank | **SSD** (NVMe) | viele kleine Zugriffe → hohe IOPS und kurze Zugriffszeit nötig; Datenmenge klein, Mehrpreis je TB fällt kaum ins Gewicht |
+      | 300 TB Archivdaten | **HDD** (oder Band) | große Menge, selten gelesen → Preis pro TB entscheidet; Zugriffszeit ist hier unkritisch |
+    bewertungspunkte:
+      - {punkt: "SSD für Betriebssystem/Datenbank, begründet mit IOPS bzw. Zugriffszeit", kernbegriffe: ["ssd"]}
+      - {punkt: "HDD für die Archivdaten, begründet mit dem Preis pro TB bzw. der Kapazität", kernbegriffe: ["hdd"]}
+    hinweise:
+      - "Was ist für die Datenbank wichtig, was für das Archiv?"
+      - "Vergleiche IOPS und Preis pro TB."
+    loesungsweg: "Datenbank und System auf **SSD** (IOPS, Zugriffszeit), Archiv auf **HDD** (günstig pro TB, Geschwindigkeit unkritisch)."
+    quelle: "Neu erstellt (Claude), Tabelle „Wann verwende ich was?“ der Lektion hdd-ssd."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.03: Datenspeicher, Vor- und Nachteile kennen (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft

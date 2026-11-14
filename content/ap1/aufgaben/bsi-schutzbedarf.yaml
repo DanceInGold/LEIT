@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion schutzbedarf-feststellen."
     belege:
       - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.1", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bsi-effekte-zuordnen
     typ: zuordnung
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abgrenzungstabelle der Lektion schutzbedarf-vererbung."
     belege:
       - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 3.3 und 8.2.2", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bsi-szenarien-luecke
     typ: lueckentext
@@ -62,7 +62,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion schutzbedarf-feststellen."
     belege:
       - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.1 (Schadensszenarien)", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bsi-maximum-server
     typ: rechnung
@@ -101,7 +101,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Maximumprinzip der Lektion schutzbedarf-vererbung."
     belege:
       - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.2", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bsi-effekt-erkennen
     typ: zuordnung
@@ -120,7 +120,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Beispiele der Lektion schutzbedarf-vererbung."
     belege:
       - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.2", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bsi-vorgehen-ordnen
     typ: reihenfolge
@@ -139,7 +139,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vererbungskette der Lektion schutzbedarf-vererbung."
     belege:
       - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
-    status: ungeprüft
+    status: geprüft
 
   - id: bsi-ticketsystem-begruenden
     typ: freitext
@@ -174,4 +174,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vorgehen der Lektion schutzbedarf-feststellen."
     belege:
       - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.1", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
-    status: ungeprüft
+    status: geprüft

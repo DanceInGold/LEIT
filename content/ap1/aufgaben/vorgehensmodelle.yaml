@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion scrum."
     belege:
       - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020", url: "https://scrumguides.org/scrum-guide.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vorgehen-artefakte-luecke
     typ: lueckentext
@@ -43,7 +43,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion scrum."
     belege:
       - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020 (Artifacts, Commitments)", url: "https://scrumguides.org/scrum-guide.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vorgehen-events-zuordnen
     typ: zuordnung
@@ -63,7 +63,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abgrenzungstabelle der Lektion scrum."
     belege:
       - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020 (Scrum Events)", url: "https://scrumguides.org/scrum-guide.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vorgehen-wasserfall-ordnen
     typ: reihenfolge
@@ -82,7 +82,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion wasserfall-agil."
     belege:
       - {titel: "Royce, W. W.: Managing the Development of Large Software Systems. Proceedings of IEEE WESCON, 1970"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vorgehen-timeboxen
     typ: rechnung
@@ -114,7 +114,7 @@ aufgaben:
     belege:
       - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020", url: "https://scrumguides.org/scrum-guide.html"}
       - {titel: "Scrum.org: Which Scrum events are time-boxed?", url: "https://www.scrum.org/resources/blog/which-scrum-events-are-time-boxed"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vorgehen-wann-was
     typ: zuordnung
@@ -132,7 +132,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Wann verwende ich was?“ der Lektion wasserfall-agil."
     belege:
       - {titel: "Manifest für Agile Softwareentwicklung (2001)", url: "https://agilemanifesto.org/iso/de/manifesto.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vorgehen-scrum-irrtuemer
     typ: multiple_choice
@@ -150,7 +150,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Prüfungsfallen der Lektion scrum."
     belege:
       - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020", url: "https://scrumguides.org/scrum-guide.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vorgehen-empfehlung
     typ: freitext
@@ -179,4 +179,4 @@ aufgaben:
     belege:
       - {titel: "Manifest für Agile Softwareentwicklung (2001)", url: "https://agilemanifesto.org/iso/de/manifesto.html"}
       - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020", url: "https://scrumguides.org/scrum-guide.html"}
-    status: ungeprüft
+    status: geprüft

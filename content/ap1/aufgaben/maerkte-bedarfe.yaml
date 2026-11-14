@@ -17,7 +17,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion kundenbedarf."
     belege:
       - {titel: "Lektion „Kundenbedarf ermitteln“ (Bedürfnis, Bedarf, Nachfrage)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: markt-begriffe-zuordnen
     typ: zuordnung
@@ -35,7 +35,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion kundenbedarf."
     belege:
       - {titel: "Lektion „Kundenbedarf ermitteln“ (Bedürfnis, Bedarf, Nachfrage)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: markt-preis
     typ: multiple_choice
@@ -53,7 +53,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion kundenbedarf."
     belege:
       - {titel: "Lektion „Kundenbedarf ermitteln“ (Markt)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: markt-anfrage-einordnen
     typ: freitext
@@ -80,4 +80,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion kundenbedarf."
     belege:
       - {titel: "Lektion „Kundenbedarf ermitteln“ (Bedürfnis, Bedarf, Nachfrage, Markt)"}
-    status: ungeprüft
+    status: geprüft

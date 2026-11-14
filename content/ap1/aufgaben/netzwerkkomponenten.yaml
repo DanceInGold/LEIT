@@ -1,0 +1,154 @@
+# Aufgaben zum Thema „Netzwerkkomponenten: Router, Switch, Accesspoint, Gateway“.
+# Passend zur Lektion netzwerkkomponenten.
+
+aufgaben:
+  - id: netz-schichten-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Geräte und OSI-Schichten"
+    frage: "Ordne jedem Gerät die OSI-Schicht zu, auf der es hauptsächlich arbeitet."
+    paare:
+      - {links: "Repeater", rechts: "Schicht 1 – Signale"}
+      - {links: "Switch", rechts: "Schicht 2 – MAC-Adressen"}
+      - {links: "Accesspoint", rechts: "Schicht 2 – Brücke zwischen WLAN und LAN"}
+      - {links: "Router", rechts: "Schicht 3 – IP-Adressen"}
+    hinweise:
+      - "Signale → MAC → IP: von unten nach oben."
+      - "Ein reiner Accesspoint routet nicht."
+    loesungsweg: "Repeater = 1 · Switch = 2 · Accesspoint = 2 · Router = 3."
+    quelle: "Neu erstellt (Claude), Gerätetabelle der Lektion netzwerkkomponenten."
+    belege:
+      - {titel: "ISO/IEC 7498-1: OSI-Basisreferenzmodell"}
+    status: ungeprüft
+
+  - id: netz-begriffe-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Switch, Router, Standardgateway"
+    frage: "Ergänze die Lücken."
+    text: "Ein Switch stellt Rahmen im eigenen Netz anhand der {{1}}-Adresse zu. Ein Router verbindet Netze und entscheidet anhand der {{2}}-Adresse und seiner Routing-Tabelle. Alles, was nicht im eigenen Netz liegt, schickt ein Rechner an sein {{3}}."
+    luecken:
+      - antworten: ["MAC"]
+        falsch:
+          - {antwort: "IP", warum: "Ein normaler Switch arbeitet auf Schicht 2 und kennt nur MAC-Adressen.", ursache: begriff}
+      - antworten: ["IP"]
+        falsch:
+          - {antwort: "MAC", warum: "MAC-Adressen gelten nur im lokalen Netz. Zwischen Netzen entscheidet die IP-Adresse.", ursache: begriff}
+      - antworten: ["Standardgateway", "Default Gateway", "Gateway"]
+    hinweise:
+      - "Im eigenen Netz reicht der „Personalausweis“, zwischen Netzen braucht es die „Postanschrift“."
+    loesungsweg: "Switch = **MAC** · Router = **IP** · Ziele außerhalb des Netzes → **Standardgateway** (der Router)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion netzwerkkomponenten."
+    belege:
+      - {titel: "IEEE 802.1D (Bridging/Switching anhand von MAC-Adressen)", url: "https://www.ieee802.org/1/"}
+    status: ungeprüft
+
+  - id: netz-vlan-managed
+    typ: multiple_choice
+    stufe: 2
+    titel: "Gäste-WLAN abtrennen"
+    situation: "Im Besprechungsbereich der ArchivTech GmbH soll ein Gäste-WLAN entstehen. Gäste dürfen ins Internet, aber nicht ins Firmennetz. Accesspoints und Server hängen an denselben Switches."
+    frage: "Was braucht man dafür vor allem?"
+    optionen:
+      - {text: "Managed Switches mit VLANs und eine Firewall, die zwischen den VLANs filtert", richtig: true, warum: "VLANs trennen Gäste und Firma logisch auf denselben Switches; die Firewall regelt, was zwischen ihnen erlaubt ist."}
+      - {text: "Unmanaged Switches, weil sie einfacher sind", warum: "Unmanaged Switches können keine VLANs – alle Geräte wären im selben Netz.", ursache: konzept}
+      - {text: "Einen Hub, damit alle Geräte denselben Verkehr sehen", warum: "Genau das Gegenteil von Trennung – und Hubs sind veraltet.", ursache: konzept}
+      - {text: "Einen Repeater, damit das WLAN weiter reicht", warum: "Reichweite war nicht das Problem; gefragt ist die Trennung der Netze.", ursache: konzept}
+    hinweise:
+      - "Wie trennt man Netze auf denselben Switches logisch voneinander?"
+    loesungsweg: "**Managed Switches** mit **VLANs** trennen Gäste und Firmennetz; geroutet und gefiltert wird an Firewall oder Layer-3-Switch."
+    quelle: "Neu erstellt (Claude), Praxisbezug der Lektion netzwerkkomponenten."
+    belege:
+      - {titel: "IEEE 802.1Q (Virtual LANs)", url: "https://www.ieee802.org/1/"}
+    status: ungeprüft
+
+  - id: netz-poe-budget
+    typ: rechnung
+    stufe: 3
+    titel: "Reicht das PoE-Budget?"
+    situation: "Ein neuer Switch soll **8 Accesspoints** mit PoE+ (802.3at), **12 IP-Telefone** und **4 IP-Kameras** mit PoE (802.3af) versorgen. Laut Datenblatt hat der Switch ein PoE-Gesamtbudget von **370 W**. Geplant wird mit der Höchstleistung je Port: 802.3af 15,4 W, 802.3at 30 W."
+    frage: "Prüfe, ob das PoE-Budget reicht."
+    schritte:
+      - frage: "Leistung für die Accesspoints in Watt"
+        antwort: "240"
+        einheit: "W"
+        erklaerung: "8 × 30 W = 240 W."
+        falsch:
+          - {antwort: "123,2", warum: "Mit 15,4 W gerechnet. PoE+ (802.3at) liefert bis 30 W je Port.", ursache: begriff}
+      - frage: "Leistung für Telefone und Kameras in Watt"
+        antwort: "246,4"
+        einheit: "W"
+        erklaerung: "(12 + 4) × 15,4 W = 16 × 15,4 W = 246,4 W."
+        falsch:
+          - {antwort: "184,8", warum: "Die 4 Kameras fehlen: Nur die 12 Telefone gerechnet.", ursache: rechenfehler}
+      - frage: "Gesamtbedarf in Watt"
+        antwort: "486,4"
+        einheit: "W"
+        erklaerung: "240 W + 246,4 W = 486,4 W."
+      - frage: "Reicht das Budget? (ja/nein)"
+        antwort: "nein"
+        format: text
+        erklaerung: "486,4 W > 370 W – es fehlen 116,4 W. Lösung: Switch mit größerem Budget oder Last auf zwei Switches verteilen."
+        falsch:
+          - {antwort: "ja", warum: "Vergleiche den Gesamtbedarf (486,4 W) mit dem Budget (370 W).", ursache: rechenfehler}
+    hinweise:
+      - "Je Gerätegruppe: Anzahl × Leistung je Port."
+      - "PoE (af) = 15,4 W, PoE+ (at) = 30 W."
+      - "Accesspoints: 8 × 30 W = ?"
+    loesungsweg: |
+      | Geräte | Rechnung | Leistung |
+      | --- | --- | ---: |
+      | 8 Accesspoints (at) | 8 × 30 W | 240 W |
+      | 12 Telefone + 4 Kameras (af) | 16 × 15,4 W | 246,4 W |
+      | **Summe** | | **486,4 W** |
+
+      486,4 W > 370 W → **reicht nicht**, es fehlen 116,4 W.
+    quelle: "Neu erstellt (Claude), PoE-Tabelle der Lektion netzwerkkomponenten; nachgerechnet."
+    belege:
+      - {titel: "IEEE 802.3 Ethernet Working Group (802.3af/at/bt Power over Ethernet)", url: "https://www.ieee802.org/3/"}
+    status: ungeprüft
+
+  - id: netz-hub-ersetzen
+    typ: multiple_choice
+    stufe: 2
+    titel: "Der alte Hub im Lager"
+    situation: "Im Lager der ArchivTech GmbH hängen sechs PCs noch an einem alten Hub. Die Verbindung ist langsam."
+    frage: "Warum hilft ein Switch? (**zwei** richtige)"
+    optionen:
+      - {text: "Ein Switch lernt, welche MAC-Adresse an welchem Port hängt, und schickt Rahmen nur dorthin.", richtig: true, warum: "Dadurch entsteht kein unnötiger Verkehr an den anderen Ports."}
+      - {text: "Beim Hub teilen sich alle Geräte die Bandbreite, weil er alles an alle Ports sendet.", richtig: true, warum: "Ein Hub arbeitet auf Schicht 1 und verteilt jedes Signal überallhin."}
+      - {text: "Ein Switch routet zwischen verschiedenen IP-Netzen.", warum: "Routing macht ein Router oder Layer-3-Switch – ein normaler Switch arbeitet auf Schicht 2.", ursache: begriff}
+      - {text: "Ein Switch verstärkt die Signale für längere Kabel.", warum: "Das ist die Aufgabe eines Repeaters.", ursache: begriff}
+    hinweise:
+      - "Was macht ein Hub mit einem eingehenden Signal?"
+    loesungsweg: "Hub = Schicht 1, sendet an alle, geteilte Bandbreite. **Switch** = Schicht 2, stellt gezielt per MAC zu."
+    quelle: "Neu erstellt (Claude), Gerätetabelle und Prüfungsfalle „Hub empfohlen“ der Lektion netzwerkkomponenten."
+    belege:
+      - {titel: "IEEE 802.1D (Bridging/Switching anhand von MAC-Adressen)", url: "https://www.ieee802.org/1/"}
+    status: ungeprüft
+
+  - id: netz-filiale-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Netz für die neue Außenstelle"
+    situation: "Die ArchivTech GmbH eröffnet eine kleine Außenstelle mit **10 PCs**, **WLAN** für Notebooks und **6 IP-Telefonen**. Die Außenstelle bekommt einen eigenen Internetanschluss."
+    frage: "Beschreibe, welche Netzwerkkomponenten benötigt werden und welche Aufgabe jede übernimmt."
+    musterloesung: |
+      | Komponente | Aufgabe |
+      | --- | --- |
+      | **Router/Firewall** | verbindet das lokale Netz mit dem Internet (Standardgateway), filtert den Verkehr, oft auch VPN zur Zentrale |
+      | **Switch** (managed, mit PoE) | verbindet PCs, Telefone und Accesspoints im LAN; PoE versorgt Telefone und Accesspoints; VLANs trennen z. B. Telefonie und Daten |
+      | **Accesspoint** | bringt die Notebooks per WLAN ins kabelgebundene Netz |
+    bewertungspunkte:
+      - {punkt: "Router/Firewall als Verbindung zum Internet bzw. Standardgateway", kernbegriffe: ["router", "firewall"]}
+      - {punkt: "Switch verbindet die Geräte im LAN (ggf. mit PoE oder VLANs)", kernbegriffe: ["switch"]}
+      - {punkt: "Accesspoint für das WLAN", kernbegriffe: ["accesspoint", "access point"]}
+    hinweise:
+      - "Was verbindet mit dem Internet, was im Haus, was per Funk?"
+      - "Wie bekommen Telefone und Accesspoints Strom?"
+    loesungsweg: "Router/Firewall zum Internet, Switch (PoE, VLANs) für das LAN, Accesspoint für das WLAN."
+    quelle: "Neu erstellt (Claude), Übersichtsdiagramm der Lektion netzwerkkomponenten."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01: Netzwerkkomponenten wie WLAN-Router, Switch, Gateway, Accesspoint (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
