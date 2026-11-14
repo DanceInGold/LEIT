@@ -1,0 +1,124 @@
+# Aufgaben zum Thema „Technisch-organisatorische Maßnahmen; IT-Sicherheits- vs. Datenschutzbeauftragter“.
+# Passend zur Lektion tom-massnahmen.
+
+aufgaben:
+  - id: tom-zutritt-zugang-zugriff
+    typ: zuordnung
+    stufe: 1
+    titel: "Zutritt, Zugang, Zugriff"
+    frage: "Ordne jede Maßnahme der passenden Kontrolle zu."
+    paare:
+      - {links: "Chipkartenleser an der Tür des Serverraums", rechts: "Zutrittskontrolle"}
+      - {links: "Anmeldung am PC mit Passwort und 2FA", rechts: "Zugangskontrolle"}
+      - {links: "Nur die Gruppe „Lohn“ darf den Lohnordner öffnen", rechts: "Zugriffskontrolle"}
+      - {links: "Besucher werden am Empfang registriert und begleitet", rechts: "Zutrittskontrolle"}
+    hinweise:
+      - "Zu-tritt mit den Füßen, Zu-gang zum Gerät, Zu-griff auf die Daten."
+    loesungsweg: "Raum = **Zutritt** · System = **Zugang** · Daten = **Zugriff**."
+    quelle: "Neu erstellt (Claude), Diagramm „Zutritt, Zugang, Zugriff“ der Lektion tom-massnahmen."
+    belege:
+      - {titel: "BDSG a. F. (bis 24.05.2018), Anlage zu § 9 Satz 1"}
+    status: ungeprüft
+
+  - id: tom-art
+    typ: zuordnung
+    stufe: 2
+    titel: "Technisch, organisatorisch oder personell?"
+    frage: "Ordne jede Maßnahme ihrer Art zu."
+    paare:
+      - {links: "Festplattenverschlüsselung auf allen Notebooks", rechts: "technisch"}
+      - {links: "tägliche Datensicherung auf Band", rechts: "technisch"}
+      - {links: "Vier-Augen-Prinzip beim Löschen von Archivbeständen", rechts: "organisatorisch"}
+      - {links: "schriftlicher Notfallplan", rechts: "organisatorisch"}
+      - {links: "jährliche Phishing-Schulung", rechts: "personell"}
+    hinweise:
+      - "Technik wirkt durch Geräte und Software, Regeln durch Abläufe, Schulungen durch Bewusstsein."
+    loesungsweg: "Verschlüsselung, Backup = **technisch** · Vier-Augen-Prinzip, Notfallplan = **organisatorisch** · Schulung = **personell**."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion tom-massnahmen."
+    belege:
+      - {titel: "DSGVO Art. 32 Sicherheit der Verarbeitung", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+    status: ungeprüft
+
+  - id: tom-kontrollen
+    typ: zuordnung
+    stufe: 2
+    titel: "Die weiteren Kontrollen"
+    frage: "Ordne jede Maßnahme der Kontrolle zu, die sie erfüllt."
+    paare:
+      - {links: "Archivdaten werden nur per TLS übertragen", rechts: "Weitergabekontrolle"}
+      - {links: "Jede Änderung an Kundendaten wird mit Benutzer und Zeit protokolliert", rechts: "Eingabekontrolle"}
+      - {links: "Mit dem Rechenzentrumsbetreiber besteht ein AV-Vertrag", rechts: "Auftragskontrolle"}
+      - {links: "USV und Brandmeldeanlage im Serverraum", rechts: "Verfügbarkeitskontrolle"}
+      - {links: "Daten verschiedener Mandanten liegen in getrennten Datenbanken", rechts: "Trennungsgebot"}
+    hinweise:
+      - "Transport → Weitergabe, wer hat was geändert → Eingabe."
+    loesungsweg: "TLS = Weitergabe · Protokoll = Eingabe · AV-Vertrag = Auftrag · USV/Brandschutz = Verfügbarkeit · Mandantentrennung = Trennung."
+    quelle: "Neu erstellt (Claude), Tabelle „Die acht Kontrollen“ der Lektion tom-massnahmen."
+    belege:
+      - {titel: "BDSG a. F. (bis 24.05.2018), Anlage zu § 9 Satz 1"}
+    status: ungeprüft
+
+  - id: tom-isb-dsb
+    typ: zuordnung
+    stufe: 2
+    titel: "ISB oder DSB?"
+    frage: "Ordne jede Aussage dem passenden Beauftragten zu."
+    paare:
+      - {links: "schützt Personen und ihre Daten", rechts: "Datenschutzbeauftragter"}
+      - {links: "Anlaufstelle für Betroffene und die Aufsichtsbehörde", rechts: "Datenschutzbeauftragter"}
+      - {links: "schützt alle Informationen des Unternehmens", rechts: "IT-Sicherheitsbeauftragter"}
+      - {links: "steuert Sicherheitskonzept und Vorfallbehandlung im ISMS", rechts: "IT-Sicherheitsbeauftragter"}
+    hinweise:
+      - "Datenschutz = Personen. Informationssicherheit = Informationen."
+    loesungsweg: "**DSB:** Personen, DSGVO Art. 37–39, Anlaufstelle. **ISB:** alle Informationen, Sicherheitskonzept, ISMS."
+    quelle: "Neu erstellt (Claude), Tabelle „Wer ist zuständig?“ der Lektion tom-massnahmen."
+    belege:
+      - {titel: "DSGVO Art. 37–39 Datenschutzbeauftragter", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+    status: ungeprüft
+
+  - id: tom-eine-person
+    typ: multiple_choice
+    stufe: 3
+    titel: "Beide Rollen in einer Hand?"
+    situation: "Die Geschäftsleitung der ArchivTech möchte Geld sparen: Der IT-Leiter soll zusätzlich IT-Sicherheitsbeauftragter **und** Datenschutzbeauftragter werden."
+    frage: "Was spricht dagegen? (**zwei** richtige)"
+    optionen:
+      - {text: "Der ISB will eher mehr protokollieren, der DSB eher weniger über Mitarbeitende speichern – eine Person kontrolliert sich dann selbst.", richtig: true, warum: "Getrennte Rollen sorgen für eine echte Abwägung."}
+      - {text: "Als IT-Leiter entscheidet er selbst über die Verarbeitung, die er als DSB überwachen soll – ein Interessenkonflikt.", richtig: true, warum: "Ein DSB darf keine Aufgaben haben, die zu einem Interessenkonflikt führen (Art. 38 Abs. 6 DSGVO)."}
+      - {text: "Ein Datenschutzbeauftragter darf keine IT-Kenntnisse haben.", warum: "Im Gegenteil: Fachwissen ist ausdrücklich gefordert (Art. 37 Abs. 5 DSGVO).", ursache: konzept}
+      - {text: "Ein IT-Sicherheitsbeauftragter ist in jedem Unternehmen gesetzlich vorgeschrieben.", warum: "Gesetzlich meist nicht – Ausnahmen gibt es z. B. bei Kritischen Infrastrukturen. Und es beantwortet die Frage nicht.", ursache: konzept}
+    hinweise:
+      - "Was passiert, wenn der Kontrollierte und der Kontrolleur dieselbe Person sind?"
+    loesungsweg: "Gegenläufige Interessen (mehr vs. weniger Überwachung) und **Interessenkonflikt** des IT-Leiters als DSB (Art. 38 Abs. 6 DSGVO). Beide Rollen sollten getrennt sein."
+    quelle: "Neu erstellt (Claude), Vertiefung „Warum sollten ISB und DSB nicht dieselbe Person sein?“ der Lektion tom-massnahmen."
+    belege:
+      - {titel: "DSGVO Art. 37 Abs. 5 und Art. 38 Abs. 6", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+    status: ungeprüft
+
+  - id: tom-archiv-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "TOM für ein Kundenarchiv"
+    situation: "Ein Krankenhaus will seine Patientenakten bei der ArchivTech digital archivieren lassen. Vor Vertragsabschluss verlangt es eine Beschreibung der technisch-organisatorischen Maßnahmen."
+    frage: "Beschreibe je eine technische, eine organisatorische und eine personelle Maßnahme und ordne jeweils die Kontrolle zu, die sie erfüllt."
+    musterloesung: |
+      | Art | Maßnahme | Kontrolle |
+      | --- | --- | --- |
+      | technisch | Archivserver im Serverraum mit Chipkartenzutritt und Videoüberwachung | Zutrittskontrolle |
+      | technisch | Verschlüsselung der Daten bei Übertragung (TLS) und auf den Datenträgern | Weitergabekontrolle |
+      | organisatorisch | Berechtigungskonzept: nur zuständige Archivare greifen auf die Akten zu, jährliche Überprüfung | Zugriffskontrolle |
+      | personell | Schulung und schriftliche Verpflichtung aller Mitarbeitenden auf Vertraulichkeit | (Sicherheitsbewusstsein) |
+
+      Grundlage ist Art. 32 DSGVO; die Beschreibung wird Teil des AV-Vertrags.
+    bewertungspunkte:
+      - {punkt: "technische Maßnahme mit passender Kontrolle", kernbegriffe: ["verschlüssel", "chipkarte", "backup", "firewall"]}
+      - {punkt: "organisatorische Maßnahme mit passender Kontrolle", kernbegriffe: ["berechtigung", "vier-augen", "notfallplan", "richtlinie"]}
+      - {punkt: "personelle Maßnahme", kernbegriffe: ["schulung", "verpflicht"]}
+    hinweise:
+      - "Zu jeder Maßnahme: Welche Kontrolle (Zutritt, Zugang, Zugriff, Weitergabe …) erfüllt sie?"
+    loesungsweg: "Technisch (Zutrittssicherung, Verschlüsselung), organisatorisch (Berechtigungskonzept), personell (Schulung, Verpflichtung) – jeweils mit Kontrolle; Grundlage Art. 32 DSGVO."
+    quelle: "Neu erstellt (Claude), passend zur Lektion tom-massnahmen."
+    belege:
+      - {titel: "DSGVO Art. 32 Sicherheit der Verarbeitung, Art. 28 Auftragsverarbeiter", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+    status: ungeprüft

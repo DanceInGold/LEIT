@@ -1,0 +1,139 @@
+# Aufgaben zum Thema „Vertragsbestandteile, Vertragsstörungen“.
+# Passend zur Lektion vertraege.
+
+aufgaben:
+  - id: vertrag-arten
+    typ: zuordnung
+    stufe: 1
+    titel: "Welche Vertragsart?"
+    frage: "Ordne jedem Auftrag der ArchivTech die passende Vertragsart zu."
+    paare:
+      - {links: "Ein Kunde kauft 10 Notebooks.", rechts: "Kaufvertrag"}
+      - {links: "Festpreis für „Archivserver betriebsbereit einrichten“", rechts: "Werkvertrag"}
+      - {links: "40 Stunden Admin-Unterstützung nach Aufwand", rechts: "Dienstvertrag"}
+      - {links: "Ein Server wird für eine Messe überlassen.", rechts: "Mietvertrag"}
+    hinweise:
+      - "Erfolg geschuldet → Werkvertrag. Nur Tätigkeit → Dienstvertrag."
+    loesungsweg: "Sache = **Kauf** · Erfolg = **Werk** · Tätigkeit = **Dienst** · Gebrauch auf Zeit = **Miete**."
+    quelle: "Neu erstellt (Claude), Tabelle „Vier Vertragsarten“ der Lektion vertraege."
+    belege:
+      - {titel: "BGB §§ 433, 535, 611, 631", url: "https://www.gesetze-im-internet.de/bgb/"}
+    status: ungeprüft
+
+  - id: vertrag-stoerungen
+    typ: zuordnung
+    stufe: 2
+    titel: "Vertragsstörungen erkennen"
+    frage: "Ordne jedem Fall die passende Vertragsstörung zu."
+    paare:
+      - {links: "Der Lieferant liefert den Server zwei Wochen nach dem vereinbarten Termin.", rechts: "Lieferverzug"}
+      - {links: "Statt des bestellten Modells SA-4000 kommt ein SA-2000.", rechts: "mangelhafte Lieferung"}
+      - {links: "Der Kunde verweigert die pünktlich gelieferte, mangelfreie Ware.", rechts: "Annahmeverzug"}
+      - {links: "Der Kunde bezahlt die Rechnung nach Fristablauf nicht.", rechts: "Zahlungsverzug"}
+    hinweise:
+      - "Wer hat gestört – Verkäufer oder Käufer?"
+      - "Eine Falschlieferung steht einem Mangel gleich."
+    loesungsweg: "Zu spät geliefert = **Lieferverzug** · falsches Modell = **mangelhafte Lieferung** (§ 434 Abs. 5) · Käufer nimmt nicht an = **Annahmeverzug** · nicht gezahlt = **Zahlungsverzug**."
+    quelle: "Neu erstellt (Claude), Tabelle „Vertragsstörungen“ der Lektion vertraege."
+    belege:
+      - {titel: "BGB §§ 286, 293, 434 Abs. 5", url: "https://www.gesetze-im-internet.de/bgb/"}
+    status: ungeprüft
+
+  - id: vertrag-maengelrechte
+    typ: multiple_choice
+    stufe: 3
+    titel: "Defektes Netzteil"
+    situation: "Die ArchivTech hat bei einem Händler einen Server gekauft. Bei der Eingangsprüfung am Liefertag stellt sie fest: Ein Netzteil ist defekt. Der Einkäufer will sofort vom Vertrag zurücktreten."
+    frage: "Was kann die ArchivTech zuerst verlangen?"
+    optionen:
+      - {text: "Nacherfüllung: Reparatur oder Lieferung eines mangelfreien Geräts", richtig: true, warum: "Der Verkäufer bekommt zuerst die Chance zur Nacherfüllung (§ 439)."}
+      - {text: "Sofortigen Rücktritt vom Vertrag", warum: "Rücktritt oder Minderung kommen erst, wenn die Nacherfüllung scheitert oder eine Frist verstreicht.", ursache: konzept}
+      - {text: "Schadensersatz, unabhängig von einem Verschulden", warum: "Schadensersatz setzt in der Regel Verschulden voraus und ist nicht der erste Schritt.", ursache: konzept}
+      - {text: "Nichts – der Mangel hätte vor dem Kauf auffallen müssen", warum: "Der Verkäufer haftet für Mängel bei Übergabe; die Prüfung am Liefertag war rechtzeitig.", ursache: konzept}
+    hinweise:
+      - "Welche Rechte haben Vorrang?"
+    loesungsweg: "Erst **Nacherfüllung** (Käufer wählt Reparatur oder neue Sache), scheitert sie: Rücktritt oder Minderung; bei Verschulden zusätzlich Schadensersatz."
+    quelle: "Neu erstellt (Claude), Diagramm „Mangelhafte Lieferung“ der Lektion vertraege."
+    belege:
+      - {titel: "BGB §§ 437, 439", url: "https://www.gesetze-im-internet.de/bgb/"}
+    status: ungeprüft
+
+  - id: vertrag-strafe-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Konventionalstrafe berechnen"
+    situation: "Im Vertrag über die Einrichtung eines Archivsystems (Auftragswert **24.000 €** netto) steht: „Bei Verzug zahlt der Auftragnehmer **250 € je Kalendertag**, höchstens **5 %** des Auftragswerts.“"
+    frage: "Berechne die Vertragsstrafe."
+    schritte:
+      - frage: "Obergrenze der Vertragsstrafe in €"
+        antwort: "1200"
+        einheit: "€"
+        erklaerung: "5 % von 24.000 € = 0,05 × 24.000 € = 1.200 €."
+        falsch:
+          - {antwort: "12000", warum: "Mit 50 % gerechnet. 5 % = 0,05.", ursache: rechenfehler}
+      - frage: "Vertragsstrafe bei 3 Tagen Verzug in €"
+        antwort: "750"
+        einheit: "€"
+        erklaerung: "3 × 250 € = 750 € – liegt unter der Obergrenze."
+      - frage: "Vertragsstrafe bei 7 Tagen Verzug in €"
+        antwort: "1200"
+        einheit: "€"
+        erklaerung: "7 × 250 € = 1.750 € > 1.200 € → begrenzt auf **1.200 €**."
+        falsch:
+          - {antwort: "1750", warum: "Die Obergrenze von 5 % (1.200 €) wurde nicht beachtet.", ursache: konzept}
+    hinweise:
+      - "Erst die Obergrenze, dann Tage × Tagessatz – der kleinere Wert gilt."
+      - "5 % = 0,05."
+    loesungsweg: |
+      1. Obergrenze: 0,05 × 24.000 € = **1.200 €**
+      2. 3 Tage: 3 × 250 € = **750 €**
+      3. 7 Tage: 7 × 250 € = 1.750 € → gedeckelt auf **1.200 €**
+    quelle: "Neu erstellt (Claude), zur Konventionalstrafe in der Tabelle „Was in einen Vertrag gehört“ der Lektion vertraege; nachgerechnet."
+    belege:
+      - {titel: "BGB § 339 Verwirkung der Vertragsstrafe", url: "https://www.gesetze-im-internet.de/bgb/__339.html"}
+    status: ungeprüft
+
+  - id: vertrag-garantie
+    typ: multiple_choice
+    stufe: 2
+    titel: "Gewährleistung oder Garantie?"
+    frage: "Welche Aussagen treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "Die Gewährleistung ist gesetzlich; bei beweglichen Sachen verjähren die Ansprüche in der Regel nach 2 Jahren ab Ablieferung.", richtig: true, warum: "§ 438 BGB."}
+      - {text: "Eine Garantie ist ein freiwilliges Zusatzversprechen, oft vom Hersteller.", richtig: true, warum: "§ 443 BGB; sie gilt zusätzlich zur Gewährleistung."}
+      - {text: "Eine Herstellergarantie ersetzt die gesetzliche Gewährleistung des Händlers.", warum: "Sie gilt zusätzlich und ersetzt die Gewährleistung nicht.", ursache: begriff}
+      - {text: "Gewährleistung und Garantie sind zwei Wörter für dasselbe.", warum: "Gewährleistung = gesetzlich, Garantie = freiwillig.", ursache: begriff}
+    hinweise:
+      - "Was regelt das Gesetz, was verspricht jemand freiwillig?"
+    loesungsweg: "**Gewährleistung:** gesetzlich, Verkäufer haftet für Mängel bei Übergabe, i. d. R. 2 Jahre. **Garantie:** freiwillig, zusätzlich."
+    quelle: "Neu erstellt (Claude), Vertiefung „Warum ist Gewährleistung etwas anderes als Garantie?“ der Lektion vertraege."
+    belege:
+      - {titel: "BGB §§ 438, 443", url: "https://www.gesetze-im-internet.de/bgb/"}
+    status: ungeprüft
+
+  - id: vertrag-falschlieferung-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Falsche Ware im Wareneingang"
+    situation: "Die ArchivTech bestellt bei einem IT-Großhändler 12 Festplatten mit 20 TB. Geliefert werden 12 Festplatten mit 12 TB. Beide Firmen sind Kaufleute. Der Lagermitarbeiter will die Kartons erst nächsten Monat bei der Installation öffnen."
+    frage: "Beschreibe, wie die ArchivTech jetzt vorgehen sollte und welche Rechte sie hat."
+    musterloesung: |
+      1. **Sofort prüfen**, nicht erst nächsten Monat: Zwischen Kaufleuten muss die Ware unverzüglich untersucht und ein Mangel gerügt werden (§ 377 HGB), sonst gehen die Rechte verloren.
+      2. **Mangel rügen** und dokumentieren (Lieferschein, Fotos, Seriennummern). Die Falschlieferung steht einem Sachmangel gleich (§ 434 Abs. 5 BGB).
+      3. **Nacherfüllung** verlangen: Lieferung der bestellten 20-TB-Platten (§ 439 BGB).
+      4. Scheitert sie oder verstreicht eine gesetzte Frist: **Rücktritt oder Minderung**, bei Verschulden zusätzlich **Schadensersatz**.
+    bewertungspunkte:
+      - {punkt: "unverzüglich prüfen und rügen (§ 377 HGB)", kernbegriffe: ["unverzüglich", "sofort", "377", "rüg"]}
+      - {punkt: "Falschlieferung als Mangel erkannt", kernbegriffe: ["mangel", "falschlieferung"]}
+      - {punkt: "Nacherfüllung zuerst", kernbegriffe: ["nacherfüllung", "nachliefer"]}
+      - {punkt: "danach Rücktritt/Minderung/Schadensersatz", kernbegriffe: ["rücktritt", "minderung", "schadensersatz"]}
+    hinweise:
+      - "Was gilt zwischen Kaufleuten beim Wareneingang?"
+      - "Welche Rechte haben Vorrang?"
+    loesungsweg: "Sofort prüfen und rügen (§ 377 HGB); Falschlieferung = Mangel; zuerst Nacherfüllung, dann Rücktritt oder Minderung, bei Verschulden Schadensersatz."
+    quelle: "Neu erstellt (Claude), passend zur Lektion vertraege."
+    belege:
+      - {titel: "HGB § 377 Untersuchungs- und Rügepflicht", url: "https://www.gesetze-im-internet.de/hgb/__377.html"}
+      - {titel: "BGB §§ 434 Abs. 5, 437, 439", url: "https://www.gesetze-im-internet.de/bgb/"}
+    status: ungeprüft

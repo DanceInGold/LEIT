@@ -383,3 +383,28 @@ Geräte ziehen oft weniger; für die Budgetplanung ist der Höchstwert die siche
 
 Alle Korrekturen betrafen neue, noch nicht gemergte Aufgaben; in bestehenden Lektionen wurden
 keine Fehler gefunden.
+
+## Aufgaben Paket 4 (Anforderungen, Skripte, Domäne, Netz, Sicherheit, Recht, Ergonomie, Suche)
+
+78 feste Aufgaben für 13 Themen (Planpositionen 30–44), im PR mit `status: ungeprüft`. Rechenwerte
+per Skript nachgerechnet, das Bash-Skript und die fehlerhafte Zuweisung in Bash ausgeführt;
+`ap-tools check` prüft Musterlösungen und Fehlerbilder.
+
+| Datei | Aufgaben | Geprüfte Kernaussagen | Beim Prüfen korrigiert |
+| --- | ---: | --- | --- |
+| `lasten-pflichtenheft.yaml` | 6 | Lastenheft = Auftraggeber (was, wofür), Pflichtenheft = Auftragnehmer (wie, womit), Abnahme gegen das freigegebene Pflichtenheft (DIN 69901-5); funktional/nicht-funktional (ISO/IEC 25010) | Kernbegriffe der Freitextaufgabe zunächst „1“, „2“, „3“ – hätten jede Antwort getroffen; ersetzt |
+| `skriptsprachen.yaml` | 6 | Shebang, Zuweisung ohne Leerzeichen, `$( )`, `[ -f ]`, Exit-Code 0 = Erfolg (Bash-Handbuch); Skript mit 2 fehlenden Dateien → exit 2 (in Bash ausgeführt); `0 3 * * 1-5` = werktags 3:00 (crontab(5)) | – |
+| `client-server-domaene.yaml` | 6 | DNS muss auf den Domänencontroller zeigen (SRV-Einträge, Microsoft); Beitritt mit berechtigtem Konto und Neustart; Kerberos-Zeittoleranz standardmäßig 5 Minuten | – |
+| `netzwerk-standards.yaml` | 7 | Wi-Fi 4/5/6/7 = 802.11n/ac/ax/be; 10GBASE-T über 80 m braucht Cat 6A (Cat 6 bis ca. 55 m); 3 TB × 8 ÷ 1 Gbit/s = 24.000 s = 6,67 h, bei 10 Gbit/s 40 min; Singlemode für 1,5 km (10GBASE-LR bis 10 km) | – |
+| `authentifizierung.yaml` | 6 | Faktoren Wissen/Besitz/Inhärenz; FIDO2 > TOTP > SMS (NIST SP 800-63B Rev. 4); 94⁸ = 6.095.689.385.410.816 (≈ 7,06 Tage bei 10¹⁰/s), 26¹⁵ ≈ 1,68 · 10²¹ (≈ 5.319 Jahre) | Toleranz für die Zehnerpotenz-Angaben von 1 % auf 2 % erhöht – die im Hinweis vorgeschlagene Rundung 1,7 · 10²¹ wäre sonst als falsch gewertet worden |
+| `haertung-firewall.yaml` | 6 | Härtung = Angriffsfläche verkleinern (BSI SYS.1.1, SYS.1.3); Personal Firewall kennt Programme; erste passende Regel gilt; SSH statt Telnet | – |
+| `isms-risiko.yaml` | 6 | PDCA (BSI 200-1); Risiko = Wahrscheinlichkeit × Schaden, Werte 6 / 9 / 4; vermeiden, vermindern, übertragen, akzeptieren (BSI 200-3) | – |
+| `tom.yaml` | 6 | Zutritt/Zugang/Zugriff und weitere Kontrollen (BDSG a. F., Anlage zu § 9); Art. 32 DSGVO; DSB-Interessenkonflikt (Art. 38 Abs. 6), Fachkunde (Art. 37 Abs. 5) | – |
+| `barrierefreiheit.yaml` | 6 | WCAG 2.2: vier Prinzipien, 1.3.1, 1.4.1, 1.4.3, 3.3.2; `<label for>`; BFSG seit 28.06.2025, BITV 2.0 für öffentliche Stellen | – |
+| `kauf-miete-leasing.yaml` | 5 | 6.000 × 0,026 × 48 = 7.488 €; 180 × 48 = 8.640 €; Miete ab dem 34. Monat teurer als Kauf (33 × 180 = 5.940 €, 34 × 180 = 6.120 €) | – |
+| `masken-ergonomie.yaml` | 6 | Sieben Prinzipien der ISO 9241-110:2020 (Erlernbarkeit statt Lernförderlichkeit, neu Benutzerbindung, Individualisierbarkeit entfallen) | – |
+| `vertraege.yaml` | 6 | Kauf/Werk/Dienst/Miete (§§ 433, 631, 611, 535); Falschlieferung = Mangel (§ 434 Abs. 5); Vorrang der Nacherfüllung (§ 439); Vertragsstrafe 5 % von 24.000 € = 1.200 €, 7 × 250 € gedeckelt; § 377 HGB | – |
+| `suchoperatoren.yaml` | 6 | Operatoren laut Google-Hilfe; boolesche Abfragen über fünf Tickets: 2 / 3 / 2 Treffer | Lückentext zunächst mit Code-Formatierung um die Lücken – hätte die Eingabefelder zerschnitten; als normaler Text gesetzt |
+
+Alle Korrekturen betrafen neue, noch nicht gemergte Aufgaben; in bestehenden Lektionen wurden
+keine Fehler gefunden.

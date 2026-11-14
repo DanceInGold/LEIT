@@ -1,0 +1,152 @@
+# Aufgaben zum Thema „ISMS kennen und unterstützen, Risiko-Matrix“.
+# Passend zur Lektion isms-risikomatrix.
+
+aufgaben:
+  - id: isms-pdca
+    typ: reihenfolge
+    stufe: 1
+    titel: "Der PDCA-Zyklus"
+    frage: "Bringe die Phasen des PDCA-Zyklus in die richtige Reihenfolge."
+    elemente:
+      - "Plan: Ziele, Risiken und Maßnahmen planen"
+      - "Do: Maßnahmen umsetzen"
+      - "Check: prüfen, ob sie wirken"
+      - "Act: verbessern"
+    hinweise:
+      - "Plan – Do – Check – Act, danach beginnt der Zyklus von vorn."
+    loesungsweg: "**Plan → Do → Check → Act** – und wieder von vorn. Sicherheit ist ein Dauerprozess."
+    quelle: "Neu erstellt (Claude), Diagramm der Lektion isms-risikomatrix."
+    belege:
+      - {titel: "BSI-Standard 200-1: Managementsysteme für Informationssicherheit (ISMS), PDCA-Zyklus"}
+    status: ungeprüft
+
+  - id: isms-begriffe
+    typ: zuordnung
+    stufe: 1
+    titel: "Bedrohung, Schwachstelle, Risiko"
+    frage: "Ordne jedem Begriff das passende Beispiel zu."
+    paare:
+      - {links: "Bedrohung", rechts: "Phishing-Mails mit Schadsoftware"}
+      - {links: "Schwachstelle", rechts: "Mitarbeitende sind nicht geschult"}
+      - {links: "Risiko", rechts: "häufig × existenzbedrohend = sehr hoch"}
+      - {links: "Restrisiko", rechts: "was nach Schulung und Mailfilter noch bleibt"}
+    hinweise:
+      - "Ein Risiko entsteht, wenn eine Bedrohung auf eine Schwachstelle trifft."
+    loesungsweg: "Bedrohung = mögliche Ursache · Schwachstelle = Lücke · Risiko = Wahrscheinlichkeit × Schaden · Restrisiko = was nach den Maßnahmen bleibt."
+    quelle: "Neu erstellt (Claude), Tabelle „Nicht verwechseln“ der Lektion isms-risikomatrix."
+    belege:
+      - {titel: "BSI-Standard 200-3: Risikoanalyse auf der Basis von IT-Grundschutz"}
+    status: ungeprüft
+
+  - id: isms-matrix-rechnen
+    typ: rechnung
+    stufe: 2
+    titel: "Risiken bewerten"
+    situation: |
+      Die ArchivTech bewertet Risiken mit Stufen 1–4 und der Matrix der Lektion (1–3 gering, 4–6 mittel, 8–9 hoch, 12–16 sehr hoch).
+
+      | Risiko | Eintrittswahrscheinlichkeit | Schadensauswirkung |
+      | --- | ---: | ---: |
+      | A: Ausfall der Klimaanlage im Serverraum | 2 (mittel) | 3 (beträchtlich) |
+      | B: Verlust eines unverschlüsselten Notebooks | 3 (häufig) | 3 (beträchtlich) |
+      | C: Ausfall des Internetanschlusses | 4 (sehr häufig) | 1 (vernachlässigbar) |
+    frage: "Berechne die Risikowerte und stufe sie ein."
+    schritte:
+      - frage: "Risikowert A"
+        antwort: "6"
+        erklaerung: "2 × 3 = 6 → mittel."
+        falsch:
+          - {antwort: "5", warum: "Addiert statt multipliziert. Risiko = Wahrscheinlichkeit × Schaden.", ursache: rechenfehler}
+      - frage: "Risikowert B"
+        antwort: "9"
+        erklaerung: "3 × 3 = 9 → hoch."
+        falsch:
+          - {antwort: "6", warum: "Addiert statt multipliziert.", ursache: rechenfehler}
+      - frage: "Risikowert C"
+        antwort: "4"
+        erklaerung: "4 × 1 = 4 → mittel."
+      - frage: "Welches Risiko wird zuerst behandelt? (A/B/C)"
+        antwort: "B"
+        format: text
+        erklaerung: "B hat mit 9 den höchsten Wert (hoch)."
+        falsch:
+          - {antwort: "C", warum: "C tritt am häufigsten auf, der Schaden ist aber vernachlässigbar: 4 × 1 = 4.", ursache: konzept}
+    hinweise:
+      - "Risikowert = Wahrscheinlichkeit × Schaden."
+      - "Beide Achsen zählen – nicht nur die Häufigkeit."
+    loesungsweg: |
+      | Risiko | Rechnung | Wert | Einstufung |
+      | --- | --- | ---: | --- |
+      | A | 2 × 3 | 6 | mittel |
+      | B | 3 × 3 | **9** | **hoch** |
+      | C | 4 × 1 | 4 | mittel |
+
+      Zuerst **B** behandeln, z. B. mit Festplattenverschlüsselung.
+    quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion isms-risikomatrix mit anderen Risiken."
+    belege:
+      - {titel: "BSI-Standard 200-3: Risikoanalyse auf der Basis von IT-Grundschutz (Risikomatrix)"}
+    status: ungeprüft
+
+  - id: isms-strategien
+    typ: zuordnung
+    stufe: 2
+    titel: "Mit Risiken umgehen"
+    frage: "Ordne jede Maßnahme der passenden Strategie zu."
+    paare:
+      - {links: "Makros in Office-Dokumenten werden komplett verboten.", rechts: "vermeiden"}
+      - {links: "Alle Mitarbeitenden machen jährlich eine Phishing-Schulung.", rechts: "vermindern"}
+      - {links: "Die ArchivTech schließt eine Cyber-Versicherung ab.", rechts: "übertragen"}
+      - {links: "Die Geschäftsleitung trägt das Risiko eines Meteoriteneinschlags bewusst.", rechts: "akzeptieren"}
+    hinweise:
+      - "Wer die Tätigkeit aufgibt, vermeidet. Wer Wahrscheinlichkeit oder Schaden senkt, vermindert."
+    loesungsweg: "Verbot = **vermeiden** · Schulung = **vermindern** · Versicherung = **übertragen** · bewusst tragen = **akzeptieren**."
+    quelle: "Neu erstellt (Claude), Tabelle „Vier Wege“ der Lektion isms-risikomatrix."
+    belege:
+      - {titel: "BSI-Standard 200-3: Risikoanalyse auf der Basis von IT-Grundschutz (Risikobehandlung)"}
+    status: ungeprüft
+
+  - id: isms-unterstuetzen
+    typ: multiple_choice
+    stufe: 3
+    titel: "Das ISMS unterstützen"
+    frage: "Welche Aussagen zum ISMS treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "Die Geschäftsleitung trägt das ISMS und entscheidet über das Restrisiko.", richtig: true, warum: "Sie stellt Mittel bereit und haftet für Versäumnisse."}
+      - {text: "Als Azubi unterstützt du das ISMS, indem du Vorfälle meldest und Richtlinien einhältst.", richtig: true, warum: "Ein ISMS lebt davon, dass alle mitwirken."}
+      - {text: "Ein ISMS ist eine Software, die man einmal installiert.", warum: "Ein ISMS ist ein Managementsystem aus Regeln, Rollen und Prozessen.", ursache: begriff}
+      - {text: "Mit einer Versicherung ist ein Risiko vollständig beseitigt.", warum: "Die Versicherung zahlt, der Schaden passiert trotzdem.", ursache: konzept}
+    hinweise:
+      - "Wer ist verantwortlich, und wer wirkt mit?"
+    loesungsweg: "ISMS = Managementsystem, **getragen von der Leitung**, **alle wirken mit** (melden, einhalten, Hinweise geben). Übertragen beseitigt den Schaden nicht."
+    quelle: "Neu erstellt (Claude), Praxisbezug und Prüfungsfallen der Lektion isms-risikomatrix."
+    belege:
+      - {titel: "BSI-Standard 200-1: Managementsysteme für Informationssicherheit (ISMS)"}
+    status: ungeprüft
+
+  - id: isms-risiko-freitext
+    typ: freitext
+    stufe: 4
+    operator: erläutern
+    titel: "Ein Risiko analysieren und behandeln"
+    situation: "Im Archiv der ArchivTech liegen Kundendaten auf einem NAS, das noch eine bekannte, ungepatchte Sicherheitslücke hat. Der Hersteller liefert kein Update mehr. Angriffe auf solche Geräte werden mehrmals im Jahr gemeldet."
+    frage: "Erläutere Bedrohung und Schwachstelle, bewerte das Risiko mit der Matrix und schlage zwei Behandlungsmaßnahmen mit ihrer Strategie vor."
+    musterloesung: |
+      - **Bedrohung:** Angreifer nutzen bekannte Lücken in NAS-Geräten aus (z. B. Ransomware).
+      - **Schwachstelle:** ungepatchte Lücke, kein Herstellersupport mehr.
+      - **Bewertung:** Wahrscheinlichkeit 3 (häufig) × Schaden 4 (existenzbedrohend, Kundendaten) = **12 → sehr hoch**.
+      - **Behandlung:**
+        - **vermindern:** NAS vom Internet trennen, nur aus einem Admin-Netz erreichbar machen, Backups offline halten.
+        - **vermeiden:** NAS ersetzen und Daten auf ein unterstütztes System umziehen.
+      - Das **Restrisiko** muss die Geschäftsleitung bewusst akzeptieren.
+    bewertungspunkte:
+      - {punkt: "Bedrohung und Schwachstelle richtig benannt", kernbegriffe: ["bedrohung", "schwachstelle"]}
+      - {punkt: "Bewertung Wahrscheinlichkeit × Schaden mit Einstufung", kernbegriffe: ["×", "12", "hoch"]}
+      - {punkt: "zwei Maßnahmen mit Strategie (vermeiden, vermindern, übertragen, akzeptieren)", kernbegriffe: ["vermeid", "vermind", "übertrag"]}
+    hinweise:
+      - "Erst trennen: Was ist die Gefahr von außen, was die Lücke innen?"
+      - "Häufig = 3; Kundendaten weg = existenzbedrohend."
+    loesungsweg: "Bedrohung: Angriffe auf NAS; Schwachstelle: ungepatchte Lücke. 3 × 4 = 12 sehr hoch. Vermindern (abschotten, Backup offline) und vermeiden (ersetzen); Restrisiko akzeptiert die Leitung."
+    quelle: "Neu erstellt (Claude), passend zur Lektion isms-risikomatrix."
+    belege:
+      - {titel: "BSI-Standard 200-3: Risikoanalyse auf der Basis von IT-Grundschutz"}
+    status: ungeprüft

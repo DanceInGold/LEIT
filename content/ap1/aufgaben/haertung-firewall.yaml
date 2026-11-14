@@ -1,0 +1,131 @@
+# Aufgaben zum Thema „Härtung von Betriebssystemen, Personal Firewall“.
+# Passend zur Lektion haertung-firewall.
+
+aufgaben:
+  - id: haert-massnahmen
+    typ: multiple_choice
+    stufe: 1
+    titel: "Was gehört zur Härtung?"
+    frage: "Welche Maßnahmen härten einen neuen Linux-Server? (**drei** richtige)"
+    optionen:
+      - {text: "nicht benötigte Dienste deaktivieren oder deinstallieren", richtig: true, warum: "Ein Dienst, der nicht läuft, kann nicht angegriffen werden."}
+      - {text: "Root-Login per SSH verbieten, Schlüssel statt Passwort", richtig: true, warum: "Erschwert Passwortangriffe auf das mächtigste Konto."}
+      - {text: "Sicherheitsupdates zeitnah einspielen", richtig: true, warum: "Bekannte Lücken werden geschlossen."}
+      - {text: "Telnet zusätzlich zu SSH aktivieren, damit man immer drankommt", warum: "Telnet überträgt Passwörter im Klartext und vergrößert die Angriffsfläche.", ursache: konzept}
+      - {text: "alle Benutzer zur Gruppe der Administratoren hinzufügen", warum: "Verstößt gegen das Prinzip der minimalen Rechte.", ursache: konzept}
+    hinweise:
+      - "Härtung = Angriffsfläche verkleinern."
+    loesungsweg: "Unnötiges entfernen, **aktualisieren**, **Rechte und Zugänge beschränken**. Mehr Zugänge oder Rechte vergrößern die Angriffsfläche."
+    quelle: "Neu erstellt (Claude), Tabelle „Härtungsmaßnahmen“ der Lektion haertung-firewall."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium: SYS.1.1 Allgemeiner Server"}
+    status: ungeprüft
+
+  - id: haert-personal-netz
+    typ: zuordnung
+    stufe: 2
+    titel: "Personal Firewall oder Netzwerk-Firewall?"
+    frage: "Ordne jedes Merkmal zu."
+    paare:
+      - {links: "kann einem einzelnen Programm den Internetzugriff verbieten", rechts: "Personal Firewall"}
+      - {links: "schützt das Notebook auch im Hotel-WLAN", rechts: "Personal Firewall"}
+      - {links: "trennt das Firmen-LAN vom Internet", rechts: "Netzwerk-Firewall"}
+      - {links: "läuft auf einem eigenen Gerät zwischen Netzen", rechts: "Netzwerk-Firewall"}
+    hinweise:
+      - "Welche Firewall sieht, welches **Programm** eine Verbindung aufbaut?"
+    loesungsweg: "**Personal Firewall:** auf dem Rechner, kennt Programme, schützt überall. **Netzwerk-Firewall:** zwischen Netzen, kennt Adressen und Ports."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion haertung-firewall."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium: SYS.2.1 Allgemeiner Client (lokale Paketfilter)"}
+    status: ungeprüft
+
+  - id: haert-regeln-lesen
+    typ: multiple_choice
+    stufe: 3
+    titel: "Firewall-Regeln lesen"
+    situation: |
+      Die Personal Firewall eines Servers prüft die Regeln von oben nach unten; die erste passende gilt.
+
+      | Nr. | Richtung | Port | Quelle | Aktion |
+      | ---: | --- | --- | --- | --- |
+      | 1 | eingehend | alles | beliebig | blockieren |
+      | 2 | eingehend | TCP 22 (SSH) | 10.0.1.0/24 (Admin-Netz) | erlauben |
+      | 3 | eingehend | TCP 443 (HTTPS) | beliebig | erlauben |
+    frage: "Ein Admin aus 10.0.1.15 kann sich nicht per SSH verbinden. Warum?"
+    optionen:
+      - {text: "Regel 1 blockiert alles und steht ganz oben – die Regeln darunter greifen nie.", richtig: true, warum: "Die erste passende Regel gilt. „Alles blockieren“ gehört ans Ende."}
+      - {text: "10.0.1.15 liegt nicht im Netz 10.0.1.0/24.", warum: "Doch: 10.0.1.0/24 umfasst 10.0.1.0 bis 10.0.1.255.", ursache: rechenfehler}
+      - {text: "SSH läuft auf Port 443.", warum: "SSH nutzt standardmäßig Port 22.", ursache: begriff}
+      - {text: "Eingehende Regeln wirken nur auf Programme, nicht auf Ports.", warum: "Regeln können sich auf Ports beziehen – so wie hier.", ursache: konzept}
+    hinweise:
+      - "Welche Regel passt als **erste** auf die SSH-Verbindung?"
+    loesungsweg: "Regel 1 passt auf jeden eingehenden Verkehr und blockiert ihn. Die Grundregel „alles blockieren“ muss **ans Ende**."
+    quelle: "Neu erstellt (Claude), Abschnitt „Regeln lesen und anpassen“ der Lektion haertung-firewall."
+    belege:
+      - {titel: "Red Hat Enterprise Linux 9: Configuring firewalls and packet filters (firewalld)", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_firewalls_and_packet_filters/index"}
+    status: ungeprüft
+
+  - id: haert-programm-sperren
+    typ: multiple_choice
+    stufe: 2
+    titel: "Software den Internetzugriff sperren"
+    situation: "Auf den Lager-PCs der ArchivTech läuft eine ältere Scansoftware, die ständig versucht, Updates aus dem Internet zu laden, und dabei Daten an den Hersteller sendet. Die Software soll im LAN weiter funktionieren."
+    frage: "Wie löst du das am gezieltesten?"
+    optionen:
+      - {text: "In der Personal Firewall eine ausgehende Regel anlegen, die dem Programm den Internetzugriff verbietet", richtig: true, warum: "Nur die Personal Firewall kennt Programme und kann sie gezielt sperren."}
+      - {text: "An der Netzwerk-Firewall den gesamten ausgehenden Verkehr der Lager-PCs sperren", warum: "Das sperrt alle Programme, nicht nur die Scansoftware.", ursache: konzept}
+      - {text: "Die Netzwerkkabel der Lager-PCs abziehen", warum: "Dann funktioniert die Software auch im LAN nicht mehr.", ursache: konzept}
+      - {text: "Einen Virenscanner installieren", warum: "Ein Virenscanner sucht Schadsoftware, er steuert keine Verbindungen einzelner Programme.", ursache: begriff}
+    hinweise:
+      - "Welche Firewall kennt Programme?"
+    loesungsweg: "**Personal Firewall**, ausgehende Regel für das Programm → blockieren. Andere Programme und das LAN bleiben unberührt."
+    quelle: "Neu erstellt (Claude), passend zur Lektion haertung-firewall."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 06.04: Personal Firewall anpassen, z. B. Softwarezugriff auf Internet sperren (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: haert-telnet-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Prinzipien der Härtung"
+    frage: "Ergänze die Lücken."
+    text: "Statt Telnet nutzt man {{1}}, weil Telnet Passwörter im Klartext überträgt. Im Alltag arbeitet man ohne Adminrechte – das ist das Prinzip der {{2}} Rechte. Die Grundregel einer Firewall lautet: alles {{3}}, was nicht ausdrücklich erlaubt ist."
+    luecken:
+      - antworten: ["SSH"]
+      - antworten: ["minimalen", "geringsten"]
+      - antworten: ["verbieten", "blockieren", "sperren"]
+        falsch:
+          - {antwort: "erlauben", warum: "Dann wäre jede unbekannte Verbindung offen. Sicher ist: alles verbieten, nur Nötiges erlauben.", ursache: konzept}
+    hinweise:
+      - "Weniger Türen, weniger Einbruchsmöglichkeiten."
+    loesungsweg: "**SSH** statt Telnet · Prinzip der **minimalen** Rechte · alles **verbieten**, nur Nötiges erlauben."
+    quelle: "Neu erstellt (Claude), passend zur Lektion haertung-firewall."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium: SYS.1.1 Allgemeiner Server"}
+    status: ungeprüft
+
+  - id: haert-server-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Einen Archivserver härten"
+    situation: "Ein frisch installierter RHEL-Server soll als Archivserver ins Netz der ArchivTech. Auf ihm laufen noch ein Druckdienst, ein FTP-Server und SSH mit Root-Login per Passwort. Nur Admins aus dem Netz 10.0.1.0/24 sollen ihn per SSH verwalten."
+    frage: "Beschreibe vier konkrete Härtungsmaßnahmen für diesen Server."
+    musterloesung: |
+      1. **Unnötige Dienste entfernen:** Druckdienst und FTP-Server deinstallieren oder deaktivieren.
+      2. **SSH absichern:** Root-Login verbieten, Anmeldung nur mit Schlüssel, Passwort-Login abschalten.
+      3. **Firewall:** eingehend nur SSH aus 10.0.1.0/24 und die nötigen Archivdienste erlauben, alles andere blockieren.
+      4. **Updates:** Sicherheitsupdates einspielen und regelmäßig automatisiert prüfen.
+      5. Zusätzlich: Logs zentral sammeln, Admins mit persönlichen Konten und `sudo` statt geteiltem Root.
+    bewertungspunkte:
+      - {punkt: "Druckdienst und FTP entfernen", kernbegriffe: ["druck", "ftp"]}
+      - {punkt: "SSH: kein Root-Login, Schlüssel statt Passwort", kernbegriffe: ["root", "schlüssel"]}
+      - {punkt: "Firewall: SSH nur aus dem Admin-Netz, Rest blockieren", kernbegriffe: ["firewall", "10.0.1"]}
+      - {punkt: "Updates einspielen", kernbegriffe: ["update", "patch"]}
+    hinweise:
+      - "Geh die Situation durch: Was läuft zu viel, was ist zu offen?"
+    loesungsweg: "Druck- und FTP-Dienst entfernen; SSH ohne Root und mit Schlüssel; Firewall nur Admin-Netz; Updates; Logs und persönliche Konten."
+    quelle: "Neu erstellt (Claude), passend zur Lektion haertung-firewall."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium: SYS.1.1 Allgemeiner Server, SYS.1.3 Server unter Linux und Unix"}
+    status: ungeprüft

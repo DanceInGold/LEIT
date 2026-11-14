@@ -1,0 +1,128 @@
+# Aufgaben zum Thema „Lasten- und Pflichtenheft (Zweck, Urheber, Inhalt)“.
+# Passend zur Lektion lasten-pflichtenheft.
+
+aufgaben:
+  - id: lh-ph-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Lastenheft oder Pflichtenheft?"
+    frage: "Ordne jede Aussage dem passenden Dokument zu."
+    paare:
+      - {links: "wird vom Auftraggeber geschrieben", rechts: "Lastenheft"}
+      - {links: "beschreibt, was gebraucht wird und wofür", rechts: "Lastenheft"}
+      - {links: "wird vom Auftragnehmer geschrieben", rechts: "Pflichtenheft"}
+      - {links: "beschreibt, wie und womit umgesetzt wird", rechts: "Pflichtenheft"}
+      - {links: "ist Maßstab bei der Abnahme", rechts: "Pflichtenheft"}
+    hinweise:
+      - "Lasten trägt der Kunde, Pflichten übernimmt der Dienstleister."
+    loesungsweg: "**Lastenheft:** Auftraggeber, was und wofür. **Pflichtenheft:** Auftragnehmer, wie und womit – nach Freigabe Maßstab der Abnahme."
+    quelle: "Neu erstellt (Claude), Tabelle „Nicht verwechseln“ der Lektion lasten-pflichtenheft."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe (Lastenheft, Pflichtenheft)"}
+    status: ungeprüft
+
+  - id: lh-ablauf
+    typ: reihenfolge
+    stufe: 1
+    titel: "Vom Wunsch zum Vertrag"
+    frage: "Bringe die Schritte in die richtige Reihenfolge."
+    elemente:
+      - "Kunde schreibt das Lastenheft"
+      - "Kunde fragt beim Dienstleister an"
+      - "Dienstleister schreibt das Pflichtenheft"
+      - "Kunde prüft das Pflichtenheft und gibt es frei"
+      - "Vertrag und Umsetzung"
+      - "Abnahme gegen das Pflichtenheft"
+    hinweise:
+      - "Ohne Anforderungen kann niemand eine Lösung beschreiben."
+    loesungsweg: "Lastenheft → Anfrage → Pflichtenheft → Freigabe → Vertrag und Umsetzung → Abnahme gegen das Pflichtenheft."
+    quelle: "Neu erstellt (Claude), Ablaufdiagramm der Lektion lasten-pflichtenheft."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
+    status: ungeprüft
+
+  - id: lh-funktional
+    typ: zuordnung
+    stufe: 2
+    titel: "Funktional oder nicht-funktional?"
+    frage: "Ordne jede Anforderung an das neue Archivportal zu."
+    paare:
+      - {links: "Nutzer können Dokumente per Volltext suchen.", rechts: "funktional"}
+      - {links: "Archivare können Dokumente hochladen und verschlagworten.", rechts: "funktional"}
+      - {links: "Eine Suche liefert bei 50 gleichzeitigen Nutzern in unter 2 s ein Ergebnis.", rechts: "nicht-funktional"}
+      - {links: "Das Portal ist zu 99,5 % im Jahr verfügbar.", rechts: "nicht-funktional"}
+    hinweise:
+      - "Funktional = was das System tut. Nicht-funktional = wie gut es das tut."
+    loesungsweg: "Suchen und Hochladen sind **Funktionen**. Antwortzeit und Verfügbarkeit beschreiben die **Qualität** – nicht-funktional."
+    quelle: "Neu erstellt (Claude), passend zur Lektion lasten-pflichtenheft."
+    belege:
+      - {titel: "ISO/IEC 25010: Qualitätsmodell für Software (nicht-funktionale Merkmale wie Leistung, Zuverlässigkeit)"}
+    status: ungeprüft
+
+  - id: lh-pruefbar
+    typ: multiple_choice
+    stufe: 2
+    titel: "Prüfbar formulieren"
+    frage: "Welche Anforderung im Pflichtenheft lässt sich bei der Abnahme eindeutig prüfen?"
+    optionen:
+      - {text: "Die nächtliche Sicherung von 2 TB ist bis 5:00 Uhr abgeschlossen.", richtig: true, warum: "Menge, Zeitpunkt und Ergebnis sind messbar."}
+      - {text: "Das System ist schnell.", warum: "Was heißt schnell? Ohne Messgröße gibt es bei der Abnahme Streit.", ursache: konzept}
+      - {text: "Die Oberfläche ist benutzerfreundlich.", warum: "Ohne Kriterium (z. B. Aufgabe in höchstens drei Klicks) nicht prüfbar.", ursache: konzept}
+      - {text: "Die Lösung ist zukunftssicher.", warum: "Niemand kann bei der Abnahme messen, ob etwas zukunftssicher ist.", ursache: konzept}
+    hinweise:
+      - "Könntest du bei der Abnahme mit einer Stoppuhr oder einem Protokoll nachweisen, dass es erfüllt ist?"
+    loesungsweg: "Prüfbar ist nur die Anforderung mit **Messgröße**: 2 TB bis 5:00 Uhr. „Schnell“ oder „benutzerfreundlich“ braucht eine Zahl – wie bei SMART-Zielen."
+    quelle: "Neu erstellt (Claude), Vertiefung der Lektion lasten-pflichtenheft."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
+    status: ungeprüft
+
+  - id: lh-abnahme-streit
+    typ: multiple_choice
+    stufe: 3
+    titel: "Streit bei der Abnahme"
+    situation: "Im freigegebenen Pflichtenheft steht: „Abrufzeit unter 2 Sekunden bei 50 gleichzeitigen Nutzern.“ Beim Abnahmetest misst die ArchivTech 1,8 Sekunden. Der Kunde sagt: „Im Lastenheft stand, es soll sich sofort öffnen. 1,8 Sekunden sind nicht sofort.“"
+    frage: "Wie ist die Lage zu beurteilen?"
+    optionen:
+      - {text: "Die Anforderung ist erfüllt – abgenommen wird gegen das freigegebene Pflichtenheft.", richtig: true, warum: "Der Kunde hat das Pflichtenheft mit „unter 2 Sekunden“ freigegeben; das ist der vereinbarte Maßstab."}
+      - {text: "Nicht erfüllt – maßgeblich ist immer das Lastenheft des Kunden.", warum: "Das Lastenheft beschreibt den Bedarf; vereinbart und geprüft wird das freigegebene Pflichtenheft.", ursache: konzept}
+      - {text: "Nicht erfüllt – „sofort“ bedeutet 0 Sekunden.", warum: "Genau deshalb wird „sofort“ im Pflichtenheft in eine Messgröße übersetzt.", ursache: konzept}
+      - {text: "Die Abnahme muss ohne Messung erfolgen, weil Zeiten schwanken.", warum: "Messbare Kriterien sind gerade der Sinn eines guten Pflichtenhefts.", ursache: konzept}
+    hinweise:
+      - "Welches Dokument hat der Kunde freigegeben?"
+    loesungsweg: "Maßstab der Abnahme ist das **freigegebene Pflichtenheft**: 1,8 s < 2 s → erfüllt. Unklare Wünsche wie „sofort“ übersetzt das Pflichtenheft in prüfbare Werte."
+    quelle: "Neu erstellt (Claude), Vertiefung „Warum ist das Pflichtenheft bei der Abnahme so wichtig?“ der Lektion lasten-pflichtenheft."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
+    status: ungeprüft
+
+  - id: lh-uebersetzen-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Lastenheft in ein Pflichtenheft übersetzen"
+    situation: |
+      Eine Spedition schickt der ArchivTech ihr Lastenheft für ein Ticketsystem. Auszug:
+
+      1. „Kunden sollen Störungen rund um die Uhr melden können.“
+      2. „Kein Ticket darf verloren gehen.“
+      3. „Die Mitarbeitenden sollen schnell sehen, was dringend ist.“
+    frage: "Beschreibe zu jeder der drei Anforderungen eine prüfbare Formulierung, wie sie im Pflichtenheft stehen könnte."
+    musterloesung: |
+      | Lastenheft | Pflichtenheft (prüfbar) |
+      | --- | --- |
+      | rund um die Uhr melden | Webportal und E-Mail-Eingang, Verfügbarkeit 99,5 % pro Jahr, Tickets werden auch nachts automatisch angelegt |
+      | kein Ticket verloren | jedes Ticket erhält eine eindeutige Nummer und eine Eingangsbestätigung; tägliche Datensicherung, Wiederherstellung in höchstens 4 Stunden |
+      | schnell sehen, was dringend ist | Prioritäten 1–4; Tickets mit Priorität 1 stehen oben in der Liste und lösen innerhalb 1 Minute eine Benachrichtigung aus |
+    bewertungspunkte:
+      - {punkt: "zu jeder Anforderung eine technische Lösung (wie, womit)", kernbegriffe: ["portal", "e-mail", "priorit", "sicherung"]}
+      - {punkt: "Formulierungen mit Messgrößen (Zeit, Prozent, Anzahl)", kernbegriffe: ["%", "stunde", "minute", "sekunde"]}
+      - {punkt: "jede der drei Anforderungen aus dem Lastenheft beantwortet", kernbegriffe: ["ticket"]}
+    hinweise:
+      - "Jede Anforderung braucht eine Antwort: Womit wird sie erfüllt?"
+      - "Ersetze Wörter wie „schnell“ durch Zahlen."
+    loesungsweg: "Je Anforderung eine technische Lösung mit Messgröße: Verfügbarkeit in %, Ticketnummer und Sicherung mit Wiederherstellungszeit, Prioritäten mit Benachrichtigungszeit."
+    quelle: "Neu erstellt (Claude), passend zur Lektion lasten-pflichtenheft."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.01: Lasten- und Pflichtenheft (Zweck, Urheber, Inhalt) – Themenzuordnung siehe content/ap1/katalog.yaml"}
+    status: ungeprüft

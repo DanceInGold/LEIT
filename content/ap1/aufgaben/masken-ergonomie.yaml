@@ -1,0 +1,132 @@
+# Aufgaben zum Thema „Bildschirmmasken: Softwareergonomie, Corporate Identity, Barrierefreiheit“.
+# Passend zur Lektion masken-ergonomie.
+
+aufgaben:
+  - id: maske-prinzipien-mc
+    typ: multiple_choice
+    stufe: 1
+    titel: "Die Interaktionsprinzipien 2020"
+    frage: "Welche gehören zu den sieben Interaktionsprinzipien der ISO 9241-110:2020? (**drei** richtige)"
+    optionen:
+      - {text: "Erlernbarkeit", richtig: true, warum: "Seit 2020 heißt das Prinzip Erlernbarkeit."}
+      - {text: "Steuerbarkeit", richtig: true, warum: "Der Nutzer behält die Kontrolle: Abbrechen, Zurück, Rückgängig."}
+      - {text: "Benutzerbindung", richtig: true, warum: "Neu in der Fassung 2020: Die Nutzung soll motivierend und angenehm sein."}
+      - {text: "Lernförderlichkeit", warum: "So hieß das Prinzip bis 2020; heute heißt es Erlernbarkeit.", ursache: begriff}
+      - {text: "Individualisierbarkeit", warum: "Stand in der Fassung von 2006; 2020 ist es entfallen.", ursache: begriff}
+    hinweise:
+      - "Achte auf die Fassung 2020 – zwei Antworten sind alte Begriffe."
+    loesungsweg: "Die sieben Prinzipien 2020: Aufgabenangemessenheit, Selbstbeschreibungsfähigkeit, Erwartungskonformität, **Erlernbarkeit**, **Steuerbarkeit**, Robustheit gegen Benutzungsfehler, **Benutzerbindung**."
+    quelle: "Neu erstellt (Claude), Tabelle und Prüfungsfalle „Alte Prinzipien“ der Lektion masken-ergonomie."
+    belege:
+      - {titel: "DIN EN ISO 9241-110:2020 Ergonomie der Mensch-System-Interaktion – Teil 110: Interaktionsprinzipien"}
+    status: ungeprüft
+
+  - id: maske-prinzip-zuordnen
+    typ: zuordnung
+    stufe: 2
+    titel: "Welches Prinzip ist verletzt?"
+    frage: "Ordne jedem Problem in der Maske „Dokument hochladen“ das verletzte Prinzip zu."
+    paare:
+      - {links: "Ein Feld heißt nur „Kat.“, ohne Erklärung.", rechts: "Selbstbeschreibungsfähigkeit"}
+      - {links: "Es gibt keinen Abbrechen-Knopf.", rechts: "Steuerbarkeit"}
+      - {links: "Nach einem Fehler beim Absenden sind alle Eingaben weg.", rechts: "Robustheit gegen Benutzungsfehler"}
+      - {links: "Der Speichern-Knopf steht oben links, in allen anderen Programmen unten rechts.", rechts: "Erwartungskonformität"}
+      - {links: "Die Maske verlangt zwölf Felder, gebraucht werden für die Aufgabe nur vier.", rechts: "Aufgabenangemessenheit"}
+    hinweise:
+      - "Frag dich je Problem: Was fehlt dem Nutzer – Erklärung, Kontrolle, Fehlertoleranz, Gewohntes, Fokus auf die Aufgabe?"
+    loesungsweg: "Unklare Beschriftung = Selbstbeschreibung · kein Abbrechen = Steuerbarkeit · Eingaben weg = Robustheit · ungewohnte Position = Erwartungskonformität · überflüssige Felder = Aufgabenangemessenheit."
+    quelle: "Neu erstellt (Claude), Beispiel „Maske bewerten“ der Lektion masken-ergonomie."
+    belege:
+      - {titel: "DIN EN ISO 9241-110:2020"}
+    status: ungeprüft
+
+  - id: maske-fehlermeldung
+    typ: multiple_choice
+    stufe: 2
+    titel: "Eine gute Fehlermeldung"
+    frage: "Ein Nutzer gibt die Kundennummer `12345` ein; gültig sind genau 6 Ziffern. Welche Meldung ist am besten?"
+    optionen:
+      - {text: "Direkt am Feld: „Die Kundennummer hat 6 Ziffern, z. B. 104233.“", richtig: true, warum: "Sie steht dort, wo der Fehler ist, und sagt, wie es richtig geht."}
+      - {text: "Nach dem Absenden oben: „Eingabefehler.“", warum: "Sagt weder, welches Feld, noch, was falsch ist.", ursache: konzept}
+      - {text: "„Fehler 0x80070057“", warum: "Ein technischer Code hilft dem Nutzer nicht weiter.", ursache: konzept}
+      - {text: "Das Feld wird nur rot umrandet.", warum: "Ohne Text ist unklar, was falsch ist – und Farbe allein erkennen nicht alle.", ursache: konzept}
+    hinweise:
+      - "Wo steht die Meldung, und zeigt sie eine Lösung?"
+    loesungsweg: "Fehlermeldung **am Feld**, mit **Lösung** und Beispiel – das erfüllt Robustheit gegen Benutzungsfehler und Selbstbeschreibungsfähigkeit."
+    quelle: "Neu erstellt (Claude), Regeln für eine gute Maske in der Lektion masken-ergonomie."
+    belege:
+      - {titel: "DIN EN ISO 9241-110:2020 (Robustheit gegen Benutzungsfehler)"}
+    status: ungeprüft
+
+  - id: maske-ci-kontrast
+    typ: multiple_choice
+    stufe: 3
+    titel: "Corporate Design oder Lesbarkeit?"
+    situation: "Das Marketing möchte, dass die neue Archivmaske in der Firmenfarbe Hellgrau (#C8C8C8) gehalten ist – auch die Beschriftungen auf weißem Hintergrund. Testnutzer klagen, sie könnten die Texte kaum lesen."
+    frage: "Wie gehst du vor?"
+    optionen:
+      - {text: "Firmenfarbe für Flächen und Akzente nutzen, Texte aber dunkel mit ausreichendem Kontrast setzen", richtig: true, warum: "Corporate Design bleibt erkennbar, Lesbarkeit und Barrierefreiheit gehen vor."}
+      - {text: "Hellgraue Texte beibehalten – das Corporate Design hat Vorrang", warum: "Lesbarkeit und Barrierefreiheit haben Vorrang vor dem Design.", ursache: konzept}
+      - {text: "Alle Firmenfarben entfernen und nur Schwarz-Weiß verwenden", warum: "Unnötig radikal: Die Maske soll weiter zum Unternehmen passen.", ursache: konzept}
+      - {text: "Die Schrift kleiner machen, damit mehr auf die Maske passt", warum: "Verschlechtert die Lesbarkeit zusätzlich.", ursache: konzept}
+    hinweise:
+      - "Was ist wichtiger: dass die Maske nach Firma aussieht oder dass man sie lesen kann – und geht vielleicht beides?"
+    loesungsweg: "Corporate Design **und** Lesbarkeit: Firmenfarbe für Flächen, Texte mit genug Kontrast. Bei Konflikt gehen Lesbarkeit und Barrierefreiheit vor."
+    quelle: "Neu erstellt (Claude), Abschnitt „Corporate Identity“ und Prüfungsfalle der Lektion masken-ergonomie."
+    belege:
+      - {titel: "W3C WCAG 2.2, Erfolgskriterium 1.4.3 Contrast (Minimum)", url: "https://www.w3.org/TR/WCAG22/"}
+    status: ungeprüft
+
+  - id: maske-regeln-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Regeln für eine gute Maske"
+    frage: "Ergänze die Lücken."
+    text: "Die Felder stehen in der Reihenfolge des {{1}}. Zusammengehörige Felder werden in Abschnitten {{2}}. Pflichtfelder werden nicht nur durch {{3}} gekennzeichnet, sondern zusätzlich durch ein Sternchen oder Text."
+    luecken:
+      - antworten: ["Arbeitsablaufs", "Arbeitsablaufes", "Arbeitsablauf"]
+        falsch:
+          - {antwort: "Alphabets", warum: "Gearbeitet wird in der Reihenfolge des Ablaufs, nicht alphabetisch.", ursache: konzept}
+      - antworten: ["gruppiert"]
+      - antworten: ["Farbe"]
+    hinweise:
+      - "Wie füllt jemand die Maske im Alltag aus?"
+    loesungsweg: "Reihenfolge wie im **Arbeitsablauf**, Zusammengehöriges **gruppiert**, Pflichtfelder nicht nur durch **Farbe**."
+    quelle: "Neu erstellt (Claude), Liste „Regeln für eine gute Maske“ der Lektion masken-ergonomie."
+    belege:
+      - {titel: "DIN EN ISO 9241-110:2020"}
+    status: ungeprüft
+
+  - id: maske-bewerten-freitext
+    typ: freitext
+    stufe: 4
+    operator: beurteilen
+    titel: "Eine Erfassungsmaske beurteilen"
+    situation: |
+      Die Maske „Neuer Kunde“ in einem internen Tool:
+
+      - Felder: „Nr.“, „Name“, „PLZ“, „Ort“, „Str.“, „Tel.“, „Bemerk.“ – in genau dieser Reihenfolge, ohne Gruppen
+      - Pflichtfelder sind nur rot beschriftet
+      - Knöpfe: nur „OK“ (speichert sofort, ohne Rückfrage)
+      - Bei falscher PLZ erscheint nach dem Speichern „Fehler!“ und alle Eingaben sind gelöscht
+    frage: "Beurteile die Maske anhand von mindestens drei Interaktionsprinzipien und schlage jeweils eine Verbesserung vor."
+    musterloesung: |
+      | Problem | Prinzip | Verbesserung |
+      | --- | --- | --- |
+      | abgekürzte Feldnamen („Str.“, „Bemerk.“) | Selbstbeschreibungsfähigkeit | Namen ausschreiben, Hinweise |
+      | Straße steht nach Ort, keine Gruppen | Aufgabenangemessenheit / Erwartungskonformität | übliche Adressreihenfolge, Gruppen „Kunde“, „Adresse“, „Kontakt“ |
+      | nur „OK“, kein Abbrechen | Steuerbarkeit | „Speichern“ und „Abbrechen“ |
+      | „Fehler!“, Eingaben weg | Robustheit gegen Benutzungsfehler | Prüfung am Feld mit Lösung, Eingaben behalten |
+      | Pflichtfelder nur rot | Barrierefreiheit | zusätzlich Sternchen und Text |
+    bewertungspunkte:
+      - {punkt: "mindestens drei Prinzipien korrekt zugeordnet", kernbegriffe: ["steuerbar", "robust", "selbstbeschreib", "erwartung", "aufgabenangemessen"]}
+      - {punkt: "Fehlermeldung/Datenverlust als Robustheitsproblem mit Verbesserung", kernbegriffe: ["robust", "eingaben behalten", "am feld"]}
+      - {punkt: "Abbrechen-Möglichkeit gefordert", kernbegriffe: ["abbrechen"]}
+    hinweise:
+      - "Geh die Liste durch und frag bei jedem Punkt: Welches Prinzip leidet?"
+      - "Zu jeder Kritik eine Verbesserung."
+    loesungsweg: "Abkürzungen → Selbstbeschreibung; Reihenfolge → Erwartungskonformität; kein Abbrechen → Steuerbarkeit; Eingaben weg → Robustheit; nur rot → Barrierefreiheit – jeweils mit Verbesserung."
+    quelle: "Neu erstellt (Claude), passend zur Lektion masken-ergonomie."
+    belege:
+      - {titel: "DIN EN ISO 9241-110:2020"}
+    status: ungeprüft

@@ -1,0 +1,156 @@
+# Aufgaben zum Thema „Digitale Suchabfragen mit Suchoperatoren“.
+# Passend zur Lektion suchoperatoren.
+
+aufgaben:
+  - id: such-operatoren
+    typ: zuordnung
+    stufe: 1
+    titel: "Suchoperatoren"
+    frage: "Ordne jedem Operator seine Wirkung zu."
+    paare:
+      - {links: "`\"…\"`", rechts: "genau diese Wortfolge"}
+      - {links: "`-wort`", rechts: "Begriff ausschließen"}
+      - {links: "`site:`", rechts: "nur auf einer Website suchen"}
+      - {links: "`filetype:`", rechts: "nur einen Dateityp suchen"}
+      - {links: "`OR`", rechts: "eines von beiden"}
+    hinweise:
+      - "`site:docs.redhat.com` – was wird hier eingeschränkt?"
+    loesungsweg: "`\"…\"` exakt · `-` ausschließen · `site:` Website · `filetype:` Dateityp · `OR` eines von beiden."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion suchoperatoren."
+    belege:
+      - {titel: "Google-Suche Hilfe: Websuche verfeinern", url: "https://support.google.com/websearch/answer/2466433"}
+    status: ungeprüft
+
+  - id: such-beste-abfrage
+    typ: multiple_choice
+    stufe: 2
+    titel: "Die beste Suchanfrage"
+    situation: "Ein RHEL-Server meldet beim Start eines Dienstes: `Failed to start httpd.service: Unit httpd.service not found.` Du suchst offizielle Hilfe von Red Hat."
+    frage: "Welche Suchanfrage ist am besten?"
+    optionen:
+      - {text: "`\"Unit httpd.service not found\" site:access.redhat.com`", richtig: true, warum: "Exakte Meldung in Anführungszeichen, eingeschränkt auf die offizielle Wissensdatenbank."}
+      - {text: "`httpd geht nicht`", warum: "Viel zu allgemein – Treffer aller Art.", ursache: konzept}
+      - {text: "`Unit httpd.service not found site : access.redhat.com`", warum: "Ohne Anführungszeichen keine exakte Phrase, und `site :` mit Leerzeichen wirkt nicht.", ursache: begriff}
+      - {text: "`\"Failed to start httpd.service: Unit httpd.service not found.\" server-archiv-07`", warum: "Der eigene Servername steht in keinem Artikel und verhindert Treffer.", ursache: konzept}
+    hinweise:
+      - "Exakte Meldung, ohne eigene Namen, auf die richtige Quelle eingeschränkt."
+    loesungsweg: "Fehlermeldung in **Anführungszeichen**, **ohne eigene Namen**, mit `site:` auf die Herstellerdoku eingeschränkt."
+    quelle: "Neu erstellt (Claude), Rechenbeispiel „eine Suche verbessern“ der Lektion suchoperatoren."
+    belege:
+      - {titel: "Google-Suche Hilfe: Websuche verfeinern", url: "https://support.google.com/websearch/answer/2466433"}
+    status: ungeprüft
+
+  - id: such-boolesch-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Boolesche Abfrage im Ticketsystem"
+    situation: |
+      Das Ticketsystem der ArchivTech enthält fünf Tickets mit diesen Schlagwörtern:
+
+      | Ticket | Schlagwörter |
+      | --- | --- |
+      | T1 | backup, nas |
+      | T2 | backup, server, band |
+      | T3 | server, update |
+      | T4 | backup, server |
+      | T5 | nas, band |
+    frage: "Wie viele Tickets findet jede Abfrage?"
+    schritte:
+      - frage: "`backup AND server`"
+        antwort: "2"
+        einheit: "Tickets"
+        erklaerung: "Beide Begriffe: T2 und T4."
+        falsch:
+          - {antwort: "4", warum: "Das wäre OR (mindestens einer): T1, T2, T3, T4. AND verlangt beide.", ursache: begriff}
+      - frage: "`(nas OR server) AND backup`"
+        antwort: "3"
+        einheit: "Tickets"
+        erklaerung: "nas oder server: T1, T2, T3, T4, T5 – davon mit backup: T1, T2, T4."
+      - frage: "`backup NOT band`"
+        antwort: "2"
+        einheit: "Tickets"
+        erklaerung: "backup: T1, T2, T4 – ohne band: T1, T4."
+        falsch:
+          - {antwort: "3", warum: "T2 enthält band und fällt durch NOT heraus.", ursache: rechenfehler}
+    hinweise:
+      - "Geh Ticket für Ticket durch und prüfe die Bedingung."
+      - "Klammern zuerst auswerten."
+    loesungsweg: |
+      | Abfrage | Treffer | Anzahl |
+      | --- | --- | ---: |
+      | backup AND server | T2, T4 | **2** |
+      | (nas OR server) AND backup | T1, T2, T4 | **3** |
+      | backup NOT band | T1, T4 | **2** |
+    quelle: "Neu erstellt (Claude), Tabelle „Boolesche Operatoren“ der Lektion suchoperatoren."
+    belege:
+      - {titel: "Lektion „Digitale Suchabfragen“ (AND, OR, NOT, Klammern)"}
+    status: ungeprüft
+
+  - id: such-quellen
+    typ: multiple_choice
+    stufe: 2
+    titel: "Welcher Quelle vertraust du?"
+    situation: "Du suchst, wie man unter RHEL 9 die Firewall für einen Dienst öffnet."
+    frage: "Welche Quellen sind am verlässlichsten? (**zwei** richtige)"
+    optionen:
+      - {text: "die offizielle Red-Hat-Dokumentation für RHEL 9", richtig: true, warum: "Hersteller, passende Version, nachvollziehbare Schritte."}
+      - {text: "ein Wissensartikel von Red Hat mit Versionsangabe und Datum", richtig: true, warum: "Urheber bekannt, aktuell, Version angegeben."}
+      - {text: "ein Forenbeitrag von 2012 ohne Versionsangabe", warum: "Veraltet; RHEL 9 nutzt firewalld, ältere Anleitungen beschreiben oft iptables-Skripte.", ursache: konzept}
+      - {text: "die Antwort eines KI-Chatbots ohne Quellenangabe", warum: "Kann überzeugend falsch sein – gegen die offizielle Doku prüfen.", ursache: konzept}
+    hinweise:
+      - "Wer schreibt, wie aktuell ist es, gilt es für deine Version?"
+    loesungsweg: "Verlässlich: **Herstellerdokumentation** und **datierte Wissensartikel** mit Versionsangabe. Alte Foren und KI-Antworten ohne Beleg immer gegenprüfen."
+    quelle: "Neu erstellt (Claude), Tabelle „Quellen bewerten“ der Lektion suchoperatoren."
+    belege:
+      - {titel: "Red Hat Enterprise Linux 9: Configuring firewalls and packet filters (firewalld)", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_firewalls_and_packet_filters/index"}
+    status: ungeprüft
+
+  - id: such-filetype-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Abfragen zusammenbauen"
+    frage: "Ergänze die passenden Operatoren."
+    text: "Das Datenblatt der Appliance SA-4000 als PDF: datenblatt sa-4000 {{1}}pdf. Nur Seiten von docs.redhat.com: firewalld {{2}}docs.redhat.com. Jaguar, aber nicht das Auto: jaguar {{3}}auto."
+    luecken:
+      - antworten: ["filetype:"]
+        falsch:
+          - {antwort: "site:", warum: "`site:` schränkt die Website ein, `filetype:` den Dateityp.", ursache: begriff}
+      - antworten: ["site:"]
+        falsch:
+          - {antwort: "filetype:", warum: "Gesucht ist eine Website, kein Dateityp.", ursache: begriff}
+      - antworten: ["-"]
+        falsch:
+          - {antwort: "NOT", warum: "`NOT` gilt in booleschen Systemen; in Suchmaschinen schließt man mit `-` aus.", ursache: begriff}
+    hinweise:
+      - "Dateityp – Website – ausschließen."
+    loesungsweg: "`filetype:pdf` · `site:docs.redhat.com` · `-auto`."
+    quelle: "Neu erstellt (Claude), Beispiele der Lektion suchoperatoren."
+    belege:
+      - {titel: "Google-Suche Hilfe: Websuche verfeinern", url: "https://support.google.com/websearch/answer/2466433"}
+    status: ungeprüft
+
+  - id: such-strategie-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Eine Suchstrategie beschreiben"
+    situation: "Nach einem Update meldet der Jenkins-Build der ArchivTech: `java.lang.OutOfMemoryError: Java heap space`. Deine Ausbilderin bittet dich, eine Lösung zu recherchieren."
+    frage: "Beschreibe dein Vorgehen bei der Suche: Wo suchst du, welche Abfragen nutzt du, und wie prüfst du die Treffer?"
+    musterloesung: |
+      1. **Intern zuerst:** Ticketsystem und Wissensdatenbank – vielleicht hatte jemand den Fehler schon.
+      2. **Abfrage:** `"OutOfMemoryError: Java heap space" jenkins` – Meldung in Anführungszeichen, ohne eigene Server- oder Jobnamen.
+      3. **Einschränken:** `site:jenkins.io` oder `site:community.jenkins.io` für offizielle Doku und Forum; ggf. mit Versionsnummer.
+      4. **Treffer prüfen:** Wer schreibt (Hersteller, Fachautor)? Wie aktuell, passt die Version? Ist die Lösung nachvollziehbar belegt?
+      5. Eine KI-Antwort höchstens als Hinweis nutzen und gegen die Doku prüfen.
+    bewertungspunkte:
+      - {punkt: "Fehlermeldung als exakte Phrase in Anführungszeichen", kernbegriffe: ["anführungszeichen", "\""]}
+      - {punkt: "Einschränkung auf offizielle Quellen, z. B. mit site:", kernbegriffe: ["site:"]}
+      - {punkt: "Treffer bewerten: Urheber, Aktualität, Version", kernbegriffe: ["aktuell", "version", "urheber", "datum"]}
+    hinweise:
+      - "Wo könnte die Lösung schon stehen – intern oder beim Hersteller?"
+      - "Wie formulierst du die Fehlermeldung als Suche?"
+    loesungsweg: "Intern suchen; Meldung in Anführungszeichen ohne eigene Namen; mit site: auf offizielle Quellen einschränken; Treffer nach Urheber, Aktualität und Version prüfen."
+    quelle: "Neu erstellt (Claude), Praxisbezug der Lektion suchoperatoren."
+    belege:
+      - {titel: "Google-Suche Hilfe: Websuche verfeinern", url: "https://support.google.com/websearch/answer/2466433"}
+    status: ungeprüft
