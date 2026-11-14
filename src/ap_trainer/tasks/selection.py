@@ -2,7 +2,10 @@
 
 Gesucht wird auf der aktuellen Stufe; gibt es dort nichts, auf der nächstniedrigeren, sonst
 auf der nächsthöheren. Feste Aufgaben, die zuletzt dran waren, kommen ans Ende; Generatoren
-liefern immer neue Varianten und mischen sich mit den festen Aufgaben.
+liefern immer neue Varianten und mischen sich mit den festen Aufgaben. Sind auf der Stufe alle
+festen Aufgaben schon zuletzt dran gewesen, kommt eine noch nicht gesehene Aufgabe einer
+Nachbarstufe – dieselbe Aufgabe direkt zweimal hintereinander gibt es nur, wenn das Thema nur
+eine einzige hat.
 """
 
 from __future__ import annotations
@@ -58,16 +61,42 @@ def pick_task(pool: TopicPool, stufe: int, recent_ids: Sequence[str], rng: rando
     level = target_level(pool.levels(), stufe)
     if level is None:
         return None
-    tasks, generators = pool.sources_at(level)
     recent = list(recent_ids)[-RECENT_WINDOW:]
+    picked = _pick_at(pool, level, recent, rng)
+    if picked is not None:
+        return picked
+    # Auf dieser Stufe ist alles zuletzt dran gewesen: erst Nachbarstufen mit Neuem probieren
+    for other in _by_distance(pool.levels(), level):
+        picked = _pick_at(pool, other, recent, rng)
+        if picked is not None:
+            return picked
+    return _least_recent(pool, level, recent)
+
+
+def _pick_at(pool: TopicPool, level: int, recent: list[str], rng: random.Random) -> Aufgabe | None:
+    """Eine noch nicht zuletzt gesehene feste Aufgabe oder eine Generatorvariante dieser Stufe."""
+    tasks, generators = pool.sources_at(level)
     fresh = [task for task in tasks if task.id not in recent]
     # Feste, länger nicht gesehene Aufgaben und Generatorvarianten wechseln sich zufällig ab
     if fresh and (not generators or rng.random() < 0.5):
         return rng.choice(fresh)
     if generators:
         return make(rng.choice(generators), level, rng.randint(0, SEED_MAX), pool.thema)
-    # Nur feste Aufgaben, alle zuletzt gesehen: die am längsten zurückliegende zuerst
-    return min(tasks, key=lambda task: _last_seen(recent, task.id))
+    return None
+
+
+def _by_distance(levels: Sequence[int], level: int) -> list[int]:
+    """Die anderen Stufen, nächstgelegene zuerst; bei Gleichstand die höhere (dort gibt es Neues)."""
+    return sorted((s for s in levels if s != level), key=lambda s: (abs(s - level), -s))
+
+
+def _least_recent(pool: TopicPool, level: int, recent: list[str]) -> Aufgabe:
+    """Alles zuletzt gesehen: die am längsten zurückliegende Aufgabe, möglichst nicht die letzte."""
+    last = recent[-1] if recent else None
+    candidates = [t for t in pool.aufgaben if t.stufe == level and t.id != last]
+    if not candidates:
+        candidates = [t for t in pool.aufgaben if t.id != last] or list(pool.aufgaben)
+    return min(candidates, key=lambda t: (_last_seen(recent, t.id), abs(t.stufe - level)))
 
 
 def _last_seen(recent: list[str], task_id: str) -> int:

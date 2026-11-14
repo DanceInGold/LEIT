@@ -5,6 +5,14 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Behoben
+- „Nächste Aufgabe“ brachte dieselbe Aufgabe erneut, wenn die aktuelle Stufe eines Themas nur eine
+  feste Aufgabe hat (z. B. BIOS/UEFI Stufe 1). Jetzt kommt eine noch nicht gesehene Aufgabe der
+  nächstgelegenen Stufe; direkt wiederholt wird nur, wenn das Thema nur eine Aufgabe hat (AU-06).
+
+### Geändert
+- Aufgaben und Generator aus PR #16 sind `geprüft`.
+
 ### Hinzugefügt (Phase 2 · Aufgaben, Paket 3)
 - 62 feste Aufgaben für neun weitere Themen, je Thema Stufen 1–4 (AU-01, AU-02, HI-01, HI-03):
   Verfügbarkeit und Datensicherung (10), HDD/SSD (6), BIOS/UEFI und Dateisysteme (6),
