@@ -319,3 +319,24 @@ Inhalten gefunden.
 | `datenmengen` | datenmengen-uebertragung | Bild = Pixel × Farbtiefe ÷ 8; Scan: mm ÷ 25,4 × dpi; Audio = Abtastrate × Bittiefe × Kanäle × s ÷ 8; Video = Bild × fps × s; t = Bit ÷ bit/s; dezimale Präfixe (SI) | Beispiele der Lektionen (36 MB, 2.480 × 3.508 Pixel, 400 s) nachgerechnet |
 | `stromkosten` | nachhaltigkeit-energie | kWh = kW × h; 8.760 h pro Jahr; P_auf = P_ab ÷ η; PUE = Gesamtleistung ÷ IT-Leistung (ISO/IEC 30134-2) | Strompreise als Annahme in der Aufgabe genannt; Beispiele 1.051,20 € und 42,24 € nachgerechnet |
 | `kostenvergleich` | wirtschaftlichkeit | Amortisation = Investition ÷ Rückfluss; Rückfluss = Einsparung − laufende Kosten; Break-even durch Gleichsetzen; Abschreibung = Anschaffung ÷ Nutzungsdauer | Beispiele 24 Monate und 40 TB nachgerechnet |
+
+## Aufgaben Paket 1 (Planwochen bis Anfang Dezember)
+
+63 feste Aufgaben für acht Themen, im PR mit `status: ungeprüft`. Alle Rechenwerte wurden mit
+einem eigenen Skript (`Decimal` mit Rundung auf Cent, Netzplan vorwärts/rückwärts, Pseudocode als
+Python ausgeführt) nachgerechnet; `ap-tools check` prüft, dass jede Musterlösung als richtig und
+keine typische Falschantwort als richtig gilt.
+
+| Datei | Aufgaben | Geprüfte Kernaussagen | Beim Nachrechnen korrigiert |
+| --- | ---: | --- | --- |
+| `hardware-komponenten.yaml` | 10 | DDR5-5600 = 2.800 MHz, 4800 MT/s × 8 Byte = 38,4 GB/s; PCIe 3.0 ≈ 0,985 GB/s je Lane; P_auf = 250 W ÷ 0,9 = 277,78 W; √(3840² + 2160²) = 4.405,81 → 163,18 ppi; USB-C ohne DP Alt Mode gibt kein Bild aus; AM5 nur DDR5 | Pixeldiagonale zunächst mit 4.405,68 angesetzt, richtig ist 4.405,81 |
+| `angebotsvergleich.yaml` | 8 | Bezugskalkulation 1.992,00 → 1.752,96 → 1.717,90 → 1.747,80 €; Docks A 3.463,27 € / B 3.401,00 €; Nutzwerte 7,3 / 7,4 | Fehlerbild „Skonto vom Listenpreis“ bei den Docks zunächst falsch beziffert (richtig 3.454,20 €) |
+| `erm-relational.yaml` | 9 | Chen-Notation; 1 : n / n : m; Anomalien; 1NF–3NF (Codd 1970/1972); Importreihenfolge nach Fremdschlüsseln | – |
+| `pseudocode.yaml` | 6 | Grenzwerte `< 30`/`< 365`; Feldsumme 890, Anzahl > 200 = 2; `range(1, 5)` endet bei 4 | – |
+| `schreibtischtest.yaml` | 6 | Quadratsumme 30, x = 5; NAS-Schleife 4 Monate / 470 / 50; Prüfziffer [9, 2, 6, 5] → 36 → 4; `//`, `%`, `/` in Python | Fehlerbild „Zeilen vertauscht“ zunächst mit 440 statt 490 beziffert |
+| `projektplanung.yaml` | 8 | Netzplan A–F: Dauer 14, GP C = 4, FP C = 0; Verzögerungen im Lektionsnetzplan: B + 2 → 17, H + 2 → 15, C + 4 → 16 | – |
+| `kalkulation.yaml` | 7 | Switch: 1.440,00 → 1.584,00 → 1.616,33 → 1.701,40 → 2.024,67 €; Stundensatz 84.000 ÷ 1.400 = 60 €/h; Nachkalkulation −120 €, +26,67 % | Toleranz der gerundeten Preisstufen verkleinert, damit „Skonto aufgeschlagen“ (1.615,68 €) als Fehler erkannt wird |
+| `osi-protokolle.yaml` | 9 | OSI-Schichten (ISO/IEC 7498-1); ARP Broadcast/Unicast (RFC 826); DORA (RFC 2131); TTL je Router − 1 (RFC 791/1812); Ports laut IANA; DNS-TTL ab Abruf | – |
+
+Alle Korrekturen betrafen neue, noch nicht gemergte Aufgaben; in bestehenden Lektionen wurden
+keine Fehler gefunden.

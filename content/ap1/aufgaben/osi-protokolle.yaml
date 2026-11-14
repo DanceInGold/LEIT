@@ -1,0 +1,212 @@
+# Aufgaben zum Thema „OSI-Modell und Netzwerkprotokolle (Ethernet, IP, DNS, …)“.
+# Passend zu den Lektionen osi-modell, ethernet-arp-ip-tcp und anwendungsprotokolle.
+
+aufgaben:
+  - id: osi-schichten-ordnen
+    typ: reihenfolge
+    stufe: 1
+    titel: "Die sieben OSI-Schichten"
+    frage: "Bringe die Schichten des OSI-Modells in die richtige Reihenfolge – **von Schicht 1 (unten) bis Schicht 7 (oben)**."
+    elemente:
+      - "Bitübertragung (Physical)"
+      - "Sicherung (Data Link)"
+      - "Vermittlung (Network)"
+      - "Transport"
+      - "Sitzung (Session)"
+      - "Darstellung (Presentation)"
+      - "Anwendung (Application)"
+    hinweise:
+      - "Schicht 1 ist das Kabel, Schicht 7 das Programm."
+      - "Eselsbrücke von 7 nach 1: „Alle deutschen Studenten trinken verschiedene Sorten Bier.“"
+    loesungsweg: "1 Bitübertragung · 2 Sicherung · 3 Vermittlung · 4 Transport · 5 Sitzung · 6 Darstellung · 7 Anwendung."
+    quelle: "Neu erstellt (Claude), passend zur Lektion osi-modell."
+    belege:
+      - {titel: "ISO/IEC 7498-1:1994 Open Systems Interconnection – Basic Reference Model"}
+    status: ungeprüft
+
+  - id: osi-dateneinheiten
+    typ: zuordnung
+    stufe: 1
+    titel: "Dateneinheiten und Geräte"
+    frage: "Ordne jedem Begriff die passende OSI-Schicht zu."
+    paare:
+      - {links: "Frame (Rahmen)", rechts: "Schicht 2"}
+      - {links: "Paket", rechts: "Schicht 3"}
+      - {links: "Segment", rechts: "Schicht 4"}
+      - {links: "Switch", rechts: "Schicht 2"}
+      - {links: "Router", rechts: "Schicht 3"}
+      - {links: "Hub", rechts: "Schicht 1"}
+    ablenker: ["Schicht 5"]
+    hinweise:
+      - "Switch arbeitet mit MAC-Adressen, Router mit IP-Adressen."
+      - "Segment (4) → Paket (3) → Frame (2) → Bit (1)."
+    loesungsweg: "Frame und Switch: Schicht 2 (MAC) · Paket und Router: Schicht 3 (IP) · Segment: Schicht 4 · Hub: Schicht 1 (nur Signale)."
+    quelle: "Neu erstellt (Claude), Tabellen der Lektion osi-modell."
+    belege:
+      - {titel: "ISO/IEC 7498-1:1994 Open Systems Interconnection – Basic Reference Model"}
+    status: ungeprüft
+
+  - id: osi-ports-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Wichtige Ports"
+    frage: "Ordne jedem Dienst seinen Standardport zu."
+    paare:
+      - {links: "SSH", rechts: "22"}
+      - {links: "DNS", rechts: "53"}
+      - {links: "HTTP", rechts: "80"}
+      - {links: "HTTPS", rechts: "443"}
+      - {links: "RDP", rechts: "3389"}
+      - {links: "IMAP über TLS", rechts: "993"}
+    ablenker: ["21", "8080"]
+    hinweise:
+      - "Die vier sichersten: 22, 53, 80, 443."
+    loesungsweg: "SSH 22 · DNS 53 · HTTP 80 · HTTPS 443 · RDP 3389 · IMAPS 993. Port 21 gehört zu FTP; 8080 ist ein inoffizieller Alternativport."
+    quelle: "Neu erstellt (Claude), Merktabelle der Lektion anwendungsprotokolle."
+    belege:
+      - {titel: "IANA: Service Name and Transport Protocol Port Number Registry", url: "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"}
+    status: ungeprüft
+
+  - id: osi-arp-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "So arbeitet ARP"
+    frage: "Fülle die Lücken aus."
+    text: "Eine ARP-Anfrage wird als {{1}} an alle im Netz geschickt, die Antwort kommt als {{2}} zurück. Liegt das Ziel in einem anderen Netz, fragt der Rechner nach der MAC-Adresse des {{3}}."
+    luecken:
+      - antworten: ["Broadcast"]
+        falsch:
+          - {antwort: "Unicast", warum: "Der Absender kennt die MAC noch nicht – er muss alle fragen.", ursache: konzept}
+          - {antwort: "Multicast", warum: "ARP nutzt Broadcast; Multicast verwendet IPv6 (NDP) statt ARP.", ursache: begriff}
+      - antworten: ["Unicast"]
+        falsch:
+          - {antwort: "Broadcast", warum: "Nur die Anfrage geht an alle; der Gesuchte antwortet direkt.", ursache: konzept}
+      - antworten: ["Gateways", "Gateway", "Default-Gateways", "Standardgateways", "Routers"]
+        falsch:
+          - {antwort: "Ziels", warum: "MAC-Adressen gelten nur im lokalen Netz – gesucht wird die MAC des Gateways.", ursache: konzept}
+    hinweise:
+      - "Wen fragt man, wenn man die Adresse noch nicht kennt?"
+      - "MAC-Adressen gelten nur im eigenen Netz."
+    loesungsweg: "Anfrage **Broadcast**, Antwort **Unicast**, bei fremdem Netz die MAC des **Gateways**."
+    quelle: "Neu erstellt (Claude), passend zur Lektion ethernet-arp-ip-tcp."
+    belege:
+      - {titel: "RFC 826: An Ethernet Address Resolution Protocol", url: "https://www.rfc-editor.org/rfc/rfc826"}
+    status: ungeprüft
+
+  - id: osi-dhcp-dora
+    typ: reihenfolge
+    stufe: 2
+    titel: "DHCP in vier Schritten"
+    frage: "Ein Notebook kommt neu ins Netz. Bringe die DHCP-Nachrichten in die richtige Reihenfolge."
+    elemente:
+      - "Discover – Client sucht per Broadcast einen DHCP-Server"
+      - "Offer – Server bietet eine Adresse an"
+      - "Request – Client fordert die angebotene Adresse an"
+      - "Ack – Server bestätigt die Adresse mit Lease-Dauer"
+    hinweise:
+      - "Eselsbrücke DORA."
+    loesungsweg: "**D**iscover → **O**ffer → **R**equest → **A**ck."
+    quelle: "Neu erstellt (Claude), passend zur Lektion anwendungsprotokolle."
+    belege:
+      - {titel: "RFC 2131: Dynamic Host Configuration Protocol", url: "https://www.rfc-editor.org/rfc/rfc2131"}
+    status: ungeprüft
+
+  - id: osi-tcp-udp
+    typ: zuordnung
+    stufe: 2
+    titel: "TCP oder UDP?"
+    frage: "Welches Transportprotokoll nutzt der Dienst typischerweise?"
+    paare:
+      - {links: "DNS-Abfrage", rechts: "UDP"}
+      - {links: "DHCP", rechts: "UDP"}
+      - {links: "HTTPS", rechts: "TCP"}
+      - {links: "SSH", rechts: "TCP"}
+      - {links: "Mailversand per SMTP", rechts: "TCP"}
+    hinweise:
+      - "TCP: Verbindung, Bestätigung, Reihenfolge. UDP: schnell, ohne Garantie."
+      - "Kurze Anfragen und Broadcasts laufen über UDP."
+    loesungsweg: "DNS-Abfragen und DHCP: **UDP** (kurz, DHCP braucht Broadcast). HTTPS, SSH, SMTP: **TCP** (zuverlässige Verbindung)."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion ethernet-arp-ip-tcp."
+    belege:
+      - {titel: "RFC 9293: Transmission Control Protocol; RFC 768: User Datagram Protocol", url: "https://www.rfc-editor.org/rfc/rfc9293"}
+      - {titel: "RFC 1035: Domain Names – Implementation and Specification (UDP und TCP Port 53)", url: "https://www.rfc-editor.org/rfc/rfc1035"}
+    status: ungeprüft
+
+  - id: osi-ttl-router
+    typ: multiple_choice
+    stufe: 3
+    titel: "Ein Paket auf Reisen"
+    frage: "Ein Paket startet beim Jenkins-Server mit **TTL 64** und passiert **drei Router** bis zum Ziel im Rechenzentrum (ohne NAT). Welche **zwei** Aussagen stimmen?"
+    optionen:
+      - {text: "Beim Ziel kommt das Paket mit TTL 61 an.", richtig: true, warum: "Jeder Router zieht 1 ab: 64 − 3 = 61."}
+      - {text: "Quell- und Ziel-MAC-Adresse ändern sich bei jedem Router.", richtig: true, warum: "MAC-Adressen gelten nur im jeweiligen lokalen Netz."}
+      - {text: "Die Ziel-IP-Adresse wird von jedem Router angepasst.", warum: "Ohne NAT bleiben die IP-Adressen Ende zu Ende gleich.", ursache: konzept}
+      - {text: "Nach 64 Sekunden wird das Paket verworfen.", warum: "Die IP-TTL zählt in der Praxis Hops, nicht Sekunden – das ist die TTL im DNS.", ursache: begriff}
+    hinweise:
+      - "Was gilt nur lokal, was Ende zu Ende?"
+      - "Die IP-TTL ist ein Hop-Zähler."
+    loesungsweg: "Je Router: TTL − 1 (Ankunft mit **61**), **neue MACs**, gleiche IPs. Die Sekunden-TTL gehört zum DNS-Cache."
+    quelle: "Neu erstellt (Claude), passend zur Lektion ethernet-arp-ip-tcp."
+    belege:
+      - {titel: "RFC 791: Internet Protocol (Time to Live)", url: "https://www.rfc-editor.org/rfc/rfc791"}
+      - {titel: "RFC 1812: Requirements for IP Version 4 Routers", url: "https://www.rfc-editor.org/rfc/rfc1812"}
+    status: ungeprüft
+
+  - id: osi-dns-ttl
+    typ: rechnung
+    stufe: 3
+    titel: "Wann sehen alle die neue Adresse?"
+    situation: "Der Firmen-Resolver hat den Eintrag `repo.archivtech.example` um **10:15 Uhr** abgefragt und gespeichert, **TTL 3600**. Um **10:30 Uhr** zieht der Server auf eine neue IP-Adresse um, und der DNS-Eintrag wird sofort geändert."
+    frage: "Wie lange liefert der Resolver noch die alte Adresse?"
+    schritte:
+      - frage: "Gültigkeit des Cache-Eintrags in Minuten"
+        antwort: "60"
+        einheit: "min"
+        erklaerung: "3600 s ÷ 60 = 60 min, gerechnet ab dem Abruf um 10:15 Uhr."
+        falsch:
+          - {antwort: "3600", warum: "Das sind Sekunden – gefragt sind Minuten.", ursache: rechenfehler}
+      - frage: "Minuten nach dem Umzug, in denen noch die alte Adresse kommt"
+        antwort: "45"
+        einheit: "min"
+        erklaerung: "Der Eintrag gilt bis 11:15 Uhr; der Umzug war um 10:30 Uhr → 45 Minuten."
+        falsch:
+          - {antwort: "60", warum: "Die TTL läuft ab dem **Abruf** (10:15), nicht ab der Änderung.", ursache: konzept}
+          - {antwort: "0", warum: "Der Resolver fragt erst nach Ablauf der TTL neu – bis dahin liefert er seinen Cache.", ursache: konzept}
+    hinweise:
+      - "Die DNS-TTL ist eine Gültigkeitsdauer in Sekunden ab dem Abruf."
+      - "Bis wann gilt der Eintrag, wenn er um 10:15 gespeichert wurde?"
+    loesungsweg: "TTL 3600 s = **60 min** ab 10:15 → gültig bis 11:15. Umzug um 10:30 → noch **45 min** alte Adresse. Praxis: TTL vor einem geplanten Umzug rechtzeitig senken."
+    quelle: "Neu erstellt (Claude), passend zur Lektion anwendungsprotokolle."
+    belege:
+      - {titel: "RFC 1034: Domain Names – Concepts and Facilities (TTL, Caching)", url: "https://www.rfc-editor.org/rfc/rfc1034"}
+    status: ungeprüft
+
+  - id: osi-webseite-ablauf
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Was passiert beim Aufruf einer Webseite?"
+    situation: "Ein frisch eingerichtetes Notebook wird an der ArchivTech ans Netz gesteckt. Die Nutzerin ruft im Browser `https://repo.archivtech.example` auf; der Server steht in einem anderen Subnetz."
+    frage: "Beschreibe in der richtigen Reihenfolge, welche Protokolle zum Einsatz kommen und wofür, bis die Seite verschlüsselt übertragen wird."
+    musterloesung: |
+      1. **DHCP** (DORA): Das Notebook bekommt IP-Adresse, Maske, Gateway und DNS-Server.
+      2. **DNS**: Der Name repo.archivtech.example wird in eine IP-Adresse aufgelöst (Port 53).
+      3. **ARP**: Weil der Server in einem anderen Subnetz steht, wird die MAC-Adresse des
+         **Gateways** ermittelt.
+      4. **TCP**: Verbindungsaufbau zu Port 443 per Drei-Wege-Handschlag (SYN, SYN-ACK, ACK).
+      5. **TLS/HTTPS**: Zertifikat prüfen, Schlüssel aushandeln, dann HTTP verschlüsselt.
+    bewertungspunkte:
+      - {punkt: "DHCP liefert IP-Konfiguration (inkl. Gateway und DNS-Server)", kernbegriffe: ["dhcp"]}
+      - {punkt: "DNS löst den Namen in eine IP-Adresse auf", kernbegriffe: ["dns"]}
+      - {punkt: "ARP ermittelt die MAC des Gateways (fremdes Subnetz)", kernbegriffe: ["arp"]}
+      - {punkt: "TCP-Drei-Wege-Handschlag zu Port 443", kernbegriffe: ["tcp", "handschlag", "syn", "443"]}
+      - {punkt: "TLS verschlüsselt, HTTP darin (HTTPS), Zertifikat geprüft", kernbegriffe: ["tls", "zertifikat", "verschlüssel"]}
+    hinweise:
+      - "Was braucht das Notebook zuerst, bevor es überhaupt etwas senden kann?"
+      - "Vom Namen zur IP, von der IP zur MAC, dann Verbindung und Verschlüsselung."
+      - "Der Server steht in einem anderen Subnetz – wessen MAC wird gesucht?"
+    loesungsweg: "DHCP → DNS → ARP (Gateway) → TCP-Handschlag (443) → TLS und HTTP. Fünf Protokolle, je mit Zweck."
+    quelle: "Neu erstellt (Claude), verbindet die Lektionen ethernet-arp-ip-tcp und anwendungsprotokolle."
+    belege:
+      - {titel: "RFC 2131 (DHCP), RFC 1034 (DNS), RFC 826 (ARP), RFC 9293 (TCP), RFC 8446 (TLS 1.3)", url: "https://www.rfc-editor.org/rfc/rfc8446"}
+    status: ungeprüft

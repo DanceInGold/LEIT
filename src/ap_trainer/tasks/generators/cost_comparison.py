@@ -59,7 +59,7 @@ class CostComparison(Generator):
     id = "kostenvergleich"
     titel = "Amortisation und Kostenvergleich"
     stufen = (1, 2, 3, 4)
-    status = "ungeprüft"
+    status = "geprüft"
     quelle = "Generator „kostenvergleich“; jede Variante mit exakter Bruchrechnung unabhängig nachgerechnet."
     belege = BELEGE
 

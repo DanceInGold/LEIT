@@ -1,0 +1,247 @@
+# Aufgaben zum Thema „Projektplanung: Strukturplan, Netzplan, Gantt-Diagramm“.
+# Passend zu den Lektionen projektstrukturplan, netzplan und gantt-diagramm.
+# Zählweise wie in der Lektion: FEZ = FAZ + Dauer, erster Vorgang beginnt bei 0.
+
+aufgaben:
+  - id: plan-psp-aussage
+    typ: multiple_choice
+    stufe: 1
+    titel: "Was zeigt der Projektstrukturplan?"
+    frage: "Welche Aussage zum Projektstrukturplan (PSP) stimmt?"
+    optionen:
+      - {text: "Er zerlegt das Projekt als Baum bis hinunter zu den Arbeitspaketen.", richtig: true, warum: "Der PSP zeigt, **was** zu tun ist – vollständig und hierarchisch."}
+      - {text: "Er zeigt mit Pfeilen, in welcher Reihenfolge die Arbeitspakete erledigt werden.", warum: "Die Reihenfolge zeigt der Netzplan; der PSP enthält keine Abhängigkeiten.", ursache: begriff}
+      - {text: "Er enthält Anfangs- und Endtermine aller Vorgänge.", warum: "Termine stehen im Gantt-Diagramm bzw. Netzplan, nicht im PSP.", ursache: begriff}
+      - {text: "Er berechnet den kritischen Pfad.", warum: "Den kritischen Pfad liefert die Netzplanrechnung.", ursache: begriff}
+    hinweise:
+      - "PSP = was, Netzplan = wann und in welcher Reihenfolge."
+    loesungsweg: "Der PSP ist ein **Baum** (Projekt → Teilaufgaben → Arbeitspakete) ohne Reihenfolge und ohne Termine."
+    quelle: "Neu erstellt (Claude), passend zur Lektion projektstrukturplan."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe (Projektstrukturplan, Arbeitspaket)"}
+    status: ungeprüft
+
+  - id: plan-netzplan-abkuerzungen
+    typ: zuordnung
+    stufe: 1
+    titel: "Abkürzungen im Netzplan"
+    frage: "Ordne jeder Abkürzung ihre Bedeutung zu."
+    paare:
+      - {links: "FAZ", rechts: "frühester Anfangszeitpunkt"}
+      - {links: "SEZ", rechts: "spätester Endzeitpunkt"}
+      - {links: "GP", rechts: "Verschiebung möglich, ohne das Projektende zu gefährden"}
+      - {links: "FP", rechts: "Verschiebung möglich, ohne einen Nachfolger zu verschieben"}
+    ablenker: ["spätester Anfangszeitpunkt des Nachfolgers"]
+    hinweise:
+      - "F = frühest, S = spätest, A = Anfang, E = Ende."
+      - "Gesamtpuffer schützt das Projektende, freier Puffer den Nachfolger."
+    loesungsweg: "FAZ = frühester Anfang · SEZ = spätestes Ende · GP = Gesamtpuffer (Projektende) · FP = freier Puffer (Nachfolger)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion netzplan."
+    belege:
+      - {titel: "DIN 69900:2009-01 Projektmanagement – Netzplantechnik; Beschreibungen und Begriffe"}
+    status: ungeprüft
+
+  - id: plan-netzplan-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Regeln der Netzplanrechnung"
+    frage: "Fülle die Lücken aus."
+    text: "Bei der Vorwärtsrechnung ist der FAZ der {{1}} FEZ aller Vorgänger. Bei der Rückwärtsrechnung ist der SEZ der {{2}} SAZ aller Nachfolger. Vorgänge mit einem Gesamtpuffer von {{3}} bilden den kritischen Pfad."
+    luecken:
+      - antworten: ["größte", "maximale", "höchste", "späteste"]
+        falsch:
+          - {antwort: "kleinste", warum: "Ein Vorgang beginnt erst, wenn **alle** Vorgänger fertig sind – also beim größten FEZ.", ursache: konzept}
+      - antworten: ["kleinste", "minimale", "niedrigste", "früheste"]
+        falsch:
+          - {antwort: "größte", warum: "Rückwärts muss der Vorgang vor dem **ersten** Nachfolger fertig sein – also der kleinste SAZ.", ursache: konzept}
+      - antworten: ["0", "null"]
+    hinweise:
+      - "Vorwärts Maximum, rückwärts Minimum."
+    loesungsweg: "Vorwärts: FAZ = **größter** FEZ der Vorgänger. Rückwärts: SEZ = **kleinster** SAZ der Nachfolger. Kritischer Pfad: GP = **0**."
+    quelle: "Neu erstellt (Claude), Regeln der Lektion netzplan."
+    belege:
+      - {titel: "DIN 69900:2009-01 Netzplantechnik"}
+      - {titel: "Universität Bremen, eGS 07-2: Terminplanung mit Netzplänen II", url: "https://oncourse.uni-bremen.de/pluginfile.php/4643/mod_label/intro/eGS_07-2_Terminplanung%20-%20Terminplanung%20mit%20Netzpl%C3%A4nen%20II.pdf"}
+    status: ungeprüft
+
+  - id: plan-vorgehen-ordnen
+    typ: reihenfolge
+    stufe: 2
+    titel: "Vom Projekt zum kritischen Pfad"
+    frage: "Bringe die Schritte der Terminplanung in die richtige Reihenfolge."
+    elemente:
+      - "Projektstrukturplan mit Arbeitspaketen erstellen"
+      - "Vorgangsliste mit Dauer und Vorgängern aufstellen"
+      - "Vorwärtsrechnung (FAZ, FEZ)"
+      - "Rückwärtsrechnung (SAZ, SEZ)"
+      - "Puffer berechnen und kritischen Pfad bestimmen"
+    hinweise:
+      - "Ohne Arbeitspakete gibt es keine Vorgänge; ohne Projektende keine Rückwärtsrechnung."
+    loesungsweg: "PSP → Vorgangsliste → vorwärts → rückwärts → Puffer und kritischer Pfad. Danach kann das Gantt-Diagramm die Termine zeigen."
+    quelle: "Neu erstellt (Claude), Ablauf der Lektionen projektstrukturplan und netzplan."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 und DIN 69900:2009-01"}
+    status: ungeprüft
+
+  - id: plan-netzplan-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Netzplan berechnen"
+    frage: |
+      | Vorgang | Dauer (Tage) | Vorgänger |
+      | --- | ---: | --- |
+      | A | 3 | – |
+      | B | 4 | A |
+      | C | 2 | A |
+      | D | 5 | B |
+      | E | 3 | C |
+      | F | 2 | D, E |
+
+      Berechne die folgenden Werte (Start bei Tag 0, FEZ = FAZ + Dauer).
+    schritte:
+      - frage: "FAZ von F"
+        antwort: "12"
+        erklaerung: "F braucht D (FEZ 12) und E (FEZ 8): FAZ = max(12; 8) = 12."
+        falsch:
+          - {antwort: "8", warum: "Minimum statt Maximum: F kann erst starten, wenn **beide** Vorgänger fertig sind.", ursache: konzept}
+      - frage: "Projektdauer in Tagen"
+        antwort: "14"
+        einheit: "Tage"
+        erklaerung: "FEZ von F = 12 + 2 = 14."
+      - frage: "Gesamtpuffer von C"
+        antwort: "4"
+        einheit: "Tage"
+        erklaerung: "Rückwärts: SEZ E = 12, SAZ E = 9 → SEZ C = 9, SAZ C = 7. GP = SAZ − FAZ = 7 − 3 = 4."
+      - frage: "Freier Puffer von C"
+        antwort: "0"
+        einheit: "Tage"
+        erklaerung: "FP = FAZ Nachfolger E − FEZ C = 5 − 5 = 0. Verschiebt sich C, verschiebt sich E sofort mit."
+        falsch:
+          - {antwort: "4", warum: "Das ist der Gesamtpuffer. Der freie Puffer fragt, ob der **Nachfolger** sich verschiebt.", ursache: begriff}
+          - {antwort: "2", warum: "Mit dem SAZ des Nachfolgers gerechnet – der freie Puffer nutzt dessen **frühesten** Anfang.", ursache: konzept}
+      - frage: "Anzahl der Vorgänge auf dem kritischen Pfad"
+        antwort: "4"
+        erklaerung: "GP = 0 haben A, B, D und F: kritischer Pfad A → B → D → F (3 + 4 + 5 + 2 = 14 ✔)."
+    hinweise:
+      - "Vorwärts: FEZ = FAZ + Dauer; FAZ = größter FEZ der Vorgänger."
+      - "Rückwärts von SEZ = 14: SAZ = SEZ − Dauer; SEZ = kleinster SAZ der Nachfolger."
+      - "Vorwärts: A 0–3, B 3–7, C 3–5."
+    loesungsweg: |
+      | Vorgang | FAZ | FEZ | SAZ | SEZ | GP | FP |
+      | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+      | A | 0 | 3 | 0 | 3 | 0 | 0 |
+      | B | 3 | 7 | 3 | 7 | 0 | 0 |
+      | C | 3 | 5 | 7 | 9 | 4 | 0 |
+      | D | 7 | 12 | 7 | 12 | 0 | 0 |
+      | E | 5 | 8 | 9 | 12 | 4 | 4 |
+      | F | 12 | 14 | 12 | 14 | 0 | 0 |
+
+      Kritischer Pfad: **A → B → D → F**, Projektdauer **14 Tage**.
+    quelle: "Neu erstellt (Claude), Verfahren der Lektion netzplan; mit Python nachgerechnet."
+    belege:
+      - {titel: "DIN 69900:2009-01 Netzplantechnik"}
+      - {titel: "Universität Bremen, eGS 07-2: Terminplanung mit Netzplänen II (GP = SAZ − FAZ, freier Puffer)", url: "https://oncourse.uni-bremen.de/pluginfile.php/4643/mod_label/intro/eGS_07-2_Terminplanung%20-%20Terminplanung%20mit%20Netzpl%C3%A4nen%20II.pdf"}
+    status: ungeprüft
+
+  - id: plan-gantt-aussagen
+    typ: multiple_choice
+    stufe: 3
+    titel: "Gantt-Diagramm richtig lesen"
+    frage: "Welche **zwei** Aussagen zum Gantt-Diagramm stimmen?"
+    optionen:
+      - {text: "Ein Meilenstein hat die Dauer 0 und wird als Raute gezeichnet.", richtig: true, warum: "Ein Meilenstein ist ein Zeitpunkt, kein Vorgang."}
+      - {text: "Ein Balken beginnt beim frühesten Anfang (FAZ); Puffer kann gestrichelt bis zum SEZ folgen.", richtig: true, warum: "So überträgt man den Netzplan auf die Zeitachse."}
+      - {text: "Den Gesamtpuffer liest man direkt an der Balkenlänge ab.", warum: "Die Balkenlänge ist die Dauer; Puffer berechnet man im Netzplan.", ursache: konzept}
+      - {text: "Wochenenden zählen immer als Arbeitstage mit.", warum: "Rechnet die Aufgabe mit Arbeitstagen, verschiebt das Wochenende die Enden.", ursache: konzept}
+    hinweise:
+      - "Gantt = Balken auf der Zeitachse, Länge = Dauer."
+    loesungsweg: "Richtig: Meilenstein = Raute ohne Dauer; Balken ab FAZ. Puffer und kritischen Pfad rechnet man im Netzplan, Wochenenden zählen bei Arbeitstagen nicht."
+    quelle: "Neu erstellt (Claude), passend zur Lektion gantt-diagramm."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 (Meilenstein)"}
+      - {titel: "Wikipedia (en): Gantt chart", url: "https://en.wikipedia.org/wiki/Gantt_chart"}
+    status: ungeprüft
+
+  - id: plan-verzoegerung
+    typ: rechnung
+    stufe: 4
+    titel: "Was bedeutet die Verzögerung?"
+    situation: |
+      Für die Inbetriebnahme des Archivservers gilt der Netzplan aus der Lektion
+      (Projektdauer 15 Tage, kritischer Pfad A → B → E → F → G → I):
+
+      | Vorgang | Dauer | Vorgänger | GP | FP |
+      | --- | ---: | --- | ---: | ---: |
+      | A Anforderungen klären | 2 | – | 0 | 0 |
+      | B Hardware bestellen | 5 | A | 0 | 0 |
+      | C Image erstellen | 2 | A | 3 | 0 |
+      | D Image testen | 1 | C | 3 | 3 |
+      | E Server einbauen | 1 | B | 0 | 0 |
+      | F Installation | 2 | D, E | 0 | 0 |
+      | G Datenmigration | 4 | F | 0 | 0 |
+      | H Monitoring | 1 | F | 3 | 3 |
+      | I Abnahme | 1 | G, H | 0 | 0 |
+    frage: "Wie lange dauert das Projekt, wenn sich **jeweils nur ein** Vorgang wie angegeben verzögert?"
+    schritte:
+      - frage: "Projektdauer, wenn die Hardwarelieferung (B) 2 Tage länger dauert"
+        antwort: "17"
+        einheit: "Tage"
+        erklaerung: "B liegt auf dem kritischen Pfad (GP 0): jede Verzögerung verlängert das Projekt, 15 + 2 = 17."
+        falsch:
+          - {antwort: "15", warum: "B hat keinen Puffer – er liegt auf dem kritischen Pfad.", ursache: konzept}
+      - frage: "Projektdauer, wenn das Monitoring (H) 2 Tage länger dauert"
+        antwort: "15"
+        einheit: "Tage"
+        erklaerung: "H hat 3 Tage Gesamtpuffer; 2 Tage Verzögerung fängt der Puffer auf."
+        falsch:
+          - {antwort: "17", warum: "H liegt nicht auf dem kritischen Pfad; sein Puffer reicht für 2 Tage.", ursache: konzept}
+      - frage: "Projektdauer, wenn das Image (C) 4 Tage länger dauert"
+        antwort: "16"
+        einheit: "Tage"
+        erklaerung: "C hat 3 Tage Gesamtpuffer; 4 Tage sind 1 Tag mehr, als der Puffer abfängt: 15 + 1 = 16."
+        falsch:
+          - {antwort: "19", warum: "Der Gesamtpuffer von 3 Tagen fängt einen Teil ab – nur der Rest verlängert das Projekt.", ursache: konzept}
+          - {antwort: "15", warum: "4 Tage sind mehr als die 3 Tage Gesamtpuffer.", ursache: rechenfehler}
+    hinweise:
+      - "Liegt der Vorgang auf dem kritischen Pfad?"
+      - "Verlängerung des Projekts = Verzögerung − Gesamtpuffer (wenn positiv)."
+      - "B hat GP 0, H und C haben je GP 3."
+    loesungsweg: |
+      - B (GP 0): 15 + 2 = **17 Tage**
+      - H (GP 3): 2 ≤ 3 → **15 Tage**
+      - C (GP 3): 4 − 3 = 1 → **16 Tage**
+      Der Gesamtpuffer sagt, wie viel Verzögerung das Projektende verkraftet.
+    quelle: "Neu erstellt (Claude), Netzplan der Lektion netzplan; alle drei Fälle mit Python neu durchgerechnet."
+    belege:
+      - {titel: "DIN 69900:2009-01 Netzplantechnik"}
+    status: ungeprüft
+
+  - id: plan-arbeitspakete
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Projektstrukturplan entwerfen"
+    situation: "Die ArchivTech GmbH richtet für ein neues Team **fünf Arbeitsplätze** ein: Bedarf klären, Hardware beschaffen, Geräte einrichten, Netzwerk und Berechtigungen, Übergabe mit Einweisung."
+    frage: "Beschreibe einen phasenorientierten Projektstrukturplan mit mindestens drei Teilaufgaben und je zwei Arbeitspaketen. Woran erkennst du ein gutes Arbeitspaket?"
+    musterloesung: |
+      1 Arbeitsplätze einrichten
+      - 1.1 Planung: 1.1.1 Bedarf mit Teamleitung klären, 1.1.2 Angebote einholen und vergleichen
+      - 1.2 Beschaffung und Einrichtung: 1.2.1 Hardware bestellen, 1.2.2 Image installieren, 1.2.3 Netzwerk und Berechtigungen einrichten
+      - 1.3 Übergabe: 1.3.1 Funktionstest mit Testprotokoll, 1.3.2 Einweisung und Abnahme
+
+      Gutes Arbeitspaket: klares Ergebnis, eine verantwortliche Person, Aufwand schätzbar,
+      unabhängig abschließbar, mit Verb formuliert.
+    bewertungspunkte:
+      - {punkt: "Baumstruktur mit Nummerierung (Projekt → Teilaufgaben → Arbeitspakete)", kernbegriffe: ["1.1", "1.2", "1.1.1"]}
+      - {punkt: "Phasen als zweite Ebene (z. B. Planung, Beschaffung, Übergabe)", kernbegriffe: ["planung", "beschaffung", "übergabe", "phase"]}
+      - {punkt: "Arbeitspakete mit Verb formuliert", kernbegriffe: ["bestellen", "einrichten", "klären", "installieren", "testen"]}
+      - {punkt: "Merkmale guter Arbeitspakete: Ergebnis, Verantwortlicher, schätzbar, abschließbar", kernbegriffe: ["verantwort", "ergebnis", "schätz", "abschließ"]}
+    hinweise:
+      - "Phasenorientiert heißt: die zweite Ebene folgt dem zeitlichen Ablauf."
+      - "Arbeitspakete stehen ganz unten und enthalten ein Verb."
+    loesungsweg: "Projekt → Phasen → Arbeitspakete mit Nummern; keine Pfeile oder Termine im PSP. Gutes Arbeitspaket: Ergebnis, Verantwortlicher, schätzbar, abschließbar."
+    quelle: "Neu erstellt (Claude), passend zur Lektion projektstrukturplan."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
+      - {titel: "Project Management Institute: Practice Standard for Work Breakdown Structures"}
+    status: ungeprüft

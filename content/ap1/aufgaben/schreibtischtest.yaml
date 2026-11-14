@@ -1,0 +1,227 @@
+# Aufgaben zum Thema „Fehler in Quellcode finden, Schreibtischtest“.
+# Passend zu den Lektionen schreibtischtest-durchfuehren und fehler-im-code-finden.
+
+aufgaben:
+  - id: code-fehlerarten-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Drei Fehlerarten"
+    frage: "Ordne jedem Beispiel die Fehlerart zu."
+    paare:
+      - {links: "In Python steht `if x = 5:` – das Programm startet gar nicht.", rechts: "Syntaxfehler"}
+      - {links: "Das Programm bricht mit „division by zero“ ab.", rechts: "Laufzeitfehler"}
+      - {links: "Das Programm läuft durch, rechnet aber mit `<` statt `>` und liefert ein falsches Ergebnis.", rechts: "Logischer Fehler"}
+    ablenker: ["Code-Review"]
+    hinweise:
+      - "Wann fällt der Fehler auf: vor dem Start, während des Laufs oder gar nicht von selbst?"
+    loesungsweg: "Startet nicht → **Syntaxfehler** · bricht ab → **Laufzeitfehler** · falsches Ergebnis → **logischer Fehler**. Code-Review ist ein Prüfverfahren, keine Fehlerart."
+    quelle: "Neu erstellt (Claude), passend zur Lektion fehler-im-code-finden."
+    belege:
+      - {titel: "Python-Dokumentation: Errors and Exceptions", url: "https://docs.python.org/3/tutorial/errors.html"}
+    status: ungeprüft
+
+  - id: code-operatoren-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Division, Ganzzahldivision, Rest"
+    frage: "Was ergeben diese Python-Ausdrücke?"
+    text: "`7 // 2` ergibt {{1}}, `7 % 2` ergibt {{2}} und `7 / 2` ergibt {{3}}."
+    luecken:
+      - antworten: ["3"]
+        falsch:
+          - {antwort: "3.5", warum: "`//` ist die Ganzzahldivision – die Nachkommastellen fallen weg.", ursache: begriff}
+      - antworten: ["1"]
+        falsch:
+          - {antwort: "3", warum: "`%` liefert den Rest der Division, nicht das Ergebnis: 7 = 3 × 2 + **1**.", ursache: begriff}
+      - antworten: ["3.5", "3,5"]
+        falsch:
+          - {antwort: "3", warum: "`/` ist in Python 3 immer die normale Division mit Kommazahl.", ursache: begriff}
+    hinweise:
+      - "`//` Ganzzahldivision, `%` Rest, `/` normale Division."
+    loesungsweg: "7 // 2 = **3** · 7 % 2 = **1** (Rest) · 7 / 2 = **3.5**."
+    quelle: "Neu erstellt (Claude), Abgrenzung der Lektion schreibtischtest-durchfuehren; in Python geprüft."
+    belege:
+      - {titel: "Python-Dokumentation: Binary arithmetic operations", url: "https://docs.python.org/3/reference/expressions.html#binary-arithmetic-operations"}
+    status: ungeprüft
+
+  - id: code-quadratsumme
+    typ: rechnung
+    stufe: 2
+    titel: "Schreibtischtest: Quadrate addieren"
+    frage: |
+      ```text
+      1  x ← 1
+      2  summe ← 0
+      3  while x ≤ 4 do
+      4      summe ← summe + x * x
+      5      x ← x + 1
+      6  end while
+      7  output summe, x
+      ```
+    schritte:
+      - frage: "Wie oft läuft der Schleifenrumpf?"
+        antwort: "4"
+        erklaerung: "x = 1, 2, 3, 4 erfüllen x ≤ 4; bei x = 5 endet die Schleife."
+        falsch:
+          - {antwort: "3", warum: "≤ schließt die 4 ein.", ursache: rechenfehler}
+      - frage: "Ausgabe summe"
+        antwort: "30"
+        erklaerung: "1 + 4 + 9 + 16 = 30."
+        falsch:
+          - {antwort: "14", warum: "Der letzte Durchlauf (x = 4) fehlt.", ursache: rechenfehler}
+      - frage: "Ausgabe x"
+        antwort: "5"
+        erklaerung: "Nach dem 4. Durchlauf wird x auf 5 erhöht; dann ist x ≤ 4 falsch."
+        falsch:
+          - {antwort: "4", warum: "x wird im letzten Durchlauf noch erhöht – erst die Prüfung mit x = 5 beendet die Schleife.", ursache: konzept}
+    hinweise:
+      - "Eine Spalte je Variable, eine Zeile je Durchlauf."
+      - "Die Bedingung wird nach dem letzten Durchlauf noch einmal geprüft."
+    loesungsweg: |
+      | x (vorher) | x ≤ 4? | summe | x (nachher) |
+      | ---: | --- | ---: | ---: |
+      | 1 | ✔ | 1 | 2 |
+      | 2 | ✔ | 5 | 3 |
+      | 3 | ✔ | 14 | 4 |
+      | 4 | ✔ | 30 | 5 |
+      | 5 | ✘ | 30 | 5 |
+
+      4 Durchläufe, Ausgabe **30** und **5**.
+    quelle: "Neu erstellt (Claude), Vorgehen der Lektion schreibtischtest-durchfuehren; mit Python nachgerechnet."
+    belege:
+      - {titel: "Wikipedia (en): Trace table", url: "https://en.wikipedia.org/wiki/Trace_table"}
+    status: ungeprüft
+
+  - id: code-archiv-voll
+    typ: rechnung
+    stufe: 3
+    titel: "Schreibtischtest: Wann ist das NAS voll?"
+    frage: |
+      ```text
+      1  kapazitaet ← 500
+      2  belegt ← 320
+      3  zuwachs ← 30
+      4  monate ← 0
+      5  while belegt + zuwachs ≤ kapazitaet do
+      6      belegt ← belegt + zuwachs
+      7      zuwachs ← zuwachs + 5
+      8      monate ← monate + 1
+      9  end while
+      10 output monate, belegt, zuwachs
+      ```
+    schritte:
+      - frage: "Ausgabe monate"
+        antwort: "4"
+        erklaerung: "Belegt nach den Durchläufen: 350, 385, 425, 470. Dann 470 + 50 = 520 > 500 → Ende."
+        falsch:
+          - {antwort: "5", warum: "Die Bedingung wird vor dem Durchlauf geprüft: 470 + 50 = 520 passt nicht mehr.", ursache: konzept}
+      - frage: "Ausgabe belegt"
+        antwort: "470"
+        erklaerung: "320 + 30 + 35 + 40 + 45 = 470."
+        falsch:
+          - {antwort: "490", warum: "Zeilen 6 und 7 vertauscht: In Zeile 6 wird mit dem **alten** Zuwachs gerechnet, erst Zeile 7 erhöht ihn.", ursache: konzept}
+      - frage: "Ausgabe zuwachs"
+        antwort: "50"
+        erklaerung: "Startwert 30, viermal um 5 erhöht = 50."
+    hinweise:
+      - "Spalten: Bedingung, belegt, zuwachs, monate."
+      - "Zeile 6 nutzt den Zuwachs, bevor Zeile 7 ihn erhöht."
+      - "Erster Durchlauf: 320 + 30 = 350 ≤ 500 ✔."
+    loesungsweg: |
+      | Durchlauf | Bedingung | belegt | zuwachs | monate |
+      | --- | --- | ---: | ---: | ---: |
+      | Start | – | 320 | 30 | 0 |
+      | 1 | 350 ≤ 500 ✔ | 350 | 35 | 1 |
+      | 2 | 385 ≤ 500 ✔ | 385 | 40 | 2 |
+      | 3 | 425 ≤ 500 ✔ | 425 | 45 | 3 |
+      | 4 | 470 ≤ 500 ✔ | 470 | 50 | 4 |
+      | Ende | 520 ≤ 500 ✘ | 470 | 50 | 4 |
+    quelle: "Neu erstellt (Claude), Variante des Beispiels der Lektion schreibtischtest-durchfuehren; mit Python nachgerechnet."
+    belege:
+      - {titel: "Wikipedia (en): Trace table", url: "https://en.wikipedia.org/wiki/Trace_table"}
+    status: ungeprüft
+
+  - id: code-pruefziffer
+    typ: rechnung
+    stufe: 3
+    titel: "Schreibtischtest in Python: Prüfziffer"
+    frage: |
+      ```python
+      1  def pruefziffer(ziffern):
+      2      summe = 0
+      3      for i in range(len(ziffern)):
+      4          if i % 2 == 0:
+      5              summe += ziffern[i]
+      6          else:
+      7              summe += ziffern[i] * 3
+      8      return (10 - summe % 10) % 10
+      ```
+      Was liefert der Aufruf `pruefziffer([9, 2, 6, 5])`?
+    schritte:
+      - frage: "Wert von summe nach der Schleife"
+        antwort: "36"
+        erklaerung: "i = 0: 9 · i = 1: + 2 × 3 = 15 · i = 2: + 6 = 21 · i = 3: + 5 × 3 = 36."
+        falsch:
+          - {antwort: "52", warum: "Gewichte vertauscht: Gerade Indizes (0, 2) zählen einfach, ungerade (1, 3) dreifach.", ursache: konzept}
+          - {antwort: "22", warum: "Die Gewichtung × 3 fehlt bei den ungeraden Indizes.", ursache: rechenfehler}
+      - frage: "Rückgabewert"
+        antwort: "4"
+        erklaerung: "36 % 10 = 6 → 10 − 6 = 4 → 4 % 10 = 4."
+        falsch:
+          - {antwort: "6", warum: "Das ist erst summe % 10; danach kommt noch 10 − 6.", ursache: rechenfehler}
+    hinweise:
+      - "`i % 2 == 0` ist wahr für die Indizes 0 und 2."
+      - "Den return-Ausdruck von innen nach außen auswerten."
+    loesungsweg: |
+      | i | ziffern[i] | gerade? | summe |
+      | ---: | ---: | --- | ---: |
+      | 0 | 9 | ja | 9 |
+      | 1 | 2 | nein | 15 |
+      | 2 | 6 | ja | 21 |
+      | 3 | 5 | nein | 36 |
+
+      Rückgabe: 36 % 10 = 6 → 10 − 6 = 4 → 4 % 10 = **4**.
+    quelle: "Neu erstellt (Claude), Funktion der Lektion schreibtischtest-durchfuehren mit neuen Werten; in Python ausgeführt."
+    belege:
+      - {titel: "Python-Dokumentation: Binary arithmetic operations", url: "https://docs.python.org/3/reference/expressions.html#binary-arithmetic-operations"}
+    status: ungeprüft
+
+  - id: code-fehler-finden
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Drei Fehler im Code"
+    situation: |
+      Die Funktion soll zählen, wie viele Werte im Feld **größer** als `grenze` sind (Index ab 0).
+
+      ```text
+      1  function anzahlGross(groessen, grenze)
+      2      for i ← 0 to laenge(groessen) do
+      3          anzahl ← 0
+      4          if groessen[i] ≥ grenze then
+      5              anzahl ← anzahl + 1
+      6          end if
+      7      end for
+      8      return anzahl
+      9  end function
+      ```
+    frage: "Nenne zu jedem Fehler die Zeile, beschreibe ihn und gib die Korrektur an."
+    musterloesung: |
+      | Zeile | Fehler | Korrektur |
+      | --- | --- | --- |
+      | 2 | Schleife läuft bis laenge – diesen Index gibt es nicht (Off-by-one, Laufzeitfehler) | `for i ← 0 to laenge(groessen) - 1 do` |
+      | 3 | anzahl wird in jedem Durchlauf auf 0 gesetzt | `anzahl ← 0` vor die Schleife |
+      | 4 | ≥ zählt auch Werte gleich der Grenze | `if groessen[i] > grenze then` |
+    bewertungspunkte:
+      - {punkt: "Zeile 2: Grenze laenge − 1 (Index laenge gibt es nicht)", kernbegriffe: ["- 1", "-1", "− 1", "off-by-one", "zeile 2"]}
+      - {punkt: "Zeile 3: Startwert vor die Schleife", kernbegriffe: ["vor die schleife", "vor der schleife", "zeile 3"]}
+      - {punkt: "Zeile 4: > statt ≥", kernbegriffe: ["> grenze", ">grenze", "zeile 4", "größer"]}
+    hinweise:
+      - "Checkliste: Startwerte, Schleifengrenzen, Vergleiche."
+      - "Teste gedanklich mit einem leeren Feld und mit einem Wert genau auf der Grenze."
+      - "Eine Antwort besteht aus Zeile, Fehler und Korrektur."
+    loesungsweg: "Zeile 2: bis laenge − 1. Zeile 3: anzahl ← 0 vor die Schleife. Zeile 4: > statt ≥. Für jeden Fehler gibt es Punkte für Begründung **und** Korrektur."
+    quelle: "Neu erstellt (Claude), Checkliste der Lektion fehler-im-code-finden."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, 04.07: Fehler in einem gegebenen Quellcode finden (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft

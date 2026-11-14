@@ -1,0 +1,240 @@
+# Aufgaben zum Thema „Quantitative und qualitative Angebotsbewertung (Nutzwertanalyse)“.
+# Passend zu den Lektionen angebotsvergleich-quantitativ und nutzwertanalyse.
+
+aufgaben:
+  - id: angebot-schema-ordnen
+    typ: reihenfolge
+    stufe: 1
+    titel: "Schema der Bezugskalkulation"
+    frage: "Bringe die Zwischenergebnisse der Bezugskalkulation in die richtige Reihenfolge."
+    elemente:
+      - "Listeneinkaufspreis"
+      - "Zieleinkaufspreis (nach Rabatt)"
+      - "Bareinkaufspreis (nach Skonto)"
+      - "Bezugspreis (mit Bezugskosten)"
+    hinweise:
+      - "Der Rabatt steht schon im Vertrag, Skonto gibt es erst beim Bezahlen."
+      - "Bezugskosten kommen ganz am Ende dazu."
+    loesungsweg: "Listeneinkaufspreis − Rabatt = Zieleinkaufspreis − Skonto = Bareinkaufspreis + Bezugskosten = **Bezugspreis**."
+    quelle: "Neu erstellt (Claude), Schema der Lektion angebotsvergleich-quantitativ."
+    belege:
+      - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung, Rahmenlehrplan IT-Berufe LF 2"}
+    status: ungeprüft
+
+  - id: angebot-begriffe-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Begriffe beim Angebotsvergleich"
+    frage: "Ordne jedem Begriff die passende Bedeutung zu."
+    paare:
+      - {links: "Rabatt", rechts: "Preisnachlass, der schon bei Vertragsabschluss gilt"}
+      - {links: "Skonto", rechts: "Nachlass für Zahlung innerhalb einer kurzen Frist"}
+      - {links: "Bezugskosten", rechts: "Versand, Verpackung, Versicherung, Zoll"}
+      - {links: "K.-o.-Kriterium", rechts: "Muss-Kriterium; nicht erfüllt heißt ausgeschieden"}
+      - {links: "Nutzwert", rechts: "Summe der gewichteten Punkte eines Angebots"}
+    ablenker: ["Nachträglicher Nachlass auf den Jahresumsatz"]
+    hinweise:
+      - "Eine Beschreibung bleibt übrig – sie gehört zum Bonus."
+    loesungsweg: "Rabatt → bei Vertragsabschluss · Skonto → schnelle Zahlung · Bezugskosten → Versand & Co. · K.-o.-Kriterium → Muss · Nutzwert → Summe der Teilnutzen. Übrig: Bonus."
+    quelle: "Neu erstellt (Claude), Abgrenzungstabellen der Lektionen angebotsvergleich-quantitativ und nutzwertanalyse."
+    belege:
+      - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung"}
+      - {titel: "Zangemeister, C.: Nutzwertanalyse in der Systemtechnik, 1970/1976"}
+    status: ungeprüft
+
+  - id: angebot-skonto-basis
+    typ: multiple_choice
+    stufe: 2
+    titel: "Wovon wird Skonto berechnet?"
+    frage: "Ein Angebot nennt 10 % Rabatt und 2 % Skonto. Von welchem Betrag werden die 2 % Skonto berechnet?"
+    optionen:
+      - {text: "Vom Zieleinkaufspreis", richtig: true, warum: "Skonto gibt es auf den Rechnungsbetrag – und auf der Rechnung steht schon der rabattierte Preis."}
+      - {text: "Vom Listeneinkaufspreis", warum: "Dann gäbe es Nachlass auf Geld, das wegen des Rabatts ohnehin nicht gezahlt wird.", ursache: konzept}
+      - {text: "Vom Bezugspreis", warum: "Bezugskosten werden weder rabattiert noch skontiert; sie kommen erst nach dem Skonto dazu.", ursache: konzept}
+      - {text: "Vom Bareinkaufspreis", warum: "Der Bareinkaufspreis ist schon das Ergebnis **nach** Skonto.", ursache: begriff}
+    hinweise:
+      - "Jeder Prozentsatz wirkt auf das Zwischenergebnis direkt davor."
+    loesungsweg: "Reihenfolge Rabatt → Skonto → Bezugskosten. Skonto bezieht sich auf den **Zieleinkaufspreis** (Listenpreis nach Rabatt)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion angebotsvergleich-quantitativ."
+    belege:
+      - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung"}
+    status: ungeprüft
+
+  - id: angebot-nutzwert-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Nutzwertanalyse in drei Sätzen"
+    frage: "Fülle die Lücken aus."
+    text: "Die Gewichte aller Kriterien ergeben zusammen {{1}} %. Der Teilnutzen ist Gewicht mal {{2}}. Der Nutzwert eines Angebots ist die {{3}} seiner Teilnutzen; beim Preis bekommt das {{4}} Angebot die meisten Punkte."
+    luecken:
+      - antworten: ["100"]
+      - antworten: ["Punkte", "Punktzahl", "Erfüllungsgrad", "Punkten"]
+        falsch:
+          - {antwort: "Preis", warum: "Multipliziert wird mit den Punkten (Erfüllungsgrad), nicht mit dem Preis.", ursache: konzept}
+      - antworten: ["Summe"]
+        falsch:
+          - {antwort: "Durchschnitt", warum: "Weil die Gewichte schon 100 % ergeben, reicht die Summe; ein Durchschnitt würde nochmals teilen.", ursache: konzept}
+      - antworten: ["günstigste", "billigste", "preiswerteste"]
+        falsch:
+          - {antwort: "teuerste", warum: "Mehr Punkte heißt immer „besser“ – beim Preis ist günstig besser.", ursache: konzept}
+    hinweise:
+      - "Teilnutzen = Gewicht × Punkte."
+      - "Mehr Punkte = besser, bei jedem Kriterium."
+    loesungsweg: "Gewichte = **100 %**; Teilnutzen = Gewicht × **Punkte**; Nutzwert = **Summe** der Teilnutzen; beim Preis bekommt das **günstigste** Angebot die meisten Punkte."
+    quelle: "Neu erstellt (Claude), passend zur Lektion nutzwertanalyse."
+    belege:
+      - {titel: "Zangemeister, C.: Nutzwertanalyse in der Systemtechnik, 1970/1976"}
+    status: ungeprüft
+
+  - id: angebot-monitore-bezugspreis
+    typ: rechnung
+    stufe: 3
+    titel: "Bezugspreis für acht Monitore"
+    frage: "Ein Händler bietet **8 Monitore zu je 249,00 €** netto an: **12 % Rabatt**, **2 % Skonto** bei Zahlung innerhalb von 10 Tagen, Versand **29,90 € pauschal**. Berechne Schritt für Schritt (auf Cent runden)."
+    schritte:
+      - frage: "Listeneinkaufspreis"
+        antwort: "1992"
+        einheit: "€"
+        erklaerung: "8 × 249,00 € = 1.992,00 €."
+      - frage: "Zieleinkaufspreis"
+        antwort: "1752,96"
+        einheit: "€"
+        erklaerung: "12 % Rabatt: 1.992,00 € × 0,12 = 239,04 € → 1.992,00 € − 239,04 € = 1.752,96 €."
+        falsch:
+          - {antwort: "239,04", warum: "Das ist der Rabatt selbst; gesucht ist der Preis nach Abzug.", ursache: rechenfehler}
+      - frage: "Bareinkaufspreis"
+        antwort: "1717,9"
+        einheit: "€"
+        erklaerung: "2 % Skonto vom Zieleinkaufspreis: 1.752,96 € × 0,02 = 35,06 € → 1.717,90 €."
+        falsch:
+          - {antwort: "1713,12", warum: "Skonto vom Listenpreis berechnet. Er bezieht sich auf den Zieleinkaufspreis.", ursache: konzept}
+      - frage: "Bezugspreis"
+        antwort: "1747,8"
+        einheit: "€"
+        erklaerung: "1.717,90 € + 29,90 € Versand = 1.747,80 €."
+        falsch:
+          - {antwort: "1743,02", warum: "Folgefehler: Skonto vom Listenpreis statt vom Zieleinkaufspreis.", ursache: konzept}
+    hinweise:
+      - "Reihenfolge: Rabatt → Skonto → Bezugskosten."
+      - "Skonto vom Zieleinkaufspreis, Versand wird nicht rabattiert."
+      - "Listeneinkaufspreis = Stückpreis × Menge."
+    loesungsweg: |
+      1. Listeneinkaufspreis: 8 × 249,00 € = **1.992,00 €**
+      2. − 12 % Rabatt (239,04 €) = **1.752,96 €**
+      3. − 2 % Skonto (35,06 €) = **1.717,90 €**
+      4. + 29,90 € Versand = **1.747,80 €**
+    quelle: "Neu erstellt (Claude), Schema der Lektion angebotsvergleich-quantitativ; mit Decimal nachgerechnet."
+    belege:
+      - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung"}
+    status: ungeprüft
+
+  - id: angebot-nutzwert-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Nutzwerte zweier Angebote"
+    frage: |
+      Berechne die Nutzwerte (Punkte 1–10, mehr ist besser; Gewichte als Dezimalzahl, also 0,5 statt 50).
+
+      | Kriterium | Gewicht | A | B |
+      | --- | ---: | ---: | ---: |
+      | Preis | 50 % | 6 | 9 |
+      | Service | 30 % | 9 | 5 |
+      | Lieferzeit | 20 % | 8 | 7 |
+    schritte:
+      - frage: "Nutzwert A"
+        antwort: "7,3"
+        erklaerung: "0,5 × 6 + 0,3 × 9 + 0,2 × 8 = 3,0 + 2,7 + 1,6 = 7,3."
+        falsch:
+          - {antwort: "23", warum: "Nur die Punkte addiert, nicht gewichtet.", ursache: konzept}
+      - frage: "Nutzwert B"
+        antwort: "7,4"
+        erklaerung: "0,5 × 9 + 0,3 × 5 + 0,2 × 7 = 4,5 + 1,5 + 1,4 = 7,4."
+        falsch:
+          - {antwort: "21", warum: "Nur die Punkte addiert, nicht gewichtet.", ursache: konzept}
+    hinweise:
+      - "Teilnutzen = Gewicht × Punkte; Nutzwert = Summe."
+      - "Gewichte als Dezimalzahl: 50 % = 0,5."
+    loesungsweg: |
+      - A: 3,0 + 2,7 + 1,6 = **7,3**
+      - B: 4,5 + 1,5 + 1,4 = **7,4** → B knapp vorn, obwohl A ungewichtet mehr Punkte hat (23 zu 21).
+    quelle: "Neu erstellt (Claude), Verfahren der Lektion nutzwertanalyse; nachgerechnet."
+    belege:
+      - {titel: "Zangemeister, C.: Nutzwertanalyse in der Systemtechnik, 1970/1976"}
+    status: ungeprüft
+
+  - id: angebot-docks-vergleich
+    typ: rechnung
+    stufe: 4
+    titel: "Dockingstationen: welches Angebot?"
+    situation: |
+      Die ArchivTech GmbH braucht **20 Dockingstationen**. Zwei Angebote liegen vor:
+
+      | | Angebot A | Angebot B |
+      | --- | --- | --- |
+      | Preis je Stück | 189,00 € | 179,00 € |
+      | Rabatt | 8 % | 5 % |
+      | Skonto | 3 % | – |
+      | Bezugskosten | 4,50 € je Stück | frei Haus |
+    frage: "Berechne beide Bezugspreise (auf Cent gerundet) und den Preisunterschied."
+    schritte:
+      - frage: "Bezugspreis Angebot A"
+        antwort: "3463,27"
+        einheit: "€"
+        erklaerung: "3.780,00 € − 8 % (302,40 €) = 3.477,60 € − 3 % (104,33 €) = 3.373,27 € + 20 × 4,50 € = 3.463,27 €."
+        falsch:
+          - {antwort: "3377,77", warum: "Die Bezugskosten gelten **je Stück**: 20 × 4,50 € = 90,00 €.", ursache: rechenfehler}
+          - {antwort: "3454,2", warum: "Skonto vom Listenpreis berechnet (113,40 €) – er bezieht sich auf den Zieleinkaufspreis.", ursache: konzept}
+      - frage: "Bezugspreis Angebot B"
+        antwort: "3401"
+        einheit: "€"
+        erklaerung: "3.580,00 € − 5 % (179,00 €) = 3.401,00 €; kein Skonto, frei Haus."
+      - frage: "Preisunterschied (teureres minus günstigeres Angebot)"
+        antwort: "62,27"
+        einheit: "€"
+        erklaerung: "3.463,27 € − 3.401,00 € = 62,27 € – Angebot **B** ist günstiger, obwohl A mehr Nachlass bietet."
+    hinweise:
+      - "Für jedes Angebot das Schema: Listenpreis → Rabatt → Skonto → Bezugskosten."
+      - "„Je Stück“ heißt: Bezugskosten mal Menge."
+      - "Angebot A: Listeneinkaufspreis 20 × 189,00 € = 3.780,00 €."
+    loesungsweg: |
+      **A:** 3.780,00 → −302,40 = 3.477,60 → −104,33 = 3.373,27 → +90,00 = **3.463,27 €**
+      **B:** 3.580,00 → −179,00 = **3.401,00 €**
+      Unterschied **62,27 €** zugunsten von B. Verglichen wird der Bezugspreis, nicht Nachlässe oder Listenpreise.
+    quelle: "Neu erstellt (Claude), Schema der Lektion angebotsvergleich-quantitativ; mit Decimal nachgerechnet."
+    belege:
+      - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung"}
+    status: ungeprüft
+
+  - id: angebot-ko-empfehlung
+    typ: freitext
+    stufe: 4
+    operator: begründen
+    titel: "Empfehlung trotz höchstem Nutzwert?"
+    situation: |
+      Für neue Notebooks hat das Team eine Nutzwertanalyse gemacht. K.-o.-Kriterium:
+      **USB-C mit Bildausgabe** (sonst funktionieren die Dockingstationen nicht).
+
+      | | Angebot A | Angebot B | Angebot C |
+      | --- | ---: | ---: | ---: |
+      | Nutzwert | 7,2 | 6,8 | 7,9 |
+      | USB-C mit Bildausgabe | ja | ja | **nein** |
+    frage: "Welches Angebot empfiehlst du der Geschäftsführung? Begründe deine Empfehlung."
+    musterloesung: |
+      Empfohlen wird Angebot A. Angebot C hat zwar den höchsten Nutzwert, erfüllt aber das
+      K.-o.-Kriterium „USB-C mit Bildausgabe“ nicht und scheidet deshalb aus – mit C würden die
+      Dockingstationen nicht funktionieren. Von den verbleibenden Angeboten hat A mit 7,2 den
+      höchsten Nutzwert.
+    bewertungspunkte:
+      - {punkt: "Empfehlung: Angebot A", kernbegriffe: ["angebot a"]}
+      - {punkt: "C scheidet wegen des K.-o.-Kriteriums aus, trotz höchstem Nutzwert", kernbegriffe: ["k.-o.", "ko", "k.o.", "muss", "scheidet"]}
+      - {punkt: "Folge erklärt: ohne Bildausgabe funktionieren die Docks nicht", kernbegriffe: ["dock", "bildausgabe", "monitor"]}
+      - {punkt: "A hat unter den verbleibenden Angeboten den höchsten Nutzwert", kernbegriffe: ["7,2", "höchst", "verbleib"]}
+    hinweise:
+      - "Was passiert mit einem Angebot, das ein K.-o.-Kriterium nicht erfüllt?"
+      - "Vergleiche danach nur noch die übrigen Angebote."
+      - "„Begründen“: Entscheidung plus Grund."
+    loesungsweg: "K.-o.-Kriterien werden **vor** der Bewertung geprüft: C fällt raus, auch mit 7,9. Unter A und B gewinnt A (7,2). Zur Begründung gehört, **warum** das K.-o.-Kriterium wichtig ist."
+    quelle: "Neu erstellt (Claude), Ablauf der Lektion nutzwertanalyse."
+    belege:
+      - {titel: "Zangemeister, C.: Nutzwertanalyse in der Systemtechnik, 1970/1976"}
+    status: ungeprüft

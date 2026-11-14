@@ -1,0 +1,211 @@
+# Aufgaben zum Thema „Grundlagen relationaler Datenbanken, einfache ER-Modelle“.
+# Passend zu den Lektionen erm-grundlagen und relationale-tabellen. SQL ist 2025 entfallen.
+
+aufgaben:
+  - id: erm-symbole-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Symbole der Chen-Notation"
+    frage: "Ordne jedem Symbol der Chen-Notation seine Bedeutung zu."
+    paare:
+      - {links: "Rechteck", rechts: "Entitätstyp"}
+      - {links: "Raute", rechts: "Beziehungstyp"}
+      - {links: "Ellipse", rechts: "Attribut"}
+      - {links: "Unterstrichene Ellipse", rechts: "Schlüsselattribut"}
+    ablenker: ["Fremdschlüssel"]
+    hinweise:
+      - "Im ERM gibt es keine Fremdschlüssel – die entstehen erst im Tabellenmodell."
+    loesungsweg: "Rechteck = Entitätstyp · Raute = Beziehung · Ellipse = Attribut · unterstrichen = Schlüssel. Fremdschlüssel gehören ins relationale Modell, nicht ins ERM."
+    quelle: "Neu erstellt (Claude), passend zur Lektion erm-grundlagen."
+    belege:
+      - {titel: "Chen, P. P.: The Entity-Relationship Model – Toward a Unified View of Data, ACM TODS 1(1), 1976"}
+    status: ungeprüft
+
+  - id: erm-begriffe-tabellen
+    typ: zuordnung
+    stufe: 1
+    titel: "Vom ERM zur Tabelle"
+    frage: "Was wird im relationalen Modell (Tabellen) aus den Begriffen des ERM?"
+    paare:
+      - {links: "Entitätstyp", rechts: "Tabelle (Relation)"}
+      - {links: "Entität", rechts: "Zeile (Datensatz, Tupel)"}
+      - {links: "Attribut", rechts: "Spalte"}
+      - {links: "Schlüsselattribut", rechts: "Primärschlüssel"}
+    ablenker: ["Index"]
+    hinweise:
+      - "Ein Entitätstyp ist die Gruppe, eine Entität ein einzelnes Ding daraus."
+    loesungsweg: "Entitätstyp → Tabelle · Entität → Zeile · Attribut → Spalte · Schlüsselattribut → Primärschlüssel."
+    quelle: "Neu erstellt (Claude), Abgrenzungstabelle der Lektion erm-grundlagen."
+    belege:
+      - {titel: "Kemper, A.; Eickler, A.: Datenbanksysteme – Eine Einführung (Übersetzung ins relationale Modell)"}
+    status: ungeprüft
+
+  - id: erm-kardinalitaet-rack
+    typ: multiple_choice
+    stufe: 2
+    titel: "Kardinalität bestimmen"
+    frage: "In einem Rechenzentrum stehen viele Server-Racks. Jedes Rack steht in genau einem Rechenzentrum. Welche Kardinalität hat die Beziehung **Rechenzentrum – Rack**?"
+    optionen:
+      - {text: "1 : n", richtig: true, warum: "Ein Rechenzentrum hat n Racks, ein Rack gehört zu genau einem Rechenzentrum."}
+      - {text: "n : 1", warum: "Das wäre andersherum: viele Rechenzentren je Rack. Frag jede Richtung einzeln.", ursache: rechenfehler}
+      - {text: "n : m", warum: "Ein Rack steht aber nur in einem Rechenzentrum – also keine Mehrfachzuordnung auf beiden Seiten.", ursache: konzept}
+      - {text: "1 : 1", warum: "Ein Rechenzentrum hat mehrere Racks.", ursache: konzept}
+    hinweise:
+      - "Frag beide Richtungen: Wie viele Racks hat **ein** Rechenzentrum? In wie vielen Rechenzentren steht **ein** Rack?"
+    loesungsweg: "Ein RZ → viele Racks (n), ein Rack → genau ein RZ (1). Ergebnis: Rechenzentrum **1 : n** Rack."
+    quelle: "Neu erstellt (Claude), Vorgehen der Lektion erm-grundlagen."
+    belege:
+      - {titel: "Chen, P. P.: The Entity-Relationship Model, ACM TODS 1(1), 1976"}
+    status: ungeprüft
+
+  - id: erm-anomalien-zuordnen
+    typ: zuordnung
+    stufe: 2
+    titel: "Welche Anomalie ist das?"
+    frage: "Eine Liste enthält Tickets mit Name und Abteilung des bearbeitenden Mitarbeiters in jeder Zeile. Ordne jedem Problem die Anomalie zu."
+    paare:
+      - {links: "Ein Mitarbeiter wechselt die Abteilung; in drei von zwölf Zeilen bleibt die alte stehen.", rechts: "Änderungsanomalie"}
+      - {links: "Ein neuer Mitarbeiter lässt sich erst erfassen, wenn er ein Ticket bearbeitet hat.", rechts: "Einfügeanomalie"}
+      - {links: "Das einzige Ticket einer Kollegin wird gelöscht – damit ist auch ihre Abteilung weg.", rechts: "Löschanomalie"}
+    ablenker: ["Referentielle Integrität"]
+    hinweise:
+      - "Ändern – Einfügen – Löschen: Welche Aktion geht jeweils schief?"
+    loesungsweg: "Teilweise geändert → **Änderungsanomalie**. Etwas lässt sich nicht speichern → **Einfügeanomalie**. Beim Löschen verschwindet mehr → **Löschanomalie**. Ursache aller drei: Redundanz."
+    quelle: "Neu erstellt (Claude), passend zur Lektion relationale-tabellen."
+    belege:
+      - {titel: "Codd, E. F.: Further Normalization of the Data Base Relational Model, 1972"}
+    status: ungeprüft
+
+  - id: erm-normalformen-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Die drei Normalformen"
+    frage: "Fülle die Lücken aus."
+    text: "In der {{1}}. Normalform steht in jeder Zelle genau ein Wert. Die 2. Normalform verlangt, dass jedes Nicht-Schlüssel-Attribut vom {{2}} Primärschlüssel abhängt. In der 3. Normalform gibt es keine {{3}} Abhängigkeiten."
+    luecken:
+      - antworten: ["1", "ersten", "erste"]
+      - antworten: ["ganzen", "gesamten", "vollständigen"]
+        falsch:
+          - {antwort: "teilweisen", warum: "Genau das verbietet die 2NF: ein Attribut darf nicht nur von einem Teil des Schlüssels abhängen.", ursache: konzept}
+      - antworten: ["transitiven"]
+        falsch:
+          - {antwort: "funktionalen", warum: "Funktionale Abhängigkeiten vom Schlüssel sind erwünscht; verboten sind Umwege über Nicht-Schlüssel-Attribute.", ursache: begriff}
+    hinweise:
+      - "1NF: atomar · 2NF: ganzer Schlüssel · 3NF: keine Umwege."
+    loesungsweg: "**1.** NF atomar; 2NF: Abhängigkeit vom **ganzen** Schlüssel; 3NF: keine **transitiven** Abhängigkeiten (Umweg über ein anderes Nicht-Schlüssel-Attribut)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion relationale-tabellen."
+    belege:
+      - {titel: "Codd, E. F.: Further Normalization of the Data Base Relational Model, 1972 (2. und 3. Normalform)"}
+    status: ungeprüft
+
+  - id: erm-nm-umsetzen
+    typ: multiple_choice
+    stufe: 3
+    titel: "n : m in Tabellen umsetzen"
+    frage: "Ein Mitarbeiter arbeitet an mehreren Projekten, an einem Projekt arbeiten mehrere Mitarbeiter; je Zuordnung soll die **Rolle** gespeichert werden. Wie setzt du das in Tabellen um?"
+    optionen:
+      - {text: "Zwischentabelle Mitarbeit (PersonalNr, ProjektNr, Rolle); beide Fremdschlüssel bilden zusammen den Primärschlüssel", richtig: true, warum: "n : m braucht eine eigene Tabelle; das Beziehungsattribut Rolle gehört dorthin."}
+      - {text: "Spalte ProjektNr in der Tabelle Mitarbeiter, Rolle ebenfalls beim Mitarbeiter", warum: "Dann hätte jeder Mitarbeiter nur ein Projekt – und die Rolle wäre an die Person statt an die Zuordnung gebunden.", ursache: konzept}
+      - {text: "Spalte „Mitarbeiter“ mit einer Liste von Namen in der Tabelle Projekt", warum: "Listen in einer Zelle verletzen die 1. Normalform.", ursache: konzept}
+      - {text: "Spalte PersonalNr in der Tabelle Projekt", warum: "Das bildet nur 1 : n ab (ein Mitarbeiter je Projekt).", ursache: konzept}
+    hinweise:
+      - "1 : n → Fremdschlüssel auf die n-Seite. Und bei n : m?"
+      - "Wohin gehört ein Attribut, das erst durch die Kombination beider Seiten Sinn ergibt?"
+    loesungsweg: "n : m → **Zwischentabelle** mit beiden Fremdschlüsseln als zusammengesetztem Primärschlüssel. Die **Rolle** hängt an der Zuordnung, also in die Zwischentabelle."
+    quelle: "Neu erstellt (Claude), Beispiel „Mitarbeit“ der Lektion erm-grundlagen."
+    belege:
+      - {titel: "Kemper, A.; Eickler, A.: Datenbanksysteme – Eine Einführung (Übersetzung ins relationale Modell)"}
+    status: ungeprüft
+
+  - id: erm-import-reihenfolge
+    typ: reihenfolge
+    stufe: 3
+    titel: "In welcher Reihenfolge importieren?"
+    frage: |
+      Ein Python-Skript soll Altdaten in diese Tabellen importieren (↑ = Fremdschlüssel):
+
+      - Kunde (KundenNr, Name)
+      - Projekt (ProjektNr, Bezeichnung, ↑KundenNr)
+      - Dokument (DokNr, Titel, ↑ProjektNr)
+      - Verschlagwortung (↑DokNr, ↑SchlagwortNr)
+      - Schlagwort (SchlagwortNr, Begriff)
+
+      In welcher Reihenfolge müssen die Tabellen befüllt werden, damit die referentielle Integrität nie verletzt ist? Schlagwort und Kunde haben keine Fremdschlüssel – setze **Schlagwort direkt nach Kunde**.
+    elemente:
+      - "Kunde"
+      - "Schlagwort"
+      - "Projekt"
+      - "Dokument"
+      - "Verschlagwortung"
+    hinweise:
+      - "Ein Fremdschlüssel darf nur auf einen Datensatz zeigen, den es schon gibt."
+      - "Erst die Tabellen ohne Fremdschlüssel, zuletzt die Zwischentabelle."
+    loesungsweg: "Kunde → Schlagwort (beide ohne Fremdschlüssel) → Projekt (braucht Kunde) → Dokument (braucht Projekt) → Verschlagwortung (braucht Dokument und Schlagwort)."
+    quelle: "Neu erstellt (Claude), Praxisbezug der Lektion erm-grundlagen."
+    belege:
+      - {titel: "Codd, E. F.: A Relational Model of Data for Large Shared Data Banks, CACM 13(6), 1970"}
+    status: ungeprüft
+
+  - id: erm-ticket-normalform
+    typ: multiple_choice
+    stufe: 3
+    titel: "Welche Normalform ist verletzt?"
+    frage: |
+      Gegeben ist die Tabelle (Primärschlüssel unterstrichen):
+
+      Ticket (<u>TicketNr</u>, Datum, Betreff, MitarbeiterNr, Mitarbeitername)
+
+      Jede Zelle enthält genau einen Wert. Welche Normalform ist **verletzt**?
+    optionen:
+      - {text: "Die 3. Normalform", richtig: true, warum: "Mitarbeitername hängt über MitarbeiterNr nur transitiv von TicketNr ab."}
+      - {text: "Die 2. Normalform", warum: "Der Schlüssel besteht aus nur einer Spalte – dann ist eine Tabelle in 1NF automatisch in 2NF.", ursache: konzept}
+      - {text: "Die 1. Normalform", warum: "Alle Werte sind atomar; die 1NF ist erfüllt.", ursache: begriff}
+      - {text: "Keine – die Tabelle ist in 3NF", warum: "TicketNr → MitarbeiterNr → Mitarbeitername ist ein Umweg über ein Nicht-Schlüssel-Attribut.", ursache: konzept}
+    hinweise:
+      - "Hängt ein Attribut von einem anderen Nicht-Schlüssel-Attribut ab?"
+      - "Bei einem einspaltigen Schlüssel ist 2NF kein Thema."
+    loesungsweg: "Einspaltiger Schlüssel → 2NF automatisch erfüllt. Aber TicketNr → MitarbeiterNr → Mitarbeitername: **transitive Abhängigkeit**, also 3NF verletzt. Lösung: Mitarbeiter (MitarbeiterNr, Mitarbeitername) auslagern, im Ticket bleibt ↑MitarbeiterNr."
+    quelle: "Neu erstellt (Claude), passend zur Lektion relationale-tabellen."
+    belege:
+      - {titel: "Codd, E. F.: Further Normalization of the Data Base Relational Model, 1972"}
+    status: ungeprüft
+
+  - id: erm-lizenzliste-normalisieren
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Lizenzliste in Tabellen überführen"
+    situation: |
+      Die IT der ArchivTech GmbH pflegt Softwarelizenzen bisher in einer Excel-Liste:
+
+      | LizenzNr | Software | Hersteller | HerstellerOrt | Arbeitsplätze |
+      | --- | --- | --- | --- | --- |
+      | L1 | Office-Paket | Softhaus AG | Berlin | PC-01, PC-07 |
+      | L2 | CAD-Programm | Plantec GmbH | München | PC-03 |
+      | L3 | PDF-Editor | Softhaus AG | Berlin | PC-01, PC-03, PC-09 |
+    frage: "Beschreibe einen Tabellenentwurf in 3. Normalform mit Primär- und Fremdschlüsseln, und nenne, welche Probleme der Liste du damit löst."
+    musterloesung: |
+      - Hersteller (<u>HerstellerNr</u>, Name, Ort)
+      - Lizenz (<u>LizenzNr</u>, Software, ↑HerstellerNr)
+      - Arbeitsplatz (<u>ArbeitsplatzNr</u>, …)
+      - Zuordnung (<u>↑LizenzNr, ↑ArbeitsplatzNr</u>)
+
+      Die Spalte „Arbeitsplätze“ enthält Listen (1NF verletzt) und bildet eine n : m-Beziehung ab –
+      deshalb eine Zwischentabelle. HerstellerOrt hängt über den Hersteller nur transitiv von der
+      LizenzNr ab (3NF) und steht mehrfach da; ein Umzug der Softhaus AG müsste sonst in mehreren
+      Zeilen geändert werden (Änderungsanomalie).
+    bewertungspunkte:
+      - {punkt: "Eigene Tabelle Hersteller mit Ort; in der Lizenz nur der Fremdschlüssel", kernbegriffe: ["hersteller"]}
+      - {punkt: "Zwischentabelle für Lizenz–Arbeitsplatz (n : m), keine Listen in Zellen", kernbegriffe: ["zwischentabelle", "zuordnung", "n : m", "n:m"]}
+      - {punkt: "Primär- und Fremdschlüssel benannt", kernbegriffe: ["primärschlüssel", "fremdschlüssel", "schlüssel"]}
+      - {punkt: "Gelöste Probleme: Listen in Zellen (1NF), Redundanz/Änderungsanomalie beim Hersteller (3NF)", kernbegriffe: ["redundanz", "anomalie", "1nf", "3nf", "normalform", "atomar"]}
+    hinweise:
+      - "Zwei Probleme: eine Spalte mit Listen und eine Information, die mehrfach vorkommt."
+      - "Listen in Zellen sind meist eine versteckte n : m-Beziehung."
+      - "HerstellerOrt hängt vom Hersteller ab, nicht von der Lizenz."
+    loesungsweg: "Vier Tabellen: Hersteller, Lizenz (mit ↑HerstellerNr), Arbeitsplatz, Zuordnung (↑LizenzNr, ↑ArbeitsplatzNr). Gelöst: 1NF-Verstoß (Listen) und transitive Abhängigkeit/Redundanz beim Hersteller."
+    quelle: "Neu erstellt (Claude), Vorgehen der Lektionen relationale-tabellen und erm-grundlagen; fiktive Firmennamen."
+    belege:
+      - {titel: "Codd, E. F.: Further Normalization of the Data Base Relational Model, 1972"}
+      - {titel: "Kemper, A.; Eickler, A.: Datenbanksysteme – Eine Einführung"}
+    status: ungeprüft
