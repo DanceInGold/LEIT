@@ -24,6 +24,7 @@ from ap_trainer.content.aufgaben import (
     Reihenfolge,
     Zuordnung,
 )
+from ap_trainer.core.mastery import AMPEL_LABELS, Mastery
 from ap_trainer.service import PracticeTopic, Submission, Trainer
 from ap_trainer.tasks.check import Antwort, FreitextAntwort, missing_terms
 from ap_trainer.tasks.hints import help_steps
@@ -229,8 +230,10 @@ def _feedback(task: Aufgabe, submission: Submission) -> None:
         _markdown(task.loesungsweg)
 
 
-def _topic_card(item: PracticeTopic) -> None:
+def _topic_card(item: PracticeTopic, value: Mastery) -> None:
     quote = f"{item.richtig}/{item.versuche} richtig" if item.versuche else "noch nicht geübt"
+    if value.grad is not None:
+        quote += f" · Beherrschung {value.grad} % ({AMPEL_LABELS[value.ampel]})"
     with (
         ui.card()
         .classes("w-full cursor-pointer hover:shadow-md")
@@ -250,6 +253,7 @@ def register(trainer: Trainer) -> None:
     @ui.page("/ueben")
     def overview_page() -> None:
         topics = trainer.practice_topics()
+        values = trainer.masteries()
         with frame("Üben"):
             ui.label(
                 "Die Stufe steigt nach drei sicher gelösten Aufgaben in Folge und sinkt nach zwei Fehlern. "
@@ -258,7 +262,7 @@ def register(trainer: Trainer) -> None:
             if not topics:
                 ui.label("Noch keine Aufgaben vorhanden.")
             for item in topics:
-                _topic_card(item)
+                _topic_card(item, values.get(item.thema.id, Mastery(grad=None)))
 
     @ui.page("/ueben/{topic_id}")
     def exercise_page(topic_id: str, aufgabe: str | None = None) -> None:

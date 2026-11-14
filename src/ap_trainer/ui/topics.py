@@ -1,4 +1,4 @@
-"""Themenübersicht und Themenseite mit nummerierten Kapiteln (Vorstufe zu FT-02).
+"""Themenübersicht und Themenseite mit nummerierten Kapiteln und Beherrschungsgrad (FT-01).
 
 Die Übersicht zeigt Bereiche mit Fortschrittsbalken; die Themenseite listet die Kapitel
 (Lektionen) eines Themas in Lesereihenfolge mit Dauer und Lesestand.
@@ -9,6 +9,7 @@ from __future__ import annotations
 from nicegui import ui
 
 from ap_trainer.content.models import Thema
+from ap_trainer.core.mastery import AMPEL_LABELS
 from ap_trainer.service import Trainer
 from ap_trainer.ui.layout import frame
 
@@ -93,6 +94,11 @@ def register(trainer: Trainer) -> None:
                     ui.badge("Katalog " + ", ".join(topic.katalog)).props("outline")
                 if topic.stand_2025 in STAND_LABELS:
                     ui.badge(STAND_LABELS[topic.stand_2025])
+                value = trainer.mastery(topic_id)
+                if value.grad is not None:
+                    ui.badge(f"Beherrschung {value.grad} % · {AMPEL_LABELS[value.ampel]}").props("outline")
+                if not trainer.pools[topic_id].is_empty():
+                    ui.link("Üben →", f"/ueben/{topic_id}")
             if not chapters:
                 ui.label("Die Kapitel zu diesem Thema sind noch in Arbeit.").classes("opacity-70")
             done = sum(1 for c in chapters if c.id in read)

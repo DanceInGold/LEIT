@@ -19,6 +19,8 @@ from ap_trainer.content.models import Lektion, Thema
 from ap_trainer.core import scheduler
 from ap_trainer.core.cards import Flashcard, card_index, cards_for_topics
 from ap_trainer.core.levels import LevelState, replay
+from ap_trainer.core.mastery import Mastery, mastery
+from ap_trainer.core.mistakes import MistakeGroup, mistake_log
 from ap_trainer.core.models import (
     Attempt,
     BudgetPeriod,
@@ -295,6 +297,37 @@ class Trainer:
         if progress.zustand == "offen":
             self.store.set_progress(progress.model_copy(update={"zustand": "laufend"}))
         return Submission(result, before, self.level(task.thema).stufe)
+
+    # --- Fortschritt (FT-01, FT-02, FT-04) -----------------------------------------
+    def masteries(self, now: dt.datetime | None = None) -> dict[str, Mastery]:
+        """Beherrschungsgrad aller prüfungsrelevanten Themen mit Aufgaben (FT-01)."""
+        moment = now or dt.datetime.now(dt.UTC)
+        by_topic: dict[str, list[Attempt]] = {}
+        for attempt in self.store.attempts():
+            by_topic.setdefault(attempt.thema, []).append(attempt)
+        result = {}
+        for topic in self.package.katalog.themen:
+            pool = self.pools[topic.id]
+            if pool.is_empty() or not topic.is_relevant:
+                continue
+            result[topic.id] = mastery(by_topic.get(topic.id, []), max(pool.levels()), moment)
+        return result
+
+    def mastery(self, topic_id: str, now: dt.datetime | None = None) -> Mastery:
+        """Beherrschungsgrad eines Themas; ohne Aufgaben „noch nicht geübt“."""
+        pool = self.pools.get(topic_id)
+        if pool is None or pool.is_empty():
+            return Mastery(grad=None)
+        return mastery(self.store.attempts(topic_id), max(pool.levels()), now or dt.datetime.now(dt.UTC))
+
+    def mistakes(self, include_fixed: bool = True) -> list[MistakeGroup]:
+        """Fehlerprotokoll, gruppiert nach Fehlerursache (FT-04)."""
+        return mistake_log(self.store.attempts(), include_fixed)
+
+    def task_title(self, task_id: str, topic_id: str) -> str:
+        """Titel einer festen oder generierten Aufgabe; die ID, falls sie nicht mehr existiert."""
+        task = self.find_task(task_id, topic_id)
+        return task.titel if task is not None else task_id
 
     # --- Überblick ---------------------------------------------------------------
     def kpis(self, now: dt.datetime | None = None) -> Kpis:

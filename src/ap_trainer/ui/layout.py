@@ -16,6 +16,7 @@ NAV = [
     ("Plan", "/plan", "event_note"),
     ("Themen", "/themen", "topic"),
     ("Üben", "/ueben", "edit_note"),
+    ("Fortschritt", "/fortschritt", "insights"),
     ("Glossar", "/glossar", "menu_book"),
     ("Lernkarten", "/lernkarten", "style"),
     ("Einstellungen", "/einstellungen", "settings"),
@@ -39,6 +40,14 @@ _CSS = """
 .body--dark .nicegui-markdown blockquote { border-left-color: #3987e5; background: #3987e526; }
 .nicegui-markdown blockquote p:first-child { margin-top: 0; }
 .kpi-value { font-size: 1.8rem; font-weight: 600; line-height: 1.1; }
+/* Ampelfarben der Themenkarte (FT-02): Fläche getönt, Rand kräftig; Symbole tragen die Bedeutung mit */
+.ampel-gruen { background: #2e7d321f; border-left: 4px solid #2e7d32; }
+.ampel-gelb { background: #f9a8252b; border-left: 4px solid #e0a000; }
+.ampel-rot { background: #c628281f; border-left: 4px solid #c62828; }
+.ampel-grau { background: #8a89841a; border-left: 4px solid #8a8984; }
+.body--dark .ampel-gruen { background: #66bb6a26; border-left-color: #66bb6a; }
+.body--dark .ampel-gelb { background: #ffca2826; border-left-color: #ffca28; }
+.body--dark .ampel-rot { background: #ef535026; border-left-color: #ef5350; }
 """
 
 # Farben der Diagramme nach der Referenzpalette: Ist = Blau, Soll = Grau, Abstufungen = Blau hell
