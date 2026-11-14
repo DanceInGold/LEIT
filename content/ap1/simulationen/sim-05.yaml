@@ -1,0 +1,478 @@
+# Prüfungssimulation 5 – vollständiger AP1-Satz (PS-01): vier Aufgaben, 100 Punkte, 90 Minuten.
+# Schwerpunkte: Markt, englisches Angebot und Präsentation, Kundenservice und Prozessmodelle,
+# Automatisierung mit Skripten, Netz, Schutzziele und Wirtschaftlichkeit. Werte mit Decimal geprüft.
+
+titel: "Simulation 5: Kundenservice für eine Kaffeerösterei"
+dauer_minuten: 90
+quelle: "Neu erstellt (Claude), Aufbau nach U-Form-Prüfungstrainer AP1; Themen nach Prüfungskatalog 2025."
+status: ungeprüft
+belege:
+  - {titel: "U-Form: Prüfungstrainer Teil 1 der Abschlussprüfung IT-Berufe (100 Punkte, 90 Minuten, vier Aufgaben zu 20–30 Punkten)", url: "https://shopstage.u-form.de/media/dd/9f/63/1687157302/750.pdf"}
+
+ausgangssituation: |
+  Du bist Auszubildende bzw. Auszubildender bei der **ArchivTech GmbH**, einem IT-Dienstleister für
+  digitale Archivierung und IT-Betreuung.
+
+  Die **Bohnenwerk Kaffeerösterei GmbH** verkauft Kaffee über einen eigenen Onlineshop und beschäftigt
+  45 Mitarbeitende. Der Kundenservice versinkt in E-Mails, Exporte aus dem Shop werden von Hand geprüft
+  und das Netz im neuen Versandlager ist noch nicht fertig. Die ArchivTech wählt ein Helpdesk-System aus,
+  präsentiert es der Geschäftsführung, automatisiert Routinearbeiten und richtet das Lagernetz ein.
+
+aufgaben:
+  # ------------------------------------------------------------------------------------------
+  - nr: 1
+    titel: "Ein Helpdesk-System auswählen"
+    teilaufgaben:
+      - nr: a
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: maerkte-bedarfe
+          titel: "Vom Bedürfnis zum Angebot"
+          frage: "Ordne jede Situation dem passenden Begriff zu."
+          paare:
+            - {links: "Das Serviceteam ärgert sich über unübersichtliche E-Mail-Postfächer.", rechts: "Bedürfnis"}
+            - {links: "Die Geschäftsführung gibt 15.000 € für eine Lösung frei.", rechts: "Bedarf"}
+            - {links: "Das Bohnenwerk fragt bei drei Anbietern ein Helpdesk-System an.", rechts: "Nachfrage"}
+            - {links: "Ein Hersteller schickt seine Preisliste mit Leistungsbeschreibung.", rechts: "Angebot"}
+          loesungsweg: "Mangel = **Bedürfnis** · mit Kaufkraft = **Bedarf** · am Markt geäußert = **Nachfrage** · vom Anbieter = **Angebot**."
+
+      - nr: b
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: englische-texte
+          titel: "Ein englisches Angebot auswerten"
+          frage: |
+            Ein Hersteller aus Irland schickt dieses Angebot:
+
+            > **Quotation No. 2027-118**
+            > Helpdesk Cloud, annual subscription
+            > Unit price: EUR 240.00 per agent and year · Quantity: 12 agents
+            > Volume discount: 10 % on the subscription
+            > Payment terms: 2 % early payment discount within 14 days, 30 days net
+            > One-time setup fee: EUR 350.00 (no discounts apply)
+            > All prices excl. VAT
+
+            Das Bohnenwerk zahlt innerhalb von 14 Tagen.
+          schritte:
+            - frage: "Preis der 12 Lizenzen vor Abzügen in €"
+              antwort: "2880"
+              einheit: "€"
+              erklaerung: "12 × 240,00 € = 2.880,00 €."
+            - frage: "Preis nach dem Mengenrabatt in €"
+              antwort: "2592"
+              einheit: "€"
+              erklaerung: "2.880 € − 10 % (288 €) = 2.592 €."
+            - frage: "Preis nach Skonto in €"
+              antwort: "2540,16"
+              einheit: "€"
+              erklaerung: "2.592 € − 2 % (51,84 €) = 2.540,16 €."
+            - frage: "Gesamtpreis netto einschließlich Einrichtung in €"
+              antwort: "2890,16"
+              einheit: "€"
+              erklaerung: "2.540,16 € + 350,00 € = 2.890,16 €; die Einrichtung ist nicht rabattfähig."
+              falsch:
+                - {antwort: "2883,16", warum: "Skonto auch von der Einrichtungsgebühr abgezogen. „No discounts apply“ heißt: keine Abzüge darauf.", ursache: begriff}
+                - {antwort: "3439,29", warum: "Die Umsatzsteuer aufgeschlagen. „excl. VAT“ heißt: Die Preise sind netto – gefragt ist der Nettopreis.", ursache: begriff}
+          loesungsweg: |
+            | Posten | Rechnung | Betrag |
+            | --- | --- | ---: |
+            | 12 agents | 12 × 240,00 € | 2.880,00 € |
+            | − volume discount 10 % | | 288,00 € |
+            | − early payment discount 2 % | 2 % von 2.592,00 € | 51,84 € |
+            | + setup fee | | 350,00 € |
+            | = **netto (excl. VAT)** | | **2.890,16 €** |
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: englische-texte
+          titel: "Fachwörter im Angebot"
+          frage: "In der Mail des Herstellers stehen mehrere englische Begriffe. Welche **zwei** Übersetzungen sind richtig?"
+          optionen:
+            - {text: "invoice – Rechnung", richtig: true, warum: "Richtig; die Bestellung heißt purchase order."}
+            - {text: "lead time – Lieferzeit", richtig: true, warum: "Richtig: Zeit zwischen Bestellung und Lieferung."}
+            - {text: "eventually – eventuell", warum: "Falscher Freund: eventually heißt schließlich, irgendwann.", ursache: begriff}
+            - {text: "billion – Billion", warum: "Falscher Freund: billion heißt Milliarde (10⁹).", ursache: begriff}
+          loesungsweg: "**invoice** = Rechnung, **lead time** = Lieferzeit. Falsche Freunde: eventually = schließlich, billion = Milliarde."
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: rechnung
+          thema: praesentation
+          titel: "Zeitplan für die Präsentation"
+          frage: "Du stellst das Helpdesk-System der Geschäftsführung in **15 Minuten** vor. Du planst **10 %** für die Einleitung, **75 %** für den Hauptteil und **15 %** für den Schluss."
+          schritte:
+            - frage: "Zeit für die Einleitung in Minuten"
+              antwort: "1,5"
+              einheit: "min"
+              erklaerung: "15 × 0,10 = 1,5 min."
+            - frage: "Zeit für den Hauptteil in Minuten"
+              antwort: "11,25"
+              einheit: "min"
+              erklaerung: "15 × 0,75 = 11,25 min (11 min 15 s)."
+          loesungsweg: "Einleitung 15 × 0,10 = **1,5 min** · Hauptteil 15 × 0,75 = **11,25 min** · Schluss 15 × 0,15 = 2,25 min."
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: praesentation
+          titel: "Gute Folien"
+          frage: "Welche **zwei** Regeln machen deine Folien für die Geschäftsführung besser?"
+          optionen:
+            - {text: "die Kernaussage als Überschrift formulieren, z. B. „Antworten in 4 statt 24 Stunden“", richtig: true, warum: "So bleibt die Botschaft hängen."}
+            - {text: "Zahlen als Diagramm statt als lange Tabelle zeigen", richtig: true, warum: "Ein Diagramm ist auf einen Blick erfassbar."}
+            - {text: "möglichst viel Text auf jede Folie schreiben, damit nichts fehlt", warum: "Textwüsten lenken vom Vortrag ab; Details gehören ins Handout.", ursache: konzept}
+            - {text: "das Handout gleich zu Beginn verteilen, damit alle mitlesen", warum: "Dann wird gelesen statt zugehört – Handout erst am Ende.", ursache: konzept}
+          loesungsweg: "Kernaussage als Überschrift, Diagramm statt Tabelle, wenig Text; Handout am Ende."
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 2
+    titel: "Den Kundenservice organisieren"
+    teilaufgaben:
+      - nr: a
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: support-ki
+          titel: "Incident, Service Request oder Problem?"
+          frage: "Im neuen Helpdesk gehen Tickets ein. Ordne jedes Ticket der richtigen Art zu."
+          paare:
+            - {links: "„Der Bondrucker im Versand druckt nicht mehr.“", rechts: "Incident"}
+            - {links: "„Die neue Kollegin braucht einen Zugang zum Shop-Backend.“", rechts: "Service Request"}
+            - {links: "Seit Wochen fällt der Bondrucker jeden Montag aus – die Ursache wird gesucht.", rechts: "Problem"}
+          ablenker: ["Release"]
+          loesungsweg: "Störung = **Incident** · Wunsch nach einer Standardleistung = **Service Request** · Ursache hinter wiederkehrenden Incidents = **Problem**."
+          belege:
+            - {titel: "ITIL 4 Foundation: Incident Management, Service Request Management, Problem Management (AXELOS 2019)"}
+
+      - nr: b
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: support-ki
+          titel: "KI im Kundenservice"
+          frage: "Das Bohnenwerk möchte im Kundenservice KI einsetzen. Welche **zwei** Einsätze sind sinnvoll und vertretbar?"
+          optionen:
+            - {text: "ein Chatbot beantwortet Standardfragen wie den Lieferstatus und übergibt schwierige Fälle an Menschen", richtig: true, warum: "Entlastet bei Routine; der Mensch bleibt für komplexe Fälle zuständig."}
+            - {text: "eingehende Tickets werden von der KI vorsortiert und mit einer Kategorie versehen", richtig: true, warum: "Die Mitarbeitenden prüfen und bearbeiten weiter selbst."}
+            - {text: "vollständige Kundendaten mit Bankverbindung in einen öffentlichen KI-Chat kopieren", warum: "Datenschutzverstoß: personenbezogene Daten gehen ungeprüft an Dritte.", ursache: konzept}
+            - {text: "KI-Antworten zu Reklamationen ungeprüft als verbindliche Zusage verschicken", warum: "KI kann falsch liegen; Antworten werden geprüft, der Mensch entscheidet.", ursache: konzept}
+          loesungsweg: "KI für **Standardfragen** und **Vorsortieren**; Antworten prüfen, keine vertraulichen Daten in öffentliche Dienste."
+
+      - nr: c
+        punkte: 6
+        aufgabe:
+          typ: freitext
+          thema: support-ki
+          titel: "Ein Ticket eskalieren"
+          operator: beschreiben
+          frage: "Freitagmittag fällt der Bezahlvorgang im Shop aus; laut SLA muss eine solche Störung innerhalb von 4 Stunden behoben sein. Der 1st Level findet keine Lösung. **Beschreibe**, wie das Ticket weiterbearbeitet wird."
+          musterloesung: |
+            - Der 1st Level erfasst das Ticket vollständig und vergibt eine **hohe Priorität** (alle Kunden betroffen, Umsatzausfall).
+            - **Funktionale Eskalation:** Weitergabe an den 2nd Level (Shop-Spezialisten), notfalls an den 3rd Level (Hersteller), weil dort das Fachwissen liegt.
+            - **Hierarchische Eskalation:** Droht die SLA-Frist zu reißen, werden die Vorgesetzten bzw. die Geschäftsführung informiert, damit sie Ressourcen freigeben oder Kunden informieren.
+          bewertungspunkte:
+            - {punkt: "hohe Priorität wegen vieler Betroffener und Umsatzausfall", kernbegriffe: ["priorität", "dringend"], punkte: 2}
+            - {punkt: "funktionale Eskalation an 2nd/3rd Level", kernbegriffe: ["funktional", "2nd", "second", "3rd", "level"], punkte: 2}
+            - {punkt: "hierarchische Eskalation vor Ablauf der SLA-Frist", kernbegriffe: ["hierarchisch", "vorgesetzt", "leitung", "geschäftsführung"], punkte: 2}
+          loesungsweg: "Priorität hoch → **funktional** an Spezialisten (2nd/3rd Level) → **hierarchisch** an die Leitung, bevor die SLA-Frist abläuft."
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: lueckentext
+          thema: suchoperatoren
+          titel: "Nach einer Fehlermeldung suchen"
+          frage: "Der Shop meldet einen Fehler. Du suchst in einer Suchmaschine nach einer Lösung. Ergänze die Suchoperatoren (nur den Operator, ohne Leerzeichen)."
+          text: "Nur Treffer von der Herstellerseite: {{1}}docs.shopsystem.example · Nur PDF-Handbücher: {{2}}pdf · Treffer mit dem Wort „forum“ ausschließen: {{3}}forum"
+          luecken:
+            - antworten: ["site:"]
+              falsch:
+                - {antwort: "url:", warum: "Die Suche auf eine Website beschränkt der Operator site:.", ursache: begriff}
+            - antworten: ["filetype:"]
+            - antworten: ["-"]
+              falsch:
+                - {antwort: "not", warum: "In Suchmaschinen schließt man Wörter mit einem Minuszeichen direkt davor aus.", ursache: begriff}
+          loesungsweg: "`site:` beschränkt auf eine Website · `filetype:` auf einen Dateityp · `-` schließt ein Wort aus."
+          belege:
+            - {titel: "Google-Suche Hilfe: Websuche verfeinern", url: "https://support.google.com/websearch/answer/2466433"}
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: epk
+          titel: "Regeln der EPK"
+          frage: "Du modellierst den Ablauf einer Reklamation als ereignisgesteuerte Prozesskette (EPK). Welche **zwei** Regeln gelten?"
+          optionen:
+            - {text: "Ereignisse und Funktionen wechseln sich ab.", richtig: true, warum: "Grundregel der EPK."}
+            - {text: "Auf ein einzelnes Ereignis darf kein XOR- oder ODER-Split folgen, weil Ereignisse nicht entscheiden.", richtig: true, warum: "Entscheidungen trifft eine Funktion."}
+            - {text: "Eine Funktion beschreibt einen Zustand, z. B. „Reklamation ist eingegangen“.", warum: "Das ist ein Ereignis. Funktionen sind Tätigkeiten („Reklamation prüfen“).", ursache: begriff}
+            - {text: "Der UND-Konnektor bedeutet: genau einer der Pfade wird durchlaufen.", warum: "Das ist XOR. UND bedeutet: alle Pfade.", ursache: begriff}
+          loesungsweg: "Ereignis und Funktion **abwechselnd**; nach einem Ereignis **kein XOR/ODER-Split**. Ereignis = Zustand, Funktion = Tätigkeit."
+
+      - nr: f
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: bpmn
+          titel: "Symbole in BPMN"
+          frage: "Den Versandprozess hat eine Kollegin in BPMN 2.0 gezeichnet. Ordne jedem Symbol seine Bedeutung zu."
+          paare:
+            - {links: "Kreis mit dünnem Rand", rechts: "Startereignis"}
+            - {links: "Kreis mit dickem Rand", rechts: "Endereignis"}
+            - {links: "Raute mit X", rechts: "exklusives Gateway"}
+            - {links: "Raute mit +", rechts: "paralleles Gateway"}
+          ablenker: ["Datenspeicher"]
+          loesungsweg: "dünner Kreis = **Start** · dicker Kreis = **Ende** · X-Raute = **exklusiv** · +-Raute = **parallel**."
+          belege:
+            - {titel: "OMG Business Process Model and Notation (BPMN) 2.0.2", url: "https://www.omg.org/spec/BPMN/2.0.2"}
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 3
+    titel: "Routinearbeiten automatisieren"
+    teilaufgaben:
+      - nr: a
+        punkte: 7
+        aufgabe:
+          typ: rechnung
+          thema: skriptsprachen
+          titel: "Was gibt das Skript aus?"
+          frage: |
+            Jede Nacht prüft ein Bash-Skript, ob die Exporte des Shops vorhanden sind. Im Verzeichnis `/export` liegen heute nur **bestellungen.csv** und **lager.csv**.
+
+            ```bash
+            #!/bin/bash
+            FEHLER=0
+            for DATEI in bestellungen.csv kunden.csv lager.csv; do
+              if [ -f "/export/$DATEI" ]; then
+                echo "OK: $DATEI"
+              else
+                echo "FEHLT: $DATEI"
+                FEHLER=$((FEHLER + 1))
+              fi
+            done
+            exit $FEHLER
+            ```
+          schritte:
+            - frage: "Wie viele Zeilen beginnen mit „OK“?"
+              antwort: "2"
+              erklaerung: "bestellungen.csv und lager.csv sind vorhanden."
+            - frage: "Wie lautet die zweite Ausgabezeile?"
+              antwort: "FEHLT: kunden.csv"
+              format: text
+              erklaerung: "Die Schleife läuft in der angegebenen Reihenfolge; kunden.csv fehlt."
+              falsch:
+                - {antwort: "OK: lager.csv", warum: "Die Dateien werden in der Reihenfolge der for-Liste geprüft – kunden.csv kommt vor lager.csv.", ursache: konzept}
+            - frage: "Mit welchem Exit-Code endet das Skript?"
+              antwort: "1"
+              erklaerung: "FEHLER wird einmal erhöht. Exit-Code ungleich 0 bedeutet: Es gab einen Fehler."
+              falsch:
+                - {antwort: "0", warum: "Exit-Code 0 heißt Erfolg. Weil eine Datei fehlt, ist FEHLER = 1.", ursache: konzept}
+          loesungsweg: |
+            | DATEI | vorhanden? | Ausgabe | FEHLER |
+            | --- | --- | --- | ---: |
+            | bestellungen.csv | ja | OK: bestellungen.csv | 0 |
+            | kunden.csv | nein | **FEHLT: kunden.csv** | 1 |
+            | lager.csv | ja | OK: lager.csv | 1 |
+
+            **2** Zeilen „OK“, Exit-Code **1** → das Überwachungssystem kann darauf reagieren.
+          belege:
+            - {titel: "GNU Bash Reference Manual, 3.7.5 Exit Status", url: "https://www.gnu.org/software/bash/manual/bash.html"}
+
+      - nr: b
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: skriptsprachen
+          titel: "Wann läuft der cron-Job?"
+          frage: "Das Skript wird per cron mit dem Eintrag `30 2 * * 0 /opt/skripte/export-check.sh` gestartet. Welche **zwei** Aussagen treffen zu?"
+          optionen:
+            - {text: "Das Skript läuft jeden Sonntag um 2:30 Uhr.", richtig: true, warum: "Minute 30, Stunde 2, Wochentag 0 = Sonntag."}
+            - {text: "Das erste Feld eines cron-Eintrags ist die Minute.", richtig: true, warum: "Reihenfolge: Minute, Stunde, Tag, Monat, Wochentag."}
+            - {text: "Das Skript läuft täglich um 2:30 Uhr.", warum: "Das letzte Feld schränkt auf den Wochentag 0 (Sonntag) ein.", ursache: konzept}
+            - {text: "Das Skript läuft am 30. jedes Monats um 2 Uhr.", warum: "Das erste Feld ist die Minute, nicht der Tag.", ursache: konzept}
+          loesungsweg: "`30 2 * * 0` = Minute 30, Stunde 2, jeder Tag, jeder Monat, **Sonntag** → sonntags um **2:30 Uhr**."
+          belege:
+            - {titel: "crontab(5) – Linux manual page", url: "https://man7.org/linux/man-pages/man5/crontab.5.html"}
+
+      - nr: c
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: schreibtischtest
+          titel: "Schreibtischtest mit Bestellvorschlag"
+          frage: |
+            Ein Programmteil simuliert den Lagerbestand einer Kaffeesorte (in kg). Führe einen Schreibtischtest durch.
+
+            ```text
+            bestand ← 120
+            tage ← 0
+            SOLANGE bestand > 40
+                tage ← tage + 1
+                bestand ← bestand - 30
+                WENN tage MOD 3 = 0 DANN
+                    bestand ← bestand + 20
+                ENDE WENN
+            ENDE SOLANGE
+            AUSGABE tage, bestand
+            ```
+          schritte:
+            - frage: "Wert von bestand am Ende des 3. Durchlaufs"
+              antwort: "50"
+              erklaerung: "120 → 90 → 60 → 30, und weil 3 MOD 3 = 0: 30 + 20 = 50."
+              falsch:
+                - {antwort: "30", warum: "Die Lieferung im 3. Durchlauf vergessen (3 MOD 3 = 0 → + 20).", ursache: konzept}
+            - frage: "Ausgabe von tage"
+              antwort: "4"
+              erklaerung: "Nach Durchlauf 3 ist bestand 50 > 40 → ein 4. Durchlauf: 50 − 30 = 20. Dann ist 20 > 40 falsch."
+              falsch:
+                - {antwort: "3", warum: "Die Bedingung wird erst am Schleifenanfang geprüft – dort ist bestand wieder 50 > 40.", ursache: konzept}
+            - frage: "Ausgabe von bestand"
+              antwort: "20"
+              erklaerung: "50 − 30 = 20; 4 MOD 3 = 1, also keine Lieferung."
+          loesungsweg: |
+            | Durchlauf | tage | nach − 30 | tage MOD 3 = 0? | bestand |
+            | ---: | ---: | ---: | --- | ---: |
+            | 1 | 1 | 90 | nein | 90 |
+            | 2 | 2 | 60 | nein | 60 |
+            | 3 | 3 | 30 | ja (+ 20) | 50 |
+            | 4 | 4 | 20 | nein | **20** |
+
+            20 > 40 ist falsch → Ausgabe **4** und **20**.
+
+      - nr: d
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: speicher-hdd-ssd
+          titel: "Hält die SSD?"
+          frage: "Der Server, auf dem die Exporte entstehen, bekommt eine SSD mit **600 TBW** (garantierte Schreibmenge) und 5 Jahren Garantie. Täglich werden etwa **250 GB** geschrieben. Rechne mit 1 TB = 1.000 GB und 365 Tagen pro Jahr."
+          schritte:
+            - frage: "Garantierte Schreibmenge in GB"
+              antwort: "600000"
+              einheit: "GB"
+              erklaerung: "600 TB × 1.000 = 600.000 GB."
+            - frage: "Nach wie vielen Tagen ist die Schreibmenge erreicht?"
+              antwort: "2400"
+              einheit: "Tage"
+              erklaerung: "600.000 GB ÷ 250 GB/Tag = 2.400 Tage."
+            - frage: "Das sind wie viele Jahre? (zwei Nachkommastellen)"
+              antwort: "6,58"
+              einheit: "Jahre"
+              toleranz: 0.001
+              erklaerung: "2.400 ÷ 365 = 6,58 Jahre – länger als die Garantie von 5 Jahren."
+          loesungsweg: "600 TBW = **600.000 GB**; ÷ 250 GB/Tag = **2.400 Tage** ≈ **6,58 Jahre** → die Garantie (5 Jahre) endet zuerst, die SSD reicht für diese Last."
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 4
+    titel: "Lagernetz, Sicherheit und Nutzen"
+    teilaufgaben:
+      - nr: a
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: ipv6
+          titel: "IPv6 im Lager"
+          frage: "Der Provider vergibt dem Bohnenwerk das Präfix **2001:db8:42::/48**. Jedes Netz soll ein /64 sein. Der Drucker im Lager hat die Adresse **2001:0db8:0000:0042:0000:0000:0000:0010**."
+          schritte:
+            - frage: "Wie viele /64-Netze ergeben sich aus dem /48?"
+              antwort: "65536"
+              erklaerung: "64 − 48 = 16 Bit → 2¹⁶ = 65.536."
+              falsch:
+                - {antwort: "16", warum: "Das ist die Zahl der Subnetzbits; die Anzahl ist 2¹⁶.", ursache: rechenfehler}
+            - frage: "Wie viele Bit hat der Interface Identifier in einem /64-Netz?"
+              antwort: "64"
+              erklaerung: "128 − 64 = 64 Bit."
+            - frage: "Druckeradresse in kürzester Schreibweise"
+              antwort: "2001:db8:0:42::10"
+              format: ipv6
+              erklaerung: "Führende Nullen weg; die längste Folge von Null-Blöcken (Block 5 bis 7) wird zu ::, der einzelne Null-Block 3 bleibt 0."
+          loesungsweg: "/48 → /64: 16 Bit → **65.536** Netze; Interface Identifier **64 Bit**; Adresse kurz: **2001:db8:0:42::10** (RFC 5952)."
+          belege:
+            - {titel: "RFC 5952: A Recommendation for IPv6 Address Text Representation", url: "https://www.rfc-editor.org/rfc/rfc5952"}
+            - {titel: "RFC 4291: IP Version 6 Addressing Architecture", url: "https://www.rfc-editor.org/rfc/rfc4291"}
+
+      - nr: b
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: netzwerkkomponenten
+          titel: "Reicht das PoE-Budget?"
+          frage: "Ein PoE-Switch im Lager hat ein Budget von **370 W**. Angeschlossen werden **6 Accesspoints** (IEEE 802.3at, je 30 W) und **10 IP-Telefone** (IEEE 802.3af, je 15,4 W)."
+          schritte:
+            - frage: "Benötigte Leistung in W"
+              antwort: "334"
+              einheit: "W"
+              erklaerung: "6 × 30 W + 10 × 15,4 W = 180 W + 154 W = 334 W."
+            - frage: "Verbleibende Reserve in W"
+              antwort: "36"
+              einheit: "W"
+              erklaerung: "370 W − 334 W = 36 W."
+            - frage: "Passt ein weiterer Accesspoint (30 W) dazu? (ja/nein)"
+              antwort: "ja"
+              format: text
+              erklaerung: "30 W ≤ 36 W."
+          loesungsweg: "180 W + 154 W = **334 W**; Reserve **36 W** → ein weiterer AP mit 30 W passt (**ja**), danach bleiben 6 W."
+          belege:
+            - {titel: "IEEE 802.3af/at (PoE 15,4 W bzw. PoE+ 30 W je Port an der Quelle)", url: "https://www.ieee802.org/3/"}
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: schutzziele
+          titel: "Welches Schutzziel ist betroffen?"
+          frage: "Ordne jedem Vorfall im Onlineshop das Schutzziel zu, das verletzt ist."
+          paare:
+            - {links: "Kundendaten tauchen in einem Forum auf.", rechts: "Vertraulichkeit"}
+            - {links: "Ein Angreifer ändert unbemerkt die Preise im Shop.", rechts: "Integrität"}
+            - {links: "Der Shop ist wegen eines Angriffs zwei Stunden nicht erreichbar.", rechts: "Verfügbarkeit"}
+            - {links: "Eine gefälschte Mail gibt sich als Geschäftsführung aus.", rechts: "Authentizität"}
+          loesungsweg: "Daten öffentlich = **Vertraulichkeit** · verändert = **Integrität** · nicht erreichbar = **Verfügbarkeit** · falscher Absender = **Authentizität**."
+          belege:
+            - {titel: "BSI IT-Grundschutz-Kompendium, Glossar (Vertraulichkeit, Integrität, Verfügbarkeit, Authentizität)", url: "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/IT-Grundschutz/IT-Grundschutz-Kompendium/it-grundschutz-kompendium_node.html"}
+
+      - nr: d
+        punkte: 5
+        aufgabe:
+          typ: rechnung
+          thema: wirtschaftlichkeit
+          titel: "Lohnt sich der Chatbot?"
+          frage: "Ein Chatbot kostet einmalig **4.800 €** für die Einrichtung und **100 € pro Monat** im Betrieb. Er spart dem Kundenservice voraussichtlich **25 Stunden pro Monat**; eine Stunde kostet das Bohnenwerk **32 €**."
+          schritte:
+            - frage: "Eingesparte Personalkosten pro Monat in €"
+              antwort: "800"
+              einheit: "€"
+              erklaerung: "25 h × 32 € = 800 €."
+            - frage: "Monatliche Ersparnis nach Abzug der Betriebskosten in €"
+              antwort: "700"
+              einheit: "€"
+              erklaerung: "800 € − 100 € = 700 €."
+            - frage: "Amortisationszeit in Monaten (zwei Nachkommastellen)"
+              antwort: "6,86"
+              einheit: "Monate"
+              toleranz: 0.001
+              erklaerung: "4.800 € ÷ 700 €/Monat = 6,86 Monate – im 7. Monat ist die Investition wieder drin."
+              falsch:
+                - {antwort: "6", warum: "Mit 800 € gerechnet – die Betriebskosten mindern die monatliche Ersparnis.", ursache: rechenfehler}
+          loesungsweg: "25 × 32 € = **800 €**; − 100 € = **700 €** pro Monat; 4.800 € ÷ 700 € = **6,86 Monate**."
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: installation-einrichtung
+          titel: "Statische IP-Konfiguration"
+          frage: "Der neue Druckserver im Lager bekommt eine statische IPv4-Konfiguration. Welche **zwei** Angaben brauchst du neben der IP-Adresse mit Präfix, damit er Ziele im Internet per Namen erreicht?"
+          optionen:
+            - {text: "Standardgateway", richtig: true, warum: "Ohne Gateway erreicht der Server nur das eigene Netz."}
+            - {text: "DNS-Server", richtig: true, warum: "Ohne DNS funktionieren nur IP-Adressen, keine Namen."}
+            - {text: "MAC-Adresse des Routers", warum: "Die ermittelt der Server selbst per ARP.", ursache: konzept}
+            - {text: "Adresse des DHCP-Servers", warum: "Bei statischer Konfiguration wird kein DHCP genutzt.", ursache: konzept}
+          loesungsweg: "Statisch: **IP mit Präfix**, **Gateway**, **DNS-Server**. Ohne Gateway kein anderes Netz, ohne DNS keine Namen."
