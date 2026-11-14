@@ -135,11 +135,11 @@ def _inputs_free_text(task: Freitext, state: ExerciseState) -> AnswerGetter:
         return lambda: FreitextAntwort(area.value or "", [])
     # Zweiter Schritt: Musterlösung zeigen und selbst abhaken (AU-05)
     with ui.card().classes("w-full bg-gray-500/10"):
-        ui.label("Deine Antwort").classes("text-xs uppercase opacity-60")
+        ui.label("Deine Antwort").classes("leit-meta")
         ui.label(state.freitext or "–").classes("whitespace-pre-wrap")
     text = state.freitext
     with ui.card().classes("w-full"):
-        ui.label("Musterlösung").classes("text-xs uppercase opacity-60")
+        ui.label("Musterlösung").classes("leit-meta")
         _markdown(task.musterloesung)
     missing = {point for point, _ in missing_terms(task, text)}
     ui.label("Hake ehrlich ab, was in deiner Antwort steckt:").classes("font-medium")
@@ -181,7 +181,7 @@ def _hints(task: Aufgabe, state: ExerciseState, refresh: Callable[[], None]) -> 
     steps = help_steps(task)
     for step in steps[: state.opened]:
         with ui.card().classes("w-full bg-blue-500/10 gap-1"):
-            ui.label(step.titel).classes("text-xs uppercase tracking-wide opacity-70")
+            ui.label(step.titel).classes("leit-meta")
             _markdown(step.text)
     if state.submission is None and state.opened < len(steps):
 

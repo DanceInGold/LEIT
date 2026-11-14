@@ -95,7 +95,7 @@ def _free_text_input(task: Freitext) -> AnswerGetter:
 def _exam_body(trainer: Trainer, exam: ExamState) -> None:
     sim = exam.sim
     with ui.card().classes("w-full"):
-        ui.label("Ausgangssituation").classes("text-xs uppercase tracking-wide opacity-70")
+        ui.label("Ausgangssituation").classes("leit-meta")
         markdown(sim.ausgangssituation)
     for task in sim.aufgaben:
         with ui.card().classes("w-full gap-3"):
@@ -130,7 +130,7 @@ def _submit(trainer: Trainer, exam: ExamState) -> None:
 
 def _exam(trainer: Trainer, sim: Simulation) -> None:
     exam = ExamState(sim=sim)
-    with ui.row().classes("items-center gap-3 w-full sticky top-14 z-10 seiten-hintergrund py-2"):
+    with ui.row().classes("items-center gap-3 w-full leit-sticky py-2"):
         clock = ui.label().classes("text-xl font-mono font-semibold")
         ui.space()
         confirm = ui.dialog()
@@ -198,18 +198,18 @@ def _part_result(trainer: Trainer, run: SimRun, nr: str, part_id: str) -> None:
         .props(f"header-class=text-{colour}" if colour else "")
     ):
         markdown(task.frage)
-        ui.label("Deine Antwort").classes("text-xs uppercase opacity-60")
+        ui.label("Deine Antwort").classes("leit-meta")
         markdown(entry.antwort)
         for hint in entry.hinweise:
             with ui.row().classes("items-start gap-1 text-sm"):
                 ui.icon("lightbulb", color="warning")
                 ui.label(hint)
         if isinstance(task, Freitext):
-            ui.label("Musterlösung").classes("text-xs uppercase opacity-60")
+            ui.label("Musterlösung").classes("leit-meta")
             markdown(task.musterloesung)
             if not entry.bewertet:
                 _rating(trainer, run, task)
-        ui.label("Lösungsweg").classes("text-xs uppercase opacity-60")
+        ui.label("Lösungsweg").classes("leit-meta")
         markdown(task.loesungsweg)
         if isinstance(task, Rechnung):
             ui.label(

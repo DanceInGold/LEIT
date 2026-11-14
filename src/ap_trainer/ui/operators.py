@@ -58,7 +58,7 @@ def _examples(ops: OperatorenDatei) -> None:
         for op in ops.operatoren:
             item = example.antworten[op.id]
             with ui.card().classes("w-full gap-1"):
-                ui.label(f"{op.id} · AB {op.bereich}").classes("text-xs uppercase opacity-60")
+                ui.label(f"{op.id} · AB {op.bereich}").classes("leit-meta")
                 markdown(item.frage)
                 with ui.expansion("Musterantwort", icon="visibility").classes("w-full"):
                     markdown(item.antwort)
@@ -116,10 +116,10 @@ def register(trainer: Trainer) -> None:
                 icon="play_arrow",
                 on_click=lambda: ui.navigate.to("/operatoren/training"),
             )
-            ui.label("Die Operatoren auf einen Blick").classes("text-lg font-semibold mt-2")
+            ui.label("Die Operatoren auf einen Blick").classes("leit-section")
             markdown(_overview_table(ops))
             _operator_details(ops)
-            ui.label("Eine Situation – jeder Operator").classes("text-lg font-semibold mt-2")
+            ui.label("Eine Situation – jeder Operator").classes("leit-section")
             ui.label(
                 "Dieselbe Sache, unterschiedlich gefragt: Vergleiche, wie lang und wie tief die "
                 "Musterantworten sind."

@@ -1,0 +1,31 @@
+# Bildschirmfotos aller wichtigen Seiten (dunkel, hell, Smartphone) bei Änderungen an der Oberfläche.
+# Die Bilder liegen danach als Artefakt „screenshots“ am Workflow-Lauf (Design-Prüfung, E-43).
+name: Screenshots
+
+on:
+  pull_request:
+    paths:
+      - "src/ap_trainer/ui/**"
+      - "tools/screenshots.py"
+      - ".github/workflows/screenshots.yml"
+  workflow_dispatch:
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.13"
+      - name: Abhängigkeiten installieren
+        run: uv sync --all-groups
+      - name: Chromium für Playwright
+        run: uv run --with playwright playwright install --with-deps chromium
+      - name: Bildschirmfotos
+        run: uv run --with playwright ap-tools screenshots --ausgabe build/screenshots
+      - uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: build/screenshots/
+          retention-days: 14

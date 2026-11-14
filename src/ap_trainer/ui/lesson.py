@@ -72,7 +72,7 @@ def _header(lesson: Lektion, trainer: Trainer) -> None:
 def _step_card(step: Step, trainer: Trainer) -> None:
     with ui.card().classes("w-full lesson"):
         if step.titel != step.abschnitt:
-            ui.label(step.abschnitt).classes("text-xs uppercase tracking-wide opacity-60")
+            ui.label(step.abschnitt).classes("leit-meta")
         ui.label(step.titel).classes("text-xl font-semibold")
         render_blocks(parse_blocks(step.text), trainer)
 
