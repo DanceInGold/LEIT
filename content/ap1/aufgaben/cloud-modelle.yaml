@@ -1,0 +1,125 @@
+# Aufgaben zum Thema „Cloudlösungen: SaaS, IaaS, PaaS, DaaS; virtuelle Desktops“.
+# Passend zur Lektion cloud-modelle.
+
+aufgaben:
+  - id: cloud-modelle-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Die vier Servicemodelle"
+    frage: "Ordne jedem Servicemodell seine Bedeutung zu."
+    paare:
+      - {links: "IaaS", rechts: "virtuelle Server, Speicher und Netze mieten"}
+      - {links: "PaaS", rechts: "Plattform, auf der man eigene Software betreibt"}
+      - {links: "SaaS", rechts: "fertige Anwendung, meist im Browser"}
+      - {links: "DaaS", rechts: "kompletter Arbeitsplatz-Desktop aus der Cloud"}
+    ablenker: ["eigene Server im eigenen Rechenzentrum (On-Premises)"]
+    hinweise:
+      - "I = Infrastructure, P = Platform, S = Software, D = Desktop."
+    loesungsweg: "IaaS = Infrastruktur · PaaS = Plattform · SaaS = fertige Software · DaaS = Desktop. On-Premises ist kein Cloudmodell."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion cloud-modelle."
+    belege:
+      - {titel: "NIST SP 800-145: The NIST Definition of Cloud Computing (Service Models)", url: "https://csrc.nist.gov/pubs/sp/800/145/final"}
+    status: ungeprüft
+
+  - id: cloud-situation-zuordnen
+    typ: zuordnung
+    stufe: 2
+    titel: "Welches Modell nutzt das Team?"
+    frage: "Ordne jeder Situation bei der ArchivTech GmbH das passende Servicemodell zu."
+    paare:
+      - {links: "Das Team mietet eine VM für Tests und muss das Betriebssystem selbst patchen.", rechts: "IaaS"}
+      - {links: "Die Entwickler liefern nur Container; Betriebssystem und Laufzeit verwaltet die Plattform.", rechts: "PaaS"}
+      - {links: "Der Support nutzt ein Ticketsystem im Browser, ohne etwas zu installieren.", rechts: "SaaS"}
+      - {links: "Saisonaushilfen bekommen einen Windows-Desktop, den sie im Browser öffnen.", rechts: "DaaS"}
+    hinweise:
+      - "Wer verwaltet das Betriebssystem? Kunde → IaaS, Anbieter → PaaS oder höher."
+      - "Ein ganzer Desktop ist mehr als eine einzelne Anwendung."
+    loesungsweg: "Betriebssystem selbst = **IaaS** · nur Container/Code = **PaaS** · fertige Anwendung = **SaaS** · ganzer Desktop = **DaaS**."
+    quelle: "Neu erstellt (Claude), Verantwortungstabelle der Lektion cloud-modelle."
+    belege:
+      - {titel: "NIST SP 800-145: The NIST Definition of Cloud Computing", url: "https://csrc.nist.gov/pubs/sp/800/145/final"}
+    status: ungeprüft
+
+  - id: cloud-bereitstellung
+    typ: zuordnung
+    stufe: 1
+    titel: "Bereitstellungsmodelle"
+    frage: "Ordne jedem Bereitstellungsmodell zu, wer die Infrastruktur nutzt."
+    paare:
+      - {links: "Public Cloud", rechts: "viele Kunden beim selben Anbieter"}
+      - {links: "Private Cloud", rechts: "nur eine Organisation"}
+      - {links: "Hybrid Cloud", rechts: "Kombination aus eigener und öffentlicher Cloud"}
+      - {links: "Community Cloud", rechts: "mehrere Organisationen mit gleichen Anforderungen, z. B. Behörden"}
+    hinweise:
+      - "Die Frage ist: Mit wem teilt man sich die Infrastruktur?"
+    loesungsweg: "Public = alle · Private = eine Organisation · Hybrid = beides kombiniert · Community = eine Gruppe mit gleichen Anforderungen."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion cloud-modelle."
+    belege:
+      - {titel: "NIST SP 800-145: The NIST Definition of Cloud Computing (Deployment Models)", url: "https://csrc.nist.gov/pubs/sp/800/145/final"}
+    status: ungeprüft
+
+  - id: cloud-saas-daten
+    typ: multiple_choice
+    stufe: 3
+    titel: "SaaS und die Verantwortung für Daten"
+    situation: "Ein Kunde der ArchivTech will seine Personalakten in einer SaaS-Personalsoftware verwalten. „Dann kümmert sich ja der Anbieter um alles.“"
+    frage: "Welche Aussagen treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "Der Kunde bleibt nach DSGVO Verantwortlicher; der Anbieter ist Auftragsverarbeiter, es braucht einen AV-Vertrag.", richtig: true, warum: "Der Kunde entscheidet über Zweck und Mittel der Verarbeitung – das bleibt bei ihm."}
+      - {text: "Der Kunde entscheidet weiterhin, welche Daten hochgeladen werden und wer Zugriff bekommt.", richtig: true, warum: "Daten und Berechtigungen bleiben Sache des Kunden, auch bei SaaS."}
+      - {text: "Mit SaaS geht die gesamte Verantwortung für die Daten auf den Anbieter über.", warum: "Der Anbieter betreibt die Software – verantwortlich für die Daten bleibt der Kunde.", ursache: konzept}
+      - {text: "Bei SaaS muss der Kunde das Betriebssystem der Server selbst aktualisieren.", warum: "Das gilt bei IaaS. Bei SaaS verwaltet der Anbieter alles bis zur Anwendung.", ursache: begriff}
+    hinweise:
+      - "Was übernimmt der Anbieter laut Verantwortungstabelle – und was bleibt immer beim Kunden?"
+    loesungsweg: "Bei SaaS betreibt der Anbieter Anwendung und Technik. **Daten und Zugriffe** bleiben beim Kunden; nach DSGVO ist er Verantwortlicher und schließt einen **AV-Vertrag**."
+    quelle: "Neu erstellt (Claude), Vertiefung der Lektion cloud-modelle."
+    belege:
+      - {titel: "DSGVO Art. 28 Auftragsverarbeiter", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+    status: ungeprüft
+
+  - id: cloud-vdi-daas
+    typ: multiple_choice
+    stufe: 3
+    titel: "Desktops für die Hochsaison"
+    situation: "Die ArchivTech GmbH braucht von Oktober bis Dezember **25 zusätzliche Arbeitsplätze** für Aushilfen. Danach werden sie nicht mehr gebraucht. Eigene Server für virtuelle Desktops gibt es nicht."
+    frage: "Welche Lösung passt am besten, und warum?"
+    optionen:
+      - {text: "DaaS, weil monatlich pro Benutzer abgerechnet wird und keine eigene Hardware angeschafft werden muss", richtig: true, warum: "Für drei Monate lohnt sich keine Anschaffung; DaaS lässt sich danach einfach kündigen."}
+      - {text: "VDI im eigenen Rechenzentrum, weil sie für drei Monate am günstigsten ist", warum: "VDI braucht eigene Server – hohe Anschaffung für einen kurzen Zeitraum.", ursache: konzept}
+      - {text: "IaaS, weil die Aushilfen dann ihre Betriebssysteme selbst patchen können", warum: "Aushilfen sollen arbeiten, nicht administrieren. IaaS liefert nur Infrastruktur, keinen fertigen Desktop.", ursache: konzept}
+      - {text: "SaaS, weil damit automatisch ein vollständiger Windows-Desktop bereitsteht", warum: "SaaS liefert einzelne Anwendungen. Ein kompletter Desktop ist DaaS.", ursache: begriff}
+    hinweise:
+      - "Kurzer Zeitraum, keine eigenen Server – was bedeutet das für die Kosten?"
+    loesungsweg: "**DaaS**: keine Anschaffung, Abrechnung pro Benutzer und Monat, nach der Saison kündbar. VDI lohnt sich bei dauerhaftem Bedarf und vorhandenen Servern."
+    quelle: "Neu erstellt (Claude), Tabelle „VDI oder DaaS“ der Lektion cloud-modelle."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01: Desktop as a Service; virtuelle Desktops (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: cloud-iaas-freitext
+    typ: freitext
+    stufe: 4
+    operator: vergleichen
+    titel: "Testserver: kaufen oder mieten?"
+    situation: "Für ein Kundenprojekt braucht das Entwicklungsteam der ArchivTech für **acht Wochen** einen leistungsstarken Testserver. Alternativ zum Kauf steht eine VM bei einem Cloudanbieter (IaaS) zur Wahl."
+    frage: "Vergleiche Kauf und IaaS anhand von je zwei Vor- und Nachteilen."
+    musterloesung: |
+      | | eigener Server (Kauf) | IaaS-VM |
+      | --- | --- | --- |
+      | **Vorteile** | volle Kontrolle über Hardware und Daten; nach dem Projekt weiter nutzbar | keine Anschaffung, Abrechnung nach Nutzung; sofort verfügbar, Leistung anpassbar |
+      | **Nachteile** | hohe Anschaffungskosten und Lieferzeit; Platz, Strom, Wartung | laufende Kosten (vergessene VMs kosten weiter); Abhängigkeit vom Anbieter, Datenschutz und Internetverbindung |
+
+      Für acht Wochen spricht viel für IaaS – Betriebssystem und Software verwaltet das Team aber weiter selbst.
+    bewertungspunkte:
+      - {punkt: "Vorteil IaaS: keine Anschaffung, nutzungsabhängige Kosten oder schnelle Bereitstellung", kernbegriffe: ["anschaff", "kosten", "schnell", "flexibel"]}
+      - {punkt: "Nachteil IaaS: Abhängigkeit, Datenschutz, laufende Kosten oder Internetverbindung", kernbegriffe: ["abhängig", "datenschutz", "internet", "laufend"]}
+      - {punkt: "Vorteil Kauf: Kontrolle oder Weiternutzung", kernbegriffe: ["kontrolle", "weiter"]}
+      - {punkt: "Nachteil Kauf: hohe Anschaffung, Lieferzeit oder Wartung", kernbegriffe: ["anschaff", "liefer", "wartung"]}
+    hinweise:
+      - "Denk an Kosten, Zeit, Kontrolle und Abhängigkeit."
+      - "Was passiert mit dem Server nach acht Wochen?"
+    loesungsweg: "IaaS: schnell, keine Anschaffung, aber laufende Kosten und Abhängigkeit. Kauf: Kontrolle und Weiternutzung, aber Anschaffung, Lieferzeit, Wartung. Für kurze Zeit meist IaaS."
+    quelle: "Neu erstellt (Claude), Praxisbezug der Lektion cloud-modelle."
+    belege:
+      - {titel: "NIST SP 800-145: The NIST Definition of Cloud Computing (On-demand self-service, Measured service)", url: "https://csrc.nist.gov/pubs/sp/800/145/final"}
+    status: ungeprüft

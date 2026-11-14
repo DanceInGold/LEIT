@@ -1,0 +1,293 @@
+# Aufgaben zum Thema „UML: Anwendungsfall-, Klassen-, Aktivitätsdiagramm“.
+# Passend zu den Lektionen uml-anwendungsfall-klasse und uml-aktivitaet.
+# Diagramme stehen als Mermaid in Situation oder Frage; auf Papier zeichnet man Akteure als
+# Strichmännchen, Anwendungsfälle als Ellipsen und Gabelung/Vereinigung als Balken.
+
+aufgaben:
+  - id: uml-usecase-elemente
+    typ: zuordnung
+    stufe: 1
+    titel: "Bausteine des Anwendungsfalldiagramms"
+    frage: "Ordne jedem Element seine Bedeutung zu."
+    paare:
+      - {links: "Akteur (Strichmännchen)", rechts: "Person oder System außerhalb, das etwas vom System will"}
+      - {links: "Anwendungsfall (Ellipse)", rechts: "etwas, das das System für den Akteur tut"}
+      - {links: "Systemgrenze (Rechteck)", rechts: "zeigt, was zum System gehört"}
+      - {links: "«include»", rechts: "wird immer mit ausgeführt"}
+      - {links: "«extend»", rechts: "wird nur manchmal, unter einer Bedingung, zusätzlich ausgeführt"}
+    hinweise:
+      - "Include = einschließen, also immer dabei. Extend = erweitern, also optional."
+    loesungsweg: "Akteur = außerhalb · Anwendungsfall = Funktion aus Nutzersicht · Systemgrenze = was gebaut wird · «include» = immer · «extend» = manchmal."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion uml-anwendungsfall-klasse."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 18 Use Cases", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft
+
+  - id: uml-aktivitaet-elemente
+    typ: zuordnung
+    stufe: 1
+    titel: "Bausteine des Aktivitätsdiagramms"
+    frage: "Ordne jedem Element seine Bedeutung zu."
+    paare:
+      - {links: "gefüllter Kreis ●", rechts: "Startknoten"}
+      - {links: "Kreis mit Punkt ◉", rechts: "Endknoten"}
+      - {links: "Raute mit [Bedingungen] an den Pfeilen", rechts: "Verzweigung: genau ein Weg wird genommen"}
+      - {links: "dicker Balken mit einem Eingang und mehreren Ausgängen", rechts: "Gabelung: ab hier parallel"}
+      - {links: "dicker Balken mit mehreren Eingängen und einem Ausgang", rechts: "Vereinigung: wartet, bis alle Wege fertig sind"}
+      - {links: "Spalte mit einer Rolle als Überschrift", rechts: "Partition (Swimlane): wer die Aktion ausführt"}
+    hinweise:
+      - "Raute = entweder – oder. Balken = gleichzeitig."
+    loesungsweg: "● Start · ◉ Ende · Raute = Verzweigung bzw. Zusammenführung · Balken = Gabelung bzw. Vereinigung · Swimlane = Zuständigkeit."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion uml-aktivitaet."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 15 Activities", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft
+
+  - id: uml-include-extend
+    typ: multiple_choice
+    stufe: 2
+    titel: "include oder extend?"
+    situation: |
+      Ausschnitt aus dem Anwendungsfalldiagramm des Ticketsystems der ArchivTech GmbH:
+
+      ```mermaid
+      flowchart LR
+        M(["👤 Mitarbeiter"])
+        subgraph S["System: Ticketsystem"]
+          T(["Ticket erstellen"])
+          A(["Anmelden"])
+          D(["Datei anhängen"])
+        end
+        M --- T
+        T -. "«include»" .-> A
+        D -. "«extend»" .-> T
+      ```
+    frage: "Welche Aussagen treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "Wer ein Ticket erstellt, muss sich jedes Mal anmelden.", richtig: true, warum: "«include» heißt: Der eingeschlossene Fall läuft immer mit."}
+      - {text: "Beim Erstellen eines Tickets kann man optional eine Datei anhängen.", richtig: true, warum: "«extend» heißt: Die Erweiterung kommt nur manchmal dazu. Der Pfeil zeigt zum Basisfall."}
+      - {text: "Jedes Ticket hat immer einen Dateianhang.", warum: "Dann wäre es «include». «extend» ist optional.", ursache: begriff}
+      - {text: "Der Mitarbeiter gehört zum Ticketsystem, weil er es bedient.", warum: "Akteure stehen außerhalb der Systemgrenze – sie werden nicht gebaut, sie nutzen das System.", ursache: konzept}
+    hinweise:
+      - "include = immer, extend = manchmal."
+      - "Bei «extend» zeigt der Pfeil von der Erweiterung zum Basisfall."
+    loesungsweg: "«include» → **Anmelden** gehört immer dazu. «extend» → **Datei anhängen** ist optional. Der Akteur steht außerhalb des Systems."
+    quelle: "Neu erstellt (Claude), passend zur Lektion uml-anwendungsfall-klasse."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 18 Use Cases (Include, Extend)", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft
+
+  - id: uml-multiplizitaet-lesen
+    typ: lueckentext
+    stufe: 2
+    titel: "Multiplizitäten lesen"
+    situation: |
+      ```mermaid
+      classDiagram
+        class Kunde {
+          -kundenNr: int
+          -name: String
+        }
+        class Auftrag {
+          -auftragsNr: int
+          -datum: Date
+        }
+        class Position {
+          -menge: int
+          -preis: float
+        }
+        Kunde "1" --> "0..*" Auftrag : erteilt
+        Auftrag "1" *-- "1..*" Position : enthält
+      ```
+    frage: "Ergänze die Sätze mit **genau einem**, **beliebig viele** oder **mindestens eine**."
+    text: "Ein Kunde erteilt {{1}} Aufträge. Ein Auftrag gehört zu {{2}} Kunden. Ein Auftrag enthält {{3}} Position(en)."
+    luecken:
+      - antworten: ["beliebig viele"]
+        falsch:
+          - {antwort: "genau einem", warum: "Bei Auftrag steht 0..* – ein Kunde kann keinen, einen oder viele Aufträge haben.", ursache: begriff}
+      - antworten: ["genau einem"]
+        falsch:
+          - {antwort: "beliebig viele", warum: "Die Zahl beim Kunden (1) gilt für die Gegenseite: Jeder Auftrag hat genau einen Kunden.", ursache: konzept}
+      - antworten: ["mindestens eine"]
+        falsch:
+          - {antwort: "beliebig viele", warum: "1..* heißt mindestens eine – ein Auftrag ohne Position ist nicht erlaubt.", ursache: begriff}
+    hinweise:
+      - "Lies von der anderen Seite her: Die Zahl steht bei der Klasse, deren Anzahl gemeint ist."
+      - "0..* = beliebig viele, 1..* = mindestens eins, 1 = genau eins."
+    loesungsweg: "Kunde → Auftrag `0..*`: **beliebig viele**. Auftrag → Kunde `1`: **genau einem**. Auftrag → Position `1..*`: **mindestens eine**."
+    quelle: "Neu erstellt (Claude), Tabelle „Multiplizitäten lesen“ der Lektion uml-anwendungsfall-klasse."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 7.5.3 MultiplicityElement und Kapitel 11 Associations", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft
+
+  - id: uml-aggregation-komposition
+    typ: zuordnung
+    stufe: 2
+    titel: "Aggregation oder Komposition?"
+    frage: "Ordne jede Teil-Ganzes-Beziehung der passenden Art zu."
+    paare:
+      - {links: "Rechnung – Rechnungsposition", rechts: "Komposition ◆"}
+      - {links: "Projekt – Projektdokument", rechts: "Komposition ◆"}
+      - {links: "Abteilung – Mitarbeiter", rechts: "Aggregation ◇"}
+      - {links: "Serverschrank – Server", rechts: "Aggregation ◇"}
+    hinweise:
+      - "Frag dich: Existiert das Teil noch, wenn das Ganze gelöscht wird?"
+      - "Ein Server lässt sich in einen anderen Schrank umbauen."
+    loesungsweg: "**Komposition** (volle Raute): Das Teil existiert nur mit dem Ganzen – eine Rechnungsposition ohne Rechnung gibt es nicht. **Aggregation** (leere Raute): Das Teil kann allein weiterexistieren – Mitarbeiter wechseln die Abteilung, Server den Schrank."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion uml-anwendungsfall-klasse."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 11.5 Associations (AggregationKind shared/composite)", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft
+
+  - id: uml-klasse-modellieren
+    typ: multiple_choice
+    stufe: 3
+    titel: "Multiplizität aus dem Text"
+    situation: "Für die Inventarisierung gilt: Jeder Server hat **mindestens eine** Netzwerkkarte. Eine Netzwerkkarte steckt in **genau einem** Server. Netzwerkkarten werden zusammen mit dem Server ausgemustert und nie umgebaut."
+    frage: "Welche Darstellung im Klassendiagramm passt?"
+    optionen:
+      - {text: "Server \"1\" ◆—— \"1..*\" Netzwerkkarte", richtig: true, warum: "Bei der Netzwerkkarte steht 1..* (mindestens eine je Server), beim Server 1. Die volle Raute zeigt: Die Karte existiert nicht ohne den Server."}
+      - {text: "Server \"1..*\" ◆—— \"1\" Netzwerkkarte", warum: "Multiplizitäten vertauscht – das hieße: Eine Netzwerkkarte steckt in mindestens einem Server.", ursache: konzept}
+      - {text: "Server \"1\" ◇—— \"0..*\" Netzwerkkarte", warum: "0..* erlaubt Server ohne Netzwerkkarte, und die leere Raute stünde für austauschbare Teile.", ursache: begriff}
+      - {text: "Server \"0..1\" —— \"1..*\" Netzwerkkarte", warum: "0..1 erlaubt eine Karte ohne Server; laut Text steckt jede in genau einem.", ursache: begriff}
+    hinweise:
+      - "Die Anzahl der Netzwerkkarten je Server steht an der Netzwerkkarte."
+      - "Lebt das Teil mit dem Ganzen? Dann volle Raute."
+    loesungsweg: "Server **1** ◆—— **1..*** Netzwerkkarte: mindestens eine Karte je Server, jede Karte in genau einem Server, Komposition."
+    quelle: "Neu erstellt (Claude), passend zur Lektion uml-anwendungsfall-klasse."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 11 Classes", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft
+
+  - id: uml-aktivitaet-schleife
+    typ: rechnung
+    stufe: 3
+    titel: "Wiederholte Sicherung nachverfolgen"
+    situation: |
+      Das Aktivitätsdiagramm beschreibt einen Sicherungsjob der ArchivTech GmbH:
+
+      ```mermaid
+      flowchart TD
+        S((" ")) --> A["versuche ← 0"]
+        A --> M{" "}
+        M --> B["Sicherung starten"]
+        B --> C["versuche ← versuche + 1"]
+        C --> D{" "}
+        D -- "[erfolgreich]" --> P["Erfolg protokollieren"]
+        D -- "[fehlgeschlagen und versuche < 3]" --> M
+        D -- "[fehlgeschlagen und versuche ≥ 3]" --> N["Admin alarmieren"]
+        P --> Z{" "}
+        N --> Z
+        Z --> E(("◉"))
+        style S fill:#333,stroke:#333
+      ```
+    frage: "Verfolge das Diagramm für zwei Fälle."
+    schritte:
+      - frage: "Die Sicherung schlägt jedes Mal fehl. Wie oft wird „Sicherung starten“ ausgeführt?"
+        antwort: "3"
+        erklaerung: "Durchlauf 1: versuche = 1 < 3 → zurück. Durchlauf 2: versuche = 2 < 3 → zurück. Durchlauf 3: versuche = 3 ≥ 3 → Admin alarmieren."
+        falsch:
+          - {antwort: "4", warum: "versuche wird **vor** der Prüfung erhöht. Nach dem dritten Versuch ist versuche = 3, also nicht mehr < 3.", ursache: rechenfehler}
+          - {antwort: "2", warum: "Auch bei versuche = 2 gilt noch versuche < 3 – es gibt einen dritten Durchlauf.", ursache: rechenfehler}
+      - frage: "Welchen Wert hat versuche, wenn der Admin alarmiert wird?"
+        antwort: "3"
+        erklaerung: "Der Alarm kommt erst bei versuche ≥ 3, also nach dem dritten Fehlschlag mit versuche = 3."
+      - frage: "Der erste Versuch scheitert, der zweite gelingt. Wie oft wird „Sicherung starten“ ausgeführt?"
+        antwort: "2"
+        erklaerung: "Durchlauf 1 scheitert (versuche = 1 < 3 → zurück), Durchlauf 2 gelingt → Erfolg protokollieren."
+        falsch:
+          - {antwort: "3", warum: "Nach einem Erfolg verlässt der Ablauf die Schleife sofort über [erfolgreich].", ursache: konzept}
+    hinweise:
+      - "Schreib eine kleine Tabelle: Durchlauf, versuche, Ergebnis, nächster Weg."
+      - "versuche wird vor der Verzweigung erhöht."
+      - "Durchlauf 1: versuche = 1 – welcher Pfeil gilt bei einem Fehlschlag?"
+    loesungsweg: |
+      | Durchlauf | versuche nach Erhöhung | Ergebnis | Weg |
+      | ---: | ---: | --- | --- |
+      | 1 | 1 | fehlgeschlagen | 1 < 3 → zurück |
+      | 2 | 2 | fehlgeschlagen | 2 < 3 → zurück |
+      | 3 | 3 | fehlgeschlagen | 3 ≥ 3 → Admin alarmieren |
+
+      Immer Fehlschlag: **3** Versuche, versuche = **3**. Erfolg im zweiten Versuch: **2** Versuche.
+    quelle: "Neu erstellt (Claude), Schleifenmuster der Lektion uml-aktivitaet; per Schreibtischtest nachvollzogen."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 15 Activities (Decision, Merge)", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft
+
+  - id: uml-aktivitaet-fehler
+    typ: multiple_choice
+    stufe: 3
+    titel: "Fehler im Aktivitätsdiagramm"
+    situation: |
+      Ein Kollege hat den Ablauf eines Archivjobs gezeichnet. Kopieren und Prüfsummen sollen **gleichzeitig** laufen; das Protokoll darf erst geschrieben werden, wenn **beides** fertig ist.
+
+      ```mermaid
+      flowchart TD
+        S((" ")) --> A["Datenmenge ermitteln"]
+        A --> F[["Gabelung"]]
+        F --> P1["Daten kopieren"]
+        F --> P2["Prüfsummen berechnen"]
+        P1 --> Z{" "}
+        P2 --> Z
+        Z --> L["Protokoll schreiben"]
+        L --> E(("◉"))
+        style S fill:#333,stroke:#333
+      ```
+    frage: "Was ist falsch?"
+    optionen:
+      - {text: "Nach den parallelen Aktionen steht eine Zusammenführung (Raute) statt einer Vereinigung (Balken).", richtig: true, warum: "Die Raute lässt den Ablauf weiter, sobald **ein** Weg ankommt – das Protokoll könnte vor den Prüfsummen geschrieben werden. Ein Balken wartet auf alle."}
+      - {text: "Für parallele Abläufe muss eine Verzweigung (Raute) mit Bedingungen stehen statt der Gabelung.", warum: "Eine Verzweigung wählt genau **einen** Weg. Gleichzeitig laufen Wege nur nach einer Gabelung (Balken).", ursache: begriff}
+      - {text: "Der Endknoten muss ein gefüllter Kreis sein.", warum: "Der gefüllte Kreis ist der Startknoten; das Ende ist der Kreis mit Punkt.", ursache: begriff}
+      - {text: "Parallele Aktionen sind in Aktivitätsdiagrammen nicht erlaubt.", warum: "Gerade Parallelität kann das Aktivitätsdiagramm darstellen – mit Gabelung und Vereinigung.", ursache: konzept}
+    hinweise:
+      - "Welches Element wartet auf **alle** eingehenden Wege?"
+    loesungsweg: "Paralleles Ende braucht eine **Vereinigung (Balken)**. Die Zusammenführung (Raute) wartet nicht – sie gehört hinter eine Entweder-oder-Verzweigung."
+    quelle: "Neu erstellt (Claude), Vertiefung „Warum braucht man eine Vereinigung?“ der Lektion uml-aktivitaet."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 15.3 (ForkNode, JoinNode, MergeNode)", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft
+
+  - id: uml-usecase-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Anwendungsfälle für das Kundenportal"
+    situation: "Die ArchivTech GmbH erweitert ihr Kundenportal: Kunden können Dokumente suchen und herunterladen; zum Herunterladen müssen sie angemeldet sein. Wer möchte, kann sich zusätzlich eine Benachrichtigung per E-Mail einrichten, wenn neue Dokumente eingehen. Archivare laden Dokumente hoch – ebenfalls nur angemeldet."
+    frage: "Beschreibe ein passendes Anwendungsfalldiagramm: Akteure, Anwendungsfälle innerhalb der Systemgrenze und die Beziehungen «include» und «extend»."
+    musterloesung: |
+      ```mermaid
+      flowchart LR
+        K(["👤 Kunde"])
+        A(["👤 Archivar"])
+        subgraph S["System: Kundenportal"]
+          U1(["Dokument suchen"])
+          U2(["Dokument herunterladen"])
+          U3(["Anmelden"])
+          U4(["Dokument hochladen"])
+          U5(["E-Mail-Benachrichtigung einrichten"])
+        end
+        K --- U1
+        K --- U2
+        A --- U4
+        U2 -. "«include»" .-> U3
+        U4 -. "«include»" .-> U3
+        U5 -. "«extend»" .-> U1
+      ```
+
+      - **Akteure** außerhalb: Kunde, Archivar.
+      - **Anwendungsfälle** in der Systemgrenze: Dokument suchen, Dokument herunterladen, Dokument hochladen, Anmelden, Benachrichtigung einrichten.
+      - **«include»:** Herunterladen und Hochladen schließen Anmelden immer ein.
+      - **«extend»:** Die Benachrichtigung erweitert optional die Suche (vertretbar auch als eigener Anwendungsfall des Kunden).
+    bewertungspunkte:
+      - {punkt: "Akteure Kunde und Archivar außerhalb der Systemgrenze", kernbegriffe: ["akteur", "kunde"]}
+      - {punkt: "Anwendungsfälle suchen, herunterladen, hochladen, anmelden in der Systemgrenze", kernbegriffe: ["anwendungsfall", "systemgrenze"]}
+      - {punkt: "«include» von Herunterladen/Hochladen zu Anmelden", kernbegriffe: ["include"]}
+      - {punkt: "«extend» für die optionale Benachrichtigung", kernbegriffe: ["extend"]}
+    hinweise:
+      - "Wer nutzt das Portal von außen? Was tut das Portal für sie?"
+      - "Was passiert immer, was nur auf Wunsch?"
+    loesungsweg: "Akteure Kunde und Archivar außerhalb; Anwendungsfälle in der Systemgrenze; Herunterladen und Hochladen «include» Anmelden; Benachrichtigung als «extend» (optional)."
+    quelle: "Neu erstellt (Claude), nach dem Beispiel der Lektion uml-anwendungsfall-klasse erweitert."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 18 Use Cases", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft

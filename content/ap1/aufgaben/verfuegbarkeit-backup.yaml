@@ -1,0 +1,271 @@
+# Aufgaben zum Thema „Sicherung der Verfügbarkeit (z. B. NAS, Datensicherung)“.
+# Passend zu den Lektionen verfuegbarkeit-sichern und datensicherung.
+# Rechenvarianten zu Ausfallzeit, Reihen- und Parallelschaltung liefert der Generator.
+generatoren: [verfuegbarkeit]
+
+aufgaben:
+  - id: vb-sicherungsarten-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Sicherungsarten"
+    frage: "Ordne jeder Sicherungsart zu, was sie sichert."
+    paare:
+      - {links: "Vollsicherung", rechts: "alle Daten, unabhängig von Änderungen"}
+      - {links: "inkrementelle Sicherung", rechts: "Änderungen seit der letzten Sicherung jeder Art"}
+      - {links: "differenzielle Sicherung", rechts: "Änderungen seit der letzten Vollsicherung"}
+      - {links: "Spiegelung", rechts: "gleichzeitige Kopie auf einen zweiten Datenträger"}
+    ablenker: ["nur die Dateien, die seit einem Jahr niemand geöffnet hat"]
+    hinweise:
+      - "Achte auf den Bezugspunkt: seit welcher Sicherung wird gezählt?"
+      - "Inkrementell = in kleinen Schritten, jeder Schritt baut auf dem vorigen auf."
+    loesungsweg: "Voll = alles · inkrementell = seit der **letzten** Sicherung · differenziell = seit der letzten **Vollsicherung** · Spiegelung = gleichzeitige Kopie (kein Backup)."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion datensicherung."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
+    status: ungeprüft
+
+  - id: vb-restore-reihenfolge
+    typ: reihenfolge
+    stufe: 2
+    titel: "Wiederherstellen aus inkrementellen Sicherungen"
+    situation: "Der Archivserver der ArchivTech GmbH wird sonntags voll und montags bis donnerstags inkrementell gesichert. Am Freitagmorgen fällt die Platte aus."
+    frage: "In welcher Reihenfolge spielst du die Sicherungen zurück?"
+    elemente:
+      - "Vollsicherung vom Sonntag"
+      - "Inkrement vom Montag"
+      - "Inkrement vom Dienstag"
+      - "Inkrement vom Mittwoch"
+      - "Inkrement vom Donnerstag"
+    hinweise:
+      - "Jedes Inkrement enthält nur die Änderungen gegenüber dem Vortag."
+      - "Ohne die Basis fehlen alle Daten, die sich in der Woche nicht geändert haben."
+    loesungsweg: "Erst die **Vollsicherung** als Basis, dann **alle** Inkremente in zeitlicher Reihenfolge: Mo → Di → Mi → Do. Fehlt eines, fehlen dessen Änderungen."
+    quelle: "Neu erstellt (Claude), passend zur Lektion datensicherung."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
+    status: ungeprüft
+
+  - id: vb-woche-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Speicherbedarf und Wiederherstellung"
+    situation: "Ein Fileserver der ArchivTech GmbH wird am Sonntag voll gesichert: **800 GB**. Von Montag bis Donnerstag ändern sich jeden Tag **30 GB**, jeweils andere Dateien. Jede Nacht läuft eine Sicherung. Am Freitagmorgen fällt der Server aus."
+    frage: "Vergleiche inkrementelle und differenzielle Sicherung für diese Woche (Sonntag bis einschließlich Donnerstag)."
+    schritte:
+      - frage: "Speicherbedarf aller Sicherungen bei inkrementeller Sicherung"
+        antwort: "920"
+        einheit: "GB"
+        erklaerung: "800 GB + 4 × 30 GB = 920 GB."
+        falsch:
+          - {antwort: "1100", warum: "Das ist die differenzielle Summe – dort wächst jede Sicherung.", ursache: begriff}
+          - {antwort: "830", warum: "Nur ein Inkrement gezählt. Jede Nacht kommt eines dazu (Mo–Do = 4).", ursache: rechenfehler}
+      - frage: "Speicherbedarf aller Sicherungen bei differenzieller Sicherung"
+        antwort: "1100"
+        einheit: "GB"
+        erklaerung: "800 + 30 + 60 + 90 + 120 = 1.100 GB. Jede differenzielle Sicherung enthält alles seit Sonntag."
+        falsch:
+          - {antwort: "920", warum: "Das ist die inkrementelle Summe. Differenziell wächst jede Sicherung: 30, 60, 90, 120 GB.", ursache: begriff}
+      - frage: "Anzahl Sicherungen zum Wiederherstellen bei inkrementeller Sicherung"
+        antwort: "5"
+        einheit: "Sicherungen"
+        erklaerung: "Vollsicherung + Mo + Di + Mi + Do = 5."
+        falsch:
+          - {antwort: "2", warum: "Das gilt für differenziell. Inkrementell braucht **alle** Inkremente seit der Vollsicherung.", ursache: konzept}
+          - {antwort: "4", warum: "Die Vollsicherung als Basis fehlt.", ursache: rechenfehler}
+      - frage: "Anzahl Sicherungen zum Wiederherstellen bei differenzieller Sicherung"
+        antwort: "2"
+        einheit: "Sicherungen"
+        erklaerung: "Vollsicherung + letzte differenzielle Sicherung (Do) = 2."
+        falsch:
+          - {antwort: "5", warum: "Die differenzielle Sicherung vom Donnerstag enthält schon alles seit Sonntag.", ursache: konzept}
+          - {antwort: "1", warum: "Die Vollsicherung wird als Basis gebraucht.", ursache: konzept}
+    hinweise:
+      - "Inkrementell: jede Sicherung 30 GB. Differenziell: jede Sicherung alles seit Sonntag."
+      - "Differenziell: 30, 60, 90, 120 GB – plus Vollsicherung."
+      - "Wiederherstellung: Was brauchst du außer der Vollsicherung noch?"
+    loesungsweg: |
+      | | inkrementell | differenziell |
+      | --- | ---: | ---: |
+      | So (voll) | 800 GB | 800 GB |
+      | Mo | 30 GB | 30 GB |
+      | Di | 30 GB | 60 GB |
+      | Mi | 30 GB | 90 GB |
+      | Do | 30 GB | 120 GB |
+      | **Summe** | **920 GB** | **1.100 GB** |
+      | Sicherungen zum Wiederherstellen | **5** (Voll + 4 Inkremente) | **2** (Voll + Do) |
+
+      Inkrementell spart Speicher, differenziell spart Zeit und Fehlerquellen beim Zurückholen.
+    quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion datensicherung mit anderen Zahlen; nachgerechnet."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
+    status: ungeprüft
+
+  - id: vb-321-regel
+    typ: multiple_choice
+    stufe: 2
+    titel: "Die 3-2-1-Regel"
+    situation: "Die Daten liegen auf dem Fileserver im Serverraum der ArchivTech GmbH."
+    frage: "Welches Konzept erfüllt die 3-2-1-Regel?"
+    optionen:
+      - {text: "Sicherung auf ein NAS im selben Serverraum und zusätzlich auf Band, das wöchentlich in ein Bankschließfach kommt", richtig: true, warum: "Original + 2 Sicherungen = 3 Kopien, NAS und Band = 2 Medien, Band außer Haus = 1."}
+      - {text: "Zwei Sicherungen auf zwei NAS-Geräte im selben Serverraum", warum: "Drei Kopien, aber nur eine Medienart und keine Kopie außer Haus – ein Brand vernichtet alles.", ursache: konzept}
+      - {text: "Eine Sicherung in die Cloud", warum: "Nur zwei Kopien (Original + Cloud); die Regel verlangt drei.", ursache: konzept}
+      - {text: "Der Fileserver spiegelt seine Platten, zusätzlich eine Sicherung auf ein NAS daneben", warum: "Eine Spiegelung ist kein Backup, und nichts liegt außer Haus.", ursache: begriff}
+    hinweise:
+      - "Zähle: Wie viele Kopien, wie viele Medien, wie viele an einem anderen Ort?"
+      - "Das Original zählt bei den 3 Kopien mit."
+    loesungsweg: "**3** Kopien (Original + 2 Sicherungen), **2** verschiedene Medien, **1** Kopie außer Haus. Nur NAS + Band im Schließfach erfüllt alle drei Bedingungen."
+    quelle: "Neu erstellt (Claude), passend zur Lektion datensicherung."
+    belege:
+      - {titel: "Lektion „Datensicherung“ (3-2-1-Regel als verbreitete Praxisregel)"}
+      - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
+    status: ungeprüft
+
+  - id: vb-generationen-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Großvater-Vater-Sohn"
+    frage: "Ergänze das Generationenprinzip."
+    text: "Die täglichen Sicherungen heißen {{1}}, die wöchentlichen {{2}} und die monatlichen {{3}}."
+    luecken:
+      - antworten: ["Sohn", "Söhne"]
+        falsch:
+          - {antwort: "Großvater", warum: "Großvater ist die älteste, seltenste Generation – monatlich.", ursache: begriff}
+      - antworten: ["Vater", "Väter"]
+      - antworten: ["Großvater", "Großväter", "Grossvater"]
+        falsch:
+          - {antwort: "Sohn", warum: "Der Sohn ist die jüngste Generation, also die tägliche.", ursache: begriff}
+    hinweise:
+      - "Die jüngste Generation entsteht am häufigsten."
+    loesungsweg: "Sohn = täglich · Vater = wöchentlich · Großvater = monatlich. So bleiben auch ältere Stände wiederherstellbar."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion datensicherung."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept (Generationenprinzip)"}
+    status: ungeprüft
+
+  - id: vb-spiegelung-ransomware
+    typ: multiple_choice
+    stufe: 3
+    titel: "Gespiegelt und trotzdem weg"
+    situation: "Ein Kunde der ArchivTech speichert alles auf einem NAS mit zwei gespiegelten Platten. „Wir brauchen kein Backup, die Daten liegen ja doppelt.“ Dann verschlüsselt eine Ransomware die Freigaben."
+    frage: "Welche Aussagen treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "Die Verschlüsselung wird sofort auf beide Platten geschrieben – beide Kopien sind unbrauchbar.", richtig: true, warum: "Eine Spiegelung kopiert jede Änderung, auch die schädliche."}
+      - {text: "Eine Spiegelung schützt vor dem Ausfall einer Platte, ersetzt aber keine Datensicherung.", richtig: true, warum: "Ein Backup ist ein älterer, getrennter Stand – genau den hat eine Spiegelung nicht."}
+      - {text: "Die zweite Platte enthält den Stand von gestern und kann zurückgespielt werden.", warum: "Gespiegelt wird gleichzeitig, nicht zeitversetzt – einen gestrigen Stand gibt es nicht.", ursache: konzept}
+      - {text: "Ransomware kann nur eine Platte gleichzeitig verschlüsseln.", warum: "Die Ransomware verschlüsselt die Dateien auf der Freigabe; das NAS schreibt das auf beide Platten.", ursache: konzept}
+    hinweise:
+      - "Was passiert mit einer Änderung auf einem gespiegelten Speicher?"
+      - "Wogegen schützt eine Spiegelung, wogegen ein Backup?"
+    loesungsweg: "Spiegelung = gleichzeitige Kopie → schützt vor **Hardwareausfall**, nicht vor Löschen oder Verschlüsseln. Dagegen hilft nur ein Backup mit älterem Stand, am besten offline oder unveränderbar."
+    quelle: "Neu erstellt (Claude), Vertiefung „Warum ist eine Spiegelung kein Backup?“ der Lektion datensicherung."
+    belege:
+      - {titel: "BSI: Ransomware – Bedrohungslage, Prävention & Reaktion", url: "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Analysen-und-Prognosen/Ransomware-Angriffe/ransomware-angriffe_node.html"}
+    status: ungeprüft
+
+  - id: vb-nas-das
+    typ: zuordnung
+    stufe: 1
+    titel: "NAS oder DAS?"
+    frage: "Ordne jede Eigenschaft der passenden Speicherart zu."
+    paare:
+      - {links: "über das Netzwerk angebunden (SMB, NFS)", rechts: "NAS"}
+      - {links: "viele Clients greifen gleichzeitig auf Freigaben zu", rechts: "NAS"}
+      - {links: "direkt per USB oder SAS am Server", rechts: "DAS"}
+      - {links: "nur der angeschlossene Rechner kann zugreifen", rechts: "DAS"}
+    hinweise:
+      - "N wie Network, D wie Direct."
+    loesungsweg: "**NAS** (Network Attached Storage) = Speicher mit eigenem Betriebssystem, Dateien übers Netz. **DAS** (Direct Attached Storage) = direkt am Rechner."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion verfuegbarkeit-sichern."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 06.04: Sicherung der Verfügbarkeit, z. B. NAS (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: vb-usv-klassen
+    typ: zuordnung
+    stufe: 2
+    titel: "USV-Klassen"
+    frage: "Ordne jeder USV-Klasse nach IEC 62040-3 ihr Prinzip zu."
+    paare:
+      - {links: "VFD (Offline, Standby)", rechts: "schaltet erst bei Stromausfall auf Akku um – kurze Umschaltzeit"}
+      - {links: "VI (Line-Interactive)", rechts: "schaltet bei Ausfall um und gleicht zusätzlich Spannungsschwankungen aus"}
+      - {links: "VFI (Online, Doppelwandler)", rechts: "Verbraucher hängen immer am Wechselrichter – keine Umschaltzeit"}
+    ablenker: ["erzeugt mit einem Dieselmotor tagelang Strom"]
+    hinweise:
+      - "VFI = Voltage and Frequency Independent: Spannung und Frequenz am Ausgang hängen nicht vom Netz ab."
+      - "Für Server empfiehlt die Lektion die Klasse ohne Umschaltzeit."
+    loesungsweg: "VFD = umschalten · VI = umschalten + Spannung regeln · VFI = immer über den Wechselrichter, keine Umschaltzeit (für Server üblich). Ein Dieselaggregat ist keine USV."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion verfuegbarkeit-sichern."
+    belege:
+      - {titel: "IEC 62040-3: Unterbrechungsfreie Stromversorgungssysteme – Verfahren zum Festlegen der Leistungs- und Prüfungsanforderungen (Klassen VFD, VI, VFI)"}
+    status: ungeprüft
+
+  - id: vb-reihe-parallel-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Firewall-Cluster am Internet"
+    situation: "Der Internetzugang der ArchivTech GmbH besteht aus einem **Router** (99,5 %) und dahinter **zwei redundanten Firewalls** (je 99 %). Der Zugang funktioniert, wenn der Router und mindestens eine Firewall laufen."
+    frage: "Berechne die Gesamtverfügbarkeit des Internetzugangs."
+    schritte:
+      - frage: "Verfügbarkeit des Firewall-Paars in %"
+        antwort: "99,99"
+        einheit: "%"
+        erklaerung: "1 − 0,01 × 0,01 = 1 − 0,0001 = 0,9999 = 99,99 %."
+        falsch:
+          - {antwort: "98,01", warum: "Das ist 0,99 × 0,99 – so rechnet man in Reihe. Das Paar ist redundant.", ursache: konzept}
+          - {antwort: "99", warum: "Redundanz erhöht die Verfügbarkeit über die einer einzelnen Firewall.", ursache: konzept}
+      - frage: "Gesamtverfügbarkeit in % (auf vier Nachkommastellen)"
+        antwort: "99,4901"
+        einheit: "%"
+        toleranz: 0.00001
+        erklaerung: "Router und Paar in Reihe: 0,995 × 0,9999 = 0,9949005 ≈ 99,4901 %."
+        falsch:
+          - {antwort: "99,99", warum: "Der Router fehlt – er steht in Reihe vor dem Paar.", ursache: konzept}
+          - {antwort: "97,52", warum: "Alle drei in Reihe gerechnet (0,995 × 0,99 × 0,99 ≈ 97,52 %). Die Firewalls sind aber redundant.", ursache: konzept}
+      - frage: "Welche Komponente ist der Single Point of Failure?"
+        antwort: "Router"
+        format: text
+        erklaerung: "Fällt der Router aus, ist der Zugang weg – es gibt ihn nur einmal."
+        falsch:
+          - {antwort: "Firewall", warum: "Die Firewalls sind doppelt vorhanden; fällt eine aus, übernimmt die andere.", ursache: konzept}
+    hinweise:
+      - "Erst das redundante Paar, dann mit dem Router in Reihe."
+      - "Paar: 1 − (1 − 0,99)². Reihe: multiplizieren."
+      - "Ausfallwahrscheinlichkeit je Firewall: 0,01."
+    loesungsweg: |
+      1. Paar: 1 − 0,01² = **99,99 %**
+      2. Gesamt: 0,995 × 0,9999 = 0,9949005 ≈ **99,4901 %**
+      3. Der **Router** ist der Single Point of Failure – ein zweiter Router brächte am meisten.
+    quelle: "Neu erstellt (Claude), Formeln der Lektion verfuegbarkeit-sichern; nachgerechnet."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept und Hochverfügbarkeit"}
+    status: ungeprüft
+
+  - id: vb-konzept-freitext
+    typ: freitext
+    stufe: 4
+    operator: erläutern
+    titel: "Verfügbarkeit für das Archiv-NAS"
+    situation: "Eine Steuerkanzlei (Kunde der ArchivTech) speichert alle Mandantenakten auf **einem NAS** im Büro. Gesichert wird nicht. Strom fällt im Gewerbegebiet gelegentlich für einige Sekunden aus. Die Kanzlei möchte wissen, was sie tun soll."
+    frage: "Erläutere drei Maßnahmen, die die Verfügbarkeit der Daten verbessern, und begründe jeweils, wogegen sie schützen."
+    musterloesung: |
+      | Maßnahme | schützt gegen |
+      | --- | --- |
+      | **Datensicherung nach 3-2-1-Regel**, z. B. zweites Gerät oder Band plus eine Kopie außer Haus oder in der Cloud, Restore regelmäßig testen | Datenverlust durch Löschen, Ransomware, Brand oder Diebstahl |
+      | **USV** (für das NAS z. B. VI oder VFI) mit Signal zum geordneten Herunterfahren | kurze Stromausfälle und Spannungsschwankungen; Dateisystemschäden durch hartes Abschalten |
+      | **Redundanz im NAS** (gespiegelte Platten) und **Monitoring** mit Warnung bei Plattenfehlern | Ausfall einer Platte; lange unbemerkte Fehler |
+
+      Wichtig: Die Spiegelung ersetzt die Datensicherung nicht.
+    bewertungspunkte:
+      - {punkt: "Datensicherung (möglichst mit Kopie außer Haus) gegen Datenverlust", kernbegriffe: ["sicherung"]}
+      - {punkt: "USV gegen Stromausfall bzw. für geordnetes Herunterfahren", kernbegriffe: ["usv"]}
+      - {punkt: "Redundanz (z. B. gespiegelte Platten) oder Monitoring gegen Hardwareausfall", kernbegriffe: ["redundan"]}
+    hinweise:
+      - "Welche Gefahren nennt die Situation? Für jede eine Maßnahme."
+      - "Denk an Strom, Hardware und Datenverlust."
+    loesungsweg: "Datensicherung (3-2-1, Restore testen) gegen Datenverlust · USV gegen die kurzen Stromausfälle · Redundanz und Monitoring gegen Plattenausfall. Spiegelung ist kein Backup."
+    quelle: "Neu erstellt (Claude), passend zu den Lektionen verfuegbarkeit-sichern und datensicherung."
+    belege:
+      - {titel: "BSI IT-Grundschutz-Kompendium, Baustein CON.3 Datensicherungskonzept"}
+      - {titel: "IEC 62040-3 (USV-Klassen VFD, VI, VFI)"}
+    status: ungeprüft

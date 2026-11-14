@@ -1,0 +1,148 @@
+# Aufgaben zum Thema „Kommunikationssysteme: Videokonferenz, Social Media“.
+# Passend zur Lektion kommunikationssysteme.
+
+aufgaben:
+  - id: komm-videokonferenz-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Was eine Videokonferenz braucht"
+    frage: "Ordne jedem Bereich eine passende Anforderung zu."
+    paare:
+      - {links: "Endgerät", rechts: "Headset mit Mikrofon, Kamera"}
+      - {links: "Netzwerk", rechts: "genug Upload-Bandbreite und geringe Latenz"}
+      - {links: "Sicherheit", rechts: "Transportverschlüsselung, Wartebereich, Besprechungskennwort"}
+      - {links: "Datenschutz", rechts: "Aufzeichnung nur mit Einwilligung, AV-Vertrag mit dem Anbieter"}
+    hinweise:
+      - "Sicherheit schützt vor Angreifern, Datenschutz schützt die Personen."
+    loesungsweg: "Endgerät = Headset/Kamera · Netzwerk = Upload, Latenz · Sicherheit = Verschlüsselung, Wartebereich · Datenschutz = Einwilligung, AV-Vertrag."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion kommunikationssysteme."
+    belege:
+      - {titel: "BSI: Kompendium Videokonferenzsysteme (KoViKo), 2020"}
+    status: ungeprüft
+
+  - id: komm-begriffe-luecke
+    typ: lueckentext
+    stufe: 1
+    titel: "Upload, Download, Latenz"
+    frage: "Ergänze die Begriffe Upload, Download oder Latenz."
+    text: "Wer in einer Videokonferenz sein Kamerabild sendet, belastet den {{1}}. Die Bilder der anderen kommen über den {{2}}. Eine hohe {{3}} führt dazu, dass man sich ständig ins Wort fällt."
+    luecken:
+      - antworten: ["Upload"]
+        falsch:
+          - {antwort: "Download", warum: "Senden = Upload, Empfangen = Download.", ursache: begriff}
+      - antworten: ["Download"]
+        falsch:
+          - {antwort: "Upload", warum: "Empfangene Bilder kommen über den Download.", ursache: begriff}
+      - antworten: ["Latenz"]
+        falsch:
+          - {antwort: "Bandbreite", warum: "Bandbreite ist die Menge pro Sekunde; die Verzögerung heißt Latenz.", ursache: begriff}
+    hinweise:
+      - "Up = hinauf ins Netz, Down = herunter zu dir."
+    loesungsweg: "Senden = **Upload** · Empfangen = **Download** · Verzögerung = **Latenz**."
+    quelle: "Neu erstellt (Claude), Abschnitt „Nicht verwechseln“ der Lektion kommunikationssysteme."
+    belege:
+      - {titel: "BSI: Kompendium Videokonferenzsysteme (KoViKo), 2020"}
+    status: ungeprüft
+
+  - id: komm-upload-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Reicht der Upload der Außenstelle?"
+    situation: "In der Außenstelle der ArchivTech GmbH sollen **12 Mitarbeitende** gleichzeitig an **getrennten** Videokonferenzen teilnehmen. Jeder sendet ein HD-Bild mit **3 Mbit/s**. Der Anschluss bietet **250 Mbit/s Download** und **20 Mbit/s Upload**."
+    frage: "Prüfe, ob der Anschluss reicht."
+    schritte:
+      - frage: "benötigter Upload in Mbit/s"
+        antwort: "36"
+        einheit: "Mbit/s"
+        erklaerung: "12 × 3 Mbit/s = 36 Mbit/s."
+      - frage: "Reicht der Upload? (ja/nein)"
+        antwort: "nein"
+        format: text
+        erklaerung: "36 Mbit/s > 20 Mbit/s. Die 250 Mbit/s Download helfen nicht – gesendet wird im Upload."
+        falsch:
+          - {antwort: "ja", warum: "Mit dem Download verglichen. Das eigene Bild wird aber **gesendet** – entscheidend ist der Upload (20 Mbit/s).", ursache: konzept}
+      - frage: "Wie viele Personen können höchstens gleichzeitig mit Video senden?"
+        antwort: "6"
+        einheit: "Personen"
+        erklaerung: "20 ÷ 3 = 6,67 → abrunden: 6 Personen. Eine siebte bräuchte 21 Mbit/s."
+        falsch:
+          - {antwort: "7", warum: "Aufgerundet. 7 × 3 Mbit/s = 21 Mbit/s – das übersteigt die 20 Mbit/s.", ursache: rechenfehler}
+          - {antwort: "83", warum: "Mit dem Download gerechnet. Entscheidend ist der Upload.", ursache: konzept}
+    hinweise:
+      - "Wer sendet, belastet den Upload."
+      - "Bedarf = Anzahl × Bandbreite je Person."
+      - "12 × 3 Mbit/s = ?"
+    loesungsweg: |
+      1. Bedarf: 12 × 3 Mbit/s = **36 Mbit/s**
+      2. 36 > 20 → **reicht nicht** (Download ist hier egal)
+      3. 20 ÷ 3 = 6,67 → höchstens **6** Personen mit Video. Lösung: mehr Upload, Video nur bei Bedarf oder ein gemeinsamer Konferenzraum.
+    quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion kommunikationssysteme mit anderen Zahlen; nachgerechnet."
+    belege:
+      - {titel: "Lektion „Kommunikationssysteme“ (Bedarf = Anzahl × Bandbreite, Upload als Engpass)"}
+    status: ungeprüft
+
+  - id: komm-social-media-risiken
+    typ: multiple_choice
+    stufe: 2
+    titel: "Risiken von Social Media"
+    frage: "Welche Punkte sind **Risiken** eines Social-Media-Auftritts für ein Unternehmen? (**drei** richtige)"
+    optionen:
+      - {text: "Angreifer sammeln Informationen über Mitarbeitende für gezieltes Phishing", richtig: true, warum: "Social Engineering nutzt öffentliche Profile und Beiträge."}
+      - {text: "Ein unbedachter Beitrag löst einen Shitstorm aus", richtig: true, warum: "Imageschaden verbreitet sich in sozialen Medien schnell."}
+      - {text: "Interne Details werden versehentlich veröffentlicht, z. B. auf Fotos aus dem Büro", richtig: true, warum: "Bildschirme oder Whiteboards im Hintergrund verraten oft mehr als gedacht."}
+      - {text: "Fachkräfte und Azubis werden auf das Unternehmen aufmerksam", warum: "Das ist eine Chance, kein Risiko.", ursache: begriff}
+      - {text: "Kunden bekommen schnellen Support", warum: "Das ist eine Chance, kein Risiko.", ursache: begriff}
+    hinweise:
+      - "Chancen bringen Reichweite, Risiken betreffen Image, Datenschutz und Sicherheit."
+    loesungsweg: "Risiken: **Social Engineering**, **Shitstorm/Imageschaden**, **versehentliche Veröffentlichung** – dazu Datenschutz. Reichweite und Support sind Chancen."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion kommunikationssysteme."
+    belege:
+      - {titel: "BSI: Soziale Netzwerke – Basistipps zur IT-Sicherheit", url: "https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Onlinekommunikation/Soziale-Netzwerke/soziale-netzwerke_node.html"}
+    status: ungeprüft
+
+  - id: komm-aufzeichnung
+    typ: multiple_choice
+    stufe: 2
+    titel: "Meeting aufzeichnen"
+    situation: "Eine Projektleiterin möchte das wöchentliche Kundenmeeting per Videokonferenz aufzeichnen, damit Abwesende es später ansehen können."
+    frage: "Was ist vor der Aufzeichnung zu beachten?"
+    optionen:
+      - {text: "Alle Teilnehmenden vorher informieren und ihre Einwilligung einholen", richtig: true, warum: "Bild und Stimme sind personenbezogene Daten; die Lektion verlangt für Aufzeichnungen die Einwilligung."}
+      - {text: "Nichts – interne Meetings dürfen immer aufgezeichnet werden", warum: "Auch intern sind Aufnahmen personenbezogene Daten und brauchen eine Rechtsgrundlage.", ursache: konzept}
+      - {text: "Nur die Bildschirmauflösung auf HD stellen", warum: "Technik ist hier nicht die Frage, sondern der Datenschutz.", ursache: konzept}
+      - {text: "Die Aufzeichnung öffentlich hochladen, damit alle Zugriff haben", warum: "Das verschärft das Datenschutzproblem; Zugriff nur für Berechtigte.", ursache: konzept}
+    hinweise:
+      - "Wessen Daten stecken in einer Aufzeichnung?"
+    loesungsweg: "Aufzeichnungen enthalten personenbezogene Daten (Bild, Stimme): vorher **informieren und Einwilligung einholen**, Zugriff begrenzen."
+    quelle: "Neu erstellt (Claude), Tabelle und Prüfungsfalle der Lektion kommunikationssysteme."
+    belege:
+      - {titel: "DSGVO Art. 6 Abs. 1 lit. a (Einwilligung) und Art. 4 Nr. 1 (personenbezogene Daten)", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+    status: ungeprüft
+
+  - id: komm-richtlinie-freitext
+    typ: freitext
+    stufe: 4
+    operator: beurteilen
+    titel: "Soll die ArchivTech auf Social Media?"
+    situation: "Die Geschäftsleitung der ArchivTech GmbH überlegt, einen Firmenauftritt auf einer Business-Plattform zu starten, um Azubis zu gewinnen. Bisher gibt es keine Regeln dazu."
+    frage: "Beurteile das Vorhaben: Nenne zwei Chancen und zwei Risiken und schlage eine Maßnahme vor, die die Risiken verringert."
+    musterloesung: |
+      | Chancen | Risiken |
+      | --- | --- |
+      | Azubis und Fachkräfte erreichen | Social Engineering: Angreifer sammeln Infos über Mitarbeitende |
+      | Expertise zeigen, kostengünstige Reichweite | Imageschaden/Shitstorm; versehentliche Veröffentlichung interner Details |
+
+      **Maßnahme:** eine **Social-Media-Richtlinie** – wer darf für das Unternehmen sprechen, was gehört nicht nach außen (Kundendaten, Bildschirme auf Fotos) – plus Schulung der Mitarbeitenden.
+
+      **Fazit:** sinnvoll, wenn Zuständigkeit und Regeln vorher geklärt sind.
+    bewertungspunkte:
+      - {punkt: "zwei Chancen, z. B. Recruiting, Reichweite, Expertise", kernbegriffe: ["azubi", "fachkr", "reichweite", "kunden"]}
+      - {punkt: "zwei Risiken, z. B. Social Engineering, Imageschaden, Datenschutz", kernbegriffe: ["social engineering", "image", "shitstorm", "datenschutz", "phishing"]}
+      - {punkt: "Maßnahme: Social-Media-Richtlinie oder Schulung", kernbegriffe: ["richtlinie", "schulung"]}
+    hinweise:
+      - "Erst Chancen, dann Risiken, dann eine Gegenmaßnahme – und ein Fazit."
+    loesungsweg: "Chancen (Recruiting, Reichweite) gegen Risiken (Social Engineering, Imageschaden) abwägen; Richtlinie und Schulung als Maßnahme; Fazit ziehen."
+    quelle: "Neu erstellt (Claude), passend zur Lektion kommunikationssysteme."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.02: Social Media neu aufgenommen (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft

@@ -357,3 +357,29 @@ nachgerechnet, OOP-Code in Python ausgeführt; `ap-tools check` prüft Musterlö
 | `englische-texte.yaml` | 6 | Fachwörter und falsche Freunde (Cambridge Dictionary); englisches Angebot 5.000,00 → 4.750,00 → 4.655,00 → 4.700,00 € | – |
 | `kundenbedarf.yaml` | 5 | Fragearten, aktives Zuhören, Vier-Seiten-Modell (Schulz von Thun 1981) | – |
 | `maerkte-bedarfe.yaml` | 4 | Bedürfnis → Bedarf → Nachfrage; Wettbewerb und Preis | – |
+
+## Aufgaben Paket 3 (Verfügbarkeit, Speicher, Installation, UML, Cloud, Netz, Kommunikation, Präsentation)
+
+62 feste Aufgaben für neun Themen und der Generator `verfuegbarkeit`, im PR mit `status: ungeprüft`.
+Rechenwerte per Skript mit `Decimal` nachgerechnet, die Schleife im UML-Aktivitätsdiagramm per
+Schreibtischtest verfolgt, alle Mermaid-Diagramme mit der Mermaid-CLI gerendert und angesehen;
+`ap-tools check` prüft Musterlösungen und Fehlerbilder.
+
+| Datei | Aufgaben | Geprüfte Kernaussagen | Beim Prüfen korrigiert |
+| --- | ---: | --- | --- |
+| Generator `verfuegbarkeit` | – | Ausfallzeit = (1 − V) × 8.760 h; Reihe = Produkt; parallel = 1 − Produkt der Ausfallwahrscheinlichkeiten; Lektionswerte 87,6 h / 8,76 h / 52,56 min / 98,505 % / 99,99 % als Test | Prozentwerte zunächst auf zwei Nachkommastellen gerundet – 99,9975 % wurde als „100“ erwartet. Jetzt vier Nachkommastellen; drei redundante Server mit 99,5 % (99,99999 %) ausgeschlossen; Fehlerbild „100“ unterdrückt |
+| `verfuegbarkeit-backup.yaml` | 10 | Inkrementell/differenziell (BSI CON.3): 800 GB + 4 × 30 GB = 920 GB bzw. 1.100 GB, Restore 5 bzw. 2 Sicherungen; 3-2-1-Regel; Generationenprinzip; Spiegelung ≠ Backup; USV-Klassen VFD/VI/VFI (IEC 62040-3); Router 99,5 % × Firewall-Paar 99,99 % = 99,49005 % | Gesamtverfügbarkeit im Entwurf mit 99,495 % angegeben, richtig 99,4901 %; Fehlerbild „alle in Reihe“ mit 98,5049 % statt 97,52 % beziffert |
+| `speicher-hdd-ssd.yaml` | 6 | 5.400 U/min → 90/s → 11,11 ms → 5,56 ms mittlere Rotationswartezeit; 1.200 TBW ÷ 400 GB/Tag = 3.000 Tage = 8,22 Jahre (TBW dezimal); Secure Erase/Kryptolöschung/Zerstörung (BSI) | Link auf die NVMe-Spezifikationsseite nicht prüfbar – nur noch als Titel belegt |
+| `bios-uefi-dateisysteme.yaml` | 6 | 2³² × 512 Byte = 2.199.023.255.552 Byte = 2 TiB, auf 4 TB bleiben 1,80 TB ungenutzt (Microsoft GPT-FAQ); FAT32 max. 4 GiB − 1 Byte; exFAT für Wechseldatenträger; NTFS unter macOS ab Werk nur lesbar; VT-x/AMD-V für KVM (RHEL 9 Doku) | Wörtliche KVM-Fehlermeldung im Entwurf nicht sicher belegbar – durch neutrale Beschreibung (`virt-host-validate`) ersetzt |
+| `installation-einrichtung.yaml` | 7 | Ports SSH 22, RDP 3389, VNC 5900 (IANA); statische Konfiguration: Adresse mit Präfix, Gateway, DNS; DHCP für Clients (RFC 2131); RDP nicht ins Internet (BSI OPS.1.2.5) | – |
+| `uml.yaml` | 9 | include = immer, extend = optional; Multiplizitäten 1, 0..*, 1..*; Aggregation ◇ / Komposition ◆; Gabelung/Vereinigung vs. Verzweigung/Zusammenführung (UML 2.5.1, Kap. 11, 15, 18); Schleife: immer Fehlschlag → 3 Versuche, Erfolg im 2. → 2 | – |
+| `cloud-modelle.yaml` | 6 | IaaS/PaaS/SaaS/DaaS und Public/Private/Hybrid/Community (NIST SP 800-145); Kunde bleibt Verantwortlicher, Anbieter Auftragsverarbeiter (Art. 28 DSGVO); DaaS für befristeten Bedarf | – |
+| `netzwerkkomponenten.yaml` | 6 | Schichten Repeater 1, Switch 2, Accesspoint 2, Router 3; VLANs (IEEE 802.1Q); PoE: 8 × 30 W + 16 × 15,4 W = 486,4 W > 370 W, es fehlen 116,4 W (IEEE 802.3af/at) | – |
+| `kommunikationssysteme.yaml` | 6 | Upload als Engpass: 12 × 3 Mbit/s = 36 > 20 Mbit/s, höchstens ⌊20 ÷ 3⌋ = 6 Personen; Aufzeichnung nur mit Einwilligung (Art. 6 DSGVO); Social-Media-Risiken | – |
+| `praesentation.yaml` | 6 | Anteile 10 % / 75 % / 15 % von 20 min = 2 / 15 / 3 min; Folienregeln; Medienwahl; Bildrechte (UrhG) | – |
+
+Hinweis zur PoE-Aufgabe: Geplant wird mit der Höchstleistung je Port (15,4 W bzw. 30 W). Echte
+Geräte ziehen oft weniger; für die Budgetplanung ist der Höchstwert die sichere Annahme.
+
+Alle Korrekturen betrafen neue, noch nicht gemergte Aufgaben; in bestehenden Lektionen wurden
+keine Fehler gefunden.

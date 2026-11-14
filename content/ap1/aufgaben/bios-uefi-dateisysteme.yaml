@@ -1,0 +1,139 @@
+# Aufgaben zum Thema „BIOS/UEFI-Einstellungen, Dateisysteme (FAT32, NTFS, APFS, ext4)“.
+# Passend zur Lektion uefi-dateisysteme.
+
+aufgaben:
+  - id: uefi-bios-vergleich
+    typ: zuordnung
+    stufe: 1
+    titel: "BIOS oder UEFI?"
+    frage: "Ordne jedes Merkmal der passenden Firmware zu."
+    paare:
+      - {links: "nutzt die Partitionstabelle GPT", rechts: "UEFI"}
+      - {links: "Secure Boot: startet nur signierte Bootloader", rechts: "UEFI"}
+      - {links: "grafische Oberfläche, Maus möglich", rechts: "UEFI"}
+      - {links: "startet von MBR-Platten, Textmenü", rechts: "BIOS (Legacy)"}
+    hinweise:
+      - "Das BIOS stammt aus den 1980ern – was davon klingt modern?"
+    loesungsweg: "**UEFI:** GPT, Secure Boot, grafisch, Netzwerkboot. **BIOS:** MBR, Textmenü."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion uefi-dateisysteme."
+    belege:
+      - {titel: "UEFI Forum: Unified Extensible Firmware Interface Specification (GPT, Secure Boot)", url: "https://uefi.org/specifications"}
+    status: ungeprüft
+
+  - id: uefi-einstellung-mc
+    typ: multiple_choice
+    stufe: 2
+    titel: "Hypervisor startet keine VMs"
+    situation: "Auf einem neuen Testserver der ArchivTech GmbH soll KVM virtuelle Maschinen ausführen. Die VMs starten nicht; die Prüfung mit `virt-host-validate` meldet, dass keine Hardware-Virtualisierung verfügbar ist."
+    frage: "Welche Einstellung in der UEFI-Firmware ist vermutlich deaktiviert?"
+    optionen:
+      - {text: "Virtualisierung (Intel VT-x bzw. AMD-V)", richtig: true, warum: "Hypervisoren wie KVM brauchen die Virtualisierungserweiterung der CPU – sie ist oft ab Werk aus."}
+      - {text: "Secure Boot", warum: "Secure Boot prüft Signaturen beim Booten, hat aber nichts mit der Hardware-Virtualisierung zu tun.", ursache: begriff}
+      - {text: "TPM", warum: "Das TPM speichert Schlüssel, z. B. für die Festplattenverschlüsselung.", ursache: begriff}
+      - {text: "Bootreihenfolge", warum: "Das System ist ja schon gestartet – die Bootreihenfolge ist erledigt.", ursache: konzept}
+    hinweise:
+      - "Die Prüfung sagt: Es fehlt Hardware-Unterstützung – welche CPU-Funktion?"
+    loesungsweg: "Für Hypervisoren muss **VT-x/AMD-V** in der Firmware aktiviert sein."
+    quelle: "Neu erstellt (Claude), Liste „Typische Einstellungen“ der Lektion uefi-dateisysteme."
+    belege:
+      - {titel: "Red Hat Enterprise Linux 9: Configuring and managing virtualization, Kapitel 2 Enabling virtualization (Hardware-Virtualisierung als Voraussetzung)", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_virtualization/assembly_enabling-virtualization-in-rhel-9_configuring-and-managing-virtualization"}
+    status: ungeprüft
+
+  - id: uefi-mbr-grenze
+    typ: rechnung
+    stufe: 3
+    titel: "MBR auf einer 4-TB-Platte"
+    situation: "Ein Techniker richtet eine neue **4-TB-Festplatte** (4.000.000.000.000 Byte, 512-Byte-Sektoren) mit einer **MBR**-Partitionstabelle ein. MBR adressiert Sektoren mit **32 Bit**."
+    frage: "Wie viel Speicher kann MBR höchstens ansprechen, und wie viel der Platte bleibt ungenutzt?"
+    schritte:
+      - frage: "Anzahl adressierbarer Sektoren"
+        antwort: "4294967296"
+        erklaerung: "2³² = 4.294.967.296 Sektoren."
+        falsch:
+          - {antwort: "64", warum: "2 × 32 gerechnet. Mit 32 Bit lassen sich 2³² Werte darstellen.", ursache: rechenfehler}
+      - frage: "maximal adressierbare Größe in Byte"
+        antwort: "2199023255552"
+        einheit: "Byte"
+        erklaerung: "4.294.967.296 × 512 Byte = 2.199.023.255.552 Byte = 2 TiB."
+      - frage: "ungenutzter Speicher in TB (1 TB = 10¹² Byte)"
+        antwort: "1,8"
+        einheit: "TB"
+        toleranz: 0.005
+        erklaerung: "4.000.000.000.000 − 2.199.023.255.552 = 1.800.976.744.448 Byte ≈ 1,80 TB."
+        falsch:
+          - {antwort: "2", warum: "2 TiB sind nicht 2 TB: 2 TiB = 2,2 TB. Es bleiben 4 − 2,2 = 1,8 TB ungenutzt.", ursache: begriff}
+    hinweise:
+      - "Mit n Bit lassen sich 2ⁿ Sektoren nummerieren."
+      - "Größe = Anzahl Sektoren × 512 Byte."
+      - "2³² = 4.294.967.296."
+    loesungsweg: |
+      1. 2³² = **4.294.967.296** Sektoren
+      2. × 512 Byte = **2.199.023.255.552 Byte** = 2 TiB ≈ 2,2 TB
+      3. 4,0 TB − 2,2 TB ≈ **1,8 TB** bleiben ungenutzt → **GPT** verwenden.
+    quelle: "Neu erstellt (Claude), nach der 2-TiB-Rechnung der Lektion uefi-dateisysteme; nachgerechnet."
+    belege:
+      - {titel: "Microsoft Learn: Windows and GPT FAQ (MBR max. 2 TB bei 512-Byte-Sektoren)", url: "https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-and-gpt-faq"}
+    status: ungeprüft
+
+  - id: uefi-dateisysteme-zuordnen
+    typ: zuordnung
+    stufe: 2
+    titel: "Welches Dateisystem?"
+    frage: "Ordne jedem Dateisystem die passende Beschreibung zu."
+    paare:
+      - {links: "FAT32", rechts: "überall lesbar, Dateien höchstens 4 GiB − 1 Byte, kein Journaling"}
+      - {links: "exFAT", rechts: "für große Wechseldatenträger, von Windows, macOS und Linux lesbar"}
+      - {links: "NTFS", rechts: "Windows-Standard mit Rechten (ACL), Journaling und Verschlüsselung"}
+      - {links: "APFS", rechts: "Apple-Standard mit Snapshots, für SSDs optimiert"}
+      - {links: "ext4", rechts: "verbreitet unter Linux, Journaling und Unix-Rechte"}
+    ablenker: ["Partitionstabelle mit Kopie am Anfang und Ende der Platte"]
+    hinweise:
+      - "Der Ablenker beschreibt kein Dateisystem, sondern GPT."
+    loesungsweg: "FAT32 = universell, 4-GiB-Grenze · exFAT = große Sticks · NTFS = Windows · APFS = Apple · ext4 = Linux. GPT ist eine Partitionstabelle."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion uefi-dateisysteme."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.03: Filesysteme (z. B. FAT32, NTFS, APFS, ext4) (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: uefi-iso-stick
+    typ: multiple_choice
+    stufe: 3
+    titel: "Die ISO passt nicht auf den Stick"
+    situation: "Eine Kollegin will eine **6 GB** große ISO-Datei auf einen 32-GB-USB-Stick kopieren, der mit **FAT32** formatiert ist. Windows meldet: „Die Datei ist zu groß für das Zieldateisystem.“ Der Stick soll danach an Windows-, macOS- und Linux-Rechnern lesbar sein."
+    frage: "Was ist die Ursache, und was ist die beste Lösung?"
+    optionen:
+      - {text: "FAT32 erlaubt nur Dateien bis 4 GiB − 1 Byte; Stick mit exFAT formatieren", richtig: true, warum: "exFAT kennt die 4-GiB-Grenze nicht und ist auf allen drei Systemen lesbar."}
+      - {text: "FAT32 erlaubt nur Dateien bis 4 GiB − 1 Byte; Stick mit NTFS formatieren", warum: "Die Grenze stimmt, aber NTFS kann macOS ab Werk nur lesen, nicht beschreiben – exFAT passt besser zur Anforderung.", ursache: konzept}
+      - {text: "Der Stick ist zu klein; einen 64-GB-Stick kaufen", warum: "Auf 32 GB passen 6 GB locker. Das Problem ist die Dateigröße, nicht der Platz.", ursache: konzept}
+      - {text: "Die Partitionstabelle ist MBR; auf GPT umstellen", warum: "Die Partitionstabelle begrenzt die Plattengröße (2 TiB), nicht die Dateigröße – das macht das Dateisystem.", ursache: begriff}
+    hinweise:
+      - "Die Meldung spricht vom Zieldateisystem."
+      - "Welches Dateisystem können alle drei Systeme lesen und schreiben?"
+    loesungsweg: "FAT32 begrenzt **jede Datei** auf 4 GiB − 1 Byte. Für große Dateien auf einem Stick für alle Systeme: **exFAT**."
+    quelle: "Neu erstellt (Claude), Vertiefung „Warum ist FAT32 dann noch im Einsatz?“ der Lektion uefi-dateisysteme."
+    belege:
+      - {titel: "Microsoft Learn: exFAT file system specification", url: "https://learn.microsoft.com/en-us/windows/win32/fileio/exfat-specification"}
+    status: ungeprüft
+
+  - id: uefi-begriffe-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Partition, Partitionstabelle, Dateisystem"
+    frage: "Setze die passenden Begriffe ein: Partitionstabelle, Dateisystem, formatieren, signierte."
+    text: "GPT ist eine {{1}}: Sie legt fest, wie die Platte aufgeteilt ist. NTFS ist ein {{2}}: Es organisiert Dateien und Rechte innerhalb einer Partition. Ein Dateisystem anlegen nennt man {{3}}. Secure Boot startet nur {{4}} Bootloader."
+    luecken:
+      - antworten: ["Partitionstabelle"]
+        falsch:
+          - {antwort: "Dateisystem", warum: "GPT teilt die Platte auf; Dateien organisiert erst das Dateisystem in der Partition.", ursache: begriff}
+      - antworten: ["Dateisystem"]
+        falsch:
+          - {antwort: "Partitionstabelle", warum: "NTFS liegt **in** einer Partition und verwaltet Dateien.", ursache: begriff}
+      - antworten: ["formatieren", "Formatieren"]
+      - antworten: ["signierte"]
+    hinweise:
+      - "Erst die Platte aufteilen, dann in jedem Teil Dateien organisieren."
+    loesungsweg: "GPT/MBR = **Partitionstabelle** · NTFS/ext4 = **Dateisystem** · Dateisystem anlegen = **formatieren** · Secure Boot = nur **signierte** Bootloader."
+    quelle: "Neu erstellt (Claude), Abschnitt „Nicht verwechseln“ der Lektion uefi-dateisysteme."
+    belege:
+      - {titel: "UEFI Forum: Unified Extensible Firmware Interface Specification", url: "https://uefi.org/specifications"}
+    status: ungeprüft

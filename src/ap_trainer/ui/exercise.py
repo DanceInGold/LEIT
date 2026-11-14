@@ -29,6 +29,7 @@ from ap_trainer.tasks.check import Antwort, FreitextAntwort, missing_terms
 from ap_trainer.tasks.hints import help_steps
 from ap_trainer.ui.layout import frame
 from ap_trainer.ui.lesson import MARKDOWN_EXTRAS, STATUS_COLORS
+from ap_trainer.ui.render import Block, parse_blocks
 from ap_trainer.ui.task_view import (
     PLATZHALTER,
     gap_markdown,
@@ -56,7 +57,19 @@ class ExerciseState:
 
 
 def _markdown(text: str) -> None:
-    ui.markdown(text, extras=MARKDOWN_EXTRAS).classes("w-full")
+    """Markdown mit Mermaid-Diagrammen und Vertiefungen, wie in der Lektionsansicht."""
+    _render(parse_blocks(text))
+
+
+def _render(blocks: list[Block]) -> None:
+    for block in blocks:
+        if block.kind == "mermaid":
+            ui.mermaid(block.text).classes("w-full")
+        elif block.kind == "details":
+            with ui.expansion(block.summary, icon="psychology_alt").classes("w-full border rounded"):
+                _render(block.children)
+        else:
+            ui.markdown(block.text, extras=MARKDOWN_EXTRAS).classes("w-full")
 
 
 # --- Eingaben je Aufgabentyp ------------------------------------------------------
