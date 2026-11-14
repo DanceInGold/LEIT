@@ -1,0 +1,475 @@
+# Prüfungssimulation 6 – vollständiger AP1-Satz (PS-01): vier Aufgaben, 100 Punkte, 90 Minuten.
+# Generalprobe mit Schwerpunkt auf den Themen, die in AP1-Prüfungen besonders oft und mit vielen Punkten
+# vorkommen (Angebotsvergleich, ERM, Schreibtischtest, Subnetting, Datenmengen, Sicherung).
+
+titel: "Simulation 6: Neue Filiale für ein Reisebüro"
+dauer_minuten: 90
+quelle: "Neu erstellt (Claude), Aufbau nach U-Form-Prüfungstrainer AP1; Themen nach Prüfungskatalog 2025."
+status: ungeprüft
+belege:
+  - {titel: "U-Form: Prüfungstrainer Teil 1 der Abschlussprüfung IT-Berufe (100 Punkte, 90 Minuten, vier Aufgaben zu 20–30 Punkten)", url: "https://shopstage.u-form.de/media/dd/9f/63/1687157302/750.pdf"}
+
+ausgangssituation: |
+  Du bist Auszubildende bzw. Auszubildender bei der **ArchivTech GmbH**, einem IT-Dienstleister für
+  digitale Archivierung und IT-Betreuung.
+
+  Das **Reisebüro Leuchtfeuer GmbH** eröffnet eine zweite Filiale mit 20 Beratungsplätzen. Die
+  Reiseberaterinnen und -berater arbeiten mit Notebooks, die Kundendaten liegen auf einem Server in der
+  Zentrale, und eine kleine Web-App für Gruppenreisen soll entstehen. Die ArchivTech nimmt den Bedarf
+  auf, beschafft und verteilt die Geräte, plant Netz und Sicherung und entwirft die Datenbank der App.
+
+aufgaben:
+  # ------------------------------------------------------------------------------------------
+  - nr: 1
+    titel: "Bedarf, Beschaffung und Rollout"
+    teilaufgaben:
+      - nr: a
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: kundenbedarf
+          titel: "Fragen im Erstgespräch"
+          frage: "Im Erstgespräch mit der Geschäftsführerin stellst du verschiedene Fragen. Ordne jede Frage der Frageart zu."
+          paare:
+            - {links: "„Wie arbeiten Ihre Beraterinnen heute mit den Kundendaten?“", rechts: "offene Frage"}
+            - {links: "„Nutzen Sie bereits eine Cloud-Lösung?“", rechts: "geschlossene Frage"}
+            - {links: "„Sollen es eher Notebooks oder Desktop-PCs werden?“", rechts: "Alternativfrage"}
+            - {links: "„Habe ich richtig verstanden, dass alle Plätze bis März fertig sein müssen?“", rechts: "Kontrollfrage"}
+          ablenker: ["Suggestivfrage"]
+          loesungsweg: "W-Frage = **offen** · Ja/Nein = **geschlossen** · A oder B = **Alternativfrage** · „Habe ich richtig verstanden …“ = **Kontrollfrage**."
+
+      - nr: b
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: angebotsvergleich
+          titel: "Notebook-Angebote vergleichen"
+          frage: |
+            Für **20 Notebooks** liegen zwei Angebote vor:
+
+            | | Angebot A | Angebot B |
+            | --- | ---: | ---: |
+            | Listenpreis je Notebook | 899,00 € | 829,00 € |
+            | Rabatt | 12 % | 5 % |
+            | Skonto | 3 % | 2 % |
+            | Versandkosten | frei Haus | 49,00 € pauschal |
+
+            Das Reisebüro nutzt jeden Skonto. Berechne die Bezugspreise für alle 20 Geräte und runde auf Cent.
+          schritte:
+            - frage: "Zieleinkaufspreis Angebot A in €"
+              antwort: "15822,4"
+              einheit: "€"
+              erklaerung: "20 × 899 € = 17.980 €; − 12 % (2.157,60 €) = 15.822,40 €."
+            - frage: "Bezugspreis Angebot A in €"
+              antwort: "15347,73"
+              einheit: "€"
+              toleranz: 0.00001
+              erklaerung: "15.822,40 € − 3 % (474,67 €) = 15.347,73 €; Versand frei."
+              falsch:
+                - {antwort: "15283", warum: "Rabatt und Skonto zu 15 % addiert. Skonto wird erst vom Zieleinkaufspreis abgezogen.", ursache: konzept}
+            - frage: "Bezugspreis Angebot B in €"
+              antwort: "15484,98"
+              einheit: "€"
+              erklaerung: "20 × 829 € = 16.580 €; − 5 % = 15.751 €; − 2 % = 15.435,98 €; + 49 € = 15.484,98 €."
+              falsch:
+                - {antwort: "15435,98", warum: "Die Versandkosten fehlen – sie gehören in den Bezugspreis.", ursache: konzept}
+            - frage: "Preisvorteil des günstigeren Angebots in €"
+              antwort: "137,25"
+              einheit: "€"
+              erklaerung: "15.484,98 € − 15.347,73 € = 137,25 €; Angebot A ist günstiger."
+          loesungsweg: |
+            | Stufe | Angebot A | Angebot B |
+            | --- | ---: | ---: |
+            | Listeneinkaufspreis (20 Stück) | 17.980,00 € | 16.580,00 € |
+            | − Rabatt | 2.157,60 € | 829,00 € |
+            | = Zieleinkaufspreis | 15.822,40 € | 15.751,00 € |
+            | − Skonto | 474,67 € | 315,02 € |
+            | = Bareinkaufspreis | 15.347,73 € | 15.435,98 € |
+            | + Bezugskosten | – | 49,00 € |
+            | = **Bezugspreis** | **15.347,73 €** | **15.484,98 €** |
+
+            Angebot A ist **137,25 €** günstiger.
+
+      - nr: c
+        punkte: 5
+        aufgabe:
+          typ: zuordnung
+          thema: vorgehensmodelle
+          titel: "Scrum-Events"
+          frage: "Die Web-App für Gruppenreisen entwickelt die ArchivTech mit Scrum. Ordne jeder Beschreibung das Scrum-Event zu."
+          paare:
+            - {links: "Das Team legt fest, warum der Sprint wertvoll ist, was und wie es umgesetzt wird.", rechts: "Sprint Planning"}
+            - {links: "Die Developers prüfen täglich in 15 Minuten den Fortschritt zum Sprint-Ziel.", rechts: "Daily Scrum"}
+            - {links: "Das Ergebnis des Sprints wird mit der Geschäftsführerin geprüft.", rechts: "Sprint Review"}
+            - {links: "Das Team überlegt, wie es seine Zusammenarbeit verbessert.", rechts: "Sprint Retrospective"}
+          ablenker: ["Lenkungsausschuss"]
+          loesungsweg: "warum/was/wie = **Planning** · 15 Minuten täglich = **Daily** · Ergebnis prüfen = **Review** · Zusammenarbeit verbessern = **Retrospective** (Scrum Guide 2020)."
+          belege:
+            - {titel: "Schwaber, Sutherland: The Scrum Guide (November 2020)", url: "https://scrumguides.org/scrum-guide.html"}
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: reihenfolge
+          thema: rollout-ticketsystem
+          titel: "Phasen des Rollouts"
+          frage: "Bring die Phasen für die Verteilung der 20 Notebooks in die richtige Reihenfolge."
+          elemente:
+            - "Planung (Image, Termine, Benutzerliste)"
+            - "Pilot mit zwei Beraterinnen"
+            - "Rollout in Wellen"
+            - "Nacharbeit und Abschluss"
+          loesungsweg: "Planung → **Pilot** → Rollout in Wellen → Nacharbeit. Der Pilot findet Fehler, bevor alle betroffen sind."
+
+      - nr: e
+        punkte: 5
+        aufgabe:
+          typ: rechnung
+          thema: rollout-ticketsystem
+          titel: "Budget für den Rollout"
+          frage: "Die Einrichtung dauert je Notebook **0,75 Stunden**, der Pilot zusätzlich **6 Stunden**; eine Technikerstunde kostet **72 €**. Rechne für die Geräte mit dem Bezugspreis aus Teilaufgabe b) von **15.347,73 €**."
+          schritte:
+            - frage: "Kosten für die Einrichtung der 20 Notebooks in €"
+              antwort: "1080"
+              einheit: "€"
+              erklaerung: "20 × 0,75 h × 72 € = 1.080 €."
+            - frage: "Kosten für den Pilot in €"
+              antwort: "432"
+              einheit: "€"
+              erklaerung: "6 h × 72 € = 432 €."
+            - frage: "Gesamtbudget für den Rollout in €"
+              antwort: "16859,73"
+              einheit: "€"
+              erklaerung: "15.347,73 € + 1.080 € + 432 € = 16.859,73 €."
+          loesungsweg: "Einrichtung 20 × 0,75 × 72 € = **1.080 €** · Pilot 6 × 72 € = **432 €** · Summe mit Geräten **16.859,73 €**."
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 2
+    titel: "Geräte, Energie und Sicherung"
+    teilaufgaben:
+      - nr: a
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: hardware-komponenten
+          titel: "Netzteil für den Filialserver"
+          frage: "Die Komponenten des kleinen Filialservers brauchen zusammen **320 W**. Das Netzteil hat einen Wirkungsgrad von **92 %**."
+          schritte:
+            - frage: "Leistungsaufnahme aus der Steckdose in W (zwei Nachkommastellen)"
+              antwort: "347,83"
+              einheit: "W"
+              toleranz: 0.0001
+              erklaerung: "320 W ÷ 0,92 = 347,83 W."
+              falsch:
+                - {antwort: "294,4", warum: "Mit dem Wirkungsgrad multipliziert. Aus der Steckdose kommt mehr, als bei den Bauteilen ankommt: ÷ 0,92.", ursache: konzept}
+            - frage: "Verlustleistung (Wärme) in W"
+              antwort: "27,83"
+              einheit: "W"
+              toleranz: 0.001
+              erklaerung: "347,83 W − 320 W = 27,83 W."
+            - frage: "Mindest-Nennleistung des Netzteils bei 20 % Reserve in W"
+              antwort: "384"
+              einheit: "W"
+              erklaerung: "Die Nennleistung bezieht sich auf die Abgabe an die Bauteile: 320 W × 1,2 = 384 W."
+          loesungsweg: "Aufnahme 320 ÷ 0,92 = **347,83 W**; Verlust **27,83 W**; mit 20 % Reserve **384 W** → ein 400-W-Netzteil reicht."
+
+      - nr: b
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: nachhaltigkeit-energie
+          titel: "Nachhaltig beschaffen"
+          frage: "Die Geschäftsführerin möchte die Notebooks möglichst nachhaltig beschaffen. Welche **zwei** Aussagen treffen zu?"
+          optionen:
+            - {text: "Blauer Engel und TCO Certified sind Umweltzeichen für IT-Geräte.", richtig: true, warum: "Beide prüfen u. a. Energieverbrauch, Schadstoffe und Langlebigkeit."}
+            - {text: "Geräte länger zu nutzen und aufzurüsten verbessert die Umweltbilanz, weil die Herstellung viel Energie und Rohstoffe verbraucht.", richtig: true, warum: "Ein großer Teil der Umweltwirkung entsteht bei der Herstellung."}
+            - {text: "Das CE-Kennzeichen ist ein Umweltsiegel.", warum: "CE bestätigt die Einhaltung von EU-Vorschriften, z. B. zur Sicherheit – es ist kein Umweltzeichen.", ursache: begriff}
+            - {text: "Im Standby verbrauchen Geräte keinen Strom.", warum: "Auch im Standby wird Strom verbraucht; schaltbare Steckdosenleisten helfen.", ursache: konzept}
+          loesungsweg: "Umweltzeichen: **Blauer Engel**, **TCO Certified**, EPEAT, Energy Star. Länger nutzen schont Ressourcen. CE ist kein Umweltsiegel."
+          belege:
+            - {titel: "Umweltbundesamt / Blauer Engel: Computer und Tastaturen (DE-UZ 78)", url: "https://www.blauer-engel.de/de/produktwelt/computer-und-tastaturen"}
+            - {titel: "EU-Kommission: CE-Kennzeichnung", url: "https://single-market-economy.ec.europa.eu/single-market/ce-marking_de"}
+
+      - nr: c
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: verfuegbarkeit-backup
+          titel: "Inkrementell oder differenziell?"
+          frage: "Der Server in der Zentrale wird sonntags voll gesichert (**500 GB**). Montag bis Freitag ändern sich täglich **jeweils andere 20 GB**. Jeden Abend läuft eine Teilsicherung. Am Freitag nach der Sicherung fällt der Server aus."
+          schritte:
+            - frage: "Speicherbedarf der Woche (So–Fr) bei inkrementeller Sicherung in GB"
+              antwort: "600"
+              einheit: "GB"
+              erklaerung: "500 + 5 × 20 = 600 GB – jede Sicherung enthält nur die Änderungen seit der letzten Sicherung."
+            - frage: "Speicherbedarf der Woche (So–Fr) bei differenzieller Sicherung in GB"
+              antwort: "800"
+              einheit: "GB"
+              erklaerung: "500 + 20 + 40 + 60 + 80 + 100 = 800 GB – jede Sicherung enthält alle Änderungen seit der Vollsicherung."
+              falsch:
+                - {antwort: "600", warum: "Das ist die inkrementelle Sicherung. Differenziell wächst jeden Tag um 20 GB.", ursache: begriff}
+            - frage: "Wie viele Sicherungen brauchst du zum Wiederherstellen bei inkrementeller Sicherung?"
+              antwort: "6"
+              erklaerung: "Vollsicherung + alle fünf Inkremente (Mo–Fr)."
+            - frage: "Wie viele Sicherungen brauchst du zum Wiederherstellen bei differenzieller Sicherung?"
+              antwort: "2"
+              erklaerung: "Vollsicherung + die letzte differenzielle Sicherung (Fr)."
+              falsch:
+                - {antwort: "6", warum: "Bei differenzieller Sicherung genügt die letzte Teilsicherung – sie enthält alle Änderungen seit Sonntag.", ursache: begriff}
+          loesungsweg: |
+            | Tag | inkrementell | differenziell |
+            | --- | ---: | ---: |
+            | So (voll) | 500 GB | 500 GB |
+            | Mo | 20 GB | 20 GB |
+            | Di | 20 GB | 40 GB |
+            | Mi | 20 GB | 60 GB |
+            | Do | 20 GB | 80 GB |
+            | Fr | 20 GB | 100 GB |
+            | **Summe** | **600 GB** | **800 GB** |
+            | Wiederherstellen | **6** Sicherungen | **2** Sicherungen |
+
+      - nr: d
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: datenmengen-uebertragung
+          titel: "Dauer der Vollsicherung"
+          frage: "Die Vollsicherung von **2 TiB** wird über eine Leitung mit **1 Gbit/s** in die Zentrale übertragen. Rechne ohne Overhead (1 Gbit/s = 10⁹ bit/s)."
+          schritte:
+            - frage: "Datenmenge in Byte"
+              antwort: "2199023255552"
+              einheit: "Byte"
+              erklaerung: "1 TiB = 2⁴⁰ Byte = 1.099.511.627.776 Byte; × 2 = 2.199.023.255.552 Byte."
+              falsch:
+                - {antwort: "2000000000000", warum: "TiB ist ein binäres Präfix (2⁴⁰), nicht 10¹² – das wäre TB.", ursache: begriff}
+            - frage: "Übertragungszeit in Sekunden (zwei Nachkommastellen)"
+              antwort: "17592,19"
+              einheit: "s"
+              toleranz: 0.0001
+              erklaerung: "2.199.023.255.552 Byte × 8 = 17.592.186.044.416 bit; ÷ 10⁹ bit/s = 17.592,19 s."
+            - frage: "Übertragungszeit in Stunden (zwei Nachkommastellen)"
+              antwort: "4,89"
+              einheit: "h"
+              toleranz: 0.002
+              erklaerung: "17.592,19 s ÷ 3.600 = 4,89 h."
+              falsch:
+                - {antwort: "4,44", warum: "Mit 2 TB = 2 · 10¹² Byte gerechnet. TiB ist binär und etwas größer.", ursache: begriff}
+          loesungsweg: "2 TiB = 2 × 2⁴⁰ = **2.199.023.255.552 Byte**; × 8 ÷ 10⁹ = **17.592,19 s** ≈ **4,89 h**."
+          belege:
+            - {titel: "IEC 80000-13:2008 (binäre Präfixe Ki, Mi, Gi, Ti)"}
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 3
+    titel: "Netz und Sicherheit der Filiale"
+    teilaufgaben:
+      - nr: a
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: ipv4-subnetting
+          titel: "Subnetze nach Bedarf"
+          frage: "Die Filiale bekommt das Netz **192.168.40.0/24**. Gebraucht werden ein Netz **A** für **50 Hosts** (Beratung) und direkt dahinter ein Netz **B** für **14 Hosts** (Drucker und Technik). Netz A beginnt bei 192.168.40.0. Wähle jeweils das kleinstmögliche Netz."
+          schritte:
+            - frage: "Präfixlänge für Netz A"
+              antwort: "26"
+              erklaerung: "2⁵ − 2 = 30 (zu wenig), 2⁶ − 2 = 62 ≥ 50 → 6 Hostbits → /26."
+              falsch:
+                - {antwort: "25", warum: "Ein /25 hätte 126 Hosts – größer als nötig. Das kleinste passende Netz ist /26 (62 Hosts).", ursache: konzept}
+            - frage: "Präfixlänge für Netz B"
+              antwort: "28"
+              erklaerung: "2⁴ − 2 = 14 ≥ 14 → 4 Hostbits → /28."
+              falsch:
+                - {antwort: "27", warum: "2⁴ − 2 = 14 reicht genau – /27 wäre größer als nötig.", ursache: rechenfehler}
+            - frage: "Erste nutzbare Adresse in Netz B"
+              antwort: "192.168.40.65"
+              format: ipv4
+              erklaerung: "Netz A: .0 bis .63 → Netz B beginnt bei .64; erste nutzbare Adresse .65."
+              falsch:
+                - {antwort: "192.168.40.64", warum: "Das ist die Netzadresse von B – sie ist nicht nutzbar.", ursache: konzept}
+            - frage: "Broadcastadresse von Netz B"
+              antwort: "192.168.40.79"
+              format: ipv4
+              erklaerung: "/28 = 16 Adressen: .64 bis .79."
+          loesungsweg: |
+            | Netz | Hosts nötig | Präfix | Bereich | Broadcast |
+            | --- | ---: | --- | --- | --- |
+            | A | 50 | /26 (62 Hosts) | .0 – .63 | .63 |
+            | B | 14 | /28 (14 Hosts) | .64 – .79 | **.79** |
+
+            Erste nutzbare Adresse in B: **192.168.40.65**.
+
+      - nr: b
+        punkte: 5
+        aufgabe:
+          typ: zuordnung
+          thema: ipv6
+          titel: "IPv6-Adressarten"
+          frage: "Auf einem Notebook zeigt `ipconfig` mehrere IPv6-Adressen. Ordne jede Adresse ihrer Art zu."
+          paare:
+            - {links: "fe80::1c4a:2bff:fe11:9a01", rechts: "Link-Local"}
+            - {links: "fd12:3456:789a::25", rechts: "Unique Local"}
+            - {links: "::1", rechts: "Loopback"}
+            - {links: "ff02::1", rechts: "Multicast"}
+          ablenker: ["Broadcast"]
+          loesungsweg: "`fe80::/10` = **Link-Local** · `fd00::/8` = **Unique Local** · `::1` = **Loopback** · `ff00::/8` = **Multicast**. Broadcast gibt es in IPv6 nicht."
+          belege:
+            - {titel: "RFC 4291: IP Version 6 Addressing Architecture", url: "https://www.rfc-editor.org/rfc/rfc4291"}
+            - {titel: "RFC 4193: Unique Local IPv6 Unicast Addresses", url: "https://www.rfc-editor.org/rfc/rfc4193"}
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: verschluesselung
+          titel: "Kryptografische Verfahren"
+          frage: "Ordne jedes Verfahren seiner Art zu."
+          paare:
+            - {links: "AES", rechts: "symmetrische Verschlüsselung"}
+            - {links: "RSA", rechts: "asymmetrische Verschlüsselung"}
+            - {links: "SHA-256", rechts: "Hashfunktion"}
+            - {links: "TLS", rechts: "hybrides Verfahren"}
+          ablenker: ["Komprimierung"]
+          loesungsweg: "AES = **symmetrisch** · RSA = **asymmetrisch** · SHA-256 = **Hash** · TLS = **hybrid** (asymmetrisch für den Schlüsselaustausch, symmetrisch für die Daten)."
+          belege:
+            - {titel: "BSI TR-02102-1: Kryptographische Verfahren – Empfehlungen und Schlüssellängen", url: "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Technische-Richtlinien/TR-nach-Thema-sortiert/tr02102/tr02102_node.html"}
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: authentifizierung
+          titel: "Eine Passwortrichtlinie"
+          frage: "Für die Anmeldung an den Notebooks wird eine Passwortrichtlinie erarbeitet. Welche **zwei** Regeln entsprechen aktuellen Empfehlungen?"
+          optionen:
+            - {text: "lange Passwörter bzw. Passphrasen statt kurzer Passwörter mit vielen Sonderzeichenregeln", richtig: true, warum: "Länge erhöht die Zahl der Möglichkeiten am stärksten."}
+            - {text: "neue Passwörter gegen eine Liste bekannter, kompromittierter Passwörter prüfen", richtig: true, warum: "So werden leicht erratbare Passwörter abgelehnt."}
+            - {text: "alle 30 Tage einen Passwortwechsel erzwingen", warum: "Regelmäßiger Zwangswechsel führt zu schwachen Mustern; gewechselt wird bei Verdacht auf Kompromittierung.", ursache: konzept}
+            - {text: "Passwort-Hinweise speichern, die jeder Nutzer sehen kann", warum: "Hinweise erleichtern das Erraten.", ursache: konzept}
+          loesungsweg: "**Länge** statt Zeichenregeln, **Sperrliste** kompromittierter Passwörter, Wechsel nur bei Verdacht, dazu 2FA."
+          belege:
+            - {titel: "NIST SP 800-63B Revision 4", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: datenschutz
+          titel: "Grundsätze der DSGVO"
+          frage: "Für Gruppenreisen sollen Kundendaten gespeichert werden. Welche **zwei** Aussagen entsprechen den Grundsätzen der DSGVO (Art. 5)?"
+          optionen:
+            - {text: "Es werden nur die Daten erhoben, die für die Buchung wirklich nötig sind.", richtig: true, warum: "Datenminimierung."}
+            - {text: "Daten werden gelöscht, wenn der Zweck erfüllt ist und keine Aufbewahrungspflicht mehr besteht.", richtig: true, warum: "Speicherbegrenzung."}
+            - {text: "Personenbezogen sind nur Name und Anschrift.", warum: "Auch E-Mail-Adresse, Kundennummer oder IP-Adresse können eine Person identifizierbar machen (Art. 4 Nr. 1).", ursache: begriff}
+            - {text: "Einmal erhobene Daten dürfen für jeden beliebigen Zweck weiterverwendet werden.", warum: "Zweckbindung: nur für festgelegte, eindeutige Zwecke.", ursache: konzept}
+          loesungsweg: "**Datenminimierung** und **Speicherbegrenzung**; dazu Zweckbindung und Rechenschaftspflicht."
+          belege:
+            - {titel: "DSGVO Art. 4, 5", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 4
+    titel: "Die Web-App entwerfen"
+    teilaufgaben:
+      - nr: a
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: erm-relational
+          titel: "Buchungen modellieren"
+          frage: |
+            Ein Kunde kann viele Reisen buchen, eine Reise wird von vielen Kunden gebucht. Zu jeder Buchung wird die **Anzahl der Personen** gespeichert.
+
+            ```mermaid
+            erDiagram
+              KUNDE }o--o{ REISE : bucht
+            ```
+          schritte:
+            - frage: "Anzahl der Tabellen im relationalen Modell"
+              antwort: "3"
+              erklaerung: "Kunde, Reise und eine Zwischentabelle Buchung für die n:m-Beziehung."
+              falsch:
+                - {antwort: "2", warum: "Eine n:m-Beziehung braucht eine Zwischentabelle.", ursache: konzept}
+            - frage: "In welche Tabelle gehört das Attribut Personenanzahl? (Kunde/Reise/Buchung)"
+              antwort: "Buchung"
+              format: text
+              erklaerung: "Die Anzahl hängt an der einzelnen Buchung (Kunde + Reise), nicht am Kunden oder an der Reise."
+              falsch:
+                - {antwort: "Reise", warum: "Jede Buchung derselben Reise kann eine andere Personenanzahl haben.", ursache: konzept}
+            - frage: "Wie viele Fremdschlüssel enthält die Tabelle Buchung?"
+              antwort: "2"
+              erklaerung: "KundenNr und ReiseNr; zusammen bilden sie den Primärschlüssel der Zwischentabelle."
+          loesungsweg: |
+            - **Kunde**(KundenNr, Name, …)
+            - **Reise**(ReiseNr, Ziel, Beginn, Preis)
+            - **Buchung**(↑KundenNr, ↑ReiseNr, Personenanzahl)
+
+            3 Tabellen; Personenanzahl in **Buchung**; 2 Fremdschlüssel, zusammen Primärschlüssel.
+
+      - nr: b
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: schreibtischtest
+          titel: "Schreibtischtest mit verschachtelter Schleife"
+          frage: |
+            Führe einen Schreibtischtest für diesen Algorithmus durch.
+
+            ```text
+            ergebnis ← 0
+            FÜR i ← 1 BIS 3
+                FÜR j ← 1 BIS i
+                    ergebnis ← ergebnis + j
+                ENDE FÜR
+            ENDE FÜR
+            AUSGABE ergebnis
+            ```
+          schritte:
+            - frage: "Wert von ergebnis nach dem äußeren Durchlauf mit i = 1"
+              antwort: "1"
+              erklaerung: "Innen nur j = 1: 0 + 1 = 1."
+            - frage: "Wert von ergebnis nach dem äußeren Durchlauf mit i = 2"
+              antwort: "4"
+              erklaerung: "j = 1 und j = 2: 1 + 1 + 2 = 4."
+              falsch:
+                - {antwort: "3", warum: "Nur j = 2 addiert. Die innere Schleife beginnt jedes Mal wieder bei j = 1.", ursache: konzept}
+            - frage: "Ausgabe"
+              antwort: "10"
+              erklaerung: "i = 3: j = 1, 2, 3 → 4 + 1 + 2 + 3 = 10."
+              falsch:
+                - {antwort: "6", warum: "Nur das jeweils letzte j addiert (1 + 2 + 3). Die innere Schleife läuft jedes Mal von 1 bis i.", ursache: konzept}
+          loesungsweg: |
+            | i | j-Werte | Zuwachs | ergebnis |
+            | ---: | --- | ---: | ---: |
+            | 1 | 1 | 1 | 1 |
+            | 2 | 1, 2 | 3 | 4 |
+            | 3 | 1, 2, 3 | 6 | **10** |
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: oop-grundlagen
+          titel: "Kapselung"
+          frage: "In der App gibt es die Klasse `Reise` mit dem Attribut `freiePlaetze`. Welche **zwei** Aussagen zur Kapselung treffen zu?"
+          optionen:
+            - {text: "freiePlaetze ist privat; andere Klassen greifen nur über öffentliche Methoden darauf zu.", richtig: true, warum: "Das ist der Kern der Kapselung."}
+            - {text: "Ein Setter kann prüfen, dass freiePlaetze nie negativ wird.", richtig: true, warum: "Weil nur der Setter das Attribut ändert, bleibt der Wert gültig."}
+            - {text: "Kapselung bedeutet, dass die Attribute verschlüsselt gespeichert werden.", warum: "Kapselung ist Zugriffsschutz im Code, keine Verschlüsselung.", ursache: begriff}
+            - {text: "Öffentliche Attribute machen die Klasse sicherer, weil jeder sie korrigieren kann.", warum: "Dann kann jeder ungültige Werte setzen – das Gegenteil von Kapselung.", ursache: konzept}
+          loesungsweg: "Kapselung: Attribute **privat**, Zugriff über **Methoden**; Setter prüfen Werte. Keine Verschlüsselung."
+
+      - nr: d
+        punkte: 5
+        aufgabe:
+          typ: zuordnung
+          thema: uml
+          titel: "Anwendungsfalldiagramm"
+          frage: "Du skizzierst ein UML-Anwendungsfalldiagramm für die Web-App. Ordne jedes Element seiner Bedeutung zu."
+          paare:
+            - {links: "Kunde (Strichmännchen)", rechts: "Akteur außerhalb des Systems"}
+            - {links: "„Reise buchen“ (Ellipse)", rechts: "Anwendungsfall aus Sicht des Nutzers"}
+            - {links: "Rahmen mit der Aufschrift „Gruppenreisen-App“", rechts: "Systemgrenze"}
+            - {links: "„Reise buchen“ «include» „Anmelden“", rechts: "wird immer mit ausgeführt"}
+            - {links: "„Reiseversicherung hinzufügen“ «extend» „Reise buchen“", rechts: "wird nur unter einer Bedingung ausgeführt"}
+          loesungsweg: "Strichmännchen = **Akteur** (außerhalb) · Ellipse = **Anwendungsfall** · Rahmen = **Systemgrenze** · «include» = **immer** · «extend» = **optional**."
+          belege:
+            - {titel: "OMG Unified Modeling Language 2.5.1 (Use Cases)", url: "https://www.omg.org/spec/UML/2.5.1"}
