@@ -1,0 +1,181 @@
+# Aufgaben zum Thema „Technische und kaufmännische Texte auf Englisch“.
+# Passend zur Lektion englische-texte. Antworten auf Deutsch, wenn nichts anderes verlangt ist.
+
+aufgaben:
+  - id: englisch-handel-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Fachwörter im Handel"
+    frage: "Ordne jedem englischen Begriff die deutsche Bedeutung zu."
+    paare:
+      - {links: "inquiry", rechts: "Anfrage"}
+      - {links: "quotation", rechts: "Angebot"}
+      - {links: "purchase order", rechts: "Bestellung"}
+      - {links: "invoice", rechts: "Rechnung"}
+      - {links: "lead time", rechts: "Lieferzeit"}
+    ablenker: ["Lieferschein"]
+    hinweise:
+      - "Der Ablauf: Anfrage → Angebot → Bestellung → Lieferung → Rechnung."
+      - "Der Lieferschein heißt delivery note."
+    loesungsweg: "inquiry = Anfrage · quotation = Angebot · purchase order = Bestellung · invoice = Rechnung · lead time = Lieferzeit. Übrig: Lieferschein (delivery note)."
+    quelle: "Neu erstellt (Claude), Fachwörter der Lektion englische-texte."
+    belege:
+      - {titel: "Cambridge Dictionary (Englisch–Deutsch)", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
+    status: ungeprüft
+
+  - id: englisch-technik-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Fachwörter der Technik"
+    frage: "Ordne jedem englischen Begriff die deutsche Bedeutung zu."
+    paare:
+      - {links: "power consumption", rechts: "Leistungsaufnahme"}
+      - {links: "throughput", rechts: "Durchsatz"}
+      - {links: "hot-swappable", rechts: "im laufenden Betrieb tauschbar"}
+      - {links: "end of life (EOL)", rechts: "Ende der Herstellerunterstützung"}
+      - {links: "backward compatible", rechts: "abwärtskompatibel"}
+    ablenker: ["Stromausfall"]
+    hinweise:
+      - "Ein Stromausfall heißt power outage oder power failure."
+    loesungsweg: "power consumption = Leistungsaufnahme · throughput = Durchsatz · hot-swappable = im Betrieb tauschbar · EOL = Ende der Unterstützung · backward compatible = abwärtskompatibel."
+    quelle: "Neu erstellt (Claude), Fachwörter der Lektion englische-texte."
+    belege:
+      - {titel: "Cambridge Dictionary (Englisch–Deutsch)", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
+    status: ungeprüft
+
+  - id: englisch-falsche-freunde
+    typ: lueckentext
+    stufe: 2
+    titel: "Falsche Freunde"
+    frage: "Übersetze die markierten Wörter richtig ins Deutsche."
+    text: "*The actual price is higher.* → Der {{1}} Preis ist höher. *Revenue reached 2 billion euros.* → Der Umsatz erreichte 2 {{2}} Euro. *The update will eventually be released.* → Das Update wird {{3}} veröffentlicht."
+    luecken:
+      - antworten: ["tatsächliche", "wirkliche"]
+        falsch:
+          - {antwort: "aktuelle", warum: "actual heißt tatsächlich; aktuell heißt current.", ursache: begriff}
+      - antworten: ["Milliarden"]
+        falsch:
+          - {antwort: "Billionen", warum: "billion = Milliarde (10⁹); die deutsche Billion heißt trillion.", ursache: begriff}
+      - antworten: ["schließlich", "irgendwann", "letztendlich", "am Ende"]
+        falsch:
+          - {antwort: "eventuell", warum: "eventually heißt schließlich; eventuell heißt possibly.", ursache: begriff}
+    hinweise:
+      - "Die Wörter sehen deutsch aus, bedeuten aber etwas anderes."
+    loesungsweg: "actual = **tatsächlich** · billion = **Milliarde** · eventually = **schließlich**."
+    quelle: "Neu erstellt (Claude), Tabelle „Falsche Freunde“ der Lektion englische-texte."
+    belege:
+      - {titel: "Cambridge Dictionary (Englisch–Deutsch): actual, eventually, billion", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
+    status: ungeprüft
+
+  - id: englisch-datenblatt
+    typ: multiple_choice
+    stufe: 2
+    titel: "Datenblatt eines Switches"
+    situation: |
+      > **SW-2448P** – 48 × 1 GbE PoE+ ports, 4 × 10 GbE SFP+ uplinks.
+      > PoE budget: 740 W. Rack-mountable, 1 U. Redundant power supply optional.
+      > Firmware updates are provided until end of life (EOL) in 2031.
+    frage: "Welche **zwei** Aussagen stimmen laut Datenblatt?"
+    optionen:
+      - {text: "Der Switch belegt eine Höheneinheit im Serverschrank.", richtig: true, warum: "1 U = eine Höheneinheit (rack unit)."}
+      - {text: "Firmware-Updates gibt es bis zum Ende der Herstellerunterstützung 2031.", richtig: true, warum: "end of life (EOL) in 2031."}
+      - {text: "Ein redundantes Netzteil ist im Lieferumfang enthalten.", warum: "optional heißt: als Zubehör erhältlich, nicht automatisch dabei.", ursache: begriff}
+      - {text: "Alle 52 Ports versorgen Geräte mit Strom (PoE+).", warum: "PoE+ haben nur die 48 Kupferports; die 4 SFP+-Uplinks nicht.", ursache: konzept}
+    hinweise:
+      - "Lies genau, auf welche Ports sich PoE+ bezieht."
+      - "Was bedeutet „optional“?"
+    loesungsweg: "Richtig: 1 U = eine Höheneinheit; Updates bis EOL 2031. Das redundante Netzteil ist optional, PoE+ gilt nur für die 48 Kupferports."
+    quelle: "Neu erstellt (Claude), fiktives Datenblatt passend zur Lektion englische-texte."
+    belege:
+      - {titel: "IEEE 802.3at-2009 (PoE+)", url: "https://standards.ieee.org/ieee/802.3at/4276/"}
+      - {titel: "Cambridge Dictionary (Englisch–Deutsch)", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
+    status: ungeprüft
+
+  - id: englisch-angebot-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Ein englisches Angebot auswerten"
+    situation: |
+      > **Quotation No. Q-2611**
+      > 4 × NAS-8200, unit price **EUR 1,250.00** excl. VAT.
+      > Volume discount: **5 %** on orders of 4 units or more.
+      > Shipping: **EUR 45.00** flat rate.
+      > Terms of payment: net 30 days, **2 % discount** if paid within 10 days.
+      > Lead time: approx. 2 weeks.
+    frage: "Berechne Schritt für Schritt den Bezugspreis netto, wenn die ArchivTech innerhalb von 10 Tagen zahlt."
+    schritte:
+      - frage: "Listeneinkaufspreis"
+        antwort: "5000"
+        einheit: "€"
+        erklaerung: "4 × 1.250,00 € = 5.000,00 € (EUR 1,250.00 ist englische Schreibweise: Komma = Tausendertrenner)."
+        falsch:
+          - {antwort: "5", warum: "EUR 1,250.00 sind 1.250 €, nicht 1,25 € – im Englischen trennt das Komma die Tausender.", ursache: begriff}
+      - frage: "Zieleinkaufspreis nach Mengenrabatt"
+        antwort: "4750"
+        einheit: "€"
+        erklaerung: "5 % volume discount: 5.000,00 € × 0,95 = 4.750,00 €."
+      - frage: "Bareinkaufspreis nach Skonto"
+        antwort: "4655"
+        einheit: "€"
+        erklaerung: "2 % discount (Skonto): 4.750,00 € × 0,98 = 4.655,00 €."
+      - frage: "Bezugspreis netto"
+        antwort: "4700"
+        einheit: "€"
+        erklaerung: "4.655,00 € + 45,00 € shipping = 4.700,00 €."
+        falsch:
+          - {antwort: "4945", warum: "Der Mengenrabatt (volume discount) fehlt – er gilt ab 4 Stück.", ursache: begriff}
+    hinweise:
+      - "Erst die Fachwörter klären: volume discount, shipping, 2 % discount if paid within 10 days."
+      - "Schema: Listenpreis → Rabatt → Skonto → Bezugskosten."
+      - "EUR 1,250.00 = 1.250,00 €."
+    loesungsweg: |
+      1. 4 × 1.250,00 = **5.000,00 €**
+      2. − 5 % Rabatt = **4.750,00 €**
+      3. − 2 % Skonto = **4.655,00 €**
+      4. + 45,00 € Versand = **4.700,00 €** (netto, excl. VAT)
+    quelle: "Neu erstellt (Claude), verbindet die Lektionen englische-texte und angebotsvergleich-quantitativ; nachgerechnet."
+    belege:
+      - {titel: "Cambridge Dictionary (Englisch–Deutsch): quotation, discount, lead time", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
+      - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung"}
+    status: ungeprüft
+
+  - id: englisch-mail-zusammenfassen
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Herstellermail für die Teamleitung zusammenfassen"
+    situation: |
+      > Subject: Security advisory – firmware for SA-4000 storage appliance
+      >
+      > Dear customer,
+      >
+      > a vulnerability has been found in firmware versions 3.1 to 3.4 that may allow an attacker
+      > on the local network to read stored data without authentication. Firmware 3.5, released
+      > today, fixes the issue. We strongly recommend updating within 14 days. The update requires a
+      > reboot; the appliance will be unavailable for approximately 20 minutes. As a temporary
+      > workaround, restrict access to the management interface to trusted IP addresses.
+      > Devices running firmware 2.x have reached end of life and will not receive this fix.
+    frage: "Fasse die Mail für die Teamleitung auf Deutsch zusammen: Was ist das Problem, wer ist betroffen, was ist zu tun?"
+    musterloesung: |
+      Der Hersteller meldet eine Sicherheitslücke in der Firmware 3.1 bis 3.4 der SA-4000: Ein
+      Angreifer im lokalen Netz kann gespeicherte Daten ohne Anmeldung lesen (Vertraulichkeit).
+      Die Firmware 3.5 behebt das; empfohlen ist das Update innerhalb von 14 Tagen. Das Update
+      braucht einen Neustart, das Gerät ist ca. 20 Minuten nicht erreichbar – also ein
+      Wartungsfenster planen. Bis dahin den Zugriff auf die Verwaltungsoberfläche auf
+      vertrauenswürdige IP-Adressen beschränken. Geräte mit Firmware 2.x bekommen kein Update mehr
+      (End of Life) und müssen ersetzt werden.
+    bewertungspunkte:
+      - {punkt: "Problem: Sicherheitslücke, Daten ohne Anmeldung lesbar (lokales Netz)", kernbegriffe: ["lücke", "schwachstelle", "ohne anmeldung", "ohne authentifizierung", "lesen"]}
+      - {punkt: "Betroffen: Firmware 3.1 bis 3.4; 2.x ohne Fix (End of Life)", kernbegriffe: ["3.1", "3.4", "2.x", "end of life", "eol"]}
+      - {punkt: "Maßnahme: Update auf 3.5 innerhalb von 14 Tagen", kernbegriffe: ["3.5", "14 tage"]}
+      - {punkt: "Folge: Neustart, ca. 20 min nicht erreichbar, Wartungsfenster", kernbegriffe: ["neustart", "20 min", "wartungsfenster", "nicht erreichbar"]}
+      - {punkt: "Übergangslösung: Zugriff auf Verwaltungsoberfläche auf vertrauenswürdige IPs beschränken", kernbegriffe: ["ip", "verwaltung", "management", "einschränk", "beschränk"]}
+    hinweise:
+      - "Erst die Leitfragen lesen, dann den Text nach Antworten durchsuchen."
+      - "workaround = Übergangslösung, reboot = Neustart, end of life = Ende der Unterstützung."
+      - "Antworte auf Deutsch, knapp und vollständig – keine Wort-für-Wort-Übersetzung."
+    loesungsweg: "Problem (Lücke, Lesen ohne Anmeldung), Betroffene (3.1–3.4; 2.x ohne Fix), Maßnahme (3.5 binnen 14 Tagen, Neustart 20 min), Übergangslösung (Zugriff einschränken)."
+    quelle: "Neu erstellt (Claude), fiktive Herstellermail passend zur Lektion englische-texte."
+    belege:
+      - {titel: "Cambridge Dictionary (Englisch–Deutsch): advisory, vulnerability, workaround, reboot", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
+    status: ungeprüft

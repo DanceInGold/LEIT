@@ -1,0 +1,208 @@
+# Aufgaben zum Thema „Verschlüsselung: symmetrisch, asymmetrisch, hybrid; Hash, Signatur, Zertifikat“.
+# Passend zu den Lektionen verschluesselung-verfahren und hash-signatur-zertifikat.
+
+aufgaben:
+  - id: krypto-verfahren-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Welches Verfahren ist das?"
+    frage: "Ordne jedem Begriff die passende Beschreibung zu."
+    paare:
+      - {links: "Symmetrische Verschlüsselung", rechts: "Ein gemeinsamer geheimer Schlüssel für beide Seiten (z. B. AES)"}
+      - {links: "Asymmetrische Verschlüsselung", rechts: "Öffentlicher und privater Schlüssel je Person (z. B. RSA)"}
+      - {links: "Hybride Verschlüsselung", rechts: "Sitzungsschlüssel asymmetrisch vereinbaren, Daten symmetrisch übertragen"}
+      - {links: "Hashfunktion", rechts: "Einweg-Fingerabdruck fester Länge (z. B. SHA-256)"}
+    ablenker: ["Komprimiert Daten verlustfrei (z. B. ZIP)"]
+    hinweise:
+      - "Eine Beschreibung gehört zu gar keinem Sicherheitsverfahren."
+    loesungsweg: "Symmetrisch = ein Schlüssel · asymmetrisch = Schlüsselpaar · hybrid = beides mit klarer Aufgabenteilung · Hash = Einweg-Fingerabdruck. Komprimieren hat mit Sicherheit nichts zu tun."
+    quelle: "Neu erstellt (Claude), passend zu den Lektionen verschluesselung-verfahren und hash-signatur-zertifikat."
+    belege:
+      - {titel: "NIST FIPS 197: Advanced Encryption Standard (AES)", url: "https://csrc.nist.gov/pubs/fips/197/final"}
+      - {titel: "NIST FIPS 180-4: Secure Hash Standard", url: "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"}
+    status: ungeprüft
+
+  - id: krypto-welcher-schluessel
+    typ: multiple_choice
+    stufe: 1
+    titel: "Womit verschlüsseln?"
+    frage: "Anna will Ben eine vertrauliche Datei schicken, die nur Ben lesen darf. Mit welchem Schlüssel verschlüsselt sie (asymmetrisches Verfahren)?"
+    optionen:
+      - {text: "Mit Bens öffentlichem Schlüssel", richtig: true, warum: "Verschlüsselt wird mit dem Schlüssel dessen, der lesen soll – öffnen kann nur Bens privater Schlüssel."}
+      - {text: "Mit Annas privatem Schlüssel", warum: "Damit signiert man. Annas öffentlicher Schlüssel ist für alle bekannt – jeder könnte es öffnen.", ursache: konzept}
+      - {text: "Mit Bens privatem Schlüssel", warum: "Den privaten Schlüssel hat nur Ben; Anna kennt ihn nicht und darf ihn nie bekommen.", ursache: konzept}
+      - {text: "Mit Annas öffentlichem Schlüssel", warum: "Dann könnte nur Anna selbst die Datei wieder öffnen.", ursache: konzept}
+    hinweise:
+      - "Wer soll die Datei öffnen können?"
+      - "Was mit einem öffentlichen Schlüssel verschlossen wurde, öffnet nur der passende private."
+    loesungsweg: "Vertraulichkeit: mit dem **öffentlichen Schlüssel des Empfängers** (Ben) verschlüsseln, er entschlüsselt mit seinem privaten."
+    quelle: "Neu erstellt (Claude), Prüfungsfalle der Lektion verschluesselung-verfahren."
+    belege:
+      - {titel: "RFC 8017: PKCS #1 – RSA Cryptography Specifications", url: "https://www.rfc-editor.org/rfc/rfc8017"}
+    status: ungeprüft
+
+  - id: krypto-hash-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Eigenschaften einer Hashfunktion"
+    frage: "Fülle die Lücken aus."
+    text: "SHA-256 liefert immer einen Wert von {{1}} Bit, geschrieben als {{2}} Hex-Zeichen. Aus dem Hash lässt sich die Eingabe nicht zurückrechnen – die Funktion ist eine {{3}}funktion. Ändert sich ein einziges Zeichen der Eingabe, ändert sich der Hash völlig; das heißt {{4}}."
+    luecken:
+      - antworten: ["256"]
+      - antworten: ["64"]
+        falsch:
+          - {antwort: "32", warum: "32 sind die Byte. Ein Hex-Zeichen steht für 4 Bit: 256 ÷ 4 = 64.", ursache: rechenfehler}
+          - {antwort: "256", warum: "Ein Hex-Zeichen steht für 4 Bit, also 256 ÷ 4 = 64 Zeichen.", ursache: rechenfehler}
+      - antworten: ["Einweg"]
+      - antworten: ["Lawineneffekt"]
+        falsch:
+          - {antwort: "Kollision", warum: "Eine Kollision wären zwei Eingaben mit **gleichem** Hash.", ursache: begriff}
+    hinweise:
+      - "Ein Hex-Zeichen steht für 4 Bit."
+    loesungsweg: "**256** Bit = **64** Hex-Zeichen; **Einweg**funktion; **Lawineneffekt**."
+    quelle: "Neu erstellt (Claude), passend zur Lektion hash-signatur-zertifikat."
+    belege:
+      - {titel: "NIST FIPS 180-4: Secure Hash Standard (SHA-256: 256-Bit-Hashwert)", url: "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"}
+    status: ungeprüft
+
+  - id: krypto-signatur-ordnen
+    typ: reihenfolge
+    stufe: 2
+    titel: "Digitale Signatur Schritt für Schritt"
+    frage: "Ein Release-Skript signiert ein Archiv, ein Kunde prüft es. Bring die Schritte in die richtige Reihenfolge."
+    elemente:
+      - "Absender bildet den Hashwert des Archivs"
+      - "Absender verschlüsselt den Hash mit seinem privaten Schlüssel (Signatur)"
+      - "Archiv und Signatur werden verschickt"
+      - "Empfänger entschlüsselt die Signatur mit dem öffentlichen Schlüssel des Absenders"
+      - "Empfänger bildet selbst den Hash und vergleicht beide Werte"
+    hinweise:
+      - "Signiert wird der Hash, nicht das ganze Archiv."
+      - "Signieren mit privat, prüfen mit öffentlich."
+    loesungsweg: "Hash bilden → mit **privatem** Schlüssel signieren → verschicken → mit **öffentlichem** Schlüssel prüfen → Hash selbst bilden und vergleichen. Gleich = unverändert und echt."
+    quelle: "Neu erstellt (Claude), Ablauf der Lektion hash-signatur-zertifikat."
+    belege:
+      - {titel: "RFC 8017: PKCS #1 – RSA Cryptography Specifications (RSASSA)", url: "https://www.rfc-editor.org/rfc/rfc8017"}
+    status: ungeprüft
+
+  - id: krypto-ziel-werkzeug
+    typ: zuordnung
+    stufe: 2
+    titel: "Welches Werkzeug für welches Ziel?"
+    frage: "Ordne jedem Ziel das passende Werkzeug zu."
+    paare:
+      - {links: "Niemand außer dem Empfänger soll die Datei lesen können", rechts: "Verschlüsselung mit dem öffentlichen Schlüssel des Empfängers"}
+      - {links: "Prüfen, ob ein heruntergeladenes ISO-Image unverändert ist", rechts: "Hashwert vergleichen"}
+      - {links: "Beweisen, dass ein Dokument wirklich von der Geschäftsführung stammt", rechts: "Digitale Signatur"}
+      - {links: "Bestätigen, dass ein öffentlicher Schlüssel zu archivtech.example gehört", rechts: "Zertifikat einer CA"}
+    hinweise:
+      - "Vertraulichkeit, Integrität, Authentizität, Echtheit des Schlüssels – vier Ziele, vier Werkzeuge."
+    loesungsweg: "Vertraulichkeit → Verschlüsselung · Integrität → Hash · Integrität + Absender → Signatur · Echtheit des Schlüssels → Zertifikat."
+    quelle: "Neu erstellt (Claude), Abgrenzungstabelle der Lektion hash-signatur-zertifikat."
+    belege:
+      - {titel: "RFC 5280: Internet X.509 Public Key Infrastructure Certificate and CRL Profile", url: "https://www.rfc-editor.org/rfc/rfc5280"}
+    status: ungeprüft
+
+  - id: krypto-schluesselanzahl
+    typ: rechnung
+    stufe: 3
+    titel: "Wie viele Schlüssel braucht man?"
+    frage: "**25 Standorte** sollen paarweise verschlüsselt miteinander kommunizieren. Jedes Paar soll seinen eigenen Schlüssel haben."
+    schritte:
+      - frage: "Anzahl Schlüssel symmetrisch"
+        antwort: "300"
+        erklaerung: "n × (n − 1) ÷ 2 = 25 × 24 ÷ 2 = 300."
+        falsch:
+          - {antwort: "600", warum: "Nicht durch 2 geteilt – der Schlüssel von A–B ist derselbe wie von B–A.", ursache: rechenfehler}
+          - {antwort: "625", warum: "n² zählt auch „mit sich selbst“ und jedes Paar doppelt; richtig ist n(n − 1)/2.", ursache: konzept}
+      - frage: "Anzahl Schlüssel asymmetrisch"
+        antwort: "50"
+        erklaerung: "Jeder Standort hat ein Schlüsselpaar: 2 × 25 = 50."
+        falsch:
+          - {antwort: "25", warum: "Jeder hat **zwei** Schlüssel: einen öffentlichen und einen privaten.", ursache: konzept}
+      - frage: "Davon geheim zu haltende Schlüssel (asymmetrisch)"
+        antwort: "25"
+        erklaerung: "Nur die 25 privaten Schlüssel sind geheim; die öffentlichen darf jeder kennen."
+        falsch:
+          - {antwort: "50", warum: "Die öffentlichen Schlüssel sind nicht geheim.", ursache: begriff}
+    hinweise:
+      - "Symmetrisch braucht jedes Paar einen eigenen Schlüssel."
+      - "Formeln: symmetrisch n(n − 1)/2, asymmetrisch 2n."
+      - "Für 10 Partner wären es 45 bzw. 20."
+    loesungsweg: |
+      1. Symmetrisch: 25 × 24 ÷ 2 = **300**
+      2. Asymmetrisch: 2 × 25 = **50**
+      3. Geheim davon nur die privaten: **25**
+    quelle: "Neu erstellt (Claude), Formeln der Lektion verschluesselung-verfahren; nachgerechnet."
+    belege:
+      - {titel: "Lektion „Symmetrisch, asymmetrisch, hybrid“ (Schlüsselanzahl)"}
+    status: ungeprüft
+
+  - id: krypto-hybrid-aussagen
+    typ: multiple_choice
+    stufe: 3
+    titel: "Warum hybrid?"
+    frage: "Welche **zwei** Aussagen zur hybriden Verschlüsselung (z. B. bei HTTPS) stimmen?"
+    optionen:
+      - {text: "Asymmetrische Verfahren sind zu langsam für große Datenmengen, darum laufen die Nutzdaten symmetrisch.", richtig: true, warum: "Symmetrische Verfahren wie AES sind um Größenordnungen schneller."}
+      - {text: "Das asymmetrische Verfahren löst das Problem, den Sitzungsschlüssel sicher zu vereinbaren.", richtig: true, warum: "Genau dafür wird es genutzt – ohne vorher ein Geheimnis zu teilen."}
+      - {text: "Hybrid heißt, jede Nachricht wird zweimal verschlüsselt: einmal symmetrisch, einmal asymmetrisch.", warum: "Jedes Verfahren hat eine eigene Aufgabe; die Daten werden nur symmetrisch verschlüsselt.", ursache: konzept}
+      - {text: "Der Sitzungsschlüssel wird für alle Verbindungen eines Servers dauerhaft wiederverwendet.", warum: "Ein Sitzungsschlüssel gilt nur für eine Verbindung.", ursache: begriff}
+    hinweise:
+      - "Nenne für jedes Verfahren, wofür es genutzt wird."
+    loesungsweg: "Asymmetrisch: Sitzungsschlüssel sicher vereinbaren. Symmetrisch: Nutzdaten schnell übertragen. Der Sitzungsschlüssel gilt nur für eine Verbindung."
+    quelle: "Neu erstellt (Claude), passend zur Lektion verschluesselung-verfahren."
+    belege:
+      - {titel: "RFC 8446: The Transport Layer Security (TLS) Protocol Version 1.3", url: "https://www.rfc-editor.org/rfc/rfc8446"}
+    status: ungeprüft
+
+  - id: krypto-passwort-hash
+    typ: multiple_choice
+    stufe: 3
+    titel: "Passwörter richtig speichern"
+    situation: "Ein selbst geschriebenes Admin-Tool der ArchivTech speichert Passwörter bisher als MD5-Hash ohne Salt. Bei einem Audit wird das bemängelt."
+    frage: "Welche Lösung entspricht dem Stand der Technik?"
+    optionen:
+      - {text: "Passwort mit zufälligem Salt und einem absichtlich langsamen Verfahren wie Argon2id oder bcrypt hashen", richtig: true, warum: "Salt verhindert vorberechnete Tabellen, das langsame Verfahren bremst Rateangriffe."}
+      - {text: "Passwörter mit AES verschlüsseln, damit man sie bei Bedarf wieder lesen kann", warum: "Passwörter müssen nie wieder lesbar sein – wer den Schlüssel hat, hätte sonst alle Passwörter.", ursache: konzept}
+      - {text: "MD5 durch SHA-256 ersetzen, ohne Salt", warum: "SHA-256 ist zu schnell für Passwörter, und ohne Salt helfen vorberechnete Tabellen.", ursache: konzept}
+      - {text: "MD5 zweimal hintereinander anwenden", warum: "MD5 gilt als gebrochen; doppeltes Anwenden macht es nicht sicher.", ursache: konzept}
+    hinweise:
+      - "Ein gespeichertes Passwort muss man nie entschlüsseln – nur vergleichen."
+      - "Zwei Zutaten: Salt und ein langsames Verfahren."
+    loesungsweg: "Passwörter werden **gehasht, nicht verschlüsselt** – mit zufälligem **Salt** und einem **langsamen** Verfahren (Argon2id, bcrypt, scrypt). MD5 und SHA-1 sind ungeeignet."
+    quelle: "Neu erstellt (Claude), passend zur Lektion hash-signatur-zertifikat."
+    belege:
+      - {titel: "OWASP Password Storage Cheat Sheet", url: "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"}
+      - {titel: "BSI IT-Grundschutz-Kompendium, Baustein ORP.4 Identitäts- und Berechtigungsmanagement", url: "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/IT-Grundschutz/IT-Grundschutz-Kompendium/it-grundschutz-kompendium_node.html"}
+    status: ungeprüft
+
+  - id: krypto-zertifikatswarnung
+    typ: freitext
+    stufe: 4
+    operator: erläutern
+    titel: "Warnung beim Artifactory-Aufruf"
+    situation: "Eine Kollegin ruft `https://artifacts.archivtech.example` auf. Der Browser warnt: „Das Zertifikat ist nicht vertrauenswürdig – ausgestellt für *.test.example, abgelaufen am 01.11.2026“. Sie fragt, ob sie einfach auf „Trotzdem fortfahren“ klicken kann."
+    frage: "Erläutere, welche zwei Prüfungen fehlgeschlagen sind, warum das gefährlich ist und was zu tun ist."
+    musterloesung: |
+      Der Browser prüft beim Zertifikat u. a. den Namen und die Gültigkeit. Hier passen beide nicht:
+      Das Zertifikat ist für *.test.example ausgestellt, nicht für artifacts.archivtech.example, und
+      es ist abgelaufen. Damit ist nicht bestätigt, dass der öffentliche Schlüssel wirklich zum
+      Server gehört – ein Angreifer könnte sich dazwischenschalten (Man-in-the-Middle) und
+      Zugangsdaten oder Artefakte mitlesen oder manipulieren. Nicht fortfahren, sondern den Vorfall
+      an die IT melden; der Betreiber muss ein gültiges Zertifikat für den richtigen Namen einspielen.
+    bewertungspunkte:
+      - {punkt: "Name/Domain passt nicht zum Zertifikat", kernbegriffe: ["name", "domain", "test.example", "hostname"]}
+      - {punkt: "Zertifikat ist abgelaufen (Gültigkeitszeitraum)", kernbegriffe: ["abgelaufen", "gültig"]}
+      - {punkt: "Gefahr: Echtheit des Servers nicht bestätigt, Man-in-the-Middle möglich", kernbegriffe: ["man-in-the-middle", "mitm", "angreifer", "echtheit", "authentizität"]}
+      - {punkt: "Maßnahme: nicht fortfahren, melden, gültiges Zertifikat einspielen lassen", kernbegriffe: ["melden", "nicht fortfahren", "nicht klicken", "neues zertifikat", "erneuern"]}
+    hinweise:
+      - "Was steht in einem X.509-Zertifikat, und was davon prüft der Browser?"
+      - "Wozu dient das Zertifikat bei HTTPS überhaupt?"
+      - "„Erläutern“: Problem, Folge und Maßnahme begründen."
+    loesungsweg: "Namensprüfung und Gültigkeitszeitraum schlagen fehl → Server-Identität unbestätigt → MitM-Gefahr. Nicht fortfahren, melden, Zertifikat erneuern lassen."
+    quelle: "Neu erstellt (Claude), passend zur Lektion hash-signatur-zertifikat."
+    belege:
+      - {titel: "RFC 5280: Internet X.509 Public Key Infrastructure Certificate and CRL Profile (Validity, Subject)", url: "https://www.rfc-editor.org/rfc/rfc5280"}
+      - {titel: "RFC 9525: Service Identity in TLS (Namensprüfung)", url: "https://www.rfc-editor.org/rfc/rfc9525"}
+    status: ungeprüft

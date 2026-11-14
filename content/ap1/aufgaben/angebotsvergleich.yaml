@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Schema der Lektion angebotsvergleich-quantitativ."
     belege:
       - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung, Rahmenlehrplan IT-Berufe LF 2"}
-    status: ungeprüft
+    status: geprüft
 
   - id: angebot-begriffe-zuordnen
     typ: zuordnung
@@ -40,7 +40,7 @@ aufgaben:
     belege:
       - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung"}
       - {titel: "Zangemeister, C.: Nutzwertanalyse in der Systemtechnik, 1970/1976"}
-    status: ungeprüft
+    status: geprüft
 
   - id: angebot-skonto-basis
     typ: multiple_choice
@@ -58,7 +58,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion angebotsvergleich-quantitativ."
     belege:
       - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung"}
-    status: ungeprüft
+    status: geprüft
 
   - id: angebot-nutzwert-luecke
     typ: lueckentext
@@ -84,7 +84,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion nutzwertanalyse."
     belege:
       - {titel: "Zangemeister, C.: Nutzwertanalyse in der Systemtechnik, 1970/1976"}
-    status: ungeprüft
+    status: geprüft
 
   - id: angebot-monitore-bezugspreis
     typ: rechnung
@@ -126,7 +126,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Schema der Lektion angebotsvergleich-quantitativ; mit Decimal nachgerechnet."
     belege:
       - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung"}
-    status: ungeprüft
+    status: geprüft
 
   - id: angebot-nutzwert-rechnen
     typ: rechnung
@@ -160,7 +160,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Verfahren der Lektion nutzwertanalyse; nachgerechnet."
     belege:
       - {titel: "Zangemeister, C.: Nutzwertanalyse in der Systemtechnik, 1970/1976"}
-    status: ungeprüft
+    status: geprüft
 
   - id: angebot-docks-vergleich
     typ: rechnung
@@ -203,7 +203,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Schema der Lektion angebotsvergleich-quantitativ; mit Decimal nachgerechnet."
     belege:
       - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung"}
-    status: ungeprüft
+    status: geprüft
 
   - id: angebot-ko-empfehlung
     typ: freitext
@@ -237,4 +237,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Ablauf der Lektion nutzwertanalyse."
     belege:
       - {titel: "Zangemeister, C.: Nutzwertanalyse in der Systemtechnik, 1970/1976"}
-    status: ungeprüft
+    status: geprüft

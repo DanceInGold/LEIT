@@ -1,0 +1,189 @@
+# Aufgaben zum Thema „Objektorientierung: Klassen, Objekte, Attribute, Methoden, Sichtbarkeit“.
+# Passend zu den Lektionen oop-klassen-objekte und oop-kapselung. Vererbung ist 2025 entfallen.
+
+aufgaben:
+  - id: oop-begriffe-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Grundbegriffe der OOP"
+    frage: "Ordne jedem Begriff seine Bedeutung zu."
+    paare:
+      - {links: "Klasse", rechts: "Bauplan mit Attributen und Methoden"}
+      - {links: "Objekt", rechts: "Konkretes Exemplar mit eigenen Attributwerten"}
+      - {links: "Attribut", rechts: "Eigenschaft, die einen Wert speichert"}
+      - {links: "Methode", rechts: "Funktion, die zur Klasse gehört"}
+      - {links: "Konstruktor", rechts: "Erzeugt ein Objekt und setzt die Startwerte"}
+    ablenker: ["Verschlüsselt die Daten eines Objekts"]
+    hinweise:
+      - "Klasse = allgemein, Objekt = konkret."
+    loesungsweg: "Klasse = Bauplan · Objekt = Exemplar · Attribut = Daten · Methode = Verhalten · Konstruktor = Startwerte setzen. Verschlüsseln hat mit OOP nichts zu tun."
+    quelle: "Neu erstellt (Claude), Abgrenzungstabelle der Lektion oop-klassen-objekte."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Abschnitt Classes", url: "https://www.omg.org/spec/UML/2.5.1"}
+      - {titel: "Python-Tutorial: Classes", url: "https://docs.python.org/3/tutorial/classes.html"}
+    status: ungeprüft
+
+  - id: oop-sichtbarkeit-luecke
+    typ: lueckentext
+    stufe: 1
+    titel: "Sichtbarkeit in UML"
+    frage: "Fülle die Lücken mit dem englischen Begriff aus."
+    text: "Im UML-Klassendiagramm steht `+` für {{1}}, `-` für {{2}} und `#` für {{3}}."
+    luecken:
+      - antworten: ["public", "öffentlich"]
+      - antworten: ["private", "privat"]
+        falsch:
+          - {antwort: "protected", warum: "`#` ist protected; `-` steht für private.", ursache: begriff}
+      - antworten: ["protected", "geschützt"]
+        falsch:
+          - {antwort: "private", warum: "private ist `-`; `#` steht für protected.", ursache: begriff}
+    hinweise:
+      - "Plus = für alle, Minus = nur die eigene Klasse."
+    loesungsweg: "`+` **public** · `-` **private** · `#` **protected** (UML 2.5.1, VisibilityKind)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion oop-kapselung."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1: VisibilityKind", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft
+
+  - id: oop-attribut-methode
+    typ: multiple_choice
+    stufe: 2
+    titel: "Attribut oder Methode?"
+    frage: |
+      ```text
+      Drucker
+      ---------------------------
+      -seriennummer: String
+      -tonerstand: int
+      ---------------------------
+      +Drucker(seriennummer: String)
+      +drucken(seiten: int): void
+      +getTonerstand(): int
+      ```
+      Welche **zwei** Aussagen stimmen?
+    optionen:
+      - {text: "`tonerstand` ist ein privates Attribut vom Typ int.", richtig: true, warum: "Es steht im mittleren Fach, ohne Klammern, mit `-`."}
+      - {text: "`getTonerstand()` ist ein Getter mit Rückgabetyp int.", richtig: true, warum: "Er liest den Wert, braucht keinen Parameter und gibt int zurück."}
+      - {text: "`drucken` gibt die Anzahl gedruckter Seiten zurück.", warum: "Der Rückgabetyp ist `void` – die Methode gibt nichts zurück.", ursache: konzept}
+      - {text: "`Drucker(seriennummer: String)` ist ein Attribut.", warum: "Klammern und der Klassenname zeigen den Konstruktor.", ursache: begriff}
+    hinweise:
+      - "Methoden erkennst du an den Klammern, den Konstruktor am Klassennamen."
+      - "Hinter dem Doppelpunkt einer Methode steht der Rückgabetyp."
+    loesungsweg: "`tonerstand` = privates Attribut (int); `getTonerstand()` = Getter mit Rückgabe int. `drucken` gibt nichts zurück (`void`); `Drucker(…)` ist der Konstruktor."
+    quelle: "Neu erstellt (Claude), passend zu den Lektionen oop-klassen-objekte und oop-kapselung."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Abschnitt Classes", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft
+
+  - id: oop-objekte-verfolgen
+    typ: rechnung
+    stufe: 3
+    titel: "Objekte im Code verfolgen"
+    frage: |
+      ```python
+      class Archivjob:
+          def __init__(self, name, quelle, groesse_gb):
+              self.name = name
+              self.quelle = quelle
+              self.groesse_gb = groesse_gb
+              self.status = "neu"
+
+          def starten(self):
+              self.status = "läuft"
+
+          def dauer_s(self, rate_gbit):
+              return self.groesse_gb * 8 / rate_gbit
+
+      a = Archivjob("Personal", "/data/pers", 30)
+      b = Archivjob("Verträge", "/data/vert", 75)
+      b.starten()
+      a.groesse_gb = a.groesse_gb + 10
+      ```
+      Welche Werte haben die Ausdrücke nach diesen Zeilen?
+    schritte:
+      - frage: "a.status"
+        antwort: "neu"
+        format: text
+        erklaerung: "Nur b wurde gestartet; a behält den Startwert aus dem Konstruktor."
+        falsch:
+          - {antwort: "läuft", warum: "`b.starten()` ändert nur das Objekt b. Jedes Objekt hat seinen eigenen Zustand.", ursache: konzept}
+      - frage: "a.groesse_gb"
+        antwort: "40"
+        erklaerung: "30 + 10 = 40."
+      - frage: "b.dauer_s(10) in Sekunden"
+        antwort: "60"
+        einheit: "s"
+        erklaerung: "75 × 8 ÷ 10 = 60.0."
+        falsch:
+          - {antwort: "7,5", warum: "Die Methode rechnet GB × 8 in Gbit um – das × 8 fehlt.", ursache: rechenfehler}
+      - frage: "a.dauer_s(2) in Sekunden"
+        antwort: "160"
+        einheit: "s"
+        erklaerung: "Mit der neuen Größe: 40 × 8 ÷ 2 = 160.0."
+        falsch:
+          - {antwort: "120", warum: "Mit der alten Größe 30 gerechnet – a.groesse_gb ist inzwischen 40.", ursache: konzept}
+    hinweise:
+      - "Jedes Objekt hat eigene Attributwerte."
+      - "Die Methode nutzt den aktuellen Wert von self.groesse_gb."
+    loesungsweg: "a.status = **neu** · a.groesse_gb = **40** · b.dauer_s(10) = **60** · a.dauer_s(2) = **160**."
+    quelle: "Neu erstellt (Claude), Klasse aus der Lektion oop-klassen-objekte; in Python ausgeführt."
+    belege:
+      - {titel: "Python-Tutorial: Classes (Instanzvariablen)", url: "https://docs.python.org/3/tutorial/classes.html"}
+    status: ungeprüft
+
+  - id: oop-kapselung-aussagen
+    typ: multiple_choice
+    stufe: 3
+    titel: "Warum Kapselung?"
+    frage: "Welche **zwei** Aussagen zur Kapselung stimmen?"
+    optionen:
+      - {text: "Ein Setter kann einen Wert prüfen, bevor er gespeichert wird – z. B. keine negative Größe.", richtig: true, warum: "Genau dafür ist der Umweg über eine Methode da."}
+      - {text: "Attribute werden privat gemacht, die Schnittstelle (Methoden) bleibt öffentlich.", richtig: true, warum: "Sonst könnte niemand das Objekt benutzen."}
+      - {text: "Kapselung verschlüsselt die Attributwerte im Arbeitsspeicher.", warum: "Kapselung regelt Zugriffsrechte im Code, nicht Geheimhaltung.", ursache: begriff}
+      - {text: "In Python verhindert ein führender Unterstrich (`self._x`) jeden Zugriff von außen.", warum: "In Python ist das nur eine Konvention; erzwungen wird nichts.", ursache: konzept}
+    hinweise:
+      - "Fahrkartenautomat: Knöpfe bedienen ja, an die Kasse kommen nein."
+    loesungsweg: "Kapselung: Attribute privat, Methoden öffentlich; Setter prüfen Werte. Keine Verschlüsselung; in Python ist `_x` eine Absprache."
+    quelle: "Neu erstellt (Claude), passend zur Lektion oop-kapselung."
+    belege:
+      - {titel: "PEP 8: Designing for Inheritance (führender Unterstrich)", url: "https://peps.python.org/pep-0008/#designing-for-inheritance"}
+    status: ungeprüft
+
+  - id: oop-klasse-entwerfen
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Klasse für Server entwerfen"
+    situation: "Ein Inventar-Skript der ArchivTech soll Server verwalten. Jeder Server hat einen Hostnamen, eine IP-Adresse und eine Anzahl CPU-Kerne. Die Kernzahl soll sich ändern lassen, darf aber nie kleiner als 1 sein. Außerdem soll man einen Server in den Wartungsmodus setzen können."
+    frage: "Beschreibe die Klasse `Server` als UML-Klassendiagramm (Attribute mit Sichtbarkeit und Typ, Konstruktor, Methoden) und erkläre, wo die Prüfung „mindestens 1 Kern“ hingehört."
+    musterloesung: |
+      ```text
+      Server
+      ---------------------------------------
+      -hostname: String
+      -ipAdresse: String
+      -kerne: int
+      -wartung: boolean
+      ---------------------------------------
+      +Server(hostname: String, ipAdresse: String, kerne: int)
+      +getKerne(): int
+      +setKerne(wert: int): void
+      +wartungStarten(): void
+      ```
+      Die Prüfung gehört in den Setter `setKerne` (und der Konstruktor nutzt ihn): Werte kleiner als
+      1 werden abgelehnt. Weil `kerne` privat ist, kommt niemand am Setter vorbei.
+    bewertungspunkte:
+      - {punkt: "Attribute privat (-) mit Datentypen", kernbegriffe: ["-hostname", "- hostname", "-kerne", "- kerne", "private"]}
+      - {punkt: "Konstruktor mit Klassennamen und Parametern", kernbegriffe: ["+server(", "server(", "konstruktor"]}
+      - {punkt: "Getter/Setter für die Kerne, öffentlich", kernbegriffe: ["setkerne", "getkerne", "setter", "getter"]}
+      - {punkt: "Methode für den Wartungsmodus", kernbegriffe: ["wartung"]}
+      - {punkt: "Prüfung ≥ 1 im Setter (Kapselung als Begründung)", kernbegriffe: ["setter", "setkerne", "prüf"]}
+    hinweise:
+      - "Drei Fächer: Name, Attribute, Methoden."
+      - "Attribute privat, Methoden öffentlich."
+      - "Wo kann man einen Wert prüfen, bevor er gespeichert wird?"
+    loesungsweg: "Attribute privat mit Typ, Konstruktor `Server(…)`, `getKerne()`/`setKerne(wert)` öffentlich, `wartungStarten()`. Prüfung im Setter, weil das private Attribut nur über ihn geändert werden kann."
+    quelle: "Neu erstellt (Claude), passend zu den Lektionen oop-klassen-objekte und oop-kapselung."
+    belege:
+      - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Abschnitt Classes", url: "https://www.omg.org/spec/UML/2.5.1"}
+    status: ungeprüft

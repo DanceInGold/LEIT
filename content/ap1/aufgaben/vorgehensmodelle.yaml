@@ -1,0 +1,182 @@
+# Aufgaben zum Thema „Vorgehensmodelle: Wasserfallmodell und Scrum“.
+# Passend zu den Lektionen wasserfall-agil und scrum. V-Modell und Spiralmodell sind 2025 entfallen.
+
+aufgaben:
+  - id: vorgehen-scrum-verantwortung
+    typ: zuordnung
+    stufe: 1
+    titel: "Wer macht was in Scrum?"
+    frage: "Ordne jeder Verantwortlichkeit ihre Aufgabe zu."
+    paare:
+      - {links: "Product Owner", rechts: "Maximiert den Wert des Produkts und ordnet das Product Backlog"}
+      - {links: "Scrum Master", rechts: "Sorgt dafür, dass Scrum gelebt wird, und räumt Hindernisse weg"}
+      - {links: "Developers", rechts: "Erstellen in jedem Sprint ein nutzbares Increment"}
+    ablenker: ["Verteilt Aufgaben an das Team und kontrolliert den Fortschritt"]
+    hinweise:
+      - "In Scrum gibt es keinen Projektleiter, der Aufgaben verteilt."
+    loesungsweg: "Product Owner → Wert und Backlog · Scrum Master → Scrum und Hindernisse · Developers → Increment. Aufgaben verteilen gehört zu keiner Scrum-Verantwortlichkeit – die Developers planen selbst."
+    quelle: "Neu erstellt (Claude), passend zur Lektion scrum."
+    belege:
+      - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020", url: "https://scrumguides.org/scrum-guide.html"}
+    status: ungeprüft
+
+  - id: vorgehen-artefakte-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Artefakte und ihre Verpflichtungen"
+    frage: "Fülle die Lücken aus."
+    text: "Zum Product Backlog gehört als Verpflichtung das {{1}}, zum Sprint Backlog das {{2}} und zum Increment die {{3}}. Ein Sprint dauert höchstens einen {{4}}."
+    luecken:
+      - antworten: ["Product Goal", "Produktziel"]
+        falsch:
+          - {antwort: "Sprint Goal", warum: "Das Sprint Goal gehört zum Sprint Backlog; zum Product Backlog gehört das Product Goal.", ursache: begriff}
+      - antworten: ["Sprint Goal", "Sprintziel"]
+      - antworten: ["Definition of Done", "DoD"]
+        falsch:
+          - {antwort: "Definition of Ready", warum: "Die Definition of Ready steht nicht im Scrum Guide; die Verpflichtung des Increments ist die Definition of Done.", ursache: begriff}
+      - antworten: ["Monat"]
+        falsch:
+          - {antwort: "Woche", warum: "Üblich sind zwei bis vier Wochen; die Obergrenze ist ein Monat.", ursache: begriff}
+    hinweise:
+      - "Jedes Artefakt hat genau eine Verpflichtung: Product Goal, Sprint Goal, Definition of Done."
+    loesungsweg: "Product Backlog → **Product Goal** · Sprint Backlog → **Sprint Goal** · Increment → **Definition of Done**. Sprint ≤ 1 **Monat**."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion scrum."
+    belege:
+      - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020 (Artifacts, Commitments)", url: "https://scrumguides.org/scrum-guide.html"}
+    status: ungeprüft
+
+  - id: vorgehen-events-zuordnen
+    typ: zuordnung
+    stufe: 2
+    titel: "Welches Event ist das?"
+    frage: "Ordne jeder Beschreibung das passende Scrum-Event zu."
+    paare:
+      - {links: "Die Developers stimmen sich 15 Minuten ab, wie sie dem Sprint Goal heute näherkommen.", rechts: "Daily Scrum"}
+      - {links: "Das Team zeigt den Stakeholdern das Increment und passt das Product Backlog an.", rechts: "Sprint Review"}
+      - {links: "Das Team bespricht, wie die Zusammenarbeit lief und was es verbessern will.", rechts: "Sprint Retrospective"}
+      - {links: "Das Team legt fest, warum, was und wie es im nächsten Sprint arbeitet.", rechts: "Sprint Planning"}
+    ablenker: ["Weekly Stand-up"]
+    hinweise:
+      - "Review = Produkt mit Stakeholdern, Retrospektive = Arbeitsweise im Team."
+      - "Ein „Weekly Stand-up“ gibt es in Scrum nicht."
+    loesungsweg: "15 Minuten → **Daily** · Increment zeigen → **Review** · Zusammenarbeit verbessern → **Retrospective** · warum/was/wie → **Planning**."
+    quelle: "Neu erstellt (Claude), Abgrenzungstabelle der Lektion scrum."
+    belege:
+      - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020 (Scrum Events)", url: "https://scrumguides.org/scrum-guide.html"}
+    status: ungeprüft
+
+  - id: vorgehen-wasserfall-ordnen
+    typ: reihenfolge
+    stufe: 1
+    titel: "Phasen des Wasserfallmodells"
+    frage: "Bringe die Phasen eines Wasserfallprojekts in die richtige Reihenfolge."
+    elemente:
+      - "Anforderungen erheben"
+      - "Entwurf"
+      - "Umsetzung"
+      - "Test"
+      - "Betrieb und Wartung"
+    hinweise:
+      - "Erst klären, was gebraucht wird, dann planen, bauen, prüfen und betreiben."
+    loesungsweg: "Anforderungen → Entwurf → Umsetzung → Test → Betrieb. Jede Phase endet mit einem Ergebnis, bevor die nächste beginnt. Die genauen Namen unterscheiden sich je nach Quelle."
+    quelle: "Neu erstellt (Claude), passend zur Lektion wasserfall-agil."
+    belege:
+      - {titel: "Royce, W. W.: Managing the Development of Large Software Systems. Proceedings of IEEE WESCON, 1970"}
+    status: ungeprüft
+
+  - id: vorgehen-timeboxen
+    typ: rechnung
+    stufe: 3
+    titel: "Timeboxen bei einem Ein-Monats-Sprint"
+    frage: "Ein Team arbeitet in Sprints von **einem Monat** mit **20 Arbeitstagen**. Wie viel Zeit ist höchstens für die Events vorgesehen?"
+    schritte:
+      - frage: "Höchstdauer Sprint Planning in Stunden"
+        antwort: "8"
+        einheit: "h"
+        erklaerung: "Timebox laut Scrum Guide: höchstens 8 h bei einem Ein-Monats-Sprint."
+      - frage: "Summe aller Daily Scrums im Sprint in Minuten"
+        antwort: "300"
+        einheit: "min"
+        erklaerung: "20 Arbeitstage × 15 min = 300 min (5 h)."
+        falsch:
+          - {antwort: "15", warum: "Das ist ein einzelnes Daily – es findet jeden Arbeitstag statt.", ursache: konzept}
+      - frage: "Höchstdauer Review und Retrospektive zusammen in Stunden"
+        antwort: "7"
+        einheit: "h"
+        erklaerung: "Review ≤ 4 h + Retrospektive ≤ 3 h = 7 h."
+        falsch:
+          - {antwort: "8", warum: "Die Retrospektive hat höchstens 3 h, nicht 4 h.", ursache: begriff}
+    hinweise:
+      - "Planning ≤ 8 h, Daily 15 min, Review ≤ 4 h, Retrospektive ≤ 3 h (Ein-Monats-Sprint)."
+      - "Das Daily findet an jedem Arbeitstag statt."
+    loesungsweg: "Planning **8 h** · Dailys 20 × 15 min = **300 min** · Review + Retro 4 h + 3 h = **7 h**."
+    quelle: "Neu erstellt (Claude), Timeboxen der Lektion scrum; nachgerechnet."
+    belege:
+      - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020", url: "https://scrumguides.org/scrum-guide.html"}
+      - {titel: "Scrum.org: Which Scrum events are time-boxed?", url: "https://www.scrum.org/resources/blog/which-scrum-events-are-time-boxed"}
+    status: ungeprüft
+
+  - id: vorgehen-wann-was
+    typ: zuordnung
+    stufe: 3
+    titel: "Wasserfall oder Scrum?"
+    frage: "Welches Vorgehensmodell passt besser zur Situation?"
+    paare:
+      - {links: "150 identische Arbeitsplätze nach festem Konzept ausrollen", rechts: "Wasserfall"}
+      - {links: "Ein neues Kundenportal, dessen Funktionen der Kunde erst nach und nach festlegen will", rechts: "Scrum"}
+      - {links: "Ein Behördenauftrag mit Festpreis, festem Termin und vollständigem Pflichtenheft", rechts: "Wasserfall"}
+      - {links: "Eine interne App, bei der die Nutzer alle zwei Wochen Feedback geben wollen", rechts: "Scrum"}
+    hinweise:
+      - "Stabile, klare Anforderungen → Wasserfall. Unklare oder wechselnde → agil."
+    loesungsweg: "Klar und stabil (Rollout, Festpreis mit Pflichtenheft) → **Wasserfall**. Unklar, Feedback erwünscht (Portal, App) → **Scrum**."
+    quelle: "Neu erstellt (Claude), Tabelle „Wann verwende ich was?“ der Lektion wasserfall-agil."
+    belege:
+      - {titel: "Manifest für Agile Softwareentwicklung (2001)", url: "https://agilemanifesto.org/iso/de/manifesto.html"}
+    status: ungeprüft
+
+  - id: vorgehen-scrum-irrtuemer
+    typ: multiple_choice
+    stufe: 3
+    titel: "Was stimmt bei Scrum?"
+    frage: "Welche **zwei** Aussagen entsprechen dem Scrum Guide 2020?"
+    optionen:
+      - {text: "Das Daily Scrum ist ein Event für die Developers, um den nächsten Arbeitstag zu planen.", richtig: true, warum: "Es dient den Developers, nicht der Berichterstattung an Vorgesetzte."}
+      - {text: "Das Product Backlog wird von genau einer Person, dem Product Owner, verantwortet.", richtig: true, warum: "Der Product Owner ist eine Person, kein Gremium."}
+      - {text: "Der Scrum Master verteilt die Aufgaben und ist fachlicher Projektleiter.", warum: "Der Scrum Master führt nicht fachlich; er sorgt für funktionierendes Scrum.", ursache: begriff}
+      - {text: "Im Sprint Review bespricht das Team ohne Stakeholder, wie es seine Zusammenarbeit verbessert.", warum: "Das ist die Retrospektive. Im Review wird das Increment mit Stakeholdern besprochen.", ursache: begriff}
+    hinweise:
+      - "Review und Retrospektive werden gern vertauscht."
+    loesungsweg: "Richtig: Daily für die Developers; ein Product Owner. Der Scrum Master ist kein Projektleiter; die Verbesserung der Zusammenarbeit ist Thema der Retrospektive."
+    quelle: "Neu erstellt (Claude), Prüfungsfallen der Lektion scrum."
+    belege:
+      - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020", url: "https://scrumguides.org/scrum-guide.html"}
+    status: ungeprüft
+
+  - id: vorgehen-empfehlung
+    typ: freitext
+    stufe: 4
+    operator: begründen
+    titel: "Welches Modell für das Self-Service-Portal?"
+    situation: "Die ArchivTech soll für einen Kunden ein Self-Service-Portal bauen, über das Mitarbeitende archivierte Dokumente suchen und wiederherstellen. Der Kunde weiß noch nicht genau, welche Suchfunktionen er braucht, und möchte früh etwas sehen. Ein Ansprechpartner steht wöchentlich zur Verfügung."
+    frage: "Empfiehl ein Vorgehensmodell und begründe deine Empfehlung mit mindestens zwei Argumenten. Nenne auch einen Nachteil."
+    musterloesung: |
+      Empfehlung: Scrum (agil). Die Anforderungen sind unklar und werden sich ändern – Scrum plant
+      Sprint für Sprint und nimmt Änderungen auf. Der Kunde sieht nach jedem Sprint ein nutzbares
+      Increment und kann im Review früh Feedback geben; ein wöchentlich verfügbarer Ansprechpartner
+      kann die Rolle des Product Owners unterstützen bzw. die Anforderungen einbringen.
+      Nachteil: Endtermin und Gesamtumfang bzw. Kosten lassen sich zu Beginn schwerer zusagen.
+    bewertungspunkte:
+      - {punkt: "Empfehlung Scrum/agil", kernbegriffe: ["scrum", "agil"]}
+      - {punkt: "Argument: unklare/wechselnde Anforderungen", kernbegriffe: ["unklar", "änder", "anforderung"]}
+      - {punkt: "Argument: frühes Feedback/Increment nach jedem Sprint, Kunde verfügbar", kernbegriffe: ["feedback", "increment", "inkrement", "sprint", "review", "früh"]}
+      - {punkt: "Nachteil: Umfang, Termin oder Kosten schwer vorab festzulegen", kernbegriffe: ["termin", "kosten", "umfang", "festpreis", "planbar"]}
+    hinweise:
+      - "Sind die Anforderungen klar und stabil?"
+      - "Wie oft möchte der Kunde etwas sehen?"
+      - "„Begründen“: Empfehlung mit Bezug auf die Situation."
+    loesungsweg: "Scrum, weil Anforderungen unklar sind und der Kunde früh Feedback geben will und verfügbar ist. Nachteil: Termin/Kosten schwerer zuzusagen."
+    quelle: "Neu erstellt (Claude), passend zur Lektion wasserfall-agil."
+    belege:
+      - {titel: "Manifest für Agile Softwareentwicklung (2001)", url: "https://agilemanifesto.org/iso/de/manifesto.html"}
+      - {titel: "Schwaber, K.; Sutherland, J.: The Scrum Guide, November 2020", url: "https://scrumguides.org/scrum-guide.html"}
+    status: ungeprüft

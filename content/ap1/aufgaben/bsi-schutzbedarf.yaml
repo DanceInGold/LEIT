@@ -1,0 +1,177 @@
+# Aufgaben zum Thema „Schutzbedarfsanalyse nach BSI IT-Grundschutz“.
+# Passend zu den Lektionen schutzbedarf-feststellen und schutzbedarf-vererbung.
+
+aufgaben:
+  - id: bsi-kategorien
+    typ: multiple_choice
+    stufe: 1
+    titel: "Schutzbedarfskategorien"
+    frage: "Wie heißen die drei Schutzbedarfskategorien nach BSI-Standard 200-2?"
+    optionen:
+      - {text: "normal, hoch, sehr hoch", richtig: true, warum: "So stehen sie im BSI-Standard 200-2."}
+      - {text: "niedrig, mittel, hoch", warum: "Eine Kategorie „niedrig“ gibt es beim BSI nicht – die unterste heißt „normal“.", ursache: begriff}
+      - {text: "gering, normal, kritisch", warum: "Die Kategorien heißen normal, hoch und sehr hoch.", ursache: begriff}
+      - {text: "Basis, Kern, Standard", warum: "Das sind die drei Vorgehensweisen der Absicherung, keine Schutzbedarfskategorien.", ursache: begriff}
+    hinweise:
+      - "Die unterste Kategorie bedeutet: Schäden sind begrenzt und überschaubar."
+    loesungsweg: "**normal** (begrenzt, überschaubar) · **hoch** (beträchtlich) · **sehr hoch** (existenziell bedrohlich)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion schutzbedarf-feststellen."
+    belege:
+      - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.1", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
+    status: ungeprüft
+
+  - id: bsi-effekte-zuordnen
+    typ: zuordnung
+    stufe: 2
+    titel: "Maximum, Kumulation, Verteilung"
+    frage: "Ordne jedem Effekt seine Beschreibung zu."
+    paare:
+      - {links: "Maximumprinzip", rechts: "Das System übernimmt je Schutzziel den höchsten Wert seiner Anwendungen"}
+      - {links: "Kumulationseffekt", rechts: "Viele kleine Schäden zusammen ergeben einen höheren Schutzbedarf"}
+      - {links: "Verteilungseffekt", rechts: "Redundanz senkt den Schutzbedarf eines einzelnen Systems"}
+      - {links: "Kern-Absicherung", rechts: "Nur die wichtigsten Prozesse werden gezielt tief abgesichert"}
+    ablenker: ["Der Durchschnitt aller Anwendungen gilt für das System"]
+    hinweise:
+      - "Kumulation erhöht, Verteilung senkt."
+      - "Einen Durchschnitt gibt es bei der Vererbung nie."
+    loesungsweg: "Maximum = höchster Wert · Kumulation = Summe vieler Schäden → höher · Verteilung = Redundanz → niedriger · Kern-Absicherung = Kronjuwelen. Der Durchschnitt ist eine Falle."
+    quelle: "Neu erstellt (Claude), Abgrenzungstabelle der Lektion schutzbedarf-vererbung."
+    belege:
+      - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 3.3 und 8.2.2", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
+    status: ungeprüft
+
+  - id: bsi-szenarien-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "So begründet man den Schutzbedarf"
+    frage: "Fülle die Lücken aus."
+    text: "Die Kategorie wird für jedes Schutzziel {{1}} festgelegt. Bewertet wird über {{2}} Schadensszenarien, und das {{3}} Szenario bestimmt die Kategorie."
+    luecken:
+      - antworten: ["einzeln", "getrennt", "separat"]
+        falsch:
+          - {antwort: "gemeinsam", warum: "Vertraulichkeit, Integrität und Verfügbarkeit können unterschiedlich hoch sein – sie werden einzeln bewertet.", ursache: konzept}
+      - antworten: ["6", "sechs"]
+        falsch:
+          - {antwort: "3", warum: "Drei sind die Kategorien bzw. Grundwerte; Schadensszenarien gibt es sechs.", ursache: begriff}
+      - antworten: ["schlimmste", "schwerste", "höchste", "schwerwiegendste"]
+        falsch:
+          - {antwort: "durchschnittliche", warum: "Es gilt das Maximumprinzip – nicht der Durchschnitt.", ursache: konzept}
+    hinweise:
+      - "Gesetze, Datenschutz, Unversehrtheit, Aufgabenerfüllung, Image, Finanzen."
+    loesungsweg: "Je Schutzziel **einzeln**; **sechs** Schadensszenarien; das **schlimmste** zählt."
+    quelle: "Neu erstellt (Claude), passend zur Lektion schutzbedarf-feststellen."
+    belege:
+      - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.1 (Schadensszenarien)", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
+    status: ungeprüft
+
+  - id: bsi-maximum-server
+    typ: rechnung
+    stufe: 3
+    titel: "Schutzbedarf des Servers ableiten"
+    frage: |
+      Auf dem Server `bld02` laufen drei Anwendungen:
+
+      | Anwendung | Vertraulichkeit | Integrität | Verfügbarkeit |
+      | --- | --- | --- | --- |
+      | Jenkins | normal | hoch | hoch |
+      | Lizenzserver | normal | normal | hoch |
+      | Personalportal | sehr hoch | hoch | normal |
+
+      Leite den Schutzbedarf des Servers je Schutzziel ab (normal, hoch oder sehr hoch).
+    schritte:
+      - frage: "Vertraulichkeit des Servers"
+        antwort: "sehr hoch"
+        format: text
+        erklaerung: "Maximum aus normal, normal, sehr hoch = sehr hoch (Personalportal)."
+        falsch:
+          - {antwort: "normal", warum: "Zwei von drei sind normal – aber es zählt das Maximum, nicht die Mehrheit.", ursache: konzept}
+          - {antwort: "hoch", warum: "Ein Durchschnitt gilt nicht; das höchste ist „sehr hoch“.", ursache: konzept}
+      - frage: "Integrität des Servers"
+        antwort: "hoch"
+        format: text
+        erklaerung: "Maximum aus hoch, normal, hoch = hoch."
+      - frage: "Verfügbarkeit des Servers"
+        antwort: "hoch"
+        format: text
+        erklaerung: "Maximum aus hoch, hoch, normal = hoch."
+    hinweise:
+      - "Für jedes Schutzziel getrennt."
+      - "Maximumprinzip: der höchste Wert gewinnt."
+    loesungsweg: "Vertraulichkeit **sehr hoch** · Integrität **hoch** · Verfügbarkeit **hoch**. Wer den Server übernimmt, kommt an das Personalportal."
+    quelle: "Neu erstellt (Claude), Maximumprinzip der Lektion schutzbedarf-vererbung."
+    belege:
+      - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.2", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
+    status: ungeprüft
+
+  - id: bsi-effekt-erkennen
+    typ: zuordnung
+    stufe: 3
+    titel: "Welcher Effekt greift?"
+    frage: "Ordne jeder Situation den Effekt zu, der den Schutzbedarf verändert."
+    paare:
+      - {links: "Auf einem Host laufen 30 VMs mit Verfügbarkeit „normal“; fällt der Host aus, stehen alle Abteilungen still.", rechts: "Kumulationseffekt – Host höher"}
+      - {links: "Das Kundenportal (Verfügbarkeit hoch) läuft auf zwei Servern im Cluster.", rechts: "Verteilungseffekt – einzelner Server niedriger"}
+      - {links: "Auf einem Fileserver liegen das Wiki (normal) und die Gehaltsdaten (Vertraulichkeit hoch).", rechts: "Maximumprinzip – Server übernimmt hoch"}
+    ablenker: ["Verteilungseffekt – Vertraulichkeit niedriger"]
+    hinweise:
+      - "Viele kleine Ausfälle gleichzeitig? Redundanz vorhanden? Verschiedene Anwendungen auf einem System?"
+      - "Redundanz schützt vor Ausfall – nicht vor Ausspähen."
+    loesungsweg: "30 VMs → **Kumulation** · Cluster → **Verteilung** (nur Verfügbarkeit) · Wiki + Gehälter → **Maximum**. Ein Verteilungseffekt auf die Vertraulichkeit gibt es nicht."
+    quelle: "Neu erstellt (Claude), Beispiele der Lektion schutzbedarf-vererbung."
+    belege:
+      - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.2", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
+    status: ungeprüft
+
+  - id: bsi-vorgehen-ordnen
+    typ: reihenfolge
+    stufe: 2
+    titel: "Ablauf der Schutzbedarfsfeststellung"
+    frage: "Bringe die Schritte in die richtige Reihenfolge."
+    elemente:
+      - "Kategorien mit einer Abgrenzungstabelle für die Firma festlegen"
+      - "Schutzbedarf der Geschäftsprozesse und Anwendungen bestimmen"
+      - "Schutzbedarf auf IT-Systeme vererben (Maximum, Kumulation, Verteilung)"
+      - "Schutzbedarf von Räumen und Verbindungen ableiten"
+      - "Ergebnisse begründen und dokumentieren"
+    hinweise:
+      - "Erst festlegen, was „hoch“ heißt, dann bewerten, dann weitergeben."
+    loesungsweg: "Abgrenzungstabelle → Prozesse/Anwendungen → IT-Systeme → Räume und Verbindungen → dokumentieren."
+    quelle: "Neu erstellt (Claude), Vererbungskette der Lektion schutzbedarf-vererbung."
+    belege:
+      - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
+    status: ungeprüft
+
+  - id: bsi-ticketsystem-begruenden
+    typ: freitext
+    stufe: 4
+    operator: begründen
+    titel: "Schutzbedarf des Ticketsystems"
+    situation: |
+      Das Ticketsystem der ArchivTech enthält Störungsmeldungen von Kunden mit Namen, Telefonnummer
+      und teilweise Zugangsdaten zu Kundensystemen. Ohne Ticketsystem kann der Support Störungen
+      nicht mehr annehmen; Kundenverträge sehen eine Reaktionszeit von 4 Stunden vor.
+
+      Abgrenzungstabelle: Verfügbarkeit **hoch** = Ausfall bis 4 h tolerierbar,
+      **normal** = bis 24 h; Datenschutz **hoch** = erhebliche Folgen für Betroffene.
+    frage: "Lege für Vertraulichkeit und Verfügbarkeit je eine Schutzbedarfskategorie fest und begründe sie mit einem Schadensszenario."
+    musterloesung: |
+      **Vertraulichkeit: hoch** (oder sehr hoch) – Szenarien Datenschutz und Verträge: personenbezogene
+      Kundendaten und Zugangsdaten zu Kundensystemen; ein Leck verstößt gegen DSGVO und Kundenverträge
+      und kann Angriffe auf Kunden ermöglichen.
+
+      **Verfügbarkeit: hoch** – Szenarien Aufgabenerfüllung und Verträge: ohne Ticketsystem keine
+      Störungsannahme; die vertragliche Reaktionszeit von 4 Stunden wäre gefährdet, ein Ausfall über
+      4 h ist laut Abgrenzungstabelle nicht tolerierbar.
+    bewertungspunkte:
+      - {punkt: "Vertraulichkeit mindestens hoch", kernbegriffe: ["vertraulich"]}
+      - {punkt: "Begründung Vertraulichkeit: personenbezogene Daten/Zugangsdaten, DSGVO oder Vertrag", kernbegriffe: ["dsgvo", "personenbezogen", "zugangsdaten", "datenschutz"]}
+      - {punkt: "Verfügbarkeit hoch", kernbegriffe: ["verfügbar"]}
+      - {punkt: "Begründung Verfügbarkeit: Reaktionszeit 4 h / Aufgabenerfüllung / Vertrag", kernbegriffe: ["4 h", "4 stunden", "reaktionszeit", "aufgabenerfüllung", "vertrag"]}
+    hinweise:
+      - "Kategorie + Szenario + konkreter Grund – sonst gibt es kaum Punkte."
+      - "Vergleiche die Reaktionszeit mit der Abgrenzungstabelle."
+    loesungsweg: "Vertraulichkeit hoch (Datenschutz, Zugangsdaten, Verträge); Verfügbarkeit hoch (4-h-Reaktionszeit, Aufgabenerfüllung). „Sehr hoch“ bei Vertraulichkeit ist mit guter Begründung auch vertretbar."
+    quelle: "Neu erstellt (Claude), Vorgehen der Lektion schutzbedarf-feststellen."
+    belege:
+      - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik, Kapitel 8.2.1", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
+    status: ungeprüft

@@ -1,0 +1,177 @@
+# Aufgaben zum Thema „Datenschutz nach DSGVO und BDSG“.
+# Passend zu den Lektionen dsgvo-grundsaetze und dsgvo-betroffenenrechte.
+
+aufgaben:
+  - id: dsgvo-personenbezug
+    typ: multiple_choice
+    stufe: 1
+    titel: "Personenbezogen oder nicht?"
+    frage: "Welche **zwei** Angaben sind personenbezogene Daten?"
+    optionen:
+      - {text: "Die IP-Adresse im Log des Webservers", richtig: true, warum: "Über den Provider lässt sich die Person identifizieren – identifizierbar reicht."}
+      - {text: "Die Kundennummer K-4711 in einer Bestellung", richtig: true, warum: "Über die Kundendatenbank führt sie zu einer bestimmten Person."}
+      - {text: "Das Durchschnittsalter aller Kunden", warum: "Ein statistischer Wert lässt keinen Rückschluss auf eine einzelne Person zu.", ursache: konzept}
+      - {text: "Die Seriennummer eines Lagerservers", warum: "Sie bezieht sich auf ein Gerät, nicht auf eine Person.", ursache: konzept}
+    hinweise:
+      - "Es reicht, dass die Person **identifizierbar** ist – der Name muss nicht dabeistehen."
+    loesungsweg: "Personenbezogen (Art. 4 Nr. 1): **IP-Adresse** und **Kundennummer**, weil sie eine Person identifizierbar machen. Statistiken und Gerätedaten nicht."
+    quelle: "Neu erstellt (Claude), passend zur Lektion dsgvo-grundsaetze."
+    belege:
+      - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 4 Nr. 1", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+      - {titel: "EuGH, Urteil vom 19.10.2016, C-582/14 (Breyer): dynamische IP-Adressen als personenbezogene Daten", url: "https://curia.europa.eu/juris/liste.jsf?num=C-582/14"}
+    status: ungeprüft
+
+  - id: dsgvo-grundsaetze-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Grundsätze der DSGVO"
+    frage: "Ordne jedem Grundsatz aus Art. 5 DSGVO das passende Beispiel zu."
+    paare:
+      - {links: "Zweckbindung", rechts: "Lieferadressen werden nicht für Werbung eines Partners genutzt"}
+      - {links: "Datenminimierung", rechts: "Im Ticketformular wird nicht nach dem Geburtsdatum gefragt"}
+      - {links: "Speicherbegrenzung", rechts: "Bewerbungsunterlagen werden nach Ablauf der Frist gelöscht"}
+      - {links: "Rechenschaftspflicht", rechts: "Die Firma kann die Einhaltung der Regeln nachweisen"}
+    ablenker: ["Die Firma bietet einen Newsletter an"]
+    hinweise:
+      - "Zweck – Menge – Dauer – Nachweis."
+    loesungsweg: "Zweckbindung = nur für den Zweck · Datenminimierung = nur so viel wie nötig · Speicherbegrenzung = löschen, wenn erledigt · Rechenschaftspflicht = nachweisen können."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion dsgvo-grundsaetze."
+    belege:
+      - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 5", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+    status: ungeprüft
+
+  - id: dsgvo-rechte-zuordnen
+    typ: zuordnung
+    stufe: 2
+    titel: "Welches Betroffenenrecht?"
+    frage: "Ordne jedem Anliegen das passende Recht zu."
+    paare:
+      - {links: "„Welche Daten habt ihr über mich, und wozu?“", rechts: "Auskunft (Art. 15)"}
+      - {links: "„Meine Adresse ist falsch hinterlegt.“", rechts: "Berichtigung (Art. 16)"}
+      - {links: "„Löscht mein Konto, ich bin kein Kunde mehr.“", rechts: "Löschung (Art. 17)"}
+      - {links: "„Ich will meine Daten mitnehmen – als CSV-Datei.“", rechts: "Datenübertragbarkeit (Art. 20)"}
+      - {links: "„Hört auf, mir Werbung zu schicken.“", rechts: "Widerspruch (Art. 21)"}
+    ablenker: ["Einwilligung (Art. 7)"]
+    hinweise:
+      - "Die Einwilligung ist eine Rechtsgrundlage, kein Betroffenenrecht."
+    loesungsweg: "Auskunft · Berichtigung · Löschung · Datenübertragbarkeit · Widerspruch. Die Einwilligung ist eine Rechtsgrundlage (Art. 6 Abs. 1 a)."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion dsgvo-betroffenenrechte."
+    belege:
+      - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 15–21", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+    status: ungeprüft
+
+  - id: dsgvo-pseudo-luecke
+    typ: lueckentext
+    stufe: 2
+    titel: "Pseudonym oder anonym?"
+    frage: "Fülle die Lücken aus."
+    text: "Ersetzt man in einer Tabelle die Namen durch Kennzeichen und bewahrt die Zuordnung getrennt auf, sind die Daten {{1}}. Für sie gilt die DSGVO {{2}}. Lässt sich der Personenbezug auch mit Zusatzwissen nicht mehr herstellen, sind die Daten {{3}}."
+    luecken:
+      - antworten: ["pseudonymisiert", "pseudonym"]
+        falsch:
+          - {antwort: "anonymisiert", warum: "Mit der Zuordnungstabelle lässt sich die Person zurückverfolgen – das ist Pseudonymisierung.", ursache: begriff}
+      - antworten: ["weiterhin", "weiter", "trotzdem", "auch", "noch"]
+        falsch:
+          - {antwort: "nicht", warum: "Pseudonymisierte Daten bleiben personenbezogen; nur anonyme fallen aus der DSGVO heraus.", ursache: konzept}
+      - antworten: ["anonymisiert", "anonym"]
+    hinweise:
+      - "Entscheidend ist: Lässt sich die Person zurückverfolgen?"
+    loesungsweg: "Kennzeichen mit getrennter Zuordnung = **pseudonymisiert**, DSGVO gilt **weiterhin**. Kein Rückweg möglich = **anonymisiert** (ErwG 26)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion dsgvo-betroffenenrechte."
+    belege:
+      - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 4 Nr. 5 und Erwägungsgrund 26", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+    status: ungeprüft
+
+  - id: dsgvo-rechtsgrundlage
+    typ: zuordnung
+    stufe: 3
+    titel: "Welche Rechtsgrundlage?"
+    frage: "Ordne jeder Verarbeitung die passende Rechtsgrundlage aus Art. 6 Abs. 1 DSGVO zu."
+    paare:
+      - {links: "Die Lieferadresse wird gespeichert, um bestellte Ware zu versenden.", rechts: "b) Vertrag"}
+      - {links: "Rechnungen werden acht Jahre aufbewahrt, weil das Steuerrecht es verlangt.", rechts: "c) rechtliche Verpflichtung"}
+      - {links: "Kunden abonnieren freiwillig den Newsletter mit einem Häkchen.", rechts: "a) Einwilligung"}
+      - {links: "Der Serverraum wird per Kamera überwacht, um Einbrüche zu verhindern.", rechts: "f) berechtigtes Interesse"}
+    ablenker: ["e) öffentliche Aufgabe"]
+    hinweise:
+      - "Einwilligung ist nur eine von sechs Grundlagen."
+      - "Eine Behörde ist hier nicht beteiligt."
+    loesungsweg: "Lieferadresse → Vertrag · Aufbewahrung → rechtliche Verpflichtung · Newsletter → Einwilligung · Videoüberwachung → berechtigtes Interesse (mit Abwägung)."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion dsgvo-grundsaetze."
+    belege:
+      - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 6 Abs. 1", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+      - {titel: "§ 147 Abs. 3 AO: Buchungsbelege seit 01.01.2025 acht Jahre aufbewahren", url: "https://www.gesetze-im-internet.de/ao_1977/__147.html"}
+    status: ungeprüft
+
+  - id: dsgvo-panne-fristen
+    typ: rechnung
+    stufe: 3
+    titel: "Fristen bei Datenpanne und Bußgeld"
+    situation: "Am **Freitag um 16:00 Uhr** stellt die ArchivTech fest, dass ein falsch konfigurierter Webserver Kundendaten öffentlich zugänglich gemacht hat. Ein Risiko für die Betroffenen ist nicht auszuschließen."
+    frage: "Beantworte die Fragen zur Meldepflicht und zum Bußgeldrahmen."
+    schritte:
+      - frage: "Frist für die Meldung an die Aufsichtsbehörde in Stunden"
+        antwort: "72"
+        einheit: "h"
+        erklaerung: "Art. 33: möglichst binnen 72 Stunden nach Bekanntwerden."
+        falsch:
+          - {antwort: "24", warum: "Die DSGVO nennt 72 Stunden.", ursache: begriff}
+      - frage: "Am wievielten Wochentag nach Freitag läuft die Frist ab? (Mo = 1)"
+        antwort: "1"
+        erklaerung: "Freitag 16:00 + 72 h = Montag 16:00. Das Wochenende zählt mit."
+        falsch:
+          - {antwort: "3", warum: "72 Stunden sind drei Kalendertage, keine Arbeitstage – das Wochenende zählt mit.", ursache: konzept}
+      - frage: "Höchstes Bußgeld in Mio. € für ein Unternehmen mit 800 Mio. € Jahresumsatz"
+        antwort: "32"
+        einheit: "Mio. €"
+        erklaerung: "4 % von 800 Mio. € = 32 Mio. €; das ist mehr als 20 Mio. €, und es gilt der höhere Betrag."
+        falsch:
+          - {antwort: "20", warum: "Es gilt der **höhere** Wert: 20 Mio. € oder 4 % des Umsatzes.", ursache: konzept}
+      - frage: "Höchstes Bußgeld in Mio. € für ein Unternehmen mit 300 Mio. € Jahresumsatz"
+        antwort: "20"
+        einheit: "Mio. €"
+        erklaerung: "4 % von 300 Mio. € = 12 Mio. €; der höhere Betrag ist 20 Mio. €."
+        falsch:
+          - {antwort: "12", warum: "12 Mio. € sind weniger als 20 Mio. €; es gilt der höhere Betrag.", ursache: konzept}
+    hinweise:
+      - "Die 72 Stunden laufen ab Bekanntwerden, auch am Wochenende."
+      - "Art. 83 Abs. 5: bis 20 Mio. € oder 4 % des weltweiten Jahresumsatzes – je nachdem, was höher ist."
+    loesungsweg: |
+      1. **72 h** (Art. 33)
+      2. Freitag 16:00 + 72 h = **Montag** 16:00
+      3. 4 % × 800 Mio. € = **32 Mio. €** > 20 Mio. €
+      4. 4 % × 300 Mio. € = 12 Mio. € → **20 Mio. €**
+    quelle: "Neu erstellt (Claude), passend zur Lektion dsgvo-betroffenenrechte; nachgerechnet."
+    belege:
+      - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 33 und Art. 83 Abs. 5", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+    status: ungeprüft
+
+  - id: dsgvo-loeschantrag
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Löschantrag eines ehemaligen Kunden"
+    situation: "Ein ehemaliger Kunde schreibt: „Ich verlange, dass Sie sofort alle meine Daten löschen.“ Im System liegen seine Kontaktdaten, Support-Tickets und zwei Rechnungen aus dem Vorjahr."
+    frage: "Beschreibe, wie die ArchivTech mit dem Antrag umgeht: Frist, was gelöscht wird und was nicht – mit Begründung."
+    musterloesung: |
+      Recht auf Löschung (Art. 17). Antwort innerhalb eines Monats (Art. 12 Abs. 3). Zuerst die
+      Identität des Antragstellers prüfen. Kontaktdaten und Tickets werden gelöscht, weil der Zweck
+      (Vertrag, Support) entfallen ist. Die Rechnungen unterliegen der gesetzlichen Aufbewahrungspflicht
+      (Steuer- und Handelsrecht) – sie werden nicht gelöscht, sondern gesperrt bzw. in der Verarbeitung
+      eingeschränkt und nach Ablauf der Frist gelöscht. Dem Kunden wird das schriftlich mitgeteilt.
+    bewertungspunkte:
+      - {punkt: "Recht auf Löschung (Art. 17) erkannt", kernbegriffe: ["art. 17", "löschung", "vergessen"]}
+      - {punkt: "Frist: ein Monat", kernbegriffe: ["monat"]}
+      - {punkt: "Kontaktdaten und Tickets löschen, Zweck entfallen", kernbegriffe: ["zweck", "ticket", "kontakt"]}
+      - {punkt: "Rechnungen: Aufbewahrungspflicht → sperren statt löschen", kernbegriffe: ["aufbewahr", "sperr", "einschränk"]}
+      - {punkt: "Kunde wird informiert (und Identität geprüft)", kernbegriffe: ["mitteil", "inform", "antwort", "identität"]}
+    hinweise:
+      - "Darf wirklich alles gelöscht werden?"
+      - "Wie lange hat die Firma Zeit zu antworten?"
+      - "Was passiert mit Daten, die ein Gesetz aufzubewahren verlangt?"
+    loesungsweg: "Art. 17, Antwort binnen eines Monats; Kontaktdaten und Tickets löschen; Rechnungen wegen Aufbewahrungspflicht sperren und später löschen; Kunde informieren."
+    quelle: "Neu erstellt (Claude), Grenzen des Löschrechts aus der Lektion dsgvo-betroffenenrechte."
+    belege:
+      - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 12 Abs. 3, Art. 17 Abs. 3 b, Art. 18", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+      - {titel: "§ 147 Abs. 3 AO: Buchungsbelege (z. B. Rechnungen) seit 01.01.2025 acht Jahre aufbewahren (Viertes Bürokratieentlastungsgesetz)", url: "https://www.gesetze-im-internet.de/ao_1977/__147.html"}
+    status: ungeprüft

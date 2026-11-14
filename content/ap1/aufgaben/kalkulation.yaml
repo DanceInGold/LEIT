@@ -20,7 +20,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Schema der Lektion kalkulation-verkaufspreis."
     belege:
       - {titel: "Lexware: Handelskalkulation einfach erklärt", url: "https://www.lexware.de/wissen/buchhaltung-finanzen/handelskalkulation-einfach-erklaert/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kalk-gewinn-basis
     typ: multiple_choice
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion kalkulation-verkaufspreis."
     belege:
       - {titel: "Lexware: Handelskalkulation einfach erklärt", url: "https://www.lexware.de/wissen/buchhaltung-finanzen/handelskalkulation-einfach-erklaert/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kalk-hundert-luecke
     typ: lueckentext
@@ -62,7 +62,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion kalkulation-verkaufspreis."
     belege:
       - {titel: "Lexware: Handelskalkulation einfach erklärt (Kundenskonto vom verminderten Grundwert)", url: "https://www.lexware.de/wissen/buchhaltung-finanzen/handelskalkulation-einfach-erklaert/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kalk-switch-verkaufspreis
     typ: rechnung
@@ -117,7 +117,7 @@ aufgaben:
     belege:
       - {titel: "Lexware: Handelskalkulation einfach erklärt", url: "https://www.lexware.de/wissen/buchhaltung-finanzen/handelskalkulation-einfach-erklaert/"}
       - {titel: "§ 12 Abs. 1 UStG: Regelsteuersatz 19 %", url: "https://www.gesetze-im-internet.de/ustg_1980/__12.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kalk-stundensatz
     typ: rechnung
@@ -148,7 +148,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Rechenweg der Lektion kalkulation-vor-nach; nachgerechnet."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, 01.02 und 07.08: Vor- und Nachkalkulation (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kalk-nachkalkulation
     typ: rechnung
@@ -196,7 +196,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vorgehen der Lektion kalkulation-vor-nach; nachgerechnet."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, 07.08: Nachkalkulation (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kalk-festpreis-risiko
     typ: freitext
@@ -223,4 +223,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion kalkulation-vor-nach."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, 07.08: Nachkalkulation, Folgeaufträge (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft

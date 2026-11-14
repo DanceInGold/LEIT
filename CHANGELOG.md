@@ -5,6 +5,15 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt (Phase 2 · Aufgaben, Paket 2)
+- 57 feste Aufgaben für neun weitere Themen, je Thema Stufen 1–4 (AU-01, AU-02, HI-01, HI-03):
+  Verschlüsselung (9), Schutzziele (5), BSI-Schutzbedarf (7), Datenschutz (7), Vorgehensmodelle (8),
+  OOP (6), Englische Texte (6), Kundenbedarf (5), Märkte und Bedarfe (4).
+- Rauchtest öffnet drei weitere Aufgaben (Schlüsselanzahl, englische Herstellermail, OOP-Codeverfolgung).
+
+### Geändert
+- Aufgaben aus PR #14 sind `geprüft`.
+
 ### Hinzugefügt (Phase 2 · Aufgaben, Paket 1)
 - 63 feste Aufgaben für acht Themen der ersten Planwochen, je Thema alle Stufen 1–4 und mehrere
   Aufgabentypen, mit Hinweisen und typischen Falschantworten (AU-01, AU-02, HI-01, HI-03):
