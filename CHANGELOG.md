@@ -18,6 +18,10 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 - **Simulation 1** „Neue Arbeitsplätze für eine Steuerkanzlei“: 18 Teilaufgaben aus Bedarf,
   Angebotsvergleich, Nutzwertanalyse, Hardware, Subnetting, Netzkonfiguration, Übertragungszeit, VLAN,
   Schutzziele, Schutzbedarf, Verfügbarkeit, Datensicherung, Schreibtischtest, Amortisation, Scrum, Rollout.
+- **Simulation 2** „Neuer Standort für eine Fahrradmanufaktur“: 17 Teilaufgaben aus Netzplan,
+  SMART-Ziele, Teamphasen, Lasten-/Pflichtenheft, Stromkostenvergleich, PC-Komponenten, Energiesparen,
+  Angebotskalkulation, IPv6, OSI-Schichten, Ports, TCP/UDP, asymmetrische Verschlüsselung, digitale
+  Signatur, DSGVO-Betroffenenrechte, ER-Modell und 2FA – kaum Überschneidung mit Simulation 1.
 - Inhaltsformat `content/ap1/simulationen/<id>.yaml` mit Prüfung in `ap-tools check`
   (100 Punkte, 20–30 Punkte je Aufgabe, Themen, Musterlösungen, Fehlerbilder); Lernstand-Tabelle
   `simulation_runs` (Migration 4), im JSON-Export enthalten.

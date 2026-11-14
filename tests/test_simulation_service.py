@@ -48,6 +48,27 @@ def test_perfect_run_reaches_goal_after_rating_free_text(trainer: Trainer) -> No
     assert len(attempts) == len(sim.tasks()) and {a.stufe for a in attempts} == {5}
 
 
+def _perfect_run(trainer: Trainer, sim_id: str) -> int:
+    """Gibt die Musterlösung ab, bewertet alle Freitexte als erfüllt und liefert die Punkte."""
+    sim = trainer.package.simulationen[sim_id]
+    answers = {t.id: model_answer(t) for t in sim.tasks() if not isinstance(t, Freitext)}
+    run = trainer.submit_simulation(sim_id, answers, START, END)
+    for task in sim.tasks():
+        if isinstance(task, Freitext):
+            run = trainer.rate_simulation_text(run.id, task.id, [True] * len(task.bewertungspunkte))
+    return run.punkte
+
+
+def test_every_simulation_gives_full_points_for_model_answers(trainer: Trainer) -> None:
+    # Jede Simulation im Paket muss mit der Musterlösung genau 100 Punkte ergeben (PS-01)
+    sim_ids = sorted(trainer.package.simulationen)
+    assert len(sim_ids) >= 2
+    for sim_id in sim_ids:
+        assert _perfect_run(trainer, sim_id) == 100, sim_id
+    # Zwei verschiedene Simulationen mit ≥ 92 Punkten erfüllen das Ziel (PS-03)
+    assert trainer.sim_goal() == sim_ids
+
+
 def test_empty_run_feeds_weak_topics_mistakes_and_cards(trainer: Trainer) -> None:
     sim = trainer.package.simulationen["sim-01"]
     run = trainer.submit_simulation("sim-01", {}, START, END)
