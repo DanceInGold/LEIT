@@ -49,6 +49,12 @@ _CSS = """
 .body--dark .ampel-gruen { background: #66bb6a26; border-left-color: #66bb6a; }
 .body--dark .ampel-gelb { background: #ffca2826; border-left-color: #ffca28; }
 .body--dark .ampel-rot { background: #ef535026; border-left-color: #ef5350; }
+/* Flächen für Hell/Dunkel über Quasars Klasse body--dark. Tailwinds dark:-Varianten griffen nicht
+   zuverlässig (weiße Abgabeleiste der Simulation im Dunkelmodus), deshalb hier als eigene Klassen. */
+.seiten-hintergrund { background: #ffffff; }
+.body--dark .seiten-hintergrund { background: #121212; }
+.hinweis-karte { background: #fef3c7; }
+.body--dark .hinweis-karte { background: #78350f; }
 """
 
 # Farben der Diagramme nach der Referenzpalette: Ist = Blau, Soll = Grau, Abstufungen = Blau hell
