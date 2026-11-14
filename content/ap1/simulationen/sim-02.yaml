@@ -1,0 +1,423 @@
+# Prüfungssimulation 2 – vollständiger AP1-Satz (PS-01): vier Aufgaben, 100 Punkte, 90 Minuten.
+# Andere Schwerpunkte als Simulation 1: Projektplanung, Energie und Kalkulation, IPv6/OSI/Ports,
+# Kryptografie, DSGVO und ERM. Rechenwerte mit Decimal nachgerechnet (Prüfprotokoll).
+
+titel: "Simulation 2: Neuer Standort für eine Fahrradmanufaktur"
+dauer_minuten: 90
+quelle: "Neu erstellt (Claude), Aufbau nach U-Form-Prüfungstrainer AP1; Themen nach Prüfungskatalog 2025."
+status: ungeprüft
+belege:
+  - {titel: "U-Form: Prüfungstrainer Teil 1 der Abschlussprüfung IT-Berufe (100 Punkte, 90 Minuten, vier Aufgaben zu 20–30 Punkten)", url: "https://shopstage.u-form.de/media/dd/9f/63/1687157302/750.pdf"}
+
+ausgangssituation: |
+  Du bist Auszubildende bzw. Auszubildender bei der **ArchivTech GmbH**, einem IT-Dienstleister für
+  digitale Archivierung und IT-Betreuung.
+
+  Die **Radwerk Nordheide GmbH** baut hochwertige Fahrräder und verkauft sie über einen Onlineshop.
+  Sie eröffnet einen zweiten Standort mit Werkstatt, Lager und Büro für 25 Mitarbeitende. Die
+  ArchivTech plant das Projekt, richtet die Arbeitsplätze und das Netzwerk ein, berät zu Sicherheit
+  und Datenschutz und hilft beim Aufbau einer Datenbank für Reparaturaufträge.
+
+aufgaben:
+  # ------------------------------------------------------------------------------------------
+  - nr: 1
+    titel: "Das Projekt planen"
+    teilaufgaben:
+      - nr: a
+        punkte: 9
+        aufgabe:
+          typ: rechnung
+          thema: projektplanung
+          titel: "Netzplan"
+          frage: |
+            Für die Einrichtung des Standorts hast du diese Vorgangsliste erstellt (Dauer in Arbeitstagen):
+
+            | Vorgang | Beschreibung | Dauer | Vorgänger |
+            | --- | --- | ---: | --- |
+            | A | Bestandsaufnahme vor Ort | 3 | – |
+            | B | Netzwerk verkabeln | 5 | A |
+            | C | Hardware bestellen | 2 | A |
+            | D | Arbeitsplätze einrichten | 4 | B, C |
+            | E | Abnahme und Übergabe | 1 | D |
+
+            Berechne die Werte mit einem Netzplan (Projektstart = Zeitpunkt 0).
+          schritte:
+            - frage: "Gesamtdauer des Projekts in Tagen"
+              antwort: "13"
+              einheit: "Tage"
+              erklaerung: "Längster Weg: A (3) + B (5) + D (4) + E (1) = 13."
+              falsch:
+                - {antwort: "15", warum: "Alle Dauern addiert. B und C laufen parallel – es zählt nur der längere Weg.", ursache: konzept}
+                - {antwort: "10", warum: "Über C gerechnet (3 + 2 + 4 + 1). Der kritische Weg führt über das längere B.", ursache: konzept}
+            - frage: "Frühester Anfangszeitpunkt (FAZ) von D"
+              antwort: "8"
+              erklaerung: "D braucht B und C: FEZ B = 3 + 5 = 8, FEZ C = 3 + 2 = 5 → das Maximum 8."
+              falsch:
+                - {antwort: "5", warum: "D muss auf beide Vorgänger warten – also auf das spätere Ende (B bei 8).", ursache: konzept}
+            - frage: "Gesamtpuffer von C in Tagen"
+              antwort: "3"
+              einheit: "Tage"
+              erklaerung: "SAZ C = SAZ D − 2 = 8 − 2 = 6; GP = SAZ − FAZ = 6 − 3 = 3."
+              falsch:
+                - {antwort: "0", warum: "C liegt nicht auf dem kritischen Weg; nur A, B, D, E haben Puffer 0.", ursache: konzept}
+          loesungsweg: |
+            | Vorgang | FAZ | FEZ | SAZ | SEZ | GP |
+            | --- | ---: | ---: | ---: | ---: | ---: |
+            | A | 0 | 3 | 0 | 3 | 0 |
+            | B | 3 | 8 | 3 | 8 | 0 |
+            | C | 3 | 5 | 6 | 8 | **3** |
+            | D | **8** | 12 | 8 | 12 | 0 |
+            | E | 12 | **13** | 12 | 13 | 0 |
+
+            Kritischer Pfad A → B → D → E, Projektdauer **13 Tage**.
+
+      - nr: b
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: smart-ziele
+          titel: "SMART formulierte Ziele"
+          frage: "Welche **zwei** Projektziele sind SMART formuliert?"
+          optionen:
+            - {text: "„Bis 15.03. sind alle 25 Arbeitsplätze am neuen Standort betriebsbereit und abgenommen.“", richtig: true, warum: "Spezifisch, messbar (25, abgenommen), terminiert."}
+            - {text: "„Ab Inbetriebnahme beantwortet der Support 90 % der Tickets innerhalb von 4 Stunden.“", richtig: true, warum: "Messbar (90 %, 4 h) und terminiert (ab Inbetriebnahme)."}
+            - {text: "„Das neue Netzwerk soll möglichst schnell sein.“", warum: "Weder messbar noch terminiert.", ursache: konzept}
+            - {text: "„Die Mitarbeitenden sollen zufrieden sein.“", warum: "Nicht messbar und ohne Termin.", ursache: konzept}
+          loesungsweg: "SMART sind nur die Ziele mit **Zahl und Termin**: 25 Plätze bis 15.03. und 90 % in 4 Stunden."
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: teambildung
+          titel: "Phasen der Teambildung"
+          frage: "Im Projektteam beobachtest du verschiedene Situationen. Ordne die Phase zu."
+          paare:
+            - {links: "Beim Kick-off stellen sich alle vorsichtig vor.", rechts: "Forming"}
+            - {links: "Es gibt Streit, wer die Verkabelung plant.", rechts: "Storming"}
+            - {links: "Das Team vereinbart ein tägliches Kurztreffen.", rechts: "Norming"}
+            - {links: "Alle arbeiten selbstständig und helfen sich gegenseitig.", rechts: "Performing"}
+          loesungsweg: "Vorsichtig = Forming · Streit = Storming · Regeln = Norming · selbstständig = Performing (Tuckman)."
+
+      - nr: d
+        punkte: 8
+        aufgabe:
+          typ: freitext
+          thema: lasten-pflichtenheft
+          titel: "Lastenheft und Pflichtenheft"
+          operator: erläutern
+          frage: "Die Radwerk Nordheide GmbH hat ein Lastenheft geschickt; die ArchivTech soll ein Pflichtenheft erstellen. **Erläutere** den Unterschied zwischen beiden Dokumenten: Wer erstellt sie, was steht darin, und welche Bedeutung hat das Pflichtenheft bei der Abnahme?"
+          musterloesung: |
+            | | Lastenheft | Pflichtenheft |
+            | --- | --- | --- |
+            | erstellt von | Auftraggeber (Radwerk) | Auftragnehmer (ArchivTech) |
+            | Inhalt | **was** und **wofür**: Anforderungen aus Sicht des Kunden | **wie** und **womit**: konkrete, prüfbare Umsetzung |
+
+            Nach der Freigabe durch den Kunden wird das Pflichtenheft Vertragsgrundlage; bei der **Abnahme** wird gegen das Pflichtenheft geprüft.
+          bewertungspunkte:
+            - {punkt: "Lastenheft vom Auftraggeber, Pflichtenheft vom Auftragnehmer", kernbegriffe: ["auftraggeber", "auftragnehmer", "kunde"], punkte: 2}
+            - {punkt: "Lastenheft: was/wofür (Anforderungen)", kernbegriffe: ["wofür", "anforderung"], punkte: 2}
+            - {punkt: "Pflichtenheft: wie/womit (Umsetzung)", kernbegriffe: ["womit", "umsetzung", "realisierung"], punkte: 2}
+            - {punkt: "Pflichtenheft ist Grundlage der Abnahme bzw. des Vertrags", kernbegriffe: ["abnahme", "vertrag"], punkte: 2}
+          loesungsweg: "Lastenheft = Auftraggeber, was/wofür; Pflichtenheft = Auftragnehmer, wie/womit; nach Freigabe Vertragsgrundlage und Maßstab der Abnahme."
+          belege:
+            - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe (Lastenheft, Pflichtenheft)"}
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 2
+    titel: "Arbeitsplätze, Energie und Kosten"
+    teilaufgaben:
+      - nr: a
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: nachhaltigkeit-energie
+          titel: "Stromkosten vergleichen"
+          frage: "Im Büro sollen **25 Arbeitsplätze** entstehen. Ein Desktop-PC braucht im Betrieb **90 W**, ein Thin Client **15 W**. Die Geräte laufen **8 Stunden an 220 Tagen** im Jahr; 1 kWh kostet **0,32 €**. Den Strombedarf des Servers für die Thin Clients lässt du hier außer Acht."
+          schritte:
+            - frage: "Energiebedarf eines PCs pro Jahr in kWh"
+              antwort: "158,4"
+              einheit: "kWh"
+              erklaerung: "0,09 kW × 8 h × 220 = 158,4 kWh."
+              falsch:
+                - {antwort: "158400", warum: "Watt nicht in Kilowatt umgerechnet (÷ 1.000).", ursache: rechenfehler}
+            - frage: "Stromkosten aller 25 PCs pro Jahr in €"
+              antwort: "1267,2"
+              einheit: "€"
+              erklaerung: "158,4 kWh × 25 = 3.960 kWh; × 0,32 € = 1.267,20 €."
+            - frage: "Stromkosten aller 25 Thin Clients pro Jahr in €"
+              antwort: "211,2"
+              einheit: "€"
+              erklaerung: "0,015 kW × 8 h × 220 = 26,4 kWh; × 25 = 660 kWh; × 0,32 € = 211,20 €."
+            - frage: "Ersparnis pro Jahr mit Thin Clients in €"
+              antwort: "1056"
+              einheit: "€"
+              erklaerung: "1.267,20 € − 211,20 € = 1.056,00 €."
+          loesungsweg: |
+            | | PC | Thin Client |
+            | --- | ---: | ---: |
+            | kWh je Gerät (P × 8 h × 220) | 158,4 | 26,4 |
+            | kWh für 25 Geräte | 3.960 | 660 |
+            | Kosten (× 0,32 €) | 1.267,20 € | 211,20 € |
+
+            Ersparnis **1.056,00 €** pro Jahr (ohne Server).
+
+      - nr: b
+        punkte: 5
+        aufgabe:
+          typ: zuordnung
+          thema: hardware-komponenten
+          titel: "Komponenten eines PCs"
+          frage: "Ordne jeder Komponente ihre Aufgabe zu."
+          paare:
+            - {links: "CPU", rechts: "führt die Befehle der Programme aus"}
+            - {links: "Arbeitsspeicher (RAM)", rechts: "hält laufende Programme und Daten flüchtig bereit"}
+            - {links: "SSD", rechts: "speichert Daten dauerhaft"}
+            - {links: "Grafikkarte (GPU)", rechts: "berechnet die Bildausgabe"}
+            - {links: "Netzteil", rechts: "wandelt Netzspannung in Gleichspannungen für die Bauteile"}
+          ablenker: ["verbindet zwei Netzwerke über IP-Adressen"]
+          loesungsweg: "CPU = Befehle · RAM = flüchtig · SSD = dauerhaft · GPU = Bild · Netzteil = Spannung wandeln. Der Ablenker beschreibt einen Router."
+
+      - nr: c
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: nachhaltigkeit-energie
+          titel: "Energie sparen"
+          frage: "Welche **zwei** Maßnahmen senken den Energieverbrauch der Arbeitsplätze wirksam?"
+          optionen:
+            - {text: "Energiesparpläne: Bildschirm und Rechner gehen bei Inaktivität in den Ruhezustand", richtig: true, warum: "Im Ruhezustand sinkt die Leistungsaufnahme deutlich."}
+            - {text: "Steckdosenleisten mit Schalter, damit nach Feierabend kein Standby-Verbrauch entsteht", richtig: true, warum: "Verhindert Standby-Verluste über Nacht und am Wochenende."}
+            - {text: "einen animierten Bildschirmschoner einschalten", warum: "Der Bildschirm bleibt an und der Rechner arbeitet weiter – das spart nichts.", ursache: konzept}
+            - {text: "Netzteile mit möglichst hoher Nennleistung kaufen", warum: "Überdimensionierte Netzteile arbeiten im Teillastbereich oft weniger effizient.", ursache: konzept}
+          loesungsweg: "**Energiesparpläne** und **Standby vermeiden**; Bildschirmschoner sparen nichts."
+
+      - nr: d
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: kalkulation
+          titel: "Angebot kalkulieren"
+          frage: "Die ArchivTech kalkuliert die Einrichtung der Arbeitsplätze. Geplant sind **32 Stunden**; eine Stunde kostet die ArchivTech **68 €** (Selbstkosten). Sie rechnet mit **15 % Gewinnzuschlag**. Rabatt und Skonto werden nicht gewährt; die Umsatzsteuer beträgt **19 %**."
+          schritte:
+            - frage: "Selbstkosten in €"
+              antwort: "2176"
+              einheit: "€"
+              erklaerung: "32 h × 68 € = 2.176 €."
+            - frage: "Nettoangebotspreis in €"
+              antwort: "2502,4"
+              einheit: "€"
+              erklaerung: "2.176 € + 15 % Gewinn (326,40 €) = 2.502,40 €."
+              falsch:
+                - {antwort: "2589,44", warum: "Umsatzsteuer statt Gewinn aufgeschlagen (2.176 × 1,19).", ursache: begriff}
+            - frage: "Bruttoangebotspreis in €"
+              antwort: "2977,86"
+              einheit: "€"
+              toleranz: 0.0001
+              erklaerung: "2.502,40 € + 19 % USt (475,46 €) = 2.977,86 €."
+              falsch:
+                - {antwort: "2915,84", warum: "Gewinn und Umsatzsteuer zusammengezählt (34 %) und auf die Selbstkosten aufgeschlagen. Die USt wird auf den Nettopreis berechnet.", ursache: konzept}
+          loesungsweg: |
+            | | Betrag |
+            | --- | ---: |
+            | Selbstkosten (32 h × 68 €) | 2.176,00 € |
+            | + 15 % Gewinn | 326,40 € |
+            | = Nettoangebotspreis | **2.502,40 €** |
+            | + 19 % USt | 475,46 € |
+            | = Bruttoangebotspreis | **2.977,86 €** |
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 3
+    titel: "Netzwerk und Kommunikation"
+    teilaufgaben:
+      - nr: a
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: ipv6
+          titel: "IPv6-Adressen"
+          frage: "Der Provider stellt dem neuen Standort das Präfix **2001:db8:a00::/56** bereit. Ein Server erhält die Adresse **2001:0db8:0a00:0000:0000:0000:00f0:0001**."
+          schritte:
+            - frage: "Serveradresse in kürzester Schreibweise"
+              antwort: "2001:db8:a00::f0:1"
+              format: ipv6
+              erklaerung: "Führende Nullen je Block weglassen, die längste Folge von Null-Blöcken einmal durch :: ersetzen."
+            - frage: "Anzahl der /64-Subnetze aus dem /56-Präfix"
+              antwort: "256"
+              erklaerung: "64 − 56 = 8 Bit für Subnetze → 2⁸ = 256."
+              falsch:
+                - {antwort: "8", warum: "Das ist die Zahl der Subnetzbits. Die Anzahl ist 2⁸.", ursache: rechenfehler}
+          loesungsweg: "Kürzen: 2001:db8:a00::f0:1 (RFC 5952). /56 → /64: 8 Bit → **256 Subnetze**."
+          belege:
+            - {titel: "RFC 5952: A Recommendation for IPv6 Address Text Representation", url: "https://www.rfc-editor.org/rfc/rfc5952"}
+
+      - nr: b
+        punkte: 6
+        aufgabe:
+          typ: zuordnung
+          thema: osi-protokolle
+          titel: "OSI-Schichten"
+          frage: "Ordne jedes Gerät bzw. Protokoll der OSI-Schicht zu, auf der es hauptsächlich arbeitet."
+          paare:
+            - {links: "Repeater", rechts: "1 – Bitübertragung"}
+            - {links: "Switch", rechts: "2 – Sicherung"}
+            - {links: "Router", rechts: "3 – Vermittlung"}
+            - {links: "IP", rechts: "3 – Vermittlung"}
+            - {links: "TCP", rechts: "4 – Transport"}
+            - {links: "HTTPS", rechts: "7 – Anwendung"}
+          loesungsweg: "Repeater 1 · Switch 2 · Router und IP 3 · TCP 4 · HTTPS 7."
+          belege:
+            - {titel: "ISO/IEC 7498-1: OSI-Basisreferenzmodell"}
+
+      - nr: c
+        punkte: 6
+        aufgabe:
+          typ: lueckentext
+          thema: osi-protokolle
+          titel: "Standardports"
+          frage: "Für die Firewallregeln brauchst du die Standardports. Ergänze die Portnummern."
+          text: "Der Onlineshop läuft über HTTPS auf Port {{1}}. Administratoren melden sich per SSH auf Port {{2}} an. Namensauflösungen per DNS laufen über Port {{3}}."
+          luecken:
+            - antworten: ["443"]
+              falsch:
+                - {antwort: "80", warum: "Port 80 ist unverschlüsseltes HTTP.", ursache: begriff}
+            - antworten: ["22"]
+              falsch:
+                - {antwort: "23", warum: "Port 23 ist Telnet – unverschlüsselt.", ursache: begriff}
+            - antworten: ["53"]
+          loesungsweg: "HTTPS **443**, SSH **22**, DNS **53**."
+          belege:
+            - {titel: "IANA Service Name and Transport Protocol Port Number Registry", url: "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"}
+
+      - nr: d
+        punkte: 7
+        aufgabe:
+          typ: freitext
+          thema: osi-protokolle
+          titel: "TCP oder UDP?"
+          operator: vergleichen
+          frage: "Am Standort werden IP-Telefone und ein Warenwirtschaftssystem genutzt. **Vergleiche** TCP und UDP und nenne für beide Anwendungen das passende Protokoll."
+          musterloesung: |
+            | | TCP | UDP |
+            | --- | --- | --- |
+            | Verbindung | verbindungsorientiert (Verbindungsaufbau) | verbindungslos |
+            | Zuverlässigkeit | Bestätigungen, Wiederholung, richtige Reihenfolge | keine Bestätigung, Pakete können fehlen |
+            | Tempo/Overhead | mehr Overhead, langsamer | wenig Overhead, geringe Verzögerung |
+
+            **IP-Telefonie → UDP** (geringe Verzögerung wichtiger als jedes Paket), **Warenwirtschaft → TCP** (Daten müssen vollständig und korrekt ankommen).
+          bewertungspunkte:
+            - {punkt: "TCP verbindungsorientiert und zuverlässig (Bestätigung, Wiederholung)", kernbegriffe: ["verbindungsorientiert", "zuverlässig", "bestätig"], punkte: 2}
+            - {punkt: "UDP verbindungslos, schneller/weniger Overhead", kernbegriffe: ["verbindungslos", "schnell", "overhead"], punkte: 2}
+            - {punkt: "Telefonie → UDP, Warenwirtschaft → TCP mit Begründung", kernbegriffe: ["telefon", "voip", "warenwirtschaft"], punkte: 3}
+          loesungsweg: "TCP: verbindungsorientiert, gesichert; UDP: verbindungslos, schnell. VoIP → UDP, Warenwirtschaft → TCP."
+          belege:
+            - {titel: "RFC 9293: Transmission Control Protocol (TCP)", url: "https://www.rfc-editor.org/rfc/rfc9293"}
+            - {titel: "RFC 768: User Datagram Protocol", url: "https://www.rfc-editor.org/rfc/rfc768"}
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 4
+    titel: "Sicherheit, Datenschutz und Datenbank"
+    teilaufgaben:
+      - nr: a
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: verschluesselung
+          titel: "Asymmetrische Verschlüsselung"
+          frage: "Der Onlineshop nutzt TLS. Welche **zwei** Aussagen zur asymmetrischen Verschlüsselung treffen zu?"
+          optionen:
+            - {text: "Jeder Teilnehmer hat ein Schlüsselpaar aus öffentlichem und privatem Schlüssel.", richtig: true, warum: "Das ist das Grundprinzip."}
+            - {text: "Was mit dem öffentlichen Schlüssel verschlüsselt wurde, kann nur der private Schlüssel entschlüsseln.", richtig: true, warum: "So kann jeder an den Inhaber verschlüsseln."}
+            - {text: "Sender und Empfänger müssen vorher denselben geheimen Schlüssel austauschen.", warum: "Das beschreibt die symmetrische Verschlüsselung.", ursache: begriff}
+            - {text: "Asymmetrische Verfahren sind schneller als symmetrische und werden deshalb für große Datenmengen genutzt.", warum: "Umgekehrt: Sie sind langsamer; TLS tauscht damit nur einen symmetrischen Sitzungsschlüssel aus.", ursache: konzept}
+          loesungsweg: "Schlüsselpaar; öffentlich verschlüsselt → nur privat entschlüsselbar. Langsamer als symmetrisch, daher hybrid (TLS)."
+          belege:
+            - {titel: "BSI TR-02102-1: Kryptographische Verfahren – Empfehlungen und Schlüssellängen", url: "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Technische-Richtlinien/TR-nach-Thema-sortiert/tr02102/tr02102_node.html"}
+
+      - nr: b
+        punkte: 6
+        aufgabe:
+          typ: freitext
+          thema: verschluesselung
+          titel: "Digitale Signatur"
+          operator: beschreiben
+          frage: "Rechnungen sollen digital signiert verschickt werden. **Beschreibe**, wie eine digitale Signatur erstellt und vom Empfänger geprüft wird."
+          musterloesung: |
+            1. Der Absender bildet einen **Hashwert** der Rechnung.
+            2. Er signiert den Hashwert mit seinem **privaten Schlüssel** und schickt Rechnung und Signatur.
+            3. Der Empfänger prüft die Signatur mit dem **öffentlichen Schlüssel** des Absenders (Zertifikat), bildet selbst den Hashwert und **vergleicht** beide. Stimmen sie überein, ist die Rechnung unverändert (Integrität) und stammt vom Absender (Authentizität).
+          bewertungspunkte:
+            - {punkt: "Hashwert des Dokuments bilden", kernbegriffe: ["hash"], punkte: 2}
+            - {punkt: "mit dem privaten Schlüssel des Absenders signieren", kernbegriffe: ["privat"], punkte: 2}
+            - {punkt: "Prüfung mit öffentlichem Schlüssel und Vergleich der Hashwerte", kernbegriffe: ["öffentlich", "vergleich"], punkte: 2}
+          loesungsweg: "Hash bilden → mit privatem Schlüssel signieren → Empfänger prüft mit öffentlichem Schlüssel und vergleicht die Hashwerte."
+          belege:
+            - {titel: "RFC 8017: PKCS #1 – RSA Cryptography Specifications (RSASSA: Signatur über den Hashwert)", url: "https://www.rfc-editor.org/rfc/rfc8017"}
+            - {titel: "RFC 5280: Internet X.509 Public Key Infrastructure Certificate and CRL Profile", url: "https://www.rfc-editor.org/rfc/rfc5280"}
+
+      - nr: c
+        punkte: 5
+        aufgabe:
+          typ: zuordnung
+          thema: datenschutz
+          titel: "Rechte der Betroffenen"
+          frage: "Kundinnen und Kunden des Onlineshops melden sich mit Anliegen. Ordne jedem Anliegen das passende Betroffenenrecht nach DSGVO zu."
+          paare:
+            - {links: "„Welche Daten haben Sie über mich gespeichert?“", rechts: "Auskunft (Art. 15)"}
+            - {links: "„Meine Adresse ist falsch hinterlegt.“", rechts: "Berichtigung (Art. 16)"}
+            - {links: "„Bitte löschen Sie mein Kundenkonto.“", rechts: "Löschung (Art. 17)"}
+            - {links: "„Ich möchte meine Daten maschinenlesbar für einen anderen Anbieter.“", rechts: "Datenübertragbarkeit (Art. 20)"}
+            - {links: "„Ich will keine Werbung mehr per Post.“", rechts: "Widerspruch (Art. 21)"}
+          loesungsweg: "Auskunft Art. 15 · Berichtigung Art. 16 · Löschung Art. 17 · Datenübertragbarkeit Art. 20 · Widerspruch Art. 21."
+          belege:
+            - {titel: "DSGVO Art. 15–21", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
+
+      - nr: d
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: erm-relational
+          titel: "Vom ER-Modell zu Tabellen"
+          frage: |
+            Für die Reparaturaufträge entwirfst du dieses ER-Modell: Ein Kunde erteilt beliebig viele Aufträge, jeder Auftrag gehört zu genau einem Kunden. In einem Auftrag können mehrere Ersatzteile verbaut werden, und jedes Ersatzteil kann in vielen Aufträgen vorkommen.
+
+            ```mermaid
+            erDiagram
+              KUNDE ||--o{ AUFTRAG : erteilt
+              AUFTRAG }o--o{ ERSATZTEIL : enthaelt
+            ```
+          schritte:
+            - frage: "Anzahl der Tabellen im relationalen Modell"
+              antwort: "4"
+              erklaerung: "Kunde, Auftrag, Ersatzteil – und eine Zwischentabelle für die n:m-Beziehung (z. B. Auftragsposition)."
+              falsch:
+                - {antwort: "3", warum: "Eine n:m-Beziehung braucht eine eigene Zwischentabelle.", ursache: konzept}
+            - frage: "In welcher Tabelle steht der Fremdschlüssel KundenNr? (Kunde/Auftrag/Ersatzteil)"
+              antwort: "Auftrag"
+              format: text
+              erklaerung: "Bei 1:n wandert der Schlüssel der 1-Seite als Fremdschlüssel in die Tabelle der n-Seite."
+              falsch:
+                - {antwort: "Kunde", warum: "Ein Kunde hat viele Aufträge – der Schlüssel muss auf die n-Seite (Auftrag).", ursache: konzept}
+          loesungsweg: |
+            - **Kunde**(KundenNr, Name, …)
+            - **Auftrag**(AuftragsNr, Datum, ↑KundenNr)
+            - **Ersatzteil**(TeilNr, Bezeichnung, Preis)
+            - **Auftragsposition**(↑AuftragsNr, ↑TeilNr, Menge)
+
+            4 Tabellen; KundenNr als Fremdschlüssel in **Auftrag**.
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: authentifizierung
+          titel: "Zwei-Faktor-Anmeldung"
+          frage: "Für den Zugang zum Shop-Backend wird 2FA eingeführt. Welche **zwei** Kombinationen sind echte Zwei-Faktor-Authentifizierung?"
+          optionen:
+            - {text: "Passwort und Code aus einer Authenticator-App", richtig: true, warum: "Wissen und Besitz."}
+            - {text: "Fingerabdruck und PIN", richtig: true, warum: "Inhärenz und Wissen."}
+            - {text: "Passwort und Antwort auf eine Sicherheitsfrage", warum: "Zweimal Wissen – kein zweiter Faktor.", ursache: konzept}
+            - {text: "Zwei verschiedene Passwörter", warum: "Zweimal derselbe Faktor (Wissen).", ursache: konzept}
+          loesungsweg: "2FA braucht zwei **verschiedene** Faktoren (Wissen, Besitz, Inhärenz)."
+          belege:
+            - {titel: "NIST SP 800-63B Revision 4", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}

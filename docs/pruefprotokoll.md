@@ -459,3 +459,23 @@ Test spielt die Simulation mit allen Musterlösungen durch (100 Punkte) und einm
 
 Notenschlüssel der Auswertung nach IHK (z. B. IHK Pfalz): 92–100 sehr gut, 81–unter 92 gut, 67–unter 81
 befriedigend, 50–unter 67 ausreichend, 30–unter 50 mangelhaft, unter 30 ungenügend.
+
+## Prüfungssimulation 2 („Neuer Standort für eine Fahrradmanufaktur“)
+
+`content/ap1/simulationen/sim-02.yaml`, 17 Teilaufgaben, im PR mit `status: ungeprüft`. Aufbau wie
+Simulation 1 (vier Aufgaben zu je 25 Punkten), aber mit anderen Themen-Schwerpunkten, damit sich beide
+Simulationen kaum überschneiden (nur `hardware-komponenten` kommt in beiden vor). Rechenwerte mit
+`Decimal` nachgerechnet; ein Test spielt jede Simulation im Paket mit den Musterlösungen durch (100 Punkte).
+
+| Teil | Geprüfte Kernaussagen | Beim Prüfen korrigiert |
+| --- | --- | --- |
+| 1a Netzplan | FEZ A 3, B 8, C 5; FAZ D = max(8, 5) = 8; Dauer 3 + 5 + 4 + 1 = 13; SAZ C = 8 − 2 = 6, GP = 6 − 3 = 3 | – |
+| 1b–1d | SMART-Kriterien; Teamphasen nach Tuckman (Forming, Storming, Norming, Performing); Lasten-/Pflichtenheft nach DIN 69901-5 | Kernbegriffe „was“/„wie“ im Entwurf ersetzt – sie stehen als Teilwort in fast jedem Text („etwas“, „wieder“) und hätten nie gefehlt |
+| 2a Stromkosten | 0,09 kW × 8 h × 220 = 158,4 kWh; × 25 × 0,32 € = 1.267,20 €; 0,015 kW → 26,4 kWh × 25 × 0,32 € = 211,20 €; Differenz 1.056,00 € | – |
+| 2d Kalkulation | 32 h × 68 € = 2.176 €; × 1,15 = 2.502,40 €; × 1,19 = 2.977,856 € ≈ 2.977,86 €; Schema wie in der Lektion Kalkulation | Fehlerbild „Gewinn und USt addiert“ im Entwurf mit 2.997,44 € beziffert → richtig 2.176 € × 1,34 = 2.915,84 € |
+| 3a IPv6 | 2001:0db8:0a00:0000:0000:0000:00f0:0001 → 2001:db8:a00::f0:1 (RFC 5952: führende Nullen weg, längste Nullfolge einmal ::); /56 → /64: 2⁸ = 256 | – |
+| 3b–3d | OSI-Zuordnung (ISO/IEC 7498-1); Ports 443, 22, 53 (IANA); TCP verbindungsorientiert (RFC 9293), UDP verbindungslos (RFC 768) | – |
+| 4a–4b | Asymmetrische und hybride Verfahren (BSI TR-02102-1); Signatur über den Hashwert mit privatem Schlüssel, Prüfung mit öffentlichem (RFC 8017, RFC 5280) | – |
+| 4c DSGVO | Auskunft Art. 15, Berichtigung Art. 16, Löschung Art. 17, Datenübertragbarkeit Art. 20, Widerspruch Art. 21 | – |
+| 4d ERM | 1:n → Fremdschlüssel auf der n-Seite (Auftrag); n:m → Zwischentabelle; zusammen 4 Tabellen | – |
+| 4e 2FA | zwei verschiedene Faktoren aus Wissen, Besitz, Inhärenz (NIST SP 800-63B Rev. 4) | – |
