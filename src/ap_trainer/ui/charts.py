@@ -12,10 +12,11 @@ from typing import Any
 
 from ap_trainer.core.stats import AreaProgress, TimeSeries
 
-BLUE = "#2a78d6"
-BLUE_LIGHT = "#86b6ef"
-GREY = "#8a8984"
-TRACK = "rgba(138,137,132,0.25)"
+# Signalblau und kühles Grau – passend zu Nachtblau/Schiefergrau (E-43), lesbar hell und dunkel
+BLUE = "#5b8def"
+BLUE_LIGHT = "#a3c0f5"
+GREY = "#8794a8"
+TRACK = "rgba(135,148,168,0.25)"
 WEEKDAYS = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
 
 # Kurzbezeichnungen der Katalogbereiche für die Achsenbeschriftung

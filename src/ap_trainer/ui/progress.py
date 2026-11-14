@@ -107,7 +107,7 @@ def _topic_map(trainer: Trainer, values: dict[str, Mastery]) -> None:
         topics = [t for t in katalog.themen if t.bereich == bereich.id and t.id in values]
         if not topics:
             continue
-        ui.label(bereich.name).classes("text-lg font-semibold mt-2")
+        ui.label(bereich.name).classes("leit-section")
         # Schwächste zuerst, nicht geübte am Ende; bei Gleichstand das höhere Prüfungsgewicht
         topics.sort(key=lambda t: (values[t.id].grad is None, values[t.id].grad or 0, -trainer.weights[t.id]))
         with ui.element("div").classes("grid grid-cols-2 sm:grid-cols-3 gap-2 w-full"):

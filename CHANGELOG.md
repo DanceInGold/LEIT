@@ -36,6 +36,17 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
   `simulation_runs` (Migration 4), im JSON-Export enthalten.
 
 
+### Geändert
+- **Neues Design** (E-43): Nachtblau und Schiefergrau, Schrift IBM Plex Sans. Die Navigation steht als
+  Seitenleiste links (auf dem Smartphone über die Menütaste), gegliedert in Lernen, Üben und Überblick; oben
+  zählt ein Countdown die Tage bis zur AP1. Dunkel ist Vorgabe, Hell bleibt wählbar und wird gespeichert.
+- „Heute“ zeigt zuerst, was heute dran ist, dann die Kennzahlen und die Diagramme.
+- „Üben“ gliedert die Themen nach Prüfungsbereich; oben Abkürzungen zu Mischtest, Fehlerprotokoll und
+  Operatoren-Training.
+- Breite Tabellen lassen sich auf dem Smartphone seitlich scrollen, statt die Seite zu verbreitern.
+- Neues Werkzeug `ap-tools screenshots`; der Workflow „Screenshots“ fotografiert bei Oberflächen-Änderungen
+  alle wichtigen Seiten (dunkel, hell, Smartphone).
+
 ### Behoben
 - Dunkelmodus: Die Leiste mit Timer und „Abgeben“-Knopf in der Simulation war weiß und der Timer
   darin unsichtbar; ebenso der Willkommenshinweis auf „Heute“. Beide nutzen jetzt eigene Farbklassen

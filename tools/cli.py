@@ -55,6 +55,15 @@ def _cmd_check(args: argparse.Namespace) -> int:
     return run_check(Path(args.paket), strict=args.streng)
 
 
+def _cmd_screenshots(args: argparse.Namespace) -> int:
+    from tools.screenshots import log_previews, run_screenshots
+
+    if args.vorschau_ins_log:
+        log_previews(Path(args.ausgabe))
+        return 0
+    return run_screenshots(Path(args.ausgabe), args.port)
+
+
 def build_parser() -> argparse.ArgumentParser:
     """Baut den Parser mit allen Unterbefehlen."""
     parser = argparse.ArgumentParser(prog="ap-tools", description="Werkzeuge der Content-Pipeline.")
@@ -90,6 +99,23 @@ def build_parser() -> argparse.ArgumentParser:
     chk.add_argument("--paket", default=str(REPO_ROOT / "content" / "ap1"), help="Ordner des Inhaltspakets.")
     chk.add_argument("--streng", action="store_true", help="Stilwarnungen (zu viel Text) als Fehler werten.")
     chk.set_defaults(func=_cmd_check)
+
+    shot = sub.add_parser(
+        "screenshots",
+        help="Bildschirmfotos aller Seiten mit Beispiel-Lernstand (Design-Prüfung).",
+        description=(
+            "Startet den Lernbegleiter mit einem befüllten Beispiel-Lernstand und fotografiert die "
+            "wichtigsten Seiten dunkel, hell und in Smartphone-Breite. Braucht Playwright mit Chromium."
+        ),
+    )
+    shot.add_argument("--ausgabe", default=str(REPO_ROOT / "build" / "screenshots"), help="Zielordner.")
+    shot.add_argument("--port", type=int, help="Port für den Lernbegleiter (Vorgabe: frei wählen).")
+    shot.add_argument(
+        "--vorschau-ins-log",
+        action="store_true",
+        help="Vorhandene Fotos als verkleinerte JPEGs (Base64) ausgeben, statt neue zu machen.",
+    )
+    shot.set_defaults(func=_cmd_screenshots)
     return parser
 
 

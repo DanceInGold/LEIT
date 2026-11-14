@@ -46,7 +46,7 @@ def _mistake_card(card: Flashcard, revealed: bool) -> None:
         markdown(card.vorne)
         if revealed:
             ui.separator()
-            ui.label("Lösungsweg").classes("text-xs uppercase tracking-wide opacity-70")
+            ui.label("Lösungsweg").classes("leit-meta")
             markdown(card.hinten)
             target = f"/ueben/{card.thema}?aufgabe={quote(card.aufgabe_id, safe='')}"
             ui.link("Aufgabe noch einmal selbst lösen →", target, new_tab=True)

@@ -47,7 +47,7 @@ def _chapter_card(number: int, lesson_id: str, title: str, minutes: int, read: b
     ):
         ui.label(str(number)).classes("text-2xl font-semibold opacity-50 w-8 text-center")
         with ui.column().classes("grow gap-0"):
-            ui.label(f"Kapitel {number}").classes("text-xs uppercase tracking-wide opacity-60")
+            ui.label(f"Kapitel {number}").classes("leit-meta")
             ui.label(title).classes("font-medium")
         ui.label(f"{minutes} Min.").classes("text-sm opacity-70 whitespace-nowrap")
         ui.icon("check_circle" if read else "chevron_right", color="positive" if read else None)
