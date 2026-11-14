@@ -1,0 +1,151 @@
+# Aufgaben zum Thema „Authentifizierung (2FA), Passwort-Policy bewerten“.
+# Passend zur Lektion authentifizierung-passwoerter.
+
+aufgaben:
+  - id: auth-drei-schritte
+    typ: zuordnung
+    stufe: 1
+    titel: "Identifikation, Authentifizierung, Autorisierung"
+    frage: "Ordne jedem Schritt das passende Beispiel zu."
+    paare:
+      - {links: "Identifikation", rechts: "Benutzername `t.azubi` eingeben"}
+      - {links: "Authentifizierung", rechts: "Passwort und Code aus der App eingeben"}
+      - {links: "Autorisierung", rechts: "Leserecht auf das Archiv, aber kein Schreibrecht"}
+    hinweise:
+      - "Wer bist du? – Beweise es! – Was darfst du?"
+    loesungsweg: "Identifikation = **wer** · Authentifizierung = **Beweis** · Autorisierung = **Rechte**."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion authentifizierung-passwoerter."
+    belege:
+      - {titel: "NIST SP 800-63B Revision 4: Digital Identity Guidelines – Authentication and Authenticator Management", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
+    status: ungeprüft
+
+  - id: auth-faktoren
+    typ: zuordnung
+    stufe: 1
+    titel: "Wissen, Besitz, Inhärenz"
+    frage: "Ordne jedes Merkmal dem Faktor zu."
+    paare:
+      - {links: "PIN", rechts: "Wissen"}
+      - {links: "Antwort auf eine Sicherheitsfrage", rechts: "Wissen"}
+      - {links: "FIDO2-Hardware-Schlüssel", rechts: "Besitz"}
+      - {links: "Smartphone mit Authenticator-App", rechts: "Besitz"}
+      - {links: "Fingerabdruck", rechts: "Inhärenz (Sein)"}
+    hinweise:
+      - "Etwas, das du weißt – hast – bist."
+    loesungsweg: "Wissen: PIN, Sicherheitsfrage · Besitz: Hardware-Schlüssel, Smartphone · Inhärenz: Fingerabdruck."
+    quelle: "Neu erstellt (Claude), Tabelle „Drei Faktoren“ der Lektion authentifizierung-passwoerter."
+    belege:
+      - {titel: "NIST SP 800-63B Revision 4", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
+    status: ungeprüft
+
+  - id: auth-ist-2fa
+    typ: multiple_choice
+    stufe: 2
+    titel: "Ist das eine Zwei-Faktor-Anmeldung?"
+    frage: "Welche Kombinationen sind echte 2FA? (**zwei** richtige)"
+    optionen:
+      - {text: "Passwort + Code aus einer Authenticator-App", richtig: true, warum: "Wissen + Besitz – zwei verschiedene Faktoren."}
+      - {text: "Chipkarte + PIN", richtig: true, warum: "Besitz + Wissen."}
+      - {text: "Passwort + Sicherheitsfrage", warum: "Zweimal Wissen – das ist kein zweiter Faktor.", ursache: konzept}
+      - {text: "Passwort + zweites Passwort", warum: "Zweimal derselbe Faktor (Wissen).", ursache: konzept}
+    hinweise:
+      - "Zwei **verschiedene** Kategorien sind nötig."
+    loesungsweg: "2FA = zwei **verschiedene** Faktoren. Passwort + App und Karte + PIN erfüllen das; Passwort + Sicherheitsfrage ist zweimal Wissen."
+    quelle: "Neu erstellt (Claude), Prüfungsfalle der Lektion authentifizierung-passwoerter."
+    belege:
+      - {titel: "NIST SP 800-63B Revision 4 (Multi-Factor Authentication)", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
+    status: ungeprüft
+
+  - id: auth-2fa-staerke
+    typ: reihenfolge
+    stufe: 2
+    titel: "Wie stark ist welche 2FA?"
+    frage: "Ordne die zweiten Faktoren vom **stärksten** zum **schwächsten**."
+    elemente:
+      - "FIDO2-Hardware-Schlüssel / Passkey"
+      - "Authenticator-App (TOTP)"
+      - "SMS-Code"
+    hinweise:
+      - "Welcher Faktor prüft selbst, auf welcher Seite du dich anmeldest?"
+    loesungsweg: "**FIDO2** (phishing-resistent) > **App-Code** > **SMS** (per SIM-Tausch abfangbar)."
+    quelle: "Neu erstellt (Claude), Tabelle „Wie stark ist welche 2FA?“ der Lektion authentifizierung-passwoerter."
+    belege:
+      - {titel: "NIST SP 800-63B Revision 4 (phishing-resistente Authenticatoren, eingeschränkte Verfahren wie SMS)", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
+    status: ungeprüft
+
+  - id: auth-laenge-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Länge schlägt Komplexität"
+    situation: "Ein Angreifer probiert offline **10¹⁰ Passwörter pro Sekunde**. Verglichen werden ein Passwort mit **8 Zeichen aus 94 Zeichen** (Groß-, Kleinbuchstaben, Ziffern, Sonderzeichen) und eine Passphrase mit **15 Kleinbuchstaben** (26 Zeichen)."
+    frage: "Wie lange dauert es höchstens, alle Möglichkeiten durchzuprobieren?"
+    schritte:
+      - frage: "Möglichkeiten bei 8 Zeichen aus 94 (z. B. als 6,1 · 10^15)"
+        antwort: "6095689385410816"
+        toleranz: 0.01
+        erklaerung: "94⁸ = 6.095.689.385.410.816 ≈ 6,1 · 10¹⁵."
+        falsch:
+          - {antwort: "752", warum: "94 × 8 gerechnet. Jede Stelle hat 94 Möglichkeiten: 94 · 94 · … = 94⁸.", ursache: rechenfehler}
+      - frage: "höchstens benötigte Zeit dafür in Tagen"
+        antwort: "7,06"
+        einheit: "Tage"
+        toleranz: 0.005
+        erklaerung: "6,1 · 10¹⁵ ÷ 10¹⁰ = 609.569 s ÷ 86.400 = 7,06 Tage."
+      - frage: "Möglichkeiten bei 15 Kleinbuchstaben (z. B. als 1,7 · 10^21)"
+        antwort: "1677259342285725925376"
+        toleranz: 0.02
+        erklaerung: "26¹⁵ ≈ 1,68 · 10²¹."
+        falsch:
+          - {antwort: "390", warum: "26 × 15 gerechnet. Richtig ist 26¹⁵.", ursache: rechenfehler}
+    # Toleranz 2 %, damit die gerundete Angabe 1,7 · 10^21 und die Folgerechnung damit zählen
+      - frage: "höchstens benötigte Zeit dafür in Jahren (365 Tage)"
+        antwort: "5318,55"
+        einheit: "Jahre"
+        toleranz: 0.02
+        erklaerung: "1,68 · 10²¹ ÷ 10¹⁰ = 1,68 · 10¹¹ s ÷ (86.400 × 365) ≈ 5.319 Jahre."
+    hinweise:
+      - "Anzahl = Zeichenvorrat hoch Länge."
+      - "Zeit = Anzahl ÷ Versuche pro Sekunde, dann in Tage bzw. Jahre umrechnen."
+      - "94⁸ ≈ 6,1 · 10¹⁵."
+    loesungsweg: |
+      | | 8 Zeichen aus 94 | 15 Zeichen aus 26 |
+      | --- | ---: | ---: |
+      | Möglichkeiten | 94⁸ ≈ 6,1 · 10¹⁵ | 26¹⁵ ≈ 1,7 · 10²¹ |
+      | Zeit bei 10¹⁰/s | ≈ **7 Tage** | ≈ **5.300 Jahre** |
+
+      Die lange, einfache Passphrase ist rund 275.000-mal stärker – Länge schlägt Komplexität.
+    quelle: "Neu erstellt (Claude), zur Vertiefung „Länge schlägt Komplexität“ der Lektion authentifizierung-passwoerter; nachgerechnet. Annahme: echte Zufallspasswörter."
+    belege:
+      - {titel: "NIST SP 800-63B Revision 4 (Länge statt Kompositionsregeln)", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
+    status: ungeprüft
+
+  - id: auth-policy-freitext
+    typ: freitext
+    stufe: 4
+    operator: beurteilen
+    titel: "Eine Passwort-Policy bewerten"
+    situation: "Die Passwort-Policy eines Kunden: „Mindestens 10 Zeichen, mindestens ein Sonderzeichen, eine Ziffer, ein Großbuchstabe. Wechsel alle 60 Tage. Die letzten 3 Passwörter dürfen nicht wiederverwendet werden. VPN-Zugang nur mit Passwort.“"
+    frage: "Beurteile die Policy nach aktuellen Empfehlungen und schlage zu jeder Schwäche eine Verbesserung vor."
+    musterloesung: |
+      | Punkt | Bewertung | Verbesserung |
+      | --- | --- | --- |
+      | 10 Zeichen | zu kurz, wenn das Passwort allein schützt | mindestens 15 Zeichen oder 2FA; Passphrasen erlauben |
+      | Zeichenmix-Pflicht | führt zu Mustern wie `Winter2026!` | auf Länge setzen, gegen eine **Sperrliste** geleakter Passwörter prüfen |
+      | Wechsel alle 60 Tage | führt zu hochgezählten Passwörtern | Wechsel nur bei Verdacht auf Kompromittierung |
+      | VPN nur mit Passwort | ein gestohlenes Passwort öffnet das Netz | **2FA** für VPN und alle Fernzugänge |
+
+      Positiv: Wiederverwendungsverbot. Ergänzend: Passwortmanager erlauben.
+    bewertungspunkte:
+      - {punkt: "Länge als zu gering bewertet, Verbesserung: länger/Passphrase", kernbegriffe: ["länge", "15", "passphrase"]}
+      - {punkt: "Zeichenmix und regelmäßiger Wechsel als überholt erkannt", kernbegriffe: ["wechsel", "verdacht", "muster"]}
+      - {punkt: "2FA für den VPN-Zugang gefordert", kernbegriffe: ["2fa", "zwei-faktor", "zweifaktor", "mfa"]}
+      - {punkt: "Sperrliste oder Passwortmanager vorgeschlagen", kernbegriffe: ["sperrliste", "manager", "geleakt"]}
+    hinweise:
+      - "Vergleiche jeden Punkt mit der Tabelle „Was eine gute Passwort-Policy ausmacht“."
+      - "Zu jeder Kritik gehört eine Verbesserung."
+    loesungsweg: "Zu kurz → länger/Passphrase; Zeichenmix → Länge + Sperrliste; 60-Tage-Wechsel → nur bei Verdacht; VPN ohne 2FA → 2FA."
+    quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion authentifizierung-passwoerter mit anderer Policy."
+    belege:
+      - {titel: "NIST SP 800-63B Revision 4", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
+      - {titel: "BSI IT-Grundschutz-Kompendium, Baustein ORP.4 Identitäts- und Berechtigungsmanagement"}
+    status: ungeprüft

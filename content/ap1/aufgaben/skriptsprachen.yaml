@@ -1,0 +1,167 @@
+# Aufgaben zum Thema „Skriptsprachen, z. B. Shell-Skript“.
+# Passend zur Lektion skriptsprachen.
+
+aufgaben:
+  - id: skript-interpretiert
+    typ: zuordnung
+    stufe: 1
+    titel: "Interpretiert oder kompiliert?"
+    frage: "Ordne jede Sprache der Art zu, wie sie üblicherweise ausgeführt wird."
+    paare:
+      - {links: "Bash", rechts: "interpretiert (Skriptsprache)"}
+      - {links: "PowerShell", rechts: "interpretiert (Skriptsprache)"}
+      - {links: "Python", rechts: "interpretiert (Skriptsprache)"}
+      - {links: "C", rechts: "vorher in Maschinencode übersetzt"}
+      - {links: "Go", rechts: "vorher in Maschinencode übersetzt"}
+    hinweise:
+      - "Kann man die Datei bearbeiten und sofort neu starten, ohne zu übersetzen?"
+    loesungsweg: "**Interpretiert:** Bash, PowerShell, Python. **Kompiliert:** C, Go."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion skriptsprachen."
+    belege:
+      - {titel: "GNU Bash Reference Manual", url: "https://www.gnu.org/software/bash/manual/bash.html"}
+    status: ungeprüft
+
+  - id: skript-bausteine
+    typ: zuordnung
+    stufe: 1
+    titel: "Bausteine eines Bash-Skripts"
+    frage: "Ordne jeder Zeile ihre Bedeutung zu."
+    paare:
+      - {links: "`#!/bin/bash`", rechts: "Shebang: wählt den Interpreter"}
+      - {links: "`ZIEL=\"/data/archiv\"`", rechts: "Variable setzen"}
+      - {links: "`$(date +%F)`", rechts: "Befehl ausführen und Ergebnis einsetzen"}
+      - {links: "`if [ -f \"$DATEI\" ]`", rechts: "prüfen, ob eine Datei existiert"}
+      - {links: "`exit $FEHLER`", rechts: "Rückgabewert setzen, 0 = Erfolg"}
+    hinweise:
+      - "`-f` steht für „file“."
+    loesungsweg: "Shebang · Zuweisung ohne Leerzeichen · Befehlsersetzung `$( )` · Dateitest `-f` · Exit-Code."
+    quelle: "Neu erstellt (Claude), Tabelle „Ein Shell-Skript lesen“ der Lektion skriptsprachen."
+    belege:
+      - {titel: "GNU Bash Reference Manual (Command Substitution, Bash Conditional Expressions, Exit Status)", url: "https://www.gnu.org/software/bash/manual/bash.html"}
+    status: ungeprüft
+
+  - id: skript-fehler-zuweisung
+    typ: multiple_choice
+    stufe: 2
+    titel: "„command not found“"
+    situation: |
+      Ein Kollege startet sein Skript:
+
+      ```bash
+      #!/bin/bash
+      ZIEL = "/data/archiv"
+      echo "Sichere nach $ZIEL"
+      ```
+
+      Ausgabe: `./sicherung.sh: Zeile 2: ZIEL: Befehl nicht gefunden`
+    frage: "Was ist die Ursache?"
+    optionen:
+      - {text: "Um das `=` dürfen bei der Zuweisung keine Leerzeichen stehen; Bash hält `ZIEL` für einen Befehl.", richtig: true, warum: "Richtig ist `ZIEL=\"/data/archiv\"`."}
+      - {text: "Das Skript ist nicht ausführbar.", warum: "Dann käme „Keine Berechtigung“ (Permission denied) schon beim Start, nicht ein Fehler in Zeile 2.", ursache: konzept}
+      - {text: "Der Shebang fehlt.", warum: "Die erste Zeile ist ein gültiger Shebang.", ursache: konzept}
+      - {text: "Variablen müssen in Bash vorher deklariert werden.", warum: "Bash-Variablen entstehen bei der ersten Zuweisung.", ursache: konzept}
+    hinweise:
+      - "Wie liest Bash eine Zeile, die mit einem Wort und einem Leerzeichen beginnt?"
+    loesungsweg: "Bash liest `ZIEL` als Befehl mit den Argumenten `=` und `/data/archiv`. Zuweisungen schreibt man **ohne Leerzeichen**: `ZIEL=\"/data/archiv\"`."
+    quelle: "Neu erstellt (Claude), Prüfungsfalle „Leerzeichen bei der Zuweisung“ der Lektion skriptsprachen."
+    belege:
+      - {titel: "GNU Bash Reference Manual, 3.4 Shell Parameters", url: "https://www.gnu.org/software/bash/manual/bash.html"}
+    status: ungeprüft
+
+  - id: skript-cron
+    typ: multiple_choice
+    stufe: 2
+    titel: "Wann läuft der cron-Job?"
+    frage: "Wann startet der Eintrag `0 3 * * 1-5 /opt/skripte/sicherung.sh`?"
+    optionen:
+      - {text: "Montag bis Freitag um 3:00 Uhr", richtig: true, warum: "Minute 0, Stunde 3, jeder Tag des Monats, jeder Monat, Wochentage 1–5 = Mo–Fr."}
+      - {text: "jeden Tag um 0:03 Uhr", warum: "Das erste Feld ist die Minute, das zweite die Stunde: 0 3 = 3:00 Uhr.", ursache: begriff}
+      - {text: "am 1. bis 5. jedes Monats um 3:00 Uhr", warum: "1-5 steht im fünften Feld – das ist der Wochentag, nicht der Tag im Monat.", ursache: begriff}
+      - {text: "alle 3 Stunden", warum: "Dafür bräuchte es `*/3` im Stundenfeld.", ursache: begriff}
+    hinweise:
+      - "Reihenfolge der Felder: Minute, Stunde, Tag, Monat, Wochentag."
+    loesungsweg: "`0 3 * * 1-5` = Minute 0, Stunde 3, jeder Tag, jeder Monat, **Montag bis Freitag** → werktags um **3:00 Uhr**."
+    quelle: "Neu erstellt (Claude), passend zum cron-Beispiel der Lektion skriptsprachen."
+    belege:
+      - {titel: "crontab(5) – Manpage (Felder Minute, Stunde, Tag, Monat, Wochentag)", url: "https://man7.org/linux/man-pages/man5/crontab.5.html"}
+    status: ungeprüft
+
+  - id: skript-verfolgen
+    typ: rechnung
+    stufe: 3
+    titel: "Was gibt das Skript zurück?"
+    situation: |
+      Heute liegen im Verzeichnis `/data/archiv/2027-01-29/` nur die Dateien `nord.tar.gz` und `west.tar.gz`.
+
+      ```bash
+      #!/bin/bash
+      ZIEL="/data/archiv/2027-01-29"
+      FEHLER=0
+      for KUNDE in nord sued west ost; do
+          if [ -f "$ZIEL/$KUNDE.tar.gz" ]; then
+              echo "OK: $KUNDE"
+          else
+              echo "FEHLT: $KUNDE"
+              FEHLER=$((FEHLER + 1))
+          fi
+      done
+      exit $FEHLER
+      ```
+    frage: "Verfolge das Skript."
+    schritte:
+      - frage: "Wie viele Zeilen beginnen mit „OK“?"
+        antwort: "2"
+        erklaerung: "nord und west existieren → 2 × „OK“."
+      - frage: "Welchen Rückgabewert (Exit-Code) liefert das Skript?"
+        antwort: "2"
+        erklaerung: "sued und ost fehlen → FEHLER wird zweimal erhöht → exit 2."
+        falsch:
+          - {antwort: "0", warum: "0 hieße Erfolg. FEHLER zählt die fehlenden Dateien: sued und ost.", ursache: konzept}
+          - {antwort: "4", warum: "Es werden nur die fehlenden Dateien gezählt, nicht alle Kunden.", ursache: rechenfehler}
+      - frage: "Gilt ein Jenkins-Job, der das Skript aufruft, als fehlgeschlagen? (ja/nein)"
+        antwort: "ja"
+        format: text
+        erklaerung: "Jeder Exit-Code ungleich 0 gilt als Fehler – der Build schlägt fehl."
+        falsch:
+          - {antwort: "nein", warum: "Nur Exit-Code 0 bedeutet Erfolg; 2 ist ein Fehler.", ursache: konzept}
+    hinweise:
+      - "Geh die vier Kunden der Reihe nach durch."
+      - "FEHLER wird nur im else-Zweig erhöht."
+      - "Exit-Code 0 = Erfolg, alles andere = Fehler."
+    loesungsweg: |
+      | KUNDE | Datei da? | Ausgabe | FEHLER |
+      | --- | --- | --- | ---: |
+      | nord | ja | OK: nord | 0 |
+      | sued | nein | FEHLT: sued | 1 |
+      | west | ja | OK: west | 1 |
+      | ost | nein | FEHLT: ost | 2 |
+
+      **2** Zeilen „OK“, Exit-Code **2** → der Jenkins-Job **schlägt fehl**.
+    quelle: "Neu erstellt (Claude), nach dem Skript der Lektion skriptsprachen mit anderen Daten; in Bash nachvollzogen."
+    belege:
+      - {titel: "GNU Bash Reference Manual, 3.7.5 Exit Status", url: "https://www.gnu.org/software/bash/manual/bash.html"}
+    status: ungeprüft
+
+  - id: skript-warum-freitext
+    typ: freitext
+    stufe: 4
+    operator: begründen
+    titel: "Automatisieren oder von Hand?"
+    situation: "Ein Kollege prüft jeden Morgen von Hand, ob die nächtlichen Archivdateien für alle Kunden da sind. Das dauert etwa 10 Minuten. Du schlägst ein Shell-Skript vor, das per cron läuft."
+    frage: "Begründe deinen Vorschlag mit mindestens drei Argumenten."
+    musterloesung: |
+      - **Zeitersparnis:** 10 Minuten an ca. 220 Arbeitstagen ≈ 37 Stunden pro Jahr.
+      - **Zuverlässigkeit:** Das Skript prüft jedes Mal gleich und vergisst nichts, auch im Urlaub des Kollegen.
+      - **Meldung bei Fehlern:** Ein Exit-Code ungleich 0 lässt cron, Monitoring oder Jenkins Alarm schlagen.
+      - **Nachvollziehbarkeit:** Ausgaben werden protokolliert; das Skript liegt versioniert in Git.
+    bewertungspunkte:
+      - {punkt: "Zeitersparnis", kernbegriffe: ["zeit", "stunde", "minute"]}
+      - {punkt: "Zuverlässigkeit/keine vergessene Prüfung", kernbegriffe: ["zuverläss", "vergess", "gleich", "fehlerfrei"]}
+      - {punkt: "automatische Meldung über Exit-Code oder Monitoring", kernbegriffe: ["exit", "meld", "alarm", "monitoring"]}
+    hinweise:
+      - "Denk an Zeit, Fehler und wer es merkt, wenn etwas fehlt."
+    loesungsweg: "Zeit sparen, immer gleich und zuverlässig prüfen, bei Fehlern automatisch melden (Exit-Code), protokollieren und versionieren."
+    quelle: "Neu erstellt (Claude), Abschnitt „Warum ist es so?“ der Lektion skriptsprachen."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025: Skriptsprachen, z. B. Shell-Skript – Themenzuordnung siehe content/ap1/katalog.yaml (04.06)"}
+    status: ungeprüft

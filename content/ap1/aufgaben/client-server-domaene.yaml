@@ -1,0 +1,135 @@
+# Aufgaben zum Thema „Client-Server-Systeme, Einbindung eines Clients in eine Domäne“.
+# Passend zur Lektion client-server-domaene.
+
+aufgaben:
+  - id: domaene-cs-p2p
+    typ: zuordnung
+    stufe: 1
+    titel: "Client-Server oder Peer-to-Peer?"
+    frage: "Ordne jedes Merkmal zu."
+    paare:
+      - {links: "Server stellt Dienste bereit, Clients nutzen sie", rechts: "Client-Server"}
+      - {links: "zentrale Verwaltung von Benutzern und Rechten", rechts: "Client-Server"}
+      - {links: "alle Rechner gleichberechtigt", rechts: "Peer-to-Peer (Arbeitsgruppe)"}
+      - {links: "Konten werden an jedem Rechner einzeln gepflegt", rechts: "Peer-to-Peer (Arbeitsgruppe)"}
+    hinweise:
+      - "Peer = Gleichgestellter."
+    loesungsweg: "**Client-Server:** Rollen verteilt, zentral verwaltet (Domäne). **Peer-to-Peer:** gleichberechtigt, jeder Rechner verwaltet sich selbst."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion client-server-domaene."
+    belege:
+      - {titel: "Microsoft Learn: Active Directory Domain Services Overview", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"}
+    status: ungeprüft
+
+  - id: domaene-vorteile
+    typ: multiple_choice
+    stufe: 2
+    titel: "Was bringt eine Domäne?"
+    frage: "Welche Vorteile bietet eine Domäne mit Active Directory? (**drei** richtige)"
+    optionen:
+      - {text: "Ein gesperrtes Benutzerkonto ist sofort an allen Rechnern gesperrt.", richtig: true, warum: "Konten liegen zentral auf dem Domänencontroller."}
+      - {text: "Einstellungen wie Passwortregeln werden per Gruppenrichtlinie zentral verteilt.", richtig: true, warum: "GPOs gelten für alle Rechner und Benutzer, auf die sie verknüpft sind."}
+      - {text: "Single Sign-on: einmal anmelden, auf Freigaben und Dienste der Domäne zugreifen.", richtig: true, warum: "Die Anmeldung gilt für alle Dienste in der Domäne."}
+      - {text: "Die Rechner brauchen keinen DNS-Server mehr.", warum: "Im Gegenteil: Clients finden den Domänencontroller über DNS.", ursache: konzept}
+      - {text: "Jeder Rechner funktioniert unabhängig, auch ohne Netzwerk für neue Benutzer.", warum: "Neue Domänenbenutzer müssen sich beim ersten Mal am Domänencontroller anmelden.", ursache: konzept}
+    hinweise:
+      - "Was ändert sich, wenn Verwaltung an einer Stelle passiert?"
+    loesungsweg: "Zentrale Konten (Sperren wirkt überall), **Gruppenrichtlinien**, **Single Sign-on**. DNS ist für die Domäne unverzichtbar."
+    quelle: "Neu erstellt (Claude), Liste „Was eine Domäne bietet“ der Lektion client-server-domaene."
+    belege:
+      - {titel: "Microsoft Learn: Active Directory Domain Services Overview", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"}
+    status: ungeprüft
+
+  - id: domaene-beitritt-ordnen
+    typ: reihenfolge
+    stufe: 2
+    titel: "Einen Windows-Client aufnehmen"
+    frage: "Bringe die Schritte für den Domänenbeitritt in die richtige Reihenfolge."
+    elemente:
+      - "IP-Konfiguration prüfen, DNS-Server = Domänencontroller"
+      - "eindeutigen Computernamen vergeben"
+      - "Domäne in den Systemeinstellungen eintragen"
+      - "Anmeldedaten eines Kontos mit Beitrittsrecht eingeben"
+      - "Neustart"
+      - "mit Domänenkonto anmelden und testen"
+    hinweise:
+      - "Ohne DNS findet der Client die Domäne gar nicht."
+      - "Richtlinien greifen erst nach dem Neustart."
+    loesungsweg: "DNS prüfen → Computername → Domäne eintragen → berechtigtes Konto → Neustart → mit Domänenkonto testen."
+    quelle: "Neu erstellt (Claude), Tabelle „Einen Windows-Client aufnehmen“ der Lektion client-server-domaene."
+    belege:
+      - {titel: "Microsoft Learn: Join a computer to a domain", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain"}
+    status: ungeprüft
+
+  - id: domaene-nicht-gefunden
+    typ: multiple_choice
+    stufe: 3
+    titel: "„Domäne nicht gefunden“"
+    situation: |
+      Ein neuer PC soll der Domäne `archivtech.example` beitreten. Der Beitritt bricht ab: „Ein Active Directory-Domänencontroller für die Domäne konnte nicht kontaktiert werden.“
+
+      | Einstellung am PC | Wert |
+      | --- | --- |
+      | IP-Adresse | 10.0.2.77/24 |
+      | Gateway | 10.0.2.1 (Router) |
+      | DNS-Server | 10.0.2.1 (Router) |
+      | Domänencontroller | 10.0.2.10 |
+    frage: "Was ist die wahrscheinlichste Ursache?"
+    optionen:
+      - {text: "Der DNS-Server zeigt auf den Router statt auf den Domänencontroller.", richtig: true, warum: "Der Router kennt die interne Domäne und ihre SRV-Einträge nicht – der Client findet keinen Domänencontroller."}
+      - {text: "Das Gateway ist falsch.", warum: "Client und Domänencontroller liegen im selben Netz 10.0.2.0/24 – das Gateway wird nicht gebraucht.", ursache: konzept}
+      - {text: "Der PC wurde noch nicht neu gestartet.", warum: "Der Neustart kommt nach dem Beitritt; der Beitritt selbst scheitert hier schon.", ursache: konzept}
+      - {text: "Die IP-Adresse liegt in einem anderen Netz als der Domänencontroller.", warum: "10.0.2.77/24 und 10.0.2.10 liegen beide in 10.0.2.0/24.", ursache: rechenfehler}
+    hinweise:
+      - "Wie findet ein Client den Domänencontroller?"
+    loesungsweg: "Der Client sucht den Domänencontroller über **DNS** (SRV-Einträge). Der Router kennt die interne Domäne nicht → DNS auf **10.0.2.10** stellen."
+    quelle: "Neu erstellt (Claude), Vertiefung „Warum ist DNS beim Beitritt so wichtig?“ der Lektion client-server-domaene."
+    belege:
+      - {titel: "Microsoft Learn: How domain controllers are located in Windows (DNS-SRV-Einträge)", url: "https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/how-domain-controllers-are-located"}
+    status: ungeprüft
+
+  - id: domaene-uhrzeit
+    typ: multiple_choice
+    stufe: 3
+    titel: "Anmeldung scheitert trotz richtigem Passwort"
+    situation: "Ein Notebook war wochenlang ausgeschaltet. Seine Uhr geht jetzt **20 Minuten** nach. Die Anmeldung mit einem Domänenkonto schlägt fehl, obwohl das Passwort stimmt."
+    frage: "Was ist die Ursache?"
+    optionen:
+      - {text: "Kerberos lehnt die Anmeldung ab, weil die Uhrzeit zu stark vom Domänencontroller abweicht.", richtig: true, warum: "Standardmäßig sind höchstens 5 Minuten Abweichung erlaubt; Zeitsynchronisation behebt das."}
+      - {text: "Das Passwort ist nach 20 Minuten automatisch abgelaufen.", warum: "Passwörter laufen nach Richtlinie (z. B. Tage), nicht durch eine falsche Uhr ab.", ursache: konzept}
+      - {text: "Das Notebook muss der Domäne neu beitreten, weil es ausgeschaltet war.", warum: "Ausschalten allein beendet die Mitgliedschaft nicht; das Problem ist die Uhrzeit.", ursache: konzept}
+      - {text: "Die Gruppenrichtlinien sind gelöscht worden.", warum: "Richtlinien verhindern keine Anmeldung bei korrektem Passwort.", ursache: konzept}
+    hinweise:
+      - "Das Anmeldeverfahren in der Domäne nutzt Zeitstempel."
+    loesungsweg: "Kerberos prüft Zeitstempel; Standard-Toleranz **5 Minuten**. 20 Minuten Abweichung → Anmeldung scheitert. Lösung: Uhr per NTP mit dem Domänencontroller synchronisieren."
+    quelle: "Neu erstellt (Claude), Praxisbezug „Uhrzeit“ der Lektion client-server-domaene."
+    belege:
+      - {titel: "Microsoft Learn: Sicherheitsrichtlinie „Maximum tolerance for computer clock synchronization“ (Standard 5 Minuten)"}
+    status: ungeprüft
+
+  - id: domaene-kanzlei-freitext
+    typ: freitext
+    stufe: 4
+    operator: begründen
+    titel: "Arbeitsgruppe oder Domäne?"
+    situation: "Eine Steuerkanzlei mit **25 Arbeitsplätzen** arbeitet bisher in einer Arbeitsgruppe. Jeder PC hat eigene Benutzerkonten. Mitarbeitende wechseln häufig den Platz; eine Aushilfe hat die Kanzlei kürzlich verlassen und war noch Wochen später an drei PCs angemeldet."
+    frage: "Begründe, ob die Kanzlei auf eine Domäne umstellen sollte."
+    musterloesung: |
+      **Empfehlung: Domäne.**
+
+      - **Zentrale Konten:** Wer geht, wird an einer Stelle gesperrt – das Problem mit der Aushilfe wäre nicht entstanden.
+      - **Platzwechsel:** Mit Domänenkonto meldet man sich an jedem PC an und bekommt dieselben Laufwerke und Rechte.
+      - **Gruppenrichtlinien:** Passwortregeln, Bildschirmsperre und Laufwerke einheitlich für alle 25 PCs.
+      - **Rechte über Gruppen:** z. B. nur die Gruppe „Lohn“ sieht den Lohnordner.
+
+      Nachteil: Ein Domänencontroller muss angeschafft und betreut werden (ggf. zweiter für Ausfallsicherheit). Bei 25 Plätzen und Mandantendaten überwiegen die Vorteile.
+    bewertungspunkte:
+      - {punkt: "zentrale Kontenverwaltung, Sperren an einer Stelle", kernbegriffe: ["zentral", "sperr"]}
+      - {punkt: "Anmeldung an jedem PC / Single Sign-on", kernbegriffe: ["jedem", "sign-on", "überall"]}
+      - {punkt: "Gruppenrichtlinien oder Rechte über Gruppen", kernbegriffe: ["richtlinie", "gpo", "gruppe"]}
+    hinweise:
+      - "Welche Probleme aus der Situation löst eine zentrale Verwaltung?"
+    loesungsweg: "Domäne: zentrale Konten (sofort gesperrt), Anmeldung an jedem PC, Gruppenrichtlinien und Gruppenrechte; Aufwand für den Domänencontroller lohnt sich bei 25 Plätzen."
+    quelle: "Neu erstellt (Claude), passend zur Lektion client-server-domaene."
+    belege:
+      - {titel: "Microsoft Learn: Active Directory Domain Services Overview", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"}
+    status: ungeprüft

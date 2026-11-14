@@ -1,0 +1,136 @@
+# Aufgaben zum Thema „Kauf, Miete, Leasing“.
+# Passend zur Lektion kauf-miete-leasing.
+
+aufgaben:
+  - id: kml-merkmale
+    typ: zuordnung
+    stufe: 1
+    titel: "Kauf, Miete oder Leasing?"
+    frage: "Ordne jedes Merkmal der passenden Variante zu."
+    paare:
+      - {links: "Eigentum geht auf den Käufer über", rechts: "Kauf"}
+      - {links: "feste Laufzeit, Gerät gehört dem Geber, Tausch nach Laufzeit", rechts: "Leasing"}
+      - {links: "kurzfristig kündbar, auf Dauer am teuersten", rechts: "Miete"}
+      - {links: "hohe Ausgabe sofort, meist geringste Gesamtkosten", rechts: "Kauf"}
+    hinweise:
+      - "Wem gehört das Gerät, und wie lange ist man gebunden?"
+    loesungsweg: "**Kauf:** Eigentum, einmal zahlen, meist am günstigsten. **Leasing:** feste Laufzeit, Raten, Eigentum beim Leasinggeber. **Miete:** flexibel, auf Dauer am teuersten."
+    quelle: "Neu erstellt (Claude), Tabellen der Lektion kauf-miete-leasing."
+    belege:
+      - {titel: "BGB § 433 (Kaufvertrag), § 535 (Mietvertrag)", url: "https://www.gesetze-im-internet.de/bgb/"}
+    status: ungeprüft
+
+  - id: kml-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Server kaufen, leasen oder mieten?"
+    situation: |
+      Die ArchivTech GmbH braucht einen Server für **48 Monate**. Angebote (netto):
+
+      | Variante | Konditionen |
+      | --- | --- |
+      | Kauf | 6.000 € einmalig |
+      | Leasing | 2,6 % des Kaufpreises pro Monat, Laufzeit 48 Monate |
+      | Miete | 180 € pro Monat, monatlich kündbar |
+    frage: "Vergleiche die Gesamtkosten über 48 Monate."
+    schritte:
+      - frage: "Gesamtkosten Leasing in €"
+        antwort: "7488"
+        einheit: "€"
+        erklaerung: "6.000 € × 0,026 = 156 € pro Monat; × 48 = 7.488 €."
+        falsch:
+          - {antwort: "156", warum: "Das ist nur eine Monatsrate. Gesamtkosten = Rate × 48.", ursache: konzept}
+          - {antwort: "6156", warum: "Kaufpreis und eine Rate addiert. Beim Leasing zahlt man nur die Raten: 156 € × 48.", ursache: konzept}
+      - frage: "Gesamtkosten Miete in €"
+        antwort: "8640"
+        einheit: "€"
+        erklaerung: "180 € × 48 = 8.640 €."
+      - frage: "Mehrkosten Leasing gegenüber Kauf in €"
+        antwort: "1488"
+        einheit: "€"
+        erklaerung: "7.488 € − 6.000 € = 1.488 €."
+      - frage: "Ab wie vielen Monaten ist Miete teurer als Kauf?"
+        antwort: "34"
+        einheit: "Monate"
+        erklaerung: "6.000 € ÷ 180 € = 33,3 → nach 33 Monaten sind 5.940 € gezahlt, im 34. Monat 6.120 € – ab dem **34.** Monat ist Miete teurer."
+        falsch:
+          - {antwort: "33", warum: "Nach 33 Monaten sind erst 5.940 € gezahlt – noch weniger als der Kaufpreis.", ursache: rechenfehler}
+    hinweise:
+      - "Immer dieselbe Laufzeit vergleichen: 48 Monate."
+      - "Leasingrate = 2,6 % vom Kaufpreis."
+      - "6.000 × 0,026 = ?"
+    loesungsweg: |
+      | Variante | Rechnung | Kosten |
+      | --- | --- | ---: |
+      | Kauf | 6.000 € | **6.000 €** |
+      | Leasing | 6.000 € × 0,026 × 48 | **7.488 €** |
+      | Miete | 180 € × 48 | **8.640 €** |
+
+      Leasing kostet 1.488 € mehr als der Kauf. Miete lohnt sich nur für einen Bedarf unter 34 Monaten.
+    quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion kauf-miete-leasing mit anderen Zahlen; nachgerechnet."
+    belege:
+      - {titel: "Lektion „Kauf, Miete, Leasing“ (Gesamtkosten über dieselbe Laufzeit)"}
+    status: ungeprüft
+
+  - id: kml-wann
+    typ: zuordnung
+    stufe: 2
+    titel: "Wann verwende ich was?"
+    frage: "Ordne jeder Situation die passende Variante zu."
+    paare:
+      - {links: "20 Notebooks für Aushilfen während einer dreimonatigen Messe-Saison", rechts: "Miete"}
+      - {links: "Arbeitsplatz-PCs, die alle drei Jahre erneuert werden sollen, ohne das Budget auf einmal zu belasten", rechts: "Leasing"}
+      - {links: "Ein Bandlaufwerk soll zehn Jahre genutzt werden; das Geld dafür ist vorhanden", rechts: "Kauf"}
+    hinweise:
+      - "Kurz und unsicher – regelmäßig erneuern – lange nutzen."
+    loesungsweg: "Kurzer Bedarf → **Miete** · regelmäßig erneuern, Liquidität schonen → **Leasing** · lange nutzen, Geld da → **Kauf**."
+    quelle: "Neu erstellt (Claude), Tabelle „Wann verwende ich was?“ der Lektion kauf-miete-leasing."
+    belege:
+      - {titel: "Lektion „Kauf, Miete, Leasing“"}
+    status: ungeprüft
+
+  - id: kml-leasing-eigentum
+    typ: multiple_choice
+    stufe: 2
+    titel: "Wem gehören die geleasten Notebooks?"
+    frage: "Welche Aussagen zum Leasing treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "Das Gerät gehört dem Leasinggeber; der Leasingnehmer nutzt es.", richtig: true, warum: "Eigentum bleibt beim Leasinggeber, oft mit Kaufoption am Ende."}
+      - {text: "Leasing schont die Liquidität, weil nicht der ganze Betrag auf einmal fällig ist.", richtig: true, warum: "Gleichmäßige Raten statt einer großen Ausgabe."}
+      - {text: "Leasing ist über dieselbe Laufzeit immer günstiger als Kauf.", warum: "Meist teurer: Der Leasinggeber trägt Finanzierung und Risiko und will daran verdienen.", ursache: konzept}
+      - {text: "Ein Leasingvertrag ist jederzeit monatlich kündbar.", warum: "Das ist typisch für Miete. Leasing hat eine feste Laufzeit.", ursache: begriff}
+    hinweise:
+      - "Eigentum, Liquidität, Kosten, Laufzeit – prüfe jeden Punkt."
+    loesungsweg: "Leasing: **Eigentum beim Leasinggeber**, **Raten schonen die Liquidität**, feste Laufzeit, meist etwas teurer als Kauf."
+    quelle: "Neu erstellt (Claude), Prüfungsfallen der Lektion kauf-miete-leasing."
+    belege:
+      - {titel: "Lektion „Kauf, Miete, Leasing“"}
+    status: ungeprüft
+
+  - id: kml-empfehlung-freitext
+    typ: freitext
+    stufe: 4
+    operator: begründen
+    titel: "Eine Empfehlung begründen"
+    situation: "Ein Kunde der ArchivTech, ein junges Start-up mit knappem Kapital, braucht 15 Notebooks. Es plant, in drei Jahren deutlich zu wachsen und die Geräte dann zu tauschen. Rechnerisch ist der Kauf am günstigsten, Leasing kostet etwa 5 % mehr."
+    frage: "Empfiehl eine Variante und begründe sie mit mindestens drei Argumenten – nicht nur mit den Kosten."
+    musterloesung: |
+      **Empfehlung: Leasing.**
+
+      - **Liquidität:** Das knappe Kapital bleibt für das Wachstum verfügbar; statt einer großen Ausgabe fallen planbare Raten an.
+      - **Erneuerung:** Nach der Laufzeit kommen automatisch neue Geräte – passt zum geplanten Tausch in drei Jahren.
+      - **Service und Entsorgung:** oft im Vertrag enthalten; keine eigene datenschutzgerechte Entsorgung nötig.
+      - **Kosten:** etwa 5 % Mehrkosten – vertretbar für diese Vorteile.
+
+      Miete wäre noch flexibler, auf drei Jahre aber deutlich teurer.
+    bewertungspunkte:
+      - {punkt: "Liquidität/Kapital schonen", kernbegriffe: ["liquidität", "kapital", "rate"]}
+      - {punkt: "Erneuerung nach Laufzeit passt zum Plan", kernbegriffe: ["tausch", "erneuer", "laufzeit"]}
+      - {punkt: "weiteres Argument (Service, Entsorgung, Kostenabwägung)", kernbegriffe: ["service", "entsorg", "mehrkosten", "5 %"]}
+    hinweise:
+      - "Was ist für ein Start-up mit knappem Geld wichtiger als die geringsten Gesamtkosten?"
+    loesungsweg: "Leasing: schont die Liquidität, Tausch nach Laufzeit passt zum Wachstum, Service/Entsorgung inklusive; Mehrkosten vertretbar."
+    quelle: "Neu erstellt (Claude), passend zur Lektion kauf-miete-leasing."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 07.04: Kauf, Miete, Leasing (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft

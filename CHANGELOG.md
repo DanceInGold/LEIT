@@ -5,6 +5,13 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt (Phase 2 · Aufgaben, Paket 4)
+- 78 feste Aufgaben für 13 weitere Themen, je Thema Stufen 1–4 (AU-01, AU-02, HI-01, HI-03):
+  Lasten-/Pflichtenheft (6), Skriptsprachen (6), Client-Server und Domäne (6), Netzwerkstandards (7),
+  Authentifizierung (6), Härtung und Firewall (6), ISMS und Risikomatrix (6), TOM (6),
+  Barrierefreiheit (6), Kauf/Miete/Leasing (5), Bildschirmmasken (6), Verträge (6), Suchoperatoren (6).
+- Rauchtest öffnet drei weitere Aufgaben (Skript verfolgen, Passwortlänge, Vertragsstrafe).
+
 ### Behoben
 - „Nächste Aufgabe“ brachte dieselbe Aufgabe erneut, wenn die aktuelle Stufe eines Themas nur eine
   feste Aufgabe hat (z. B. BIOS/UEFI Stufe 1). Jetzt kommt eine noch nicht gesehene Aufgabe der

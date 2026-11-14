@@ -1,0 +1,140 @@
+# Aufgaben zum Thema „Barrierefreiheit: Arbeitsplatz, IT-Systeme, Websites“.
+# Passend zur Lektion barrierefreiheit.
+
+aufgaben:
+  - id: barriere-hilfsmittel
+    typ: zuordnung
+    stufe: 1
+    titel: "Hilfsmittel am Arbeitsplatz"
+    frage: "Ordne jedem Hilfsmittel die Einschränkung zu, bei der es vor allem hilft."
+    paare:
+      - {links: "Braillezeile", rechts: "Sehen"}
+      - {links: "Screenreader", rechts: "Sehen"}
+      - {links: "visuelle Signale statt Töne", rechts: "Hören"}
+      - {links: "Trackball oder Spracheingabe", rechts: "Motorik"}
+      - {links: "Chat statt Telefon", rechts: "Sprechen"}
+    hinweise:
+      - "Welcher Sinn oder welche Fähigkeit wird ersetzt oder unterstützt?"
+    loesungsweg: "Braillezeile, Screenreader → Sehen · visuelle Signale → Hören · Trackball, Spracheingabe → Motorik · Chat → Sprechen."
+    quelle: "Neu erstellt (Claude), Tabelle „Arbeitsplatz: Hardware“ der Lektion barrierefreiheit."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025: Unterstützung durch zusätzliche Hardware (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: barriere-wcag-prinzipien
+    typ: zuordnung
+    stufe: 2
+    titel: "Die vier WCAG-Prinzipien"
+    frage: "Ordne jede Maßnahme dem WCAG-Prinzip zu, das sie vor allem erfüllt."
+    paare:
+      - {links: "Alternativtext für ein Diagramm", rechts: "wahrnehmbar"}
+      - {links: "Alle Funktionen sind mit der Tastatur erreichbar", rechts: "bedienbar"}
+      - {links: "Fehlermeldung „Kundennummer hat 6 Ziffern“", rechts: "verständlich"}
+      - {links: "Formularfelder sind im HTML mit `<label>` beschriftet", rechts: "robust"}
+    hinweise:
+      - "POUR: perceivable, operable, understandable, robust."
+    loesungsweg: "Alternativtext = **wahrnehmbar** · Tastatur = **bedienbar** · klare Fehlermeldung = **verständlich** · sauberes HTML für Hilfstechnik = **robust**."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion barrierefreiheit."
+    belege:
+      - {titel: "W3C: Web Content Accessibility Guidelines (WCAG) 2.2", url: "https://www.w3.org/TR/WCAG22/"}
+    status: ungeprüft
+
+  - id: barriere-label
+    typ: multiple_choice
+    stufe: 2
+    titel: "Was hört der Screenreader?"
+    situation: |
+      Zwei Varianten eines Formularfelds im Kundenportal:
+
+      ```html
+      <!-- Variante A -->
+      Kundennummer <input id="kundennr" type="text">
+
+      <!-- Variante B -->
+      <label for="kundennr">Kundennummer</label>
+      <input id="kundennr" type="text" required>
+      ```
+    frage: "Welche Aussage trifft zu?"
+    optionen:
+      - {text: "Nur bei B kann der Screenreader das Feld mit „Kundennummer“ ansagen, weil das Label mit dem Feld verknüpft ist.", richtig: true, warum: "`for` verknüpft die Beschriftung mit der `id` des Felds."}
+      - {text: "Beide Varianten sind gleich gut, der Text steht ja direkt davor.", warum: "Sichtbar ja – für Hilfstechnik fehlt bei A die Verknüpfung, man hört nur „Eingabefeld“.", ursache: konzept}
+      - {text: "Variante A ist besser, weil sie kürzer ist.", warum: "Kürze ist kein Kriterium für Barrierefreiheit.", ursache: konzept}
+      - {text: "Das Attribut `required` macht das Feld barrierefrei.", warum: "`required` kennzeichnet ein Pflichtfeld; die Beschriftung leistet das `<label>`.", ursache: begriff}
+    hinweise:
+      - "Woran erkennt ein Screenreader, welcher Text zu welchem Feld gehört?"
+    loesungsweg: "`<label for=\"kundennr\">` verknüpft Text und Feld → der Screenreader liest „Kundennummer, Eingabefeld, erforderlich“. Bei A hört man nur „Eingabefeld“."
+    quelle: "Neu erstellt (Claude), Beispiel „ein barrierefreies Formularfeld“ der Lektion barrierefreiheit."
+    belege:
+      - {titel: "W3C WCAG 2.2, Erfolgskriterium 1.3.1 Info and Relationships und 3.3.2 Labels or Instructions", url: "https://www.w3.org/TR/WCAG22/"}
+    status: ungeprüft
+
+  - id: barriere-farbe
+    typ: multiple_choice
+    stufe: 3
+    titel: "Rot heißt Fehler?"
+    situation: "Im Überwachungs-Dashboard der ArchivTech zeigen nur farbige Punkte den Zustand der Sicherungen: grün = erfolgreich, rot = fehlgeschlagen. Ein Kollege mit Rot-Grün-Sehschwäche übersieht regelmäßig fehlgeschlagene Sicherungen."
+    frage: "Welche Änderungen helfen? (**zwei** richtige)"
+    optionen:
+      - {text: "Zusätzlich zur Farbe ein Symbol und einen Text anzeigen, z. B. ✓ „OK“ und ✗ „Fehler“", richtig: true, warum: "Information darf nie nur über Farbe vermittelt werden."}
+      - {text: "Fehlgeschlagene Sicherungen oben in einer eigenen Liste mit Text anzeigen", richtig: true, warum: "Struktur und Text sind unabhängig von der Farbwahrnehmung."}
+      - {text: "Rot durch ein kräftigeres Rot ersetzen", warum: "Das Problem ist die Unterscheidung von Rot und Grün, nicht die Sättigung.", ursache: konzept}
+      - {text: "Dem Kollegen das Dashboard nicht mehr zuweisen", warum: "Das umgeht das Problem, statt das System barrierefrei zu machen.", ursache: konzept}
+    hinweise:
+      - "Wie kann man den Zustand erkennen, ohne Farben zu unterscheiden?"
+    loesungsweg: "Farbe nie als **einzige** Information: **Symbol und Text** ergänzen, Fehler strukturell hervorheben."
+    quelle: "Neu erstellt (Claude), Prüfungsfalle „Farbe als einzige Information“ der Lektion barrierefreiheit."
+    belege:
+      - {titel: "W3C WCAG 2.2, Erfolgskriterium 1.4.1 Use of Color", url: "https://www.w3.org/TR/WCAG22/"}
+    status: ungeprüft
+
+  - id: barriere-gesetz
+    typ: lueckentext
+    stufe: 2
+    titel: "Regeln und Gesetze"
+    frage: "Setze die passenden Abkürzungen ein: WCAG, BFSG, BITV 2.0."
+    text: "Die internationalen Richtlinien des W3C für barrierefreie Webinhalte heißen {{1}}. Seit dem 28.06.2025 verpflichtet das deutsche {{2}} viele Unternehmen zu barrierefreien Angeboten. Für öffentliche Stellen gilt die Verordnung {{3}}."
+    luecken:
+      - antworten: ["WCAG"]
+      - antworten: ["BFSG", "Barrierefreiheitsstärkungsgesetz"]
+        falsch:
+          - {antwort: "BITV 2.0", warum: "Die BITV 2.0 gilt für öffentliche Stellen; Unternehmen verpflichtet das BFSG.", ursache: begriff}
+      - antworten: ["BITV 2.0", "BITV"]
+        falsch:
+          - {antwort: "BFSG", warum: "Das BFSG richtet sich an Unternehmen; für Behörden gilt die BITV 2.0.", ursache: begriff}
+    hinweise:
+      - "International – Unternehmen – Behörden."
+    loesungsweg: "**WCAG** = W3C-Richtlinien · **BFSG** = Unternehmen seit 2025 · **BITV 2.0** = öffentliche Stellen."
+    quelle: "Neu erstellt (Claude), Tabelle „Nicht verwechseln“ der Lektion barrierefreiheit."
+    belege:
+      - {titel: "Barrierefreiheitsstärkungsgesetz (BFSG)", url: "https://www.gesetze-im-internet.de/bfsg/"}
+      - {titel: "Barrierefreie-Informationstechnik-Verordnung (BITV 2.0)", url: "https://www.gesetze-im-internet.de/bitv_2_0/"}
+    status: ungeprüft
+
+  - id: barriere-portal-freitext
+    typ: freitext
+    stufe: 4
+    operator: beschreiben
+    titel: "Das Kundenportal prüfen"
+    situation: "Die ArchivTech möchte ihr Kundenportal auf Barrierefreiheit prüfen, bevor es für Privatkunden geöffnet wird. Du sollst einen ersten Test machen."
+    frage: "Beschreibe vier konkrete Prüfungen und ordne jede einem WCAG-Prinzip zu."
+    musterloesung: |
+      | Prüfung | WCAG-Prinzip |
+      | --- | --- |
+      | Haben alle Bilder und Diagramme einen sinnvollen **Alternativtext**? Reicht der **Kontrast**? | wahrnehmbar |
+      | Lässt sich alles **nur mit der Tastatur** bedienen, ist der Fokus sichtbar? | bedienbar |
+      | Sind **Fehlermeldungen** verständlich und zeigen eine Lösung? | verständlich |
+      | Sind alle Formularfelder mit `<label>` beschriftet, funktioniert ein **Screenreader**? | robust |
+
+      Werkzeuge: Prüfwerkzeug im Browser, Test mit Screenreader, Zoom auf 200 %.
+    bewertungspunkte:
+      - {punkt: "Prüfung zu wahrnehmbar (Alternativtext, Kontrast, Untertitel)", kernbegriffe: ["alternativtext", "kontrast", "untertitel"]}
+      - {punkt: "Prüfung zu bedienbar (Tastatur, Fokus)", kernbegriffe: ["tastatur"]}
+      - {punkt: "Prüfung zu verständlich (Sprache, Fehlermeldungen)", kernbegriffe: ["fehlermeldung", "sprache", "verständlich"]}
+      - {punkt: "Prüfung zu robust (Labels, Screenreader, sauberes HTML)", kernbegriffe: ["label", "screenreader", "html"]}
+    hinweise:
+      - "Geh die vier Prinzipien der Reihe nach durch."
+    loesungsweg: "Je Prinzip eine Prüfung: Alternativtext/Kontrast, Tastaturbedienung, Fehlermeldungen, Labels/Screenreader."
+    quelle: "Neu erstellt (Claude), Praxisbezug der Lektion barrierefreiheit."
+    belege:
+      - {titel: "W3C: Web Content Accessibility Guidelines (WCAG) 2.2", url: "https://www.w3.org/TR/WCAG22/"}
+    status: ungeprüft
