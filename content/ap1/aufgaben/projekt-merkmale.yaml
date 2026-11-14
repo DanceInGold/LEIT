@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion projekt-smart."
     belege:
       - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe (Projekt)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: projekt-oder-linie
     typ: zuordnung
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Projekt oder Linie?“ der Lektion projekt-smart."
     belege:
       - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
-    status: ungeprüft
+    status: geprüft
 
   - id: projekt-ziel-massnahme
     typ: multiple_choice
@@ -56,7 +56,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Prüfungsfalle „Maßnahme statt Ziel“ der Lektion projekt-smart."
     belege:
       - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
-    status: ungeprüft
+    status: geprüft
 
   - id: projekt-merkmale-freitext
     typ: freitext
@@ -85,4 +85,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion projekt-smart."
     belege:
       - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
-    status: ungeprüft
+    status: geprüft

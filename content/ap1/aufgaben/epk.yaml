@@ -20,7 +20,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion epk-bpmn."
     belege:
       - {titel: "Keller, Nüttgens, Scheer (1992): Semantische Prozeßmodellierung auf der Grundlage „Ereignisgesteuerter Prozeßketten (EPK)“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: epk-ereignis-funktion
     typ: zuordnung
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion epk-bpmn."
     belege:
       - {titel: "Keller, Nüttgens, Scheer (1992)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: epk-fehler
     typ: multiple_choice
@@ -70,7 +70,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Regeln der Lektion epk-bpmn."
     belege:
       - {titel: "Keller, Nüttgens, Scheer (1992)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: epk-freitext
     typ: freitext
@@ -106,4 +106,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Löschantrag-Beispiel der Lektion epk-bpmn."
     belege:
       - {titel: "Keller, Nüttgens, Scheer (1992)"}
-    status: ungeprüft
+    status: geprüft

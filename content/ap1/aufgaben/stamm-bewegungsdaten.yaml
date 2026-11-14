@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion software-daten."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 01.02: Stamm- und Bewegungsdaten (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: daten-eigenschaften
     typ: multiple_choice
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion software-daten."
     belege:
       - {titel: "Lektion „Software-Arten, Stamm- und Bewegungsdaten“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: daten-archiv
     typ: zuordnung
@@ -55,7 +55,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Beispiel „im Archiv“ der Lektion software-daten."
     belege:
       - {titel: "Lektion „Software-Arten, Stamm- und Bewegungsdaten“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: daten-freitext
     typ: freitext
@@ -77,4 +77,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „Warum ist es so?“ der Lektion software-daten."
     belege:
       - {titel: "Codd, E. F. (1970): A Relational Model of Data for Large Shared Data Banks (Redundanz und Anomalien)"}
-    status: ungeprüft
+    status: geprüft

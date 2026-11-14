@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Lizenzarten“ der Lektion urheberrecht-lizenzen."
     belege:
       - {titel: "Open Source Initiative: Licenses", url: "https://opensource.org/licenses"}
-    status: ungeprüft
+    status: geprüft
 
   - id: urheber-grundlagen
     typ: multiple_choice
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Grundlagen“ der Lektion urheberrecht-lizenzen."
     belege:
       - {titel: "Urheberrechtsgesetz (UrhG) §§ 2, 64, 69a, 69d", url: "https://www.gesetze-im-internet.de/urhg/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: lizenz-modelle-rechnen
     typ: rechnung
@@ -76,7 +76,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion urheberrecht-lizenzen mit anderen Zahlen; nachgerechnet."
     belege:
       - {titel: "Lektion „Urheberrecht und Lizenzen“ (Lizenzmodelle)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: lizenz-copyleft
     typ: multiple_choice
@@ -96,7 +96,7 @@ aufgaben:
     belege:
       - {titel: "GNU General Public License v3", url: "https://www.gnu.org/licenses/gpl-3.0.html"}
       - {titel: "Open Source Initiative: The MIT License", url: "https://opensource.org/license/mit"}
-    status: ungeprüft
+    status: geprüft
 
   - id: lizenz-freitext
     typ: freitext
@@ -122,4 +122,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion urheberrecht-lizenzen."
     belege:
       - {titel: "Urheberrechtsgesetz (UrhG) §§ 69a, 69c, 69d", url: "https://www.gesetze-im-internet.de/urhg/"}
-    status: ungeprüft
+    status: geprüft

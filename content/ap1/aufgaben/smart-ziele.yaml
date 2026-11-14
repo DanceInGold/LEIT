@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion projekt-smart."
     belege:
       - {titel: "Doran, G. T.: There's a S.M.A.R.T. way to write management's goals and objectives. Management Review 70 (11), 1981"}
-    status: ungeprüft
+    status: geprüft
 
   - id: smart-erkennen
     typ: multiple_choice
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion projekt-smart."
     belege:
       - {titel: "Doran, G. T. (1981), Management Review 70 (11)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: smart-fehlendes
     typ: zuordnung
@@ -55,7 +55,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Rechenbeispiel der Lektion projekt-smart."
     belege:
       - {titel: "Doran, G. T. (1981), Management Review 70 (11)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: smart-umformulieren-freitext
     typ: freitext
@@ -84,4 +84,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion projekt-smart."
     belege:
       - {titel: "Doran, G. T. (1981), Management Review 70 (11)"}
-    status: ungeprüft
+    status: geprüft

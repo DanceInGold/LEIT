@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion software-daten."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01 (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: software-erp-scm-crm
     typ: lueckentext
@@ -41,7 +41,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Unternehmensanwendungen“ der Lektion software-daten."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01: ERP, SCM, CRM (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: software-standard-individual
     typ: multiple_choice
@@ -60,7 +60,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung „Warum Standardsoftware?“ der Lektion software-daten."
     belege:
       - {titel: "Lektion „Software-Arten, Stamm- und Bewegungsdaten“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: software-ki-freitext
     typ: freitext
@@ -84,4 +84,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion software-daten."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01: KI-Software (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft

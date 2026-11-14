@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Rollout planen“ der Lektion support-ticket-rollout."
     belege:
       - {titel: "Lektion „Support, Ticketsystem und Rollout“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: rollout-budget-rechnen
     typ: rechnung
@@ -57,7 +57,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Budgetbeispiel der Lektion support-ticket-rollout mit anderen Zahlen; nachgerechnet."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 07.04: Rolloutprozesse, Ticketsystem, Budget (laut katalog.yaml)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: rollout-pilot
     typ: multiple_choice
@@ -75,7 +75,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung „Warum ein Pilot?“ der Lektion support-ticket-rollout."
     belege:
       - {titel: "Lektion „Support, Ticketsystem und Rollout“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: rollout-ticket-status
     typ: reihenfolge
@@ -93,4 +93,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Was steht in einem Ticket?“ der Lektion support-ticket-rollout."
     belege:
       - {titel: "AXELOS: ITIL 4 – Incident Management"}
-    status: ungeprüft
+    status: geprüft

@@ -20,7 +20,7 @@ aufgaben:
     belege:
       - {titel: "Microsoft Learn: Windows commands", url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"}
       - {titel: "man7.org: ip(8)", url: "https://man7.org/linux/man-pages/man8/ip.8.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: konsole-zweck
     typ: zuordnung
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Nicht verwechseln“ der Lektion konsolenbefehle."
     belege:
       - {titel: "Microsoft Learn: Windows commands", url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"}
-    status: ungeprüft
+    status: geprüft
 
   - id: konsole-169
     typ: multiple_choice
@@ -63,7 +63,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Rechenbeispiel „eine Ausgabe lesen“ der Lektion konsolenbefehle."
     belege:
       - {titel: "RFC 3927: Dynamic Configuration of IPv4 Link-Local Addresses (169.254.0.0/16)", url: "https://www.rfc-editor.org/rfc/rfc3927"}
-    status: ungeprüft
+    status: geprüft
 
   - id: konsole-fehlersuche-ordnen
     typ: reihenfolge
@@ -82,7 +82,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Ablaufdiagramm der Lektion konsolenbefehle."
     belege:
       - {titel: "Microsoft Learn: Windows commands", url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"}
-    status: ungeprüft
+    status: geprüft
 
   - id: konsole-dns-freitext
     typ: freitext
@@ -113,4 +113,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Prüfungsfalle „Ping per Name scheitert, per IP geht“ der Lektion konsolenbefehle."
     belege:
       - {titel: "Microsoft Learn: nslookup, ipconfig", url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"}
-    status: ungeprüft
+    status: geprüft

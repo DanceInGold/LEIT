@@ -47,7 +47,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion geraeteklassen mit anderen Zahlen; nachgerechnet."
     belege:
       - {titel: "Lektion „Geräteklassen“ (Auslastung messen, Faustregel 70–80 %)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: erweiterbar-zuordnen
     typ: zuordnung
@@ -65,7 +65,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Erweiterbarkeit prüfen“ der Lektion geraeteklassen."
     belege:
       - {titel: "Lektion „Geräteklassen“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: zukunft-mc
     typ: multiple_choice
@@ -84,7 +84,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Liste „Zukunftssicherheit“ der Lektion geraeteklassen."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.04: Auslastung, Erweiterbarkeit, Zukunftssicherheit (laut katalog.yaml)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: auslastung-freitext
     typ: freitext
@@ -107,4 +107,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „Warum ist es so?“ der Lektion geraeteklassen."
     belege:
       - {titel: "Lektion „Geräteklassen“ (Auslastung messen)"}
-    status: ungeprüft
+    status: geprüft
