@@ -5,7 +5,10 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
-### Hinzugefügt (Phase 3 · Prüfungssimulation)
+
+## [1.1.0] – 2026-11-14 – Prüfungssimulation, Operatoren-Training, neues Design
+
+### Hinzugefügt
 - **Prüfungssimulation** (PS-01, PS-02, PS-04): neuer Menüpunkt „Simulation“ mit vollständigen
   AP1-Sätzen – Ausgangssituation, vier Aufgaben zu 20–30 Punkten, 100 Punkte, 90-Minuten-Timer mit
   automatischer Abgabe. Während der Prüfung keine Hilfen und kein Feedback.
