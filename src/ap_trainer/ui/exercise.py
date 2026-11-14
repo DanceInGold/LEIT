@@ -223,21 +223,51 @@ def _feedback(task: Aufgabe, submission: Submission) -> None:
         _markdown(task.loesungsweg)
 
 
-def _topic_card(item: PracticeTopic, value: Mastery) -> None:
+def _topic_row(item: PracticeTopic, value: Mastery) -> None:
+    """Eine Zeile je Thema: Titel, Trefferquote und Beherrschung, Stufe; Klick öffnet die Übung."""
     quote = f"{item.richtig}/{item.versuche} richtig" if item.versuche else "noch nicht geübt"
     if value.grad is not None:
         quote += f" · Beherrschung {value.grad} % ({AMPEL_LABELS[value.ampel]})"
-    with (
-        ui.card()
-        .classes("w-full cursor-pointer hover:shadow-md")
-        .on("click", lambda: ui.navigate.to(f"/ueben/{item.thema.id}")),
-        ui.row().classes("items-center gap-3 w-full flex-nowrap"),
-    ):
+    with ui.link(target=f"/ueben/{item.thema.id}").classes("leit-row"):
         with ui.column().classes("grow gap-0"):
             ui.label(item.thema.titel).classes("font-medium")
-            ui.label(quote).classes("text-sm opacity-70")
-        ui.badge(f"Stufe {item.stufe} · {STUFEN_NAMEN[item.stufe]}")
-        ui.icon("chevron_right")
+            ui.label(quote).classes("leit-meta")
+        ui.label(f"Stufe {item.stufe} · {STUFEN_NAMEN[item.stufe]}").classes("leit-chip")
+        ui.icon("chevron_right").classes("opacity-60")
+
+
+# Abkürzungen oben auf „Üben“: (Titel, Beschreibung, Ziel, Symbol)
+SHORTCUTS = [
+    ("Mischtest", "10 Aufgaben quer durch deine Themen", "/mischtest", "shuffle"),
+    ("Fehlerprotokoll", "Was zuletzt schiefging – und warum", "/fehler", "report"),
+    ("Operatoren-Training", "Wie tief muss die Antwort gehen?", "/operatoren", "record_voice_over"),
+]
+
+
+def _shortcuts(trainer: Trainer) -> None:
+    with ui.element("div").classes("leit-tiles"):
+        for title, text, target, icon in SHORTCUTS:
+            if target == "/operatoren" and trainer.package.operatoren is None:
+                continue
+            with ui.link(target=target).classes("leit-tile"):
+                ui.icon(icon, size="sm").classes("leit-tile-icon")
+                ui.label(title).classes("font-semibold")
+                ui.label(text).classes("leit-meta")
+
+
+def _topics_by_area(trainer: Trainer, topics: list[PracticeTopic], values: dict[str, Mastery]) -> None:
+    """Themen nach Prüfungsbereich; Bereiche mit begonnenen Themen sind aufgeklappt."""
+    for bereich in trainer.package.katalog.bereiche:
+        items = [t for t in topics if t.thema.bereich == bereich.id]
+        if not items:
+            continue
+        started = sum(1 for t in items if t.versuche)
+        with ui.expansion(value=started > 0).classes("w-full leit-area") as area:
+            with area.add_slot("header"), ui.row().classes("items-center w-full gap-3 no-wrap"):
+                ui.label(bereich.name).classes("font-semibold grow")
+                ui.label(f"{started} von {len(items)} begonnen").classes("leit-meta")
+            for item in items:
+                _topic_row(item, values.get(item.thema.id, Mastery(grad=None)))
 
 
 @dataclass
@@ -348,19 +378,10 @@ def register(trainer: Trainer) -> None:
                 "Die Stufe steigt nach drei sicher gelösten Aufgaben in Folge und sinkt nach zwei Fehlern. "
                 "Mit mehr als dem ersten Hinweis gelöst zählt nicht als sicher."
             ).classes("text-sm opacity-80")
-            if trainer.package.operatoren is not None:
-                with ui.card().classes("w-full"), ui.row().classes("items-center w-full gap-3"):
-                    ui.icon("record_voice_over", size="md")
-                    with ui.column().classes("grow gap-0"):
-                        ui.label("Operatoren-Training").classes("font-medium")
-                        ui.label(
-                            "Nennen, erläutern, beurteilen … – wie tief muss die Antwort gehen?"
-                        ).classes("text-sm opacity-70")
-                    ui.button("Öffnen", on_click=lambda: ui.navigate.to("/operatoren")).props("flat")
+            _shortcuts(trainer)
             if not topics:
                 ui.label("Noch keine Aufgaben vorhanden.")
-            for item in topics:
-                _topic_card(item, values.get(item.thema.id, Mastery(grad=None)))
+            _topics_by_area(trainer, topics, values)
 
     @ui.page("/ueben/{topic_id}")
     def exercise_page(topic_id: str, aufgabe: str | None = None) -> None:

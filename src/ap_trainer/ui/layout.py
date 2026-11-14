@@ -137,12 +137,30 @@ body {
 .leit-sticky { position: sticky; top: 0; z-index: 10; background: var(--leit-bg); }
 @media (max-width: 1023px) { .leit-sticky { top: 50px; } }
 
+/* Listen und Kacheln */
+.leit-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0.75rem; border-radius: 10px;
+            color: var(--leit-text) !important; text-decoration: none; }
+.leit-row + .leit-row { border-top: 1px solid var(--leit-line); border-radius: 0; }
+.leit-row:hover { background: var(--leit-surface-2); border-radius: 10px; }
+.leit-chip { font-size: 0.75rem; padding: 0.15rem 0.55rem; border-radius: 99px; white-space: nowrap;
+             background: color-mix(in srgb, var(--leit-accent) 16%, transparent); color: var(--leit-accent); }
+.leit-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;
+              width: 100%; }
+.leit-tile { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.9rem 1rem; border-radius: 14px;
+             background: var(--leit-surface); border: 1px solid var(--leit-line);
+             color: var(--leit-text) !important; text-decoration: none; }
+.leit-tile:hover { border-color: var(--leit-accent); }
+.leit-tile-icon { color: var(--leit-accent); margin-bottom: 0.25rem; }
+.leit-area .q-expansion-item__content { padding: 0 0.5rem 0.5rem; }
+
 /* Lektionen und Markdown */
 .glossar-link { text-decoration: underline dotted; cursor: help; }
 .lesson .nicegui-markdown { line-height: 1.65; font-size: 1.02rem; max-width: 72ch; }
 .lesson .nicegui-markdown p { margin: 0.6rem 0; }
 .lesson .nicegui-markdown li { margin: 0.25rem 0; }
-.nicegui-markdown table { border-collapse: collapse; margin: 0.75rem 0; font-size: 0.95rem; }
+.nicegui-markdown table { border-collapse: collapse; margin: 0.75rem 0; font-size: 0.95rem;
+                          display: block; max-width: 100%; overflow-x: auto; }
+.leit-content, .leit-content > * { min-width: 0; max-width: 100%; }
 .nicegui-markdown th, .nicegui-markdown td { border: 1px solid var(--leit-line); padding: 0.35rem 0.65rem; }
 .nicegui-markdown th { background: var(--leit-surface-2); font-weight: 600; }
 .nicegui-markdown code { background: var(--leit-surface-2); border-radius: 6px; padding: 0.05rem 0.3rem; }
