@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabellen der Lektion kauf-miete-leasing."
     belege:
       - {titel: "BGB § 433 (Kaufvertrag), § 535 (Mietvertrag)", url: "https://www.gesetze-im-internet.de/bgb/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kml-rechnen
     typ: rechnung
@@ -70,7 +70,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion kauf-miete-leasing mit anderen Zahlen; nachgerechnet."
     belege:
       - {titel: "Lektion „Kauf, Miete, Leasing“ (Gesamtkosten über dieselbe Laufzeit)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kml-wann
     typ: zuordnung
@@ -87,7 +87,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Wann verwende ich was?“ der Lektion kauf-miete-leasing."
     belege:
       - {titel: "Lektion „Kauf, Miete, Leasing“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kml-leasing-eigentum
     typ: multiple_choice
@@ -105,7 +105,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Prüfungsfallen der Lektion kauf-miete-leasing."
     belege:
       - {titel: "Lektion „Kauf, Miete, Leasing“"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kml-empfehlung-freitext
     typ: freitext
@@ -133,4 +133,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion kauf-miete-leasing."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 07.04: Kauf, Miete, Leasing (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft

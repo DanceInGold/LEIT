@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), WLAN-Tabelle der Lektion netzwerk-standards."
     belege:
       - {titel: "Wi-Fi Alliance: Wi-Fi 6, Wi-Fi 6E, Wi-Fi 7", url: "https://www.wi-fi.org/discover-wi-fi"}
-    status: ungeprüft
+    status: geprüft
 
   - id: std-name-luecke
     typ: lueckentext
@@ -39,7 +39,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Erklärung der Namen in der Lektion netzwerk-standards."
     belege:
       - {titel: "IEEE 802.3 Ethernet Working Group", url: "https://www.ieee802.org/3/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: std-kabel-wahl
     typ: multiple_choice
@@ -58,7 +58,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Ethernet-Tabelle der Lektion netzwerk-standards."
     belege:
       - {titel: "IEEE 802.3an-2006 (10GBASE-T)", url: "https://www.ieee802.org/3/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: std-funkbaender
     typ: zuordnung
@@ -76,7 +76,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion netzwerk-standards."
     belege:
       - {titel: "IEEE 802.11 Wireless LAN Working Group", url: "https://www.ieee802.org/11/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: std-backup-rechnen
     typ: rechnung
@@ -119,7 +119,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion netzwerk-standards mit anderen Zahlen; nachgerechnet."
     belege:
       - {titel: "IEEE 802.3 Ethernet Working Group (1000BASE-T, 10GBASE-T)", url: "https://www.ieee802.org/3/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: std-lwl-gebaeude
     typ: multiple_choice
@@ -139,7 +139,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), LWL-Tabelle und Praxisbezug der Lektion netzwerk-standards."
     belege:
       - {titel: "IEEE 802.3ae (10-Gigabit-Ethernet über LWL, z. B. 10GBASE-LR über Singlemode bis 10 km)", url: "https://www.ieee802.org/3/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: std-wlan-freitext
     typ: freitext
@@ -163,4 +163,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung „Warum ist WLAN langsamer als die Zahl auf der Verpackung?“ der Lektion netzwerk-standards."
     belege:
       - {titel: "IEEE 802.11 Wireless LAN Working Group", url: "https://www.ieee802.org/11/"}
-    status: ungeprüft
+    status: geprüft

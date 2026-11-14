@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Härtungsmaßnahmen“ der Lektion haertung-firewall."
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium: SYS.1.1 Allgemeiner Server"}
-    status: ungeprüft
+    status: geprüft
 
   - id: haert-personal-netz
     typ: zuordnung
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion haertung-firewall."
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium: SYS.2.1 Allgemeiner Client (lokale Paketfilter)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: haert-regeln-lesen
     typ: multiple_choice
@@ -63,7 +63,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „Regeln lesen und anpassen“ der Lektion haertung-firewall."
     belege:
       - {titel: "Red Hat Enterprise Linux 9: Configuring firewalls and packet filters (firewalld)", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_firewalls_and_packet_filters/index"}
-    status: ungeprüft
+    status: geprüft
 
   - id: haert-programm-sperren
     typ: multiple_choice
@@ -82,7 +82,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion haertung-firewall."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 06.04: Personal Firewall anpassen, z. B. Softwarezugriff auf Internet sperren (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: haert-telnet-luecke
     typ: lueckentext
@@ -102,7 +102,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion haertung-firewall."
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium: SYS.1.1 Allgemeiner Server"}
-    status: ungeprüft
+    status: geprüft
 
   - id: haert-server-freitext
     typ: freitext
@@ -128,4 +128,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion haertung-firewall."
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium: SYS.1.1 Allgemeiner Server, SYS.1.3 Server unter Linux und Unix"}
-    status: ungeprüft
+    status: geprüft

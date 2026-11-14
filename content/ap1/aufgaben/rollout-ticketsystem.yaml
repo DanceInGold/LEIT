@@ -1,0 +1,96 @@
+# Aufgaben zum Thema „Rolloutprozesse, Ticketsystem, Budget“.
+# Passend zur Lektion support-ticket-rollout.
+
+aufgaben:
+  - id: rollout-phasen
+    typ: reihenfolge
+    stufe: 1
+    titel: "Phasen eines Rollouts"
+    frage: "Bringe die Phasen eines Notebook-Rollouts in die richtige Reihenfolge."
+    elemente:
+      - "Planung: Image, Software, Zeitplan, Budget, Kommunikation"
+      - "Pilot mit wenigen ausgewählten Nutzern"
+      - "Rollout in Wellen, Abteilung für Abteilung"
+      - "Nacharbeit: Altgeräte einsammeln, Daten löschen, Inventar pflegen"
+    hinweise:
+      - "Fehler sollen bei wenigen auffallen, bevor alle betroffen sind."
+    loesungsweg: "Planung → **Pilot** → Rollout in Wellen → Nacharbeit."
+    quelle: "Neu erstellt (Claude), Tabelle „Rollout planen“ der Lektion support-ticket-rollout."
+    belege:
+      - {titel: "Lektion „Support, Ticketsystem und Rollout“"}
+    status: ungeprüft
+
+  - id: rollout-budget-rechnen
+    typ: rechnung
+    stufe: 3
+    titel: "Budget für den Rollout"
+    situation: "Die ArchivTech rollt **40 neue Notebooks** aus. Ein Gerät kostet **1.150 €** netto. Die Einrichtung dauert **45 Minuten** je Gerät, eine Technikerstunde kostet **72 €**. Für den Pilot werden zusätzlich **8 Stunden** Betreuung eingeplant."
+    frage: "Berechne das Budget."
+    schritte:
+      - frage: "Gerätekosten in €"
+        antwort: "46000"
+        einheit: "€"
+        erklaerung: "40 × 1.150 € = 46.000 €."
+      - frage: "Einrichtungskosten (ohne Pilot) in €"
+        antwort: "2160"
+        einheit: "€"
+        erklaerung: "40 × 0,75 h = 30 h; 30 h × 72 € = 2.160 €."
+        falsch:
+          - {antwort: "129600", warum: "Mit 45 Stunden statt 45 Minuten gerechnet. 45 min = 0,75 h.", ursache: rechenfehler}
+          - {antwort: "2880", warum: "Mit einer vollen Stunde je Gerät gerechnet. 45 min = 0,75 h.", ursache: rechenfehler}
+      - frage: "Gesamtbudget inklusive Pilot in €"
+        antwort: "48736"
+        einheit: "€"
+        erklaerung: "46.000 € + 2.160 € + 8 h × 72 € (576 €) = 48.736 €."
+        falsch:
+          - {antwort: "48160", warum: "Die Pilotbetreuung (8 h × 72 € = 576 €) fehlt.", ursache: rechenfehler}
+    hinweise:
+      - "Minuten zuerst in Stunden umrechnen: 45 min = 0,75 h."
+      - "Budget = Geräte + Einrichtung + Pilot."
+    loesungsweg: |
+      | Posten | Rechnung | Betrag |
+      | --- | --- | ---: |
+      | Geräte | 40 × 1.150 € | 46.000 € |
+      | Einrichtung | 40 × 0,75 h × 72 € | 2.160 € |
+      | Pilot | 8 h × 72 € | 576 € |
+      | **Summe** | | **48.736 €** |
+    quelle: "Neu erstellt (Claude), nach dem Budgetbeispiel der Lektion support-ticket-rollout mit anderen Zahlen; nachgerechnet."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 07.04: Rolloutprozesse, Ticketsystem, Budget (laut katalog.yaml)"}
+    status: ungeprüft
+
+  - id: rollout-pilot
+    typ: multiple_choice
+    stufe: 2
+    titel: "Warum ein Pilot?"
+    frage: "Was ist der wichtigste Grund für eine Pilotphase vor dem großen Rollout?"
+    optionen:
+      - {text: "Fehler im Image oder fehlende Software fallen bei wenigen vorbereiteten Nutzern auf, bevor alle betroffen sind.", richtig: true, warum: "So lassen sie sich vor dem großen Rollout beheben."}
+      - {text: "Der Pilot ersetzt die Dokumentation des Rollouts.", warum: "Dokumentiert wird trotzdem – der Pilot dient dem Test.", ursache: konzept}
+      - {text: "Im Pilot bekommen die Nutzer ihre Geräte günstiger.", warum: "Es geht um das Testen, nicht um Preise.", ursache: konzept}
+      - {text: "Nach dem Pilot braucht man keine Altgeräte mehr einzusammeln.", warum: "Die Nacharbeit mit Altgeräten bleibt nötig.", ursache: konzept}
+    hinweise:
+      - "Was passiert, wenn das Image einen Fehler hat und gleich 40 Personen das Gerät bekommen?"
+    loesungsweg: "Ein **Pilot** deckt Fehler bei wenigen Nutzern auf – vor dem Rollout an alle."
+    quelle: "Neu erstellt (Claude), Vertiefung „Warum ein Pilot?“ der Lektion support-ticket-rollout."
+    belege:
+      - {titel: "Lektion „Support, Ticketsystem und Rollout“"}
+    status: ungeprüft
+
+  - id: rollout-ticket-status
+    typ: reihenfolge
+    stufe: 1
+    titel: "Lebenslauf eines Tickets"
+    frage: "Bringe die Status eines Tickets in die übliche Reihenfolge."
+    elemente:
+      - "neu"
+      - "in Bearbeitung"
+      - "gelöst"
+      - "geschlossen"
+    hinweise:
+      - "Geschlossen wird erst, wenn der Melder die Lösung bestätigt hat oder eine Frist verstrichen ist."
+    loesungsweg: "neu → in Bearbeitung → gelöst → geschlossen."
+    quelle: "Neu erstellt (Claude), Tabelle „Was steht in einem Ticket?“ der Lektion support-ticket-rollout."
+    belege:
+      - {titel: "AXELOS: ITIL 4 – Incident Management"}
+    status: ungeprüft

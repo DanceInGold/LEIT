@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Nicht verwechseln“ der Lektion lasten-pflichtenheft."
     belege:
       - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe (Lastenheft, Pflichtenheft)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: lh-ablauf
     typ: reihenfolge
@@ -39,7 +39,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Ablaufdiagramm der Lektion lasten-pflichtenheft."
     belege:
       - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
-    status: ungeprüft
+    status: geprüft
 
   - id: lh-funktional
     typ: zuordnung
@@ -57,7 +57,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion lasten-pflichtenheft."
     belege:
       - {titel: "ISO/IEC 25010: Qualitätsmodell für Software (nicht-funktionale Merkmale wie Leistung, Zuverlässigkeit)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: lh-pruefbar
     typ: multiple_choice
@@ -75,7 +75,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung der Lektion lasten-pflichtenheft."
     belege:
       - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
-    status: ungeprüft
+    status: geprüft
 
   - id: lh-abnahme-streit
     typ: multiple_choice
@@ -94,7 +94,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung „Warum ist das Pflichtenheft bei der Abnahme so wichtig?“ der Lektion lasten-pflichtenheft."
     belege:
       - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
-    status: ungeprüft
+    status: geprüft
 
   - id: lh-uebersetzen-freitext
     typ: freitext
@@ -125,4 +125,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion lasten-pflichtenheft."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.01: Lasten- und Pflichtenheft (Zweck, Urheber, Inhalt) – Themenzuordnung siehe content/ap1/katalog.yaml"}
-    status: ungeprüft
+    status: geprüft

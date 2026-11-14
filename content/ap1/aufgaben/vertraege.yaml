@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Vier Vertragsarten“ der Lektion vertraege."
     belege:
       - {titel: "BGB §§ 433, 535, 611, 631", url: "https://www.gesetze-im-internet.de/bgb/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vertrag-stoerungen
     typ: zuordnung
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Vertragsstörungen“ der Lektion vertraege."
     belege:
       - {titel: "BGB §§ 286, 293, 434 Abs. 5", url: "https://www.gesetze-im-internet.de/bgb/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vertrag-maengelrechte
     typ: multiple_choice
@@ -56,7 +56,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Diagramm „Mangelhafte Lieferung“ der Lektion vertraege."
     belege:
       - {titel: "BGB §§ 437, 439", url: "https://www.gesetze-im-internet.de/bgb/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vertrag-strafe-rechnen
     typ: rechnung
@@ -91,7 +91,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), zur Konventionalstrafe in der Tabelle „Was in einen Vertrag gehört“ der Lektion vertraege; nachgerechnet."
     belege:
       - {titel: "BGB § 339 Verwirkung der Vertragsstrafe", url: "https://www.gesetze-im-internet.de/bgb/__339.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vertrag-garantie
     typ: multiple_choice
@@ -109,7 +109,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung „Warum ist Gewährleistung etwas anderes als Garantie?“ der Lektion vertraege."
     belege:
       - {titel: "BGB §§ 438, 443", url: "https://www.gesetze-im-internet.de/bgb/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: vertrag-falschlieferung-freitext
     typ: freitext
@@ -136,4 +136,4 @@ aufgaben:
     belege:
       - {titel: "HGB § 377 Untersuchungs- und Rügepflicht", url: "https://www.gesetze-im-internet.de/hgb/__377.html"}
       - {titel: "BGB §§ 434 Abs. 5, 437, 439", url: "https://www.gesetze-im-internet.de/bgb/"}
-    status: ungeprüft
+    status: geprüft

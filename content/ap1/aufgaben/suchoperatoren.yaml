@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion suchoperatoren."
     belege:
       - {titel: "Google-Suche Hilfe: Websuche verfeinern", url: "https://support.google.com/websearch/answer/2466433"}
-    status: ungeprüft
+    status: geprüft
 
   - id: such-beste-abfrage
     typ: multiple_choice
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Rechenbeispiel „eine Suche verbessern“ der Lektion suchoperatoren."
     belege:
       - {titel: "Google-Suche Hilfe: Websuche verfeinern", url: "https://support.google.com/websearch/answer/2466433"}
-    status: ungeprüft
+    status: geprüft
 
   - id: such-boolesch-rechnen
     typ: rechnung
@@ -84,7 +84,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Boolesche Operatoren“ der Lektion suchoperatoren."
     belege:
       - {titel: "Lektion „Digitale Suchabfragen“ (AND, OR, NOT, Klammern)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: such-quellen
     typ: multiple_choice
@@ -103,7 +103,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Quellen bewerten“ der Lektion suchoperatoren."
     belege:
       - {titel: "Red Hat Enterprise Linux 9: Configuring firewalls and packet filters (firewalld)", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_firewalls_and_packet_filters/index"}
-    status: ungeprüft
+    status: geprüft
 
   - id: such-filetype-luecke
     typ: lueckentext
@@ -127,7 +127,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Beispiele der Lektion suchoperatoren."
     belege:
       - {titel: "Google-Suche Hilfe: Websuche verfeinern", url: "https://support.google.com/websearch/answer/2466433"}
-    status: ungeprüft
+    status: geprüft
 
   - id: such-strategie-freitext
     typ: freitext
@@ -153,4 +153,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Praxisbezug der Lektion suchoperatoren."
     belege:
       - {titel: "Google-Suche Hilfe: Websuche verfeinern", url: "https://support.google.com/websearch/answer/2466433"}
-    status: ungeprüft
+    status: geprüft

@@ -1,0 +1,82 @@
+# Aufgaben zum Thema „Geräteklassen: Desktop, Notebook, All-in-One, Thin Client, Tablet, Smartphone“.
+# Passend zur Lektion geraeteklassen.
+
+aufgaben:
+  - id: geraet-einsatz
+    typ: zuordnung
+    stufe: 1
+    titel: "Welches Gerät passt?"
+    frage: "Ordne jedem Einsatz die passende Geräteklasse zu."
+    paare:
+      - {links: "Entwicklerarbeitsplatz mit viel Rechenleistung, später aufrüstbar", rechts: "Desktop-PC"}
+      - {links: "Außendienstmitarbeiterin, oft beim Kunden", rechts: "Notebook"}
+      - {links: "Schulungsraum mit 20 gleichen Plätzen an einer VDI", rechts: "Thin Client"}
+      - {links: "Lagerarbeiter erfasst Wareneingänge im Gehen", rechts: "Tablet"}
+      - {links: "Empfangstresen mit wenig Platz und wenigen Kabeln", rechts: "All-in-One"}
+    hinweise:
+      - "Stationär oder mobil? Rechnet das Gerät selbst oder ein Server?"
+    loesungsweg: "Leistung + erweiterbar = **Desktop** · mobil = **Notebook** · zentral, VDI = **Thin Client** · Touch im Gehen = **Tablet** · platzsparend = **All-in-One**."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion geraeteklassen."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.02: Geräteklassen (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft
+
+  - id: geraet-thin-client
+    typ: multiple_choice
+    stufe: 2
+    titel: "Thin Clients für das Callcenter"
+    frage: "Welche Aussagen zu Thin Clients treffen zu? (**zwei** richtige)"
+    optionen:
+      - {text: "Sie brauchen eine zentrale Infrastruktur (Server, VDI oder DaaS) und ein zuverlässiges Netz.", richtig: true, warum: "Gerechnet wird zentral, der Thin Client zeigt nur an."}
+      - {text: "Sie sind sparsam, haben keine lokalen Daten und sind schnell ausgetauscht.", richtig: true, warum: "Das spart Energie, Verwaltung und senkt Sicherheitsrisiken."}
+      - {text: "Sie arbeiten auch ohne Netzwerk vollständig weiter.", warum: "Ohne Netz erreichen sie den Server nicht – dann geht nichts.", ursache: konzept}
+      - {text: "Sie eignen sich besonders für CAD und Videobearbeitung am Platz.", warum: "Rechenintensive Arbeit braucht leistungsstarke Desktops oder spezielle VDI.", ursache: konzept}
+    hinweise:
+      - "Wo wird beim Thin Client gerechnet?"
+    loesungsweg: "Thin Client = Anzeige, Rechenleistung **zentral**: braucht Server und Netz, ist **sparsam und schnell getauscht**."
+    quelle: "Neu erstellt (Claude), Vertiefung „Warum ein Thin Client?“ der Lektion geraeteklassen."
+    belege:
+      - {titel: "Lektion „Geräteklassen“ (Thin Client vs. Fat Client)"}
+    status: ungeprüft
+
+  - id: geraet-notebook-erweiterbar
+    typ: multiple_choice
+    stufe: 2
+    titel: "Notebook aufrüsten?"
+    situation: "Eine Kollegin möchte ihr zwei Jahre altes Ultrabook von 8 auf 16 GB RAM aufrüsten. Laut Datenblatt ist der Arbeitsspeicher „onboard“."
+    frage: "Was bedeutet das?"
+    optionen:
+      - {text: "Der RAM ist verlötet und lässt sich nicht aufrüsten.", richtig: true, warum: "Onboard-RAM ist fest auf der Hauptplatine; es gibt keinen Steckplatz."}
+      - {text: "Es gibt zwei freie Steckplätze für weitere Module.", warum: "Onboard heißt fest verbaut, nicht steckbar.", ursache: begriff}
+      - {text: "Der RAM lässt sich per Software auf 16 GB erweitern.", warum: "Physischer Arbeitsspeicher lässt sich nicht per Software vergrößern.", ursache: konzept}
+      - {text: "Man muss nur die SSD tauschen, dann steigt auch der RAM.", warum: "SSD und Arbeitsspeicher sind getrennte Komponenten.", ursache: begriff}
+    hinweise:
+      - "Onboard = auf der Platine."
+    loesungsweg: "Onboard-RAM ist **verlötet** – kein Aufrüsten möglich. Bei der Beschaffung von Notebooks deshalb gleich ausreichend RAM wählen."
+    quelle: "Neu erstellt (Claude), Prüfungsfalle „Notebook als erweiterbar“ der Lektion geraeteklassen."
+    belege:
+      - {titel: "Lektion „Geräteklassen“ (Erweiterbarkeit prüfen)"}
+    status: ungeprüft
+
+  - id: geraet-wahl-freitext
+    typ: freitext
+    stufe: 4
+    operator: begründen
+    titel: "Geräte für eine neue Abteilung"
+    situation: "Die ArchivTech gründet eine Abteilung „Digitalisierung“: 4 Mitarbeitende scannen und prüfen Dokumente an festen Plätzen mit großen Bildern, 2 Mitarbeitende beraten Kunden vor Ort."
+    frage: "Empfiehl für beide Gruppen eine Geräteklasse und begründe deine Wahl."
+    musterloesung: |
+      | Gruppe | Empfehlung | Begründung |
+      | --- | --- | --- |
+      | 4 Scan-Arbeitsplätze | **Desktop-PC** mit großem Monitor | fest am Platz, viel Leistung und Speicher für große Bilder, Scanner per USB, erweiterbar, günstig je Leistung |
+      | 2 Kundenberater | **Notebook** (ggf. plus Smartphone) | mobil beim Kunden, Akku, Präsentation vor Ort; VPN für den Zugriff aufs Firmennetz |
+    bewertungspunkte:
+      - {punkt: "Desktop für die festen Scan-Arbeitsplätze mit Begründung (Leistung, erweiterbar)", kernbegriffe: ["desktop"]}
+      - {punkt: "Notebook für die Berater mit Begründung (mobil)", kernbegriffe: ["notebook"]}
+    hinweise:
+      - "Wer arbeitet stationär, wer mobil? Wer braucht viel Leistung?"
+    loesungsweg: "Scan-Plätze: Desktop (Leistung, erweiterbar, stationär). Berater: Notebook (mobil, Akku)."
+    quelle: "Neu erstellt (Claude), passend zur Lektion geraeteklassen."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.02: Geräteklassen (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
+    status: ungeprüft

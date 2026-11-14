@@ -1,0 +1,88 @@
+# Aufgaben zum Thema „Merkmale eines Projekts“.
+# Passend zur Lektion projekt-smart.
+
+aufgaben:
+  - id: projekt-merkmale-mc
+    typ: multiple_choice
+    stufe: 1
+    titel: "Was macht ein Projekt aus?"
+    frage: "Welche Merkmale kennzeichnen ein Projekt? (**drei** richtige)"
+    optionen:
+      - {text: "einmalig", richtig: true, warum: "Nach DIN 69901-5 ist die Einmaligkeit der Bedingungen das Kernmerkmal."}
+      - {text: "zeitlich begrenzt mit festem Endtermin", richtig: true, warum: "Ein Projekt hat Start und Ende."}
+      - {text: "begrenzte Ressourcen wie Budget und Personal", richtig: true, warum: "Projekte arbeiten mit festem Budget und Team."}
+      - {text: "wiederkehrend und Routine", warum: "Das kennzeichnet das Tagesgeschäft (Linie).", ursache: begriff}
+      - {text: "ohne festes Ziel, damit man flexibel bleibt", warum: "Ein Projekt braucht ein klares Ziel – sonst weiß niemand, wann es fertig ist.", ursache: konzept}
+    hinweise:
+      - "Denk an ein Projekt wie die Einführung eines Ticketsystems: Was ist daran anders als an der täglichen Ticketbearbeitung?"
+    loesungsweg: "Projekt = **einmalig**, **befristet**, **begrenzte Ressourcen**, klares Ziel, komplex, eigene Organisation, mit Risiko."
+    quelle: "Neu erstellt (Claude), Tabelle der Lektion projekt-smart."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe (Projekt)"}
+    status: ungeprüft
+
+  - id: projekt-oder-linie
+    typ: zuordnung
+    stufe: 2
+    titel: "Projekt oder Tagesgeschäft?"
+    frage: "Ordne jede Aufgabe der ArchivTech zu."
+    paare:
+      - {links: "Einführung eines neuen Ticketsystems bis Ende März", rechts: "Projekt"}
+      - {links: "Migration aller Archivdaten auf neue Speichersysteme", rechts: "Projekt"}
+      - {links: "Tickets im Service Desk bearbeiten", rechts: "Tagesgeschäft"}
+      - {links: "monatliche Sicherheitsupdates einspielen", rechts: "Tagesgeschäft"}
+    hinweise:
+      - "Einmalig und befristet – oder wiederkehrend?"
+    loesungsweg: "Einführung und Migration sind **einmalig und befristet** → Projekt. Tickets und monatliche Updates wiederholen sich → **Tagesgeschäft**."
+    quelle: "Neu erstellt (Claude), Tabelle „Projekt oder Linie?“ der Lektion projekt-smart."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
+    status: ungeprüft
+
+  - id: projekt-ziel-massnahme
+    typ: multiple_choice
+    stufe: 3
+    titel: "Ziel oder Maßnahme?"
+    situation: "Im Entwurf eines Projektauftrags steht als Projektziel: „Neuen Archivserver kaufen und installieren.“"
+    frage: "Was ist daran problematisch?"
+    optionen:
+      - {text: "Das ist eine Maßnahme, kein Ziel – das Ziel beschreibt die gewünschte Wirkung, z. B. die Abrufzeit.", richtig: true, warum: "Ziel = gewünschter Zustand am Ende; der Serverkauf ist ein Weg dahin."}
+      - {text: "Nichts – kaufen und installieren lässt sich ja überprüfen.", warum: "Prüfbar schon, aber ob das eigentliche Problem gelöst ist, bleibt offen.", ursache: konzept}
+      - {text: "Das Ziel ist zu kurz formuliert, mehr Text würde helfen.", warum: "Die Länge ist nicht das Problem, sondern dass eine Maßnahme statt einer Wirkung beschrieben wird.", ursache: konzept}
+      - {text: "Projekte dürfen keine Hardwarebeschaffung enthalten.", warum: "Doch – aber als Maßnahme, nicht als Ziel.", ursache: konzept}
+    hinweise:
+      - "Warum will die ArchivTech den Server überhaupt?"
+    loesungsweg: "„Server kaufen“ ist eine **Maßnahme**. Das **Ziel** ist die Wirkung, z. B. „Abrufzeit höchstens 2 Sekunden bis 31.01.2027“."
+    quelle: "Neu erstellt (Claude), Prüfungsfalle „Maßnahme statt Ziel“ der Lektion projekt-smart."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
+    status: ungeprüft
+
+  - id: projekt-merkmale-freitext
+    typ: freitext
+    stufe: 4
+    operator: begründen
+    titel: "Ist das ein Projekt?"
+    situation: "Die ArchivTech soll für einen Kunden bis zum 30.04. sein gesamtes Papierarchiv (ca. 2 Millionen Seiten) digitalisieren und in ein neues Archivsystem übernehmen. Budget: 80.000 €, Team aus vier Personen verschiedener Abteilungen."
+    frage: "Begründe anhand von mindestens vier Merkmalen, dass es sich um ein Projekt handelt."
+    musterloesung: |
+      | Merkmal | im Fall |
+      | --- | --- |
+      | einmalig | dieses Archiv, dieser Kunde, so noch nicht gemacht |
+      | zeitlich begrenzt | Endtermin 30.04. |
+      | klares Ziel | gesamtes Archiv digital im neuen System |
+      | begrenzte Ressourcen | 80.000 €, vier Personen |
+      | eigene Organisation | Team aus verschiedenen Abteilungen |
+      | komplex/riskant | 2 Millionen Seiten, Scannen, Qualitätsprüfung, Datenübernahme |
+    bewertungspunkte:
+      - {punkt: "einmalig", kernbegriffe: ["einmalig"]}
+      - {punkt: "befristet/Endtermin", kernbegriffe: ["befrist", "begrenzt", "termin", "30.04"]}
+      - {punkt: "begrenzte Ressourcen (Budget, Personal)", kernbegriffe: ["budget", "80.000", "ressourc"]}
+      - {punkt: "weiteres Merkmal: Ziel, eigene Organisation, Komplexität oder Risiko", kernbegriffe: ["ziel", "team", "komplex", "risiko"]}
+    hinweise:
+      - "Geh die Merkmale-Tabelle der Lektion durch und suche jedes im Fall."
+    loesungsweg: "Einmalig, befristet (30.04.), klares Ziel, begrenzte Ressourcen (80.000 €, vier Personen), eigenes Team, komplex – also ein Projekt."
+    quelle: "Neu erstellt (Claude), passend zur Lektion projekt-smart."
+    belege:
+      - {titel: "DIN 69901-5:2009-01 Projektmanagement – Begriffe"}
+    status: ungeprüft

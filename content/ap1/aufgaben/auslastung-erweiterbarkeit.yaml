@@ -1,0 +1,110 @@
+# Aufgaben zum Thema „Auslastung, Erweiterbarkeit, Zukunftssicherheit“.
+# Passend zur Lektion geraeteklassen.
+
+aufgaben:
+  - id: auslastung-rechnen
+    typ: rechnung
+    stufe: 2
+    titel: "Wo ist der Engpass?"
+    situation: |
+      Ein Entwicklungs-PC wurde eine Woche lang überwacht (Spitzenwerte):
+
+      | Ressource | gemessen (Spitze) | vorhanden |
+      | --- | ---: | ---: |
+      | RAM | 30 GB | 32 GB |
+      | CPU | 40 % | 12 Kerne |
+      | SSD | 600 GB | 1.000 GB |
+    frage: "Berechne die Auslastung und bestimme den Engpass."
+    schritte:
+      - frage: "Auslastung RAM in %"
+        antwort: "93,75"
+        einheit: "%"
+        toleranz: 0.005
+        erklaerung: "30 ÷ 32 = 0,9375 = 93,75 %."
+        falsch:
+          - {antwort: "106,67", warum: "Umgekehrt geteilt: vorhanden ÷ gemessen. Richtig ist gemessen ÷ vorhanden.", ursache: rechenfehler}
+      - frage: "Auslastung SSD in %"
+        antwort: "60"
+        einheit: "%"
+        erklaerung: "600 ÷ 1.000 = 60 %."
+      - frage: "Welche Komponente ist der Engpass? (RAM/CPU/SSD)"
+        antwort: "RAM"
+        format: text
+        erklaerung: "RAM liegt mit 93,75 % weit über der Faustregel von 70–80 %; CPU (40 %) und SSD (60 %) haben Reserve."
+        falsch:
+          - {antwort: "CPU", warum: "Die CPU ist nur zu 40 % ausgelastet – eine schnellere CPU brächte nichts.", ursache: konzept}
+    hinweise:
+      - "Auslastung = gemessen ÷ vorhanden."
+      - "Faustregel: dauerhaft über 70–80 % wird es eng."
+    loesungsweg: |
+      | Ressource | Rechnung | Auslastung |
+      | --- | --- | ---: |
+      | RAM | 30 ÷ 32 | **93,75 %** |
+      | CPU | – | 40 % |
+      | SSD | 600 ÷ 1.000 | 60 % |
+
+      Engpass ist der **RAM** – aufrüsten, falls Steckplätze frei sind.
+    quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion geraeteklassen mit anderen Zahlen; nachgerechnet."
+    belege:
+      - {titel: "Lektion „Geräteklassen“ (Auslastung messen, Faustregel 70–80 %)"}
+    status: ungeprüft
+
+  - id: erweiterbar-zuordnen
+    typ: zuordnung
+    stufe: 1
+    titel: "Erweiterbarkeit prüfen"
+    frage: "Ordne jedem Wunsch zu, worauf du am Gerät achten musst."
+    paare:
+      - {links: "mehr Arbeitsspeicher", rechts: "freie RAM-Steckplätze, RAM nicht verlötet"}
+      - {links: "zweite SSD", rechts: "freier M.2- oder SATA-Platz"}
+      - {links: "10-Gbit-Netzwerkkarte", rechts: "freier PCIe-Steckplatz"}
+      - {links: "zusätzliche Grafikkarte", rechts: "Netzteil mit genug Reserve"}
+    hinweise:
+      - "Jede Komponente braucht einen passenden Platz – und Strom."
+    loesungsweg: "RAM → Steckplätze · SSD → M.2/SATA · Netzwerkkarte → PCIe · Grafikkarte → Netzteil-Reserve (und PCIe)."
+    quelle: "Neu erstellt (Claude), Tabelle „Erweiterbarkeit prüfen“ der Lektion geraeteklassen."
+    belege:
+      - {titel: "Lektion „Geräteklassen“"}
+    status: ungeprüft
+
+  - id: zukunft-mc
+    typ: multiple_choice
+    stufe: 2
+    titel: "Zukunftssicher beschaffen"
+    frage: "Worauf achtest du, damit neue Büro-PCs möglichst lange nutzbar bleiben? (**drei** richtige)"
+    optionen:
+      - {text: "wie lange der Hersteller Sicherheitsupdates und Treiber liefert", richtig: true, warum: "Ohne Updates muss ein Gerät aus Sicherheitsgründen ersetzt werden."}
+      - {text: "TPM 2.0 und aktuelle Schnittstellen wie USB-C und Wi-Fi 6/7", richtig: true, warum: "Aktuelle Betriebssysteme und Geräte setzen sie voraus."}
+      - {text: "Reserve beim RAM und freie Steckplätze für späteres Wachstum", richtig: true, warum: "So lässt sich steigender Bedarf ohne Neukauf auffangen."}
+      - {text: "möglichst viele bunte LEDs im Gehäuse", warum: "Optik hat nichts mit Zukunftssicherheit zu tun.", ursache: konzept}
+      - {text: "das günstigste Modell mit gerade ausreichender Leistung für heute", warum: "Ohne Reserve ist das Gerät bei steigendem Bedarf schnell zu schwach.", ursache: konzept}
+    hinweise:
+      - "Was zwingt einen in drei Jahren zum Austausch?"
+    loesungsweg: "**Update-Laufzeit**, **aktuelle Schnittstellen/TPM 2.0**, **Reserve und Erweiterbarkeit** – dazu Ersatzteile und Garantie."
+    quelle: "Neu erstellt (Claude), Liste „Zukunftssicherheit“ der Lektion geraeteklassen."
+    belege:
+      - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.04: Auslastung, Erweiterbarkeit, Zukunftssicherheit (laut katalog.yaml)"}
+    status: ungeprüft
+
+  - id: auslastung-freitext
+    typ: freitext
+    stufe: 4
+    operator: beurteilen
+    titel: "Neue CPU oder mehr RAM?"
+    situation: "Ein Kollege klagt, sein PC sei „lahm“. Er möchte eine neue, schnellere CPU. Das Monitoring zeigt: CPU-Spitze 25 %, RAM 15,6 von 16 GB, SSD 45 % belegt. Das Mainboard hat 4 RAM-Steckplätze, 2 sind belegt."
+    frage: "Beurteile den Wunsch des Kollegen und empfiehl eine Maßnahme."
+    musterloesung: |
+      **Beurteilung:** Eine neue CPU bringt nichts – sie ist nur zu 25 % ausgelastet. Der Engpass ist der **Arbeitsspeicher**: 15,6 ÷ 16 = 97,5 %. Ist der RAM voll, lagert das System auf die SSD aus, und alles wird langsam.
+
+      **Empfehlung:** RAM erweitern. Zwei Steckplätze sind frei → z. B. auf 32 GB aufrüsten (gleicher Typ und Takt). Das ist günstiger als eine CPU und löst das Problem.
+    bewertungspunkte:
+      - {punkt: "CPU als nicht ausgelastet erkannt (25 %)", kernbegriffe: ["cpu", "25"]}
+      - {punkt: "RAM als Engpass mit Auslastung (≈ 97,5 %)", kernbegriffe: ["ram", "arbeitsspeicher", "97"]}
+      - {punkt: "Empfehlung: RAM in freie Steckplätze aufrüsten", kernbegriffe: ["steckpl", "32", "aufrüst", "erweiter"]}
+    hinweise:
+      - "Erst den Engpass bestimmen – welcher Wert liegt über 80 %?"
+    loesungsweg: "CPU nur 25 % → kein Engpass. RAM 97,5 % → Engpass. Zwei freie Steckplätze → RAM auf 32 GB aufrüsten."
+    quelle: "Neu erstellt (Claude), Abschnitt „Warum ist es so?“ der Lektion geraeteklassen."
+    belege:
+      - {titel: "Lektion „Geräteklassen“ (Auslastung messen)"}
+    status: ungeprüft
