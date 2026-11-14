@@ -138,6 +138,21 @@ def _check_simulations(pkg: ContentPackage) -> list[ContentError]:
     return errors
 
 
+def _check_operators(pkg: ContentPackage) -> list[ContentError]:
+    """Operatoren-Training: Themen der Beispiele existieren und sind relevant."""
+    if pkg.operatoren is None:
+        return []
+    errors = []
+    topics = pkg.katalog.by_id()
+    file = str(pkg.root / "operatoren.yaml")
+    for example in pkg.operatoren.beispiele:
+        if example.thema not in topics:
+            errors.append(ContentError(file, f"{example.id}: unbekanntes Thema '{example.thema}'"))
+        elif not topics[example.thema].is_relevant:
+            errors.append(ContentError(file, f"{example.id}: Thema '{example.thema}' ist 2025 entfallen"))
+    return errors
+
+
 def check_references(pkg: ContentPackage) -> list[ContentError]:
     """Alle Verweisfehler eines Pakets."""
     return (
@@ -146,6 +161,7 @@ def check_references(pkg: ContentPackage) -> list[ContentError]:
         + _check_terms(pkg)
         + _check_tasks(pkg)
         + _check_simulations(pkg)
+        + _check_operators(pkg)
     )
 
 

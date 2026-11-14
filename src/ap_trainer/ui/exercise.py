@@ -253,6 +253,9 @@ class Runner:
     next_label: str = "Nächste Aufgabe"
     # Optionale Fortschrittsangabe über der Aufgabe, z. B. „Aufgabe 3 von 10“
     position: Callable[[], str] | None = None
+    # Eigene Bewertung statt ``Trainer.submit`` (Aufgabe, Antwort, geöffnete Hilfen, Sekunden),
+    # z. B. im Operatoren-Training, das keine Versuche speichert
+    submit: Callable[[Aufgabe, Antwort, int, float], Submission] | None = None
 
 
 def run_tasks(trainer: Trainer, state: ExerciseState, runner: Runner) -> None:
@@ -276,7 +279,8 @@ def run_tasks(trainer: Trainer, state: ExerciseState, runner: Runner) -> None:
             body.refresh()
             return
         seconds = time.monotonic() - state.started
-        state.submission = trainer.submit(task, answer, state.opened, seconds)
+        evaluate_with = runner.submit or trainer.submit
+        state.submission = evaluate_with(task, answer, state.opened, seconds)
         state.solved += 1
         if runner.on_submit is not None:
             runner.on_submit(state.submission)
@@ -344,6 +348,15 @@ def register(trainer: Trainer) -> None:
                 "Die Stufe steigt nach drei sicher gelösten Aufgaben in Folge und sinkt nach zwei Fehlern. "
                 "Mit mehr als dem ersten Hinweis gelöst zählt nicht als sicher."
             ).classes("text-sm opacity-80")
+            if trainer.package.operatoren is not None:
+                with ui.card().classes("w-full"), ui.row().classes("items-center w-full gap-3"):
+                    ui.icon("record_voice_over", size="md")
+                    with ui.column().classes("grow gap-0"):
+                        ui.label("Operatoren-Training").classes("font-medium")
+                        ui.label(
+                            "Nennen, erläutern, beurteilen … – wie tief muss die Antwort gehen?"
+                        ).classes("text-sm opacity-70")
+                    ui.button("Öffnen", on_click=lambda: ui.navigate.to("/operatoren")).props("flat")
             if not topics:
                 ui.label("Noch keine Aufgaben vorhanden.")
             for item in topics:

@@ -550,3 +550,19 @@ Subnetze mit dem Python-Modul `ipaddress`, Diagramme mit der Mermaid-CLI geprüf
 | 3b–3e | fe80::/10, fd00::/8, ::1, ff00::/8, kein Broadcast (RFC 4291, 4193); AES/RSA/SHA-256/TLS; Länge und Sperrliste statt Zwangswechsel (NIST SP 800-63B Rev. 4); Art. 4 und 5 DSGVO |
 | 4a–4d | n:m → Zwischentabelle Buchung mit Personenanzahl und 2 Fremdschlüsseln; verschachtelte Schleife 1 → 4 → 10; Kapselung; Anwendungsfalldiagramm (UML 2.5.1) |
 
+## Operatoren-Training (ZI-02)
+
+`content/ap1/operatoren.yaml`, im PR mit `status: ungeprüft`: 7 Operatoren, 4 Beispiele mit je einer Frage
+und Musterantwort pro Operator.
+
+| Prüfgegenstand | Ergebnis | Beleg |
+| --- | --- | --- |
+| Offizielle Operatorenliste für die IT-Berufe | **nicht prüfbar**: Weder IHK noch ZPA/AkA veröffentlichen eine Operatorenliste für die AP1; die IHK-Handreichung zur Abschlussprüfung IT (VO 2020) enthält keine. Die Prüfungen verwenden die Verben aber („Nennen Sie …“, „Erläutern Sie …“). | IHK-Handreichung Abschlussprüfung IT (VO 2020), durchgesehen |
+| Bedeutung der Operatoren | nach BIBB-Operatorenliste (nennen: ohne Erklärung aufzählen; berechnen: mit bekannten Operationen lösen; vergleichen: Gemeinsamkeiten und Unterschiede; begründen: Grundgedanken logisch entwickeln; beurteilen: Stellenwert bestimmen) und IQB-Liste (beschreiben: strukturiert, sachlich, wertfrei; erläutern: in einen Begründungszusammenhang stellen, mit Beispielen veranschaulichen) | BIBB „Ausbildung gestalten“, Operatorenliste; IQB-Operatoren Sek. II |
+| Abweichung zwischen den Quellen | BIBB fasst beschreiben, erläutern und erklären zusammen; IQB trennt beschreiben (darlegen) und erläutern (Begründungszusammenhang). Übernommen ist die Trennung nach IQB, weil die Aufgaben des Pakets beide Operatoren mit unterschiedlicher Tiefe verwenden. | – |
+| Anforderungsbereiche | nach BIBB: I nennen, berechnen · II beschreiben, erläutern, vergleichen · III begründen, beurteilen | BIBB-Liste |
+| Beispiel SSD/HDD | Zugriffszeit unter 0,1 ms vs. einige ms, Preis pro TB, Mechanik; 600.000 GB ÷ 200 GB/Tag = 3.000 Tage ÷ 365 = 8,22 Jahre | Lektion Speicher, Aufgaben `speicher-hdd-ssd` |
+| Beispiel Sicherung | inkrementell/differenziell wie Lektion; 400 + 30 + 60 + 90 + 120 + 150 = 850 GB; Spiegelung ist kein Backup | Lektion Datensicherung |
+| Beispiel Switch/Router | Schicht 2 / 3, MAC-Tabelle lernen, Flooding bei unbekanntem Ziel; 8 × 30 + 12 × 15,4 = 424,8 W > 400 W | Lektion Netzwerkkomponenten, IEEE 802.3af/at |
+| Beispiel Kauf/Leasing | 18.000 € × 0,03 = 540 €; × 36 = 19.440 €; Mehrkosten 1.440 € | Lektion Kauf, Miete, Leasing |
+

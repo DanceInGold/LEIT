@@ -56,6 +56,7 @@ from ap_trainer.tasks.check import Antwort, Ergebnis, FreitextAntwort, blank_ans
 from ap_trainer.tasks.describe import describe_answer
 from ap_trainer.tasks.generators import make, parse_task_id
 from ap_trainer.tasks.hints import help_level
+from ap_trainer.tasks.operators import training_round
 from ap_trainer.tasks.selection import TopicPool, pick_task
 
 DEFAULT_MAX_REVIEWS = 60
@@ -397,6 +398,27 @@ class Trainer:
     def mixed_test_due(self, today: dt.date | None = None) -> bool:
         """Ist der wöchentliche Mischtest fällig?"""
         return mixed_test_due(self.mixed_test_last(), today or dt.date.today(), self.learned_topics())
+
+    # --- Operatoren-Training (ZI-02) ----------------------------------------------
+    def operator_training(self, rng: random.Random | None = None) -> list[Aufgabe]:
+        """Eine Trainingsrunde: zuordnen, Antworttiefe erkennen, selbst schreiben."""
+        if self.package.operatoren is None:
+            return []
+        return training_round(self.package.operatoren, rng or random.Random())
+
+    def check_operator_task(self, task: Aufgabe, answer: Antwort, seconds: float = 0) -> Submission:
+        """Bewertet eine Trainingsaufgabe, ohne einen Versuch zu speichern.
+
+        Die Aufgaben prüfen das Prüfungshandwerk, nicht das Thema des Beispiels – sie sollen
+        weder Stufe noch Beherrschung noch Fehlerkarten des Themas verändern. Gezählt wird nur
+        die Lernzeit.
+        """
+        result = evaluate(task, answer)
+        counted = round(min(max(seconds, 0), MAX_TASK_SECONDS))
+        if counted:
+            self.store.log_study(0, "uebung", task.id, sekunden=counted)
+        stufe = self.level(task.thema).stufe
+        return Submission(result, stufe, stufe)
 
     def mixed_test(self, rng: random.Random | None = None) -> list[Aufgabe]:
         """Aufgaben für einen Mischtest: gelernte Themen gemischt, schwache häufiger (WH-03)."""

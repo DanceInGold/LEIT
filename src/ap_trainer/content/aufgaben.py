@@ -36,7 +36,9 @@ URSACHE_NAMEN: dict[str, str] = {
 Antwortformat = Literal["zahl", "dual", "hex", "ipv4", "ipv6", "text"]
 
 # Operatoren offener Prüfungsfragen (Vorbereitung auf ZI-02)
-Operator = Literal["nennen", "beschreiben", "erläutern", "begründen", "vergleichen", "beurteilen"]
+Operator = Literal[
+    "nennen", "beschreiben", "erläutern", "begründen", "vergleichen", "berechnen", "beurteilen"
+]
 
 # Platzhalter für Lücken im Lückentext: {{1}}, {{2}}, …
 LUECKE = re.compile(r"\{\{(\d+)\}\}")
