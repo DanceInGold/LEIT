@@ -4,8 +4,8 @@ Gesucht wird auf der aktuellen Stufe; gibt es dort nichts, auf der nächstniedri
 auf der nächsthöheren. Feste Aufgaben, die zuletzt dran waren, kommen ans Ende; Generatoren
 liefern immer neue Varianten und mischen sich mit den festen Aufgaben. Sind auf der Stufe alle
 festen Aufgaben schon zuletzt dran gewesen, kommt eine noch nicht gesehene Aufgabe einer
-Nachbarstufe – dieselbe Aufgabe direkt zweimal hintereinander gibt es nur, wenn das Thema nur
-eine einzige hat.
+Nachbarstufe. Sind alle Aufgaben des Themas zuletzt dran gewesen, rotieren sie reihum (die letzten
+drei sind gesperrt) – direkt wiederholt wird nur in Themen mit einer einzigen Aufgabe.
 """
 
 from __future__ import annotations
@@ -19,6 +19,8 @@ from ap_trainer.tasks.generators import make, registry
 
 # So viele zuletzt gelöste Aufgaben werden bei der Auswahl gemieden
 RECENT_WINDOW = 15
+# Ist alles zuletzt dran gewesen, sind wenigstens die letzten drei verschiedenen Aufgaben gesperrt
+BLOCK_LAST = 3
 SEED_MAX = 2**31 - 1
 
 
@@ -91,12 +93,28 @@ def _by_distance(levels: Sequence[int], level: int) -> list[int]:
 
 
 def _least_recent(pool: TopicPool, level: int, recent: list[str]) -> Aufgabe:
-    """Alles zuletzt gesehen: die am längsten zurückliegende Aufgabe, möglichst nicht die letzte."""
-    last = recent[-1] if recent else None
-    candidates = [t for t in pool.aufgaben if t.stufe == level and t.id != last]
-    if not candidates:
-        candidates = [t for t in pool.aufgaben if t.id != last] or list(pool.aufgaben)
-    return min(candidates, key=lambda t: (_last_seen(recent, t.id), abs(t.stufe - level)))
+    """Alles zuletzt gesehen: die am längsten nicht gesehene Aufgabe in Stufennähe.
+
+    Gesperrt sind die zuletzt gelösten Aufgaben (bis zu ``BLOCK_LAST``, aber immer mindestens
+    eine frei). Aus dem Rest gewinnt die nächstgelegene Stufe, bei Gleichstand die am längsten
+    zurückliegende. So rotieren kleine Themen reihum statt zwischen zwei Aufgaben zu pendeln.
+    """
+    tasks = list(pool.aufgaben)
+    block = min(BLOCK_LAST, len(tasks) - 1)
+    blocked = set(_distinct_latest(recent, block))
+    candidates = [t for t in tasks if t.id not in blocked] or tasks
+    return min(candidates, key=lambda t: (abs(t.stufe - level), _last_seen(recent, t.id)))
+
+
+def _distinct_latest(recent: list[str], count: int) -> list[str]:
+    """Die ``count`` zuletzt gelösten, verschiedenen Aufgaben-IDs."""
+    result: list[str] = []
+    for task_id in reversed(recent):
+        if len(result) >= count:
+            break
+        if task_id not in result:
+            result.append(task_id)
+    return result
 
 
 def _last_seen(recent: list[str], task_id: str) -> int:

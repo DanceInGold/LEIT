@@ -5,6 +5,12 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Behoben
+- „Nächste Aufgabe“ pendelte in kleinen Themen zwischen zwei Aufgaben (z. B. SMART: A, B, A, C, A, D),
+  sobald alle Aufgaben einmal dran waren. Jetzt rotieren sie reihum; die letzten drei verschiedenen
+  Aufgaben sind gesperrt (AU-06, E-36).
+
+
 ### Hinzugefügt (Phase 2 · Fortschritt)
 - **Beherrschungsgrad je Thema** (FT-01, 0–100 %) aus Trefferquote der letzten zehn Versuche (nach
   Stufe gewichtet, Hilfen mindern), höchster sicher gelöster Stufe und Abstand zum letzten Erfolg (E-34).
