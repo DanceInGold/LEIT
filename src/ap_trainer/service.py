@@ -17,10 +17,18 @@ from ap_trainer.content.aufgaben import Aufgabe
 from ap_trainer.content.loader import ContentPackage
 from ap_trainer.content.models import Lektion, Thema
 from ap_trainer.core import scheduler
-from ap_trainer.core.cards import Flashcard, card_index, cards_for_topics
+from ap_trainer.core.cards import (
+    Flashcard,
+    card_index,
+    cards_for_topics,
+    mistake_card,
+    mistake_card_id,
+    parse_mistake_card_id,
+)
 from ap_trainer.core.levels import LevelState, replay
 from ap_trainer.core.mastery import Mastery, mastery
 from ap_trainer.core.mistakes import MistakeGroup, mistake_log
+from ap_trainer.core.mixed import mixed_test_due, mixed_topics
 from ap_trainer.core.models import (
     Attempt,
     BudgetPeriod,
@@ -49,6 +57,9 @@ from ap_trainer.tasks.hints import help_level
 from ap_trainer.tasks.selection import TopicPool, pick_task
 
 DEFAULT_MAX_REVIEWS = 60
+# Einstellungsschlüssel für den Mischtest (WH-03): Datum des letzten Tests und Ergebnisse
+MIXED_LAST_KEY = "mischtest_zuletzt"
+MIXED_HISTORY_KEY = "mischtest_ergebnisse"
 # Höchstens so viele Sekunden einer Aufgabe zählen als Lernzeit (offen gelassene Aufgaben)
 MAX_TASK_SECONDS = 15 * 60
 
@@ -71,6 +82,8 @@ class Submission:
     ergebnis: Ergebnis
     stufe_vorher: int
     stufe_nachher: int
+    # Falsch gelöst: Fehlerkarte angelegt oder wieder fällig gestellt (ZI-05)
+    fehlerkarte: bool = False
 
 
 def _answer_json(answer: Antwort) -> str:
@@ -194,7 +207,18 @@ class Trainer:
         """Fällige Karten für die heutige Sitzung, höchstens ``max_reviews``."""
         moment = now or dt.datetime.now(dt.UTC)
         ids = self.store.due_cards(moment, self.max_reviews)
-        return [self._cards[i] for i in ids if i in self._cards]
+        cards = (self.card(i) for i in ids)
+        return [c for c in cards if c is not None]
+
+    def card(self, card_id: str) -> Flashcard | None:
+        """Lernkarte nach ID: Glossarkarte oder Fehlerkarte; ``None``, wenn es sie nicht mehr gibt."""
+        if card_id in self._cards:
+            return self._cards[card_id]
+        parsed = parse_mistake_card_id(card_id)
+        if parsed is None:
+            return None
+        task = self.find_task(parsed[1], parsed[0])
+        return mistake_card(task) if task is not None else None
 
     def grade(
         self, card_id: str, grade: scheduler.Grade, now: dt.datetime | None = None, seconds: float = 0
@@ -296,7 +320,27 @@ class Trainer:
         progress = self.store.progress().get(task.thema, TopicProgress(topic_id=task.thema))
         if progress.zustand == "offen":
             self.store.set_progress(progress.model_copy(update={"zustand": "laufend"}))
-        return Submission(result, before, self.level(task.thema).stufe)
+        if not result.richtig:
+            self._remember_mistake(task, moment)
+        return Submission(result, before, self.level(task.thema).stufe, fehlerkarte=not result.richtig)
+
+    def _remember_mistake(self, task: Aufgabe, now: dt.datetime) -> None:
+        """Fehlerkarte anlegen (ZI-05); gibt es sie schon, wird sie sofort wieder fällig.
+
+        Generierte Aufgaben teilen sich je Generator und Stufe eine Karte – sonst entstünde bei
+        jedem Rechenfehler eine neue Variante und der Kartenstapel liefe über (E-37).
+        """
+        card_id = mistake_card_id(task.thema, task.id)
+        parsed = parse_task_id(task.id)
+        if parsed is not None:
+            prefix = mistake_card_id(task.thema, f"gen:{parsed[0]}:{parsed[1]}:")
+            card_id = min((c for c in self.store.card_ids() if c.startswith(prefix)), default=card_id)
+        stored = self.store.get_card(card_id)
+        if stored is None:
+            state = scheduler.new_card(now)
+            self.store.put_card(card_id, state.due, state.data)
+        else:
+            self.store.put_card(card_id, min(stored[0], now), stored[1])
 
     # --- Fortschritt (FT-01, FT-02, FT-04) -----------------------------------------
     def masteries(self, now: dt.datetime | None = None) -> dict[str, Mastery]:
@@ -328,6 +372,54 @@ class Trainer:
         """Titel einer festen oder generierten Aufgabe; die ID, falls sie nicht mehr existiert."""
         task = self.find_task(task_id, topic_id)
         return task.titel if task is not None else task_id
+
+    # --- Mischtest (WH-03) ---------------------------------------------------------
+    def learned_topics(self) -> list[str]:
+        """Prüfungsrelevante Themen mit Aufgaben, die schon begonnen wurden (Lektion oder Übung)."""
+        progress = self.store.progress()
+        practised = {a.thema for a in self.store.attempts()}
+        return [
+            t.id
+            for t in self.package.katalog.themen
+            if t.is_relevant
+            and not self.pools[t.id].is_empty()
+            and (t.id in practised or progress.get(t.id, TopicProgress(topic_id=t.id)).zustand != "offen")
+        ]
+
+    def mixed_test_last(self) -> dt.date | None:
+        """Datum des letzten abgeschlossenen Mischtests."""
+        value = self.store.get_setting(MIXED_LAST_KEY)
+        return dt.date.fromisoformat(value) if value else None
+
+    def mixed_test_due(self, today: dt.date | None = None) -> bool:
+        """Ist der wöchentliche Mischtest fällig?"""
+        return mixed_test_due(self.mixed_test_last(), today or dt.date.today(), self.learned_topics())
+
+    def mixed_test(self, rng: random.Random | None = None) -> list[Aufgabe]:
+        """Aufgaben für einen Mischtest: gelernte Themen gemischt, schwache häufiger (WH-03)."""
+        generator = rng or random.Random()
+        learned = self.learned_topics()
+        grades = {t: m.grad for t, m in self.masteries().items()}
+        order = mixed_topics({t: self.weights[t] for t in learned}, grades, generator)
+        tasks: list[Aufgabe] = []
+        for topic_id in order:
+            recent = [a.aufgabe_id for a in self.store.attempts(topic_id)] + [t.id for t in tasks]
+            task = pick_task(self.pools[topic_id], self.level(topic_id).stufe, recent, generator)
+            if task is not None:
+                tasks.append(task)
+        return tasks
+
+    def finish_mixed_test(self, correct: int, total: int, today: dt.date | None = None) -> None:
+        """Mischtest abschließen: Datum und Ergebnis merken."""
+        day = today or dt.date.today()
+        self.store.set_setting(MIXED_LAST_KEY, day.isoformat())
+        history = list(self.store.get_setting(MIXED_HISTORY_KEY, []))
+        history.append({"datum": day.isoformat(), "richtig": correct, "gesamt": total})
+        self.store.set_setting(MIXED_HISTORY_KEY, history)
+
+    def mixed_test_history(self) -> list[dict[str, Any]]:
+        """Bisherige Mischtest-Ergebnisse, ältestes zuerst."""
+        return list(self.store.get_setting(MIXED_HISTORY_KEY, []))
 
     # --- Überblick ---------------------------------------------------------------
     def kpis(self, now: dt.datetime | None = None) -> Kpis:

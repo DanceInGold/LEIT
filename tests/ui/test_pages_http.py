@@ -61,6 +61,7 @@ PAGES = [
     "/ueben/urheberrecht-lizenzen?aufgabe=lizenz-modelle-rechnen",
     "/ueben/unbekannt",
     "/fortschritt",
+    "/mischtest",
     "/fehler",
     "/fehler?alle=true",
     "/glossar",

@@ -127,3 +127,50 @@ def test_mastery_and_mistake_log_from_attempts(trainer: Trainer) -> None:
     value = trainer.masteries(NOW)["zahlen"]
     assert value.grad is not None and 0 < value.grad < 100
     assert trainer.mastery("zahlen", NOW) == value
+
+
+def test_wrong_answer_creates_mistake_card_for_review(trainer: Trainer) -> None:
+    """Fehlerkarten (ZI-05): falsch gelöst → Karte fällig; erneut falsch → sofort wieder fällig."""
+    from ap_trainer.content.aufgaben import Rechnung
+    from ap_trainer.tasks.validate import model_answer
+
+    task = trainer.find_task("gen:zahlensysteme:2:1", "zahlen")
+    assert isinstance(task, Rechnung)
+    assert trainer.submit(task, model_answer(task), now=NOW).fehlerkarte is False
+    submission = trainer.submit(task, ["-1"] * len(task.schritte), now=NOW)
+    assert submission.fehlerkarte
+    cards = trainer.due_cards(NOW)
+    mistake = next(c for c in cards if c.art == "fehler")
+    assert mistake.aufgabe_id == task.id and mistake.hinten == task.loesungsweg
+    due = trainer.grade(mistake.card_id, 3, NOW)  # „Gut“
+    assert due > NOW
+    trainer.submit(task, ["-1"] * len(task.schritte), now=NOW + dt.timedelta(hours=1))
+    assert any(c.card_id == mistake.card_id for c in trainer.due_cards(NOW + dt.timedelta(hours=1)))
+    # Eine andere Variante desselben Generators und derselben Stufe nutzt dieselbe Karte
+    other = trainer.find_task("gen:zahlensysteme:2:2", "zahlen")
+    assert isinstance(other, Rechnung)
+    trainer.submit(other, ["-1"] * len(other.schritte), now=NOW)
+    assert sum(c.startswith("fehler:") for c in trainer.store.card_ids()) == 1
+    # Eine Karte zu einer verschwundenen Aufgabe wird übersprungen
+    trainer.store.put_card("fehler:zahlen:gibt-es-nicht", NOW, {})
+    assert all(c.card_id != "fehler:zahlen:gibt-es-nicht" for c in trainer.due_cards(NOW))
+
+
+def test_mixed_test_over_learned_topics(trainer: Trainer) -> None:
+    """Mischtest (WH-03): erst ab zwei begonnenen Themen fällig, danach wöchentlich."""
+    import random
+
+    from ap_trainer.content.aufgaben import Rechnung
+
+    assert trainer.learned_topics() == []
+    assert not trainer.mixed_test_due(NOW.date())
+    task = trainer.find_task("gen:zahlensysteme:1:1", "zahlen")
+    assert isinstance(task, Rechnung)
+    trainer.submit(task, ["-1"] * len(task.schritte), now=NOW)
+    assert trainer.learned_topics() == ["zahlen"]
+    tasks = trainer.mixed_test(random.Random(1))
+    assert len(tasks) == 10 and {t.thema for t in tasks} == {"zahlen"}
+    trainer.finish_mixed_test(7, 10, NOW.date())
+    assert trainer.mixed_test_last() == NOW.date()
+    assert trainer.mixed_test_history() == [{"datum": NOW.date().isoformat(), "richtig": 7, "gesamt": 10}]
+    assert not trainer.mixed_test_due(NOW.date() + dt.timedelta(days=6))

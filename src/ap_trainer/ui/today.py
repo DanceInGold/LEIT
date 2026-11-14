@@ -78,7 +78,9 @@ def _todo_card(ration: DailyRation, trainer: Trainer) -> None:
         _todo_item(
             "style",
             f"{reviews} Lernkarten wiederholen" if reviews else "Keine Karten fällig",
-            "kommt vor neuem Stoff" if reviews else "Karten entstehen nach jedem gelesenen Kapitel",
+            "kommt vor neuem Stoff, inklusive Fehlerkarten"
+            if reviews
+            else "Karten entstehen nach jedem gelesenen Kapitel und aus Fehlern",
             ("Starten", "/lernkarten") if reviews else None,
         )
         ui.separator()
@@ -96,6 +98,14 @@ def _todo_card(ration: DailyRation, trainer: Trainer) -> None:
             _todo_item("hourglass_top", ration.thema.titel, "Kapitel sind in Arbeit", ("Thema", target))
         ui.separator()
         _practice_item(trainer, ration)
+        if trainer.mixed_test_due():
+            ui.separator()
+            _todo_item(
+                "shuffle",
+                "Wöchentlicher Mischtest",
+                "10 Aufgaben quer durch deine Themen",
+                ("Starten", "/mischtest"),
+            )
 
 
 def _chart_card(title: str, options: dict[str, Any], height: str = "h-64") -> None:
