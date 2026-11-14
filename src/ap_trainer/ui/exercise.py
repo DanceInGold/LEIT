@@ -29,8 +29,8 @@ from ap_trainer.service import PracticeTopic, Submission, Trainer
 from ap_trainer.tasks.check import Antwort, FreitextAntwort, missing_terms
 from ap_trainer.tasks.hints import help_steps
 from ap_trainer.ui.layout import frame
-from ap_trainer.ui.lesson import MARKDOWN_EXTRAS, STATUS_COLORS
-from ap_trainer.ui.render import Block, parse_blocks
+from ap_trainer.ui.lesson import STATUS_COLORS
+from ap_trainer.ui.rich import markdown as _markdown
 from ap_trainer.ui.task_view import (
     PLATZHALTER,
     gap_markdown,
@@ -55,22 +55,6 @@ class ExerciseState:
     # Freitext: Musterlösung erst nach dem Schreiben zeigen, dann selbst bewerten (AU-05)
     freitext: str | None = None
     solved: int = 0
-
-
-def _markdown(text: str) -> None:
-    """Markdown mit Mermaid-Diagrammen und Vertiefungen, wie in der Lektionsansicht."""
-    _render(parse_blocks(text))
-
-
-def _render(blocks: list[Block]) -> None:
-    for block in blocks:
-        if block.kind == "mermaid":
-            ui.mermaid(block.text).classes("w-full")
-        elif block.kind == "details":
-            with ui.expansion(block.summary, icon="psychology_alt").classes("w-full border rounded"):
-                _render(block.children)
-        else:
-            ui.markdown(block.text, extras=MARKDOWN_EXTRAS).classes("w-full")
 
 
 # --- Eingaben je Aufgabentyp ------------------------------------------------------
@@ -226,6 +210,10 @@ def _feedback(task: Aufgabe, submission: Submission) -> None:
             ui.label(f"Stufe {submission.stufe_nachher} erreicht – weiter so!").classes("text-positive")
         elif submission.stufe_nachher < submission.stufe_vorher:
             ui.label(f"Zurück auf Stufe {submission.stufe_nachher}, um die Grundlagen zu festigen.")
+        if submission.fehlerkarte:
+            with ui.row().classes("items-center gap-1 text-sm opacity-80"):
+                ui.icon("style")
+                ui.label("Als Fehlerkarte gespeichert – sie kommt in der Wiederholung wieder.")
     with ui.expansion("Lösungsweg", icon="route", value=not result.richtig).classes("w-full border rounded"):
         _markdown(task.loesungsweg)
 
@@ -245,6 +233,94 @@ def _topic_card(item: PracticeTopic, value: Mastery) -> None:
             ui.label(quote).classes("text-sm opacity-70")
         ui.badge(f"Stufe {item.stufe} · {STUFEN_NAMEN[item.stufe]}")
         ui.icon("chevron_right")
+
+
+@dataclass
+class Runner:
+    """Steuert eine Folge von Aufgaben auf einer Seite (Übung eines Themas oder Mischtest)."""
+
+    # Nächste Aufgabe ziehen; ``None`` beendet die Folge
+    advance: Callable[[], Aufgabe | None]
+    topic_title: Callable[[Aufgabe], str]
+    # Anzeige, wenn keine Aufgabe (mehr) da ist
+    empty: Callable[[], None]
+    on_submit: Callable[[Submission], None] | None = None
+    next_label: str = "Nächste Aufgabe"
+    # Optionale Fortschrittsangabe über der Aufgabe, z. B. „Aufgabe 3 von 10“
+    position: Callable[[], str] | None = None
+
+
+def run_tasks(trainer: Trainer, state: ExerciseState, runner: Runner) -> None:
+    """Zeichnet die aktuelle Aufgabe mit Eingaben, Hilfen, Prüfen und Weiter (AU-01 bis HI-03)."""
+    getter: list[AnswerGetter] = []
+
+    def submit() -> None:
+        task = state.task
+        if task is None or state.submission is not None:
+            return
+        answer = getter[0]()
+        if is_blank(task, answer):
+            ui.notify("Erst eine Antwort eingeben – oder eine Hilfe öffnen.", type="warning")
+            return
+        if isinstance(task, Freitext) and state.freitext is None:
+            assert isinstance(answer, FreitextAntwort)
+            state.freitext = answer.text
+            body.refresh()
+            return
+        seconds = time.monotonic() - state.started
+        state.submission = trainer.submit(task, answer, state.opened, seconds)
+        state.solved += 1
+        if runner.on_submit is not None:
+            runner.on_submit(state.submission)
+        # Nur Hilfen und Ergebnis neu zeichnen – die Eingaben bleiben sichtbar
+        hints.refresh()
+        result.refresh()
+
+    def next_task() -> None:
+        state.task = runner.advance()
+        state.opened, state.submission, state.order, state.freitext = 0, None, [], None
+        state.started = time.monotonic()
+        body.refresh()
+
+    @ui.refreshable
+    def hints() -> None:
+        if state.task is not None:
+            _hints(state.task, state, hints.refresh)
+
+    @ui.refreshable
+    def result() -> None:
+        task = state.task
+        if task is None:
+            return
+        if state.submission is None:
+            label = "Prüfen"
+            if isinstance(task, Freitext):
+                label = "Musterlösung zeigen" if state.freitext is None else "Bewertung speichern"
+            ui.button(label, icon="fact_check", on_click=submit).classes("w-full")
+            return
+        _feedback(task, state.submission)
+        ui.button(runner.next_label, icon="arrow_forward", on_click=next_task).classes("w-full")
+
+    @ui.refreshable
+    def body() -> None:
+        task = state.task
+        if task is None:
+            runner.empty()
+            return
+        if runner.position is not None:
+            ui.label(runner.position()).classes("text-sm opacity-70")
+        _task_header(task, runner.topic_title(task))
+        with ui.card().classes("w-full gap-2"):
+            ui.label(task.titel).classes("text-xl font-semibold")
+            if task.situation:
+                with ui.card().classes("w-full bg-gray-500/10"):
+                    _markdown(task.situation)
+            _markdown(task.frage)
+            getter[:] = [render_inputs(task, state, submit)]
+        hints()
+        result()
+
+    body()
 
 
 def register(trainer: Trainer) -> None:
@@ -273,73 +349,16 @@ def register(trainer: Trainer) -> None:
             return
         first = trainer.find_task(aufgabe, topic_id) if aufgabe else None
         state = ExerciseState(task=first or trainer.next_task(topic_id))
-        getter: list[AnswerGetter] = []
 
-        def submit() -> None:
-            task = state.task
-            if task is None or state.submission is not None:
-                return
-            answer = getter[0]()
-            if is_blank(task, answer):
-                ui.notify("Erst eine Antwort eingeben – oder eine Hilfe öffnen.", type="warning")
-                return
-            if isinstance(task, Freitext) and state.freitext is None:
-                assert isinstance(answer, FreitextAntwort)
-                state.freitext = answer.text
-                body.refresh()
-                return
-            seconds = time.monotonic() - state.started
-            state.submission = trainer.submit(task, answer, state.opened, seconds)
-            state.solved += 1
-            # Nur Hilfen und Ergebnis neu zeichnen – die Eingaben bleiben sichtbar
-            hints.refresh()
-            result.refresh()
+        def empty() -> None:
+            ui.label("Zu diesem Thema gibt es noch keine Aufgaben.")
+            ui.link("Zur Übersicht", "/ueben")
 
-        def next_task() -> None:
-            state.task = trainer.next_task(topic_id)
-            state.opened, state.submission, state.order, state.freitext = 0, None, [], None
-            state.started = time.monotonic()
-            body.refresh()
-
-        @ui.refreshable
-        def hints() -> None:
-            if state.task is not None:
-                _hints(state.task, state, hints.refresh)
-
-        @ui.refreshable
-        def result() -> None:
-            task = state.task
-            if task is None:
-                return
-            if state.submission is None:
-                label = "Prüfen"
-                if isinstance(task, Freitext):
-                    label = "Musterlösung zeigen" if state.freitext is None else "Bewertung speichern"
-                ui.button(label, icon="fact_check", on_click=submit).classes("w-full")
-                return
-            _feedback(task, state.submission)
-            ui.button("Nächste Aufgabe", icon="arrow_forward", on_click=next_task).classes("w-full")
-
-        @ui.refreshable
-        def body() -> None:
-            task = state.task
-            if task is None:
-                ui.label("Zu diesem Thema gibt es noch keine Aufgaben.")
-                ui.link("Zur Übersicht", "/ueben")
-                return
-            _task_header(task, topic.titel)
-            with ui.card().classes("w-full gap-2"):
-                ui.label(task.titel).classes("text-xl font-semibold")
-                if task.situation:
-                    with ui.card().classes("w-full bg-gray-500/10"):
-                        _markdown(task.situation)
-                _markdown(task.frage)
-                getter[:] = [render_inputs(task, state, submit)]
-            hints()
-            result()
-
+        runner = Runner(
+            advance=lambda: trainer.next_task(topic_id), topic_title=lambda _t: topic.titel, empty=empty
+        )
         with frame(f"Üben: {topic.titel}"):
             with ui.row().classes("items-center gap-2 text-sm"):
                 ui.link("← Alle Themen", "/ueben")
                 ui.link("Kapitel zum Thema", f"/thema/{topic_id}")
-            body()
+            run_tasks(trainer, state, runner)

@@ -5,6 +5,21 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt (Phase 2 · Wiederholung)
+- **Fehlerkarten** (ZI-05, WH-01): Jede falsch gelöste Aufgabe wird zur Lernkarte – vorne die
+  Aufgabe mit Situation und Diagrammen, hinten der Lösungsweg, dazu ein Link, um sie noch einmal
+  selbst zu lösen. Die Karten laufen über FSRS mit den Glossarkarten; ein erneuter Fehler stellt
+  die Karte sofort wieder fällig. Varianten eines Rechentrainers teilen sich je Stufe eine Karte (E-37).
+- **Wöchentlicher Mischtest** (WH-03): zehn Aufgaben quer durch alle begonnenen Themen, schwache
+  Themen mit hohem Prüfungsgewicht häufiger, nie dasselbe Thema zweimal hintereinander. Ab zwei
+  begonnenen Themen erscheint er alle sieben Tage auf „Heute“; das Ergebnis steht auf „Fortschritt“ (E-38).
+- Nach einer falschen Antwort zeigt die Übung „Als Fehlerkarte gespeichert“.
+
+### Geändert
+- Aufgabenablauf der Übungsseite in eine wiederverwendbare Funktion ausgelagert (Übung und Mischtest);
+  Markdown mit Diagrammen für Aufgaben und Karten in `ui/rich.py`.
+
+
 ### Behoben
 - „Nächste Aufgabe“ pendelte in kleinen Themen zwischen zwei Aufgaben (z. B. SMART: A, B, A, C, A, D),
   sobald alle Aufgaben einmal dran waren. Jetzt rotieren sie reihum; die letzten drei verschiedenen
