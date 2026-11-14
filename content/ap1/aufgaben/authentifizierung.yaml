@@ -17,7 +17,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion authentifizierung-passwoerter."
     belege:
       - {titel: "NIST SP 800-63B Revision 4: Digital Identity Guidelines – Authentication and Authenticator Management", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: auth-faktoren
     typ: zuordnung
@@ -36,7 +36,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Drei Faktoren“ der Lektion authentifizierung-passwoerter."
     belege:
       - {titel: "NIST SP 800-63B Revision 4", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: auth-ist-2fa
     typ: multiple_choice
@@ -54,7 +54,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Prüfungsfalle der Lektion authentifizierung-passwoerter."
     belege:
       - {titel: "NIST SP 800-63B Revision 4 (Multi-Factor Authentication)", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: auth-2fa-staerke
     typ: reihenfolge
@@ -71,7 +71,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Wie stark ist welche 2FA?“ der Lektion authentifizierung-passwoerter."
     belege:
       - {titel: "NIST SP 800-63B Revision 4 (phishing-resistente Authenticatoren, eingeschränkte Verfahren wie SMS)", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: auth-laenge-rechnen
     typ: rechnung
@@ -117,7 +117,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), zur Vertiefung „Länge schlägt Komplexität“ der Lektion authentifizierung-passwoerter; nachgerechnet. Annahme: echte Zufallspasswörter."
     belege:
       - {titel: "NIST SP 800-63B Revision 4 (Länge statt Kompositionsregeln)", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: auth-policy-freitext
     typ: freitext
@@ -148,4 +148,4 @@ aufgaben:
     belege:
       - {titel: "NIST SP 800-63B Revision 4", url: "https://pages.nist.gov/800-63-4/sp800-63b.html"}
       - {titel: "BSI IT-Grundschutz-Kompendium, Baustein ORP.4 Identitäts- und Berechtigungsmanagement"}
-    status: ungeprüft
+    status: geprüft

@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle und Prüfungsfalle „Alte Prinzipien“ der Lektion masken-ergonomie."
     belege:
       - {titel: "DIN EN ISO 9241-110:2020 Ergonomie der Mensch-System-Interaktion – Teil 110: Interaktionsprinzipien"}
-    status: ungeprüft
+    status: geprüft
 
   - id: maske-prinzip-zuordnen
     typ: zuordnung
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Beispiel „Maske bewerten“ der Lektion masken-ergonomie."
     belege:
       - {titel: "DIN EN ISO 9241-110:2020"}
-    status: ungeprüft
+    status: geprüft
 
   - id: maske-fehlermeldung
     typ: multiple_choice
@@ -56,7 +56,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Regeln für eine gute Maske in der Lektion masken-ergonomie."
     belege:
       - {titel: "DIN EN ISO 9241-110:2020 (Robustheit gegen Benutzungsfehler)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: maske-ci-kontrast
     typ: multiple_choice
@@ -75,7 +75,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „Corporate Identity“ und Prüfungsfalle der Lektion masken-ergonomie."
     belege:
       - {titel: "W3C WCAG 2.2, Erfolgskriterium 1.4.3 Contrast (Minimum)", url: "https://www.w3.org/TR/WCAG22/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: maske-regeln-luecke
     typ: lueckentext
@@ -95,7 +95,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Liste „Regeln für eine gute Maske“ der Lektion masken-ergonomie."
     belege:
       - {titel: "DIN EN ISO 9241-110:2020"}
-    status: ungeprüft
+    status: geprüft
 
   - id: maske-bewerten-freitext
     typ: freitext
@@ -129,4 +129,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion masken-ergonomie."
     belege:
       - {titel: "DIN EN ISO 9241-110:2020"}
-    status: ungeprüft
+    status: geprüft

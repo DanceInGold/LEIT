@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion client-server-domaene."
     belege:
       - {titel: "Microsoft Learn: Active Directory Domain Services Overview", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"}
-    status: ungeprüft
+    status: geprüft
 
   - id: domaene-vorteile
     typ: multiple_choice
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Liste „Was eine Domäne bietet“ der Lektion client-server-domaene."
     belege:
       - {titel: "Microsoft Learn: Active Directory Domain Services Overview", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"}
-    status: ungeprüft
+    status: geprüft
 
   - id: domaene-beitritt-ordnen
     typ: reihenfolge
@@ -58,7 +58,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Einen Windows-Client aufnehmen“ der Lektion client-server-domaene."
     belege:
       - {titel: "Microsoft Learn: Join a computer to a domain", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain"}
-    status: ungeprüft
+    status: geprüft
 
   - id: domaene-nicht-gefunden
     typ: multiple_choice
@@ -85,7 +85,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung „Warum ist DNS beim Beitritt so wichtig?“ der Lektion client-server-domaene."
     belege:
       - {titel: "Microsoft Learn: How domain controllers are located in Windows (DNS-SRV-Einträge)", url: "https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/how-domain-controllers-are-located"}
-    status: ungeprüft
+    status: geprüft
 
   - id: domaene-uhrzeit
     typ: multiple_choice
@@ -104,7 +104,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Praxisbezug „Uhrzeit“ der Lektion client-server-domaene."
     belege:
       - {titel: "Microsoft Learn: Sicherheitsrichtlinie „Maximum tolerance for computer clock synchronization“ (Standard 5 Minuten)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: domaene-kanzlei-freitext
     typ: freitext
@@ -132,4 +132,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion client-server-domaene."
     belege:
       - {titel: "Microsoft Learn: Active Directory Domain Services Overview", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"}
-    status: ungeprüft
+    status: geprüft
