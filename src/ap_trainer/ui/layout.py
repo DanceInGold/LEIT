@@ -125,6 +125,7 @@ body {
 .leit-countdown-fill { height: 4px; border-radius: 99px; background: #6d97f2; }
 .leit-group { font-size: 0.78rem; color: var(--leit-rail-muted); margin: 1.1rem 0 0.25rem 0.75rem; }
 .leit-nav { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0.75rem; border-radius: 10px;
+            width: 100%; box-sizing: border-box;
             color: var(--leit-rail-text) !important; text-decoration: none; font-weight: 500; }
 .leit-nav:hover { background: var(--leit-rail-hover); color: #ffffff !important; }
 .leit-nav.aktiv { background: #1d3157; color: #ffffff !important; box-shadow: inset 3px 0 0 #6d97f2; }
@@ -139,6 +140,7 @@ body {
 
 /* Listen und Kacheln */
 .leit-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0.75rem; border-radius: 10px;
+            width: 100%; box-sizing: border-box;
             color: var(--leit-text) !important; text-decoration: none; }
 .leit-row + .leit-row { border-top: 1px solid var(--leit-line); border-radius: 0; }
 .leit-row:hover { background: var(--leit-surface-2); border-radius: 10px; }
