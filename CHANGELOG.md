@@ -22,6 +22,10 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
   SMART-Ziele, Teamphasen, Lasten-/Pflichtenheft, Stromkostenvergleich, PC-Komponenten, Energiesparen,
   Angebotskalkulation, IPv6, OSI-Schichten, Ports, TCP/UDP, asymmetrische Verschlüsselung, digitale
   Signatur, DSGVO-Betroffenenrechte, ER-Modell und 2FA – kaum Überschneidung mit Simulation 1.
+- **Simulationen 3–6** (E-41): „Server und Netz für eine Spedition“, „Patientenportal für eine
+  Physiotherapie“, „Kundenservice für eine Kaffeerösterei“ und „Neue Filiale für ein Reisebüro“
+  (Generalprobe). Zusammen mit 1 und 2 kommt jedes Thema des Prüfungskatalogs 2025 in mindestens einer
+  Simulation vor; punktstarke Themen wie Angebotsvergleich, ERM und Schreibtischtest mehrfach.
 - Inhaltsformat `content/ap1/simulationen/<id>.yaml` mit Prüfung in `ap-tools check`
   (100 Punkte, 20–30 Punkte je Aufgabe, Themen, Musterlösungen, Fehlerbilder); Lernstand-Tabelle
   `simulation_runs` (Migration 4), im JSON-Export enthalten.

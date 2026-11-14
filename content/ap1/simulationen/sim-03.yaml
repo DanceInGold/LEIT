@@ -133,17 +133,17 @@ aufgaben:
         punkte: 4
         aufgabe:
           typ: multiple_choice
-          thema: rechtsformen-aufbauorganisation
-          titel: "Wer haftet bei der KG?"
-          frage: "Die ArchivTech prüft die Bonität der neuen Kundin, einer **Kommanditgesellschaft**. Welche **zwei** Aussagen zur KG treffen zu?"
+          thema: vertraege
+          titel: "Gewährleistung oder Garantie?"
+          frage: "Der Server wird mit „3 Jahren Herstellergarantie“ angeboten. Welche **zwei** Aussagen zu Gewährleistung und Garantie treffen zu?"
           optionen:
-            - {text: "Mindestens ein Gesellschafter (Komplementär) haftet unbeschränkt mit seinem Privatvermögen.", richtig: true, warum: "§ 161 HGB: mindestens ein persönlich haftender Gesellschafter."}
-            - {text: "Kommanditisten haften nur bis zur Höhe ihrer Einlage.", richtig: true, warum: "§ 171 HGB: beschränkte Haftung bis zur Einlage."}
-            - {text: "Für die Gründung ist ein Mindestkapital von 25.000 € vorgeschrieben.", warum: "Das gilt für die GmbH. Die KG als Personengesellschaft hat kein Mindestkapital.", ursache: begriff}
-            - {text: "Die KG ist eine Kapitalgesellschaft wie die AG.", warum: "Die KG ist eine Personengesellschaft.", ursache: begriff}
-          loesungsweg: "KG = Personengesellschaft: **Komplementär** haftet unbeschränkt, **Kommanditist** nur bis zur Einlage; kein Mindestkapital."
+            - {text: "Die Gewährleistung ist gesetzlich geregelt: Der Verkäufer haftet für Mängel, die bei der Übergabe vorhanden waren.", richtig: true, warum: "§§ 434, 437 BGB; Verjährung bei neuen Sachen in der Regel 2 Jahre (§ 438)."}
+            - {text: "Eine Garantie ist eine freiwillige Zusatzleistung, oft vom Hersteller.", richtig: true, warum: "§ 443 BGB: Inhalt bestimmt der Garantiegeber."}
+            - {text: "Bei einem Mangel darf die Spedition sofort vom Vertrag zurücktreten.", warum: "Zuerst ist Nacherfüllung zu verlangen; erst wenn sie scheitert, Rücktritt oder Minderung.", ursache: konzept}
+            - {text: "Gewährleistung und Garantie sind zwei Namen für dasselbe Recht.", warum: "Gewährleistung ist gesetzlich und richtet sich gegen den Verkäufer; die Garantie ist freiwillig.", ursache: begriff}
+          loesungsweg: "**Gewährleistung** = gesetzlich, gegen den Verkäufer, Mangel bei Übergabe, zuerst Nacherfüllung. **Garantie** = freiwillig, zusätzlich."
           belege:
-            - {titel: "HGB §§ 161, 171", url: "https://www.gesetze-im-internet.de/hgb/"}
+            - {titel: "BGB §§ 434, 437, 438, 439, 443", url: "https://www.gesetze-im-internet.de/bgb/"}
 
   # ------------------------------------------------------------------------------------------
   - nr: 2

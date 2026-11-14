@@ -219,19 +219,18 @@ aufgaben:
       - nr: f
         punkte: 4
         aufgabe:
-          typ: zuordnung
-          thema: bpmn
-          titel: "Symbole in BPMN"
-          frage: "Den Versandprozess hat eine Kollegin in BPMN 2.0 gezeichnet. Ordne jedem Symbol seine Bedeutung zu."
-          paare:
-            - {links: "Kreis mit dünnem Rand", rechts: "Startereignis"}
-            - {links: "Kreis mit dickem Rand", rechts: "Endereignis"}
-            - {links: "Raute mit X", rechts: "exklusives Gateway"}
-            - {links: "Raute mit +", rechts: "paralleles Gateway"}
-          ablenker: ["Datenspeicher"]
-          loesungsweg: "dünner Kreis = **Start** · dicker Kreis = **Ende** · X-Raute = **exklusiv** · +-Raute = **parallel**."
+          typ: reihenfolge
+          thema: rollout-ticketsystem
+          titel: "Lebenslauf eines Tickets"
+          frage: "Bring die Status eines Tickets im neuen Helpdesk in die richtige Reihenfolge."
+          elemente:
+            - "neu"
+            - "in Bearbeitung"
+            - "gelöst"
+            - "geschlossen"
+          loesungsweg: "neu → in Bearbeitung → **gelöst** (Lösung eingetragen) → **geschlossen** (Kunde hat bestätigt oder Frist ist abgelaufen)."
           belege:
-            - {titel: "OMG Business Process Model and Notation (BPMN) 2.0.2", url: "https://www.omg.org/spec/BPMN/2.0.2"}
+            - {titel: "AXELOS: ITIL 4 – Incident Management"}
 
   # ------------------------------------------------------------------------------------------
   - nr: 3
