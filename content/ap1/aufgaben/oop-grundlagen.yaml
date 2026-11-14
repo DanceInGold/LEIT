@@ -21,7 +21,7 @@ aufgaben:
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Abschnitt Classes", url: "https://www.omg.org/spec/UML/2.5.1"}
       - {titel: "Python-Tutorial: Classes", url: "https://docs.python.org/3/tutorial/classes.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: oop-sichtbarkeit-luecke
     typ: lueckentext
@@ -43,7 +43,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion oop-kapselung."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1: VisibilityKind", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
 
   - id: oop-attribut-methode
     typ: multiple_choice
@@ -73,7 +73,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zu den Lektionen oop-klassen-objekte und oop-kapselung."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Abschnitt Classes", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
 
   - id: oop-objekte-verfolgen
     typ: rechnung
@@ -129,7 +129,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Klasse aus der Lektion oop-klassen-objekte; in Python ausgeführt."
     belege:
       - {titel: "Python-Tutorial: Classes (Instanzvariablen)", url: "https://docs.python.org/3/tutorial/classes.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: oop-kapselung-aussagen
     typ: multiple_choice
@@ -147,7 +147,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion oop-kapselung."
     belege:
       - {titel: "PEP 8: Designing for Inheritance (führender Unterstrich)", url: "https://peps.python.org/pep-0008/#designing-for-inheritance"}
-    status: ungeprüft
+    status: geprüft
 
   - id: oop-klasse-entwerfen
     typ: freitext
@@ -186,4 +186,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zu den Lektionen oop-klassen-objekte und oop-kapselung."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Abschnitt Classes", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft

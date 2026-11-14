@@ -19,7 +19,7 @@ aufgaben:
     belege:
       - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 4 Nr. 1", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
       - {titel: "EuGH, Urteil vom 19.10.2016, C-582/14 (Breyer): dynamische IP-Adressen als personenbezogene Daten", url: "https://curia.europa.eu/juris/liste.jsf?num=C-582/14"}
-    status: ungeprüft
+    status: geprüft
 
   - id: dsgvo-grundsaetze-zuordnen
     typ: zuordnung
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion dsgvo-grundsaetze."
     belege:
       - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 5", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
-    status: ungeprüft
+    status: geprüft
 
   - id: dsgvo-rechte-zuordnen
     typ: zuordnung
@@ -58,7 +58,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion dsgvo-betroffenenrechte."
     belege:
       - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 15–21", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
-    status: ungeprüft
+    status: geprüft
 
   - id: dsgvo-pseudo-luecke
     typ: lueckentext
@@ -80,7 +80,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion dsgvo-betroffenenrechte."
     belege:
       - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 4 Nr. 5 und Erwägungsgrund 26", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
-    status: ungeprüft
+    status: geprüft
 
   - id: dsgvo-rechtsgrundlage
     typ: zuordnung
@@ -101,7 +101,7 @@ aufgaben:
     belege:
       - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 6 Abs. 1", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
       - {titel: "§ 147 Abs. 3 AO: Buchungsbelege seit 01.01.2025 acht Jahre aufbewahren", url: "https://www.gesetze-im-internet.de/ao_1977/__147.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: dsgvo-panne-fristen
     typ: rechnung
@@ -144,7 +144,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion dsgvo-betroffenenrechte; nachgerechnet."
     belege:
       - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 33 und Art. 83 Abs. 5", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
-    status: ungeprüft
+    status: geprüft
 
   - id: dsgvo-loeschantrag
     typ: freitext
@@ -174,4 +174,4 @@ aufgaben:
     belege:
       - {titel: "Verordnung (EU) 2016/679 (DSGVO), Art. 12 Abs. 3, Art. 17 Abs. 3 b, Art. 18", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
       - {titel: "§ 147 Abs. 3 AO: Buchungsbelege (z. B. Rechnungen) seit 01.01.2025 acht Jahre aufbewahren (Viertes Bürokratieentlastungsgesetz)", url: "https://www.gesetze-im-internet.de/ao_1977/__147.html"}
-    status: ungeprüft
+    status: geprüft

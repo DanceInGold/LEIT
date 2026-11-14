@@ -21,7 +21,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Fachwörter der Lektion englische-texte."
     belege:
       - {titel: "Cambridge Dictionary (Englisch–Deutsch)", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: englisch-technik-zuordnen
     typ: zuordnung
@@ -41,7 +41,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Fachwörter der Lektion englische-texte."
     belege:
       - {titel: "Cambridge Dictionary (Englisch–Deutsch)", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: englisch-falsche-freunde
     typ: lueckentext
@@ -65,7 +65,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Falsche Freunde“ der Lektion englische-texte."
     belege:
       - {titel: "Cambridge Dictionary (Englisch–Deutsch): actual, eventually, billion", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: englisch-datenblatt
     typ: multiple_choice
@@ -89,7 +89,7 @@ aufgaben:
     belege:
       - {titel: "IEEE 802.3at-2009 (PoE+)", url: "https://standards.ieee.org/ieee/802.3at/4276/"}
       - {titel: "Cambridge Dictionary (Englisch–Deutsch)", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: englisch-angebot-rechnen
     typ: rechnung
@@ -137,7 +137,7 @@ aufgaben:
     belege:
       - {titel: "Cambridge Dictionary (Englisch–Deutsch): quotation, discount, lead time", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
       - {titel: "Bezugskalkulation der Handelskalkulation: Standardschema der kaufmännischen Ausbildung"}
-    status: ungeprüft
+    status: geprüft
 
   - id: englisch-mail-zusammenfassen
     typ: freitext
@@ -178,4 +178,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), fiktive Herstellermail passend zur Lektion englische-texte."
     belege:
       - {titel: "Cambridge Dictionary (Englisch–Deutsch): advisory, vulnerability, workaround, reboot", url: "https://dictionary.cambridge.org/de/worterbuch/englisch-deutsch/"}
-    status: ungeprüft
+    status: geprüft

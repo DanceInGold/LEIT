@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion kundenbedarf."
     belege:
       - {titel: "Lektion „Kundenbedarf ermitteln“ (Fragetechniken)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kunde-vier-seiten
     typ: zuordnung
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Modell der Lektion kundenbedarf."
     belege:
       - {titel: "Schulz von Thun, F.: Miteinander reden 1 – Störungen und Klärungen. Rowohlt, Reinbek 1981"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kunde-zuhoeren-ordnen
     typ: reihenfolge
@@ -55,7 +55,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Ablauf der Lektion kundenbedarf."
     belege:
       - {titel: "Lektion „Kundenbedarf ermitteln“ (Aktives Zuhören)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kunde-reaktion
     typ: multiple_choice
@@ -75,7 +75,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Beispiel der Lektion kundenbedarf."
     belege:
       - {titel: "Schulz von Thun, F.: Miteinander reden 1 – Störungen und Klärungen. Rowohlt, Reinbek 1981"}
-    status: ungeprüft
+    status: geprüft
 
   - id: kunde-fragen-formulieren
     typ: freitext
@@ -101,4 +101,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Fragetechniken der Lektion kundenbedarf."
     belege:
       - {titel: "Lektion „Kundenbedarf ermitteln“ (Fragetechniken)"}
-    status: ungeprüft
+    status: geprüft
