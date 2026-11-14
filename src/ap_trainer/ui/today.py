@@ -98,6 +98,12 @@ def _todo_card(ration: DailyRation, trainer: Trainer) -> None:
             _todo_item("hourglass_top", ration.thema.titel, "Kapitel sind in Arbeit", ("Thema", target))
         ui.separator()
         _practice_item(trainer, ration)
+        weak = trainer.sim_weak_topics()
+        if weak:
+            by_id = trainer.package.katalog.by_id()
+            names = ", ".join(by_id[t].titel for t in weak[:3]) + (" …" if len(weak) > 3 else "")
+            ui.separator()
+            _todo_item("report", "Schwachstellen aus der Simulation", names, ("Üben", f"/ueben/{weak[0]}"))
         if trainer.mixed_test_due():
             ui.separator()
             _todo_item(

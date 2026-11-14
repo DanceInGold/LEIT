@@ -438,3 +438,24 @@ Thema mit Gewicht > 0 Übungsaufgaben. Rechenwerte per Skript nachgerechnet, Mer
 
 Alle Korrekturen betrafen neue, noch nicht gemergte Aufgaben; in bestehenden Lektionen wurden
 keine Fehler gefunden.
+
+## Prüfungssimulation 1 („Neue Arbeitsplätze für eine Steuerkanzlei“)
+
+`content/ap1/simulationen/sim-01.yaml`, 18 Teilaufgaben, im PR mit `status: ungeprüft`. Aufbau nach dem
+U-Form-Prüfungstrainer (100 Punkte, 90 Minuten, vier Aufgaben zu 20–30 Punkten: hier 26/26/24/24).
+Rechenwerte mit `Decimal` nachgerechnet; `ap-tools check` prüft Musterlösungen und Fehlerbilder; ein
+Test spielt die Simulation mit allen Musterlösungen durch (100 Punkte) und einmal leer (0 Punkte).
+
+| Teil | Geprüfte Kernaussagen | Beim Prüfen korrigiert |
+| --- | --- | --- |
+| 1b Angebotsvergleich | A: 18 × 1.049 € = 18.882 €, − 8 % = 17.371,44 €, − 2 % Skonto = 17.024,01 €; B: 17.802 € − 3 % = 17.267,94 € + 150 € = 17.417,94 €; Schema Listen- → Ziel- → Bar- → Bezugspreis wie in der Lektion | Zwei Fehlerbilder im Entwurf falsch beziffert: „Rabatt und Skonto addiert“ 16.987,32 € → richtig 16.993,80 €; „Skonto nach Versand“ 17.412,00 € → richtig 17.413,44 € |
+| 1c Nutzwertanalyse | A: 3,2 + 1,5 + 1,05 + 1,8 = 7,55; B: 3,6 + 2,0 + 0,75 + 1,0 = 7,35 | – |
+| 2a Subnetting | /24 → 4 Subnetze → /26, 255.255.255.192, 62 Hosts, drittes Subnetz .128 bis .191 | – |
+| 2c Übertragung | 600 · 10⁹ Byte × 8 = 4,8 · 10¹² Bit ÷ 8 · 10⁸ bit/s = 6.000 s = 100 min | – |
+| 3c Verfügbarkeit | 1 − 0,005² = 99,9975 %; × 0,999 = 99,8975 %; (1 − 0,998975025) × 8.760 h = 8,98 h (E-32) | – |
+| 3b, 3d, 4c | Schutzbedarf „hoch“ für Mandantendaten (BSI 200-2); 3-2-1-Regel; Scrum-Verantwortlichkeiten und Events nach Scrum Guide 2020 | – |
+| 4a Schreibtischtest | 1 → 7 → 10 → 22 | – |
+| 4b Amortisation | 12 h × 40 € = 480 €; − 80 € = 400 €; 9.600 € ÷ 400 € = 24 Monate | – |
+
+Notenschlüssel der Auswertung nach IHK (z. B. IHK Pfalz): 92–100 sehr gut, 81–unter 92 gut, 67–unter 81
+befriedigend, 50–unter 67 ausreichend, 30–unter 50 mangelhaft, unter 30 ungenügend.

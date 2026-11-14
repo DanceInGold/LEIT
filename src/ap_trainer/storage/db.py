@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any
 
 from ap_trainer.core.models import Attempt, PlanSettings, TopicProgress
+from ap_trainer.core.simulation import SimRun
 
 # Jede Migration hebt das Schema um genau eine Version an. Nie ändern, nur anhängen.
 MIGRATIONS: list[str] = [
@@ -71,9 +72,28 @@ MIGRATIONS: list[str] = [
     );
     CREATE INDEX attempts_thema ON attempts(thema, id);
     """,
+    # 4: Durchläufe der Prüfungssimulation (PS-01, PS-02); Teilergebnisse als JSON
+    """
+    CREATE TABLE simulation_runs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        sim_id TEXT NOT NULL,
+        gestartet TEXT NOT NULL,
+        beendet TEXT NOT NULL,
+        teile TEXT NOT NULL
+    );
+    """,
 ]
 
-EXPORT_TABLES = ("settings", "topic_progress", "lesson_read", "cards", "reviews", "study_log", "attempts")
+EXPORT_TABLES = (
+    "settings",
+    "topic_progress",
+    "lesson_read",
+    "cards",
+    "reviews",
+    "study_log",
+    "attempts",
+    "simulation_runs",
+)
 
 
 def _now() -> str:
@@ -250,6 +270,42 @@ class Store:
             params = (thema,)
         rows = self._conn.execute(query + " ORDER BY id", params).fetchall()
         return [Attempt.model_validate({k: v for k, v in dict(r).items() if k != "id"}) for r in rows]
+
+    # --- Prüfungssimulation ------------------------------------------------------
+    def save_sim_run(self, run: SimRun) -> int:
+        """Speichert einen Durchlauf (neu oder aktualisiert) und gibt seine ID zurück."""
+        teile = json.dumps([t.model_dump(mode="json") for t in run.teile], ensure_ascii=False)
+        values = (run.sim_id, run.gestartet.isoformat(), run.beendet.isoformat(), teile)
+        with self._tx() as conn:
+            if run.id:
+                conn.execute(
+                    "UPDATE simulation_runs SET sim_id=?, gestartet=?, beendet=?, teile=? WHERE id=?",
+                    (*values, run.id),
+                )
+                return run.id
+            cursor = conn.execute(
+                "INSERT INTO simulation_runs(sim_id, gestartet, beendet, teile) VALUES(?, ?, ?, ?)", values
+            )
+            return int(cursor.lastrowid or 0)
+
+    def sim_runs(self, sim_id: str | None = None) -> list[SimRun]:
+        """Alle Durchläufe in zeitlicher Reihenfolge, auf Wunsch nur einer Simulation."""
+        query = "SELECT * FROM simulation_runs"
+        params: tuple[str, ...] = ()
+        if sim_id is not None:
+            query += " WHERE sim_id = ?"
+            params = (sim_id,)
+        rows = self._conn.execute(query + " ORDER BY id", params).fetchall()
+        return [
+            SimRun(
+                id=r["id"],
+                sim_id=r["sim_id"],
+                gestartet=dt.datetime.fromisoformat(r["gestartet"]),
+                beendet=dt.datetime.fromisoformat(r["beendet"]),
+                teile=json.loads(r["teile"]),
+            )
+            for r in rows
+        ]
 
     # --- Export / Import ---------------------------------------------------------
     def export_json(self) -> dict[str, Any]:
