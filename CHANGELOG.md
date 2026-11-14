@@ -26,6 +26,11 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
   Physiotherapie“, „Kundenservice für eine Kaffeerösterei“ und „Neue Filiale für ein Reisebüro“
   (Generalprobe). Zusammen mit 1 und 2 kommt jedes Thema des Prüfungskatalogs 2025 in mindestens einer
   Simulation vor; punktstarke Themen wie Angebotsvergleich, ERM und Schreibtischtest mehrfach.
+- **Operatoren-Training** (ZI-02, E-42): neue Seite, erreichbar über „Üben“. Merktabelle der sieben
+  Operatoren (nennen, beschreiben, erläutern, begründen, vergleichen, berechnen, beurteilen) mit
+  Anforderungsbereich, Antwortform, typischem Fehler und Prüfpunkten. Vier Beispiele zeigen dieselbe Sache
+  mit jedem Operator gefragt und beantwortet. Trainingsrunde mit 7 Aufgaben: Erwartung zuordnen, Operator an
+  der Musterantwort erkennen, selbst schreiben und selbst bewerten – ohne Einfluss auf Stufen und Fehlerkarten.
 - Inhaltsformat `content/ap1/simulationen/<id>.yaml` mit Prüfung in `ap-tools check`
   (100 Punkte, 20–30 Punkte je Aufgabe, Themen, Musterlösungen, Fehlerbilder); Lernstand-Tabelle
   `simulation_runs` (Migration 4), im JSON-Export enthalten.

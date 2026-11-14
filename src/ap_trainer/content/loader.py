@@ -16,6 +16,7 @@ from pydantic import BaseModel, ValidationError
 
 from ap_trainer.content.aufgaben import Aufgabe, AufgabenDatei
 from ap_trainer.content.models import Begriff, Katalog, Lektion, Paket
+from ap_trainer.content.operatoren import OperatorenDatei
 from ap_trainer.content.simulation import Simulation
 
 _HEADING = re.compile(r"^## (.+?)\s*$", re.MULTILINE)
@@ -46,6 +47,8 @@ class ContentPackage:
     generatoren: dict[str, list[str]] = field(default_factory=dict)
     # Prüfungssimulationen (PS-01), nach ID
     simulationen: dict[str, Simulation] = field(default_factory=dict)
+    # Operatoren-Training (ZI-02); optional, ein Paket ohne ``operatoren.yaml`` hat keins
+    operatoren: OperatorenDatei | None = None
 
     def sim_tasks(self) -> dict[str, Aufgabe]:
         """Alle Teilaufgaben aller Simulationen nach Aufgaben-ID."""
@@ -210,6 +213,14 @@ def _load_simulations(root: Path, errors: list[ContentError]) -> dict[str, Simul
     return sims
 
 
+def _load_operators(root: Path, errors: list[ContentError]) -> OperatorenDatei | None:
+    """Liest ``operatoren.yaml``, falls vorhanden."""
+    path = root / "operatoren.yaml"
+    if not path.exists():
+        return None
+    return _validate(OperatorenDatei, _read_yaml(path, errors), path, errors)
+
+
 def load_package(root: Path) -> tuple[ContentPackage | None, list[ContentError]]:
     """Lädt ein Paket und liefert es zusammen mit allen gefundenen Fehlern."""
     errors: list[ContentError] = []
@@ -223,9 +234,10 @@ def load_package(root: Path) -> tuple[ContentPackage | None, list[ContentError]]
     terms = _load_terms(root, errors)
     tasks, generators = _load_tasks(root, errors)
     sims = _load_simulations(root, errors)
+    operators = _load_operators(root, errors)
     if paket is None or katalog is None:
         return None, errors
-    package = ContentPackage(root, paket, katalog, lessons, terms, tasks, generators, sims)
+    package = ContentPackage(root, paket, katalog, lessons, terms, tasks, generators, sims, operators)
     return package, errors
 
 

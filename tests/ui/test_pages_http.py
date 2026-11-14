@@ -62,6 +62,8 @@ PAGES = [
     "/ueben/unbekannt",
     "/fortschritt",
     "/simulation",
+    "/operatoren",
+    "/operatoren/training",
     "/simulation/unbekannt",
     "/simulation/ergebnis/999",
     "/mischtest",

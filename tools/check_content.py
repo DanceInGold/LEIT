@@ -39,6 +39,7 @@ def run_check(root: Path, strict: bool = False) -> int:
         f"{len(package.lektionen)} Lektionen, {len(package.begriffe)} Begriffe, "
         f"{len(package.aufgaben)} Aufgaben, {sum(map(len, package.generatoren.values()))} Generatoren, "
         f"{len(package.simulationen)} Simulationen, "
+        f"{len(package.operatoren.beispiele) if package.operatoren else 0} Operatoren-Beispiele, "
         f"{len(warnings)} Stilwarnungen."
     )
     return 0

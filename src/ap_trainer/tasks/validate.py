@@ -20,6 +20,7 @@ from ap_trainer.content.loader import ContentError, ContentPackage
 from ap_trainer.tasks.answers import is_valid, same_answer
 from ap_trainer.tasks.check import Antwort, FreitextAntwort, evaluate
 from ap_trainer.tasks.generators import registry
+from ap_trainer.tasks.operators import all_tasks
 
 
 def model_answer(task: Aufgabe) -> Antwort:
@@ -74,5 +75,10 @@ def check_tasks(pkg: ContentPackage) -> list[ContentError]:
     for sim in pkg.simulationen.values():
         file = str(pkg.root / "simulationen" / f"{sim.id}.yaml")
         for task in sim.tasks():
+            errors.extend(ContentError(file, f"{task.id}: {problem}") for problem in _check_task(task))
+    if pkg.operatoren is not None:
+        # Die Trainingsaufgaben entstehen aus der Datei – auch sie müssen lösbar sein
+        file = str(pkg.root / "operatoren.yaml")
+        for task in all_tasks(pkg.operatoren):
             errors.extend(ContentError(file, f"{task.id}: {problem}") for problem in _check_task(task))
     return errors

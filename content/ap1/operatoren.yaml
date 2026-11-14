@@ -1,0 +1,251 @@
+# Operatoren-Training (ZI-02): Was verlangt welches Verb, und wie tief muss die Antwort gehen?
+# Definitionen nach der BIBB-Operatorenliste („Ausbildung gestalten“) und der IQB-Operatorenliste;
+# eine öffentliche Operatorenliste der ZPA/AkA für die IT-Berufe gibt es nicht (Prüfprotokoll).
+# Je Beispiel dieselbe Sache mit jedem Operator gefragt; Fakten wie in den Lektionen des Themas.
+
+quelle: "Neu erstellt (Claude). Operatoren nach BIBB „Ausbildung gestalten“ (Operatorenliste) und IQB-Operatorenliste; Beispiele nach den Lektionen der Themen."
+status: ungeprüft
+belege:
+  - {titel: "BIBB, Ausbildung gestalten: Operatoren (Prüfung Teil 1 und 2), Anforderungsbereiche I–III", url: "https://www.bibb.de/dienst/berufesuche/de/index_berufesuche.php/practice_examples/pruefungs_und_aufgabenbeispiele/ag_Schuhf_kap3_Operatorenliste.pdf"}
+  - {titel: "IQB: Operatoren zur schriftlichen Kompetenzüberprüfung (Sekundarbereich II)", url: "https://www.bildung-mv.de/export/sites/bildungsserver/.galleries/dokumente/unterricht/Operatoren-zur-schriftlichen-Kompetenzermittlung-Sek-II.pdf"}
+
+operatoren:
+  - id: nennen
+    bereich: "I"
+    verlangt: "Begriffe, Fakten oder Merkmale ohne Erklärung aufzählen."
+    form: "Stichworte oder kurze Aufzählung – genau so viele Punkte, wie verlangt sind."
+    falle: "Erklärungen schreiben, obwohl Stichworte reichen. Das kostet Zeit, die bei anderen Aufgaben fehlt."
+    kriterien:
+      - "genau die verlangte Anzahl Punkte"
+      - "Fachbegriffe richtig"
+      - "jeder Punkt passt zur Frage"
+
+  - id: beschreiben
+    bereich: "II"
+    verlangt: "Einen Sachverhalt, Aufbau oder Ablauf geordnet und in Fachsprache darstellen – sachlich, ohne zu bewerten."
+    form: "Ganze Sätze oder geordnete Schritte."
+    falle: "Nur Stichworte liefern – oder schon begründen und bewerten, statt zu beschreiben."
+    satzanfaenge: ["Zuerst …", "Danach …", "Dabei …"]
+    kriterien:
+      - "alle wesentlichen Merkmale bzw. Schritte enthalten"
+      - "sinnvolle Reihenfolge"
+      - "ganze Sätze mit richtigen Fachbegriffen"
+
+  - id: erläutern
+    bereich: "II"
+    verlangt: "Einen Sachverhalt beschreiben und verständlich machen: Zusammenhänge und Ursachen erklären (das Warum), am besten mit einem Beispiel."
+    form: "Ganze Sätze nach dem Muster Aussage – weil/dadurch – Beispiel."
+    falle: "Nur beschreiben, was passiert, ohne zu erklären, warum."
+    satzanfaenge: ["… , weil …", "Dadurch …", "Zum Beispiel …"]
+    kriterien:
+      - "Sachverhalt richtig beschrieben"
+      - "Zusammenhang oder Ursache erklärt (weil, dadurch, deshalb)"
+      - "Beispiel oder Bezug zur Situation"
+
+  - id: begründen
+    bereich: "III"
+    verlangt: "Für eine Aussage, Entscheidung oder Vorgehensweise nachvollziehbare Gründe angeben."
+    form: "Aussage plus Gründe: „… ist sinnvoll, weil …“ – ein Satz je Grund."
+    falle: "Die Entscheidung nur wiederholen oder allgemeine Vorteile aufzählen, ohne Bezug zur Situation."
+    satzanfaenge: ["… ist sinnvoll, weil …", "Außerdem …"]
+    kriterien:
+      - "klare Aussage bzw. Entscheidung"
+      - "so viele Gründe wie verlangt"
+      - "Gründe beziehen sich auf die Situation"
+
+  - id: vergleichen
+    bereich: "II"
+    verlangt: "Gemeinsamkeiten und Unterschiede nach Kriterien gegenüberstellen."
+    form: "Tabelle oder Gegenüberstellung je Kriterium – bei jedem Kriterium beide Seiten."
+    falle: "Beide Dinge nacheinander beschreiben, ohne sie je Kriterium gegenüberzustellen."
+    satzanfaenge: ["| Kriterium | A | B |", "Gemeinsam ist beiden …"]
+    kriterien:
+      - "mehrere sinnvolle Kriterien"
+      - "bei jedem Kriterium beide Seiten genannt"
+      - "Gemeinsamkeit oder wichtigster Unterschied herausgestellt"
+
+  - id: berechnen
+    bereich: "I"
+    verlangt: "Ein Ergebnis aus gegebenen Werten ermitteln – mit Ansatz, Rechenweg und Einheit."
+    form: "Ansatz bzw. Formel, Zwischenschritte, Ergebnis mit Einheit."
+    falle: "Nur das Ergebnis hinschreiben. Ohne Rechenweg kann niemand einen richtigen Ansatz erkennen, wenn das Ergebnis falsch ist."
+    satzanfaenge: ["Ansatz: …", "= …", "Ergebnis: …"]
+    kriterien:
+      - "Ansatz bzw. Formel erkennbar"
+      - "Zwischenschritte nachvollziehbar"
+      - "Ergebnis richtig und mit Einheit"
+
+  - id: beurteilen
+    bereich: "III"
+    verlangt: "Einen Sachverhalt anhand von Kriterien prüfen und zu einem begründeten Urteil kommen."
+    form: "Für und Wider abwägen, dann ein Fazit mit Begründung."
+    falle: "Vor- und Nachteile aufzählen, aber kein Fazit ziehen."
+    satzanfaenge: ["Dafür spricht …", "Dagegen spricht …", "Fazit: …"]
+    kriterien:
+      - "Für und Wider abgewogen"
+      - "Bezug zur Situation"
+      - "klares Fazit mit Begründung"
+
+beispiele:
+  # ------------------------------------------------------------------------------------------
+  - id: ssd-hdd
+    thema: speicher-hdd-ssd
+    titel: "SSD oder HDD für den Archivserver?"
+    situation: "Die ArchivTech plant einen neuen Server: Betriebssystem und Datenbank brauchen viele kleine Zugriffe, dazu kommen 40 TB Archivdaten, die selten abgerufen werden."
+    antworten:
+      nennen:
+        frage: "**Nenne** zwei Vorteile einer SSD gegenüber einer HDD."
+        antwort: |
+          - kürzere Zugriffszeit
+          - keine beweglichen Teile, deshalb unempfindlich gegen Erschütterungen
+      beschreiben:
+        frage: "**Beschreibe**, wie eine HDD Daten liest."
+        antwort: "Eine HDD speichert Daten magnetisch auf rotierenden Scheiben. Zum Lesen fährt der Schreib-Lese-Kopf auf die richtige Spur. Dann wartet er, bis der gesuchte Sektor unter ihm vorbeikommt, und liest die Daten aus."
+      erläutern:
+        frage: "**Erläutere**, warum eine SSD schnellere Zugriffe hat als eine HDD."
+        antwort: "Eine HDD muss vor jedem Zugriff den Kopf auf die Spur bewegen und warten, bis sich die Scheibe an die richtige Stelle gedreht hat – das dauert einige Millisekunden. Eine SSD hat keine Mechanik: Der Controller spricht die Flash-Zellen elektronisch an, deshalb liegt die Zugriffszeit unter 0,1 ms. Das merkt man vor allem bei vielen kleinen Zugriffen, zum Beispiel bei der Datenbank."
+      begründen:
+        frage: "**Begründe**, warum die Archivdaten auf HDDs gespeichert werden sollen."
+        antwort: "HDDs sind hier sinnvoll, weil 40 TB auf HDDs deutlich weniger kosten als auf SSDs – der Preis pro TB ist niedriger. Außerdem wird das Archiv selten abgerufen, deshalb fällt die längere Zugriffszeit kaum ins Gewicht."
+      vergleichen:
+        frage: "**Vergleiche** SSD und HDD anhand von drei Kriterien."
+        antwort: |
+          | Kriterium | SSD | HDD |
+          | --- | --- | --- |
+          | Zugriffszeit | unter 0,1 ms | einige Millisekunden |
+          | Preis pro TB | höher | niedriger |
+          | Mechanik | keine beweglichen Teile, stoßfest | Scheiben und Kopf, stoßempfindlich |
+
+          Gemeinsam ist beiden: Sie speichern Daten dauerhaft, auch ohne Strom.
+      berechnen:
+        frage: "Eine SSD ist für **600 TBW** ausgelegt, täglich werden **200 GB** geschrieben. **Berechne**, nach wie vielen Jahren die Schreibmenge erreicht ist (1 TB = 1.000 GB, 365 Tage)."
+        antwort: |
+          - Ansatz: Jahre = Schreibmenge ÷ (Schreibmenge pro Tag × 365)
+          - 600 TB = 600.000 GB
+          - 600.000 GB ÷ 200 GB/Tag = 3.000 Tage
+          - 3.000 Tage ÷ 365 ≈ **8,22 Jahre**
+      beurteilen:
+        frage: "**Beurteile** den Vorschlag, den Server ausschließlich mit SSDs auszustatten."
+        antwort: "Dafür spricht: System und Datenbank profitieren von der kurzen Zugriffszeit. Dagegen spricht: 40 TB Archiv auf SSDs kosten deutlich mehr, ohne Nutzen, weil kaum zugegriffen wird. Fazit: Der Vorschlag ist nicht sinnvoll – besser SSDs für System und Datenbank und HDDs für das Archiv."
+
+  # ------------------------------------------------------------------------------------------
+  - id: sicherung
+    thema: verfuegbarkeit-backup
+    titel: "Inkrementell oder differenziell sichern?"
+    situation: "Ein Dateiserver wird sonntags voll gesichert. An den Werktagen läuft nachts eine Teilsicherung; das Zeitfenster dafür ist kurz."
+    antworten:
+      nennen:
+        frage: "**Nenne** drei Arten der Datensicherung."
+        antwort: |
+          - Vollsicherung
+          - inkrementelle Sicherung
+          - differenzielle Sicherung
+      beschreiben:
+        frage: "**Beschreibe** eine inkrementelle Sicherung."
+        antwort: "Zuerst wird eine Vollsicherung erstellt. Danach sichert jede inkrementelle Sicherung nur die Daten, die sich seit der letzten Sicherung geändert haben – egal, ob das die Vollsicherung oder ein Inkrement war."
+      erläutern:
+        frage: "**Erläutere**, warum die Wiederherstellung bei inkrementeller Sicherung länger dauert als bei differenzieller."
+        antwort: "Jedes Inkrement enthält nur die Änderungen seit der vorherigen Sicherung. Deshalb braucht man zum Wiederherstellen die Vollsicherung und alle Inkremente in der richtigen Reihenfolge – am Freitag also sechs Sicherungen. Eine differenzielle Sicherung enthält alle Änderungen seit der Vollsicherung, dadurch reichen die Vollsicherung und die letzte Teilsicherung."
+      begründen:
+        frage: "**Begründe**, warum für diesen Server die inkrementelle Sicherung gewählt wird."
+        antwort: "Die inkrementelle Sicherung passt, weil sie nur die Änderungen seit der letzten Sicherung kopiert. Dadurch ist sie am schnellsten fertig und passt ins kurze Nachtfenster. Außerdem braucht sie am wenigsten Speicherplatz."
+      vergleichen:
+        frage: "**Vergleiche** inkrementelle und differenzielle Sicherung."
+        antwort: |
+          | Kriterium | inkrementell | differenziell |
+          | --- | --- | --- |
+          | gesichert wird | Änderungen seit der **letzten** Sicherung | Änderungen seit der letzten **Vollsicherung** |
+          | Speicherbedarf | gering, jeden Tag gleich | wächst jeden Tag |
+          | Wiederherstellung | Vollsicherung + alle Inkremente | Vollsicherung + letzte Teilsicherung |
+
+          Gemeinsam ist beiden: Sie bauen auf einer Vollsicherung auf.
+      berechnen:
+        frage: "Die Vollsicherung hat **400 GB**, an jedem Werktag ändern sich **andere 30 GB**. **Berechne** den Speicherbedarf von Sonntag bis Freitag bei differenzieller Sicherung."
+        antwort: |
+          - Ansatz: Vollsicherung + Summe der wachsenden Teilsicherungen
+          - Teilsicherungen Mo–Fr: 30 + 60 + 90 + 120 + 150 = 450 GB
+          - 400 GB + 450 GB = **850 GB**
+      beurteilen:
+        frage: "**Beurteile** die Aussage: „Unsere Festplatten sind gespiegelt, also brauchen wir keine Datensicherung.“"
+        antwort: "Dafür spricht: Eine Spiegelung schützt vor dem Ausfall einer Festplatte, weil die Daten gleichzeitig auf zwei Platten liegen. Dagegen spricht: Löschen, Ransomware oder Softwarefehler landen sofort auch auf der Kopie. Fazit: Die Aussage ist falsch – nötig ist zusätzlich eine Datensicherung mit älteren Ständen, am besten nach der 3-2-1-Regel."
+
+  # ------------------------------------------------------------------------------------------
+  - id: switch-router
+    thema: netzwerkkomponenten
+    titel: "Switch und Router in der Außenstelle"
+    situation: "Eine Außenstelle mit 15 Arbeitsplätzen, IP-Telefonen, Accesspoints und einem Gäste-WLAN wird an das Firmennetz angebunden."
+    antworten:
+      nennen:
+        frage: "**Nenne** zwei Aufgaben eines Routers."
+        antwort: |
+          - Pakete zwischen verschiedenen Netzen weiterleiten
+          - den Weg zum Ziel anhand der Routingtabelle wählen
+      beschreiben:
+        frage: "**Beschreibe**, wie ein Switch einen Frame weiterleitet."
+        antwort: "Der Switch merkt sich die Absender-MAC-Adresse und den Port in seiner MAC-Adresstabelle. Dann liest er die Ziel-MAC-Adresse, sucht den zugehörigen Port und sendet den Frame nur dorthin. Ist die Zieladresse unbekannt, sendet er den Frame an alle Ports außer dem Eingangsport."
+      erläutern:
+        frage: "**Erläutere**, warum ein Switch die Netzlast gegenüber einem Hub verringert."
+        antwort: "Ein Hub arbeitet auf Schicht 1 und gibt jedes Signal an alle Ports weiter – alle Geräte teilen sich die Bandbreite. Ein Switch arbeitet auf Schicht 2 und lernt, an welchem Port welche MAC-Adresse hängt. Dadurch schickt er Frames nur an den Zielport, und mehrere Verbindungen laufen gleichzeitig, zum Beispiel ein Telefonat und ein Datei-Download."
+      begründen:
+        frage: "**Begründe**, warum in der Außenstelle ein PoE-Switch eingesetzt wird."
+        antwort: "Ein PoE-Switch ist sinnvoll, weil Telefone und Accesspoints ihren Strom über das Netzwerkkabel bekommen. Dadurch braucht man an diesen Geräten keine Netzteile und Steckdosen. Außerdem laufen die Telefone bei einem Stromausfall weiter, wenn der Switch an einer USV hängt."
+      vergleichen:
+        frage: "**Vergleiche** Switch und Router."
+        antwort: |
+          | Kriterium | Switch | Router |
+          | --- | --- | --- |
+          | OSI-Schicht | 2 (Sicherung) | 3 (Vermittlung) |
+          | Adressen | MAC-Adressen | IP-Adressen |
+          | Aufgabe | Geräte im selben Netz verbinden | verschiedene Netze verbinden |
+
+          Gemeinsam ist beiden: Sie leiten Daten gezielt an ein Ziel weiter statt an alle.
+      berechnen:
+        frage: "Am Switch hängen **8 Accesspoints** mit je **30 W** und **12 Telefone** mit je **15,4 W**. Das PoE-Budget beträgt **400 W**. **Berechne** den Bedarf und prüfe, ob das Budget reicht."
+        antwort: |
+          - Ansatz: Bedarf = Anzahl × Leistung je Gerätegruppe
+          - 8 × 30 W = 240 W; 12 × 15,4 W = 184,8 W
+          - Summe: 240 W + 184,8 W = **424,8 W**
+          - 424,8 W > 400 W → das Budget **reicht nicht** (24,8 W fehlen)
+      beurteilen:
+        frage: "**Beurteile** den Vorschlag, statt eines Managed Switches einen günstigen Unmanaged Switch einzusetzen."
+        antwort: "Dafür spricht: Ein Unmanaged Switch ist günstiger und sofort einsatzbereit. Dagegen spricht: Er kann keine VLANs, also lassen sich Gäste-WLAN, Telefone und Arbeitsplätze nicht trennen, und Fehler lassen sich nicht aus der Ferne untersuchen. Fazit: Für diese Außenstelle ist der Managed Switch die bessere Wahl."
+
+  # ------------------------------------------------------------------------------------------
+  - id: kauf-leasing
+    thema: kauf-miete-leasing
+    titel: "Notebooks kaufen oder leasen?"
+    situation: "Die ArchivTech braucht 20 neue Notebooks zu je 900 €. Ihr Geld will sie für ein Wachstumsprojekt behalten; die Geräte sollen nach drei Jahren ersetzt werden."
+    antworten:
+      nennen:
+        frage: "**Nenne** zwei Vorteile des Leasings."
+        antwort: |
+          - schont die Liquidität, weil keine hohe Einmalzahlung anfällt
+          - feste, planbare Raten
+      beschreiben:
+        frage: "**Beschreibe**, wie ein Leasingvertrag abläuft."
+        antwort: "Der Leasinggeber kauft die Geräte und überlässt sie dem Leasingnehmer für eine feste Laufzeit. Der Leasingnehmer nutzt sie und zahlt monatliche Raten; Eigentümer bleibt der Leasinggeber. Am Ende der Laufzeit gibt der Leasingnehmer die Geräte zurück oder schließt einen neuen Vertrag."
+      erläutern:
+        frage: "**Erläutere**, warum Leasing über die gesamte Laufzeit meist teurer ist als ein Kauf."
+        antwort: "Der Leasinggeber bezahlt den Kaufpreis vorab und trägt den Wertverlust der Geräte. Dafür verlangt er Zinsen, Verwaltungskosten und einen Gewinn, die in den Raten stecken. Deshalb liegt die Summe der Raten über dem Kaufpreis – zum Beispiel 19.440 € Raten statt 18.000 € Kaufpreis."
+      begründen:
+        frage: "**Begründe**, warum Leasing für die ArchivTech hier sinnvoll ist."
+        antwort: "Leasing ist sinnvoll, weil die ArchivTech ihr Geld für das Wachstumsprojekt behalten will – statt 18.000 € auf einmal fallen nur monatliche Raten an. Außerdem sollen die Notebooks nach drei Jahren ersetzt werden, und genau dann endet der Leasingvertrag."
+      vergleichen:
+        frage: "**Vergleiche** Kauf und Leasing."
+        antwort: |
+          | Kriterium | Kauf | Leasing |
+          | --- | --- | --- |
+          | Eigentum | sofort beim Käufer | bleibt beim Leasinggeber |
+          | Zahlung | einmalig, hoher Betrag | monatliche Raten |
+          | Gesamtkosten | meist niedriger | meist höher |
+
+          Gemeinsam ist beiden: Das Unternehmen kann die Geräte uneingeschränkt nutzen.
+      berechnen:
+        frage: "Der Leasinggeber verlangt monatlich **3 %** des Kaufpreises von **18.000 €**, Laufzeit **36 Monate**. **Berechne** die Leasingkosten und die Mehrkosten gegenüber dem Kauf."
+        antwort: |
+          - Rate: 18.000 € × 0,03 = 540 €
+          - Leasingkosten: 540 € × 36 = **19.440 €**
+          - Mehrkosten: 19.440 € − 18.000 € = **1.440 €**
+      beurteilen:
+        frage: "**Beurteile**, ob die ArchivTech die Notebooks kaufen oder leasen sollte."
+        antwort: "Dafür spricht beim Kauf: Die Gesamtkosten sind niedriger (18.000 € statt 19.440 €). Für das Leasing spricht: Die ArchivTech braucht ihr Geld für das Wachstumsprojekt und will die Geräte nach drei Jahren tauschen. Fazit: Leasing ist hier sinnvoll – die 1.440 € Mehrkosten sind der Preis für die geschonte Liquidität."
