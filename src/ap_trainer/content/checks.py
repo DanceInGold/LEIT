@@ -118,9 +118,35 @@ def _check_tasks(pkg: ContentPackage) -> list[ContentError]:
     return errors
 
 
+def _check_simulations(pkg: ContentPackage) -> list[ContentError]:
+    """Simulationen: Themen der Teilaufgaben existieren und sind relevant, IDs eindeutig, Belege da."""
+    errors = []
+    topics = pkg.katalog.by_id()
+    seen = set(pkg.aufgaben)
+    for sim in pkg.simulationen.values():
+        file = str(pkg.root / "simulationen" / f"{sim.id}.yaml")
+        for task in sim.tasks():
+            if task.thema not in topics:
+                errors.append(ContentError(file, f"{task.id}: unbekanntes Thema '{task.thema}'"))
+            elif not topics[task.thema].is_relevant:
+                errors.append(ContentError(file, f"{task.id}: Thema '{task.thema}' ist 2025 entfallen"))
+            if task.id in seen:
+                errors.append(ContentError(file, f"Aufgaben-ID '{task.id}' ist doppelt"))
+            seen.add(task.id)
+            if not task.belege:
+                errors.append(ContentError(file, f"{task.id}: belege fehlen (Faktencheck)"))
+    return errors
+
+
 def check_references(pkg: ContentPackage) -> list[ContentError]:
     """Alle Verweisfehler eines Pakets."""
-    return _check_catalog(pkg) + _check_lessons(pkg) + _check_terms(pkg) + _check_tasks(pkg)
+    return (
+        _check_catalog(pkg)
+        + _check_lessons(pkg)
+        + _check_terms(pkg)
+        + _check_tasks(pkg)
+        + _check_simulations(pkg)
+    )
 
 
 def check_style(pkg: ContentPackage) -> list[ContentError]:

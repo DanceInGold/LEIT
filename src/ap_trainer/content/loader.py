@@ -16,6 +16,7 @@ from pydantic import BaseModel, ValidationError
 
 from ap_trainer.content.aufgaben import Aufgabe, AufgabenDatei
 from ap_trainer.content.models import Begriff, Katalog, Lektion, Paket
+from ap_trainer.content.simulation import Simulation
 
 _HEADING = re.compile(r"^## (.+?)\s*$", re.MULTILINE)
 
@@ -43,6 +44,12 @@ class ContentPackage:
     aufgaben: dict[str, Aufgabe] = field(default_factory=dict)
     # Thema → IDs der Aufgabengeneratoren, die dazu Varianten erzeugen (AU-03)
     generatoren: dict[str, list[str]] = field(default_factory=dict)
+    # Prüfungssimulationen (PS-01), nach ID
+    simulationen: dict[str, Simulation] = field(default_factory=dict)
+
+    def sim_tasks(self) -> dict[str, Aufgabe]:
+        """Alle Teilaufgaben aller Simulationen nach Aufgaben-ID."""
+        return {task.id: task for sim in self.simulationen.values() for task in sim.tasks()}
 
     def tasks_for_topic(self, topic_id: str) -> list[Aufgabe]:
         """Alle festen Aufgaben eines Themas, nach Stufe und ID sortiert."""
@@ -168,6 +175,41 @@ def _load_tasks(root: Path, errors: list[ContentError]) -> tuple[dict[str, Aufga
     return tasks, generators
 
 
+def _prepare_simulation(data: dict[str, Any]) -> None:
+    """Ergänzt Teilaufgaben um ID, Stufe 5, Quelle, Status und Belege der Simulation.
+
+    So steht in der YAML-Datei nur, was eine Teilaufgabe ausmacht; die ID lautet
+    ``<simulation>-<aufgabe><teil>``, z. B. ``sim-01-2b``.
+    """
+    for task in data.get("aufgaben") or []:
+        for part in (task.get("teilaufgaben") or []) if isinstance(task, dict) else []:
+            inner = part.get("aufgabe") if isinstance(part, dict) else None
+            if not isinstance(inner, dict):
+                continue
+            inner.setdefault("id", f"{data.get('id')}-{task.get('nr')}{part.get('nr')}")
+            inner.setdefault("stufe", 5)
+            for key in ("quelle", "status", "belege"):
+                if key in data:
+                    inner.setdefault(key, data[key])
+
+
+def _load_simulations(root: Path, errors: list[ContentError]) -> dict[str, Simulation]:
+    """Liest ``simulationen/*.yaml``; die Datei heißt wie die Simulation."""
+    sims: dict[str, Simulation] = {}
+    for path in sorted((root / "simulationen").glob("*.yaml")):
+        data = _read_yaml(path, errors)
+        if not isinstance(data, dict):
+            errors.append(ContentError(str(path), "Datei ist kein YAML-Wörterbuch"))
+            continue
+        if data.setdefault("id", path.stem) != path.stem:
+            errors.append(ContentError(str(path), "id passt nicht zum Dateinamen"))
+        _prepare_simulation(data)
+        sim = _validate(Simulation, data, path, errors)
+        if sim is not None:
+            sims[sim.id] = sim
+    return sims
+
+
 def load_package(root: Path) -> tuple[ContentPackage | None, list[ContentError]]:
     """Lädt ein Paket und liefert es zusammen mit allen gefundenen Fehlern."""
     errors: list[ContentError] = []
@@ -180,9 +222,10 @@ def load_package(root: Path) -> tuple[ContentPackage | None, list[ContentError]]
             lessons[lesson.id] = lesson
     terms = _load_terms(root, errors)
     tasks, generators = _load_tasks(root, errors)
+    sims = _load_simulations(root, errors)
     if paket is None or katalog is None:
         return None, errors
-    package = ContentPackage(root, paket, katalog, lessons, terms, tasks, generators)
+    package = ContentPackage(root, paket, katalog, lessons, terms, tasks, generators, sims)
     return package, errors
 
 

@@ -38,6 +38,7 @@ def run_check(root: Path, strict: bool = False) -> int:
         f"Inhalte in Ordnung: {len(package.katalog.themen)} Themen, "
         f"{len(package.lektionen)} Lektionen, {len(package.begriffe)} Begriffe, "
         f"{len(package.aufgaben)} Aufgaben, {sum(map(len, package.generatoren.values()))} Generatoren, "
+        f"{len(package.simulationen)} Simulationen, "
         f"{len(warnings)} Stilwarnungen."
     )
     return 0

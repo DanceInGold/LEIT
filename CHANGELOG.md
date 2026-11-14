@@ -5,6 +5,24 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 
 ## [Unreleased]
 
+### Hinzugefügt (Phase 3 · Prüfungssimulation)
+- **Prüfungssimulation** (PS-01, PS-02, PS-04): neuer Menüpunkt „Simulation“ mit vollständigen
+  AP1-Sätzen – Ausgangssituation, vier Aufgaben zu 20–30 Punkten, 100 Punkte, 90-Minuten-Timer mit
+  automatischer Abgabe. Während der Prüfung keine Hilfen und kein Feedback.
+- **Auswertung** mit Punkten je Teilaufgabe (Teilpunkte auf halbe Punkte gerundet), IHK-Note,
+  deiner Antwort, Erklärung erkannter Fehler, Lösungsweg und Musterlösung; Freitexte werden danach
+  selbst bewertet. Fortschritt zum Ziel „2 Simulationen mit mindestens 92 Punkten“ (E-40).
+- **Schwachstellen zurück in den Lernplan** (PS-04): Jede Teilaufgabe zählt als Versuch auf Stufe 5
+  „Prüfungsniveau“ (AU-02) – Fehler landen im Fehlerprotokoll, als Fehlerkarten und im
+  Beherrschungsgrad. Themen unter 70 % der Punkte erscheinen auf „Heute“, bis sie sicher sitzen.
+- **Simulation 1** „Neue Arbeitsplätze für eine Steuerkanzlei“: 18 Teilaufgaben aus Bedarf,
+  Angebotsvergleich, Nutzwertanalyse, Hardware, Subnetting, Netzkonfiguration, Übertragungszeit, VLAN,
+  Schutzziele, Schutzbedarf, Verfügbarkeit, Datensicherung, Schreibtischtest, Amortisation, Scrum, Rollout.
+- Inhaltsformat `content/ap1/simulationen/<id>.yaml` mit Prüfung in `ap-tools check`
+  (100 Punkte, 20–30 Punkte je Aufgabe, Themen, Musterlösungen, Fehlerbilder); Lernstand-Tabelle
+  `simulation_runs` (Migration 4), im JSON-Export enthalten.
+
+
 ## [1.0.0] – 2026-11-14 – Phase 2 (Üben)
 
 Version 1.0 bringt das Üben: 341 feste Aufgaben und 7 Rechentrainer für alle 63 prüfungsrelevanten

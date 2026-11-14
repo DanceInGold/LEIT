@@ -16,6 +16,7 @@ NAV = [
     ("Plan", "/plan", "event_note"),
     ("Themen", "/themen", "topic"),
     ("Üben", "/ueben", "edit_note"),
+    ("Simulation", "/simulation", "timer"),
     ("Fortschritt", "/fortschritt", "insights"),
     ("Glossar", "/glossar", "menu_book"),
     ("Lernkarten", "/lernkarten", "style"),

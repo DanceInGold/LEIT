@@ -71,4 +71,8 @@ def check_tasks(pkg: ContentPackage) -> list[ContentError]:
     for task in pkg.aufgaben.values():
         file = str(pkg.root / "aufgaben" / f"{task.thema}.yaml")
         errors.extend(ContentError(file, f"{task.id}: {problem}") for problem in _check_task(task))
+    for sim in pkg.simulationen.values():
+        file = str(pkg.root / "simulationen" / f"{sim.id}.yaml")
+        for task in sim.tasks():
+            errors.extend(ContentError(file, f"{task.id}: {problem}") for problem in _check_task(task))
     return errors

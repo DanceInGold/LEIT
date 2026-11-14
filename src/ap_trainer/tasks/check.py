@@ -254,3 +254,18 @@ def evaluate(task: Aufgabe, answer: Antwort) -> Ergebnis:
     if isinstance(task, Rechnung):
         return check_calculation(task, texts)
     raise TypeError(f"Antwortform passt nicht zum Aufgabentyp {task.typ}")
+
+
+def blank_answer(task: Aufgabe) -> Antwort:
+    """Antwort für eine unbearbeitete Aufgabe (z. B. in der Simulation nicht ausgefüllt)."""
+    if isinstance(task, MultipleChoice):
+        return frozenset()
+    if isinstance(task, Freitext):
+        return FreitextAntwort("", [])
+    if isinstance(task, Zuordnung):
+        return [None] * len(task.paare)
+    if isinstance(task, Lueckentext):
+        return [None] * len(task.luecken)
+    if isinstance(task, Rechnung):
+        return [None] * len(task.schritte)
+    return []

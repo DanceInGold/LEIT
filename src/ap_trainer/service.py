@@ -13,7 +13,7 @@ import random
 from dataclasses import dataclass
 from typing import Any
 
-from ap_trainer.content.aufgaben import Aufgabe
+from ap_trainer.content.aufgaben import Aufgabe, Freitext
 from ap_trainer.content.loader import ContentPackage
 from ap_trainer.content.models import Lektion, Thema
 from ap_trainer.core import scheduler
@@ -38,6 +38,7 @@ from ap_trainer.core.models import (
     TopicProgress,
 )
 from ap_trainer.core.planner import build_plan, schedule_status
+from ap_trainer.core.simulation import SimRun, TeilErgebnis, goal_reached, points, weak_topics
 from ap_trainer.core.stats import (
     AreaProgress,
     Kpis,
@@ -51,7 +52,8 @@ from ap_trainer.core.stats import (
 from ap_trainer.core.today import DailyRation, build_ration, minutes_for_day
 from ap_trainer.core.weighting import compute_weights
 from ap_trainer.storage.db import Store
-from ap_trainer.tasks.check import Antwort, Ergebnis, FreitextAntwort, evaluate
+from ap_trainer.tasks.check import Antwort, Ergebnis, FreitextAntwort, blank_answer, evaluate
+from ap_trainer.tasks.describe import describe_answer
 from ap_trainer.tasks.generators import make, parse_task_id
 from ap_trainer.tasks.hints import help_level
 from ap_trainer.tasks.selection import TopicPool, pick_task
@@ -103,6 +105,7 @@ class Trainer:
         self.store = store
         self.weights = compute_weights(package.katalog)
         self._cards = card_index(package.begriffe)
+        self._sim_tasks = package.sim_tasks()
         self.pools = {
             topic.id: TopicPool(
                 topic.id, package.tasks_for_topic(topic.id), package.generatoren.get(topic.id, [])
@@ -275,9 +278,9 @@ class Trainer:
         return pick_task(pool, self.level(topic_id).stufe, recent, rng or random.Random())
 
     def find_task(self, task_id: str, topic_id: str) -> Aufgabe | None:
-        """Eine bestimmte Aufgabe: fest aus dem Paket oder per Generator-ID nachgebaut."""
-        if task_id in self.package.aufgaben:
-            fixed = self.package.aufgaben[task_id]
+        """Eine bestimmte Aufgabe: fest, aus einer Simulation oder per Generator-ID nachgebaut."""
+        fixed = self.package.aufgaben.get(task_id) or self._sim_tasks.get(task_id)
+        if fixed is not None:
             return fixed if fixed.thema == topic_id else None
         parsed = parse_task_id(task_id)
         pool = self.pools.get(topic_id)
@@ -420,6 +423,81 @@ class Trainer:
     def mixed_test_history(self) -> list[dict[str, Any]]:
         """Bisherige Mischtest-Ergebnisse, ältestes zuerst."""
         return list(self.store.get_setting(MIXED_HISTORY_KEY, []))
+
+    # --- Prüfungssimulation (PS-01, PS-02, PS-04) -----------------------------------
+    def submit_simulation(
+        self,
+        sim_id: str,
+        answers: dict[str, Antwort],
+        started: dt.datetime,
+        finished: dt.datetime | None = None,
+    ) -> SimRun:
+        """Wertet eine abgegebene Simulation aus und speichert den Durchlauf.
+
+        Jede Teilaufgabe zählt als normaler Versuch auf Stufe 5 – so landen Fehler im
+        Fehlerprotokoll, als Fehlerkarten und im Beherrschungsgrad (PS-04). Freitexte werden
+        erst danach selbst bewertet (:meth:`rate_simulation_text`).
+        """
+        sim = self.package.simulationen[sim_id]
+        end = finished or dt.datetime.now(dt.UTC)
+        parts = []
+        for _task, part in sim.teile():
+            task = part.aufgabe
+            answer = answers.get(task.id, blank_answer(task))
+            entry = TeilErgebnis(
+                aufgabe_id=task.id,
+                thema=task.thema,
+                max_punkte=part.punkte,
+                antwort=describe_answer(task, answer),
+            )
+            if isinstance(task, Freitext):
+                entry.bewertet = False
+            else:
+                result = self.submit(task, answer, now=end).ergebnis
+                entry.punkte = points(part.punkte, result.anteil)
+                entry.hinweise = [r.text for r in result.rueckmeldungen if not r.richtig and r.text]
+            parts.append(entry)
+        seconds = round((end - started).total_seconds())
+        self.store.log_study(0, "simulation", sim_id, day=end.date(), sekunden=max(seconds, 0))
+        run = SimRun(sim_id=sim_id, gestartet=started, beendet=end, teile=parts)
+        run.id = self.store.save_sim_run(run)
+        return run
+
+    def rate_simulation_text(self, run_id: int, task_id: str, fulfilled: list[bool]) -> SimRun:
+        """Selbstbewertung einer Freitext-Teilaufgabe nach der Simulation (AU-05, PS-02)."""
+        run = self.sim_run(run_id)
+        task = self._sim_tasks[task_id]
+        assert isinstance(task, Freitext)
+        entry = next(t for t in run.teile if t.aufgabe_id == task_id)
+        answer = FreitextAntwort(entry.antwort if entry.antwort != "–" else "", fulfilled)
+        result = self.submit(task, answer, now=run.beendet)
+        entry.punkte = points(entry.max_punkte, result.ergebnis.anteil)
+        entry.bewertet = True
+        self.store.save_sim_run(run)
+        return run
+
+    def sim_runs(self, sim_id: str | None = None) -> list[SimRun]:
+        """Alle Durchläufe, ältester zuerst."""
+        return self.store.sim_runs(sim_id)
+
+    def sim_run(self, run_id: int) -> SimRun:
+        """Ein Durchlauf nach ID (``KeyError``, wenn es ihn nicht gibt)."""
+        for run in self.store.sim_runs():
+            if run.id == run_id:
+                return run
+        raise KeyError(run_id)
+
+    def sim_goal(self) -> list[str]:
+        """Simulationen, die das Ziel (mindestens 92 Punkte) schon erreicht haben."""
+        return goal_reached(self.store.sim_runs())
+
+    def sim_weak_topics(self) -> list[str]:
+        """Schwachstellen der letzten vollständig bewerteten Simulation, die noch nicht sitzen (PS-04)."""
+        done = [r for r in self.store.sim_runs() if r.vollstaendig]
+        if not done:
+            return []
+        values = self.masteries()
+        return [t for t in weak_topics(done[-1]) if (values.get(t) or Mastery(grad=None)).ampel != "grün"]
 
     # --- Überblick ---------------------------------------------------------------
     def kpis(self, now: dt.datetime | None = None) -> Kpis:

@@ -1,0 +1,465 @@
+# Prüfungssimulation 1 – vollständiger AP1-Satz (PS-01): vier Aufgaben, 100 Punkte, 90 Minuten.
+# Aufbau nach dem U-Form-Prüfungstrainer (vier Aufgaben zu 20–30 Punkten, Ausgangssituation).
+# Alle Teilaufgaben sind neu geschrieben; Rechenwerte mit Decimal nachgerechnet (Prüfprotokoll).
+
+titel: "Simulation 1: Neue Arbeitsplätze für eine Steuerkanzlei"
+dauer_minuten: 90
+quelle: "Neu erstellt (Claude), Aufbau nach U-Form-Prüfungstrainer AP1; Themen nach Prüfungskatalog 2025."
+status: ungeprüft
+belege:
+  - {titel: "U-Form: Prüfungstrainer Teil 1 der Abschlussprüfung IT-Berufe (100 Punkte, 90 Minuten, vier Aufgaben zu 20–30 Punkten)", url: "https://shopstage.u-form.de/media/dd/9f/63/1687157302/750.pdf"}
+
+ausgangssituation: |
+  Du bist Auszubildende bzw. Auszubildender bei der **ArchivTech GmbH**, einem IT-Dienstleister für
+  digitale Archivierung und IT-Betreuung kleiner Unternehmen.
+
+  Die Steuerkanzlei **Hollmann & Partner** (18 Mitarbeitende) zieht im Frühjahr in neue Büroräume.
+  Dabei sollen alle Arbeitsplätze erneuert, das Netzwerk neu aufgebaut, die Mandantendaten besser
+  geschützt und die Papierablage durch ein digitales Archiv ersetzt werden. Die ArchivTech hat den
+  Auftrag erhalten; du arbeitest im Projektteam mit.
+
+aufgaben:
+  # ------------------------------------------------------------------------------------------
+  - nr: 1
+    titel: "Arbeitsplätze planen und beschaffen"
+    teilaufgaben:
+      - nr: a
+        punkte: 4
+        aufgabe:
+          typ: freitext
+          thema: kundenbedarf
+          titel: "Bedarf ermitteln"
+          operator: nennen
+          frage: "Bevor Geräte ausgewählt werden, führst du ein Gespräch mit der Kanzleileitung. **Nenne vier** Fragen, mit denen du den Bedarf an den neuen Arbeitsplätzen ermittelst."
+          musterloesung: |
+            - Welche Anwendungen werden genutzt (z. B. Steuersoftware, Office, Videokonferenz)?
+            - Wer arbeitet mobil oder im Homeoffice, wer nur im Büro?
+            - Wie viele Monitore und welche Peripherie (Scanner, Headset) braucht ein Arbeitsplatz?
+            - Welches Budget steht zur Verfügung, bis wann muss alles fertig sein?
+            - Welche Anforderungen an Datenschutz und Sicherheit gibt es?
+          bewertungspunkte:
+            - {punkt: "Frage zu Anwendungen/Software", kernbegriffe: ["software", "anwendung", "programm"]}
+            - {punkt: "Frage zu Mobilität/Homeoffice", kernbegriffe: ["mobil", "homeoffice", "unterwegs"]}
+            - {punkt: "Frage zu Peripherie/Monitoren", kernbegriffe: ["monitor", "peripherie", "drucker", "scanner", "headset"]}
+            - {punkt: "Frage zu Budget, Termin oder Sicherheit", kernbegriffe: ["budget", "kosten", "termin", "sicherheit", "datenschutz"]}
+          loesungsweg: "Je eine Frage zu Anwendungen, Arbeitsweise (mobil/stationär), Ausstattung/Peripherie und zu Budget, Termin oder Sicherheitsanforderungen."
+
+      - nr: b
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: angebotsvergleich
+          titel: "Zwei Angebote vergleichen"
+          frage: |
+            Für 18 Notebooks liegen zwei Angebote vor (alle Preise netto):
+
+            | | Angebot A | Angebot B |
+            | --- | --- | --- |
+            | Listenpreis je Stück | 1.049,00 € | 989,00 € |
+            | Rabatt | 8 % | – |
+            | Skonto bei Zahlung in 10 Tagen | 2 % | 3 % |
+            | Versandkosten (pauschal) | frei | 150,00 € |
+
+            Berechne die Bezugspreise und entscheide, welches Angebot günstiger ist. Die Kanzlei zahlt immer mit Skonto.
+          schritte:
+            - frage: "Zieleinkaufspreis Angebot A in €"
+              antwort: "17371,44"
+              einheit: "€"
+              erklaerung: "18 × 1.049 € = 18.882 €; abzüglich 8 % Rabatt (1.510,56 €) = 17.371,44 €."
+              falsch:
+                - {antwort: "18882", warum: "Das ist der Listeneinkaufspreis – der Rabatt fehlt.", ursache: rechenfehler}
+            - frage: "Bezugspreis Angebot A in €"
+              antwort: "17024,01"
+              einheit: "€"
+              toleranz: 0.0001
+              erklaerung: "17.371,44 € − 2 % Skonto (347,43 €) = 17.024,01 €; Versand frei."
+              falsch:
+                - {antwort: "16993,80", warum: "Rabatt und Skonto addiert (10 %) vom Listenpreis abgezogen. Skonto wird vom Zieleinkaufspreis berechnet.", ursache: konzept}
+            - frage: "Bezugspreis Angebot B in €"
+              antwort: "17417,94"
+              einheit: "€"
+              toleranz: 0.0001
+              erklaerung: "18 × 989 € = 17.802 €; − 3 % Skonto (534,06 €) = 17.267,94 €; + 150 € Versand = 17.417,94 €."
+              falsch:
+                - {antwort: "17267,94", warum: "Die Versandkosten (150 €) gehören zum Bezugspreis.", ursache: rechenfehler}
+                - {antwort: "17413,44", warum: "Skonto nach den Versandkosten abgezogen. Skonto bezieht sich nur auf den Warenwert.", ursache: konzept}
+            - frage: "Günstigeres Angebot (A/B)"
+              antwort: "A"
+              format: text
+              erklaerung: "A: 17.024,01 € < B: 17.417,94 € – A ist 393,93 € günstiger, obwohl der Listenpreis höher ist."
+              falsch:
+                - {antwort: "B", warum: "B hat den niedrigeren Listenpreis, aber ohne Rabatt und mit Versand den höheren Bezugspreis.", ursache: konzept}
+          loesungsweg: |
+            | Schema | Angebot A | Angebot B |
+            | --- | ---: | ---: |
+            | Listeneinkaufspreis (18 Stück) | 18.882,00 € | 17.802,00 € |
+            | − Rabatt | 1.510,56 € (8 %) | – |
+            | = Zieleinkaufspreis | 17.371,44 € | 17.802,00 € |
+            | − Skonto | 347,43 € (2 %) | 534,06 € (3 %) |
+            | = Bareinkaufspreis | 17.024,01 € | 17.267,94 € |
+            | + Bezugskosten | 0,00 € | 150,00 € |
+            | = **Bezugspreis** | **17.024,01 €** | **17.417,94 €** |
+
+            Angebot **A** ist günstiger.
+
+      - nr: c
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: angebotsvergleich
+          titel: "Nutzwertanalyse"
+          frage: |
+            Neben dem Preis zählen weitere Kriterien. Das Team bewertet beide Notebooks mit 1–10 Punkten:
+
+            | Kriterium | Gewichtung | Notebook A | Notebook B |
+            | --- | ---: | ---: | ---: |
+            | Preis | 40 % | 8 | 9 |
+            | Akkulaufzeit | 25 % | 6 | 8 |
+            | Gewicht | 15 % | 7 | 5 |
+            | Service (Vor-Ort-Garantie) | 20 % | 9 | 5 |
+
+            Berechne die Nutzwerte und entscheide.
+          schritte:
+            - frage: "Nutzwert Notebook A"
+              antwort: "7,55"
+              erklaerung: "0,40 × 8 + 0,25 × 6 + 0,15 × 7 + 0,20 × 9 = 3,2 + 1,5 + 1,05 + 1,8 = 7,55."
+              falsch:
+                - {antwort: "30", warum: "Punkte nur addiert – jede Bewertung muss mit ihrer Gewichtung multipliziert werden.", ursache: konzept}
+            - frage: "Nutzwert Notebook B"
+              antwort: "7,35"
+              erklaerung: "0,40 × 9 + 0,25 × 8 + 0,15 × 5 + 0,20 × 5 = 3,6 + 2,0 + 0,75 + 1,0 = 7,35."
+              falsch:
+                - {antwort: "27", warum: "Punkte nur addiert, ohne Gewichtung.", ursache: konzept}
+            - frage: "Empfohlenes Notebook (A/B)"
+              antwort: "A"
+              format: text
+              erklaerung: "Der höhere Nutzwert entscheidet: A mit 7,55 vor B mit 7,35."
+          loesungsweg: "Nutzwert = Σ (Gewichtung × Punkte). A: 7,55; B: 7,35 → **A**. Der bessere Service gleicht den schwächeren Preis und Akku aus."
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: freitext
+          thema: speicher-hdd-ssd
+          titel: "SSD statt HDD"
+          operator: erläutern
+          frage: "Die Notebooks sollen eine SSD statt einer HDD erhalten. **Erläutere zwei** Vorteile einer SSD für die Mitarbeitenden der Kanzlei."
+          musterloesung: |
+            - **Deutlich kürzere Zugriffszeiten** (unter 0,1 ms statt mehrerer Millisekunden): Programme und große Mandantenakten öffnen schneller, das Notebook startet in Sekunden.
+            - **Keine beweglichen Teile:** unempfindlich gegen Stöße beim Transport, leise und sparsamer – das verlängert die Akkulaufzeit.
+          bewertungspunkte:
+            - {punkt: "Geschwindigkeit/Zugriffszeit mit Auswirkung im Alltag", kernbegriffe: ["schnell", "zugriff", "start"], punkte: 2}
+            - {punkt: "Robustheit, Lautstärke oder Energiebedarf mit Begründung (keine Mechanik)", kernbegriffe: ["stoß", "mechan", "beweglich", "leise", "akku", "energie"], punkte: 2}
+          loesungsweg: "Zwei Vorteile jeweils mit Begründung: schnellerer Zugriff (kein Kopf, keine Rotation) und Robustheit/geringer Verbrauch (keine beweglichen Teile)."
+
+      - nr: e
+        punkte: 4
+        aufgabe:
+          typ: zuordnung
+          thema: hardware-komponenten
+          titel: "Anschlüsse am Arbeitsplatz"
+          frage: "Ordne jedem Anschluss des Notebooks den passenden Zweck am Arbeitsplatz zu."
+          paare:
+            - {links: "USB-C mit Power Delivery", rechts: "Notebook über die Dockingstation laden und anbinden"}
+            - {links: "DisplayPort", rechts: "zweiten Monitor anschließen"}
+            - {links: "RJ45", rechts: "kabelgebundenes Netzwerk"}
+            - {links: "Kensington-Slot", rechts: "Notebook gegen Diebstahl sichern"}
+          ablenker: ["Arbeitsspeicher erweitern"]
+          loesungsweg: "USB-C PD = Laden und Docking · DisplayPort = Monitor · RJ45 = LAN · Kensington = Diebstahlschutz."
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 2
+    titel: "Netzwerk in den neuen Büroräumen"
+    situation: "Für die neuen Räume steht der Kanzlei das Netz **192.168.40.0/24** zur Verfügung."
+    teilaufgaben:
+      - nr: a
+        punkte: 10
+        aufgabe:
+          typ: rechnung
+          thema: ipv4-subnetting
+          titel: "Vier gleich große Subnetze"
+          frage: "Das Netz soll in **vier gleich große Subnetze** aufgeteilt werden: Mitarbeitende, Server, Drucker/Telefone und Gäste. Berechne die Angaben."
+          schritte:
+            - frage: "neue Präfixlänge (nur die Zahl)"
+              antwort: "26"
+              erklaerung: "4 Subnetze = 2² → 2 Bit mehr: /24 + 2 = /26."
+              falsch:
+                - {antwort: "28", warum: "4 Bit geliehen ergäbe 16 Subnetze. Für 4 Subnetze reichen 2 Bit.", ursache: rechenfehler}
+            - frage: "Subnetzmaske"
+              antwort: "255.255.255.192"
+              format: ipv4
+              erklaerung: "/26 = 11111111.11111111.11111111.11000000 = 255.255.255.192."
+            - frage: "nutzbare Hostadressen je Subnetz"
+              antwort: "62"
+              erklaerung: "32 − 26 = 6 Hostbits → 2⁶ − 2 = 62."
+              falsch:
+                - {antwort: "64", warum: "Netz- und Broadcastadresse sind nicht nutzbar: 64 − 2 = 62.", ursache: konzept}
+            - frage: "Netzadresse des dritten Subnetzes"
+              antwort: "192.168.40.128"
+              format: ipv4
+              erklaerung: "Schrittweite 64: .0, .64, **.128**, .192."
+              falsch:
+                - {antwort: "192.168.40.192", warum: "Das ist das vierte Subnetz. Gezählt wird ab .0.", ursache: rechenfehler}
+            - frage: "Broadcastadresse des dritten Subnetzes"
+              antwort: "192.168.40.191"
+              format: ipv4
+              erklaerung: "Eine Adresse vor dem nächsten Subnetz (.192): .191."
+          loesungsweg: |
+            | Subnetz | Netzadresse | Hosts | Broadcast |
+            | --- | --- | --- | --- |
+            | 1 | 192.168.40.0/26 | .1–.62 | .63 |
+            | 2 | 192.168.40.64/26 | .65–.126 | .127 |
+            | 3 | 192.168.40.128/26 | .129–.190 | .191 |
+            | 4 | 192.168.40.192/26 | .193–.254 | .255 |
+
+            Maske 255.255.255.192, 62 nutzbare Hosts je Subnetz.
+
+      - nr: b
+        punkte: 6
+        aufgabe:
+          typ: lueckentext
+          thema: installation-einrichtung
+          titel: "Netzwerkkonfiguration der Clients"
+          frage: "Ergänze die Lücken."
+          text: "Die Arbeitsplätze erhalten ihre IP-Adresse automatisch per {{1}}. Den Namen fileserver.kanzlei.local in eine IP-Adresse übersetzt der {{2}}-Server. Pakete an Ziele außerhalb des eigenen Subnetzes schickt ein Client an das {{3}}."
+          luecken:
+            - antworten: ["DHCP"]
+              falsch:
+                - {antwort: "DNS", warum: "DNS löst Namen auf; Adressen verteilt DHCP.", ursache: begriff}
+            - antworten: ["DNS"]
+              falsch:
+                - {antwort: "DHCP", warum: "DHCP vergibt Adressen; Namen löst DNS auf.", ursache: begriff}
+            - antworten: ["Standardgateway", "Gateway", "Default Gateway"]
+          loesungsweg: "Adressen per **DHCP**, Namen per **DNS**, fremde Netze über das **Standardgateway**."
+
+      - nr: c
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: datenmengen-uebertragung
+          titel: "Nächtliche Datensicherung"
+          frage: "Jede Nacht werden **600 GB** auf ein NAS gesichert. Die Verbindung schafft eine Nutzdatenrate von **800 Mbit/s**. Rechne dezimal (1 GB = 10⁹ Byte)."
+          schritte:
+            - frage: "Datenmenge in Bit (z. B. als 4,8 · 10^12)"
+              antwort: "4800000000000"
+              einheit: "Bit"
+              erklaerung: "600 × 10⁹ Byte × 8 = 4,8 · 10¹² Bit."
+              falsch:
+                - {antwort: "600000000000", warum: "Byte nicht in Bit umgerechnet (× 8).", ursache: rechenfehler}
+            - frage: "Dauer der Sicherung in Minuten"
+              antwort: "100"
+              einheit: "min"
+              erklaerung: "4,8 · 10¹² Bit ÷ 8 · 10⁸ bit/s = 6.000 s = 100 min."
+              falsch:
+                - {antwort: "12,5", warum: "Ohne × 8 gerechnet: Leitungen übertragen Bit, Speicher zählen Byte.", ursache: rechenfehler}
+          loesungsweg: "600 GB × 8 = 4,8 · 10¹² Bit; ÷ 800 Mbit/s = 6.000 s = **100 Minuten**."
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: multiple_choice
+          thema: netzwerkkomponenten
+          titel: "Gäste-WLAN abtrennen"
+          frage: "Besucher sollen im Wartebereich ins Internet, aber nicht ins Kanzleinetz. Welche **zwei** Maßnahmen setzen das um?"
+          optionen:
+            - {text: "Gäste-WLAN in ein eigenes VLAN legen", richtig: true, warum: "Trennt Gäste logisch vom Kanzleinetz auf denselben Switches."}
+            - {text: "Firewallregel: Gäste-VLAN darf nur ins Internet, nicht in die internen Subnetze", richtig: true, warum: "Die Firewall setzt die Trennung zwischen den Netzen durch."}
+            - {text: "Gäste mit demselben WLAN-Passwort wie die Mitarbeitenden verbinden", warum: "Dann wären Gäste im selben Netz wie die Mandantendaten.", ursache: konzept}
+            - {text: "Einen Repeater im Wartebereich aufstellen", warum: "Ein Repeater verlängert die Reichweite, trennt aber keine Netze.", ursache: begriff}
+          loesungsweg: "**Eigenes VLAN** für Gäste und eine **Firewallregel**, die nur Internetzugang erlaubt."
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 3
+    titel: "Mandantendaten schützen"
+    situation: "In der Kanzlei liegen Steuerunterlagen, Lohnabrechnungen und Bankdaten von rund 900 Mandanten."
+    teilaufgaben:
+      - nr: a
+        punkte: 6
+        aufgabe:
+          typ: zuordnung
+          thema: schutzziele
+          titel: "Schutzziele und Maßnahmen"
+          frage: "Ordne jeder geplanten Maßnahme das Schutzziel zu, das sie vor allem sichert."
+          paare:
+            - {links: "Festplattenverschlüsselung der Notebooks", rechts: "Vertraulichkeit"}
+            - {links: "Prüfsumme (Hashwert) für jede archivierte Datei", rechts: "Integrität"}
+            - {links: "USV für den Server", rechts: "Verfügbarkeit"}
+          ablenker: ["Wirtschaftlichkeit"]
+          loesungsweg: "Verschlüsselung → **Vertraulichkeit** · Hashwert → **Integrität** · USV → **Verfügbarkeit**."
+
+      - nr: b
+        punkte: 6
+        aufgabe:
+          typ: freitext
+          thema: bsi-schutzbedarf
+          titel: "Schutzbedarf begründen"
+          operator: begründen
+          frage: "**Begründe**, warum die Mandantendaten für das Schutzziel Vertraulichkeit mindestens den Schutzbedarf „hoch“ haben, und nenne zwei passende technische oder organisatorische Maßnahmen."
+          musterloesung: |
+            **Begründung:** Die Daten sind personenbezogen und teils besonders sensibel (Einkommen, Bankdaten); sie unterliegen der beruflichen Schweigepflicht. Gelangen sie an Unbefugte, drohen erhebliche Schäden für die Mandanten, Bußgelder nach DSGVO, Schadensersatz und ein schwerer Ansehensverlust der Kanzlei – das entspricht nach BSI mindestens „hoch“.
+
+            **Maßnahmen:** Verschlüsselung von Datenträgern und Übertragung, Berechtigungskonzept (nur zuständige Mitarbeitende), Zwei-Faktor-Anmeldung, Schulung zur Vertraulichkeit.
+          bewertungspunkte:
+            - {punkt: "personenbezogene/sensible Daten bzw. Schweigepflicht als Grund", kernbegriffe: ["personenbezogen", "sensibel", "schweigepflicht", "bank", "einkommen"], punkte: 2}
+            - {punkt: "Schadensfolgen: Bußgeld, Schadensersatz, Ansehen", kernbegriffe: ["bußgeld", "schadensersatz", "ansehen", "image", "dsgvo"], punkte: 2}
+            - {punkt: "zwei passende Maßnahmen (Verschlüsselung, Berechtigungen, 2FA, Schulung)", kernbegriffe: ["verschlüssel", "berechtigung", "2fa", "faktor", "schulung"], punkte: 2}
+          loesungsweg: "Sensible personenbezogene Daten unter Schweigepflicht, hohe Schadensfolgen (DSGVO-Bußgeld, Schadensersatz, Ansehen) → mindestens „hoch“. Maßnahmen z. B. Verschlüsselung und Berechtigungskonzept."
+          belege:
+            - {titel: "BSI-Standard 200-2: IT-Grundschutz-Methodik (Schutzbedarfskategorien)", url: "https://dhge.de/DHGE/dam/jcr:d14c502f-f112-475b-aace-64f5f6041088/BSI_Standard_200-2.pdf"}
+
+      - nr: c
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: verfuegbarkeit-backup
+          titel: "Verfügbarkeit des Dokumentenservers"
+          frage: "Der Dokumentenserver wird als **Paar aus zwei Servern** betrieben (je 99,5 %), die über **einen Switch** (99,9 %) angebunden sind. Das Paar funktioniert, solange mindestens ein Server läuft. Rechne mit 8.760 Stunden pro Jahr."
+          schritte:
+            - frage: "Verfügbarkeit des Serverpaars in % (vier Nachkommastellen)"
+              antwort: "99,9975"
+              einheit: "%"
+              toleranz: 0.00001
+              erklaerung: "1 − 0,005 × 0,005 = 1 − 0,000025 = 0,999975 = 99,9975 %."
+              falsch:
+                - {antwort: "99,0025", warum: "In Reihe gerechnet (0,995 × 0,995). Das Paar ist redundant.", ursache: konzept}
+            - frage: "Gesamtverfügbarkeit mit Switch in % (vier Nachkommastellen)"
+              antwort: "99,8975"
+              einheit: "%"
+              toleranz: 0.00001
+              erklaerung: "Paar und Switch in Reihe: 0,999975 × 0,999 = 0,998975025 ≈ 99,8975 %."
+              falsch:
+                - {antwort: "99,9975", warum: "Der Switch fehlt – er steht in Reihe vor dem Paar.", ursache: konzept}
+            - frage: "Ausfallzeit pro Jahr in Stunden"
+              antwort: "8,98"
+              einheit: "h"
+              toleranz: 0.005
+              erklaerung: "(1 − 0,998975025) × 8.760 h = 0,001024975 × 8.760 h ≈ 8,98 h."
+          loesungsweg: |
+            1. Paar: 1 − 0,005² = **99,9975 %**
+            2. mit Switch: 0,999975 × 0,999 ≈ **99,8975 %**
+            3. Ausfall: 0,001024975 × 8.760 h ≈ **8,98 h** pro Jahr – der Switch ist der Single Point of Failure.
+
+      - nr: d
+        punkte: 6
+        aufgabe:
+          typ: lueckentext
+          thema: verfuegbarkeit-backup
+          titel: "Die 3-2-1-Regel"
+          frage: "Die Kanzlei sichert nach der 3-2-1-Regel. Ergänze die Zahlen bzw. Begriffe."
+          text: "Es gibt mindestens {{1}} Kopien der Daten (das Original eingerechnet), auf mindestens {{2}} verschiedenen Medien, und mindestens eine Kopie liegt {{3}}."
+          luecken:
+            - antworten: ["3", "drei"]
+            - antworten: ["2", "zwei"]
+            - antworten: ["außer Haus", "ausser Haus", "extern", "an einem anderen Ort"]
+              falsch:
+                - {antwort: "im Serverraum", warum: "Ein Brand im Serverraum würde dann alle Kopien vernichten – eine Kopie muss außer Haus.", ursache: konzept}
+          loesungsweg: "**3** Kopien, **2** Medien, **1** Kopie **außer Haus**."
+
+  # ------------------------------------------------------------------------------------------
+  - nr: 4
+    titel: "Digitales Archiv einführen"
+    situation: "Die Papierakten werden durch ein digitales Archiv ersetzt. Die ArchivTech programmiert dazu kleine Hilfsskripte und plant die Einführung."
+    teilaufgaben:
+      - nr: a
+        punkte: 8
+        aufgabe:
+          typ: rechnung
+          thema: schreibtischtest
+          titel: "Schreibtischtest"
+          frage: |
+            Ein Hilfsskript berechnet einen Prüfwert. Führe einen Schreibtischtest durch.
+
+            ```text
+            gesamt ← 0
+            FÜR i ← 1 BIS 4
+                WENN i MOD 2 = 0 DANN
+                    gesamt ← gesamt + i * 3
+                SONST
+                    gesamt ← gesamt + i
+                ENDE WENN
+            ENDE FÜR
+            AUSGABE gesamt
+            ```
+          schritte:
+            - frage: "Wert von gesamt nach dem Durchlauf mit i = 2"
+              antwort: "7"
+              erklaerung: "i = 1 (ungerade): 0 + 1 = 1. i = 2 (gerade): 1 + 2 · 3 = 7."
+              falsch:
+                - {antwort: "3", warum: "Bei geradem i wird i · 3 addiert, nicht i.", ursache: konzept}
+            - frage: "Wert von gesamt nach dem Durchlauf mit i = 3"
+              antwort: "10"
+              erklaerung: "i = 3 (ungerade): 7 + 3 = 10."
+            - frage: "Ausgabe"
+              antwort: "22"
+              erklaerung: "i = 4 (gerade): 10 + 4 · 3 = 22."
+              falsch:
+                - {antwort: "10", warum: "Der letzte Durchlauf mit i = 4 fehlt – BIS 4 schließt die 4 ein.", ursache: rechenfehler}
+                - {antwort: "30", warum: "Alle Werte mit 3 multipliziert. Nur gerade i werden verdreifacht.", ursache: konzept}
+          loesungsweg: |
+            | i | i MOD 2 | Rechnung | gesamt |
+            | ---: | ---: | --- | ---: |
+            | 1 | 1 | 0 + 1 | 1 |
+            | 2 | 0 | 1 + 6 | 7 |
+            | 3 | 1 | 7 + 3 | 10 |
+            | 4 | 0 | 10 + 12 | **22** |
+
+      - nr: b
+        punkte: 6
+        aufgabe:
+          typ: rechnung
+          thema: wirtschaftlichkeit
+          titel: "Lohnt sich das digitale Archiv?"
+          frage: "Die Scanlösung kostet einmalig **9.600 €**. Sie spart den Mitarbeitenden zusammen **12 Stunden pro Monat** Suchzeit; eine Stunde kostet die Kanzlei **40 €**. Für Wartung fallen **80 € pro Monat** an."
+          schritte:
+            - frage: "eingesparte Personalkosten pro Monat in €"
+              antwort: "480"
+              einheit: "€"
+              erklaerung: "12 h × 40 € = 480 €."
+            - frage: "Einsparung pro Monat nach Abzug der Wartung in €"
+              antwort: "400"
+              einheit: "€"
+              erklaerung: "480 € − 80 € = 400 €."
+              falsch:
+                - {antwort: "560", warum: "Wartung addiert statt abgezogen – sie ist ein Kostenfaktor.", ursache: konzept}
+            - frage: "Amortisationszeit in Monaten"
+              antwort: "24"
+              einheit: "Monate"
+              erklaerung: "9.600 € ÷ 400 €/Monat = 24 Monate."
+              falsch:
+                - {antwort: "20", warum: "Mit 480 € gerechnet – die Wartungskosten mindern die monatliche Ersparnis.", ursache: rechenfehler}
+          loesungsweg: "480 € − 80 € = 400 € Ersparnis pro Monat; 9.600 € ÷ 400 € = **24 Monate**."
+
+      - nr: c
+        punkte: 6
+        aufgabe:
+          typ: freitext
+          thema: vorgehensmodelle
+          titel: "Einführung mit Scrum"
+          operator: beschreiben
+          frage: "Die Einführung des Archivs soll agil mit Scrum erfolgen. **Beschreibe drei** Merkmale von Scrum."
+          musterloesung: |
+            - Gearbeitet wird in **Sprints** von höchstens einem Monat; am Ende steht ein nutzbares Inkrement.
+            - Drei Verantwortlichkeiten: **Product Owner** (pflegt das Product Backlog), **Scrum Master** (unterstützt das Team und räumt Hindernisse aus dem Weg), **Developers** (setzen um).
+            - Feste Events: Sprint Planning, **Daily Scrum** (15 Minuten), Sprint Review mit dem Kunden, Sprint Retrospective.
+            - Anforderungen stehen priorisiert im **Product Backlog** und können sich zwischen den Sprints ändern.
+          bewertungspunkte:
+            - {punkt: "Sprints mit Inkrement", kernbegriffe: ["sprint", "inkrement"], punkte: 2}
+            - {punkt: "Rollen/Verantwortlichkeiten", kernbegriffe: ["product owner", "scrum master", "developer"], punkte: 2}
+            - {punkt: "Events oder Product Backlog", kernbegriffe: ["daily", "review", "retrospektive", "retrospective", "backlog", "planning"], punkte: 2}
+          loesungsweg: "Drei Merkmale, z. B. Sprints mit Inkrement, die drei Verantwortlichkeiten, Events/Product Backlog."
+          belege:
+            - {titel: "Schwaber, K.; Sutherland, J.: Der Scrum Guide (2020)", url: "https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-German.pdf"}
+
+      - nr: d
+        punkte: 4
+        aufgabe:
+          typ: reihenfolge
+          thema: rollout-ticketsystem
+          titel: "Rollout der Arbeitsplätze"
+          frage: "Bringe die Schritte des Rollouts der neuen Arbeitsplätze in eine sinnvolle Reihenfolge."
+          elemente:
+            - "Image und Softwarepaket vorbereiten"
+            - "Pilot mit zwei Mitarbeitenden"
+            - "Rollout in Wellen nach Abteilungen"
+            - "Altgeräte einsammeln und Daten sicher löschen"
+          loesungsweg: "Vorbereiten → **Pilot** → Rollout in Wellen → Nacharbeit mit sicherer Löschung der Altgeräte."
