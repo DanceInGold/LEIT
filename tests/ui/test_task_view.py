@@ -50,7 +50,8 @@ def test_blank_answers_are_not_graded() -> None:
             "schritte": [{"frage": "a", "antwort": "1", "erklaerung": "b"}],
         }
     )
-    assert not is_blank(TASK, [])  # Reihenfolge hat immer eine Antwort
+    assert is_blank(TASK, [])  # Reihenfolge noch nicht verschoben
+    assert not is_blank(TASK, [1, 0, 2, 3])
     assert is_blank(other, ["", None, "  "])
     assert not is_blank(other, ["", "4"])
     assert is_blank(other, frozenset())

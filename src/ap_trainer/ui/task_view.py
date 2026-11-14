@@ -49,7 +49,8 @@ def percent(share: float) -> str:
 def is_blank(task: Aufgabe, answer: Antwort) -> bool:
     """True, wenn noch gar nichts eingegeben wurde – dann wird nicht bewertet."""
     if isinstance(task, Reihenfolge):
-        return False
+        # Leere Liste = Startreihenfolge noch nicht verändert
+        return not answer
     if isinstance(answer, FreitextAntwort):
         return not answer.text.strip()
     if isinstance(answer, frozenset):
