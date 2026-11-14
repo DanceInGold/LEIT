@@ -19,7 +19,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion cloud-modelle."
     belege:
       - {titel: "NIST SP 800-145: The NIST Definition of Cloud Computing (Service Models)", url: "https://csrc.nist.gov/pubs/sp/800/145/final"}
-    status: ungeprüft
+    status: geprüft
 
   - id: cloud-situation-zuordnen
     typ: zuordnung
@@ -38,7 +38,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Verantwortungstabelle der Lektion cloud-modelle."
     belege:
       - {titel: "NIST SP 800-145: The NIST Definition of Cloud Computing", url: "https://csrc.nist.gov/pubs/sp/800/145/final"}
-    status: ungeprüft
+    status: geprüft
 
   - id: cloud-bereitstellung
     typ: zuordnung
@@ -56,7 +56,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion cloud-modelle."
     belege:
       - {titel: "NIST SP 800-145: The NIST Definition of Cloud Computing (Deployment Models)", url: "https://csrc.nist.gov/pubs/sp/800/145/final"}
-    status: ungeprüft
+    status: geprüft
 
   - id: cloud-saas-daten
     typ: multiple_choice
@@ -75,7 +75,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung der Lektion cloud-modelle."
     belege:
       - {titel: "DSGVO Art. 28 Auftragsverarbeiter", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
-    status: ungeprüft
+    status: geprüft
 
   - id: cloud-vdi-daas
     typ: multiple_choice
@@ -94,7 +94,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „VDI oder DaaS“ der Lektion cloud-modelle."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.01: Desktop as a Service; virtuelle Desktops (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: cloud-iaas-freitext
     typ: freitext
@@ -122,4 +122,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Praxisbezug der Lektion cloud-modelle."
     belege:
       - {titel: "NIST SP 800-145: The NIST Definition of Cloud Computing (On-demand self-service, Measured service)", url: "https://csrc.nist.gov/pubs/sp/800/145/final"}
-    status: ungeprüft
+    status: geprüft

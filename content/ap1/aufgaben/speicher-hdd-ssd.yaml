@@ -20,7 +20,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabellen der Lektion hdd-ssd."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.03: Datenspeicher (SSD/HDD) (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hdd-begriffe-luecke
     typ: lueckentext
@@ -48,7 +48,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „Nicht verwechseln“ der Lektion hdd-ssd."
     belege:
       - {titel: "NVM Express: NVMe Base Specification 2.x (NVMe als Protokoll über PCIe)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hdd-latenz-rechnen
     typ: rechnung
@@ -86,7 +86,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion hdd-ssd mit anderen Zahlen; nachgerechnet."
     belege:
       - {titel: "Lektion „HDD und SSD“ (mittlere Rotationswartezeit = halbe Umdrehungszeit)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: ssd-tbw-rechnen
     typ: rechnung
@@ -129,7 +129,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem TBW-Beispiel der Lektion hdd-ssd mit anderen Zahlen; nachgerechnet."
     belege:
       - {titel: "Lektion „HDD und SSD“ (TBW = Terabytes Written, garantierte Schreibmenge)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: ssd-sicher-loeschen
     typ: multiple_choice
@@ -149,7 +149,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung der Lektion hdd-ssd."
     belege:
       - {titel: "BSI, Cyber-Sicherheitsempfehlungen für Verbraucher: Daten endgültig löschen (bei SSDs reicht Überschreiben nicht zuverlässig)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: hdd-ssd-empfehlung
     typ: freitext
@@ -173,4 +173,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Wann verwende ich was?“ der Lektion hdd-ssd."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.03: Datenspeicher, Vor- und Nachteile kennen (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft

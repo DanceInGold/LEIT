@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion kommunikationssysteme."
     belege:
       - {titel: "BSI: Kompendium Videokonferenzsysteme (KoViKo), 2020"}
-    status: ungeprüft
+    status: geprüft
 
   - id: komm-begriffe-luecke
     typ: lueckentext
@@ -42,7 +42,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „Nicht verwechseln“ der Lektion kommunikationssysteme."
     belege:
       - {titel: "BSI: Kompendium Videokonferenzsysteme (KoViKo), 2020"}
-    status: ungeprüft
+    status: geprüft
 
   - id: komm-upload-rechnen
     typ: rechnung
@@ -79,7 +79,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Rechenbeispiel der Lektion kommunikationssysteme mit anderen Zahlen; nachgerechnet."
     belege:
       - {titel: "Lektion „Kommunikationssysteme“ (Bedarf = Anzahl × Bandbreite, Upload als Engpass)"}
-    status: ungeprüft
+    status: geprüft
 
   - id: komm-social-media-risiken
     typ: multiple_choice
@@ -98,7 +98,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion kommunikationssysteme."
     belege:
       - {titel: "BSI: Soziale Netzwerke – Basistipps zur IT-Sicherheit", url: "https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Onlinekommunikation/Soziale-Netzwerke/soziale-netzwerke_node.html"}
-    status: ungeprüft
+    status: geprüft
 
   - id: komm-aufzeichnung
     typ: multiple_choice
@@ -117,7 +117,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle und Prüfungsfalle der Lektion kommunikationssysteme."
     belege:
       - {titel: "DSGVO Art. 6 Abs. 1 lit. a (Einwilligung) und Art. 4 Nr. 1 (personenbezogene Daten)", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"}
-    status: ungeprüft
+    status: geprüft
 
   - id: komm-richtlinie-freitext
     typ: freitext
@@ -145,4 +145,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion kommunikationssysteme."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.02: Social Media neu aufgenommen (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft

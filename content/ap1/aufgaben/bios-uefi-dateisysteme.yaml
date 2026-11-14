@@ -18,7 +18,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion uefi-dateisysteme."
     belege:
       - {titel: "UEFI Forum: Unified Extensible Firmware Interface Specification (GPT, Secure Boot)", url: "https://uefi.org/specifications"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uefi-einstellung-mc
     typ: multiple_choice
@@ -37,7 +37,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Liste „Typische Einstellungen“ der Lektion uefi-dateisysteme."
     belege:
       - {titel: "Red Hat Enterprise Linux 9: Configuring and managing virtualization, Kapitel 2 Enabling virtualization (Hardware-Virtualisierung als Voraussetzung)", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_virtualization/assembly_enabling-virtualization-in-rhel-9_configuring-and-managing-virtualization"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uefi-mbr-grenze
     typ: rechnung
@@ -73,7 +73,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach der 2-TiB-Rechnung der Lektion uefi-dateisysteme; nachgerechnet."
     belege:
       - {titel: "Microsoft Learn: Windows and GPT FAQ (MBR max. 2 TB bei 512-Byte-Sektoren)", url: "https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-and-gpt-faq"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uefi-dateisysteme-zuordnen
     typ: zuordnung
@@ -93,7 +93,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion uefi-dateisysteme."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 03.03: Filesysteme (z. B. FAT32, NTFS, APFS, ext4) (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uefi-iso-stick
     typ: multiple_choice
@@ -113,7 +113,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung „Warum ist FAT32 dann noch im Einsatz?“ der Lektion uefi-dateisysteme."
     belege:
       - {titel: "Microsoft Learn: exFAT file system specification", url: "https://learn.microsoft.com/en-us/windows/win32/fileio/exfat-specification"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uefi-begriffe-luecke
     typ: lueckentext
@@ -136,4 +136,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „Nicht verwechseln“ der Lektion uefi-dateisysteme."
     belege:
       - {titel: "UEFI Forum: Unified Extensible Firmware Interface Specification", url: "https://uefi.org/specifications"}
-    status: ungeprüft
+    status: geprüft

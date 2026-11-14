@@ -22,7 +22,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Ablaufdiagramm der Lektion installation-einrichtung."
     belege:
       - {titel: "Red Hat Enterprise Linux 9: Interactively installing RHEL from installation media", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/interactively_installing_rhel_from_installation_media/index"}
-    status: ungeprüft
+    status: geprüft
 
   - id: inst-ports
     typ: zuordnung
@@ -40,7 +40,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion installation-einrichtung."
     belege:
       - {titel: "IANA Service Name and Transport Protocol Port Number Registry", url: "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"}
-    status: ungeprüft
+    status: geprüft
 
   - id: inst-statisch-dhcp
     typ: multiple_choice
@@ -59,7 +59,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „statisch oder DHCP“ der Lektion installation-einrichtung."
     belege:
       - {titel: "RFC 2131: Dynamic Host Configuration Protocol", url: "https://www.rfc-editor.org/rfc/rfc2131"}
-    status: ungeprüft
+    status: geprüft
 
   - id: inst-gateway-dns
     typ: zuordnung
@@ -79,7 +79,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion installation-einrichtung (Prüfungsfalle „Gateway oder DNS fehlt“)."
     belege:
       - {titel: "Red Hat Enterprise Linux 9: Configuring and managing networking", url: "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_networking/index"}
-    status: ungeprüft
+    status: geprüft
 
   - id: inst-partitionen
     typ: zuordnung
@@ -98,7 +98,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Partitionsbeispiel der Lektion installation-einrichtung."
     belege:
       - {titel: "UEFI Forum: Unified Extensible Firmware Interface Specification (EFI-Systempartition mit FAT)", url: "https://uefi.org/specifications"}
-    status: ungeprüft
+    status: geprüft
 
   - id: inst-ki-software
     typ: multiple_choice
@@ -117,7 +117,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Abschnitt „KI-Software“ der Lektion installation-einrichtung."
     belege:
       - {titel: "Prüfungskatalog AP1 2025, Unterpunkt 04.01: Installation und Einrichtung, u. a. KI-Software (laut IT-Berufe-Podcast #190)", url: "https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/"}
-    status: ungeprüft
+    status: geprüft
 
   - id: inst-fernzugriff-freitext
     typ: freitext
@@ -141,4 +141,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion installation-einrichtung (Prüfungsfalle „RDP ins Internet freigegeben“)."
     belege:
       - {titel: "BSI IT-Grundschutz-Kompendium, Baustein OPS.1.2.5 Fernwartung"}
-    status: ungeprüft
+    status: geprüft

@@ -125,7 +125,7 @@ class Availability(Generator):
     id = "verfuegbarkeit"
     titel = "Verfügbarkeit berechnen"
     stufen = (1, 2, 3, 4)
-    status = "ungeprüft"
+    status = "geprüft"
     quelle = "Generator „verfuegbarkeit“; jede Variante mit exakter Bruchrechnung unabhängig nachgerechnet."
     belege = BELEGE
 

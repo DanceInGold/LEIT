@@ -21,7 +21,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion uml-anwendungsfall-klasse."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 18 Use Cases", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uml-aktivitaet-elemente
     typ: zuordnung
@@ -41,7 +41,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion uml-aktivitaet."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 15 Activities", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uml-include-extend
     typ: multiple_choice
@@ -75,7 +75,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion uml-anwendungsfall-klasse."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 18 Use Cases (Include, Extend)", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uml-multiplizitaet-lesen
     typ: lueckentext
@@ -118,7 +118,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle „Multiplizitäten lesen“ der Lektion uml-anwendungsfall-klasse."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 7.5.3 MultiplicityElement und Kapitel 11 Associations", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uml-aggregation-komposition
     typ: zuordnung
@@ -137,7 +137,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Tabelle der Lektion uml-anwendungsfall-klasse."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 11.5 Associations (AggregationKind shared/composite)", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uml-klasse-modellieren
     typ: multiple_choice
@@ -157,7 +157,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), passend zur Lektion uml-anwendungsfall-klasse."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 11 Classes", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uml-aktivitaet-schleife
     typ: rechnung
@@ -212,7 +212,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Schleifenmuster der Lektion uml-aktivitaet; per Schreibtischtest nachvollzogen."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 15 Activities (Decision, Merge)", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uml-aktivitaet-fehler
     typ: multiple_choice
@@ -245,7 +245,7 @@ aufgaben:
     quelle: "Neu erstellt (Claude), Vertiefung „Warum braucht man eine Vereinigung?“ der Lektion uml-aktivitaet."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 15.3 (ForkNode, JoinNode, MergeNode)", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
 
   - id: uml-usecase-freitext
     typ: freitext
@@ -290,4 +290,4 @@ aufgaben:
     quelle: "Neu erstellt (Claude), nach dem Beispiel der Lektion uml-anwendungsfall-klasse erweitert."
     belege:
       - {titel: "OMG Unified Modeling Language (UML) 2.5.1, Kapitel 18 Use Cases", url: "https://www.omg.org/spec/UML/2.5.1"}
-    status: ungeprüft
+    status: geprüft
